@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     display: flex;
@@ -38,6 +38,10 @@
 .icon {
     flex-shrink: 0;
     color: var(--color-light-neutral-translucent-700);
+
+    & .dragIcon {
+        vertical-align: middle;
+    }
 }
 
 .dragging {
@@ -53,7 +57,7 @@
     }
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l {
+@each $size in 2, 4, 8, 12, 16, 20 {
     .control-left-padding-$(size) {
         padding-left: var(--gap-$(size));
     }

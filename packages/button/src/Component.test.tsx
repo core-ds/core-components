@@ -8,8 +8,8 @@ import {
 } from '@testing-library/react';
 import { getButtonTestIds } from './utils';
 
-import { LOADER_MIN_DISPLAY_INTERVAL } from './components/base-button';
 import { ButtonDesktop as Button, ButtonDesktopProps as ButtonProps } from './desktop';
+import { LOADER_MIN_DISPLAY_INTERVAL } from './constants/loader-min-display-interval';
 
 const dataTestId = 'test-id';
 
@@ -124,6 +124,32 @@ describe('Button', () => {
             const spinner = getByTestId(spinnerDti);
 
             expect(spinner).toHaveClass(className);
+        });
+
+        it('should set `labelClassName` class', () => {
+            const className = 'test-class';
+            const text = 'Label';
+
+            const { queryByText } = render(<Button labelClassName={className}>{text}</Button>);
+
+            const label = queryByText(text);
+
+            expect(label).toHaveClass(className);
+        });
+
+        it('should set `hintClassName` class', () => {
+            const className = 'test-class';
+            const text = 'Label';
+
+            const { getByText } = render(
+                <Button hintClassName={className} hint='hint'>
+                    {text}
+                </Button>,
+            );
+
+            const label = getByText(text);
+
+            expect(label.firstElementChild).toHaveClass(className);
         });
 
         it('should set `size` class', () => {

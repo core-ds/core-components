@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     position: fixed;
@@ -22,17 +22,6 @@
     position: static;
 }
 
-.enter {
-    visibility: hidden;
-    transform: translate(0, -500px);
-}
-
-.enterActive {
-    visibility: visible;
-    transform: translate(0);
-    transition: transform 0.4s ease-out;
-}
-
 @media (--tablet-s) {
     .component {
         right: var(--gap-48);
@@ -40,13 +29,5 @@
 
     .component .notification {
         width: auto;
-    }
-
-    .enter {
-        transform: translate(100%, 0);
-    }
-
-    .enterActive {
-        transform: translate(0);
     }
 }

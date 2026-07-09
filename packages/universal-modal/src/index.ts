@@ -1,11 +1,8 @@
-export { UniversalModalResponsive, UniversalModal } from './Component.responsive';
+export { UniversalModalResponsive, UniversalModal } from './responsive';
 export type { UniversalModalResponsiveProps } from './typings';
 
-export { ContentResponsive } from './components/content';
-export type { ContentResponsiveProps } from './components/content';
+export { ContentResponsive, type ContentResponsiveProps } from './responsive';
 
-export { HeaderResponsive } from './components/header';
-export type { HeaderResponsiveProps } from './components/header';
+export { HeaderResponsive, type HeaderResponsiveProps } from './responsive';
 
-export { FooterResponsive } from './components/footer';
-export type { FooterResponsiveProps } from './components/footer';
+export { FooterResponsive, type FooterResponsiveProps } from './responsive';

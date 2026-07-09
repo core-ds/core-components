@@ -2,8 +2,6 @@ import { detect } from 'detect-browser';
 
 import { isClient } from './isClient';
 
-const detectBrowser = detect();
-
 const getScrollbarSize = (() => {
     let cachedSize: number;
 
@@ -31,21 +29,19 @@ const getScrollbarSize = (() => {
 })();
 
 function isWebkitBased() {
-    if (!isClient()) return false;
-
-    return window.navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
+    return isClient() && navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
 }
 
 function isSafari(): boolean {
-    if (isClient() && detectBrowser) {
-        return detectBrowser.name === 'safari';
-    }
-
-    return false;
+    return isClient() && detect()?.name === 'safari';
 }
 
-export const browser = {
-    getScrollbarSize,
-    isWebkitBased,
-    isSafari,
-};
+function isWebView(): boolean {
+    return (
+        isClient() &&
+        // copied from https://github.com/nolimits4web/swiper/blob/2eba4db20b2a7b4b8107e89567af813125be4ce6/src/shared/get-browser.mjs#L25
+        /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent)
+    );
+}
+
+export { getScrollbarSize, isWebkitBased, isSafari, isWebView };

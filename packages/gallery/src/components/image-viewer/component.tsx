@@ -1,22 +1,19 @@
 import React, { type FC, type KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
-import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { A11y, Controller } from 'swiper/modules';
+import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react';
 
 import { useFocus } from '@alfalab/hooks';
 import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIcon';
 import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHeavyMIcon';
 
 import { GalleryContext } from '../../context';
-import { getImageAlt, getImageKey, isVideo, TestIds } from '../../utils';
+import { getImageKey, isVideo, TestIds } from '../../utils';
 
 import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
-import 'swiper/swiper.min.css';
 import styles from './index.module.css';
-
-SwiperCore.use([EffectFade, A11y, Controller]);
 
 export const ImageViewer: FC = () => {
     const {
@@ -65,7 +62,7 @@ export const ImageViewer: FC = () => {
         }
     };
 
-    const swiperProps = useMemo<Swiper>(
+    const swiperProps = useMemo<SwiperProps>(
         () => ({
             slidesPerView: 1,
             effect: 'slide',
@@ -75,6 +72,7 @@ export const ImageViewer: FC = () => {
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             }),
+            modules: [A11y, Controller],
             controller: { control: swiper },
             a11y: {
                 slideRole: 'img',
@@ -130,49 +128,70 @@ export const ImageViewer: FC = () => {
                 </div>
             )}
 
-            {fullScreen && !isVideo(currentImage?.src) && (
-                <img
-                    src={currentImage?.src}
-                    alt={currentImage ? getImageAlt(currentImage, currentSlideIndex) : ''}
-                    className={styles.fullScreenImage}
-                />
+            {fullScreen && currentImage && !isVideo(currentImage.src) && (
+                <div className={styles.fullScreenFrame}>
+                    <Slide
+                        isActive={true}
+                        containerAspectRatio={swiperAspectRatio}
+                        image={currentImage}
+                        containerHeight={swiperHeight}
+                        meta={imagesMeta[currentSlideIndex]}
+                        index={currentSlideIndex}
+                        imageAspectRatio={
+                            (imagesMeta[currentSlideIndex]?.width || 1) /
+                            (imagesMeta[currentSlideIndex]?.height || 1)
+                        }
+                        slideVisible={false}
+                        fullScreen={true}
+                    />
+                </div>
             )}
 
-            <Swiper {...swiperProps}>
-                {images.map((image, index) => {
-                    const meta = imagesMeta[index];
-
-                    const imageWidth = meta?.width || 1;
-                    const imageHeight = meta?.height || 1;
-
-                    const imageAspectRatio = imageWidth / imageHeight;
-
-                    const slideVisible = index === currentSlideIndex;
-
-                    return (
-                        <SwiperSlide
-                            key={getImageKey(image, index)}
-                            style={{
-                                pointerEvents: slideVisible ? 'auto' : 'none',
-                                transitionProperty: 'opacity',
-                            }}
-                        >
-                            {({ isActive }) => (
-                                <Slide
-                                    isActive={isActive}
-                                    containerAspectRatio={swiperAspectRatio}
-                                    image={image}
-                                    containerHeight={swiperHeight}
-                                    meta={meta}
-                                    index={index}
-                                    imageAspectRatio={imageAspectRatio}
-                                    slideVisible={slideVisible}
-                                />
-                            )}
-                        </SwiperSlide>
-                    );
+            <div
+                className={cn(styles.swiperFrame, {
+                    [styles.mobile]: isMobile,
+                    [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+                    [styles.fullScreenFrame]: fullScreen,
+                    [styles.hiddenFrame]: fullScreen && !isVideo(currentImage?.src),
                 })}
-            </Swiper>
+            >
+                <Swiper {...swiperProps}>
+                    {images.map((image, index) => {
+                        const meta = imagesMeta[index];
+
+                        const imageWidth = meta?.width || 1;
+                        const imageHeight = meta?.height || 1;
+
+                        const imageAspectRatio = imageWidth / imageHeight;
+
+                        const slideVisible = index === currentSlideIndex;
+
+                        return (
+                            <SwiperSlide
+                                key={getImageKey(image, index)}
+                                style={{
+                                    pointerEvents: slideVisible ? 'auto' : 'none',
+                                    transitionProperty: 'opacity',
+                                }}
+                            >
+                                {({ isActive }) => (
+                                    <Slide
+                                        isActive={isActive}
+                                        containerAspectRatio={swiperAspectRatio}
+                                        image={image}
+                                        containerHeight={swiperHeight}
+                                        meta={meta}
+                                        index={index}
+                                        imageAspectRatio={imageAspectRatio}
+                                        slideVisible={slideVisible}
+                                        fullScreen={fullScreen && isVideo(image.src)}
+                                    />
+                                )}
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
+            </div>
 
             {showControls && (
                 <div

@@ -3,6 +3,8 @@ import { type CSSProperties, type ElementType, type ReactNode, type RefObject } 
 import { type BackArrowAddonProps } from './components/back-arrow-addon';
 import { type CloserProps } from './components/closer';
 
+export type ColorType = 'default' | 'inverted';
+
 export type NavigationBarPrivateProps = {
     /**
      * Контент шапки
@@ -91,7 +93,8 @@ export type NavigationBarPrivateProps = {
     align?: 'left' | 'center';
 
     /**
-     * Обрезать ли заголовок
+     * Обрезать заголовок
+     * @deafult true
      */
     trim?: boolean;
 
@@ -151,9 +154,19 @@ export type NavigationBarPrivateProps = {
     titleClassName?: string;
 
     /**
+     * Дополнительный класс для subtitle
+     */
+    subtitleClassName?: string;
+
+    /**
      * Ref для title элемента
      */
     titleRef?: RefObject<HTMLDivElement>;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: ColorType;
 };
 
 export type ContentParams = {

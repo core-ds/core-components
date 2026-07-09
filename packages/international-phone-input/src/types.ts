@@ -85,6 +85,7 @@ export type CommonPhoneInputProps = {
     /**
      * Включить автозаполнение номера
      *
+     * @deprecated Автозаполнение активно всегда. Проп будет удален в следующей мажорной версии
      * @default true
      */
     autoFill?: boolean;

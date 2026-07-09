@@ -1,4 +1,4 @@
-import { Answers } from '.storybook/theming-wizard/types';
+import { Answers } from 'storybook/theming-wizard/types';
 
 export const darkModeExample = () => `
 import darkMode from '@alfalab/core-components/themes/dark';

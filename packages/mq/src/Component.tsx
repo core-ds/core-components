@@ -1,9 +1,11 @@
 import React, { type FC, Fragment, type ReactNode, useEffect } from 'react';
 
+import { isClient } from '@alfalab/core-components-shared';
+
 import { useMatchMedia } from './useMatchMedia';
 import { isPointerEventsSupported, isTouchSupported } from './utils';
 
-const IS_BROWSER = typeof window !== 'undefined';
+const IS_BROWSER = isClient();
 const SUPPORTS_TOUCH = IS_BROWSER && (isPointerEventsSupported() || isTouchSupported());
 
 export type MqProps = {

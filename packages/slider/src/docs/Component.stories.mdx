@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { number, select } from '@storybook/addon-knobs';
+import { number, select, boolean, object } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Slider } from '@alfalab/core-components-slider';
 
@@ -23,8 +23,13 @@ import Changelog from '../../CHANGELOG.md?raw';
                 min={number('min', 0)}
                 max={number('max', 100)}
                 step={number('step', 1)}
-                size={select('size', [2, 4], 2)}
+                size={select('size', [2, 4], 4)}
                 behaviour={select('behaviour', ['unconstrained-tap', 'tap'], 'tap')}
+                dots={boolean('dots', true)}
+                dotsSlider={select('dotsSlider', ['step', 'custom'], 'step')}
+                pipsLabel={select('pipsLabel', ['all', 'pipsOnly', 'customPipsOnly', 'none'], 'all')}
+                showPipsDots={boolean('showPipsDots', false)}
+                customDots={object('customDots', [25, 50, 75])}
             />
         );
     })}

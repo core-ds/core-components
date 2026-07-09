@@ -22,6 +22,7 @@
 
 .input:read-only:not(.disableUserInput) {
     color: var(--input-read-only-color);
+    -webkit-text-fill-color: var(--input-read-only-color);
 
     &:focus::placeholder {
         color: var(--input-placeholder-color);

@@ -1,9 +1,17 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 .checkmark {
     flex-shrink: 0;
     box-sizing: border-box;
+
+    &.before {
+        margin-right: var(--gap-12);
+    }
+
+    &.after {
+        margin-left: var(--gap-12);
+    }
 
     &.start {
         align-self: start;
@@ -14,11 +22,17 @@
     }
 }
 
-.single {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.singleIcon {
+    flex-shrink: 0;
     opacity: 0;
+
+    &.before {
+        margin-right: var(--gap-12);
+    }
+
+    &.after {
+        margin-left: var(--gap-12);
+    }
 
     &.selected {
         opacity: 1;

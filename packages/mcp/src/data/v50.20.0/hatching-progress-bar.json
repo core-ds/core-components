@@ -1,0 +1,62 @@
+{
+"packageName": "hatching-progress-bar",
+"displayName": "HatchingProgressBar",
+"description": "Используется для отображения прогресса при заполнении формы.",
+"props": {
+"value": {
+"defaultValue": null,
+"description": "Значение заполненной части 0-100",
+"name": "value",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"hatchValue": {
+"defaultValue": null,
+"description": "Значение будущей заполненной части 0-100",
+"name": "hatchValue",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Css-класс для стилизации",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "positive"
+},
+"description": "Цвет заполнения",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"positive\" | \"negative\" | \"attention\" | \"link\" | \"tertiary\" | \"secondary\" | \"primary\" | \"accent\" | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "Заливкой обозначается текущий прогресс. \nШтриховкой обозначается прогресс, который будет достигнут при выполнении какого-либо условия.",
+"desktop": "<HatchingProgressBar value={40} hatchValue={60} />"
+}
+],
+"changelog": []
+}

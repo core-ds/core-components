@@ -4,6 +4,8 @@ import cn from 'classnames';
 // eslint-disable-next-line no-restricted-imports
 import throttle from 'lodash.throttle';
 
+import { getElementWindow } from '@alfalab/core-components-shared';
+
 import SimpleBar from './simplebar/simplebar';
 
 import defaultColors from './default.module.css';
@@ -121,10 +123,6 @@ const classNames = {
     dragging: 'dragging',
     visible: 'visible',
 };
-
-function getElementWindow(element: Element) {
-    return element.ownerDocument.defaultView ?? window;
-}
 
 function elementHasAbsPosChild(element: Element) {
     const elementWindow = getElementWindow(element);

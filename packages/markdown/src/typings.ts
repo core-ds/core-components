@@ -1,11 +1,9 @@
-import { type NormalComponents, type SpecialComponents } from 'react-markdown/src/ast-to-react';
+import { type Components } from 'react-markdown';
 
 export type FontType = 'styrene' | 'system' | undefined;
 export type PlatformType = 'desktop' | 'mobile';
 
-export type OverridesComponents =
-    | Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>
-    | undefined;
+export type OverridesComponents = Components;
 
 export type BaseMarkdownProps = {
     children: string;

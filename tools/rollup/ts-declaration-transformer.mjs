@@ -32,7 +32,6 @@ export function transformDeclarations(build) {
                                     const [, componentName, entryPoint] = match;
 
                                     return ts.factory.createExportDeclaration(
-                                        node.decorators,
                                         node.modifiers,
                                         node.isTypeOnly,
                                         node.exportClause,
@@ -40,7 +39,7 @@ export function transformDeclarations(build) {
                                             slash(path.join(componentName, build, entryPoint)),
                                             quote === "'",
                                         ),
-                                        node.assertClause,
+                                        node.attributes,
                                     );
                                 }
                             }
@@ -53,14 +52,13 @@ export function transformDeclarations(build) {
                                 const [, componentName, entryPoint] = match;
 
                                 return ts.factory.createImportDeclaration(
-                                    node.decorators,
                                     node.modifiers,
                                     node.importClause,
                                     ts.factory.createStringLiteral(
                                         slash(path.join(componentName, build, entryPoint)),
                                         quote === "'",
                                     ),
-                                    node.assertClause,
+                                    node.attributes,
                                 );
                             }
                         }

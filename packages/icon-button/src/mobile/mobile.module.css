@@ -1,0 +1,23 @@
+@import './vars.css';
+
+.component {
+    &.border_24 {
+        border-radius: var(--icon-button-size-24-border-radius-mobile);
+    }
+
+    &.border_32 {
+        border-radius: var(--icon-button-size-32-border-radius-mobile);
+    }
+
+    &.border_40 {
+        border-radius: var(--icon-button-size-40-border-radius-mobile);
+    }
+
+    &.border_48 {
+        border-radius: var(--icon-button-size-48-border-radius-mobile);
+    }
+
+    &.border_56 {
+        border-radius: var(--icon-button-size-56-border-radius-mobile);
+    }
+}

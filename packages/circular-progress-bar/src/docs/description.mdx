@@ -1,6 +1,6 @@
 ## Примеры
 
-Доступны 144, 128, 96, 80, 64, 48, 24 и произвольный размер компонента.
+Доступны 144, 128, 96, 80, 64, 48, 24, 16 и произвольный размер компонента.
 
 ```jsx live mobileHeight={652}
 <Container align={isMobile() ? 'center' : 'left'}>
@@ -12,6 +12,7 @@
         <CircularProgressBar value={25} size={64} contentColor='primary' />
         <CircularProgressBar value={25} size={48} contentColor='primary' />
         <CircularProgressBar value={25} size={24} contentColor='primary' />
+        <CircularProgressBar value={25} size={16} contentColor='primary' />
     </Space>
 </Container>
 ```
@@ -46,7 +47,7 @@
             completeIconColor='positive'
         />
     </Space>
-    <Gap size='m' />
+    <Gap size={16} />
     <Space direction='horizontal'>
         <CircularProgressBar value={0} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />
         <CircularProgressBar value={50} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />
@@ -59,7 +60,7 @@
             fillComplete={true}
         />
     </Space>
-    <Gap size='m' />
+    <Gap size={16} />
     <Space direction='horizontal'>
         <CircularProgressBar value={0} title='0%' size={80} contentColor='primary' />
         <CircularProgressBar
@@ -100,7 +101,7 @@
             contentColor='primary'
         />
     </Space>
-    <Gap size='m' />
+    <Gap size={16} />
     <Space direction='horizontal'>
         <CircularProgressBar
             value={{ timer: 60, counting: 'forward' }}

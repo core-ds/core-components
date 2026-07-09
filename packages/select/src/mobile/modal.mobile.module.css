@@ -1,0 +1,6 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.header {
+    padding-right: var(--gap-8);
+    padding-left: var(--gap-8);
+}

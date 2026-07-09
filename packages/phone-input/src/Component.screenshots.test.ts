@@ -1,6 +1,7 @@
 import {
     createPreview,
     createSpriteStorybookUrl,
+    generateTestCases,
     setupScreenshotTesting,
 } from '@alfalab/core-components-screenshot-utils';
 
@@ -46,4 +47,26 @@ describe('PhoneInput | size', () => {
             ],
         ],
     })();
+});
+
+describe('PhoneInput | disabled', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'PhoneInput',
+                    knobs: {
+                        label: 'Телефон',
+                        value: '+71234567890',
+                        size: [40, 48],
+                        disabled: true,
+                    },
+                }),
+            ],
+            viewport: { width: 240, height: 100 },
+            theme,
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
 });

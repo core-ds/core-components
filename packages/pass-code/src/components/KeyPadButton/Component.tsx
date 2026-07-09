@@ -5,7 +5,7 @@ import { ButtonMobile, type ButtonMobileProps } from '@alfalab/core-components-b
 
 import styles from './index.module.css';
 
-export type KeyPadButtonProps<T> = {
+export interface KeyPadButtonProps<T> {
     /**
      * Вид кнопки
      */
@@ -40,7 +40,7 @@ export type KeyPadButtonProps<T> = {
      * Заголовок кнопки
      */
     title?: string;
-};
+}
 
 export function KeyPadButton<T extends ReactNode>({
     children,

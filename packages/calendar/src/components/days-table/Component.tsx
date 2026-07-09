@@ -2,18 +2,22 @@
 import React, { type FC, type RefCallback, useCallback, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
-import isEqual from 'date-fns/isEqual';
-import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
-import isSameDay from 'date-fns/isSameDay';
-import isToday from 'date-fns/isToday';
-import isWithinInterval from 'date-fns/isWithinInterval';
-import startOfMonth from 'date-fns/startOfMonth';
+import {
+    isEqual,
+    isLastDayOfMonth,
+    isSameDay,
+    isToday,
+    isWithinInterval,
+    startOfMonth,
+} from 'date-fns';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { usePrevious } from '@alfalab/hooks';
 
 import { type Day, type DayAddons } from '../../typings';
 import { getSelectionRange, russianWeekDay, WEEKDAYS } from '../../utils';
+
+import { useNodeRef } from './useNodeRef';
 
 import styles from './index.module.css';
 
@@ -97,6 +101,7 @@ export const DaysTable: FC<DaysTableProps> = ({
 }) => {
     const activeMonthRef = useRef(activeMonth);
     const directionRef = useRef<'right' | 'left' | undefined>();
+    const { getNodeRef } = useNodeRef();
 
     activeMonthRef.current = activeMonth;
 
@@ -107,6 +112,8 @@ export const DaysTable: FC<DaysTableProps> = ({
     }
 
     const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
+
+    const activeMonthTime = activeMonth.getTime();
 
     const renderHeader = useCallback(
         () =>
@@ -195,7 +202,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                 <Button
                     type='button'
                     view='text'
-                    size='xs'
+                    size={40}
                     disabled={day.disabled}
                     className={cn(styles.day, styles[shape], {
                         [styles.dayAddons]: day.dayAddon,
@@ -227,7 +234,9 @@ export const DaysTable: FC<DaysTableProps> = ({
         <tr key={weekIdx}>{week.map(renderDay)}</tr>
     );
 
-    const renderMonth = () => <tbody>{weeks.map(renderWeek)}</tbody>;
+    const renderMonth = () => (
+        <tbody ref={getNodeRef(activeMonthTime)}>{weeks.map(renderWeek)}</tbody>
+    );
 
     return (
         <table
@@ -243,7 +252,7 @@ export const DaysTable: FC<DaysTableProps> = ({
             {withTransition ? (
                 <TransitionGroup component={null}>
                     <CSSTransition
-                        key={activeMonth.getTime()}
+                        key={activeMonthTime}
                         timeout={300}
                         classNames={{
                             enter: styles.daysEnter,
@@ -251,6 +260,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                             exit: styles.daysExit,
                             exitActive: styles.daysExitActive,
                         }}
+                        nodeRef={getNodeRef(activeMonthTime)}
                     >
                         {renderMonth()}
                     </CSSTransition>

@@ -67,6 +67,12 @@ export type CollapseProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
@@ -83,6 +89,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             onExpandedChange,
             defaultExpanded = false,
             dataTestId,
+            colors = 'default',
         },
         ref,
     ) => {
@@ -171,6 +178,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                         className={cn({ [styles.expandedLabel]: isExpanded })}
                         pseudo={true}
                         onClick={handleExpandedChange}
+                        colors={colors}
                         rightAddons={
                             <ChevronDownSIcon
                                 className={cn(styles.toggleIcon, {

@@ -18,7 +18,7 @@ export const base_modal: Story = {
         const handleModalOpen = () => setOpen(!open);
         return (
             <>
-                <Button type='button' size='xs' onClick={handleModalOpen}>
+                <Button type='button' size={40} onClick={handleModalOpen}>
                     Открыть
                 </Button>
                 <BaseModal open={open} onClose={handleModalOpen}>

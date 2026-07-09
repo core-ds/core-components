@@ -11,13 +11,7 @@ type OnInputTypeReason = 'close' | 'change';
 export interface InputAutocompleteCommonProps
     extends Omit<
         BaseSelectProps,
-        | 'autocomplete'
-        | 'Field'
-        | 'nativeSelect'
-        | 'searchProps'
-        | 'showSearch'
-        | 'Search'
-        | 'valueRenderer'
+        'autocomplete' | 'nativeSelect' | 'showSearch' | 'valueRenderer'
     > {
     /**
      * Компонент ввода значения

@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .coreChart {
     & :global(.recharts-line path) {
@@ -7,8 +7,8 @@
 
     & :global(.recharts-text tspan) {
         fill: var(--color-light-text-primary);
-        font-size: 16px;
-        line-height: 22px;
+
+        @mixin paragraph_component_primary;
     }
 }
 

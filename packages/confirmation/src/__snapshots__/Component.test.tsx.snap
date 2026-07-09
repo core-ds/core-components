@@ -9,47 +9,59 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class=""
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component"
+            data-code-input-index="0"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component"
+            data-code-input-index="1"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component"
+            data-code-input-index="2"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component"
+            data-code-input-index="3"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component"
+            data-code-input-index="4"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -91,51 +103,63 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class=""
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component disabled"
+            data-code-input-index="0"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="1"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="2"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="3"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="4"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -210,47 +234,59 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class="shake"
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component hasError"
+            data-code-input-index="0"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="1"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="2"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="3"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="4"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -298,47 +334,59 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class="shake"
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component hasError"
+            data-code-input-index="0"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="1"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="2"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="3"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="4"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -386,51 +434,63 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class=""
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component disabled"
+            data-code-input-index="0"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="1"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="2"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="3"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="4"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -505,7 +565,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Ввести код больше нельзя
       </h3>
@@ -538,7 +598,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Не приходит код?
       </h3>
@@ -618,7 +678,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK scree
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Ввести код пока нельзя
       </h3>
@@ -666,7 +726,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Ввод разблокирован
       </h3>

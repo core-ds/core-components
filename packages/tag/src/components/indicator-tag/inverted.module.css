@@ -1,0 +1,96 @@
+@import '../../vars.css';
+
+.badgeIcon {
+    color: var(--tag-inverted-text-color);
+
+    .shapeInner {
+        color: inherit;
+
+        & svg {
+            fill: var(--color-light-text-primary-inverted);
+        }
+
+        &:active:not(:disabled) svg {
+            fill: var(--color-light-text-primary-inverted);
+        }
+    }
+
+    &.filled,
+    &.muted {
+        background-color: transparent;
+
+        &:hover:not(:disabled),
+        &:active:not(:disabled),
+        &:disabled {
+            background-color: transparent;
+        }
+    }
+
+    &.filled {
+        .shapePath {
+            fill: var(--tag-inverted-filled-background-color);
+        }
+
+        &:active:not(:disabled) .shapePath {
+            fill: var(--tag-inverted-filled-background-color-active);
+        }
+
+        @media (hover: hover) {
+            .shapePath:hover {
+                fill: var(--tag-inverted-filled-background-color-hover);
+            }
+        }
+
+        &.checked {
+            .shapePath {
+                fill: var(--tag-inverted-background-color-checked);
+            }
+
+            .shapeInner svg {
+                fill: var(--tag-inverted-text-color-checked);
+            }
+
+            @media (hover: hover) {
+                .shapePath:hover {
+                    fill: var(--tag-inverted-background-color-checked-hover);
+                }
+            }
+
+            &:active:not(:disabled) .shapePath {
+                fill: var(--tag-inverted-background-color-checked-active);
+            }
+        }
+    }
+
+    &.muted {
+        .shapePath {
+            fill: var(--tag-inverted-muted-background-color);
+        }
+
+        &:active:not(:disabled) .shapePath {
+            fill: var(--tag-inverted-muted-background-color-active);
+        }
+
+        @media (hover: hover) {
+            .shapePath:hover {
+                fill: var(--tag-inverted-muted-background-color-hover);
+            }
+        }
+
+        &.checked {
+            .shapePath {
+                fill: var(--tag-inverted-muted-background-color-checked);
+            }
+
+            @media (hover: hover) {
+                .shapePath:hover {
+                    fill: var(--tag-inverted-muted-background-color-checked-hover);
+                }
+            }
+
+            &:active:not(:disabled) .shapePath {
+                fill: var(--tag-inverted-muted-background-color-checked-active);
+            }
+        }
+    }
+}

@@ -1,11 +1,5 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
-
-:root {
-    --scrollbar-inverted-background-color: var(--color-light-neutral-translucent-500-inverted);
-    --scrollbar-inverted-background-color-active: var(
-        --color-light-neutral-translucent-500-inverted-press
-    );
-}
+@import '@alfalab/core-components-vars/src/index.css';
+@import './vars.css';
 
 .component {
     & :global(.scrollbar) {

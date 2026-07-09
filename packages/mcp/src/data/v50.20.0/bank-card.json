@@ -1,0 +1,104 @@
+{
+"packageName": "bank-card",
+"displayName": "BankCard",
+"description": "Используется для ввода номера карты или банковского счета.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"backgroundColor": {
+"defaultValue": {
+"value": "#EF3124"
+},
+"description": "Цвет фона карты",
+"name": "backgroundColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bankLogo": {
+"defaultValue": {
+"value": "<AlfaBankSignMIcon width={30} height={40} />"
+},
+"description": "Иконка логотипа банка (размер L)",
+"name": "bankLogo",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"inputLabel": {
+"defaultValue": {
+"value": "getDefaultInputLabel(maskType)"
+},
+"description": "Лэйбл поля ввода",
+"name": "inputLabel",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик ввода",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement>, payload: { value: string; }) => void) | undefined"
+}
+},
+"onUsePhoto": {
+"defaultValue": null,
+"description": "Обработчик вызова камеры",
+"name": "onUsePhoto",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"maskType": {
+"defaultValue": {
+"value": "MaskTypeEnum.Default"
+},
+"description": "Тип вводимой маски. Позволяет устанавливать необходимый тип номера (номер карты или номер счёта)\nЕсли параметр не передавать - работает с обоими типами номеров",
+"name": "maskType",
+"required": false,
+"type": {
+"name": "MaskType | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "При необходимости можно изменить логотип и цвет карты.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState('2201382000000013');\n\nconst handleChange = (event, payload) => setValue(payload.value);\n\nreturn (\n<>\n<BankCard value={value} onChange={handleChange} />\n<Gap size={24} />\n<Button size={32} onClick={() => setValue('2201382000000013')}>\nВставить номер карты\n</Button>\n<Gap size={12} direction='horizontal' />\n<Button size={32} onClick={() => setValue('')}>\nОчистить\n</Button>\n</>\n);\n});"
+}
+],
+"changelog": []
+}

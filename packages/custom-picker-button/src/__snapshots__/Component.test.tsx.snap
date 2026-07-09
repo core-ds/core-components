@@ -14,7 +14,6 @@ exports[`Snapshots tests should display correctly 1`] = `
       aria-labelledby="downshift-:r0:-label"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
       id="downshift-:r0:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -69,7 +68,6 @@ exports[`Snapshots tests should display correctly 2`] = `
       aria-labelledby="downshift-:r4:-label"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
       id="downshift-:r4:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -122,11 +120,8 @@ exports[`Snapshots tests should display correctly 3`] = `
     <button
       aria-controls="downshift-:r8:-menu"
       aria-labelledby="downshift-:r8:-label"
-      arrow="[object Object]"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
-      formcontrolcomponent="[object Object]"
       id="downshift-:r8:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -181,7 +176,6 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       aria-labelledby="downshift-:r3:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
       id="downshift-:r3:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -221,7 +215,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; min-width: 0; right: auto; bottom: auto; transform: translate(0px, 0px);"
   >
     <div
       class="inner popoverInner cc-picker-button optionsPopover"
@@ -231,332 +225,402 @@ exports[`Snapshots tests should display opened correctly 2`] = `
       >
         <div
           aria-labelledby="downshift-:r3:-label"
-          class="optionsListWrapper"
+          class="optionsListWrapper matchContent"
           id="downshift-:r3:-menu"
           role="listbox"
-          style="min-width: 0px;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="scrollable"
-              style="height: 0px;"
+              class="component"
+              data-simplebar="init"
+              style="max-height: 0;"
             >
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-0"
-                role="option"
+                class="simplebar-wrapper"
               >
                 <div
-                  class="content"
+                  class="simplebar-height-auto-observer-wrapper"
                 >
                   <div
-                    class="container"
+                    class="simplebar-height-auto-observer"
+                  />
+                </div>
+                <div
+                  class="simplebar-mask"
+                >
+                  <div
+                    class="simplebar-offset"
+                    style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="content"
+                      class="simplebar-content-wrapper scrollable"
+                      style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
-                      Neptunium
+                      <div
+                        class="simplebar-content content"
+                      >
+                        <div
+                          class="list"
+                        >
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="0"
+                            id="downshift-:r3:-item-0"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Neptunium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="1"
+                            id="downshift-:r3:-item-1"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Plutonium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="2"
+                            id="downshift-:r3:-item-2"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Americium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="3"
+                            id="downshift-:r3:-item-3"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Curium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="4"
+                            id="downshift-:r3:-item-4"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Berkelium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="5"
+                            id="downshift-:r3:-item-5"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Californium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="6"
+                            id="downshift-:r3:-item-6"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Einsteinium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="7"
+                            id="downshift-:r3:-item-7"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Fermium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="8"
+                            id="downshift-:r3:-item-8"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Mendelevium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="9"
+                            id="downshift-:r3:-item-9"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Nobelium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="10"
+                            id="downshift-:r3:-item-10"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Lawrencium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="11"
+                            id="downshift-:r3:-item-11"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Rutherfordium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="12"
+                            id="downshift-:r3:-item-12"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Dubnium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="13"
+                            id="downshift-:r3:-item-13"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Seaborgium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="14"
+                            id="downshift-:r3:-item-14"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Bohrium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="simplebar-placeholder"
+                  style="width: 0px; height: 0px;"
+                />
               </div>
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-1"
-                role="option"
+                class="simplebar-track simplebar-horizontal"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Plutonium
-                    </div>
-                  </div>
-                </div>
+                  class="simplebar-scrollbar"
+                  style="width: 0px; display: none;"
+                />
               </div>
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-2"
-                role="option"
+                class="simplebar-track simplebar-vertical"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Americium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-3"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Curium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-4"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Berkelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-5"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Californium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-6"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Einsteinium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-7"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Fermium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-8"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Mendelevium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-9"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Nobelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-10"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Lawrencium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-11"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Rutherfordium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-12"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Dubnium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-13"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Seaborgium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r3:-item-14"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Bohrium
-                    </div>
-                  </div>
-                </div>
+                  class="simplebar-scrollbar"
+                  style="height: 0px; display: none;"
+                />
               </div>
             </div>
           </div>
@@ -584,7 +648,6 @@ exports[`Snapshots tests should display opened correctly 3`] = `
       aria-labelledby="downshift-:r7:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
       id="downshift-:r7:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -624,7 +687,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; min-width: 0; right: auto; bottom: auto; transform: translate(0px, 0px);"
   >
     <div
       class="inner popoverInner cc-picker-button optionsPopover"
@@ -634,332 +697,402 @@ exports[`Snapshots tests should display opened correctly 4`] = `
       >
         <div
           aria-labelledby="downshift-:r7:-label"
-          class="optionsListWrapper"
+          class="optionsListWrapper matchContent"
           id="downshift-:r7:-menu"
           role="listbox"
-          style="min-width: 0px;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="scrollable"
-              style="height: 0px;"
+              class="component"
+              data-simplebar="init"
+              style="max-height: 0;"
             >
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-0"
-                role="option"
+                class="simplebar-wrapper"
               >
                 <div
-                  class="content"
+                  class="simplebar-height-auto-observer-wrapper"
                 >
                   <div
-                    class="container"
+                    class="simplebar-height-auto-observer"
+                  />
+                </div>
+                <div
+                  class="simplebar-mask"
+                >
+                  <div
+                    class="simplebar-offset"
+                    style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="content"
+                      class="simplebar-content-wrapper scrollable"
+                      style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
-                      Neptunium
+                      <div
+                        class="simplebar-content content"
+                      >
+                        <div
+                          class="list"
+                        >
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="0"
+                            id="downshift-:r7:-item-0"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Neptunium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="1"
+                            id="downshift-:r7:-item-1"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Plutonium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="2"
+                            id="downshift-:r7:-item-2"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Americium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="3"
+                            id="downshift-:r7:-item-3"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Curium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="4"
+                            id="downshift-:r7:-item-4"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Berkelium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="5"
+                            id="downshift-:r7:-item-5"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Californium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="6"
+                            id="downshift-:r7:-item-6"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Einsteinium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="7"
+                            id="downshift-:r7:-item-7"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Fermium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="8"
+                            id="downshift-:r7:-item-8"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Mendelevium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="9"
+                            id="downshift-:r7:-item-9"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Nobelium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="10"
+                            id="downshift-:r7:-item-10"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Lawrencium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="11"
+                            id="downshift-:r7:-item-11"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Rutherfordium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="12"
+                            id="downshift-:r7:-item-12"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Dubnium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="13"
+                            id="downshift-:r7:-item-13"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Seaborgium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="14"
+                            id="downshift-:r7:-item-14"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Bohrium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="simplebar-placeholder"
+                  style="width: 0px; height: 0px;"
+                />
               </div>
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-1"
-                role="option"
+                class="simplebar-track simplebar-horizontal"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Plutonium
-                    </div>
-                  </div>
-                </div>
+                  class="simplebar-scrollbar"
+                  style="width: 0px; display: none;"
+                />
               </div>
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-2"
-                role="option"
+                class="simplebar-track simplebar-vertical"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Americium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-3"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Curium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-4"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Berkelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-5"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Californium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-6"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Einsteinium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-7"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Fermium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-8"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Mendelevium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-9"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Nobelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-10"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Lawrencium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-11"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Rutherfordium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-12"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Dubnium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-13"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Seaborgium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:r7:-item-14"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Bohrium
-                    </div>
-                  </div>
-                </div>
+                  class="simplebar-scrollbar"
+                  style="height: 0px; display: none;"
+                />
               </div>
             </div>
           </div>
@@ -987,7 +1120,6 @@ exports[`Snapshots tests should display opened correctly 5`] = `
       aria-labelledby="downshift-:rb:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
       id="downshift-:rb:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -1027,7 +1159,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; min-width: 0; right: auto; bottom: auto; transform: translate(0px, 0px);"
   >
     <div
       class="inner popoverInner cc-picker-button optionsPopover"
@@ -1037,332 +1169,402 @@ exports[`Snapshots tests should display opened correctly 6`] = `
       >
         <div
           aria-labelledby="downshift-:rb:-label"
-          class="optionsListWrapper"
+          class="optionsListWrapper matchContent"
           id="downshift-:rb:-menu"
           role="listbox"
-          style="min-width: 0px;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="scrollable"
-              style="height: 0px;"
+              class="component"
+              data-simplebar="init"
+              style="max-height: 0;"
             >
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-0"
-                role="option"
+                class="simplebar-wrapper"
               >
                 <div
-                  class="content"
+                  class="simplebar-height-auto-observer-wrapper"
                 >
                   <div
-                    class="container"
+                    class="simplebar-height-auto-observer"
+                  />
+                </div>
+                <div
+                  class="simplebar-mask"
+                >
+                  <div
+                    class="simplebar-offset"
+                    style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="content"
+                      class="simplebar-content-wrapper scrollable"
+                      style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
-                      Neptunium
+                      <div
+                        class="simplebar-content content"
+                      >
+                        <div
+                          class="list"
+                        >
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="0"
+                            id="downshift-:rb:-item-0"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Neptunium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="1"
+                            id="downshift-:rb:-item-1"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Plutonium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="2"
+                            id="downshift-:rb:-item-2"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Americium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="3"
+                            id="downshift-:rb:-item-3"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Curium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="4"
+                            id="downshift-:rb:-item-4"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Berkelium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="5"
+                            id="downshift-:rb:-item-5"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Californium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="6"
+                            id="downshift-:rb:-item-6"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Einsteinium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="7"
+                            id="downshift-:rb:-item-7"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Fermium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="8"
+                            id="downshift-:rb:-item-8"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Mendelevium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="9"
+                            id="downshift-:rb:-item-9"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Nobelium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="10"
+                            id="downshift-:rb:-item-10"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Lawrencium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="11"
+                            id="downshift-:rb:-item-11"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Rutherfordium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="12"
+                            id="downshift-:rb:-item-12"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Dubnium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="13"
+                            id="downshift-:rb:-item-13"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Seaborgium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            data-index="14"
+                            id="downshift-:rb:-item-14"
+                            role="option"
+                          >
+                            <div
+                              class="content"
+                            >
+                              <div
+                                class="container"
+                              >
+                                <div
+                                  class="content"
+                                >
+                                  Bohrium
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="simplebar-placeholder"
+                  style="width: 0px; height: 0px;"
+                />
               </div>
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-1"
-                role="option"
+                class="simplebar-track simplebar-horizontal"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Plutonium
-                    </div>
-                  </div>
-                </div>
+                  class="simplebar-scrollbar"
+                  style="width: 0px; display: none;"
+                />
               </div>
               <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-2"
-                role="option"
+                class="simplebar-track simplebar-vertical"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Americium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-3"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Curium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-4"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Berkelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-5"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Californium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-6"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Einsteinium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-7"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Fermium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-8"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Mendelevium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-9"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Nobelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-10"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Lawrencium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-11"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Rutherfordium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-12"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Dubnium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-13"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Seaborgium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class="option size-56 option"
-                id="downshift-:rb:-item-14"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Bohrium
-                    </div>
-                  </div>
-                </div>
+                  class="simplebar-scrollbar"
+                  style="height: 0px; display: none;"
+                />
               </div>
             </div>
           </div>
@@ -1396,7 +1598,6 @@ exports[`Snapshots tests should render black color content 1`] = `
           aria-labelledby="downshift-:r2:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
           id="downshift-:r2:-input"
-          selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
           type="button"
@@ -1449,7 +1650,6 @@ exports[`Snapshots tests should render black color content 1`] = `
         aria-labelledby="downshift-:r2:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
         id="downshift-:r2:-input"
-        selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
         type="button"
@@ -1562,7 +1762,6 @@ exports[`Snapshots tests should render black color content 2`] = `
           aria-labelledby="downshift-:r6:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
           id="downshift-:r6:-input"
-          selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
           type="button"
@@ -1615,7 +1814,6 @@ exports[`Snapshots tests should render black color content 2`] = `
         aria-labelledby="downshift-:r6:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
         id="downshift-:r6:-input"
-        selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
         type="button"
@@ -1726,11 +1924,8 @@ exports[`Snapshots tests should render black color content 3`] = `
         <button
           aria-controls="downshift-:ra:-menu"
           aria-labelledby="downshift-:ra:-label"
-          arrow="[object Object]"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
-          formcontrolcomponent="[object Object]"
           id="downshift-:ra:-input"
-          selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
           type="button"
@@ -1781,11 +1976,8 @@ exports[`Snapshots tests should render black color content 3`] = `
       <button
         aria-controls="downshift-:ra:-menu"
         aria-labelledby="downshift-:ra:-label"
-        arrow="[object Object]"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
-        formcontrolcomponent="[object Object]"
         id="downshift-:ra:-input"
-        selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
         type="button"
@@ -1898,7 +2090,6 @@ exports[`Snapshots tests should render custom background color 1`] = `
           aria-labelledby="downshift-:r1:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
           id="downshift-:r1:-input"
-          selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
           type="button"
@@ -1951,7 +2142,6 @@ exports[`Snapshots tests should render custom background color 1`] = `
         aria-labelledby="downshift-:r1:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
         id="downshift-:r1:-input"
-        selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
         type="button"
@@ -2064,7 +2254,6 @@ exports[`Snapshots tests should render custom background color 2`] = `
           aria-labelledby="downshift-:r5:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
           id="downshift-:r5:-input"
-          selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
           type="button"
@@ -2117,7 +2306,6 @@ exports[`Snapshots tests should render custom background color 2`] = `
         aria-labelledby="downshift-:r5:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
         id="downshift-:r5:-input"
-        selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
         type="button"
@@ -2228,11 +2416,8 @@ exports[`Snapshots tests should render custom background color 3`] = `
         <button
           aria-controls="downshift-:r9:-menu"
           aria-labelledby="downshift-:r9:-label"
-          arrow="[object Object]"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
-          formcontrolcomponent="[object Object]"
           id="downshift-:r9:-input"
-          selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
           type="button"
@@ -2283,11 +2468,8 @@ exports[`Snapshots tests should render custom background color 3`] = `
       <button
         aria-controls="downshift-:r9:-menu"
         aria-labelledby="downshift-:r9:-label"
-        arrow="[object Object]"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
-        formcontrolcomponent="[object Object]"
         id="downshift-:r9:-input"
-        selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
         type="button"

@@ -16,7 +16,7 @@ describe('DateInput', () =>
         {
             componentName: 'DateInput',
             knobs: {
-                size: 'm',
+                size: 56,
                 value: '01.01.2023',
                 label: 'Дата',
                 block: true,
@@ -39,7 +39,7 @@ describe(
                     size: { width: 350, height: 400 },
                     knobs: {
                         value: ['30.12.2005', '01.06.2022'],
-                        size: ['s', 'm', 'l', 'xl'],
+                        size: [48, 56, 64, 72],
                     },
                 }),
             ],

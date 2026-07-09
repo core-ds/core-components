@@ -5,34 +5,78 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
   <div
     class="component static"
   >
-    <div>
+    <div
+      class="inputsContainer"
+    >
       <div
-        class="component component size-48 size-48 block hasRightAddons"
+        class="wrapper block"
+        tabindex="-1"
       >
         <div
-          class="inner inner inner inner"
+          class="component component formControlDesktop size-48 size-48 size-48 block"
         >
           <div
-            class="inputWrapper"
+            class="field inner inner inner inner"
           >
             <div
-              class="input size-48"
+              class="inputWrapper"
             >
-              <input
-                class="input size-48 input"
-                inputmode="decimal"
-                pattern="[0-9\\.]*"
-                placeholder="ДД.ММ.ГГГГ"
-                type="text"
-                value=""
-              />
+              <div
+                class="input size-48"
+              >
+                <input
+                  class="input size-48 input"
+                  inputmode="decimal"
+                  placeholder="ДД.ММ.ГГГГ"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
           </div>
-          <div
-            class="addons rightAddons rightAddons size-48"
-          />
         </div>
       </div>
+      <span
+        class="component size48"
+      />
+      <div
+        class="wrapper block"
+        tabindex="-1"
+      >
+        <div
+          class="component component formControlDesktop size-48 size-48 size-48 block"
+        >
+          <div
+            class="field inner inner inner inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="input size-48"
+              >
+                <input
+                  class="input size-48 input"
+                  inputmode="decimal"
+                  placeholder="ДД.ММ.ГГГГ"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="calendarContainers"
+    >
       <div
         class="calendarContainer"
       >
@@ -51,7 +95,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <button
                 aria-label="Предыдущий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-previous-day"
                 type="button"
               >
@@ -84,7 +128,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </span>
               <button
                 aria-label="Следующий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-next-day"
                 type="button"
               >
@@ -921,38 +965,6 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <span
-      class="component s"
-    />
-    <div>
-      <div
-        class="component component size-48 size-48 block hasRightAddons"
-      >
-        <div
-          class="inner inner inner inner"
-        >
-          <div
-            class="inputWrapper"
-          >
-            <div
-              class="input size-48"
-            >
-              <input
-                class="input size-48 input"
-                inputmode="decimal"
-                pattern="[0-9\\.]*"
-                placeholder="ДД.ММ.ГГГГ"
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="addons rightAddons rightAddons size-48"
-          />
-        </div>
-      </div>
       <div>
         <div
           class="cc-calendar component calendar sixWeeks"
@@ -969,7 +981,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <button
                 aria-label="Предыдущий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-previous-day"
                 type="button"
               >
@@ -1002,7 +1014,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </span>
               <button
                 aria-label="Следующий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-next-day"
                 type="button"
               >

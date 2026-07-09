@@ -53,7 +53,7 @@ export const popup_sheet: Story = {
                         </SystemMessageMobile.Subtitle>
 
                         <SystemMessageMobile.Controls>
-                            <ButtonMobile size='m' view='secondary'>
+                            <ButtonMobile size={56} view='secondary'>
                                 Получить код
                             </ButtonMobile>
                         </SystemMessageMobile.Controls>

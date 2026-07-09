@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { TagMobile } from '@alfalab/core-components-tag/mobile';
 
 import { type SecondaryTabListProps } from '../../typings';
+import { tabSizeToTagSize } from '../../utils';
 
 import { SecondaryTabList } from './Component';
 
@@ -30,7 +31,7 @@ export const SecondaryTabListMobile = ({
         className={cn(className, styles.mobile, {
             [styles.transparentView]: tagView === 'transparent',
         })}
-        tagSize={size}
+        tagSize={tabSizeToTagSize(size)}
         tagView={tagView}
         platform='mobile'
     />

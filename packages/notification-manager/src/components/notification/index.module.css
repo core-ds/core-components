@@ -1,0 +1,22 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.enter {
+    visibility: hidden;
+    transform: translate(0, -500px);
+}
+
+.enterActive {
+    visibility: visible;
+    transform: translate(0);
+    transition: transform 0.4s ease-out;
+}
+
+@media (--tablet-s) {
+    .enter {
+        transform: translate(100%, 0);
+    }
+
+    .enterActive {
+        transform: translate(0);
+    }
+}

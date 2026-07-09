@@ -9,9 +9,9 @@ import {
     getQueryParam,
 } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
-const DIRECTIONS = ['horizontal', 'vertical'];
-const ALIGNES = ['start', 'end', 'center'];
-const SIZES = ['s', 'm', 'l', 8, 72];
+const DIRECTIONS = ['horizontal', 'vertical'] as const;
+const ALIGNES = ['start', 'end', 'center'] as const;
+const SIZES = ['s', 'm', 'l', 8, 72] as const;
 
 const meta: Meta<typeof Space> = {
     title: 'Components/Space',

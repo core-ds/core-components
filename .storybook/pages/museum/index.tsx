@@ -29,11 +29,11 @@ export const Museum = () => {
 
     const renderItem = (version: string, index: number, showSkeleton: boolean) => (
         <section key={version}>
-            <Gap size={isMobile ? 'xl' : '2xl'} />
+            <Gap size={isMobile ? 24 : 26} />
             <Title tag='h2' view='small' font='styrene' showSkeleton={showSkeleton}>
                 {version.slice(1)}
             </Title>
-            <Gap size='s' />
+            <Gap size={12} />
             <Typography.Text view='primary-medium' showSkeleton={showSkeleton}>
                 <Link
                     view='default'
@@ -51,7 +51,7 @@ export const Museum = () => {
             </Typography.Text>
             {versions.length - 1 !== index ? (
                 <>
-                    <Gap size={isMobile ? 'xl' : '2xl'} />
+                    <Gap size={isMobile ? 24 : 26} />
                     <Divider />
                 </>
             ) : null}
@@ -64,7 +64,7 @@ export const Museum = () => {
                 Музей демок
             </Title>
 
-            <Gap size='s' />
+            <Gap size={12} />
 
             <Typography.Text view='primary-medium'>
                 Перед каждой мажоркой мы создаём музейную демку для того, чтобы у вас была

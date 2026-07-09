@@ -6,8 +6,10 @@ import {
     type ShadowType,
 } from '@alfalab/core-components-types';
 
-export type UnderlayPaddingSize = Exclude<GapType, '7xl' | '8xl'>;
-export type UnderlayBorderRadius = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
+type ExcludeStrict<T, K extends T> = Exclude<T, K>;
+
+export type UnderlayPaddingSize = ExcludeStrict<GapType, 96 | 128>;
+export type UnderlayBorderRadius = 2 | 4 | 8 | 12 | 16 | 20 | 24;
 export type BorderSizeType = 1 | 2 | 4;
 
 type PaddingType = {
@@ -81,7 +83,7 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Внутренние отступы
      */
-    padding?: PaddingType | string;
+    padding?: PaddingType | number;
 
     /**
      * Радиус бордера

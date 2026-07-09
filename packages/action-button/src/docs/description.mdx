@@ -9,11 +9,11 @@ render(() => {
             <ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='primary'>
                 Primary
             </ActionButton>
-            <Gap direction='horizontal' size='xl' />
+            <Gap direction='horizontal' size={24} />
             <ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='secondary'>
                 Secondary
             </ActionButton>
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
@@ -55,16 +55,16 @@ render(() => {
 
     return (
         <>
-            <ActionButton 
-                icon={<DiamondsMIcon />} 
+            <ActionButton
+                icon={<DiamondsMIcon />}
                 loading={loading.primary}
                 onClick={() => handleClick('primary', 30)}
             >
                 Быстрый запрос
             </ActionButton>
-            <Gap direction='horizontal' size='xl' />
-            <ActionButton 
-                icon={<DiamondsMIcon />} 
+            <Gap direction='horizontal' size={24} />
+            <ActionButton
+                icon={<DiamondsMIcon />}
                 loading={loading.secondary}
                 onClick={() => handleClick('secondary', 1500)}
                 view='secondary'

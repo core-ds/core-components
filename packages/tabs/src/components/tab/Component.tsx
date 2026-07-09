@@ -1,19 +1,22 @@
-import React, { type AriaAttributes } from 'react';
+import React, { type AriaAttributes, type FC } from 'react';
 import cn from 'classnames';
 
 import { type TabProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Tab = ({
+export const Tab: FC<TabProps> = ({
     children,
     hidden,
     className,
     disabled,
     dataTestId,
+    // useless props
     id,
+    title,
+    rightAddons,
     ...restProps
-}: TabProps) =>
+}) =>
     children ? (
         <div
             className={cn(

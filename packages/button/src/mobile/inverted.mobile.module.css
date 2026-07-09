@@ -1,8 +1,18 @@
 @import '../vars.css';
 
+.accent {
+    &:not([disabled]) .hint {
+        color: var(--button-mobile-inverted-accent-hint-color);
+    }
+}
+
 .primary {
     color: var(--button-inverted-primary-mobile-color);
     background-color: var(--button-inverted-primary-mobile-base-bg-color);
+
+    &:not([disabled]) .hint {
+        color: var(--button-mobile-inverted-primary-hint-color);
+    }
 
     @media (hover: hover) {
         &:hover {
@@ -33,12 +43,6 @@
     }
 }
 
-.ghost {
-    &:active {
-        color: var(--button-inverted-ghost-mobile-active-color);
-    }
-}
-
 .component[disabled] {
     &.primary {
         color: var(--button-inverted-primary-mobile-disabled-color);
@@ -60,24 +64,11 @@
         border-color: var(--button-inverted-outlined-mobile-disabled-border-color);
     }
 
-    &.tertiary {
-        color: var(--button-inverted-tertiary-mobile-disabled-color);
-        border-color: var(--button-inverted-tertiary-mobile-disabled-border-color);
-    }
-
     &.transparent {
         color: var(--button-inverted-transparent-mobile-disabled-color);
     }
 
-    &.link {
-        color: var(--button-inverted-link-mobile-disabled-color);
-    }
-
     &.text {
         color: var(--button-inverted-text-mobile-disabled-color);
-    }
-
-    &.ghost {
-        color: var(--button-inverted-ghost-mobile-disabled-color);
     }
 }

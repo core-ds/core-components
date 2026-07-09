@@ -1,4 +1,15 @@
-import { createPreview } from '@alfalab/core-components-screenshot-utils';
+import {
+    createPreview,
+    generateTestCases,
+    setupScreenshotTesting,
+} from '@alfalab/core-components-screenshot-utils';
+
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
 
 describe('Notification', () => {
     createPreview(
@@ -18,3 +29,24 @@ describe('Notification', () => {
         },
     );
 });
+
+describe(
+    'Notification | gaps',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                testStory: false,
+                componentName: 'Notification',
+                knobs: {
+                    visible: true,
+                    hasCloser: [true, false],
+                    renderActionButton: [true, false],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        viewport: { width: 720, height: 200 },
+    }),
+);

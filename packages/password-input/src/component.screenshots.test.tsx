@@ -96,6 +96,20 @@ describe('PasswordInputDesktop | screenshots addons', () => {
                         },
                     }),
                 ],
+                [
+                    `${theme} theme | disabled`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            block: true,
+                            size: [48],
+                            breakpoint: 300,
+                            disabled: [false, true],
+                        },
+                    }),
+                ],
             ],
             viewport: {
                 width: 350,
@@ -148,6 +162,20 @@ describe('PasswordInputMobile | screenshots addons', () => {
                             block: true,
                             rightAddons: 'right',
                             size: [48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme | disabled`,
+                    createSpriteStorybookUrl({
+                        packageName: 'password-input',
+                        componentName: 'PasswordInput',
+                        knobs: {
+                            value: 'Value',
+                            block: true,
+                            rightAddons: 'right',
+                            size: [48],
+                            disabled: [false, true],
                         },
                     }),
                 ],

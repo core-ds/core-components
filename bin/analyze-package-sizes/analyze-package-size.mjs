@@ -1,7 +1,7 @@
 import { build } from 'esbuild';
 import fse from 'fs-extra';
 import { EOL } from 'node:os';
-import { cwd, stdout } from 'node:process';
+import * as process from 'node:process';
 import { glob } from 'tinyglobby';
 
 const ENTRY_POINTS = [
@@ -29,7 +29,7 @@ async function main() {
         bundle: true,
         write: false,
         legalComments: 'none',
-        outdir: cwd(),
+        outdir: process.cwd(),
         minify: true,
         minifyWhitespace: true,
         minifyIdentifiers: true,
@@ -48,7 +48,7 @@ async function main() {
         ]),
     );
 
-    stdout.write(`${JSON.stringify(sizes, null, 4)}${EOL}`);
+    process.stdout.write(`${pkg.name}: ${JSON.stringify(sizes)}${EOL}`);
 }
 
 await main();

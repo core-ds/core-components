@@ -1,7 +1,6 @@
 import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type OptionProps } from '../../typings';
 import { BaseCheckmark } from '../base-checkmark';
 
@@ -25,48 +24,42 @@ export const BaseOption: FC<OptionProps> = ({
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
-
     const isTextContent = !isValidElement(content);
+    const showCheckmark = Checkmark && showCheckMark;
 
-    const renderCheckmark = () => {
-        if (Checkmark && showCheckMark) {
-            return (
-                <Checkmark
-                    className={cn({
-                        [styles.checkmarkBeforeContent]: checkmarkPosition === 'before',
-                        [styles.checkmarkAfterContent]: checkmarkPosition === 'after',
-                    })}
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    align={align}
-                />
-            );
-        }
-
-        return null;
-    };
+    const renderCheckmark = (position: 'before' | 'after') =>
+        showCheckmark && (
+            <Checkmark
+                disabled={disabled}
+                selected={selected}
+                multiple={multiple}
+                align={align}
+                position={position}
+            />
+        );
 
     return (
         <div
             {...innerProps}
-            className={cn(styles.option, size && styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
+            className={cn(styles.option, size && styles[`size-${size}`], className, {
                 [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
                 [styles.textContent]: isTextContent,
                 [styles.mobile]: mobile,
-                [styles.checkmarkAfter]: !isTextContent && checkmarkPosition === 'after',
-                [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
+                [styles.checkmarkAfter]:
+                    showCheckmark && !isTextContent && checkmarkPosition === 'after',
+                [styles.checkmarkBefore]:
+                    showCheckmark && !isTextContent && checkmarkPosition === 'before',
             })}
             data-test-id={dataTestId}
             aria-label={option?.value?.name}
         >
-            {checkmarkPosition === 'before' && renderCheckmark()}
+            {checkmarkPosition === 'before' && renderCheckmark('before')}
 
             <div className={cn(styles.content)}>{content}</div>
 
-            {checkmarkPosition === 'after' && renderCheckmark()}
+            {checkmarkPosition === 'after' && renderCheckmark('after')}
         </div>
     );
 };

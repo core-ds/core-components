@@ -1,8 +1,15 @@
-name: Beta release
+name: beta-release
 
 on: workflow_dispatch
 
 jobs:
-    snapshot-release:
-        uses: ./.github/workflows/snapshot-release.yml
-        secrets: inherit
+    stub:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print help and exit
+              shell: bash
+              run: |
+                  echo "This workflow does nothing. Make sure ref is correct."
+                  echo 'Use this workflow for core-components version 48.'
+                  echo 'Use `release` workflow for core-components version 49 and higher.'
+                  exit 1

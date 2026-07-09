@@ -6,11 +6,14 @@
 
     /* options list */
 
-    --select-options-list-border-radius: var(--border-radius-8);
+    --select-options-list-border-radius: var(--border-radius-16);
+    --select-options-list-scrollbar-gap: var(--gap-12);
     --select-options-list-box-shadow: var(--shadow-m);
     --select-options-list-offset: var(--gap-4);
     --select-options-list-top-padding: var(--gap-0);
+    --select-options-list-right-padding: var(--gap-0);
     --select-options-list-bottom-padding: var(--gap-0);
+    --select-options-list-left-padding: var(--gap-0);
     --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);
     --select-option-divider-display: none;
     --select-option-divider-background: var(--color-light-neutral-400);
@@ -31,16 +34,17 @@
     --select-option-hover-color: var(--color-light-text-primary);
     --select-option-active-color: var(--color-light-text-primary);
     --select-option-disabled-color: var(--color-light-text-secondary);
+    --select-option-border-radius: var(--border-radius-0);
 
     /* checkmark */
 
     --select-checkmark-margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-0);
     --select-checkmark-margin-after: var(--select-checkmark-margin);
-    --select-checkmark-size: 4px;
-    --select-checkmark-before-display: 'flex';
+    --select-checkmark-size: 24px;
+    --select-checkmark-before-display: flex;
     --select-checkmark-after-display: none;
     --select-checkmark-before-display-multiple: block;
-    --select-checkmark-after-display-single: none;
+    --select-checkmark-after-display-single: flex;
     --select-checkmark-unselected-opacity: 0;
     --select-checkmark-background: var(--color-light-neutral-translucent-1300);
     --select-checkmark-border-radius: var(--border-radius-circle);

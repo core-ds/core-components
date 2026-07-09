@@ -6,6 +6,7 @@ import {
     type MouseEvent,
     type ReactElement,
     type ReactNode,
+    type Ref,
     type RefAttributes,
     type SVGProps,
 } from 'react';
@@ -149,15 +150,15 @@ export interface BaseSelectProps {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @default 48
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: FormControlProps['size'];
 
     /**
      * Размер пунктов меню
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.
      */
-    optionsSize?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    optionsSize?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -531,7 +532,7 @@ export type ArrowProps = {
     size?: BaseSelectProps['size'];
 };
 
-export type OptionsListProps = {
+export type OptionsListProps = Pick<SelectProps, 'client'> & {
     /**
      * Дополнительный класс
      */
@@ -554,9 +555,8 @@ export type OptionsListProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Компонент пункта меню
@@ -693,6 +693,26 @@ export type OptionsListProps = {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
+
+    /**
+     *
+     */
+    scrollableNodeClassName?: string;
+
+    /**
+     *
+     */
+    contentNodeClassName?: string;
+
+    /**
+     *
+     */
+    listNodeClassName?: string;
+
+    /**
+     *
+     */
+    ctrlRef?: Ref<OptionsListController>;
 };
 
 export type OptgroupProps = {
@@ -703,9 +723,8 @@ export type OptgroupProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Заголовок группы
@@ -752,9 +771,8 @@ export type OptionCommonProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Контент пункта меню
@@ -858,6 +876,11 @@ export type CheckmarkProps = {
     position?: 'before' | 'after';
 
     /**
+     * Дополнительный контент
+     */
+    content?: ReactNode;
+
+    /**
      * Иконка выбранного пункта
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
@@ -892,6 +915,12 @@ export type AdditionalMobileProps = {
      * Использовать ли хук useSelectWithApply в мобильном компоненте
      */
     useWithApplyHook?: boolean;
+
+    /**
+     * Позиция чекбокса "Выбрать все" в Header
+     * @default 'before'
+     */
+    checkmarkPosition?: 'before' | 'after';
 };
 
 export type BottomSheetSelectMobileProps = {
@@ -996,3 +1025,7 @@ export type ClearButtonProps = {
      */
     size?: FormControlProps['size'];
 };
+
+export interface OptionsListController {
+    scrollToIndex(index: number): void;
+}

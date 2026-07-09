@@ -47,7 +47,7 @@ export type PickerButtonDesktopProps = Omit<
 
         /**
          * Размер кнопки
-         * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+         * @default 56
          */
         size?: PickerButtonSize;
 
@@ -116,7 +116,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                 ref={ref}
                 Option={Option}
                 Field={Field}
-                size={size === 'm' || size === 56 ? 56 : 48}
+                size={size === 56 ? 56 : 48}
                 fieldProps={{
                     ...fieldDefaultProps,
                     ...(fieldProps as object),

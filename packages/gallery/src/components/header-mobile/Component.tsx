@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { GalleryContext } from '../../context';
 import { isVideo, TestIds } from '../../utils';
@@ -26,6 +26,8 @@ export const HeaderMobile = () => {
 
     const canDownload = currentImage?.canDownload ?? true;
     const showDownloadButton = !meta?.broken && canDownload;
+    const canShare = currentImage?.canShare ?? true;
+    const showShareButton = !meta?.broken && canShare;
 
     const handleShareClick = async () => {
         if (!currentImage || !navigator.share) {
@@ -89,14 +91,14 @@ export const HeaderMobile = () => {
             })}
         >
             <Buttons.BackArrow onClick={onClose} />
-            <Text
+            <TypographyText
                 className={styles.description}
                 tag='div'
                 view='component-primary'
                 color='static-primary-light'
             >
                 {description}
-            </Text>
+            </TypographyText>
             <div className={styles.rightButtons}>
                 {showDownloadButton && (
                     <Buttons.Download
@@ -105,7 +107,7 @@ export const HeaderMobile = () => {
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
                     />
                 )}
-                {!meta?.broken && <Buttons.Share onClick={handleShareClick} />}
+                {showShareButton && <Buttons.Share onClick={handleShareClick} />}
             </div>
         </div>
     );

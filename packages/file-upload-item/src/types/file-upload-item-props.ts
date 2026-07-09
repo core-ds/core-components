@@ -7,7 +7,7 @@ import {
 
 import { type FileUploadItemStatus } from './status';
 
-export type FileUploadItemProps = {
+export interface FileUploadItemProps {
     /**
      * Дополнительный класс
      */
@@ -58,6 +58,16 @@ export type FileUploadItemProps = {
      * Отображение кнопки восстановления
      */
     showRestore?: boolean;
+
+    /**
+     * Отображает кнопку повторной загрузки.
+     * Принимает `true` или объект с обработчиком клика.
+     */
+    reupload?:
+        | boolean
+        | {
+              onClick?: (id: string) => void;
+          };
 
     /**
      * Статус загрузки файла
@@ -128,6 +138,12 @@ export type FileUploadItemProps = {
     progressBar?: number;
 
     /**
+     * Шкала прогресса
+     * @default true
+     */
+    progressBarAvailable?: boolean;
+
+    /**
      * Кастомный контент
      */
     customContent?: ElementType;
@@ -142,4 +158,9 @@ export type FileUploadItemProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
-};
+
+    /**
+     * Цвет заливки `StatusControl`
+     */
+    backgroundColor?: string;
+}

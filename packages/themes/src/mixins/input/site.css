@@ -5,4 +5,11 @@
     --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
     --input-read-only-color: var(--color-light-text-secondary);
     --input-inverted-read-only-color: var(--color-light-text-secondary-inverted);
+
+    /* desktop */
+    --input-desktop-border-radius-size-72: var(--form-control-xl-border-radius);
+    --input-desktop-border-radius-size-64: var(--form-control-l-border-radius);
+    --input-desktop-border-radius-size-56: var(--form-control-m-border-radius);
+    --input-desktop-border-radius-size-48: var(--form-control-s-border-radius);
+    --input-desktop-border-radius-size-40: var(--form-control-s-border-radius);
 }

@@ -1,10 +1,13 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --amount-input-inverted-minor-part-and-currency-color: var(
         --color-light-text-secondary-inverted
     );
     --amount-input-inverted-disabled: var(--color-light-text-tertiary-inverted);
+    --amount-input-inverted-input-reject-background-color: var(
+        --color-light-status-muted-negative-inverted
+    );
 }
 
 .minorPartAndCurrency {
@@ -13,5 +16,18 @@
     &.disabled,
     &.readOnly {
         color: var(--amount-input-inverted-disabled);
+    }
+}
+
+/* prettier-ignore */
+@each $phase in 0, 1 {
+    .inputReject$(phase) {
+        animation: reject$(phase) ease 0.3s 1;
+    }
+
+    @keyframes reject$(phase) {
+        from {
+            background-color: var(--amount-input-inverted-input-reject-background-color);
+        }
     }
 }

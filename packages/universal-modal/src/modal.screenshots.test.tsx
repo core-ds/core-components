@@ -1,6 +1,10 @@
+import { Page } from 'playwright';
+
 import {
     setupScreenshotTesting,
     generateTestCases,
+    customSnapshotIdentifier,
+    createStorybookUrl,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -33,7 +37,7 @@ describe(
                     open: true,
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
-                    width: ['500', '600', 'fullWidth'],
+                    width: ['500', '600', 'fullWidth', '300'],
                 },
             }),
             ...generateTestCases({
@@ -44,7 +48,7 @@ describe(
                     open: true,
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
-                    height: ['500', '600', 'fullHeight'],
+                    height: ['500', '600', 'fullHeight', '200'],
                 },
             }),
             ...generateTestCases({
@@ -127,3 +131,302 @@ describe(
         },
     }),
 );
+
+describe('Modal | trim title', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: false,
+                        trim: [false, true],
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: true,
+                        trim: [false, true],
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Modal | sticky header', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'header.title': 'Заголовок',
+                        'header.sticky': [false, true],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            evaluate: async (page) => {
+                await page.waitForTimeout(500);
+                await page.$eval('button[class*=showMoreButton]', (el) => {
+                    el.scrollIntoView();
+                });
+                await page.waitForTimeout(500);
+            },
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Modal | header bottom addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: false,
+                        'header.title': 'Title',
+                        'header.bottomAddons': ['bottomAddons'],
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: true,
+                        'header.title': 'Title',
+                        'header.bottomAddons': ['bottomAddons'],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Modal | hug content', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'center',
+                    },
+                }),
+            ],
+            [
+                '002 top',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'top',
+                    },
+                }),
+            ],
+            [
+                '003 bottom',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'bottom',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+    })();
+});
+
+describe('Modal | hug content', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 interactive center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'center',
+                    },
+                }),
+            ],
+            [
+                '002 interactive top',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'top',
+                    },
+                }),
+            ],
+            [
+                '003 interactive bottom',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'bottom',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        evaluate: (page: Page) =>
+            page.click('button[class*=showMoreButton]').then(() => page.waitForTimeout(500)),
+    })();
+});
+
+describe('Modal | content gap', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 only content',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        header: false,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                    },
+                }),
+            ],
+            [
+                '002 with header',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                '003 with footer',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        header: false,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+            [
+                '004 with header and footer',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'header.title': 'Заголовок',
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+    })();
+});

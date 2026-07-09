@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
+import { ConfirmationMobile } from './mobile';
 
 /**
  * TODO: сделать тесты на все callbacks
@@ -216,6 +218,16 @@ describe('Confirmation', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should set maxWidth for mobile via props', () => {
+            const testId = 'mobile-root';
+
+            const { getByTestId } = render(
+                <ConfirmationMobile {...baseProps} dataTestId={testId} maxWidth={320} />,
+            );
+
+            expect(getByTestId(testId).style.maxWidth).toBe('320px');
+        });
+
         it('should render passed inputs amount', () => {
             const requiredCharAmount = 2;
 
@@ -357,6 +369,34 @@ describe('Confirmation', () => {
                 expect(onChangeState).toHaveBeenCalledTimes(1);
                 expect(onChangeState).toHaveBeenCalledWith('INITIAL');
             });
+        });
+
+        it('should focus first input when clicking on any empty input', async () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const inputs = container.querySelectorAll('input');
+            const firstInput = inputs[0] as HTMLInputElement;
+            const thirdInput = inputs[2] as HTMLInputElement;
+
+            fireEvent.click(thirdInput);
+
+            await waitFor(() => {
+                expect(firstInput).toHaveFocus();
+            });
+        });
+
+        it('should focus target input when inputs are not all empty', async () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const inputs = container.querySelectorAll('input');
+            const firstInput = inputs[0] as HTMLInputElement;
+            const secondInput = inputs[1] as HTMLInputElement;
+
+            await userEvent.type(firstInput, '1');
+
+            await userEvent.click(secondInput);
+
+            expect(secondInput).toHaveFocus();
         });
     });
 

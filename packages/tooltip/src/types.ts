@@ -194,12 +194,6 @@ export type TooltipResponsiveProps = Omit<TooltipDesktopProps, 'onClose' | 'onOp
     actionButtonTitle?: string;
 
     /**
-     * Наличие компонента крестика
-     * @deprecated(используйте bottomSheetProps.hasCloser)
-     */
-    hasCloser?: boolean;
-
-    /**
      *  Дополнительные пропсы компонента BottomSheet
      */
     bottomSheetProps?: Partial<BottomSheetProps>;

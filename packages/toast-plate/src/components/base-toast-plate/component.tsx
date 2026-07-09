@@ -7,20 +7,16 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
+import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import {
     StatusBadge,
     type StatusBadgeCustomIcon,
-    type StatusBadgeProps,
     type StatusBadgeViews,
 } from '@alfalab/core-components-status-badge';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { useCustomIcons } from './hooks/useCustomIcons';
-import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
-import { type unsafe_BadgeProps } from './types/unsafeBadgeProps';
-import { isUnsafeBadge } from './utils/isUnsafeBadge';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -29,7 +25,7 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
@@ -63,9 +59,14 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     title?: ReactNode;
 
     /**
+     * Жирный заголовок
+     */
+    boldTitle?: boolean;
+
+    /**
      * Вид бэйджа
      */
-    badge?: unsafe_BadgeProps | StatusBadgeViews;
+    badge?: StatusBadgeViews;
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -84,18 +85,39 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Управляет отображением кнопки закрытия уведомления
+     * @deprecated Используйте пропс `closerProps`
      */
     hasCloser?: boolean;
 
     /**
      * Доп. класс враппера кнопки "закрыть".
+     * @deprecated Используйте пропс `closerProps`
      */
     closerWrapperClassName?: string;
 
     /**
      * Доп. класс кнопки "закрыть".
+     * @deprecated Используйте пропс `closerProps`
      */
     closerClassName?: string;
+
+    /**
+     * Параметры кнопки закрытия
+     * @type {Object}
+     * @property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления
+     * @property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки "закрыть"
+     * @property {string} [closerClassName] - Дополнительный класс кнопки "закрыть"
+     * @property {boolean} [divider] - Показывать разделитель
+     * @property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия
+     * @default {{ hasCloser: false, closerWrapperClassName: undefined, closerClassName: undefined, divider: true, view: 'primary' }}
+     */
+    closerProps?: {
+        hasCloser?: boolean;
+        closerWrapperClassName?: string;
+        closerClassName?: string;
+        divider?: boolean;
+        view?: IconButtonProps['view'];
+    };
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -136,7 +158,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             titleClassName,
             contentClassName,
             actionSectionClassName,
-            hasCloser,
+            hasCloser: legacyHasCloser,
             leftAddons,
             badge,
             title,
@@ -146,17 +168,30 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             onClose,
             getBadgeIcons,
             colors = 'default',
-            closerWrapperClassName,
-            closerClassName,
+            closerWrapperClassName: legacyCloserWrapperClassName,
+            closerClassName: legacyCloserClassName,
             bottomButtonPosition = false,
             styles = {},
+            closerProps = {
+                hasCloser: false,
+                closerWrapperClassName: undefined,
+                closerClassName: undefined,
+                divider: true,
+                view: 'primary',
+            },
+            // not used here
+            boldTitle,
             ...restProps
         },
         ref,
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
+        const { divider, view } = closerProps;
+        const hasCloser = legacyHasCloser ?? closerProps.hasCloser;
+        const closerWrapperClassName =
+            legacyCloserWrapperClassName ?? closerProps.closerWrapperClassName;
+        const closerClassName = legacyCloserClassName ?? closerProps.closerClassName;
 
-        const { transformDeprecatedBadge } = useDeprecatedBadge();
         const { getCustomIcons } = useCustomIcons();
 
         const handleClose = useCallback(
@@ -167,12 +202,6 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             },
             [onClose],
         );
-
-        let statusBadgeView = badge;
-
-        if (badge && isUnsafeBadge(badge)) {
-            statusBadgeView = transformDeprecatedBadge(badge);
-        }
 
         const customIcons = getCustomIcons(getBadgeIcons);
 
@@ -198,7 +227,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                 {leftAddons ||
                                     (badge && (
                                         <StatusBadge
-                                            view={statusBadgeView as StatusBadgeProps['view']}
+                                            view={badge}
                                             dataTestId={getDataTestId(dataTestId, 'badge')}
                                             {...(customIcons && { customIcons })}
                                         />
@@ -253,9 +282,13 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                 styles.closeButtonWrapper,
                                 colorStyles[colors].closeButtonWrapper,
                                 closerWrapperClassName,
+                                {
+                                    [styles.divider]: divider,
+                                },
                             )}
                         >
                             <IconButton
+                                view={view}
                                 icon={CrossMIcon}
                                 colors={colors === 'default' ? 'inverted' : 'default'}
                                 className={cn(

@@ -5,30 +5,17 @@ const fs = require('node:fs');
 const path = require('node:path');
 const resolve = require('resolve');
 
-const ignored = ['.eslintignore', '.gitignore']
-    .map((file) => path.join(process.cwd(), file))
-    .filter((file) => fs.existsSync(file))
-    .map((file) => fs.readFileSync(file, { encoding: 'utf8' }))
-    .flatMap((content) => content.split('\n'))
-    .map((line) => line.trim())
-    .filter((line) => line.length > 0 && !line.startsWith('#'))
-    .map((pattern) =>
-        /**
-         * ./src/foo.ts -> src/foo.ts
-         * /src/bar.ts -> src/bar.ts
-         */
-        pattern.replace(/^\.?\/(.*)/, '$1'),
-    );
-
 /**
  * @type {import('eslint').Linter.LegacyConfig}
  */
 const config = {
     root: true,
     parserOptions: {
-        project: [path.join(process.cwd(), 'tsconfig.json')],
+        project: ['tsconfig.json', 'tsconfig.eslint.json']
+            .map((tsConfigFile) => path.join(process.cwd(), tsConfigFile))
+            .filter((tsConfigPath) => fs.existsSync(tsConfigPath)),
     },
-    ignorePatterns: ['**/*.test.*', '**/*.stories.*', ...ignored],
+    ignorePatterns: ['**/*.test.*', '**/*.stories.*', '**/dist/**', '**/node_modules/**'],
     extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
     overrides: [
         {
@@ -39,6 +26,16 @@ const config = {
                 'react/no-unused-prop-types': 'off',
                 'dirnames/match-kebab-case': 'off',
                 'import/no-relative-packages': 'off',
+            },
+        },
+        {
+            files: '*.d.{ts,cts,mts}',
+            rules: {
+                // ts backport capability
+                'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+                '@typescript-eslint/consistent-type-imports': 'off',
+                'import/no-useless-path-segments': 'off',
+                'import/no-named-default': 'off',
             },
         },
     ],

@@ -42,6 +42,6 @@
     gap: var(--gap-4);
 
     &.size-40 {
-        gap: 6px;
+        gap: var(--gap-6);
     }
 }

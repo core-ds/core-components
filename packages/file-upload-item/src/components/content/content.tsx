@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
-import { FileUploadItemContext } from '../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../context/file-upload-item-context';
 
 import { ContentSubtitle } from './components/content-subtitle/content-subtitle';
 
@@ -18,7 +18,7 @@ export const Content = () => {
         showRestore,
         actionsPresent,
         isClickable,
-    } = useContext(FileUploadItemContext);
+    } = useFileUploadItemContext();
 
     if (CustomContent) {
         return <CustomContent />;
@@ -32,16 +32,16 @@ export const Content = () => {
             })}
         >
             {title && (
-                <Text
+                <TypographyText
                     className={cn(styles.title, {
                         [styles.truncate]: truncate,
                         [styles.restore]: showRestore,
                     })}
-                    view='component'
+                    view='component-primary'
                     color='primary'
                 >
                     {title}
-                </Text>
+                </TypographyText>
             )}
             <ContentSubtitle />
         </div>

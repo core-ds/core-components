@@ -8,7 +8,10 @@
         "outDir": "ts-dist",
         "paths": {
             "@alfalab/core-components-segmented-control": ["./src"],
-            "@alfalab/core-components-segmented-control/*": ["./src/*"]
+            "@alfalab/core-components-segmented-control/*": ["./src/*"],
+            "@alfalab/core-components-skeleton": ["../skeleton/src"],
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"]
         }
-    }
+    },
+    "references": [{ "path": "../skeleton/tsconfig.build.json" }]
 }

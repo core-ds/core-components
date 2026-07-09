@@ -1,8 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
-
-.collapse {
-    font-family: var(--font-family);
-}
+@import '@alfalab/core-components-vars/src/index.css';
 
 .collapse *,
 .collapse:before,

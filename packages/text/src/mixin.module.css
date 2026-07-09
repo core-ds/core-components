@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .accent-caps {
     @mixin accent_caps;
@@ -298,4 +298,16 @@
 
 .paragraph-component {
     @mixin paragraph_component;
+}
+
+.accent-tagline {
+    @mixin accent_tagline;
+}
+
+.action-tagline {
+    @mixin action_tagline;
+}
+
+.paragraph-tagline {
+    @mixin paragraph_tagline;
 }

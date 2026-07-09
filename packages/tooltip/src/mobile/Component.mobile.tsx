@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { type TooltipMobileProps } from '../types';
 
@@ -20,6 +21,8 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     getPortalContainer,
     targetTag: TargetTag = 'div',
     open: openProp,
+    dataTestId,
+    colors = 'default',
     ...restProps
 }) => {
     const [visible, setVisible] = useState(!!openProp);
@@ -49,8 +52,15 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
         <Fragment>
             <BottomSheet
                 open={show}
+                colors={colors}
                 actionButton={
-                    <ButtonMobile view='secondary' block={true} size={56} onClick={handleClose}>
+                    <ButtonMobile
+                        view='secondary'
+                        colors={colors}
+                        block={true}
+                        size={56}
+                        onClick={handleClose}
+                    >
                         {actionButtonTitle}
                     </ButtonMobile>
                 }
@@ -58,6 +68,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
                 container={getPortalContainer}
                 onClose={handleClose}
                 showSwipeMarker={false}
+                dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
             >
                 {content}
             </BottomSheet>
@@ -69,6 +80,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
                 className={cn(styles.target, targetClassName, {
                     [styles.inline]: TargetTag === 'span',
                 })}
+                data-test-id={getDataTestId(dataTestId, 'target')}
             >
                 {children?.props.disabled && <div className={styles.overlap} />}
                 {children}

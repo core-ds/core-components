@@ -6,54 +6,63 @@
     font-weight: 700;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_component_primary {
     font-size: 16px;
     line-height: 20px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_component_secondary {
     font-size: 14px;
     line-height: 18px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_primary_large {
     font-size: 18px;
     line-height: 24px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_primary_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_primary_small {
     font-size: 14px;
     line-height: 20px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_secondary_large {
     font-size: 13px;
     line-height: 16px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_secondary_medium {
     font-size: 12px;
     line-height: 16px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_secondary_small {
     font-size: 11px;
     line-height: 16px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_tagline {
@@ -62,70 +71,81 @@
     font-weight: 700;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_caps {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_component_primary {
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_component_secondary {
     font-size: 14px;
     line-height: 18px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_primary_large {
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_primary_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_primary_small {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_secondary_large {
     font-size: 13px;
     line-height: 16px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_secondary_medium {
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_secondary_small {
     font-size: 11px;
     line-height: 16px;
     font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin action_tagline {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline_large {
@@ -212,164 +232,144 @@
     font-size: 40px;
     line-height: 48px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system_medium {
     font-size: 30px;
     line-height: 36px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system_small {
     font-size: 22px;
     line-height: 26px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system_xlarge {
     font-size: 48px;
     line-height: 52px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system_xsmall {
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system-mobile_large {
     font-size: 30px;
     line-height: 36px;
     font-weight: 600;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system-mobile_medium {
     font-size: 26px;
     line-height: 32px;
     font-weight: 600;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system-mobile_small {
     font-size: 20px;
     line-height: 28px;
     font-weight: 600;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system-mobile_xlarge {
     font-size: 34px;
     line-height: 40px;
     font-weight: 600;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin headline-system-mobile_xsmall {
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
-}
-
-@define-mixin key_large {
-    font-size: 120px;
-    line-height: 132px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_medium {
-    font-size: 96px;
-    line-height: 120px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_small {
-    font-size: 80px;
-    line-height: 96px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_xlarge {
-    font-size: 144px;
-    line-height: 180px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_xsmall {
-    font-size: 64px;
-    line-height: 80px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_caps {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_component_primary {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_component_secondary {
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_primary_large {
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_primary_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_primary_small {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_secondary_large {
     font-size: 13px;
     line-height: 16px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_secondary_medium {
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_secondary_small {
     font-size: 11px;
     line-height: 16px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_tagline {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo_large {
@@ -456,76 +456,129 @@
     font-size: 40px;
     line-height: 48px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system_medium {
     font-size: 30px;
     line-height: 36px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system_small {
     font-size: 22px;
     line-height: 26px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system_xlarge {
     font-size: 48px;
     line-height: 52px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system_xsmall {
     font-size: 18px;
     line-height: 22px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system-mobile_large {
     font-size: 30px;
     line-height: 36px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system-mobile_medium {
     font-size: 26px;
     line-height: 32px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system-mobile_small {
     font-size: 20px;
     line-height: 28px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system-mobile_xlarge {
     font-size: 34px;
     line-height: 40px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin promo-system-mobile_xsmall {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_component {
     font-size: 16px;
     line-height: 20px;
     font-weight: 700;
+    font-family: var(--font-family-system);
 } /* deprecated */
 
 @define-mixin action_component {
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
+    font-family: var(--font-family-system);
+} /* deprecated */
+
+@define-mixin key_large {
+    font-size: 120px;
+    line-height: 132px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_medium {
+    font-size: 96px;
+    line-height: 120px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_small {
+    font-size: 80px;
+    line-height: 96px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_xlarge {
+    font-size: 144px;
+    line-height: 180px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_xsmall {
+    font-size: 64px;
+    line-height: 80px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 } /* deprecated */
 
 @define-mixin paragraph_component {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
+    font-family: var(--font-family-system);
 } /* deprecated */

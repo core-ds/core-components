@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { Checkbox } from '@alfalab/core-components-checkbox';
@@ -8,27 +8,28 @@ import { type CheckmarkProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const BaseCheckmark = ({
+export const BaseCheckmark: FC<CheckmarkProps> = ({
     selected,
     disabled = false,
     className,
     multiple,
     align = 'center',
-}: CheckmarkProps) => {
-    const checkmarkClassNames = cn(styles.checkmark, styles[align], className, {
-        [styles.single]: !multiple,
-        [styles.selected]: selected,
-    });
-
-    return multiple ? (
+    position = 'before',
+}) =>
+    multiple ? (
         <Checkbox
             checked={selected}
             disabled={disabled}
-            className={checkmarkClassNames}
-            size='m'
+            className={cn(styles.checkmark, styles[position], styles[align], className, {
+                [styles.selected]: selected,
+            })}
+            size={24}
             hiddenInput={true}
         />
     ) : (
-        <CheckmarkMIcon className={checkmarkClassNames} />
+        <CheckmarkMIcon
+            className={cn(styles.singleIcon, styles[position], styles[align], className, {
+                [styles.selected]: selected,
+            })}
+        />
     );
-};

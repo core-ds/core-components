@@ -52,6 +52,7 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
     };
     const filteredOptions = options.filter((option) => matchOption(option, value));
 
+    const size = select('size', [40, 48, 56, 64, 72], 48);
     const Option = boolean('Default Option', true) ? undefined : BaseOption;
 
     return (
@@ -61,7 +62,7 @@ const renderComponent = (Component: any, props?: Partial<InputAutocompleteProps>
             options={filteredOptions}
             selected={boolean('prevent select', true) ? [] : undefined}
             block={boolean('block', false)}
-            size={select('size', [40, 48, 56, 64, 72], 48)}
+            size={Number(size)}
             disabled={boolean('disabled', false)}
             error={text('error', '')}
             success={boolean('success', false)}

@@ -22,7 +22,7 @@ import { Link } from '@alfalab/core-components-link';
 ```jsx live
 render(
     <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-        <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' block size='m' />
+        <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' block size={56} />
     </div>,
 );
 ```
@@ -36,7 +36,13 @@ render(
 ```jsx live mobileHeight={640}
 render(
     <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-        <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' picker block size='m' />
+        <DateTimeInput
+            label='Дата и время'
+            placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ'
+            picker
+            block
+            size={56}
+        />
     </div>,
 );
 ```

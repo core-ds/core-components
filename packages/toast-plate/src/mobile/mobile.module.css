@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../vars.css';
 
 .actionSection {
@@ -7,7 +7,10 @@
 
 .title {
     @mixin paragraph_primary_small;
-    font-weight: var(--toast-plate-title-font-weight);
+
+    &.boldTitle {
+        @mixin accent_primary_small;
+    }
 }
 
 .closeButtonWrapper {

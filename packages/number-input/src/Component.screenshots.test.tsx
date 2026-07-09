@@ -119,3 +119,68 @@ describe(
         },
     }),
 );
+
+describe('NumberInput | lock state sprite', () => {
+    const testCase = (color: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `color ${color} | disabled`,
+                    createSpriteStorybookUrl({
+                        componentName: 'NumberInput',
+                        knobs: {
+                            label: 'Число',
+                            value: 1234,
+                            size: [40, 48],
+                            block: true,
+                            step: 1,
+                            colors: [color],
+                            disabled: [false, true],
+                        },
+                        size: { width: 300, height: 70 },
+                    }),
+                ],
+                [
+                    `color ${color} | readOnly`,
+                    createSpriteStorybookUrl({
+                        componentName: 'NumberInput',
+                        knobs: {
+                            label: 'Число',
+                            value: 1234,
+                            size: [40, 48],
+                            block: true,
+                            step: 1,
+                            colors: [color],
+                            readOnly: [false, true],
+                        },
+                        size: { width: 300, height: 70 },
+                    }),
+                ],
+                [
+                    `color ${color} | disableUserInput`,
+                    createSpriteStorybookUrl({
+                        componentName: 'NumberInput',
+                        knobs: {
+                            label: 'Число',
+                            value: 1234,
+                            size: [40, 48],
+                            block: true,
+                            step: 1,
+                            colors: [color],
+                            disableUserInput: [false, true],
+                        },
+                        size: { width: 300, height: 70 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 360,
+                height: 450,
+            },
+        })();
+
+    ['default', 'inverted'].forEach((theme) => testCase(theme));
+});

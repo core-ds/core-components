@@ -10,8 +10,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import dateFnsIsValid from 'date-fns/isValid';
-import startOfMonth from 'date-fns/startOfMonth';
+import { isValid as dateFnsIsValid, startOfMonth } from 'date-fns';
 
 import { type CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
 import { type CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
@@ -210,6 +209,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         const [open, setOpen] = useState(defaultOpen);
 
         const inputDisabled = disabled || readOnly;
+        const shouldShowPicker = picker && !disabled && !readOnly;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
@@ -472,14 +472,14 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                         rightAddons={
                             <React.Fragment>
                                 {rightAddons}
-                                {picker && (
+                                {shouldShowPicker && (
                                     // eslint-disable-next-line jsx-a11y/control-has-associated-label
                                     <IconButton
                                         className={styles.calendarIcon}
                                         ref={iconRef}
                                         onClick={inputDisabled ? undefined : handleIconButtonClick}
                                         icon={CalendarMIcon}
-                                        size='s'
+                                        size={48}
                                     />
                                 )}
                             </React.Fragment>

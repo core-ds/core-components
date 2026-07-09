@@ -15,6 +15,7 @@ export type GalleryImage = {
     previewSrc?: string;
     alt?: string;
     canDownload?: boolean;
+    canShare?: boolean;
     /**
      * Нижняя кнопка, есть только у видео
      */

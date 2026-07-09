@@ -7,8 +7,6 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
-            "@alfalab/core-components-badge": ["../badge/src"],
-            "@alfalab/core-components-badge/*": ["../badge/src/*"],
             "@alfalab/core-components-base-modal": ["../base-modal/src"],
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
             "@alfalab/core-components-bottom-sheet": ["../bottom-sheet/src"],
@@ -27,8 +25,8 @@
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-popover": ["../popover/src"],
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
-            "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
-            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-scrollbar-private": ["../scrollbar-private/src"],
+            "@alfalab/core-components-scrollbar-private/*": ["../scrollbar-private/src/*"],
             "@alfalab/core-components-select": ["./src"],
             "@alfalab/core-components-select/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
@@ -38,7 +36,6 @@
         }
     },
     "references": [
-        { "path": "../badge/tsconfig.build.json" },
         { "path": "../base-modal/tsconfig.build.json" },
         { "path": "../bottom-sheet/tsconfig.build.json" },
         { "path": "../button/tsconfig.build.json" },
@@ -48,7 +45,7 @@
         { "path": "../modal/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../popover/tsconfig.build.json" },
-        { "path": "../scrollbar/tsconfig.build.json" },
+        { "path": "../scrollbar-private/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../skeleton/tsconfig.build.json" }
     ]

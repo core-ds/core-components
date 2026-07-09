@@ -38,9 +38,8 @@ export type BaseFilterTagProps = {
 
     /**
      * Размер компонента
-     * @description xxs, xs, s deprecated, используйте вместо них 32, 40, 48 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 32 | 40 | 48;
+    size?: 32 | 40 | 48;
 
     /**
      * Дополнительный класс
@@ -49,8 +48,15 @@ export type BaseFilterTagProps = {
 
     /**
      * Показывать крестик для очистки выбора
+     * @default true
      */
     showClear?: boolean;
+
+    /**
+     * Показывать шеврон в выбранном состоянии
+     * @default true
+     */
+    showArrow?: boolean;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -59,21 +65,15 @@ export type BaseFilterTagProps = {
     block?: boolean;
 
     /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props shape и view
-     * Вариант тега
-     */
-    variant?: 'default' | 'alt';
-
-    /**
      * Форма тега
+     * @default rounded
      */
     shape?: 'rounded' | 'rectangular';
 
     /**
      * Стиль тега
      */
-    view?: 'outlined' | 'filled';
+    view?: 'outlined' | 'filled' | 'muted';
 
     /**
      * Набор цветов для компонента

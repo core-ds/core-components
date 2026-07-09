@@ -1,7 +1,7 @@
 ## Размеры
 
-Основным типом инпутов в десктопном вебе являются инпуты размера M с внутренним расположением лейбла.
-Для мобильного веба рекомендуемый размер S с внешним расположением лейбла.
+Основным типом инпутов в десктопном вебе являются инпуты размера 56 с внутренним расположением лейбла.
+Для мобильного веба рекомендуемый размер 48 с внешним расположением лейбла.
 
 ```jsx live
 <div style={{ width: 320 }}>
@@ -13,7 +13,7 @@
         size={isMobile() ? 48 : 56}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='m' />
+    <Gap size={16} />
     <Input
         placeholder='Введите email'
         block={true}
@@ -46,11 +46,11 @@ render(() => {
                     error={error}
                 />
             </div>
-            <Gap size='xl' />
+            <Gap size={24} />
             <Button size={32} view='secondary' onClick={() => setError(false)}>
                 По умолчанию
             </Button>
-            <Gap size='s' direction='horizontal' />
+            <Gap size={12} direction='horizontal' />
             <Button size={32} view='secondary' onClick={() => setError('Error message')}>
                 Состояние ошибки
             </Button>
@@ -81,7 +81,7 @@ render(() => {
                     {...inputProps}
                 />
             </div>
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Space direction='horizontal' wrap={true}>
                 <Button size={32} view='secondary' onClick={() => setInputProps({})}>
@@ -292,12 +292,12 @@ render(() => {
                         view='secondary'
                         onClick={singleIcon}
                         icon={DiamondsMIcon}
-                        size='s'
+                        size={48}
                         dataTestId='icon'
                     />
                 }
             />
-            <Gap size='l' />
+            <Gap size={20} />
             <Input
                 value={valueTwo}
                 block={true}
@@ -313,14 +313,14 @@ render(() => {
                             view='secondary'
                             onClick={leftIcon}
                             icon={DiamondsMIcon}
-                            size='xs'
+                            size={32}
                             alignIcon='right'
                         />
                         <IconButton
                             view='secondary'
                             onClick={rightIcon}
                             icon={FlowerMIcon}
-                            size='xs'
+                            size={32}
                             alignIcon='left'
                         />
                     </div>

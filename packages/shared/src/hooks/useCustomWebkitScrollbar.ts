@@ -2,13 +2,13 @@ import { useState } from 'react';
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { browser } from '../browser';
+import { getScrollbarSize, isWebkitBased } from '../browser';
 
 export function useCustomWebkitScrollbar() {
     const [shouldUseCustomScrollbar, setShouldUseCustomScrollbar] = useState<boolean>(false);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        if (browser.getScrollbarSize() > 0 && browser.isWebkitBased()) {
+        if (getScrollbarSize() > 0 && isWebkitBased()) {
             setShouldUseCustomScrollbar(true);
         }
     }, []);

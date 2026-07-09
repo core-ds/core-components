@@ -21,9 +21,10 @@ export const PageIndicatorRunner: React.FC<PageIndicatorRunnerProps> = ({
     elements: count = 10,
     size = 4,
     colors = 'default',
+    className,
 }) => (
     <div
-        className={cn(styles.pageIndicator, colorsStyle[colors].pageIndicator)}
+        className={cn(styles.pageIndicator, colorsStyle[colors].pageIndicator, className)}
         style={{ height: size, borderRadius: size / 2 }}
     >
         <div

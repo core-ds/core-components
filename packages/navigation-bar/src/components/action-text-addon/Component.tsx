@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -43,19 +43,19 @@ export const ActionTextAddon: React.FC<ActionTextAddonProps> = ({
 }) => (
     <ButtonMobile
         view='text'
-        size='s'
+        size={48}
         onClick={onClick}
         aria-label={text}
         className={cn(styles.component, className)}
         dataTestId={dataTestId}
         {...htmlAttributes}
     >
-        <Text
+        <TypographyText
             className={styles.text}
-            view='component'
+            view='component-primary'
             weight={action === 'primary' ? 'medium' : 'regular'}
         >
             {text}
-        </Text>
+        </TypographyText>
     </ButtonMobile>
 );

@@ -29,6 +29,12 @@ export type BasePlateProps = {
     hasCloser?: boolean;
 
     /**
+     * Лейбл доступности для закрывающего крестика
+     * @default закрыть
+     */
+    closerAriaLabel?: string;
+
+    /**
      * Управление наличием стрелки скрытия контента
      */
     foldable?: boolean;
@@ -119,6 +125,11 @@ export type BasePlateProps = {
     buttonsClassName?: string;
 
     /**
+     * Дополнительный класс для контейнера кнопок
+     */
+    buttonsContainerClassName?: string;
+
+    /**
      * Дополнительный класс для контента
      */
     contentClassName?: string;
@@ -160,6 +171,11 @@ export type BasePlateProps = {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
+
+    /**
+     * Кастомный радиус скругления (px, rem, em и т.д.)
+     */
+    borderRadius?: string;
 };
 
 /* eslint-disable complexity */
@@ -167,6 +183,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
     (
         {
             hasCloser,
+            closerAriaLabel = 'закрыть',
             foldable: foldableProp = false,
             folded: foldedProp,
             defaultFolded = true,
@@ -183,6 +200,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             shadow = view === 'custom',
             className,
             buttonsClassName,
+            buttonsContainerClassName,
             contentClassName,
             subAddonsClassName,
             dataTestId,
@@ -193,6 +211,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             styles = {},
             background,
             borderColor,
+            borderRadius,
         },
         ref,
     ) => {
@@ -313,6 +332,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                 style={{
                     ...setCustomViewColors(),
                     ...setCustomViewRectangleBorderColor(),
+                    ...(borderRadius && { borderRadius }),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
@@ -365,7 +385,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                                             buttons={buttons}
                                             containerClassName={cn(
                                                 commonStyles.containerButton,
-                                                buttonsClassName,
+                                                buttonsContainerClassName,
                                             )}
                                             buttonClassName={cn(
                                                 commonStyles.button,
@@ -404,9 +424,9 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                         <div className={commonStyles.rightAddons}>
                             <IconButton
                                 className={commonStyles.closer}
-                                aria-label='закрыть'
+                                aria-label={closerAriaLabel}
                                 icon={CrossMIcon}
-                                size='xxs'
+                                size={24}
                                 onClick={handleClose}
                             />
                         </div>

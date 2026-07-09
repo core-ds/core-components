@@ -582,7 +582,9 @@ exports[`Checkbox Display tests should display tag group correctly 1`] = `
               class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
               type="button"
             >
-              <span>
+              <span
+                class="content"
+              >
                 Первый вариант
               </span>
             </button>
@@ -600,7 +602,9 @@ exports[`Checkbox Display tests should display tag group correctly 1`] = `
               class="component component component size-48 size-48 outlined outlined rounded outlined"
               type="button"
             >
-              <span>
+              <span
+                class="content"
+              >
                 Второй вариант
               </span>
             </button>
@@ -618,7 +622,9 @@ exports[`Checkbox Display tests should display tag group correctly 1`] = `
               class="component component component size-48 size-48 outlined outlined rounded outlined"
               type="button"
             >
-              <span>
+              <span
+                class="content"
+              >
                 Третий вариант
               </span>
             </button>
@@ -652,7 +658,9 @@ exports[`Checkbox Display tests should display tag group correctly 1`] = `
             class="component component component size-48 size-48 outlined outlined rounded outlined my-tag"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Первый вариант
             </span>
           </button>
@@ -670,7 +678,9 @@ exports[`Checkbox Display tests should display tag group correctly 1`] = `
             class="component component component size-48 size-48 outlined outlined rounded outlined"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Второй вариант
             </span>
           </button>
@@ -688,7 +698,9 @@ exports[`Checkbox Display tests should display tag group correctly 1`] = `
             class="component component component size-48 size-48 outlined outlined rounded outlined"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Третий вариант
             </span>
           </button>

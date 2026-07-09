@@ -96,10 +96,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     } = props;
 
     const [horizontalSize, verticalSize] = React.useMemo(
-        () =>
-            ((Array.isArray(size) ? size : [size, size]) as [Size, Size]).map((item) =>
-                getNumberSize(item),
-            ),
+        () => (Array.isArray(size) ? size : [size, size]).map((item) => getNumberSize(item)),
         [size],
     );
 

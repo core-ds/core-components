@@ -1,0 +1,155 @@
+{
+"packageName": "accordion",
+"displayName": "Accordion",
+"description": "Используется для отображения скрытого контента по клику.",
+"props": {
+"expanded": {
+"defaultValue": null,
+"description": "Состояние компонента",
+"name": "expanded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"header": {
+"defaultValue": null,
+"description": "Элемент заголовка",
+"name": "header",
+"required": true,
+"type": {
+"name": "ReactNode"
+}
+},
+"control": {
+"defaultValue": null,
+"description": "Слот для элемента управления",
+"name": "control",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"controlPosition": {
+"defaultValue": {
+"value": "end"
+},
+"description": "Указывает компоненту - где будет размещен control",
+"name": "controlPosition",
+"required": false,
+"type": {
+"name": "ControlPosition | undefined"
+}
+},
+"defaultExpanded": {
+"defaultValue": {
+"value": false
+},
+"description": "Начальное состояние uncontrolled компонента",
+"name": "defaultExpanded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Основной элемент для отображения содержимого",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс обертки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"containerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контейнера с заголовком",
+"name": "containerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"headerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для header",
+"name": "headerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"controlClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для control",
+"name": "controlClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bodyClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для body",
+"name": "bodyClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bodyContentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для body content",
+"name": "bodyContentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onExpandedChange": {
+"defaultValue": null,
+"description": "Обработчик смены состояний `expanded`",
+"name": "onExpandedChange",
+"required": false,
+"type": {
+"name": "((expanded: boolean) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Анатомия",
+"description": "Компонент состоит из только 3 слотов: Control - элемента управления, Header - основной элемент для отображения содержимого и Body - содержимое.\nСлоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку.",
+"desktop": "<Accordion\nclassName='accordion-wrapper'\nheader={<div className='accordion-header' />}\ncontrol={<div className='accordion-control' />}\n>\n<div className='accordion-body' />\n</Accordion>"
+},
+{
+"title": "Контрол",
+"description": "Control может быть в виде кнопки, иконки или любым другим интерактивным элементом, который инициирует раскрытие или сворачивание секции.\nПо умолчанию Control размещается сбоку справа от Header, но может располагаться и слева, что больше напоминает дерево.",
+"desktop": "render(() => {\nconst [controlPosition, setControlPosition] = React.useState('end');\n\nconst handleControlPositionChange = React.useCallback((_, payload) => {\nsetControlPosition(payload.value);\n}, []);\n\nreturn <Space>\n<Accordion\nclassName='accordion-wrapper'\nheader={<div className='accordion-header' />}\ncontrolPosition={controlPosition}\n>\n<div className='accordion-body' />\n</Accordion>\n\n<Accordion\nclassName='accordion-wrapper'\nheader={<div className='accordion-header' />}\ncontrolPosition={controlPosition}\n>\n<div className='accordion-body' />\n</Accordion>\n\n<Accordion\nclassName='accordion-wrapper'\nheader={<div className='accordion-header' />}\ncontrolPosition={controlPosition}\n>\n<div className='accordion-body' />\n</Accordion>\n\n<RadioGroup\nlabel='Расположение контрола'\ndirection='vertical'\nname='radioGroup'\nonChange={handleControlPositionChange}\nvalue={controlPosition}\n>\n<Radio size={24} label='Справа' value='end' />\n<Radio size={24} label='Слева' value='start' />\n</RadioGroup>\n</Space>\n})"
+},
+{
+"title": "Примеры",
+"description": "В качестве пресетов в компонент заложены текстовые контейнеры, как самый распространённый вариант использования.",
+"desktop": "render(() => {\nreturn <Space>\n<Accordion\nheader='Зачем нужен аккордeон?'\nclassName='accordion-container'\n>\nИспользуется для создания интерактивных списков,\nкоторые можно разворачивать и сворачивать для\nотображения дополнительной информации.\n</Accordion>\n\n<Accordion\nheader='Когда лучше использовать аккордeон?'\nclassName='accordion-container'\n>\nПодходит для организации сложной информации в ограниченном пространстве,\nпредставления большого объема данных, иерархической структуры с\nвозможностью скрытия и открытия разделов,\nудовлетворения потребностей пользователей в доступе к информации\nпо запросу и просмотра нескольких связанных разделов контента.\n</Accordion>\n</Space>\n})"
+}
+],
+"changelog": []
+}

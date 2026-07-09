@@ -51,6 +51,7 @@ export const button: Story = {
                     nowrap={boolean('nowrap', false)}
                     leftAddons={boolean('leftAddons', false) && addons}
                     rightAddons={boolean('rightAddons', false) && addons}
+                    hint={text('hint', '')}
                 >
                     {text('label', 'Оплатить')}
                 </Button>
@@ -91,6 +92,7 @@ export const button_mobile: Story = {
                     nowrap={boolean('nowrap', false)}
                     leftAddons={boolean('leftAddons', false) && addons}
                     rightAddons={boolean('rightAddons', false) && addons}
+                    hint={text('hint', '')}
                 >
                     {text('label', 'Оплатить')}
                 </ButtonMobile>
@@ -131,6 +133,7 @@ export const button_desktop: Story = {
                     nowrap={boolean('nowrap', false)}
                     leftAddons={boolean('leftAddons', false) && addons}
                     rightAddons={boolean('rightAddons', false) && addons}
+                    hint={text('hint', '')}
                 >
                     {text('label', 'Оплатить')}
                 </ButtonDesktop>

@@ -1,11 +1,10 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     /* default */
     --toast-plate-bg-color: var(--color-light-modal-bg-primary-inverted);
     --toast-plate-color: var(--color-light-text-primary-inverted);
     --toast-plate-border-radius: var(--border-radius-12);
-    --toast-plate-title-font-weight: 700;
     --toast-plate-action-align: center;
     --toast-plate-action-margin: var(--gap-2);
     --toast-plate-action-padding: var(--gap-0) var(--gap-32);

@@ -46,7 +46,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               class="contentTitle"
             >
               <div
-                class="title title"
+                class="boldTitle title title"
               >
                 title
               </div>
@@ -122,7 +122,7 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
               class="contentTitle"
             >
               <div
-                class="title title"
+                class="boldTitle title title"
               >
                 title
               </div>

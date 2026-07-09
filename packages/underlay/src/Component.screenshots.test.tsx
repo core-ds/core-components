@@ -103,7 +103,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'Underlay',
                     knobs: {
-                        borderRadius: 'm',
+                        borderRadius: 8,
                         children: 'Content',
                         borderColor: [
                             'accent',
@@ -127,7 +127,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'Underlay',
                     knobs: {
-                        borderRadius: 'm',
+                        borderRadius: 8,
                         children: 'Content',
                         borderColor: [
                             'underline',
@@ -159,7 +159,7 @@ describe(
                         children: 'Content',
                         backgroundColor: 'none',
                         borderSize: 2,
-                        borderRadius: 'm',
+                        borderRadius: 8,
                     },
                     size: { width: 400, height: 60 },
                 }),

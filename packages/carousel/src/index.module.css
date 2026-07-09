@@ -1,0 +1,26 @@
+@import './vars.css';
+
+.container {
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+    box-sizing: content-box;
+    display: inline-flex;
+    will-change: transform;
+    min-height: inherit;
+    height: inherit;
+
+    &:not(.swiping) {
+        transition: transform var(--carousel-animation-duration) ease-in-out;
+    }
+}
+
+.item {
+    position: relative;
+    display: block;
+    transform: translateZ(0);
+    flex-shrink: 0;
+}

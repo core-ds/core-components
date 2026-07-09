@@ -2,7 +2,7 @@ import { type RefObject, useContext, useEffect } from 'react';
 
 import { type ScrollbarProps } from '@alfalab/core-components-scrollbar';
 
-import { UniversalModalContext } from '../../context/universal-modal-context';
+import { ModalContext } from '../../Context';
 
 interface Params {
     scrollbarContentNodeRef: RefObject<HTMLDivElement>;
@@ -16,8 +16,10 @@ interface Params {
 export const useModalHighlighted = (params: Params) => {
     const { scrollbarContentNodeRef, scrollableNodeRef } = params;
 
-    const { setModalHeaderHighlighted, setModalFooterHighlighted } =
-        useContext(UniversalModalContext);
+    const {
+        setHeaderHighlighted: setModalHeaderHighlighted,
+        setFooterHighlighted: setModalFooterHighlighted,
+    } = useContext(ModalContext);
 
     const handleScroll: ScrollbarProps['onContentScroll'] = (e) => {
         const target = e.target as HTMLDivElement;

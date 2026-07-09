@@ -18,3 +18,40 @@
         background-color: var(--tag-filled-background-color-active);
     }
 }
+
+.muted {
+    background-color: var(--tag-muted-background-color);
+
+    &:disabled {
+        background-color: var(--tag-muted-background-color-disabled);
+        border-color: var(--tag-muted-border-color);
+    }
+
+    @media (hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: var(--tag-muted-background-color-hover);
+        }
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-muted-background-color-active);
+    }
+
+    &.checked {
+        background-color: var(--tag-muted-background-color-checked);
+
+        &:disabled {
+            background-color: var(--tag-muted-background-color-checked-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-muted-background-color-checked-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-muted-background-color-checked-active);
+        }
+    }
+}

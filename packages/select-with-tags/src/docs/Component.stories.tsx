@@ -48,6 +48,10 @@ const renderComponent = (component = SelectWithTags) => {
     const [selected, setSelected] = React.useState<(string | OptionShape)[]>(
         isPreview ? options.slice(3, 8) : [],
     );
+
+    const nativeScrollbar = boolean('nativeScrollbar', true);
+    const scrollbar = nativeScrollbar ? true : undefined;
+
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     };
@@ -58,6 +62,7 @@ const renderComponent = (component = SelectWithTags) => {
     const transformCollapsedTagText = (count: number) => {
         return `+${count} ${pluralize(count, 'элемент', 'элемента', 'элементов')}`;
     };
+
     return (
         <div style={previewStyles}>
             <div style={{ width: isPreview ? 256 : 400 }}>
@@ -80,6 +85,9 @@ const renderComponent = (component = SelectWithTags) => {
                     value={value}
                     onChange={handleChange}
                     selected={selected}
+                    optionsListProps={{
+                        nativeScrollbar: scrollbar,
+                    }}
                 />
             </div>
         </div>

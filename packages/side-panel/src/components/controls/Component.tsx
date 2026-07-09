@@ -7,6 +7,7 @@ import { ResponsiveContext } from '../../ResponsiveContext';
 
 import layoutStyles from '../footer/layout.module.css';
 import styles from './index.module.css';
+import mobileLayoutStyles from './mobile.layout.module.css';
 
 export interface ControlsProps {
     /**
@@ -58,6 +59,9 @@ export const Controls: React.FC<ControlsProps> = ({
                 styles.component,
                 layoutStyles[layout],
                 gap && layoutStyles[`gap-${gap}`],
+                {
+                    [mobileLayoutStyles[layout]]: view === 'mobile',
+                },
             )}
         >
             {shouldReverse ? (

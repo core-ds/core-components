@@ -1,15 +1,16 @@
 import React, { ForwardRefRenderFunction, SyntheticEvent } from 'react';
 import {
     render,
+    screen,
     fireEvent,
-    act,
-    RenderResult,
     waitForElementToBeRemoved,
     waitFor,
 } from '@testing-library/react';
 
 import * as popoverModule from '@alfalab/core-components-popover';
 import { TooltipDesktop as Tooltip, TooltipDesktopProps as TooltipProps } from './desktop';
+import { getTooltipDesktopTestIds, getTooltipMobileTestIds } from './utils';
+import { TooltipMobile, TooltipMobileProps } from './mobile';
 
 jest.mock('react-transition-group', () => {
     return { CSSTransition: jest.fn((props) => (props.in ? props.children : null)) };
@@ -19,16 +20,12 @@ type PopoverComponent = {
     render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
 };
 
-const renderTooltip = async (props: TooltipProps): Promise<RenderResult> => {
-    let result;
+const renderTooltip = async (props: TooltipProps) => {
+    return render(<Tooltip {...props}>{props.children}</Tooltip>);
+};
 
-    await act(async () => {
-        result = await render(<Tooltip {...props}>{props.children}</Tooltip>);
-    });
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    return result;
+const renderMobileTooltip = async (props: TooltipMobileProps) => {
+    return render(<TooltipMobile {...props}>{props.children}</TooltipMobile>);
 };
 
 describe('Display tests', () => {
@@ -63,25 +60,80 @@ describe('Display tests', () => {
     });
 });
 
-describe('Attributes tests', () => {
-    it('should set data-test-id attribute', async () => {
-        const testId = 'tooltip';
-        const className = 'custom';
+describe('Attributes tests (desktop)', () => {
+    const testId = 'tooltip';
 
-        await renderTooltip({
+    const targetClassName = 'targetClassName';
+    const contentClassName = 'contentClassName';
+    const popoverClassName = 'popoverClassName';
+
+    beforeEach(() => {
+        renderTooltip({
             children: <div>Hover me</div>,
             content: <div>I am tooltip</div>,
             open: true,
-            contentClassName: className,
+            contentClassName,
+            targetClassName,
+            popoverClassName,
             dataTestId: testId,
         });
-
-        const tooltipContentWrap = document.querySelector(`.${className}`);
-
-        const testIdAttr = tooltipContentWrap?.getAttribute('data-test-id');
-
-        expect(testIdAttr).toBe(testId);
     });
+
+    const tooltipTestIds = getTooltipDesktopTestIds(testId);
+
+    const elements = [
+        { name: 'target', testId: tooltipTestIds.target, className: targetClassName },
+        { name: 'popover', testId: tooltipTestIds.popover, className: popoverClassName },
+        { name: 'content', testId: tooltipTestIds.content, className: contentClassName },
+    ];
+
+    it.each(elements)(
+        'should set `data-test-id` attribute on the tooltip %s',
+        async ({ testId, className }) => {
+            const element = screen.getByTestId(testId);
+
+            expect(element).toBeInTheDocument();
+            expect(element).toHaveClass(className);
+        },
+    );
+});
+
+describe('Attributes tests (mobile)', () => {
+    const testId = 'tooltip';
+    const targetClassName = 'target';
+    const modalWrapperClassName = 'bottom-sheet-wrapper';
+
+    beforeEach(() => {
+        renderMobileTooltip({
+            children: <div>Hover me</div>,
+            content: <div>I am tooltip</div>,
+            open: true,
+            targetClassName,
+            modalWrapperClassName,
+            dataTestId: testId,
+        });
+    });
+
+    const tooltipTestIds = getTooltipMobileTestIds(testId);
+
+    const elements = [
+        { name: 'target', testId: tooltipTestIds.target, className: targetClassName },
+        {
+            name: 'bottom-sheet',
+            testId: tooltipTestIds.bottomSheet,
+            className: modalWrapperClassName,
+        },
+    ];
+
+    it.each(elements)(
+        'should set `data-test-id` attribute on the tooltip %s',
+        async ({ testId, className }) => {
+            const element = screen.getByTestId(testId);
+
+            expect(element).toBeInTheDocument();
+            expect(element).toHaveClass(className);
+        },
+    );
 });
 
 describe('Styles tests', () => {
@@ -97,7 +149,9 @@ describe('Styles tests', () => {
             dataTestId: testId,
         });
 
-        expect(getByTestId(testId)).toHaveClass(className);
+        const contentTestId = getTooltipDesktopTestIds(testId).content;
+
+        expect(getByTestId(contentTestId)).toHaveClass(className);
     });
 
     it('should set custom css class to arrow component', async () => {

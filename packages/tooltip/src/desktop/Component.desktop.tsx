@@ -11,6 +11,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Popover } from '@alfalab/core-components-popover';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { type TooltipDesktopProps } from '../types';
 
@@ -64,6 +65,8 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     const timer = useRef(0);
 
     const show = forcedOpen === undefined ? visible : forcedOpen;
+
+    const popperColorClass = colorStyles[colors][view];
 
     const open = () => {
         if (!show) {
@@ -177,6 +180,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
             className: cn(styles.target, targetClassName, {
                 [styles.inline]: TargetTag === 'span',
             }),
+            'data-test-id': getDataTestId(dataTestId, 'target'),
         };
 
         switch (trigger) {
@@ -198,7 +202,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     const getContentProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
             ref: contentRef,
-            'data-test-id': dataTestId,
+            'data-test-id': getDataTestId(dataTestId, 'content'),
             className: cn(styles.component, contentClassName),
         };
 
@@ -225,7 +229,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
                 open={show}
                 getPortalContainer={getPortalContainer}
                 arrowClassName={cn(arrowClassName, styles.arrow, colorStyles[colors].arrow)}
-                popperClassName={cn(styles.popper, styles[view], colorStyles[colors][view], {
+                popperClassName={cn(styles.popper, styles[view], popperColorClass, {
                     [desktopStyles.popper]: view === 'tooltip',
                     [desktopStyles.hint]: view === 'hint',
                 })}
@@ -240,6 +244,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
                 availableHeight={availableHeight}
                 useAnchorWidth={useAnchorWidth}
                 withTransition={withTransition}
+                dataTestId={getDataTestId(dataTestId, 'popover')}
             >
                 <div {...getContentProps()}>{content}</div>
             </Popover>

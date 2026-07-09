@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import isValid from 'date-fns/isValid';
+import { isValid } from 'date-fns';
 
 import { type CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';
@@ -86,6 +86,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         },
         ref,
     ) => {
+        const { disabled, readOnly } = restProps;
         const [inputValue, setInputValue] = useState(() => getDefaultValue(defaultValue, withTime));
 
         const lastValidDate = useRef<string>('');
@@ -94,10 +95,11 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         const { offDays } = calendarProps;
         const [inputDate, inputTime] = inputValue.split(DATE_TIME_SEPARATOR);
         const isValidValue = isValidDate({ value: inputDate, minDate, maxDate, offDays });
+        const shouldShowPicker = picker && !disabled && !readOnly;
 
         useEffect(() => {
             if (autoCorrection) {
-                const hasValidValue = isValidValue && isCompleteTime(inputValue, withTime);
+                const hasValidValue = isValidValue && isCompleteTime(inputTime, withTime);
 
                 if (!lastValidDate.current || !inputValue) {
                     lastValidDate.current = hasValidValue
@@ -105,7 +107,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                         : formatDate(minDate, withTime ? DATE_TIME_FORMAT : DATE_FORMAT);
                 }
             }
-        }, [autoCorrection, minDate, withTime, isValidValue, inputValue]);
+        }, [autoCorrection, minDate, withTime, isValidValue, inputValue, inputTime]);
 
         useEffect(() => {
             if (valueProp !== undefined) {
@@ -245,7 +247,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                     rightAddons={
                         <React.Fragment>
                             {rightAddons}
-                            {picker && (
+                            {shouldShowPicker && (
                                 <CalendarIcon
                                     onClick={onPickerClick}
                                     className={cn(

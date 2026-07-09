@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 .option {
@@ -35,6 +35,10 @@
     &:first-child:before {
         display: none;
     }
+}
+
+.size-40 {
+    min-height: var(--size-xs-height);
 }
 
 .size-48 {

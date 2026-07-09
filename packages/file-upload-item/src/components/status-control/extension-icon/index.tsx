@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
+import { DocumentArchiveMIcon } from '@alfalab/icons-glyph/DocumentArchiveMIcon';
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
 import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
@@ -10,11 +11,12 @@ import { DocumentOffMIcon } from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
-import { FileUploadItemContext } from '../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../context/file-upload-item-context';
 import { getExtension, isInitialStatus } from '../../../utils';
 
 import styles from './index.module.css';
 
+// eslint-disable-next-line complexity
 export const ExtensionIcon = () => {
     const {
         title = '',
@@ -23,7 +25,7 @@ export const ExtensionIcon = () => {
         customIcon: CustomIcon,
         imageUrl,
         showRestore,
-    } = useContext(FileUploadItemContext);
+    } = useFileUploadItemContext();
 
     if (imageUrl) {
         return null;
@@ -66,6 +68,14 @@ export const ExtensionIcon = () => {
         case 'tif':
         case 'tiff':
             return <DocumentImageMIcon />;
+        case 'zip':
+        case 'rar':
+        case '7z':
+            return (
+                <DocumentArchiveMIcon
+                    className={cn({ [styles.iconArchiveColored]: isColoredIcon })}
+                />
+            );
         default:
             return (
                 <DocumentMIcon className={cn({ [styles.iconDocumentColored]: isColoredIcon })} />

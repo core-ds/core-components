@@ -8,39 +8,7 @@ import {
     getQueryParam,
 } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
-const SIZES = [
-    '3xs',
-    '2xs',
-    'xs',
-    's',
-    'm',
-    'l',
-    'xl',
-    '2xl',
-    '3xl',
-    '4xl',
-    '5xl',
-    '6xl',
-    '7xl',
-    '8xl',
-    0,
-    1,
-    2,
-    4,
-    8,
-    12,
-    16,
-    20,
-    24,
-    32,
-    40,
-    48,
-    64,
-    72,
-    96,
-    128,
-    256,
-];
+const SIZES = [0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256] as const;
 
 const meta: Meta<typeof Gap> = {
     title: 'Components/Gap',

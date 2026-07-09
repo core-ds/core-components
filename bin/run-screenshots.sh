@@ -36,7 +36,7 @@ docker exec -d $CONTAINER_NAME yarn serve-storybook
 
 check_error
 
-docker exec $CONTAINER_NAME yarn jest --config=jest.screenshots.config.mjs "$@"
+docker exec -e CORE_COMPONENTS_VARIANT="$CORE_COMPONENTS_VARIANT" $CONTAINER_NAME yarn jest --config=jest.screenshots.config.mjs "$@"
 
 check_error
 

@@ -27,6 +27,7 @@ exports[`ScrollableList Display tests should display correctly 1`] = `
       >
         <svg
           aria-label="drag control"
+          class="dragIcon"
           fill="currentColor"
           focusable="false"
           height="24"

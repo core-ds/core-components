@@ -7,7 +7,7 @@ import { KeyPadButton } from '../KeyPadButton';
 
 import styles from './index.module.css';
 
-export type KeyPadProps = {
+export interface KeyPadProps {
     /**
      * Показать кнопку "очистить".
      */
@@ -42,7 +42,7 @@ export type KeyPadProps = {
      * Коллбэк очистки кода.
      */
     onClear: () => void;
-};
+}
 
 const CELL_COUNT = 12;
 const CELLS = new Array(CELL_COUNT).fill(null).map((_, i) => {
@@ -85,7 +85,11 @@ export const KeyPad: React.FC<KeyPadProps> = ({
 
                 if (rightAddons) {
                     if (rightAddonsTitle) {
-                        return <div title={rightAddonsTitle}>{rightAddons}</div>;
+                        return (
+                            <div key='right-addons-title' title={rightAddonsTitle}>
+                                {rightAddons}
+                            </div>
+                        );
                     }
 
                     return rightAddons;

@@ -2,10 +2,10 @@
 @import '../../vars.css';
 
 .footer {
-    padding: var(--gap-16);
+    padding: var(--gap-20);
 
     @media (display-mode: standalone) {
-        padding-bottom: calc(var(--sab) + var(--gap-16));
+        padding-bottom: calc(var(--sab) + var(--gap-20));
     }
 }
 

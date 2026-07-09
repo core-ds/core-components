@@ -1,0 +1,223 @@
+{
+"packageName": "tag",
+"displayName": "Tag",
+"description": "Многофункциональный контрол. Используется в составе групп и других компонентов.",
+"props": {
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.\n@description Отображение зависит от переданного `Component` (например, вариант с `IndicatorTag` может не показывать текст, если так заложено в компоненте).",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"checked": {
+"defaultValue": null,
+"description": "Отображение кнопки в отмеченном (зажатом) состоянии",
+"name": "checked",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"Component": {
+"defaultValue": null,
+"description": "Компонент для рендера разметки тега (по умолчанию — внутренний Tag).",
+"name": "Component",
+"required": false,
+"type": {
+"name": "ComponentType | undefined"
+}
+},
+"childrenClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обёртки children",
+"name": "childrenClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева\n@description При кастомном `Component` (например, `IndicatorTag`) прокидывается в его разметку.",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"childrenRef": {
+"defaultValue": null,
+"description": "ref на children",
+"name": "childrenRef",
+"required": false,
+"type": {
+"name": "RefObject<HTMLSpanElement> | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"variant": {
+"defaultValue": null,
+"description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега",
+"name": "variant",
+"required": false,
+"type": {
+"name": "\"default\" | \"alt\" | undefined"
+}
+},
+"shape": {
+"defaultValue": null,
+"description": "Форма тега",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "outlined"
+},
+"description": "Стиль тега",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"outlined\" | \"filled\" | \"transparent\" | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"indicatorProps": {
+"defaultValue": null,
+"description": "Свойства индикатора (бейдж с числом или точкой).\n@description Режим с индикатором задаётся пропом `Component` (например, `IndicatorTag`).",
+"name": "indicatorProps",
+"required": false,
+"type": {
+"name": "IndicatorProps | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры",
+"description": "Рекомендуется использовать 48, 40 и 32 размеры. Размеры 72, 64, 56 — не рекомендованы к использованию.",
+"desktop": "render(() => {\nconst SIZES = [48, 40, 32];\n\nconst [checked, setChecked] = React.useState(\nObject.fromEntries(SIZES.map((key) => [key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{SIZES.map((size) => (\n<div key={size} style={{ marginRight: 12 }}>\n<Tag\nsize={size}\nchecked={checked[size]}\nonClick={() => setChecked({ ...checked, [size]: !checked[size] })}\nview='filled'\nshape='rectangular'\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n</Container>\n);\n});"
+},
+{
+"title": "Анатомия",
+"description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать тэг.\nНапример, добавить иконку. Переданный контент будет отрисован слева или справа от текста тэга.",
+"desktop": "render(() => {\nconst [checkedMap, setCheckedMap] = React.useState({\nicon: false,\nbadge: false,\nemptyBadge: false,\namount: false,\nindicator: false,\n});\n\nconst addon = (\n<div\nstyle={{\nbackground: '#D8EAFF',\nborder: '1px solid #3778FB',\nborderRadius: '4px',\nheight: '16px',\nwidth: '16px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nconst defaultProps = {\nsize: 40,\nview: 'filled',\nshape: 'rectangular',\n};\n\nconst amountAddon = (\n<span\nclassName={\ncheckedMap.amount\n? 'tag-description-amount-addon tag-description-amount-addon-checked'\n: 'tag-description-amount-addon'\n}\nstyle={{\ndisplay: 'inline-flex',\nalignItems: 'center',\npaddingRight: '4px',\n}}\n>\n<Amount\nclassName='tag-description-amount'\nview='withZeroMinorPart'\nvalue={123400}\ncurrency='RUR'\nminority={100}\ntransparentMinor\n/>\n</span>\n);\n\nreturn (\n<React.Fragment>\n<style>\n{`\n.tag-description-amount-addon .tag-description-amount,\n.tag-description-amount-addon .tag-description-amount span {\ncolor: var(--text-primary, rgba(3, 3, 6, 0.88));\nfont-family: var(--font-family-20, \"Alfa Interface Sans\");\nfont-size: 14px;\nfont-style: normal;\nfont-weight: 400;\nline-height: 20px;\nletter-spacing: var(--regular_letter_spacing-14, -0.08px);\n}\n\n.tag-description-amount-addon-checked .tag-description-amount,\n.tag-description-amount-addon-checked .tag-description-amount span {\ncolor: var(--tag-text-color-checked);\n}\n`}\n</style>\n<Container>\n<Row>\n<div style={{ marginRight: 8 }}>\n<TagDesktop\nrightAddons={addon}\nleftAddons={addon}\nchecked={checkedMap.icon}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, icon: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagDesktop>\n</div>\n<div style={{ marginRight: 8 }}>\n<TagDesktop\nrightAddons={<Badge view='count' height={16} content={1} />}\nchecked={checkedMap.badge}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, badge: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagDesktop>\n</div>\n<div style={{ marginRight: 8 }}>\n<TagDesktop\nrightAddons={<Badge view='count' height={16} />}\nchecked={checkedMap.emptyBadge}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagDesktop>\n</div>\n<div style={{ marginRight: 8 }}>\n<TagDesktop\nsize={40}\nrightAddons={amountAddon}\nview='filled'\nshape='rectangular'\nchecked={checkedMap.amount}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, amount: nextChecked }))\n}\n>\nLabel\n</TagDesktop>\n</div>\n<div style={{ marginRight: 8 }}>\n<TagDesktop\nComponent={IndicatorTag}\nleftAddons={<ArrowsUpDownSIcon />}\nchecked={checkedMap.indicator}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))\n}\n{...defaultProps}\n/>\n</div>\n</Row>\n</Container>\n</React.Fragment>\n);\n});",
+"mobile": "render(() => {\nconst [checkedMap, setCheckedMap] = React.useState({\nicon: false,\nbadge: false,\nemptyBadge: false,\namount: false,\nindicator: false,\n});\n\nconst addon = (\n<div\nstyle={{\nbackground: '#D8EAFF',\nborder: '1px solid #3778FB',\nborderRadius: '4px',\nheight: '16px',\nwidth: '16px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nconst defaultProps = {\nsize: 40,\nview: 'filled',\nshape: 'rectangular',\n};\n\nconst amountAddon = (\n<span\nclassName={\ncheckedMap.amount\n? 'tag-description-amount-addon tag-description-amount-addon-checked'\n: 'tag-description-amount-addon'\n}\nstyle={{\ndisplay: 'inline-flex',\nalignItems: 'center',\npaddingRight: '4px',\n}}\n>\n<Amount\nclassName='tag-description-amount'\nview='withZeroMinorPart'\nvalue={123400}\ncurrency='RUR'\nminority={100}\ntransparentMinor\n/>\n</span>\n);\n\nreturn (\n<React.Fragment>\n<style>\n{`\n.tag-description-amount-addon .tag-description-amount,\n.tag-description-amount-addon .tag-description-amount span {\ncolor: var(--text-primary, rgba(3, 3, 6, 0.88));\nfont-family: var(--font-family-20, \"Alfa Interface Sans\");\nfont-size: 14px;\nfont-style: normal;\nfont-weight: 400;\nline-height: 20px;\nletter-spacing: var(--regular_letter_spacing-14, -0.08px);\n}\n\n.tag-description-amount-addon-checked .tag-description-amount,\n.tag-description-amount-addon-checked .tag-description-amount span {\ncolor: var(--tag-text-color-checked);\n}\n`}\n</style>\n<Container>\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection: 'row',\nflexWrap: 'nowrap',\ngap: 12,\noverflowX: 'auto',\nWebkitOverflowScrolling: 'touch',\n}}\n>\n<div>\n<TagMobile\nrightAddons={addon}\nleftAddons={addon}\nchecked={checkedMap.icon}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, icon: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagMobile>\n</div>\n<div>\n<TagMobile\nrightAddons={<Badge view='count' height={16} content={1} />}\nchecked={checkedMap.badge}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, badge: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagMobile>\n</div>\n<div>\n<TagMobile\nrightAddons={<Badge view='count' height={16} />}\nchecked={checkedMap.emptyBadge}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagMobile>\n</div>\n<div>\n<TagMobile\nrightAddons={amountAddon}\nchecked={checkedMap.amount}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, amount: nextChecked }))\n}\n{...defaultProps}\n>\nLabel\n</TagMobile>\n</div>\n<div style={{ marginRight: 8 }}>\n<TagMobile\nComponent={IndicatorTag}\nleftAddons={<ArrowsUpDownSIcon />}\nchecked={checkedMap.indicator}\nonClick={(_, { checked: nextChecked }) =>\nsetCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))\n}\n{...defaultProps}\n/>\n</div>\n</div>\n</Container>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Состояния и стили",
+"description": "У тега есть две опции, отвечающие за внешний вид.",
+"desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\nconst [shape, setShape] = React.useState('rectangular');\nconst [view, setView] = React.useState('filled');\nconst [checkedWithAddon, setCheckedWithAddon] = React.useState(false);\nconst [checkedPlain, setCheckedPlain] = React.useState(false);\n\nconst tagProps = {\nsize: 40,\nshape,\nview,\ndisabled,\n};\n\nreturn (\n<Container>\n<Row align='middle'>\n<div style={{ marginRight: 8 }}>\n<TagDesktop\n{...tagProps}\nchecked={checkedWithAddon}\nleftAddons={<DiamondsMIcon height={16} width={16} />}\nonClick={() => setCheckedWithAddon((v) => !v)}\n>\nLabel\n</TagDesktop>\n</div>\n<div>\n<TagDesktop\n{...tagProps}\nchecked={checkedPlain}\nonClick={() => setCheckedPlain((v) => !v)}\n>\nLabel\n</TagDesktop>\n</div>\n</Row>\n\n<Gap size={20} />\n\n<RadioGroup\ndirection='vertical'\nlabel='Shape'\nname='tag-states-shape'\nonChange={(_, p) => setShape(p.value)}\nvalue={shape}\n>\n<Radio label='Rectangular' value='rectangular' />\n<Radio label='Rounded' value='rounded' />\n</RadioGroup>\n\n<Gap size={16} />\n\n<RadioGroup\ndirection='vertical'\nlabel='View'\nname='tag-states-view'\nonChange={(_, p) => setView(p.value)}\nvalue={view}\n>\n<Radio label='Filled' value='filled' />\n<Radio label='Transparent' value='transparent' />\n<Radio label='Outlined' value='outlined' />\n</RadioGroup>\n\n<Gap size={32} />\n\n<div style={{ width: '100%', alignSelf: 'stretch' }}>\n<Divider />\n</div>\n\n<Gap size={20} />\n\n<Switch\nchecked={disabled}\nlabel='Заблокированное состояние'\nonChange={() => setDisabled((v) => !v)}\n/>\n</Container>\n);\n});",
+"mobile": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\nconst [shape, setShape] = React.useState('rectangular');\nconst [view, setView] = React.useState('filled');\nconst [checkedWithAddon, setCheckedWithAddon] = React.useState(false);\nconst [checkedPlain, setCheckedPlain] = React.useState(false);\n\nconst tagProps = {\nsize: 40,\nshape,\nview,\ndisabled,\n};\n\nreturn (\n<Container>\n<Row align='middle' style={{ marginBottom: 20 }}>\n<div style={{ marginRight: 8 }}>\n<TagMobile\n{...tagProps}\nchecked={checkedWithAddon}\nleftAddons={<DiamondsMIcon height={16} width={16} />}\nonClick={() => setCheckedWithAddon((v) => !v)}\n>\nLabel\n</TagMobile>\n</div>\n<div>\n<TagMobile\n{...tagProps}\nchecked={checkedPlain}\nonClick={() => setCheckedPlain((v) => !v)}\n>\nLabel\n</TagMobile>\n</div>\n</Row>\n\n<Gap size={16} />\n\n<RadioGroup\ndirection='vertical'\nlabel='Shape'\nname='tag-states-shape-mobile'\nonChange={(_, p) => setShape(p.value)}\nvalue={shape}\n>\n<Radio label='Rectangular' value='rectangular' />\n<Radio label='Rounded' value='rounded' />\n</RadioGroup>\n\n<Gap size={16} />\n\n<RadioGroup\ndirection='vertical'\nlabel='View'\nname='tag-states-view-mobile'\nonChange={(_, p) => setView(p.value)}\nvalue={view}\n>\n<Radio label='Filled' value='filled' />\n<Radio label='Transparent' value='transparent' />\n<Radio label='Outlined' value='outlined' />\n</RadioGroup>\n\n<Gap size={32} />\n\n<div style={{ width: '100%', alignSelf: 'stretch' }}>\n<Divider />\n</div>\n\n<Gap size={20} />\n\n<Switch\nchecked={disabled}\nlabel='Заблокированное состояние'\nonChange={() => setDisabled((v) => !v)}\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Группа фильтров",
+"description": "Тэг может использоваться в группы фильтров. При необходимости, у тэга с одной иконкой можно отрендерить индикатор, и использовать его как кнопку доступа к другим фильтрам. Такой вид доступен только для [Filled] тэгов 32 и 40 размеров.",
+"desktop": "const PERIOD_OPTIONS = [\n{ key: 'week', content: 'Неделя' },\n{ key: 'month', content: 'Месяц' },\n{ key: 'year', content: 'Год' },\n];\n\nconst ACCOUNT_OPTIONS = [\n{ key: 'acc1', content: 'Счёт 1' },\n{ key: 'acc2', content: 'Счёт 2' },\n];\n\nconst DYNAMIC_META = {\nadded_expenses: 'Добавленные расходы',\nto_client: 'Клиенту банка',\nbetween_accounts: 'Между счетами',\ntemplates: 'Шаблоны',\nautopay: 'Автоплатежи',\n};\n\nconst EMPTY = () => ({\nreplenishment: false,\nwriteoff: false,\ndynamicKeys: [],\nperiod: null,\naccounts: [],\n});\n\nconst countActive = ({ accounts, dynamicKeys, period, replenishment, writeoff }) => {\nlet n = 0;\nif (replenishment) n += 1;\nif (writeoff) n += 1;\nn += dynamicKeys.length;\nif (period) n += 1;\nn += accounts.length;\n\nreturn n;\n};\n\nconst DESKTOP_TAG_SIZE = 40;\nconst OPTIONS_LIST_ROW_SIZE = 40;\n\nrender(() => {\nconst [panelOpen, setPanelOpen] = React.useState(false);\nconst [countIndicator, setCountIndicator] = React.useState(false);\nconst [applied, setApplied] = React.useState(EMPTY);\nconst [draft, setDraft] = React.useState(EMPTY);\n\nconst openOrTogglePanel = () => {\nif (panelOpen) {\nsetPanelOpen(false);\n} else {\nsetDraft({ ...applied });\nsetPanelOpen(true);\n}\n};\n\nconst activeCount = countActive(applied);\n\nconst toggleDraftDynamic = (id) => {\nsetDraft((prev) => {\nconst has = prev.dynamicKeys.includes(id);\n\nif (has) {\nreturn { ...prev, dynamicKeys: prev.dynamicKeys.filter((k) => k !== id) };\n}\n\nreturn { ...prev, dynamicKeys: [...prev.dynamicKeys, id] };\n});\n};\n\nconst toggleAppliedDynamic = (id) => {\nsetApplied((prev) => ({\n...prev,\ndynamicKeys: prev.dynamicKeys.filter((k) => k !== id),\n}));\n};\n\nconst [periodOpen, setPeriodOpen] = React.useState(false);\nconst [accountsOpen, setAccountsOpen] = React.useState(false);\nconst [periodAnchorEl, setPeriodAnchorEl] = React.useState(null);\nconst [accountsAnchorEl, setAccountsAnchorEl] = React.useState(null);\n\nconst appliedPeriodOption = React.useMemo(\n() => PERIOD_OPTIONS.find((o) => o.key === applied.period),\n[applied.period],\n);\n\nconst accountsSelectedOpts = React.useMemo(\n() => ACCOUNT_OPTIONS.filter((o) => applied.accounts.includes(o.key)),\n[applied.accounts],\n);\n\nconst filterSectionTitleStyle = { fontSize: 22, lineHeight: '28px' };\n\nreturn (\n<Container>\n<style>\n{`\n.tag-filter-popover-panel {\nwidth: 280px;\nborder-radius: 0;\nborder: none;\nbackground: transparent;\nbox-shadow: none;\n}\n.tag-filter-row-options {\nborder-radius: 16px;\nborder: 1px solid var(--neutral-300, #E7E8EB);\nbackground: var(--modal-bg-primary, #FFF);\nbox-shadow:\n0 20px 24px 0 rgba(0, 0, 0, 0.08),\n0 12px 16px 0 rgba(0, 0, 0, 0.04),\n0 4px 8px 0 rgba(0, 0, 0, 0.04),\n0 0 1px 0 rgba(0, 0, 0, 0.04);\noverflow: hidden;\n}\n.tag-filter-panel-footer {\npadding: 24px 32px 32px !important;\n}\n.tag-filter-side-panel-scroll {\nflex: 1 1 auto;\nmin-height: 0;\noverflow-y: auto;\nbox-sizing: border-box;\npadding: var(--gap-0)  var(--gap-40);\n}\n.tag-filter-side-panel-scroll:last-child {\npadding-bottom: var(--gap-32) !important;\n}\n.tag-filter-side-panel-header {\npadding: 20px 28px 0 28px !important;\n}\n`}\n</style>\n<div\nstyle={{\ndisplay: 'flex',\nflexWrap: 'wrap',\ngap: 8,\nalignItems: 'center',\n}}\n>\n<TagDesktop\nComponent={IndicatorTag}\nleftAddons={<SlidersSIcon height={16} width={16} />}\nsize={DESKTOP_TAG_SIZE}\nview='filled'\nshape='rectangular'\nchecked={false}\nindicatorProps={\nactiveCount > 0\n? countIndicator\n? { mode: 'count', value: activeCount }\n: { mode: 'dot' }\n: undefined\n}\nonClick={openOrTogglePanel}\n/>\n{applied.dynamicKeys.map((id) => (\n<TagDesktop\nkey={id}\nsize={DESKTOP_TAG_SIZE}\nview='filled'\nshape='rectangular'\nchecked={true}\nonClick={() => toggleAppliedDynamic(id)}\n>\n{DYNAMIC_META[id]}\n</TagDesktop>\n))}\n<TagDesktop\nsize={DESKTOP_TAG_SIZE}\nview='filled'\nshape='rectangular'\nchecked={applied.replenishment}\nonClick={() => setApplied((p) => ({ ...p, replenishment: !p.replenishment }))}\n>\nПополнения\n</TagDesktop>\n<TagDesktop\nsize={DESKTOP_TAG_SIZE}\nview='filled'\nshape='rectangular'\nchecked={applied.writeoff}\nonClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}\n>\nСписания\n</TagDesktop>\n<div>\n<FilterTagDesktop\nref={setPeriodAnchorEl}\nclient='desktop'\nsize={DESKTOP_TAG_SIZE}\nview='filled'\nshape='rectangular'\nshowClear={false}\nchecked={Boolean(applied.period)}\nopen={periodOpen}\nonClick={() => {\nsetAccountsOpen(false);\nsetPeriodOpen((v) => !v);\n}}\n>\n{appliedPeriodOption ? (\n<>\nПериод:\n<span style={{ fontWeight: 700 }}>\n{appliedPeriodOption.content}\n</span>\n</>\n) : (\n'Период'\n)}\n</FilterTagDesktop>\n<Popover\nanchorElement={periodAnchorEl}\nopen={periodOpen}\nposition='bottom-start'\noffset={[0, 4]}\npreventFlip={true}\npopperClassName='tag-filter-popover-panel'\n>\n<OptionsList\nOption={Option}\nclassName='tag-filter-row-options'\nclient='desktop'\nnativeScrollbar={true}\nsize={OPTIONS_LIST_ROW_SIZE}\noptions={PERIOD_OPTIONS}\nopen={periodOpen}\nselectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}\ngetOptionProps={(option, index) => ({\noption,\nindex,\nmobile: false,\nmultiple: false,\nselected: applied.period === option.key,\ninnerProps: {\nid: `tag-doc-desktop-period-${option.key}`,\nrole: 'option',\nonMouseDown: (e) => e.preventDefault(),\nonClick: () => {\nsetApplied((p) => ({\n...p,\nperiod: p.period === option.key ? null : option.key,\n}));\nsetPeriodOpen(false);\n},\n},\n})}\n/>\n</Popover>\n</div>\n<div>\n<FilterTagDesktop\nref={setAccountsAnchorEl}\nclient='desktop'\nsize={DESKTOP_TAG_SIZE}\nview='filled'\nshape='rectangular'\nshowClear={false}\nchecked={applied.accounts.length > 0}\nopen={accountsOpen}\nonClick={() => {\nsetPeriodOpen(false);\nsetAccountsOpen((v) => !v);\n}}\n>\n{accountsSelectedOpts.length === 0 ? (\n'Счета'\n) : accountsSelectedOpts.length === 1 ? (\n<>\nСчета:\n<span style={{ fontWeight: 700 }}>\n{accountsSelectedOpts[0].content}\n</span>\n</>\n) : (\n<>\nСчета:\n<span style={{ fontWeight: 700 }}>\nВыбрано {accountsSelectedOpts.length}\n</span>\n</>\n)}\n</FilterTagDesktop>\n<Popover\nanchorElement={accountsAnchorEl}\nopen={accountsOpen}\nposition='bottom-start'\noffset={[0, 4]}\npreventFlip={true}\npopperClassName='tag-filter-popover-panel'\n>\n<OptionsList\nOption={Option}\nclassName='tag-filter-row-options'\nclient='desktop'\nnativeScrollbar={true}\nsize={OPTIONS_LIST_ROW_SIZE}\noptions={ACCOUNT_OPTIONS}\nopen={accountsOpen}\nmultiple={true}\nselectedItems={ACCOUNT_OPTIONS.filter((item) =>\napplied.accounts.includes(item.key),\n)}\ngetOptionProps={(option, index) => ({\noption,\nindex,\nmobile: false,\nmultiple: true,\nselected: applied.accounts.includes(option.key),\ninnerProps: {\nid: `tag-doc-desktop-accounts-${option.key}`,\nrole: 'option',\nonMouseDown: (e) => e.preventDefault(),\nonClick: () => {\nsetApplied((p) => {\nconst selected = p.accounts.includes(option.key);\n\nreturn {\n...p,\naccounts: selected\n? p.accounts.filter((k) => k !== option.key)\n: [...p.accounts, option.key],\n};\n});\n},\n},\n})}\n/>\n</Popover>\n</div>\n</div>\n\n<Gap size={20} />\n\n<div style={{ width: '100%', alignSelf: 'stretch' }}>\n<Divider />\n</div>\n\n<Gap size={20} />\n\n<Switch\nchecked={countIndicator}\nlabel='Индикатор с цифрой'\nonChange={() => setCountIndicator((v) => !v)}\n/>\n\n<SidePanel\nopen={panelOpen}\nonClose={() => setPanelOpen(false)}\nsize={500}\ncomponentDivProps={{\nstyle: {\ntop: 16,\nright: 12,\nbottom: 16,\nmaxHeight: 'calc(100vh - 32px)',\nboxSizing: 'border-box',\nborderRadius: 24,\n},\n}}\n>\n<SidePanel.Header\nclassName='tag-filter-side-panel-header'\nsticky={true}\nhasCloser={true}\ntitle={<span style={{ fontSize: 30, lineHeight: '36px' }}>Фильтры</span>}\n/>\n<SidePanel.Content className='tag-filter-side-panel-scroll'>\n{\n<div>\n<Typography.Title\ntag='div'\nview='xsmall'\nfont='system'\nstyle={filterSectionTitleStyle}\n>\nПериод\n</Typography.Title>\n<Gap size={16} />\n<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>\n{PERIOD_OPTIONS.map(({ key, content }) => (\n<TagDesktop\nkey={key}\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.period === key}\nonClick={() =>\nsetDraft((p) => ({\n...p,\nperiod: p.period === key ? null : key,\n}))\n}\n>\n{content}\n</TagDesktop>\n))}\n</div>\n<Gap size={24} />\n\n<Typography.Title\ntag='div'\nview='xsmall'\nfont='system'\nstyle={filterSectionTitleStyle}\n>\nДвижение средств\n</Typography.Title>\n<Gap size={16} />\n<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.replenishment}\nonClick={() =>\nsetDraft((p) => ({ ...p, replenishment: !p.replenishment }))\n}\n>\nПополнение\n</TagDesktop>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.writeoff}\nonClick={() =>\nsetDraft((p) => ({ ...p, writeoff: !p.writeoff }))\n}\n>\nСписание\n</TagDesktop>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.dynamicKeys.includes('added_expenses')}\nonClick={() => toggleDraftDynamic('added_expenses')}\n>\nДобавленные расходы\n</TagDesktop>\n</div>\n<Gap size={24} />\n\n<Typography.Title\ntag='div'\nview='xsmall'\nfont='system'\nstyle={filterSectionTitleStyle}\n>\nПереводы\n</Typography.Title>\n<Gap size={16} />\n<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.dynamicKeys.includes('to_client')}\nonClick={() => toggleDraftDynamic('to_client')}\n>\nКлиенту банка\n</TagDesktop>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.dynamicKeys.includes('between_accounts')}\nonClick={() => toggleDraftDynamic('between_accounts')}\n>\nМежду счетами\n</TagDesktop>\n</div>\n<Gap size={24} />\n\n<Typography.Title\ntag='div'\nview='xsmall'\nfont='system'\nstyle={filterSectionTitleStyle}\n>\nШаблоны и автоплатежи\n</Typography.Title>\n<Gap size={16} />\n<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.dynamicKeys.includes('templates')}\nonClick={() => toggleDraftDynamic('templates')}\n>\nШаблоны\n</TagDesktop>\n<TagDesktop\nsize={32}\nview='filled'\nshape='rectangular'\nchecked={draft.dynamicKeys.includes('autopay')}\nonClick={() => toggleDraftDynamic('autopay')}\n>\nАвтоплатежи\n</TagDesktop>\n</div>\n<Gap size={24} />\n\n<Typography.Title\ntag='div'\nview='xsmall'\nfont='system'\nstyle={filterSectionTitleStyle}\n>\nСчета\n</Typography.Title>\n<Gap size={16} />\n{ACCOUNT_OPTIONS.map(({ key, content }) => (\n<div key={key} style={{ marginBottom: 12 }}>\n<Checkbox\nchecked={draft.accounts.includes(key)}\nlabel={content}\nonChange={() =>\nsetDraft((p) => {\nconst has = p.accounts.includes(key);\n\nreturn {\n...p,\naccounts: has\n? p.accounts.filter((k) => k !== key)\n: [...p.accounts, key],\n};\n})\n}\n/>\n</div>\n))}\n</div>\n}\n</SidePanel.Content>\n<SidePanel.Footer sticky={true} className='tag-filter-panel-footer'>\n<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>\n<Button\nview='primary'\nsize={56}\ntype='button'\nonClick={() => {\nsetApplied({ ...draft });\nsetPanelOpen(false);\n}}\n>\nПрименить\n</Button>\n<Button\nview='secondary'\nsize={56}\ntype='button'\nonClick={() => setDraft(EMPTY())}\n>\nСбросить\n</Button>\n</div>\n</SidePanel.Footer>\n</SidePanel>\n</Container>\n);\n});",
+"mobile": "const PERIOD_OPTIONS = [\n{ key: 'week', content: 'Неделя' },\n{ key: 'month', content: 'Месяц' },\n{ key: 'year', content: 'Год' },\n];\n\nconst ACCOUNT_OPTIONS = [\n{ key: 'acc1', content: 'Счёт 1' },\n{ key: 'acc2', content: 'Счёт 2' },\n];\n\nconst DYNAMIC_META = {\nadded_expenses: 'Добавленные расходы',\nto_client: 'Клиенту банка',\nbetween_accounts: 'Между счетами',\ntemplates: 'Шаблоны',\nautopay: 'Автоплатежи',\n};\n\nconst EMPTY = () => ({\nreplenishment: false,\nwriteoff: false,\ndynamicKeys: [],\nperiod: null,\naccounts: [],\n});\n\nconst toggleInArray = (arr, value) =>\narr.includes(value) ? arr.filter((item) => item !== value) : [...arr, value];\n\nconst countActive = (filters) =>\n[\nfilters.replenishment,\nfilters.writeoff,\nfilters.period,\n...filters.dynamicKeys,\n...filters.accounts,\n].filter(Boolean).length;\n\nconst MOBILE_ROW_TAG_SIZE = 32;\nconst OPTIONS_LIST_ROW_SIZE = 40;\n\nconst DYNAMIC_GROUPS = [\n{\ntitle: 'Движение средств',\nitems: [\n{ key: 'replenishment', label: 'Пополнение', type: 'boolean' },\n{ key: 'writeoff', label: 'Списание', type: 'boolean' },\n{ key: 'added_expenses', label: DYNAMIC_META.added_expenses, type: 'dynamic' },\n],\n},\n{\ntitle: 'Переводы',\nitems: [\n{ key: 'to_client', label: DYNAMIC_META.to_client, type: 'dynamic' },\n{ key: 'between_accounts', label: DYNAMIC_META.between_accounts, type: 'dynamic' },\n],\n},\n{\ntitle: 'Шаблоны и автоплатежи',\nitems: [\n{ key: 'templates', label: DYNAMIC_META.templates, type: 'dynamic' },\n{ key: 'autopay', label: DYNAMIC_META.autopay, type: 'dynamic' },\n],\n},\n];\n\nconst FilterTagItem = ({ checked, onClick, size = MOBILE_ROW_TAG_SIZE, children }) => (\n<TagMobile size={size} view='filled' shape='rectangular' checked={checked} onClick={onClick}>\n{children}\n</TagMobile>\n);\n\nconst CheckboxItem = ({ selected, disabled, position }) => (\n<span\nstyle={{\ndisplay: 'flex',\nalignItems: 'center',\nflexShrink: 0,\n...(position === 'before'\n? { marginRight: 'var(--gap-12)' }\n: { marginLeft: 'var(--gap-12)' }),\n}}\n>\n<Checkbox\nhiddenInput={true}\nchecked={Boolean(selected)}\ndisabled={disabled}\nsize={24}\nposition={position}\n/>\n</span>\n);\n\nrender(() => {\nconst [panelOpen, setPanelOpen] = React.useState(false);\nconst [countIndicator, setCountIndicator] = React.useState(false);\nconst [applied, setApplied] = React.useState(EMPTY);\nconst [draft, setDraft] = React.useState(EMPTY);\nconst [filterSheet, setFilterSheet] = React.useState(null);\nconst [accountsSheetDraft, setAccountsSheetDraft] = React.useState([]);\nconst prevFilterSheetRef = React.useRef(null);\n\nconst updateApplied = (patch) => setApplied((prev) => ({ ...prev, ...patch }));\nconst updateDraft = (patch) => setDraft((prev) => ({ ...prev, ...patch }));\n\nconst closeFilterSheet = () => setFilterSheet(null);\n\nconst toggleFilterSheet = (name) => {\nsetFilterSheet((prev) => (prev === name ? null : name));\n};\n\nReact.useEffect(() => {\nif (filterSheet) {\nsetPanelOpen(false);\n}\n}, [filterSheet]);\n\nReact.useEffect(() => {\nif (filterSheet === 'accounts' && prevFilterSheetRef.current !== 'accounts') {\nsetAccountsSheetDraft([...applied.accounts]);\n}\nprevFilterSheetRef.current = filterSheet;\n}, [filterSheet, applied.accounts]);\n\nconst openOrTogglePanel = () => {\nsetFilterSheet(null);\nsetPanelOpen((isOpen) => {\nif (isOpen) return false;\n\nsetDraft({ ...applied });\nreturn true;\n});\n};\n\nconst closePanel = () => {\nsetPanelOpen(false);\nsetFilterSheet(null);\n};\nconst activeCount = countActive(applied);\n\nconst toggleDraftDynamic = (key) =>\nupdateDraft({\ndynamicKeys: toggleInArray(draft.dynamicKeys, key),\n});\n\nconst appliedPeriodOption = React.useMemo(\n() => PERIOD_OPTIONS.find((o) => o.key === applied.period),\n[applied.period],\n);\n\nconst accountsSelectedOpts = React.useMemo(\n() => ACCOUNT_OPTIONS.filter((o) => applied.accounts.includes(o.key)),\n[applied.accounts],\n);\n\nconst mobileFilterTagsScrollRowStyle = {\ndisplay: 'flex',\nflexDirection: 'row',\nflexWrap: 'nowrap',\ngap: 8,\nalignItems: 'center',\noverflowX: 'auto',\noverflowY: 'hidden',\nWebkitOverflowScrolling: 'touch',\ntouchAction: 'pan-x',\npaddingTop: 10,\npaddingBottom: 4,\nboxSizing: 'border-box',\nwidth: 'max-content',\nmaxWidth: '100%',\nminWidth: 0,\nscrollbarWidth: 'none',\nmsOverflowStyle: 'none',\n};\n\nconst mobileFilterSheetTagsRowStyle = {\ndisplay: 'flex',\nflexDirection: 'row',\nflexWrap: 'wrap',\ngap: 8,\nalignItems: 'center',\n};\n\nreturn (\n<Container>\n<style>\n{`\n.tag-doc-mobile-filter-tags-scroll::-webkit-scrollbar {\ndisplay: none;\nwidth: 0;\nheight: 0;\n}\n.tag-filter-row-options {\nborder-radius: 16px;\noverflow: hidden;\n}\n.tag-doc-mobile-bottom-sheet-content {\npadding-left: 4px;\npadding-right: 2px;\nbox-sizing: border-box;\n}\n.tag-doc-mobile-sheet-options [class*='textContent'] {\npadding-top: var(--gap-16);\npadding-bottom: var(--gap-16);\n}\n`}\n</style>\n<div\nstyle={{\ndisplay: 'inline-grid',\ngridTemplateColumns: 'minmax(0, max-content)',\nmaxWidth: '100%',\n}}\n>\n<div\nclassName='tag-doc-mobile-filter-tags-scroll'\nstyle={mobileFilterTagsScrollRowStyle}\n>\n<div style={{ display: 'flex' }}>\n<TagMobile\nComponent={IndicatorTag}\nleftAddons={<SlidersSIcon height={16} width={16} />}\nsize={MOBILE_ROW_TAG_SIZE}\nview='filled'\nshape='rectangular'\nchecked={false}\nindicatorProps={\nactiveCount > 0\n? countIndicator\n? { mode: 'count', value: activeCount }\n: { mode: 'dot' }\n: undefined\n}\nonClick={openOrTogglePanel}\n/>\n</div>\n\n{applied.dynamicKeys.map((id) => (\n<div key={id}>\n<FilterTagItem\nchecked={true}\nonClick={() =>\nupdateApplied({\ndynamicKeys: applied.dynamicKeys.filter(\n(key) => key !== id,\n),\n})\n}\n>\n{DYNAMIC_META[id]}\n</FilterTagItem>\n</div>\n))}\n\n<div>\n<FilterTagItem\nchecked={applied.replenishment}\nonClick={() => updateApplied({ replenishment: !applied.replenishment })}\n>\nПополнения\n</FilterTagItem>\n</div>\n<div>\n<FilterTagItem\nchecked={applied.writeoff}\nonClick={() => updateApplied({ writeoff: !applied.writeoff })}\n>\nСписания\n</FilterTagItem>\n</div>\n\n<div>\n<FilterTagMobile\nclient='mobile'\nsize={MOBILE_ROW_TAG_SIZE}\nview='filled'\nshape='rectangular'\nshowClear={false}\nchecked={Boolean(applied.period)}\nopen={filterSheet === 'period'}\nonClick={() => toggleFilterSheet('period')}\n>\n{appliedPeriodOption ? (\n<>\nПериод:\n<span style={{ fontWeight: 700 }}>\n{appliedPeriodOption.content}\n</span>\n</>\n) : (\n'Период'\n)}\n</FilterTagMobile>\n</div>\n<div>\n<FilterTagMobile\nclient='mobile'\nsize={MOBILE_ROW_TAG_SIZE}\nview='filled'\nshape='rectangular'\nshowClear={false}\nchecked={applied.accounts.length > 0}\nopen={filterSheet === 'accounts'}\nonClick={() => toggleFilterSheet('accounts')}\n>\n{accountsSelectedOpts.length === 0 ? (\n'Счета'\n) : accountsSelectedOpts.length === 1 ? (\n<>\nСчета:\n<span style={{ fontWeight: 700 }}>\n{accountsSelectedOpts[0].content}\n</span>\n</>\n) : (\n<>\nСчета:\n<span style={{ fontWeight: 700 }}>\nВыбрано {accountsSelectedOpts.length}\n</span>\n</>\n)}\n</FilterTagMobile>\n</div>\n</div>\n\n<Gap size={20} />\n\n<div style={{ width: '100%', minWidth: 0 }}>\n<Divider />\n</div>\n</div>\n\n<Gap size={20} />\n\n<Switch\nchecked={countIndicator}\nlabel='Индикатор с цифрой'\nonChange={() => setCountIndicator((v) => !v)}\n/>\n\n<BottomSheet\nopen={filterSheet === 'period'}\nonClose={closeFilterSheet}\ntitle='Период'\nhasCloser={true}\nstickyFooter={false}\ninitialHeight='default'\ncontentClassName='tag-doc-mobile-bottom-sheet-content'\n>\n<OptionsList\nOption={Option}\nclassName='tag-filter-row-options tag-doc-mobile-sheet-options'\nclient='mobile'\nnativeScrollbar={true}\nsize={OPTIONS_LIST_ROW_SIZE}\noptions={PERIOD_OPTIONS}\nopen={filterSheet === 'period'}\nselectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}\ngetOptionProps={(option, index) => ({\noption,\nindex,\nmobile: true,\nmultiple: false,\nselected: applied.period === option.key,\ninnerProps: {\nid: `tag-doc-mobile-period-sheet-${option.key}`,\nrole: 'option',\nonMouseDown: (e) => e.preventDefault(),\nonClick: () => {\nupdateApplied({\nperiod: applied.period === option.key ? null : option.key,\n});\ncloseFilterSheet();\n},\n},\n})}\n/>\n</BottomSheet>\n\n<BottomSheet\nopen={filterSheet === 'accounts'}\nonClose={closeFilterSheet}\ntitle='Счета'\nhasCloser={true}\nstickyFooter={true}\ninitialHeight='default'\ncontentClassName='tag-doc-mobile-bottom-sheet-content'\nactionButton={\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection: 'row',\ngap: 16,\nwidth: '100%',\nboxSizing: 'border-box',\n}}\n>\n<ButtonMobile\nview='secondary'\nsize={48}\ntype='button'\nblock={true}\nstyle={{ flex: 1 }}\nonClick={() => setAccountsSheetDraft([])}\n>\nСбросить\n</ButtonMobile>\n<ButtonMobile\nview='primary'\nsize={48}\ntype='button'\nblock={true}\nstyle={{ flex: 1 }}\nonClick={() => {\nupdateApplied({ accounts: accountsSheetDraft });\ncloseFilterSheet();\n}}\n>\nПрименить\n</ButtonMobile>\n</div>\n}\n>\n<OptionsList\nOption={Option}\nclassName='tag-filter-row-options tag-doc-mobile-sheet-options'\nclient='mobile'\nnativeScrollbar={true}\nsize={OPTIONS_LIST_ROW_SIZE}\noptions={ACCOUNT_OPTIONS}\nopen={filterSheet === 'accounts'}\nmultiple={true}\nselectedItems={ACCOUNT_OPTIONS.filter((item) =>\naccountsSheetDraft.includes(item.key),\n)}\ngetOptionProps={(option, index) => ({\noption,\nindex,\nmobile: true,\nmultiple: true,\nCheckmark: CheckboxItem,\nselected: accountsSheetDraft.includes(option.key),\ninnerProps: {\nid: `tag-doc-mobile-accounts-sheet-${option.key}`,\nrole: 'option',\nonMouseDown: (e) => e.preventDefault(),\nonClick: () => {\nsetAccountsSheetDraft((prev) => toggleInArray(prev, option.key));\n},\n},\n})}\n/>\n</BottomSheet>\n\n<BottomSheet\nopen={panelOpen}\nonClose={closePanel}\ntitle='Фильтры'\nhasCloser={true}\nstickyFooter={true}\ninitialHeight='full'\nactionButton={\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection: 'row',\ngap: 16,\nwidth: '100%',\nboxSizing: 'border-box',\n}}\n>\n<ButtonMobile\nview='secondary'\nsize={48}\ntype='button'\nblock={true}\nstyle={{ flex: 1 }}\nonClick={() => setDraft(EMPTY)}\n>\nСбросить\n</ButtonMobile>\n<ButtonMobile\nview='primary'\nsize={48}\ntype='button'\nblock={true}\nstyle={{ flex: 1 }}\nonClick={() => {\nsetApplied({ ...draft });\nclosePanel();\n}}\n>\nПрименить\n</ButtonMobile>\n</div>\n}\n>\n<>\n<Typography.Text\ntag='p'\nview='component-secondary'\ncolor='secondary'\ndefaultMargins={false}\n>\nПериод\n</Typography.Text>\n<Gap size={8} />\n<div style={mobileFilterSheetTagsRowStyle}>\n{PERIOD_OPTIONS.map((opt) => (\n<div key={opt.key}>\n<TagMobile\nsize={MOBILE_ROW_TAG_SIZE}\nview='filled'\nshape='rectangular'\nchecked={draft.period === opt.key}\nonClick={() =>\nsetDraft((p) => ({\n...p,\nperiod: p.period === opt.key ? null : opt.key,\n}))\n}\n>\n{opt.content}\n</TagMobile>\n</div>\n))}\n</div>\n\n<Gap size={24} />\n\n{DYNAMIC_GROUPS.map((group) => (\n<React.Fragment key={group.title}>\n<Typography.Text\ntag='p'\nview='component-secondary'\ncolor='secondary'\ndefaultMargins={false}\n>\n{group.title}\n</Typography.Text>\n<Gap size={8} />\n<div style={mobileFilterSheetTagsRowStyle}>\n{group.items.map((item) => {\nconst checked =\nitem.type === 'boolean'\n? Boolean(draft[item.key])\n: draft.dynamicKeys.includes(item.key);\n\nreturn (\n<div key={item.key}>\n<FilterTagItem\nchecked={checked}\nonClick={() => {\nif (item.type === 'boolean') {\nupdateDraft({\n[item.key]: !draft[item.key],\n});\nreturn;\n}\n\ntoggleDraftDynamic(item.key);\n}}\n>\n{item.label}\n</FilterTagItem>\n</div>\n);\n})}\n</div>\n<Gap size={24} />\n</React.Fragment>\n))}\n\n<Typography.Text\ntag='p'\nview='component-secondary'\ncolor='secondary'\ndefaultMargins={false}\n>\nСчета\n</Typography.Text>\n<Gap size={12} />\n\n{ACCOUNT_OPTIONS.map((opt) => (\n<div key={opt.key} style={{ marginBottom: 12 }}>\n<Checkbox\nchecked={draft.accounts.includes(opt.key)}\nlabel={opt.content}\nonChange={() =>\nupdateDraft({\naccounts: toggleInArray(draft.accounts, opt.key),\n})\n}\n/>\n</div>\n))}\n</>\n</BottomSheet>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2122](https://github.com/core-ds/core-components/pull/2122)\n\n- Добавлен компонент `IndicatorTag` для тега с числовым индикатором\n\n#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Обновлены скругления для Tag и FilterTag компонентов в десктопной версии"
+},
+{
+"version": "49.8.0",
+"description": "#### [#1916](https://github.com/core-ds/core-components/pull/1916)\n\n- Отключено системное выделение при тапе на мобильных устройствах"
+}
+]
+}

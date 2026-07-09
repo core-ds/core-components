@@ -15,6 +15,7 @@ import Changelog from '../../CHANGELOG.md?raw';
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
+        const colors = select('colors', ['default', 'inverted'], 'default');
         const size = select('size', [20, 24], 20);
         const disabled = boolean('disabled', false);
         const inactive = boolean('inactive', false);
@@ -26,7 +27,8 @@ import Changelog from '../../CHANGELOG.md?raw';
         const block = boolean('block', false);
         const addons = text('addons');
         const align = select('align', ['start', 'center']);
-        const colors = select('colors', ['default', 'inverted'], 'default');
+        const position = select('position', ['before', 'after'], 'before');
+
         return (
             <div
                 style={{
@@ -49,6 +51,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                     block={block}
                     addons={addons}
                     align={align}
+                    position={position}
                     onChange={handleChange}
                     checked={checked || checkedKnob}
                     label={label}

@@ -2,7 +2,4 @@
     /* theme */
     --calendar-range-background: var(--color-light-base-bg-secondary);
     --calendar-select-button-today-border-color: transparent;
-    --calendar-month-only-header-font-family: var(--font-family-styrene);
-    --calendar-month-only-header-font-size: 20px;
-    --calendar-month-only-header-font-weight: 500;
 }

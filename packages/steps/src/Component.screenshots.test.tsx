@@ -2,7 +2,9 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
+import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -59,6 +61,42 @@ describe(
         screenshotOpts: {
             clip: { x: 0, y: 0, width: 720, height: 320 },
         },
+    }),
+);
+
+describe(
+    'Vertical',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                testStory: false,
+                componentName: 'Steps',
+                subComponentName: 'Steps Vertical',
+                knobs: {
+                    fullWidth: [false, true],
+                },
+            }),
+        ],
+        viewport: { width: 560, height: 240 },
+    }),
+);
+
+describe(
+    'Vertical | hover',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                testStory: false,
+                componentName: 'Steps',
+                subComponentName: 'Steps Vertical',
+                knobs: {
+                    fullWidth: [false, true],
+                },
+            }),
+        ],
+        viewport: { width: 560, height: 240 },
+        evaluate: (page: Page) =>
+            page.hover('div[class*=textWrapper]').then(() => page.waitForTimeout(500)),
     }),
 );
 

@@ -63,6 +63,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
         return (
             <SelectMobile
                 {...restProps}
+                optionProps={{ Checkmark: null }}
                 label={label}
                 Option={Option}
                 bottomSheetProps={{
@@ -73,7 +74,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
                 }}
                 Field={Field}
                 Optgroup={Optgroup}
-                size={size === 'm' || size === 56 ? 56 : 48}
+                size={size === 56 ? 56 : 48}
                 closeOnSelect={true}
                 fieldProps={{
                     ...fieldDefaultProps,

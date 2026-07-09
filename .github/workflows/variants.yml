@@ -1,0 +1,48 @@
+name: variants
+
+on:
+    workflow_call:
+        inputs:
+            ref:
+                description: Checkout ref
+                required: false
+                type: string
+            include-default:
+                description: Whether include default variant of core-components
+                required: false
+                type: boolean
+                default: true
+        outputs:
+            config:
+                description: Config of core-components variants as JSON string
+                value: ${{ jobs.config.outputs.result }}
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    config:
+        runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.config.outputs.result }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+              with:
+                  ref: ${{ inputs.ref }}
+
+            - name: Get config
+              id: config
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const fs = require('node:fs');
+                      const file = '${{ github.workspace }}/variants/config.json';
+                      let config = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, { encoding: 'utf8' })) : [{ variant: 'default' }];
+
+                      config = ${{ inputs.include-default }}
+                          ? config
+                          : config.filter(({ variant }) => variant !== 'default');
+
+                      return config;

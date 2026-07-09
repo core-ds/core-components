@@ -1,5 +1,4 @@
 @import './slider/mobile.css';
-@import './bottom-sheet/mobile.css';
 @import './steps/mobile.css';
 @import './confirmation/mobile.css';
 @import './checkbox-group/mobile.css';
@@ -7,7 +6,6 @@
 
 @define-mixin theme-mobile {
     @mixin slider-mobile;
-    @mixin bottom-sheet-mobile;
     @mixin steps-mobile;
     @mixin confirmation-mobile;
     @mixin checkbox-group-mobile;

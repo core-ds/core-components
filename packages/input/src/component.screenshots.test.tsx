@@ -5,6 +5,7 @@ import {
     generateTestCases,
     createSpriteStorybookUrl,
     createPreview,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -120,8 +121,34 @@ describe('Input | screenshots disabled prop', () => {
                         componentName: 'Input',
                         knobs: {
                             label: 'Label',
-                            size: 56,
+                            size: [56, 40],
                             disabled: true,
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+                [
+                    `${theme} theme | readOnly`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            label: 'Label',
+                            size: [56, 40],
+                            readOnly: true,
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+                [
+                    `${theme} theme | disableUserInput`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            label: 'Label',
+                            size: [56, 40],
+                            disableUserInput: true,
                             colors,
                         },
                         size: { width: 350, height: 150 },
@@ -373,3 +400,110 @@ describe(
         },
     }),
 );
+
+describe('Input | screenshots border radius', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `desktop component ${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input',
+                        componentName: 'InputDesktop',
+                        knobs: {
+                            label: 'Label',
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `mobile component ${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input',
+                        componentName: 'InputMobile',
+                        knobs: {
+                            label: 'Label',
+                            size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+            ],
+            viewport: {
+                width: 350,
+                height: 800,
+            },
+            theme,
+        })();
+
+    ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('Input | screenshots rightAddons prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value ',
+                        size: [40, 48, 56, 64, 72],
+                        rightAddons: [false, true],
+                    },
+                }),
+            ],
+            viewport: { width: 350, height: 100 },
+            screenshotOpts: {
+                fullPage: false,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Input | screenshots leftAddons prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value',
+                        size: [40, 48, 56, 64, 72],
+                        leftAddons: [false, true],
+                    },
+                }),
+                // with label
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value',
+                        size: [40, 48, 56, 64, 72],
+                        label: 'Label',
+                        leftAddons: [true],
+                    },
+                }),
+            ],
+            viewport: { width: 350, height: 100 },
+            screenshotOpts: {
+                fullPage: false,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});

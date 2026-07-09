@@ -4,3 +4,7 @@
     transition: transform var(--page-indicator-animation-duration) linear;
     will-change: transition;
 }
+
+.pageIndicator {
+    width: 100%;
+}

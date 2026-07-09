@@ -1,0 +1,111 @@
+name: update-pull-request-screenshots
+
+on:
+    workflow_dispatch:
+        inputs:
+            pull-request:
+                description: Pull request number
+                type: number
+                required: true
+            variant:
+                description: Variant of core components
+                required: false
+                type: choice
+                default: default
+                options:
+                    - default
+
+concurrency:
+    group: ${{ github.workflow }}-${{ inputs.pull-request }}-${{ inputs.variant }}
+    cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    sha:
+        runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.sha.outputs.result }}
+        steps:
+            - name: Check if repo is correct
+              if: ${{ github.repository != 'core-ds/core-components' }}
+              run: |
+                  echo 'This workflow is designed to use inside `core-ds/core-components` repository only.'
+                  echo 'If you want to update your screenshots, use the `update-screenshots` workflow.'
+
+                  exit 1
+
+            - name: Get SHA
+              id: sha
+              uses: actions/github-script@v8
+              with:
+                  result-encoding: string
+                  script: |
+                      const { data } = await octokit.rest.pulls.get({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          pull_number: ${{ inputs.pull-request }},
+                      });
+
+                      return data.head.sha;
+
+    build-demo:
+        needs: sha
+        uses: ./.github/workflows/build-demo.yml
+        secrets: inherit
+        with:
+            ref: ${{ needs.sha.outputs.result }}
+            variant: ${{ inputs.variant }}
+            artifact-name: ${{ inputs.variant }}
+
+    update:
+        runs-on: ubuntu-latest
+        needs: [build-demo, sha]
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
+        steps:
+            - name: Generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v3
+              with:
+                  client-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+            - name: Checkout
+              uses: actions/checkout@v6
+              with:
+                  ref: ${{ needs.sha.outputs.result }}
+                  token: ${{ steps.generate-token.outputs.token }}
+                  lfs: true
+
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+
+            - name: Download build
+              uses: actions/download-artifact@v8
+              with:
+                  name: ${{ inputs.variant }}
+                  path: build
+                  run-id: ${{ needs.build-demo.outputs.run-id }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Update screenshots
+              run: |
+                  yarn test:screenshots -u
+
+            - name: Git status
+              id: git-status
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
+
+                      return stdout.trim().length > 0;
+
+            - name: Update branch
+              if: ${{ fromJson(steps.git-status.outputs.result) }}
+              uses: ./.github/actions/commit-and-push
+              with:
+                  message: 'test: updated screenshots'
