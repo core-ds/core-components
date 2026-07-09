@@ -11,6 +11,13 @@
 
     /* === Desktop === */
 
+    /* HEADER */
+    --confirmation-header-font-family: var(--font-family-system);
+    --confirmation-header-font-size: 22px;
+    --confirmation-header-font-weight: 700;
+    --confirmation-header-line-height: 26px;
+    --confirmation-header-color: var(--color-light-text-primary);
+
     /* INITIAL */
     --confirmation-header-margin-bottom: var(--gap-24);
     --confirmation-phone-margin-bottom: var(--gap-32);
@@ -37,6 +44,13 @@
     --confirmation-fatal-error-button-margin-top: var(--gap-32);
 
     /* === Mobile === */
+
+    /* HEADER */
+    --confirmation-header-font-family-mobile: var(--font-family-system);
+    --confirmation-header-font-size-mobile: 20px;
+    --confirmation-header-font-weight-mobile: 600;
+    --confirmation-header-line-height-mobile: 28px;
+    --confirmation-header-color-mobile: var(--color-light-text-primary);
 
     /* INITIAL */
     --confirmation-header-margin-bottom-mobile: var(--gap-24);
