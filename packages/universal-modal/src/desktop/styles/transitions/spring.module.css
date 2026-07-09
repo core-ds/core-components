@@ -1,0 +1,28 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.backdrop {
+    background-color: var(--color-light-overlay-default);
+}
+
+.appear,
+.enter {
+    opacity: 0;
+}
+
+.appearActive,
+.enterActive,
+.appearDone,
+.enterDone {
+    opacity: 1;
+    transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive,
+.exitDone {
+    opacity: 0;
+    transition: opacity 500ms 30ms cubic-bezier(0.32, 0, 0.2, 1);
+}
