@@ -1,8 +1,7 @@
 import React, { useCallback, useContext, useRef, useState } from 'react';
 
-import { VideoContext } from '@alfalab/core-components-video/context';
-import { useVideoHotkeys } from '@alfalab/core-components-video/shared/hooks/use-keys';
-
+import { VideoContext } from '../../../../context';
+import { useVideoHotkeys } from '../../../../shared/hooks/use-keys';
 import { BottomControls } from '../common/bottom-controls';
 import { MidControls } from '../common/mid-controls';
 import { TopControls } from '../common/top-controls';

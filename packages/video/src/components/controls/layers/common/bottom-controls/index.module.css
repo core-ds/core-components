@@ -1,3 +1,5 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
 .bottomOverlayWrapper {
     position: absolute;
     bottom: 0;

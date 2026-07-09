@@ -3,13 +3,13 @@ import React, { useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Text } from '@alfalab/core-components-typography';
-import { speeds } from '@alfalab/core-components-video/constants';
-import { VideoContext } from '@alfalab/core-components-video/context';
 import { ChevronRightShiftRightSIcon } from '@alfalab/icons-glyph/ChevronRightShiftRightSIcon';
 
 import qualityIcon from '../../../../../../assets/quality.svg';
 import speed1Icon from '../../../../../../assets/speed_1.svg';
 import subsOnIcon from '../../../../../../assets/subs_on.svg';
+import { speeds } from '../../../../../../constants';
+import { VideoContext } from '../../../../../../context';
 
 import styles from './index.module.css';
 

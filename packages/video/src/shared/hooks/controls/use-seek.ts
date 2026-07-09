@@ -1,6 +1,6 @@
 import { type RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
-import { type SeekIndicator } from '@alfalab/core-components-video/types';
+import { type SeekIndicator } from '../../../types';
 
 export const useSeek = (
     url: string,

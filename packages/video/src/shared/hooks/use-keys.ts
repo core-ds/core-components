@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect } from 'react';
 
-import { VideoContext } from '@alfalab/core-components-video/context';
+import { VideoContext } from '../../context';
 
 export const useVideoHotkeys = () => {
     const { togglePause, enterFullscreen, skipForward, skipBackward, setVolume, exitFullscreen } =

@@ -3,9 +3,10 @@
 import React, { useContext } from 'react';
 
 import { Text } from '@alfalab/core-components-typography';
-import { speeds } from '@alfalab/core-components-video/constants';
-import { VideoContext } from '@alfalab/core-components-video/context';
 import { CheckmarkCompactMIcon } from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
+
+import { speeds } from '../../../../../../constants';
+import { VideoContext } from '../../../../../../context';
 
 import styles from './index.module.css';
 
@@ -27,7 +28,7 @@ export const ChooseSpeed = () => {
                         setPlaybackRate(index);
                     }}
                 >
-                    <Text view='component' color='primary-inverted'>
+                    <Text view='component-primary' color='primary-inverted'>
                         {el === 1 ? 'обычная' : `${el}x`}
                     </Text>
 

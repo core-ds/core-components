@@ -1,8 +1,10 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
 .seek {
     box-sizing: border-box;
     position: absolute;
     bottom: 80px;
-    background-color: var(--color-static-monochrome-black-24);
+    background-color: rgba(0, 0, 0, 0.24);
     padding: var(--gap-8) var(--gap-12);
     border-radius: var(--border-radius-pill);
     pointer-events: none;

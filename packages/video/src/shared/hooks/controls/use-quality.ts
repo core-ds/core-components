@@ -1,7 +1,7 @@
 import { type RefObject, useCallback, useEffect, useState } from 'react';
 import type Hls from 'hls.js';
 
-import { Events } from '@alfalab/core-components-video/hls-types';
+import { Events } from '../../../hls-types';
 
 export const useQuality = (
     hlsRef: RefObject<Hls | undefined>,

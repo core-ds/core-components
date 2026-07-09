@@ -1,9 +1,11 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
 .settings {
     position: absolute;
     right: 12px;
     bottom: 72px;
     width: 300px;
-    background-color: var(--color-static-monochrome-black-80);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: var(--border-radius-8);
 
     .settingElement {

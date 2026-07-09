@@ -3,9 +3,10 @@ import React, { useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Spinner } from '@alfalab/core-components-spinner';
-import { VideoContext } from '@alfalab/core-components-video/context';
 import { PauseCircleMIcon } from '@alfalab/icons-glyph/PauseCircleMIcon';
 import { PlayCircleMIcon } from '@alfalab/icons-glyph/PlayCircleMIcon';
+
+import { VideoContext } from '../../../../../context';
 
 import styles from './index.module.css';
 

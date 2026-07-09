@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { type FitMode, type Position } from '@alfalab/core-components-video/types';
+import { type FitMode, type Position } from '../../../types';
 
 import styles from './index.module.css';
 

@@ -4,8 +4,6 @@
 import React, { useContext, useRef, useState } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { VideoContext } from '@alfalab/core-components-video/context';
-import { useOutsideClick, useShowSoundSlider } from '@alfalab/core-components-video/shared';
 import { ArrowsInMIcon } from '@alfalab/icons-glyph/ArrowsInMIcon';
 import { ArrowsOutMIcon } from '@alfalab/icons-glyph/ArrowsOutMIcon';
 import { DotsHorizontalMIcon } from '@alfalab/icons-glyph/DotsHorizontalMIcon';
@@ -16,6 +14,8 @@ import { Rewind15CwMIcon } from '@alfalab/icons-glyph/Rewind15CwMIcon';
 import { SoundOffSIcon } from '@alfalab/icons-glyph/SoundOffSIcon';
 import { SoundSIcon } from '@alfalab/icons-glyph/SoundSIcon';
 
+import { VideoContext } from '../../../../../context';
+import { useOutsideClick, useShowSoundSlider } from '../../../../../shared';
 import { CustomSlider } from '../../../slider';
 
 import { ChooseSpeed } from './choose-speed';
@@ -101,7 +101,7 @@ export const BottomControls = () => {
         <div className={styles.bottomOverlayWrapper}>
             <div className={styles.bottomControls} onClick={(e) => e.stopPropagation()}>
                 <div className={styles.sliderWrapper}>
-                    {/* TODO: простое решение для того чтобы позиция слайдера вставала на нужное время при первом рендере. В противном случае пока идет загрузка видео, duration = 0 и диапазон для слайдера задается от 0 до 0. Когда видео загружено и duration определяется в нормальное значение, позиция остается на 0, несмотря на корректный currentTime. Возможно стоит переделать на сохранение currentTime в процентах и задавать диапазон слайдеру от 0 до 100. Но пока и так работает */}
+                    {/* Временное решение: позиция слайдера корректно выставляется только после загрузки длительности видео. */}
                     {duration > 0 && (
                         <CustomSlider
                             min={0}

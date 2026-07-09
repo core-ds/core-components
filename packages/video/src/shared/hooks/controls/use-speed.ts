@@ -1,6 +1,6 @@
 import { type RefObject, useEffect, useState } from 'react';
 
-import { speeds } from '@alfalab/core-components-video/constants';
+import { speeds } from '../../../constants';
 
 export const useSpeed = (playerRef: RefObject<HTMLVideoElement>) => {
     const [playbackRate, setPlaybackRate] = useState(1);

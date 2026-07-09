@@ -1,7 +1,6 @@
 import React, { forwardRef, type ReactNode, useContext } from 'react';
 
-import { VideoContext } from '@alfalab/core-components-video/context';
-
+import { VideoContext } from '../../../context';
 import { SeekIndicator } from '../../controls/seek-indicator';
 
 import styles from './index.module.css';

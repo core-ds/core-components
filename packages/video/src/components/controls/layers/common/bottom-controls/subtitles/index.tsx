@@ -14,14 +14,14 @@ export const Subtitles = () => (
         }}
     >
         <div className={styles.subtitlesElement}>
-            <Text view='component' color='primary-inverted'>
+            <Text view='component-primary' color='primary-inverted'>
                 Выключены
             </Text>
 
             <CheckmarkCompactMIcon color='white' />
         </div>
         <div className={styles.subtitlesElement}>
-            <Text view='component' color='primary-inverted'>
+            <Text view='component-primary' color='primary-inverted'>
                 Включены
             </Text>
         </div>

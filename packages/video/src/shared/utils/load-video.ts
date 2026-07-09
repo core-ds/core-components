@@ -36,8 +36,6 @@ export const loadVideo = ({ src, hlsRef, playerRef, onInit }: Props) => {
          * динамического воспроизведения потокового видео (старые IE или какие-то мобильные браузеры)
          */
         if (!Hls.isSupported()) {
-            console.error('HLS is unsupported for this browser');
-
             return undefined;
         }
 

@@ -1,3 +1,5 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
 .topControls {
     position: absolute;
     top: 0;
