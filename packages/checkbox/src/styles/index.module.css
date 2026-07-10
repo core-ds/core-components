@@ -2,6 +2,23 @@
 
 :root {
     --checkbox-error-color: var(--color-light-text-negative);
+
+    /* Label */
+    --checkbox-label-font-size: 14px;
+    --checkbox-label-line-height: 20px;
+    --checkbox-label-font-weight: 400;
+    --checkbox-label-font-family: var(--font-family-system);
+
+    --checkbox-label-size-20-font-size: 16px;
+    --checkbox-label-size-20-line-height: 20px;
+    --checkbox-label-size-20-font-weight: 400;
+    --checkbox-label-size-20-font-family: var(--font-family-system);
+
+    /* Hint */
+    --checkbox-hint-font-size: 12px;
+    --checkbox-hint-line-height: 16px;
+    --checkbox-hint-font-weight: 400;
+    --checkbox-hint-font-family: var(--font-family-system);
 }
 
 .component {
@@ -71,12 +88,18 @@
     margin-left: var(--gap-8);
 
     & .label {
-        @mixin paragraph_component;
+        font-size: var(--checkbox-label-size-20-font-size);
+        line-height: var(--checkbox-label-size-20-line-height);
+        font-weight: var(--checkbox-label-size-20-font-weight);
+        font-family: var(--checkbox-label-size-20-font-family);
     }
 }
 
 .label {
-    @mixin paragraph_primary_medium;
+    font-size: var(--checkbox-label-font-size);
+    line-height: var(--checkbox-label-line-height);
+    font-weight: var(--checkbox-label-font-weight);
+    font-family: var(--checkbox-label-font-family);
     display: block;
 }
 
@@ -91,7 +114,10 @@
 }
 
 .hint {
-    @mixin paragraph_component_secondary;
+    font-size: var(--checkbox-hint-font-size);
+    line-height: var(--checkbox-hint-line-height);
+    font-weight: var(--checkbox-hint-font-weight);
+    font-family: var(--checkbox-hint-font-family);
     display: block;
 }
 

@@ -1,5 +1,24 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
+:root {
+    /* Label */
+    --radio-label-font-size: 14px;
+    --radio-label-line-height: 20px;
+    --radio-label-font-weight: 400;
+    --radio-label-font-family: var(--font-family-system);
+
+    --radio-label-size-20-font-size: 16px;
+    --radio-label-size-20-line-height: 20px;
+    --radio-label-size-20-font-weight: 400;
+    --radio-label-size-20-font-family: var(--font-family-system);
+
+    /* Hint */
+    --radio-hint-font-size: 12px;
+    --radio-hint-line-height: 16px;
+    --radio-hint-font-weight: 400;
+    --radio-hint-font-family: var(--font-family-system);
+}
+
 .container {
     display: inline-flex;
     align-items: flex-start;
@@ -68,7 +87,10 @@
     margin-left: var(--gap-8);
 
     & .label {
-        @mixin paragraph_component;
+        font-size: var(--radio-label-size-20-font-size);
+        line-height: var(--radio-label-size-20-line-height);
+        font-weight: var(--radio-label-size-20-font-weight);
+        font-family: var(--radio-label-size-20-font-family);
     }
 }
 
@@ -91,10 +113,16 @@
 }
 
 .label {
-    @mixin paragraph_primary_medium;
+    font-size: var(--radio-label-font-size);
+    line-height: var(--radio-label-line-height);
+    font-weight: var(--radio-label-font-weight);
+    font-family: var(--radio-label-font-family);
 }
 
 .hint {
-    @mixin paragraph_component_secondary;
+    font-size: var(--radio-hint-font-size);
+    line-height: var(--radio-hint-line-height);
+    font-weight: var(--radio-hint-font-weight);
+    font-family: var(--radio-hint-font-family);
     margin-top: var(--gap-4);
 }
