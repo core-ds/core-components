@@ -1,7 +1,6 @@
 import handlebars from 'handlebars';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import postcss from 'postcss';
 import exportCustomVariables, {
     defaultAssigner,
@@ -10,7 +9,9 @@ import exportCustomVariables, {
 import postcssImport from 'postcss-import';
 import { glob } from 'tinyglobby';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
+import postcssEach from '../tools/postcss/postcss-each.cjs';
+
+const { dirname } = import.meta;
 
 const renderVariables = handlebars.compile(
     await fs.readFile(path.join(dirname, 'templates/css-vars-module.hbs'), { encoding: 'utf8' }),
@@ -104,8 +105,17 @@ async function buildPalettes() {
     );
 }
 
+async function buildMixins() {
+    const src = 'src/mixins.css';
+    const dest = 'dist/mixins.css';
+    const css = await fs.readFile(src, { encoding: 'utf8' });
+    const result = await postcss([postcssEach({})]).process(css, { from: src });
+
+    await fs.writeFile(dest, result.css, { encoding: 'utf8' });
+}
+
 async function main() {
-    await Promise.all([buildCssIndex(), buildPalettes()]);
+    await Promise.all([buildCssIndex(), buildPalettes(), buildMixins()]);
 }
 
 await main();
