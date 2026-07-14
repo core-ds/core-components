@@ -88,6 +88,7 @@ export function isInputValueCorrect(value: string, numberParams: NumberParams): 
 /**
  * -0,00 => 0,00
  * -0 => 0
+ * - => *empty*
  */
 function dropMinusZeroPlugin(numberParams: NumberParams): MaskitoPlugin {
     const { minusSign } = numberParams;
@@ -100,7 +101,7 @@ function dropMinusZeroPlugin(numberParams: NumberParams): MaskitoPlugin {
                 numberParams,
             );
 
-            if (minus === minusSign && integerPart === ZERO_AS_STRING && /^0*$/.test(decimalPart)) {
+            if (minus === minusSign && /^0?$/.test(integerPart) && /^0*$/.test(decimalPart)) {
                 const newValue = fromNumberParts(
                     { ...numberParts, integerPart, decimalPart },
                     numberParams,
