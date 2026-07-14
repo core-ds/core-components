@@ -911,6 +911,25 @@ function maskGenerator(numberParams: NumberParams, posivite: boolean) {
     );
 }
 
+function zeroHandlePlugin(numberParams: NumberParams): MaskitoPlugin {
+    return mergePlugins([
+        maskitoEventHandler('focus', (element) => {
+            const { integerPart, decimalPart } = toNumberParts(element.value, numberParams);
+
+            if (integerPart === ZERO_AS_STRING && /^0*$/.test(decimalPart)) {
+                maskitoUpdateElement(element, '');
+            }
+        }),
+        maskitoEventHandler('blur', (element) => {
+            if (!element.value) {
+                const nextValue = fromNumberParts({ integerPart: ZERO_AS_STRING }, numberParams);
+
+                maskitoUpdateElement(element, nextValue);
+            }
+        }),
+    ]);
+}
+
 export function maskitoOptionsGenerator(
     numberParams: NumberParams,
     posivite: boolean,
@@ -929,6 +948,7 @@ export function maskitoOptionsGenerator(
             createLeadingZeroesValidationPlugin(numberParams),
             createNotEmptyIntegerPlugin(numberParams),
             dropMinusZeroPlugin(numberParams),
+            zeroHandlePlugin(numberParams),
             processDecimalPartPlugin(numberParams, view),
             clipboardPlugin(numberParams),
             maskitoRejectEvent(onInputReject),
