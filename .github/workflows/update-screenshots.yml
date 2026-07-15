@@ -41,16 +41,19 @@ jobs:
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         steps:
+            - name: Generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v3
+              if: ${{ github.repository == 'core-ds/core-components' }}
+              with:
+                  client-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
             - name: Checkout
               uses: actions/checkout@v6
               with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ case(github.repository == 'core-ds/core-components', steps.generate-token.outputs.token, secrets.GITHUB_TOKEN) }}
                   lfs: true
-
-            - name: Setup variant
-              uses: ./.github/actions/setup-variant
-              with:
-                  variant: ${{ inputs.variant }}
 
             - name: Setup CI
               uses: ./.github/actions/ci-setup
