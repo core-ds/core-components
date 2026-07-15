@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
+import { useSpringTransition } from '../../hooks/use-universal-modal-animation';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
@@ -13,6 +14,7 @@ import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
+import springStyles from '../../styles/transitions/spring.module.css';
 import styles from './index.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
@@ -49,6 +51,13 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
     return (
         <BaseModal
             {...restProps}
+            springAnimation={
+                restProps.springAnimation
+                    ? {
+                          hook: useSpringTransition,
+                      }
+                    : undefined
+            }
             open={open}
             dataTestId={dataTestId}
             ref={ref}
@@ -79,6 +88,24 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 shouldRender: overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
+                ...(restProps.springAnimation && {
+                    timeout: {
+                        enter: 500,
+                        exit: 530,
+                    },
+                    className: springStyles.backdrop,
+                    transitionClassNames: {
+                        enter: springStyles.enter,
+                        appear: springStyles.appear,
+                        enterActive: springStyles.enterActive,
+                        appearActive: springStyles.appearActive,
+                        enterDone: springStyles.enterDone,
+                        appearDone: springStyles.appearDone,
+                        exit: springStyles.exit,
+                        exitActive: springStyles.exitActive,
+                        exitDone: springStyles.exitDone,
+                    },
+                }),
             }}
             componentDivProps={{
                 style: {
