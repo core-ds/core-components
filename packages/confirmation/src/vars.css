@@ -16,6 +16,7 @@
     --confirmation-header-font-size: 22px;
     --confirmation-header-font-weight: 700;
     --confirmation-header-line-height: 26px;
+    --confirmation-header-letter-spacing: normal;
     --confirmation-header-color: var(--color-light-text-primary);
 
     /* INITIAL */
@@ -50,6 +51,7 @@
     --confirmation-header-font-size-mobile: 20px;
     --confirmation-header-font-weight-mobile: 600;
     --confirmation-header-line-height-mobile: 28px;
+    --confirmation-header-line-letter-spacing-mobile: normal;
     --confirmation-header-color-mobile: var(--color-light-text-primary);
 
     /* INITIAL */

@@ -30,7 +30,7 @@ export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) =
         <Tag
             font='system'
             view='small'
-            className={cn(styles.header, { [styles.headerMobile]: mobile })}
+            className={cn(mobile ? styles.headerMobile : styles.header)}
             tag={titleTag}
             color='primary'
             defaultMargins={false}

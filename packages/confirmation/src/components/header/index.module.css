@@ -6,6 +6,7 @@
     font-size: var(--confirmation-header-font-size);
     font-weight: var(--confirmation-header-font-weight);
     line-height: var(--confirmation-header-line-height);
+    letter-spacing: var(--confirmation-header-letter-spacing);
     color: var(--confirmation-header-color);
 }
 
@@ -15,5 +16,6 @@
     font-size: var(--confirmation-header-font-size-mobile);
     font-weight: var(--confirmation-header-font-weight-mobile);
     line-height: var(--confirmation-header-line-height-mobile);
+    letter-spacing: var(--confirmation-header-line-letter-spacing-mobile);
     color: var(--confirmation-header-color-mobile);
 }
