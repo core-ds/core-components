@@ -98,4 +98,10 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
          */
         max?: number;
     };
+
+    /**
+     * Обновленная логика работы с нулем
+     * @default false
+     */
+    zeroValue?: boolean;
 };
