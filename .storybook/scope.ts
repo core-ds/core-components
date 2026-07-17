@@ -43,7 +43,7 @@ export default {
     ...knobs,
     process: {
         env: {
-            ...process.env,
+            CORE_COMPONENTS_CARD_IMAGE_BASE_URL: process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
         },
     },
 };
