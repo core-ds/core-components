@@ -936,6 +936,7 @@ export function maskitoOptionsGenerator(
     view: 'default' | 'withZeroMinorPart',
     maximumIntegerDigits: number,
     onInputReject?: () => void,
+    zeroValue?: boolean,
 ): MaskitoOptions {
     const { minusSign, decimalSeparator } = numberParams;
 
@@ -948,7 +949,7 @@ export function maskitoOptionsGenerator(
             createLeadingZeroesValidationPlugin(numberParams),
             createNotEmptyIntegerPlugin(numberParams),
             dropMinusZeroPlugin(numberParams),
-            zeroHandlePlugin(numberParams),
+            zeroValue ? zeroHandlePlugin(numberParams) : noop,
             processDecimalPartPlugin(numberParams, view),
             clipboardPlugin(numberParams),
             maskitoRejectEvent(onInputReject),
