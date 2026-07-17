@@ -1,5 +1,20 @@
 # @alfalab/core-components-amount-input
 
+## 9.3.0
+
+### Minor Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2276](https://github.com/core-ds/core-components/pull/2276)
+
+##### AmountInput
+
+- Добавлен проп `zeroValue` `(false /* @default */ | true)` для обновленной логики работы с нулем `0`:
+    - при фокусе нуль заменяется пустым значением
+    - при потере фокуса пустое значение заменяется нулем
+- Внутренние улучшения работы компонента
+
 ## 9.2.8
 
 ### Patch Changes

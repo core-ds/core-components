@@ -1,5 +1,17 @@
 # @alfalab/core-components-select
 
+## 19.2.1
+
+### Patch Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2277](https://github.com/core-ds/core-components/pull/2277)
+
+##### Select
+
+- Повышена специфичность CSS-правила для фона выпадающего списка Select
+
 ## 19.2.0
 
 ### Minor Changes
