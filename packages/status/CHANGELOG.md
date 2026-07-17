@@ -1,5 +1,17 @@
 # @alfalab/core-components-status
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2272](https://github.com/core-ds/core-components/pull/2272)
+
+##### Status
+
+- Добавлена возможность прокидывать правый аддон через проп `rightAddons`
+
 ## 5.0.2
 
 ### Patch Changes

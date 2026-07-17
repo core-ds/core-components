@@ -1,5 +1,61 @@
 # @alfalab/core-components
 
+## 50.23.0
+
+### Minor Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2276](https://github.com/core-ds/core-components/pull/2276)
+
+##### AmountInput
+
+- Добавлен проп `zeroValue` `(false /* @default */ | true)` для обновленной логики работы с нулем `0`:
+    - при фокусе нуль заменяется пустым значением
+    - при потере фокуса пустое значение заменяется нулем
+- Внутренние улучшения работы компонента
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2272](https://github.com/core-ds/core-components/pull/2272)
+
+##### Status
+
+- Добавлена возможность прокидывать правый аддон через проп `rightAddons`
+
+### Patch Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2277](https://github.com/core-ds/core-components/pull/2277)
+
+##### Select
+
+- Повышена специфичность CSS-правила для фона выпадающего списка Select
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2274](https://github.com/core-ds/core-components/pull/2274)
+
+##### Vars
+
+- Файл `mixins.css` теперь содержит только `postcss-mixin` правила
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+- @alfalab/core-components-amount-input@9.3.0
+- @alfalab/core-components-vars@11.1.1
+- @alfalab/core-components-status@5.1.0
+- @alfalab/core-components-custom-picker-button@4.1.12
+- @alfalab/core-components-input-autocomplete@14.0.19
+- @alfalab/core-components-international-phone-input@4.0.19
+- @alfalab/core-components-intl-phone-input@11.0.19
+- @alfalab/core-components-picker-button@13.0.19
+- @alfalab/core-components-select-with-tags@10.1.14
+- @alfalab/core-components-table@4.0.20
+- @alfalab/core-components-tabs@10.0.20
+
 ## 50.22.0
 
 ### Minor Changes

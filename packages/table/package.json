@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-table",
-    "version": "4.0.19",
+    "version": "4.0.20",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
     "dependencies": {
         "@alfalab/core-components-button": "^13.2.1",
         "@alfalab/core-components-pagination": "^4.0.7",
-        "@alfalab/core-components-select": "^19.2.0",
+        "@alfalab/core-components-select": "^19.2.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -28,5 +28,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.2.0",
-    "varsVersion": "11.1.0"
+    "varsVersion": "11.1.1"
 }

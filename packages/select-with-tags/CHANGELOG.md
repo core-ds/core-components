@@ -1,5 +1,13 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+
 ## 10.1.13
 
 ### Patch Changes
