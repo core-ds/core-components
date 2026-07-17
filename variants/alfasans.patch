@@ -1,18 +1,51 @@
-From ddba5738614fd8f9eb3fbe6b74e6240365724e8d Mon Sep 17 00:00:00 2001
+From 3c4fe4ccb596d2a91c3be742e90b34612ee4115c Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Tue, 9 Jun 2026 11:51:02 +0300
-Subject: [PATCH] fix: only system alfasans
+Date: Fri, 17 Jul 2026 15:12:09 +0300
+Subject: [PATCH] fix: alfasans
 
 ---
+ packages/confirmation/src/vars.css            |   8 +-
  packages/typography/src/title/component.tsx   |  11 +-
  .../typography/src/title/index.module.css     |   8 -
  packages/typography/src/title/utils.test.ts   |  12 -
  packages/typography/src/title/utils.ts        |  14 -
  packages/vars/src/typography.css              | 282 ++++++++++--------
- 5 files changed, 167 insertions(+), 160 deletions(-)
+ 6 files changed, 171 insertions(+), 164 deletions(-)
  delete mode 100644 packages/typography/src/title/utils.test.ts
  delete mode 100644 packages/typography/src/title/utils.ts
 
+diff --git a/packages/confirmation/src/vars.css b/packages/confirmation/src/vars.css
+index be7397c737..d12d9ab9ea 100644
+--- a/packages/confirmation/src/vars.css
++++ b/packages/confirmation/src/vars.css
+@@ -12,11 +12,11 @@
+     /* === Desktop === */
+
+     /* HEADER */
+-    --confirmation-header-font-family: var(--font-family-system);
++    --confirmation-header-font-family: var(--font-family-alfasans);
+     --confirmation-header-font-size: 22px;
+     --confirmation-header-font-weight: 700;
+     --confirmation-header-line-height: 26px;
+-    --confirmation-header-letter-spacing: normal;
++    --confirmation-header-letter-spacing: 0.2px;
+     --confirmation-header-color: var(--color-light-text-primary);
+
+     /* INITIAL */
+@@ -47,11 +47,11 @@
+     /* === Mobile === */
+
+     /* HEADER */
+-    --confirmation-header-font-family-mobile: var(--font-family-system);
++    --confirmation-header-font-family-mobile: var(--font-family-alfasans);
+     --confirmation-header-font-size-mobile: 20px;
+     --confirmation-header-font-weight-mobile: 600;
+     --confirmation-header-line-height-mobile: 28px;
+-    --confirmation-header-line-letter-spacing-mobile: normal;
++    --confirmation-header-line-letter-spacing-mobile: -0.15px;
+     --confirmation-header-color-mobile: var(--color-light-text-primary);
+
+     /* INITIAL */
 diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
 index 8f1ff6ac59..420012c85b 100644
 --- a/packages/typography/src/title/component.tsx
