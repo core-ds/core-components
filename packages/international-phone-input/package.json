@@ -21,8 +21,8 @@
         "@alfalab/core-components-types": "^2.0.1",
         "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
-        "@maskito/core": "^1.7.0",
-        "@maskito/react": "^1.7.0",
+        "@maskito/core": "^4.0.1",
+        "@maskito/react": "^4.0.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

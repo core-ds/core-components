@@ -21,7 +21,7 @@
         "@alfalab/core-components-shared": "^2.2.2",
         "@alfalab/core-components-status-badge": "^3.0.2",
         "@alfalab/hooks": "^1.17.0",
-        "@maskito/core": "^1.7.0",
+        "@maskito/core": "^4.0.1",
         "classnames": "^2.5.1",
         "lodash": "^4.17.21",
         "react-merge-refs": "^1.1.0",

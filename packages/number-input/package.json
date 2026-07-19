@@ -18,8 +18,8 @@
         "@alfalab/core-components-mq": "^6.0.6",
         "@alfalab/core-components-shared": "^2.2.2",
         "@alfalab/icons-glyph": "^2.260.0",
-        "@maskito/core": "^1.7.0",
-        "@maskito/react": "^1.7.0",
+        "@maskito/core": "^4.0.1",
+        "@maskito/react": "^4.0.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

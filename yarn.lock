@@ -881,7 +881,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@maskito/core": "npm:^1.7.0"
+    "@maskito/core": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     lodash: "npm:^4.17.21"
     react-merge-refs: "npm:^1.1.0"
@@ -924,8 +924,8 @@ __metadata:
     "@alfalab/core-components-types": "npm:^2.0.1"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@maskito/core": "npm:^1.7.0"
-    "@maskito/react": "npm:^1.7.0"
+    "@maskito/core": "npm:^4.0.1"
+    "@maskito/react": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1180,8 +1180,8 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.6"
     "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@maskito/core": "npm:^1.7.0"
-    "@maskito/react": "npm:^1.7.0"
+    "@maskito/core": "npm:^4.0.1"
+    "@maskito/react": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1719,7 +1719,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-types": "npm:^2.0.1"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@maskito/core": "npm:^1.7.0"
+    "@maskito/core": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     detect-browser: "npm:^5.3.0"
     tslib: "npm:^2.4.0"
@@ -2177,8 +2177,8 @@ __metadata:
     "@alfalab/core-components-popover": "npm:^8.1.0"
     "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@maskito/core": "npm:^1.7.0"
-    "@maskito/react": "npm:^1.7.0"
+    "@maskito/core": "npm:^4.0.1"
+    "@maskito/react": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
     react-merge-refs: "npm:^1.1.0"
@@ -8463,13 +8463,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maskito/core@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "@maskito/core@npm:1.7.0"
-  checksum: 10c0/1a7ffb16c3cd84ae46f3cf9df1ce2dbb5cb04e241e272a0f843ab557ca5ede5570bfad5dafad631f886b11ecdde3ce8d8bfcacd38567f0e2f22d4612e34c1c69
-  languageName: node
-  linkType: hard
-
 "@maskito/core@npm:^4.0.1":
   version: 4.0.1
   resolution: "@maskito/core@npm:4.0.1"
@@ -8486,14 +8479,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maskito/react@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "@maskito/react@npm:1.7.0"
+"@maskito/react@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@maskito/react@npm:4.0.1"
   peerDependencies:
-    "@maskito/core": ^1.7.0
+    "@maskito/core": ^4.0.1
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 10c0/04367f7e1dcdb2a6fc3e4120c616cebf1ad114fafc530bdec8dc5196b947eba115fa1c4063bde4af320b777b106b6537f83898cb22d8b7c2c5834f9aee2300f8
+  checksum: 10c0/ec02a907b4edeaabe94bcdd963f91227e100caaebdba3ab5a1276680609f828e271218aa186b3ca9cfb66cb83d976da3bd0efb51e5413851e9d89d7b6990a1d6
   languageName: node
   linkType: hard
 

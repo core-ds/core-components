@@ -387,8 +387,8 @@ describe('InternationalPhoneInput', () => {
     it('should not remove country code', async () => {
         const onChange = jest.fn();
         render(
-            <InternationalPhoneInputDesktop
-                value='+7'
+            <InternationalPhoneInputStateful
+                __initialValue='+7'
                 onChange={onChange}
                 clearableCountryCode={false}
             />,
@@ -398,7 +398,8 @@ describe('InternationalPhoneInput', () => {
         fireEvent.input(input, { target: { value: '+' } });
 
         await waitFor(() => {
-            expect(input).toHaveValue('+7 ');
+            expect(input).toHaveValue('+7');
+            expect(onChange).toHaveBeenCalledWith('+7');
         });
     });
 
@@ -510,9 +511,9 @@ describe('InternationalPhoneInput', () => {
     it('should be not clearable country code', async () => {
         const onChange = jest.fn();
         render(
-            <InternationalPhoneInputDesktop
+            <InternationalPhoneInputStateful
                 clearableCountryCode={false}
-                value='+7 928 123 45 67'
+                __initialValue='+7 928 123 45 67'
                 onChange={onChange}
                 defaultIso2='ru'
             />,
@@ -524,6 +525,7 @@ describe('InternationalPhoneInput', () => {
             await userEvent.type(input, '{backspace}');
         }
 
+        expect(input).toHaveValue('+7');
         expect(onChange).toHaveBeenCalledWith('+7');
     });
 
