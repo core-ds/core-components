@@ -1,4 +1,5 @@
 import { type MaskitoPreprocessor } from '@maskito/core';
+import { type ElementState } from '@maskito/core/lib/types';
 import { isValid } from 'date-fns';
 
 import { DATE_RANGE_SEPARATOR } from '../consts';
@@ -15,8 +16,6 @@ import {
     shiftSegmentsData,
     validateSegments,
 } from './utils';
-
-type ElementState = Parameters<MaskitoPreprocessor>[0]['elementState'];
 
 export function createDisallowInputPreprocessor(): MaskitoPreprocessor {
     return (state, actionType) => {

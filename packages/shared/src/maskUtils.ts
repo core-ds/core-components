@@ -67,9 +67,7 @@ function caretGuard(
 }
 
 /**
- *  Запрещает удалять указанный префикс.
- *  Алгоритм совпадает с maskitoPrefixPostprocessorGenerator (@maskito/kit),
- *  чтобы корректно работать с @maskito/core v4 (вставка недостающих символов на нужные позиции).
+ *  Запрещает удалять указанный префикс
  */
 function prefixPostprocessor(prefix: string): MaskitoPostprocessor {
     return prefix
@@ -82,18 +80,15 @@ function prefixPostprocessor(prefix: string): MaskitoPostprocessor {
               }
 
               const [from, to] = selection;
-              const prefixedValue = Array.from(prefix).reduce(
-                  (modifiedValue, char, i) =>
-                      modifiedValue[i] === char
-                          ? modifiedValue
-                          : modifiedValue.slice(0, i) + char + modifiedValue.slice(i),
-                  value,
-              );
-              const addedCharsCount = prefixedValue.length - value.length;
+              const requiredPrefix = Array.from(prefix).reduce((computedPrefix, char, i) => {
+                  const newValue = computedPrefix + value;
+
+                  return newValue[i] === char ? computedPrefix : computedPrefix + char;
+              }, '');
 
               return {
-                  selection: [from + addedCharsCount, to + addedCharsCount],
-                  value: prefixedValue,
+                  selection: [from + requiredPrefix.length, to + requiredPrefix.length],
+                  value: requiredPrefix + value,
               };
           }
         : (state) => state;
