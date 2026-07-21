@@ -6,21 +6,24 @@
 
 ## Установка
 
-Зависимость уже в корневом `devDependencies`: `@figma/code-connect`. Конфиг — `figma.config.json` в корне репозитория. Шаблоны — `packages/**/code-connect/**/*.figma.tsx` (рядом с пакетом, вне `src`, чтобы не попадать в build/tsconfig пакета).
+Зависимость: `@figma/code-connect` в корневом `devDependencies`. Конфиг — `figma.config.json`. Шаблоны — `packages/**/code-connect/**/*.figma.tsx` (вне `src`, чтобы не попадать в build пакета).
 
-Токен Figma (Personal Access Token) со scope **Code Connect: Write** и **File content: Read**:
+Токен (Personal Access Token: **Code Connect: Write**, **File content: Read**):
 
 ```bash
-export FIGMA_ACCESS_TOKEN=figd_...
+# из общего хранилища VibeMinus:
+set -a && source ~/Desktop/VibeMinus/.secrets.env && set +a
 ```
+
+или `export FIGMA_ACCESS_TOKEN=…`.
 
 ## Публикация
 
 ```bash
 yarn figma:connect:publish
+# если уже были UI-привязки:
+yarn figma:connect:publish --force
 ```
-
-Эквивалент: `npx figma connect publish` (токен из `FIGMA_ACCESS_TOKEN` или `--token=`).
 
 Снять привязку:
 
@@ -28,31 +31,33 @@ yarn figma:connect:publish
 yarn figma:connect:unpublish -- --node='https://www.figma.com/design/…?node-id=…' --label=React
 ```
 
-Без `--node` CLI снимает все опубликованные из текущего include — используйте осторожно.
-
 ## Проверка
 
-1. Откройте [Web :: Core](https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core).
-2. Выберите инстанс подключённого компонента (например `[D] Button`).
-3. Dev Mode → Inspect: сниппет с импортом из `@alfalab/core-components/...` и props по вариантам инстанса.
+1. [Web :: Core](https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core) → инстанс Button.
+2. Dev Mode → Inspect: импорт `@alfalab/core-components/button/...` и props по вариантам.
 
-## Button (v1)
+## Button
 
-Файл: `packages/button/code-connect/Button.figma.tsx`.
+Файлы: `packages/button/code-connect/` (`Button.figma.tsx`, `Addon.figma.tsx`, `Diamonds.figma.tsx`).
 
-| Figma                 | Код                                   |
-| --------------------- | ------------------------------------- |
-| `[D] Button`          | `ButtonDesktop`                       |
-| `[M] Button`          | `ButtonMobile`                        |
-| `[D] Button_Inverted` | `ButtonDesktop` + `colors="inverted"` |
-| `[M] Button_Inverted` | `ButtonMobile` + `colors="inverted"`  |
+| Figma        | Код                                    |
+| ------------ | -------------------------------------- |
+| `[D] Button` | `ButtonDesktop`                        |
+| `[M] Button` | `ButtonMobile`                         |
+| `*_Inverted` | тот же компонент + `colors="inverted"` |
 
-Смаплено: `view`, `size`, `shape`, `disabled`, `children` (Label), `hint`.
+Смаплено:
 
-Не в v1: `leftAddons` / `rightAddons`, SingleIcon, loading, block, textResizing, nowrap, allowBackdropBlur.
+- `view`, `size`, `shape`, `disabled`
+- `children` (Label), `hint`
+- `leftAddons` / `rightAddons` (через 🔩 Addon + вложенный glyph)
+- `SingleIcon` (отдельные сниппеты без children)
+- `loading` (LeftAddon + Addon `Type=Spinner`)
 
-Канон маппинга Figma ↔ code для команды ДС — bridge Button в репозитории инструкций Core-skills (`04-targets/01-bridge/03-components/01-buttons/01-button/bridge.md`). При расхождении править `.figma.tsx` вместе с bridge.
+Не мапятся (нет свойств компонента в Figma): `block`, `textResizing`, `nowrap`, `allowBackdropBlur`.
+
+Канон маппинга — bridge Button в Core-skills. При расхождении править `.figma.tsx` вместе с bridge.
 
 ## CI
 
-Автопубликация в CI в первом PR не настроена: publish вручную после merge в `master` (нужен секрет с токеном и политика org).
+Автопубликация в CI пока не настроена — publish вручную после merge.

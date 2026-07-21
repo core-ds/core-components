@@ -4,7 +4,8 @@
         "include": [
             "packages/**/code-connect/**/*.figma.tsx",
             "packages/button/src/desktop/**/*.{ts,tsx}",
-            "packages/button/src/mobile/**/*.{ts,tsx}"
+            "packages/button/src/mobile/**/*.{ts,tsx}",
+            "packages/shared/src/icon-20-adapter/**/*.{ts,tsx}"
         ],
         "exclude": [
             "**/__snapshots__/**",
@@ -17,11 +18,14 @@
         "language": "jsx",
         "importPaths": {
             "packages/button/src/desktop": "@alfalab/core-components/button/desktop",
-            "packages/button/src/mobile": "@alfalab/core-components/button/mobile"
+            "packages/button/src/mobile": "@alfalab/core-components/button/mobile",
+            "packages/shared/src/icon-20-adapter": "@alfalab/core-components/shared/icon-20-adapter"
         },
         "paths": {
             "@alfalab/core-components-button": ["packages/button/src"],
-            "@alfalab/core-components-button/*": ["packages/button/src/*"]
+            "@alfalab/core-components-button/*": ["packages/button/src/*"],
+            "@alfalab/core-components-shared": ["packages/shared/src"],
+            "@alfalab/core-components-shared/*": ["packages/shared/src/*"]
         }
     }
 }
