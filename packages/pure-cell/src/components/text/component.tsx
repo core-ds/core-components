@@ -8,7 +8,7 @@ import { PureCellContext } from '../../context';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellTextProps = {
     /**
      * Контент
      */
@@ -57,7 +57,7 @@ type Props = {
     dataTestId?: string;
 };
 
-export const Text: React.FC<Props> = ({
+export const Text: React.FC<PureCellTextProps> = ({
     children,
     value,
     rowLimit,
