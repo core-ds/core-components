@@ -50,11 +50,12 @@ yarn figma:connect:unpublish -- --node='https://www.figma.com/design/…?node-id
 
 - `view`, `size`, `shape`, `disabled`
 - `children` (Label), `hint`
-- `leftAddons` / `rightAddons` (через 🔩 Addon + вложенный glyph)
-- `SingleIcon` (отдельные сниппеты без children)
-- `loading` (LeftAddon + Addon `Type=Spinner`)
+- `leftAddons` / `rightAddons` — по boolean + `Type` у вложенного 🔩 Addon (эталонная иконка diamonds; `figma.children` не проходит через FRAME)
+- `loading` — LeftAddon + Addon `Type=Spinner`
 
 Не мапятся (нет свойств компонента в Figma): `block`, `textResizing`, `nowrap`, `allowBackdropBlur`.
+
+На один component set — **одна** CLI-привязка (без дубля SingleIcon true/false).
 
 Канон маппинга — bridge Button в Core-skills. При расхождении править `.figma.tsx` вместе с bridge.
 

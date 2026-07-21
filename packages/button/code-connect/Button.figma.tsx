@@ -2,21 +2,21 @@
  * Figma Code Connect — Button.
  *
  * Связывает component set из Web :: Core с @alfalab/core-components/button.
- * Маппинг — по канону bridge Button (варианты, label/hint, addons, SingleIcon, loading).
+ * Маппинг — по канону bridge Button.
+ *
+ * Слоты Addon лежат внутри FRAME, поэтому figma.children их не видит
+ * (см. figma/code-connect#372). Иконки в сниппете — через nestedProps + Type Addon.
+ * Конкретный glyph в swap (кроме эталона diamonds) в сниппете не отражается.
  *
  * Не мапятся (нет свойств в Figma): block, textResizing, nowrap, allowBackdropBlur.
  */
 import figma from '@figma/code-connect/react';
+import { Diamonds20Icon } from '@alfalab/icons-glyph-26/Diamonds20Icon';
+import { Diamonds24Icon } from '@alfalab/icons-glyph-26/Diamonds24Icon';
+import { Icon20Adapter } from '@alfalab/core-components-shared/icon-20-adapter';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-
-const DESKTOP = 'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-50695';
-const MOBILE = 'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-52208';
-const DESKTOP_INVERTED =
-    'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=650-19395';
-const MOBILE_INVERTED =
-    'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=650-20356';
 
 const sharedProps = {
     view: figma.enum('View', {
@@ -42,26 +42,35 @@ const sharedProps = {
     disabled: figma.enum('DisabledState', {
         True: true,
     }),
-    // Loading: LeftAddon + вложенный Addon Type=Spinner.
-    leftAddonMeta: figma.boolean('LeftAddon', {
+    leftAddon: figma.boolean('LeftAddon', {
         true: figma.nestedProps('LeftAddon', {
+            icon: figma.enum('Type', {
+                'Icon-24': <Diamonds24Icon />,
+                'Icon-20': <Icon20Adapter icon={Diamonds20Icon} />,
+                'Icon-16': <Icon20Adapter icon={Diamonds20Icon} />,
+                SwapMe: <Diamonds24Icon />,
+                Spinner: undefined,
+                Indicator: undefined,
+            }),
             loading: figma.enum('Type', {
                 Spinner: true,
             }),
         }),
-        false: { loading: undefined },
+        false: { icon: undefined, loading: undefined },
     }),
-    leftAddons: figma.boolean('LeftAddon', {
-        true: figma.children('LeftAddon'),
-        false: undefined,
+    rightAddon: figma.boolean('RightAddon', {
+        true: figma.nestedProps('RightAddon', {
+            icon: figma.enum('Type', {
+                'Icon-24': <Diamonds24Icon />,
+                'Icon-20': <Icon20Adapter icon={Diamonds20Icon} />,
+                'Icon-16': <Icon20Adapter icon={Diamonds20Icon} />,
+                SwapMe: <Diamonds24Icon />,
+                Spinner: undefined,
+                Indicator: undefined,
+            }),
+        }),
+        false: { icon: undefined },
     }),
-    rightAddons: figma.boolean('RightAddon', {
-        true: figma.children('RightAddon'),
-        false: undefined,
-    }),
-};
-
-const labelProps = {
     children: figma.boolean('Label', {
         true: figma.string('✎ Label'),
         false: undefined,
@@ -72,186 +81,92 @@ const labelProps = {
     }),
 };
 
-figma.connect(ButtonDesktop, DESKTOP, {
-    variant: { SingleIcon: 'False' },
-    props: { ...sharedProps, ...labelProps },
-    example: ({
-        view,
-        size,
-        shape,
-        disabled,
-        leftAddonMeta,
-        leftAddons,
-        rightAddons,
-        children,
-        hint,
-    }) => (
-        <ButtonDesktop
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-            hint={hint}
-        >
-            {children}
-        </ButtonDesktop>
-    ),
-});
+figma.connect(
+    ButtonDesktop,
+    'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-50695',
+    {
+        props: sharedProps,
+        example: ({ view, size, shape, disabled, leftAddon, rightAddon, children, hint }) => (
+            <ButtonDesktop
+                view={view}
+                size={size}
+                shape={shape}
+                disabled={disabled}
+                loading={leftAddon.loading}
+                leftAddons={leftAddon.icon}
+                rightAddons={rightAddon.icon}
+                hint={hint}
+            >
+                {children}
+            </ButtonDesktop>
+        ),
+    },
+);
 
-figma.connect(ButtonDesktop, DESKTOP, {
-    variant: { SingleIcon: 'True' },
-    props: sharedProps,
-    example: ({ view, size, shape, disabled, leftAddonMeta, leftAddons, rightAddons }) => (
-        <ButtonDesktop
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-        />
-    ),
-});
+figma.connect(
+    ButtonMobile,
+    'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-52208',
+    {
+        props: sharedProps,
+        example: ({ view, size, shape, disabled, leftAddon, rightAddon, children, hint }) => (
+            <ButtonMobile
+                view={view}
+                size={size}
+                shape={shape}
+                disabled={disabled}
+                loading={leftAddon.loading}
+                leftAddons={leftAddon.icon}
+                rightAddons={rightAddon.icon}
+                hint={hint}
+            >
+                {children}
+            </ButtonMobile>
+        ),
+    },
+);
 
-figma.connect(ButtonMobile, MOBILE, {
-    variant: { SingleIcon: 'False' },
-    props: { ...sharedProps, ...labelProps },
-    example: ({
-        view,
-        size,
-        shape,
-        disabled,
-        leftAddonMeta,
-        leftAddons,
-        rightAddons,
-        children,
-        hint,
-    }) => (
-        <ButtonMobile
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-            hint={hint}
-        >
-            {children}
-        </ButtonMobile>
-    ),
-});
+figma.connect(
+    ButtonDesktop,
+    'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=650-19395',
+    {
+        props: sharedProps,
+        example: ({ view, size, shape, disabled, leftAddon, rightAddon, children, hint }) => (
+            <ButtonDesktop
+                view={view}
+                size={size}
+                shape={shape}
+                disabled={disabled}
+                loading={leftAddon.loading}
+                leftAddons={leftAddon.icon}
+                rightAddons={rightAddon.icon}
+                hint={hint}
+                colors='inverted'
+            >
+                {children}
+            </ButtonDesktop>
+        ),
+    },
+);
 
-figma.connect(ButtonMobile, MOBILE, {
-    variant: { SingleIcon: 'True' },
-    props: sharedProps,
-    example: ({ view, size, shape, disabled, leftAddonMeta, leftAddons, rightAddons }) => (
-        <ButtonMobile
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-        />
-    ),
-});
-
-figma.connect(ButtonDesktop, DESKTOP_INVERTED, {
-    variant: { SingleIcon: 'False' },
-    props: { ...sharedProps, ...labelProps },
-    example: ({
-        view,
-        size,
-        shape,
-        disabled,
-        leftAddonMeta,
-        leftAddons,
-        rightAddons,
-        children,
-        hint,
-    }) => (
-        <ButtonDesktop
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-            hint={hint}
-            colors='inverted'
-        >
-            {children}
-        </ButtonDesktop>
-    ),
-});
-
-figma.connect(ButtonDesktop, DESKTOP_INVERTED, {
-    variant: { SingleIcon: 'True' },
-    props: sharedProps,
-    example: ({ view, size, shape, disabled, leftAddonMeta, leftAddons, rightAddons }) => (
-        <ButtonDesktop
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-            colors='inverted'
-        />
-    ),
-});
-
-figma.connect(ButtonMobile, MOBILE_INVERTED, {
-    variant: { SingleIcon: 'False' },
-    props: { ...sharedProps, ...labelProps },
-    example: ({
-        view,
-        size,
-        shape,
-        disabled,
-        leftAddonMeta,
-        leftAddons,
-        rightAddons,
-        children,
-        hint,
-    }) => (
-        <ButtonMobile
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-            hint={hint}
-            colors='inverted'
-        >
-            {children}
-        </ButtonMobile>
-    ),
-});
-
-figma.connect(ButtonMobile, MOBILE_INVERTED, {
-    variant: { SingleIcon: 'True' },
-    props: sharedProps,
-    example: ({ view, size, shape, disabled, leftAddonMeta, leftAddons, rightAddons }) => (
-        <ButtonMobile
-            view={view}
-            size={size}
-            shape={shape}
-            disabled={disabled}
-            loading={leftAddonMeta.loading}
-            leftAddons={leftAddons}
-            rightAddons={rightAddons}
-            colors='inverted'
-        />
-    ),
-});
+figma.connect(
+    ButtonMobile,
+    'https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=650-20356',
+    {
+        props: sharedProps,
+        example: ({ view, size, shape, disabled, leftAddon, rightAddon, children, hint }) => (
+            <ButtonMobile
+                view={view}
+                size={size}
+                shape={shape}
+                disabled={disabled}
+                loading={leftAddon.loading}
+                leftAddons={leftAddon.icon}
+                rightAddons={rightAddon.icon}
+                hint={hint}
+                colors='inverted'
+            >
+                {children}
+            </ButtonMobile>
+        ),
+    },
+);
