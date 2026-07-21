@@ -1,0 +1,27 @@
+{
+    "codeConnect": {
+        "parser": "react",
+        "include": [
+            "packages/**/code-connect/**/*.figma.tsx",
+            "packages/button/src/desktop/**/*.{ts,tsx}",
+            "packages/button/src/mobile/**/*.{ts,tsx}"
+        ],
+        "exclude": [
+            "**/__snapshots__/**",
+            "**/__image_snapshots__/**",
+            "**/*.test.tsx",
+            "**/*.screenshots.test.tsx",
+            "**/docs/**"
+        ],
+        "label": "React",
+        "language": "jsx",
+        "importPaths": {
+            "packages/button/src/desktop": "@alfalab/core-components/button/desktop",
+            "packages/button/src/mobile": "@alfalab/core-components/button/mobile"
+        },
+        "paths": {
+            "@alfalab/core-components-button": ["packages/button/src"],
+            "@alfalab/core-components-button/*": ["packages/button/src/*"]
+        }
+    }
+}
