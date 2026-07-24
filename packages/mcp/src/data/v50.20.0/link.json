@@ -1,0 +1,126 @@
+{
+"packageName": "link",
+"displayName": "Link",
+"description": "Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу или вызова нового информационного слоя.",
+"props": {
+"view": {
+"defaultValue": {
+"value": "primary"
+},
+"description": "Тип ссылки",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"primary\" | \"secondary\" | \"default\" | undefined"
+}
+},
+"pseudo": {
+"defaultValue": {
+"value": false
+},
+"description": "Пунктирное подчеркивание",
+"name": "pseudo",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"underline": {
+"defaultValue": {
+"value": true
+},
+"description": "Включает / отключает подчеркивание",
+"name": "underline",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"Component": {
+"defaultValue": {
+"value": "pseudo ? 'button' : 'a'"
+},
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "Component",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Обычная ссылка",
+"description": "Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.",
+"desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link\nview='default'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nDefault\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='primary'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nPrimary\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='secondary'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nSecondary\n</Link>\n</Typography.Text>\n</Space>"
+},
+{
+"title": "Псевдоссылка",
+"description": "Вызывает информационный слой (collapse, dropdown, popup) без перехода на другую страницу.",
+"desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='default'>\nDefault\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='primary'>\nPrimary\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='secondary'>\nSecondary\n</Link>\n</Typography.Text>\n</Space>"
+},
+{
+"title": "Подчёркивание ссылок",
+"description": "Подчёркивание ссылок не является обязательным, но помогает пользователю определить их тип.",
+"desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link view='default'>Default link</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='default'>\nPseudo link\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link underline={false} view='default'>\nLink without underline\n</Link>\n</Typography.Text>\n</Space>"
+},
+{
+"title": "Анатомия",
+"description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать ссылку. Например, добавить иконку.\nПереданный контент будет отрисован слева или справа от текста ссылки.",
+"desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link view='default' leftAddons={<StarMIcon />}>\nDefault link\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link view='default' rightAddons={<StarMIcon />}>\nDefault link\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link view='default' leftAddons={<StarMIcon />} rightAddons={<StarMIcon />}>\nDefault link\n</Link>\n</Typography.Text>\n</Space>"
+},
+{
+"title": "Размеры",
+"description": "Cсылка наследует текстовый стиль от родителя.",
+"desktop": "<Space>\n<Typography.Text view='primary-large'>\n<Link view='default'>Paragraph primary large</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link view='default'>Paragraph primary medium</Link>\n</Typography.Text>\n<Typography.Text view='primary-small'>\n<Link view='default'>Paragraph primary small</Link>\n</Typography.Text>\n</Space>"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.8.0",
+"description": "#### [#1923](https://github.com/core-ds/core-components/pull/1923)\n\n- Добавлен проброс prop `colors` через компонент `Collapse` в `Link`"
+}
+]
+}

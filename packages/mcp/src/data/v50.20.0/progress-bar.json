@@ -1,0 +1,80 @@
+{
+"packageName": "progress-bar",
+"displayName": "ProgressBar",
+"description": "Используется для отображения прогресса.",
+"props": {
+"value": {
+"defaultValue": null,
+"description": "Значение заполненной части 0-100",
+"name": "value",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Css-класс для стилизации",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "positive"
+},
+"description": "Цвет заполнения",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"positive\" | \"negative\" | \"attention\" | \"link\" | \"tertiary\" | \"secondary\" | \"primary\" | \"accent\" | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": 8
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "4 | 8 | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "<Space size={20} fullWidth>\n<ProgressBar value={40} />\n<ProgressBar view='link' size={4} value={20} />\n</Space>"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1690](https://github.com/core-ds/core-components/pull/1690)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `4, 8` соответственно)"
+}
+]
+}

@@ -1,0 +1,329 @@
+{
+"packageName": "calendar-with-skeleton",
+"displayName": "CalendarWithSkeleton",
+"description": "Используется во время загрузки календаря.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"headerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс шапки десктопного календаря",
+"name": "headerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс контента десктопного календаря",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultView": {
+"defaultValue": null,
+"description": "Вид по умолчанию (выбор дней, месяцев, лет)",
+"name": "defaultView",
+"required": false,
+"type": {
+"name": "View | undefined"
+}
+},
+"selectorView": {
+"defaultValue": null,
+"description": "Вид шапки — месяц и год или только месяц",
+"name": "selectorView",
+"required": false,
+"type": {
+"name": "SelectorView | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Выбранная дата (timestamp)",
+"name": "value",
+"required": false,
+"type": {
+"name": "number | { dateFrom?: number | undefined; dateTo?: number | undefined; } | undefined"
+}
+},
+"mode": {
+"defaultValue": {
+"value": "single"
+},
+"description": "Режим выбора дат",
+"name": "mode",
+"required": false,
+"type": {
+"name": "\"single\" | \"range\" | undefined"
+}
+},
+"rangeBehavior": {
+"defaultValue": {
+"value": "clarification"
+},
+"description": "Тип выбора границ в календаре",
+"name": "rangeBehavior",
+"required": false,
+"type": {
+"name": "\"clarification\" | \"reset\" | undefined"
+}
+},
+"month": {
+"defaultValue": null,
+"description": "Открытый месяц (timestamp)",
+"name": "month",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"defaultMonth": {
+"defaultValue": null,
+"description": "Месяц, открытый по умолчанию (timestamp)",
+"name": "defaultMonth",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"minDate": {
+"defaultValue": null,
+"description": "Минимальная дата, доступная для выбора (timestamp)",
+"name": "minDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"maxDate": {
+"defaultValue": null,
+"description": "Максимальная дата, доступная для выбора (timestamp)",
+"name": "maxDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"selectedFrom": {
+"defaultValue": null,
+"description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'",
+"name": "selectedFrom",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"selectedTo": {
+"defaultValue": null,
+"description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'",
+"name": "selectedTo",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"rangeComplete": {
+"defaultValue": null,
+"description": "Индикатор, что выбран полный период",
+"name": "rangeComplete",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"events": {
+"defaultValue": null,
+"description": "Список событий",
+"name": "events",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"offDays": {
+"defaultValue": null,
+"description": "Список отключенных для выбора дней.",
+"name": "offDays",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"holidays": {
+"defaultValue": null,
+"description": "Список выходных",
+"name": "holidays",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"onMonthChange": {
+"defaultValue": null,
+"description": "Обработчик изменения месяца (или года)",
+"name": "onMonthChange",
+"required": false,
+"type": {
+"name": "((month: number) => void) | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик выбора даты",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((date?: number | undefined, dateTo?: number | undefined) => void) | undefined"
+}
+},
+"onMonthClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку месяца",
+"name": "onMonthClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"onYearClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку года",
+"name": "onYearClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"onPeriodClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия на период",
+"name": "onPeriodClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hasHeader": {
+"defaultValue": null,
+"description": "Нужно ли рендерить шапку календаря",
+"name": "hasHeader",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"responsive": {
+"defaultValue": null,
+"description": "Должен ли календарь подстраиваться под ширину родителя.",
+"name": "responsive",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dayAddons": {
+"defaultValue": null,
+"description": "Дополнительный контент под числом",
+"name": "dayAddons",
+"required": false,
+"type": {
+"name": "DayAddons[] | undefined"
+}
+},
+"shape": {
+"defaultValue": null,
+"description": "Форма ячейки дня",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"showCurrentYearSelector": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отображать ли текущий год, если selectorView 'month-only'",
+"name": "showCurrentYearSelector",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hideDisabledArrows": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'",
+"name": "hideDisabledArrows",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"mobile": {
+"defaultValue": null,
+"description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу",
+"name": "mobile",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"animate": {
+"defaultValue": {
+"value": true
+},
+"description": "Флаг включения анимации скелета",
+"name": "animate",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"calendarVisible": {
+"defaultValue": {
+"value": true
+},
+"description": "Флаг управлением видимостью календаря",
+"name": "calendarVisible",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst [visible, setVisible] = React.useState(true);\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),\n0px 12px 16px rgba(0, 0, 0, 0.04),\n0px 4px 8px rgba(0, 0, 0, 0.04),\n0px 0px 1px rgba(0, 0, 0, 0.04)`,\n};\n\nreturn (\n<div style={{ width: 344 }}>\n<div style={calendarStyles}>\n<CalendarWithSkeleton calendarVisible={visible} />\n</div>\n<Gap size={24}/>\n<Switch\nblock={true}\nchecked={!visible}\nlabel='Скелетонизация контента'\nonChange={() => setVisible(!visible)}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправлена ошибка `findDOMNode`"
+}
+]
+}

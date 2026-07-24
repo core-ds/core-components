@@ -1,0 +1,133 @@
+{
+"packageName": "pure-cell",
+"displayName": "PureCell",
+"description": "",
+"props": {
+"direction": {
+"defaultValue": {
+"value": "horizontal"
+},
+"description": "Направление",
+"name": "direction",
+"required": false,
+"type": {
+"name": "\"horizontal\" | \"vertical\" | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Сss класс для стилизации общей обёртки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"href": {
+"defaultValue": null,
+"description": "Выводит ссылку в виде ячейки",
+"name": "href",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"verticalPadding": {
+"defaultValue": {
+"value": "none"
+},
+"description": "Вертикальные отступы",
+"name": "verticalPadding",
+"required": false,
+"type": {
+"name": "\"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | { top?: \"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | undefined; bottom?: \"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | undefined; } | undefined"
+}
+},
+"horizontalPadding": {
+"defaultValue": {
+"value": "none"
+},
+"description": "Горизонтальные отступы",
+"name": "horizontalPadding",
+"required": false,
+"type": {
+"name": "\"left\" | \"right\" | \"both\" | \"none\" | undefined"
+}
+},
+"tag": {
+"defaultValue": {
+"value": "(href && 'a') || (onClick && 'button') || 'section'"
+},
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "tag",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Компоненты",
+"name": "children",
+"required": false,
+"type": {
+"name": "((boolean | (boolean | (string | number | boolean | (boolean | \"\" | TextElement | AmountElement | AmountTitleElement | null | undefined)[] | ... 10 more ... | undefined)[] | ... 5 more ... | null)[] | ... 4 more ... | AmountTitleElement) & (string | ... 5 more ... | undefined)) | null | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Лейаут",
+"description": "Компонент представляет из себя структуру с двумя вертикально или горизонтально расположенными слотами: Graphic и Content.\nГоризонтальные и вертикальные отступы могут принимать предустановленные значения.",
+"desktop": "render(() => {\nconst [graphics, setGraphicsRadioValue] = React.useState('left');\n\nconst onGraphicsRadioChange = React.useCallback((_, payload) => {\nsetGraphicsRadioValue(payload.value);\n}, []);\n\nconst styleAddons = {\nwidth: '40px',\nheight: '40px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nconst styleFooter = {\nwidth: '263px',\nheight: '16px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nconst styleContent = {\nwidth: '207px',\nheight: '20px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nconst styleGraphics = {\nwidth: '64px',\nheight: '64px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Space size={20}>\n<div\nstyle={{\nwidth: '340px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\npadding: '12px 16px',\n}}\n>\n<PureCell direction={graphics !== 'top' ? 'horizontal' : 'vertical'}>\n{graphics !== 'right' && (\n<PureCell.Graphics verticalAlign='center'>\n<div style={styleGraphics} />\n</PureCell.Graphics>\n)}\n<PureCell.Content>\n<PureCell.Main>\n<div style={styleContent} />\n<div style={styleContent} />\n</PureCell.Main>\n<PureCell.Addon verticalAlign='center'>\n<div style={styleAddons} />\n</PureCell.Addon>\n<PureCell.Footer footerPadding='default'>\n<div style={styleFooter} />\n</PureCell.Footer>\n</PureCell.Content>\n{graphics === 'right' && (\n<PureCell.Graphics>\n<div style={styleGraphics} />\n</PureCell.Graphics>\n)}\n</PureCell>\n</div>\n\n<RadioGroup\ndirection='vertical'\nname='radioGroup'\nonChange={onGraphicsRadioChange}\nvalue={graphics}\n>\n<Radio label='Графика слева' value='left' />\n<Radio label='Графика справа' value='right' />\n<Radio label='Графика сверху' value='top' />\n</RadioGroup>\n</Space>\n);\n});"
+},
+{
+"title": "Примеры",
+"description": "На базе компонента могут быть собраны готовые для использования в продукте пресеты ячеек.",
+"desktop": "render(() => (\n<div style={{ width: '370px' }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Graphics>\n<SuperEllipse size='48' backgroundColor='rgba(229, 159, 114, 1)'>\n<HeartMIcon fill='#fff' />\n</SuperEllipse>\n</PureCell.Graphics>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\ntitleColor='primary'\nvalueColor='secondary'\nview='component-primary'\nvalue={\n<Amount\nvalue={100099}\nminority={100}\ntransparentMinor={true}\nbold='full'\ncurrency='RUB'\n/>\n}\n>\nTitle\n</PureCell.Text>\n<PureCell.Text\ntitleColor='secondary'\nvalueColor='secondary'\nview='primary-small'\nvalue='Subvalue'\n>\nSubtitle\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Graphics>\n<SuperEllipse size='48' backgroundColor='rgba(229, 159, 114, 1)'>\n<HeartMIcon fill='#fff' />\n</SuperEllipse>\n</PureCell.Graphics>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\ntitleColor='primary'\nvalueColor='secondary'\nview='component-primary'\n>\nTitle\n</PureCell.Text>\n<PureCell.Text\ntitleColor='secondary'\nvalueColor='secondary'\nview='primary-small'\n>\nSubtitle\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n<PureCell.Addon verticalAlign='center'>\n<ChevronRightMIcon fill='rgba(116, 116, 116, 1)' />\n</PureCell.Addon>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Graphics>\n<SuperEllipse size='48' backgroundColor='rgba(138, 138, 142, 1)'>\n<ArrowDownLineDownMIcon fill='#fff' />\n</SuperEllipse>\n</PureCell.Graphics>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\ntitleColor='primary'\nview='component-primary'\nvalue={\n<Typography.Text\nview='component-primary'\nfont='system'\ncolor='positive'\n>\n<Amount\nvalue={18777}\nshowPlus={true}\ncurrency='RUB'\nminority={1}\nbold='none'\n/>\n</Typography.Text>\n}\n>\nTitle\n</PureCell.Text>\n<PureCell.Text\ntitleColor='secondary'\nvalueColor='secondary'\nview='primary-small'\n>\nПополнение\n</PureCell.Text>\n</PureCell.Main>\n<PureCell.Footer footerPadding='default'>\n<Comment>Коплю на мечту</Comment>\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text titleColor='secondary' view='primary-small'>\nProduct Name ··0000\n</PureCell.Text>\n<PureCell.Amount\nvalue={100000054}\nminorUnits={100}\ncurrency='RUR'\ncolor='primary'\nview={'withZeroMinorPart'}\ntransparentMinor={true}\ntextView='primary-medium'\n/>\n</PureCell.Main>\n<PureCell.Footer>\n<Typography.Text color='secondary' view='primary-small'>\nСтатус продукта\n</Typography.Text>\n<PureCell.FooterButton>Action</PureCell.FooterButton>\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n<div style={{ width: 240 }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text titleColor='secondary' view='primary-small'>\nAccount Name ··0000\n</PureCell.Text>\n<PureCell.Amount\nvalue={100000099}\nminorUnits={100}\ncurrency='RUR'\ncolor='primary'\nview={'withZeroMinorPart'}\ntransparentMinor={true}\ntextView='primary-medium'\n/>\n</PureCell.Main>\n<PureCell.Addon verticalAlign='center'>\n<div style={{ display: 'flex', gridColumnGap: '8px' }}>\n<CashMoneyMIcon style={{ color: '#c5c5c7' }} />\n<EyeMIcon style={{ color: '#c5c5c7' }} />\n</div>\n</PureCell.Addon>\n</PureCell.Content>\n</PureCell>\n</div>\n\n<div style={{ width: 80 }}>\n<PureCell direction='vertical' verticalPadding='default'>\n<PureCell.Graphics verticalAlign='center'>\n<SuperEllipse size='48'>\n<AddMIcon />\n</SuperEllipse>\n</PureCell.Graphics>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text titleColor='primary' view='component-primary'>\n{'Новый\\r\\nперевод'}\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n</div>\n</div>\n));"
+},
+{
+"title": ".Content",
+"description": "Компонент является внутренней структурой PureCell. Состоит из слотов main (зеленый), addon (фиолетовый) и footer (желтый).\nКаждый из слотов является опциональным.\nОтступы до аддона и футера могут иметь дефолтное значение или отсутствовать.",
+"desktop": "render(() => {\nconst styleWrapper = {\ndisplay: 'flex',\njustifyContent: 'space-between',\n};\nconst styleFooter = {\nwidth: '263px',\nheight: '16px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(255, 168, 0, 0.1)',\nborder: '1px dashed rgba(255, 168, 0, 1)',\nboxSizing: 'border-box',\n};\n\nconst styleContent = {\nwidth: '263px',\nheight: '20px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(0, 255, 85, 0.1)',\nborder: '1px dashed rgba(0, 255, 85, 1)',\nboxSizing: 'border-box',\n};\n\nconst styleAddon = {\nwidth: '40px',\nheight: '40px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(0, 0, 255, 0.1)',\nborder: '1px dashed rgba(0, 0, 255, 1)',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Space size={33}>\n<div style={{ width: 263 }}>\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Main>\n<div style={styleWrapper}>\n<div style={{ ...styleContent, width: '131px' }} />\n<div style={{ ...styleContent, width: '60px' }} />\n</div>\n\n<div style={{ display: 'flex', justifyContent: 'space-between' }}>\n<div style={{ ...styleContent, width: '131px' }} />\n<div style={{ ...styleContent, width: '60px' }} />\n</div>\n</PureCell.Main>\n<PureCell.Addon>\n<div style={styleAddon} />\n</PureCell.Addon>\n<PureCell.Footer footerPadding='default'>\n<div style={styleFooter} />\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n</div>\n\n<div style={{ width: 263 }}>\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Main>\n<div style={styleContent} />\n<div style={styleContent} />\n</PureCell.Main>\n<PureCell.Footer footerPadding='default'>\n<div style={styleFooter} />\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n</div>\n\n<div style={{ width: 263 }}>\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Main>\n<div style={styleWrapper}>\n<div style={{ ...styleContent, width: '131px' }} />\n<div style={{ ...styleContent, width: '60px' }} />\n</div>\n<div style={{ ...styleContent, width: '207px' }} />\n</PureCell.Main>\n<PureCell.Addon>\n<div style={styleAddon} />\n</PureCell.Addon>\n</PureCell.Content>\n</PureCell>\n</div>\n</Space>\n);\n});"
+},
+{
+"title": ".Main",
+"description": "",
+"desktop": "render(() => {\nconst styleContent = {\nwidth: '159px',\nheight: '20px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(0, 255, 85, 0.1)',\nborder: '1px dashed rgba(0, 255, 85, 1)',\nboxSizing: 'border-box',\n};\n\nreturn (\n<div style={{ width: '320px' }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text rowLimit={1} titleColor='primary' view='component-primary'>\nПример отсечения контента в одну строку\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text rowLimit={2} titleColor='primary' view='component-primary'>\nПример отсечения текста в несколько строк. Пример отсечения текста в\nнесколько строк\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\ntitleColor='primary'\nview='component-primary'\nvalue='SubtitleRight'\nvalueColor='secondary'\n>\nПоведение правой части при многострочной левой\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text titleColor='secondary' view='component-primary'>\nText\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Amount\nvalue={100000099}\nminorUnits={100}\ncurrency='RUR'\ncolor='primary'\nview='withZeroMinorPart'\ntransparentMinor={true}\n/>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.AmountTitle\nvalue={100000099}\nminorUnits={100}\ncurrency='RUR'\ntitleProps={{ color: 'primary' }}\nview='withZeroMinorPart'\ntransparentMinor={true}\n/>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n<div style={{ width: 207 }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\nview='component-primary'\nvalue='Text'\nvalueColor='secondary'\n>\n<div style={styleContent}></div>\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\nview='component-primary'\nvalue='Text'\nvalueColor='primary'\n>\n<div style={styleContent}></div>\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n</div>\n</div>\n);\n});"
+},
+{
+"title": ".Addon",
+"description": "",
+"desktop": "render(() => (\n<Container>\n<div style={{ width: 80 }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Addon addonPadding='none'>\n<PureCell.Amount\nvalue={100099}\nminorUnits={100}\ncurrency='RUR'\ncolor='primary'\nview={'withZeroMinorPart'}\ntransparentMinor={true}\n/>\n<PureCell.Text titleColor='secondary' view='component-primary'>\nText\n</PureCell.Text>\n</PureCell.Addon>\n</PureCell.Content>\n</PureCell>\n</div>\n<div style={{ width: 110 }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Addon addonPadding='none'>\n<div style={{ display: 'flex', gap: '6px' }}>\n<PureCell.Amount\nvalue={100099}\nminorUnits={100}\ncurrency='RUR'\ncolor='primary'\nview='withZeroMinorPart'\ntransparentMinor={true}\n/>\n<StatusBadge view='neutral-operation' />\n</div>\n<div style={{ display: 'flex', gap: '6px' }}>\n<PureCell.Amount\nvalue={100}\nminorUnits={1}\ncolor='primary'\nshowPlus={true}\ntransparentMinor={true}\n/>\n<AirplaneSIcon fill='#EF3124' />\n</div>\n</PureCell.Addon>\n</PureCell.Content>\n</PureCell>\n</div>\n\n<div style={{ width: 64 }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Addon addonPadding='none'>\n<div style={{ display: 'flex', gap: '16px' }}>\n<StarMIcon />\n<StarMIcon />\n</div>\n</PureCell.Addon>\n</PureCell.Content>\n</PureCell>\n</div>\n\n<div style={{ width: 110 }}>\n<PureCell direction='horizontal' verticalPadding='default'>\n<PureCell.Content>\n<PureCell.Addon addonPadding='none'>\n<Button size={32}>Button Text</Button>\n</PureCell.Addon>\n</PureCell.Content>\n</PureCell>\n</div>\n</Container>\n));"
+},
+{
+"title": ".Footer",
+"description": "",
+"desktop": "render(() => (\n<Space size={25}>\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Footer>\n<PureCell.FooterButton>Button Text</PureCell.FooterButton>\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Footer>\n<Typography.Text color='secondary' view='primary-small'>\nNeutral Status\n</Typography.Text>\n<PureCell.FooterButton>Button Text</PureCell.FooterButton>\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n</Space>\n));"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.12.2",
+"description": "#### [#2208](https://github.com/core-ds/core-components/pull/2208)\n\n- Добавлен проп `className` для футера в `PureCell`"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1691](https://github.com/core-ds/core-components/pull/1691)\n\n- Удален пропс `color` для `amount-title` который был отмечен как `deprecated` в `core-components@42.x.x`. Вместо него используйте `titleProps.color`"
+}
+]
+}

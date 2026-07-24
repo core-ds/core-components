@@ -24,6 +24,7 @@ export const status: Story = {
             <DiamondsMIcon width={16} height={16} />
         );
         const leftAddons = boolean('leftAddons', false) && leftAddonIcon;
+        const rightAddons = boolean('rightAddons', false) && leftAddonIcon;
 
         return (
             <Status
@@ -33,6 +34,7 @@ export const status: Story = {
                 shape={select('shape', ['rectangular', 'rounded'], 'rectangular')}
                 uppercase={boolean('uppercase', true)}
                 leftAddons={leftAddons}
+                rightAddons={rightAddons}
             >
                 {text('children', 'Label')}
             </Status>

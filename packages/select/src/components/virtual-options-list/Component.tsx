@@ -1,17 +1,24 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
-import mergeRefs from 'react-merge-refs';
+import React, {
+    forwardRef,
+    useEffect,
+    useImperativeHandle,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
+import { getElementWindow } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
 import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
-import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
+import { isGroup, usePrevious, useVirtualVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
-import styles from './index.module.css';
+import styles from '../options-list/index.module.css';
 
 export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
@@ -33,7 +40,6 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             header,
             footer,
             showFooter = true,
-            optionsListWidth,
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
             setHighlightedIndex,
@@ -43,18 +49,43 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             multiple,
             scrollbarClassName,
             client,
+            scrollableNodeClassName,
+            contentNodeClassName,
+            listNodeClassName,
+            footerClassName,
+            ctrlRef,
         },
         ref,
     ) => {
         const listRef = useRef<HTMLDivElement>(null);
-        const parentRef = useRef<HTMLDivElement>(null);
-        const scrollbarRef = useRef<HTMLDivElement>(null);
+        const scrollableNodeRef = useRef<HTMLDivElement>(null);
+        const noOptions = options.length === 0;
+        const [scrollTop, setScrollTop] = useState(true);
+        const [scrollBottom, setScrollBottom] = useState(false);
         const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState('');
         const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
         const rowVirtualizer = useVirtual({
+            scrollToFn(offset, defaultScrollToFn) {
+                let delta = 0;
+                const list = listRef.current;
+
+                if (list) {
+                    const win = getElementWindow(list);
+
+                    delta = ['::before', '::after']
+                        .map((pseudo) => {
+                            const { paddingTop } = win.getComputedStyle(list, pseudo);
+
+                            return parseFloat(paddingTop) || 0;
+                        })
+                        .reduce((a, b) => a + b);
+                }
+
+                defaultScrollToFn?.(offset === 0 ? offset : offset + delta);
+            },
             size: flatOptions.length,
-            parentRef: (ref || parentRef) as React.RefObject<HTMLDivElement>,
+            parentRef: (ref as React.RefObject<HTMLDivElement>) || scrollableNodeRef,
             overscan: 15,
         });
 
@@ -71,21 +102,13 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [open]);
 
-        // Скролл к пункту, которого нет на экране
-        useEffect(() => {
-            if (highlightedIndex === -1) return;
-
-            if (!rowVirtualizer.virtualItems.some((option) => option.index === highlightedIndex)) {
-                rowVirtualizer.scrollToIndex(highlightedIndex, { align: 'end' });
-            }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [highlightedIndex]);
+        useImperativeHandle(ctrlRef, () => rowVirtualizer, [rowVirtualizer]);
 
         // Циклическая навигация
         useEffect(() => {
             const notDisabled = (option: OptionShape) => !option.disabled;
             const firstNonDisabled = flatOptions.findIndex(notDisabled);
-            const lastNonDisabled = lastIndexOf(flatOptions, notDisabled);
+            const lastNonDisabled = flatOptions.findLastIndex(notDisabled);
 
             if (
                 prevHighlightedIndex <= firstNonDisabled &&
@@ -115,11 +138,10 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [rowVirtualizer.virtualItems.length, flatOptions]);
 
-        useVirtualVisibleOptions({
+        const maxHeight = useVirtualVisibleOptions({
             visibleOptions,
             invalidate: visibleOptionsInvalidateKey,
             listRef,
-            styleTargetRef: nativeScrollbar ? parentRef : scrollbarRef,
             open,
         });
 
@@ -138,6 +160,18 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 return acc;
             }, {});
         }, [options]);
+
+        const handleScroll: React.MouseEventHandler<HTMLDivElement> = (event) => {
+            const scrolledToHeader = event.currentTarget.scrollTop <= 0;
+            const scrolledToFooter =
+                event.currentTarget.scrollHeight - event.currentTarget.offsetHeight <=
+                event.currentTarget.scrollTop;
+
+            setScrollTop(scrolledToHeader);
+            setScrollBottom(scrolledToFooter);
+
+            onScroll?.(event);
+        };
 
         const renderList = () =>
             rowVirtualizer.virtualItems.map((virtualRow) => {
@@ -177,16 +211,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 };
 
                 return (
-                    <div
-                        key={virtualRow.index}
-                        ref={virtualRow.measureRef}
-                        className={cn(styles.virtualRow, {
-                            [styles.highlighted]: highlightedIndex === virtualRow.index,
-                        })}
-                        style={{
-                            transform: `translateY(${virtualRow.start}px)`,
-                        }}
-                    >
+                    <div key={virtualRow.index} ref={virtualRow.measureRef}>
                         {renderGroup()}
                         {!isGroup(option) && (
                             <Option {...getOptionProps(option, virtualRow.index)} />
@@ -195,72 +220,70 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 );
             });
 
-        const contentNodeProps = {
-            className: styles.inner,
-            style: { height: `${rowVirtualizer.totalSize}px` },
-            ref: listRef,
-        };
-
-        const renderWithCustomScrollbar = () => (
-            <Scrollbar
-                className={cn(styles.scrollable, scrollbarClassName)}
-                ref={scrollbarRef}
-                horizontalAutoStretch={optionsListWidth === 'content'}
-                scrollableNodeProps={{ onScroll, ref: parentRef }}
-                contentNodeProps={contentNodeProps}
-            >
-                {renderList()}
-            </Scrollbar>
-        );
-
-        const renderWithNativeScrollbar = () => {
-            if (visibleOptions) {
-                return (
-                    <div
-                        className={cn(styles.scrollable, scrollbarClassName)}
-                        ref={mergeRefs([parentRef, ref])}
-                        onScroll={onScroll}
-                    >
-                        <div {...contentNodeProps}>{renderList()}</div>
-                    </div>
-                );
-            }
-
-            return <div {...contentNodeProps}>{renderList()}</div>;
-        };
-
         const resetHighlightedIndex = () => setHighlightedIndex?.(-1);
 
         if (options.length === 0 && !emptyPlaceholder) {
             return null;
         }
 
+        const [firstVirualRow] = rowVirtualizer.virtualItems;
+
         return (
             <div
-                className={cn(styles.virtualOptionsList, styles[`size-${size}`], className)}
-                data-test-id={dataTestId}
+                {...(nativeScrollbar && { 'data-test-id': dataTestId })}
+                className={cn(styles.optionsList, styles[`size-${size}`], className)}
             >
                 {header && (
                     <div
-                        className={styles.virtualOptionsListHeader}
+                        className={cn(styles.optionsListHeader, {
+                            [styles.headerHighlighted]: !scrollTop,
+                        })}
                         onMouseEnter={resetHighlightedIndex}
                     >
                         {header}
                     </div>
                 )}
 
-                {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
+                {!noOptions && (
+                    <ScrollbarPrivate
+                        native={nativeScrollbar}
+                        className={scrollbarClassName}
+                        style={{ maxHeight }}
+                        scrollableNodeProps={{
+                            ref: scrollableNodeRef,
+                            onScroll: handleScroll,
+                            className: scrollableNodeClassName,
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
+                            'data-test-id': nativeScrollbar ? undefined : dataTestId,
+                        }}
+                        contentNodeProps={{
+                            className: contentNodeClassName,
+                            style: { minHeight: rowVirtualizer.totalSize },
+                        }}
+                    >
+                        <div
+                            className={cn(styles.list, listNodeClassName)}
+                            ref={listRef}
+                            style={{ transform: `translateY(${firstVirualRow?.start ?? 0}px)` }}
+                        >
+                            {renderList()}
+                        </div>
+                    </ScrollbarPrivate>
+                )}
 
-                {emptyPlaceholder && options.length === 0 && (
+                {emptyPlaceholder && noOptions && (
                     <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
                 )}
 
                 {showFooter && footer && (
                     <div
                         onMouseEnter={resetHighlightedIndex}
-                        className={cn(styles.virtualOptionsListFooter, {
+                        className={cn(styles.optionsListFooter, footerClassName, {
                             [styles.withBorder]:
-                                visibleOptions && flatOptions.length > visibleOptions,
+                                visibleOptions &&
+                                flatOptions.length > visibleOptions &&
+                                !scrollBottom,
                         })}
                     >
                         {footer}

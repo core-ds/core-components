@@ -1,0 +1,139 @@
+{
+"packageName": "action-button",
+"displayName": "ActionButton",
+"description": "Используется как триггер для выполнения определённого действия. Лейбл кнопки должен однозначно сообщать пользователю, что произойдёт после нажатия на неё.",
+"props": {
+"icon": {
+"defaultValue": null,
+"description": "Иконка кнопки",
+"name": "icon",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": 48
+},
+"description": "Размер кнопки",
+"name": "size",
+"required": false,
+"type": {
+"name": "48 | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "primary"
+},
+"description": "Тип кнопки",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"primary\" | \"secondary\" | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"iconWrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки иконки",
+"name": "iconWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"href": {
+"defaultValue": null,
+"description": "Значение href для ссылки",
+"name": "href",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Заблокировать кнопку",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"loading": {
+"defaultValue": null,
+"description": "Показать лоадер",
+"name": "loading",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Палитра, в контексте которой используется кнопка",
+"name": "colors",
+"required": false,
+"type": {
+"name": "Colors | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Виды кнопок",
+"description": "",
+"desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nreturn (\n<>\n<ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='primary'>\nPrimary\n</ActionButton>\n<Gap direction='horizontal' size={24} />\n<ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='secondary'>\nSecondary\n</ActionButton>\n<Gap size={24} />\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Недоступна'\n/>\n</>\n);\n});"
+},
+{
+"title": "Перенос текста внутри кнопки",
+"description": "Лейбл кнопки ограничен двумя строками.",
+"desktop": "<ActionButton nowrap={true} icon={<DiamondsMIcon />} view='primary'>\nПример переноса текста\n</ActionButton>"
+},
+{
+"title": "Обработка событий",
+"description": "С помощью свойства `loading` можно отобразить состояние загрузки.\nМинимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
+"desktop": "render(() => {\nconst [loading, setLoading] = React.useState({\nprimary: false,\nsecondary: false,\n});\n\nconst handleClick = (buttonName, timeout) => {\nsetLoading({ ...loading, [buttonName]: true });\nsetTimeout(() => {\nsetLoading({ ...loading, [buttonName]: false });\n}, timeout);\n};\n\nreturn (\n<>\n<ActionButton\nicon={<DiamondsMIcon />}\nloading={loading.primary}\nonClick={() => handleClick('primary', 30)}\n>\nБыстрый запрос\n</ActionButton>\n<Gap direction='horizontal' size={24} />\n<ActionButton\nicon={<DiamondsMIcon />}\nloading={loading.secondary}\nonClick={() => handleClick('secondary', 1500)}\nview='secondary'\n>\nДолгий запрос\n</ActionButton>\n</>\n);\n});"
+},
+{
+"title": "Кнопка-ссылка",
+"description": "Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.",
+"desktop": "render(() => {\nreturn (\n<ActionButton icon={<DiamondsMIcon />} href='http://www.alfabank.ru'>\n{'Переход  по ссылке'}\n</ActionButton>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s` на `48` соответственно)"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1801](https://github.com/core-ds/core-components/pull/1801)\n\n- Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover."
+}
+]
+}

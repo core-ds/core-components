@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.1.1
+
+### Patch Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2274](https://github.com/core-ds/core-components/pull/2274)
+
+##### Vars
+
+- Файл `mixins.css` теперь содержит только `postcss-mixin` правила
+
 ## 11.1.0
 
 ### Minor Changes

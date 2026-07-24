@@ -1,0 +1,179 @@
+{
+"packageName": "radio",
+"displayName": "Radio",
+"description": "",
+"props": {
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки снизу",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Текст подписи",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": 20
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "20 | 24 | undefined"
+}
+},
+"checked": {
+"defaultValue": null,
+"description": "Управление состоянием отмечен/не отмечен",
+"name": "checked",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление состоянием включен / выключен",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"name": {
+"defaultValue": null,
+"description": "Html аттрибут name инпута",
+"name": "name",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Класс компонента",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"circleClassName": {
+"defaultValue": null,
+"description": "Доп. класс радио кнопки",
+"name": "circleClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Доп. класс контента",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"align": {
+"defaultValue": {
+"value": "start"
+},
+"description": "Выравнивание",
+"name": "align",
+"required": false,
+"type": {
+"name": "Align | undefined"
+}
+},
+"addons": {
+"defaultValue": null,
+"description": "Дополнительный слот",
+"name": "addons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивать ли компонент на всю ширину",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"labelProps": {
+"defaultValue": null,
+"description": "Пропсы для label",
+"name": "labelProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик на выбор элемента",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры",
+"description": "Компонент поддерживате два размера, 24 и 20 px",
+"desktop": "render(() => {\nconst [selectedOptions, setSelectedOptions] = React.useState({\ngroup_1: 'checkbox24_1',\ngroup_2: 'checkbox20_1',\n});\nconst [switchChecked, setSwitchChecked] = React.useState(true);\nconst [disabled, setDisabled] = React.useState(false);\n\nconst handleChange = (group, name) => () => {\nsetSelectedOptions((prevOptions) => ({\n...prevOptions,\n[group]: name,\n}));\n};\n\nreturn (\n<React.Fragment>\n<div\nstyle={{\nwidth: document.body.clientWidth < 450 ? '100%' : 320,\n}}\n>\n<div style={{ minHeight: '46px' }}>\n<Radio\nsize={24}\nonChange={handleChange('group_1', 'checkbox24_1')}\nchecked={selectedOptions.group_1 === 'checkbox24_1'}\nlabel='Согласен с условиями'\ndisabled={disabled}\n{...(switchChecked && { hint: 'И внимательно их прочитал' })}\nblock={true}\n/>\n</div>\n\n<Gap size={20} />\n<div style={{ minHeight: '46px' }}>\n<Radio\nsize={24}\nonChange={handleChange('group_1', 'checkbox24_2')}\nchecked={selectedOptions.group_1 === 'checkbox24_2'}\nlabel='Согласен с условиями'\ndisabled={disabled}\n{...(switchChecked && { hint: 'И внимательно их прочитал' })}\nblock={true}\n/>\n</div>\n\n<Gap size={32} />\n<div style={{ marginLeft: '8px' }}>\n<div style={{ minHeight: '42px' }}>\n<Radio\nsize={20}\nonChange={handleChange('group_2', 'checkbox20_1')}\nchecked={selectedOptions.group_2 === 'checkbox20_1'}\nlabel='Согласен с условиями'\ndisabled={disabled}\n{...(switchChecked && { hint: 'И внимательно их прочитал' })}\nblock={true}\n/>\n</div>\n<Gap size={12} />\n<div style={{ minHeight: '42px' }}>\n<Radio\nsize={20}\nonChange={handleChange('group_2', 'checkbox20_2')}\nchecked={selectedOptions.group_2 === 'checkbox20_2'}\nlabel='Согласен с условиями'\ndisabled={disabled}\n{...(switchChecked && { hint: 'И внимательно их прочитал' })}\nblock={true}\n/>\n</div>\n</div>\n</div>\n<Gap size={32} />\n<Divider />\n<Gap size={20} />\n<Switch\nblock={true}\nchecked={switchChecked}\nlabel='Подпись под лейблом'\nonChange={() => setSwitchChecked((prevState) => !prevState)}\n/>\n<Gap size={20} />\n<Switch\nblock={true}\nchecked={disabled}\nlabel='Заблокирован'\nonClick={() => setDisabled((prevState) => !prevState)}\n/>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Состояния",
+"description": "Радиокнопка может находиться в выбранном и невыбранном состоянии.\nЕсли радиокнопка заблокирована, используется состояние «недоступна».",
+"desktop": "render(() => {\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Radio size={24} label='Выбрана' checked={true} block={true} />\n<Gap size={20} />\n<Radio\nsize={24}\nlabel='Выбрана и недоступна'\ndisabled={true}\nchecked={true}\nblock={true}\n/>\n<Gap size={20} />\n<Radio size={24} label='По умолчанию' block={true} />\n<Gap size={20} />\n<Radio size={24} label='По умолчанию и недоступна' disabled={true} block={true} />\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1645](https://github.com/core-ds/core-components/pull/1645)\n\n- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20, 24` соответственно)"
+}
+]
+}

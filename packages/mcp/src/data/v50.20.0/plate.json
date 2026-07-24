@@ -1,0 +1,326 @@
+{
+"packageName": "plate",
+"displayName": "Plate",
+"description": "Информирует пользователя о текущем состоянии системы или сообщает какую-либо важную информацию.",
+"props": {
+"hasCloser": {
+"defaultValue": null,
+"description": "Управление наличием закрывающего крестика",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closerAriaLabel": {
+"defaultValue": {
+"value": "закрыть"
+},
+"description": "Лейбл доступности для закрывающего крестика",
+"name": "closerAriaLabel",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"foldable": {
+"defaultValue": null,
+"description": "Управление наличием стрелки скрытия контента",
+"name": "foldable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"folded": {
+"defaultValue": null,
+"description": "Управление видимостью контента (controlled)",
+"name": "folded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultFolded": {
+"defaultValue": null,
+"description": "Начальное состояние контента при foldable={ true }",
+"name": "defaultFolded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"subAddons": {
+"defaultValue": null,
+"description": "Слот для субаддонов (слева от крестика)",
+"name": "subAddons",
+"required": false,
+"type": {
+"name": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]"
+}
+},
+"rounded": {
+"defaultValue": null,
+"description": "Включить/выключить скругление",
+"name": "rounded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"border": {
+"defaultValue": null,
+"description": "Включить/Выключить обводку",
+"name": "border",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"shadow": {
+"defaultValue": null,
+"description": "Включить/выключить тени",
+"name": "shadow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"limitContentWidth": {
+"defaultValue": null,
+"description": "Включить/выключить ограничение максимальной ширины контента в 560px",
+"name": "limitContentWidth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"title": {
+"defaultValue": null,
+"description": "Заголовок компонента",
+"name": "title",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"titleView": {
+"defaultValue": null,
+"description": "Вид заголовка",
+"name": "titleView",
+"required": false,
+"type": {
+"name": "\"bold\" | \"light\" | undefined"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "Вид компонента",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"common\" | \"negative\" | \"positive\" | \"attention\" | \"custom\" | undefined"
+}
+},
+"background": {
+"defaultValue": null,
+"description": "Фон компонента при view=custom",
+"name": "background",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"borderColor": {
+"defaultValue": null,
+"description": "Цвет бордера у компонента при view=custom",
+"name": "borderColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"buttons": {
+"defaultValue": null,
+"description": "Набор действий",
+"name": "buttons",
+"required": false,
+"type": {
+"name": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"buttonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для кнопок",
+"name": "buttonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"buttonsContainerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контейнера кнопок",
+"name": "buttonsContainerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контента",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"subAddonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для субаддонов",
+"name": "subAddonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика по плашке",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLDivElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик клика по крестику",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
+"onToggle": {
+"defaultValue": null,
+"description": "Обработчик сворачивания",
+"name": "onToggle",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, payload: { folded: boolean; }) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"rowLimit": {
+"defaultValue": null,
+"description": "Количество строк",
+"name": "rowLimit",
+"required": false,
+"type": {
+"name": "1 | 2 | 3 | undefined"
+}
+},
+"borderRadius": {
+"defaultValue": null,
+"description": "Кастомный радиус скругления (px, rem, em и т.д.)",
+"name": "borderRadius",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Для плашки можно включить скругление и обводку. Наличие скругления влияет на формат обводки.",
+"desktop": "render(() => {\nconst [border, setBorder] = React.useState(true);\nconst [rounded, setRounded] = React.useState(true);\nreturn (\n<div style={{ height: isMobile() ? 110 : 150 }}>\n<Plate\nview='positive'\ntitle='Пример уведомления'\nborder={border}\nrounded={rounded}\nsubAddons={!isMobile() && [<Button>Подробнее</Button>]}\nbuttons={isMobile() && [<Button>Подробнее</Button>]}\nleftAddons={\n<StatusBadge view='positive-checkmark' />\n}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={24} />\n<Switch\nblock={true}\nchecked={rounded}\nlabel='Скругление'\nonChange={() => setRounded(!rounded)}\n/>\n<Gap size={16} />\n<Switch\nblock={true}\nchecked={border}\nlabel='Обводка'\nonChange={() => setBorder(!border)}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1314](https://github.com/core-ds/core-components/pull/1314)\n\n- Добавлено новое свойство `buttonsContainerClassName`, отвечающее за дополнительный класс для контейнера кнопок. Ранее класс контейнера кнопок и самим кнопкам передавался через свойство `buttonsClassName`. Теперь `buttonsClassName` отвечает только за дополнительный класс кнопок"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Обновлены скругления для Plate компонента и добавлен prop `borderRadius` для задания произвольного радиуса (desktop/mobile)"
+},
+{
+"version": "49.7.0",
+"description": "#### [#1893](https://github.com/core-ds/core-components/pull/1893)\n\n- Добавлена поддержка aria-label для улучшения доступности в компоненте Plate"
+}
+]
+}
