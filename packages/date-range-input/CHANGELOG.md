@@ -1632,7 +1632,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 

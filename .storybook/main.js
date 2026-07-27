@@ -2,7 +2,7 @@ const path = require('node:path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { patchWebpackConfig } = require('storybook-addon-live-examples/dist/cjs/utils');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const { DefinePlugin, NormalModuleReplacementPlugin } = require('webpack');
+const { NormalModuleReplacementPlugin } = require('webpack');
 const postcssConfig = require('../postcss.config');
 const postcssImport = require('postcss-import');
 const loadCss = require('postcss-import/lib/load-content');
@@ -10,8 +10,8 @@ const { getPackages } = require('../tools/monorepo.cjs');
 const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
-const { globSync } = require('tinyglobby');
 const { existsSync } = require('node:fs');
+const { createWebpackPlugin, createManagerEnv } = require('../tools/env-manager');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
@@ -120,6 +120,10 @@ function disableReactRefreshOverlay(config) {
  * @type {import('@storybook/react-webpack5').StorybookConfig}
  */
 module.exports = {
+    // env прокидывает переменные в оба бандла Storybook: preview (iframe) и manager.
+    // DefinePlugin из createWebpackPlugin работает только в preview-бандле (через webpackFinal),
+    // поэтому переменные, нужные в manager.js, выносятся сюда отдельно.
+    env: createManagerEnv,
     stories: [
         '../packages/**/*.docs.@(ts|md)x',
         '../packages/**/*.stories.@(ts|md)x',
@@ -289,18 +293,7 @@ module.exports = {
                     }),
                 },
             }),
-            new DefinePlugin({
-                'process.env.BUILD_STORYBOOK_FROM_DIST': JSON.stringify(
-                    process.env.BUILD_STORYBOOK_FROM_DIST,
-                ),
-                'process.env.CORE_COMPONENTS_ENV': JSON.stringify(
-                    mode /* 'DEVELOPMENT' | 'PRODUCTION' */
-                        .toLowerCase(),
-                ),
-                'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
-                    process.env.CORE_COMPONENTS_VARIANT,
-                ),
-            }),
+            createWebpackPlugin(mode),
         );
         return config;
     },

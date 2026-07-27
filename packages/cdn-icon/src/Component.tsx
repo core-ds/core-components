@@ -20,7 +20,6 @@ interface CDNIconProps {
     className?: string;
     /**
      * Базовый адрес cdn хранилища c иконками
-     * @default https://alfabank.servicecdn.ru/icons
      */
     baseUrl?: string;
     /**
@@ -42,7 +41,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     color,
     dataTestId,
     className,
-    baseUrl = 'https://alfabank.servicecdn.ru/icons',
+    baseUrl = process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL,
     fallback,
     onError,
 }) => {
