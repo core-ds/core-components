@@ -331,11 +331,14 @@ export function useCalendar({
     const handleDateRef = useCallback((node: HTMLElement, index: number) => {
         dateRefs.current[index] = node;
     }, []);
+    const handleDayMouseEnter = useCallback((day: Day) => {
+        if (day.disabled) {
+            setHighlighted(undefined);
 
-    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLTableDataCellElement>) => {
-        const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
+            return;
+        }
 
-        setHighlighted(date ? +date : undefined);
+        setHighlighted(day.date.getTime());
     }, []);
 
     const handleDayMouseLeave = useCallback(() => {
@@ -425,7 +428,7 @@ export function useCalendar({
                 handleDateRef(node, day.date.getDate() - 1);
             },
             tabIndex: canFocus ? 0 : -1,
-            onMouseEnter: handleDayMouseEnter,
+            onMouseEnter: () => handleDayMouseEnter(day),
             onMouseLeave: handleDayMouseLeave,
             onClick: handleDayClick,
         };
