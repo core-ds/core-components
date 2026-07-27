@@ -1332,8 +1332,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [4.5.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.5.2...@alfalab/core-components-calendar-with-skeleton@4.5.3) (2022-08-17)
 
 ### Bug Fixes

@@ -75,7 +75,7 @@
 
 ### BREAKING CHANGES
 
-* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+* Добавьте новый домен в список разрешенных 'img-src': `'self' your-domain.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
@@ -649,8 +649,6 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
 * **skeleton:** inline-block changes to block
 * **confirmation:** buttonRetryText renamed to buttonReturnText
-
-Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
 
 # [17.6.0](https://github.com/core-ds/core-components/compare/v17.5.1...v17.6.0) (2021-06-22)
 

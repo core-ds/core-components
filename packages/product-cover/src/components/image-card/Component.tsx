@@ -13,7 +13,6 @@ export type ImageCardProps = {
 
     /**
      * Базовый URL сервиса с изображениями
-     * https://online.alfabank.ru/cards-images/cards/
      */
     baseUrl?: string;
 

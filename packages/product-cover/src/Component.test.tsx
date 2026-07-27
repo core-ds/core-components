@@ -12,7 +12,7 @@ describe('ProductCover', () => {
                     <ProductCover.Single
                         cardNumber={1234000000001234}
                         cardholderName='Cardholder Name'
-                        baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                        baseUrl={process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
                         layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                         cardId='RM'
                     />,
@@ -155,7 +155,7 @@ describe('ProductCover', () => {
         it('renders ProductCover component with image', () => {
             const { container } = render(
                 <ProductCover.Single
-                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    baseUrl={process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                     cardId='RM'
                 />,
