@@ -1,0 +1,37 @@
+## Basic text
+
+```jsx live
+render(() => {
+    const [activeKey, setActiveKey] = React.useState('money');
+
+    React.useEffect(() => {
+        const timerId = setInterval(() => {
+            setActiveKey((prevActiveKey) => {
+                switch (prevActiveKey) {
+                    case 'money':
+                        return Math.random() >= 0.5 ? 'payments' : 'history';
+                    case 'payments':
+                        return Math.random() >= 0.5 ? 'money' : 'history';
+                    case 'history':
+                        return Math.random() >= 0.5 ? 'money' : 'payments';
+                }
+            });
+        }, 1000);
+
+        return () => {
+            clearInterval(timerId);
+        };
+    }, []);
+
+    return (
+        <TabBarPrivate
+            activeKey={activeKey}
+            items={[
+                { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
+                { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
+            ]}
+        />
+    );
+});
+```

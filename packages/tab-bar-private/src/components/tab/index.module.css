@@ -1,0 +1,40 @@
+@import '@alfalab/core-components-tab-bar-private/src/vars.css';
+
+.tab {
+    min-width: var(--tab-bar-private-tab-min-size);
+    width: var(--tab-bar-private-tab-max-size);
+    flex-shrink: 1;
+    cursor: pointer;
+    color: var(--tab-bar-private-tab-color);
+
+    &.active {
+        z-index: 1;
+        color: var(--tab-bar-private-tab-active-color);
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}
+
+.icon {
+    position: relative;
+    margin: var(--gap-6) auto var(--gap-2);
+    width: 24px;
+    height: 24px;
+}
+
+.label {
+    @mixin action_secondary_small;
+
+    text-align: center;
+    margin: 0 var(--gap-10) var(--gap-6);
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    pointer-events: none;
+    vertical-align: middle;
+}

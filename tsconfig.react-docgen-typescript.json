@@ -262,6 +262,8 @@
             "@alfalab/core-components-system-message/*": ["./packages/system-message/src/*"],
             "@alfalab/core-components-tab-bar": ["./packages/tab-bar/src"],
             "@alfalab/core-components-tab-bar/*": ["./packages/tab-bar/src/*"],
+            "@alfalab/core-components-tab-bar-private": ["./packages/tab-bar-private/src"],
+            "@alfalab/core-components-tab-bar-private/*": ["./packages/tab-bar-private/src/*"],
             "@alfalab/core-components-table": ["./packages/table/src"],
             "@alfalab/core-components-table/*": ["./packages/table/src/*"],
             "@alfalab/core-components-tabs": ["./packages/tabs/src"],

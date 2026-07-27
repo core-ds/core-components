@@ -1,0 +1,47 @@
+import React, { type FC, useState } from 'react';
+
+import { TabBarPrivateTab } from '@alfalab/core-components-tab-bar-private/components/tab';
+import { TabBarPrivateTabList } from '@alfalab/core-components-tab-bar-private/components/tab-list';
+import {
+    type TabBarPrivateProps,
+    type TabKey,
+} from '@alfalab/core-components-tab-bar-private/types';
+
+import styles from './index.module.css';
+
+export const TabBarPrivate: FC<TabBarPrivateProps> = ({
+    items = [],
+    gap = -10,
+    activeKey: activeKeyFromProps,
+    defaultActiveKey,
+    onActiveKeyChange,
+}) => {
+    const [activeKey, setActiveKey] = useState(
+        () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
+    );
+    const isUncontrolled = activeKeyFromProps === undefined;
+
+    if (!isUncontrolled && activeKey !== activeKeyFromProps) {
+        setActiveKey(activeKeyFromProps);
+    }
+
+    const handleActiveKeyChange = (nextActiveKey: TabKey) => {
+        onActiveKeyChange?.(nextActiveKey);
+
+        if (isUncontrolled) {
+            setActiveKey(nextActiveKey);
+        }
+    };
+
+    return (
+        <div className={styles.component}>
+            <TabBarPrivateTabList
+                activeKey={activeKey}
+                Tab={TabBarPrivateTab}
+                items={items}
+                gap={gap}
+                onActiveKeyChange={handleActiveKeyChange}
+            />
+        </div>
+    );
+};
