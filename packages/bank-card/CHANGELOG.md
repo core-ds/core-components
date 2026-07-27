@@ -1,5 +1,17 @@
 # @alfalab/core-components-bank-card
 
+## 7.0.12
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### BankCard
+
+- Логотип по умолчанию добавлен как inline код вместо зависимости
+
 ## 7.0.11
 
 ### Patch Changes

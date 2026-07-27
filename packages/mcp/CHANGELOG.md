@@ -1,5 +1,17 @@
 # @alfalab/core-components-mcp
 
+## 0.2.2
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### MCP
+
+- Исправлены index файлы
+
 ## 0.2.1
 
 ### Patch Changes

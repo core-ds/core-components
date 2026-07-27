@@ -1,5 +1,17 @@
 # @alfalab/core-components-card-image
 
+## 5.0.3
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### CdnIcon, CardImage, ProductCover
+
+- Небольшие изменения не влияющие на работу компонента
+
 ## 5.0.2
 
 ### Patch Changes
