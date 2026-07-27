@@ -21,5 +21,6 @@ export interface UniversalModalMobileProps
                 | 'onClose'
                 | 'disableFocusLock'
                 | 'container'
+                | 'disableAutoFocus'
             >
         > {}
