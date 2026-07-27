@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.2.0
+
+### Minor Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2285](https://github.com/core-ds/core-components/pull/2285)
+
+##### Vars
+
+- Обновлены ui-primitives
+
 ## 11.1.1
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.1
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2283](https://github.com/core-ds/core-components/pull/2283)
+
+##### UniversalModal
+
+- Открыта типизация пропа `disableAutoFocus` для desktop/mobile компонента
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2281](https://github.com/core-ds/core-components/pull/2281)
+
+##### UniversalModal
+
+- Добавлена поддержка пропа `onMount` для desktop/mobile компонентов.
+
 ## 3.2.0
 
 ### Minor Changes
