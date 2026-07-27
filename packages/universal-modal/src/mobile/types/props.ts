@@ -15,6 +15,7 @@ export interface UniversalModalMobileProps
                 | 'dataTestId'
                 | 'className'
                 | 'wrapperClassName'
+                | 'onMount'
                 | 'onUnmount'
                 | 'transitionProps'
                 | 'backdropProps'
