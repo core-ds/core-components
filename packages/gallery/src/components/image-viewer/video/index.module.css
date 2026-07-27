@@ -5,10 +5,15 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     position: relative;
     min-width: 300px;
     min-height: 200px;
+}
+
+.mobileWrapper {
+    width: 100%;
 }
 
 .videoWrapper.loading {

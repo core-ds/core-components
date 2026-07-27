@@ -278,6 +278,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             data-content-area='true'
             className={cn(styles.videoWrapper, {
                 [styles.loading]: !videoLoaded && !videoError,
+                [styles.mobileWrapper]: isMobile,
             })}
         >
             <video
