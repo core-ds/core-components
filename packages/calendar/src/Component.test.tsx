@@ -420,6 +420,36 @@ describe('Calendar', () => {
                 expect(day.parentElement).toHaveClass('range');
             });
         });
+
+        it('should not highlight range on disabled days when hovering disabled date', () => {
+            const selectedDay = 10;
+            const disabledDay = 20;
+
+            const selectedFrom = setDate(defaultValue, selectedDay);
+            const disabledDate = setDate(defaultValue, disabledDay);
+
+            const { container } = render(
+                <Calendar
+                    defaultMonth={defaultValue}
+                    mode='range'
+                    selectedFrom={selectedFrom.getTime()}
+                    offDays={[disabledDate.getTime()]}
+                />,
+            );
+
+            const days = container.querySelectorAll('td[data-date]');
+
+            fireEvent.mouseEnter(days[disabledDate.getDate() - 1]);
+
+            const disabledButton = days[disabledDate.getDate() - 1].querySelector('button');
+
+            expect(disabledButton).toBeDisabled();
+            expect(disabledButton).not.toHaveClass('highlighted');
+            expect(days[disabledDate.getDate() - 1]).not.toHaveClass('range');
+            expect(days[disabledDate.getDate() - 1]).not.toHaveClass('rangeStart');
+            expect(days[disabledDate.getDate() - 1]).not.toHaveClass('rangeEnd');
+        });
+
     });
 
     describe('when only selectedTo is set', () => {
