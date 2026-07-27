@@ -449,7 +449,6 @@ describe('Calendar', () => {
             expect(days[disabledDate.getDate() - 1]).not.toHaveClass('rangeStart');
             expect(days[disabledDate.getDate() - 1]).not.toHaveClass('rangeEnd');
         });
-
     });
 
     describe('when only selectedTo is set', () => {
