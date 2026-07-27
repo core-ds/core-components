@@ -64,6 +64,7 @@ export interface UniversalModalDesktopProps
                 | 'disableFocusLock'
                 | 'container'
                 | 'disableRestoreFocus'
+                | 'disableAutoFocus'
             >
         > {
     /**
