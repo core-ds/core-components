@@ -1,5 +1,60 @@
 # @alfalab/core-components
 
+## 50.24.0
+
+### Minor Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2285](https://github.com/core-ds/core-components/pull/2285)
+
+##### Vars
+
+- Обновлены ui-primitives
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2283](https://github.com/core-ds/core-components/pull/2283)
+
+##### UniversalModal
+
+- Открыта типизация пропа `disableAutoFocus` для desktop/mobile компонента
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### CdnIcon, CardImage, ProductCover
+
+- Небольшие изменения не влияющие на работу компонента
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### BankCard
+
+- Логотип по умолчанию добавлен как inline код вместо зависимости
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2281](https://github.com/core-ds/core-components/pull/2281)
+
+##### UniversalModal
+
+- Добавлена поддержка пропа `onMount` для desktop/mobile компонентов.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.2.1
+- @alfalab/core-components-cdn-icon@7.1.6
+- @alfalab/core-components-card-image@5.0.3
+- @alfalab/core-components-product-cover@3.2.4
+- @alfalab/core-components-vars@11.2.0
+- @alfalab/core-components-bank-card@7.0.12
+
 ## 50.23.0
 
 ### Minor Changes

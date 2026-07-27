@@ -175,7 +175,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-bank-card@npm:^7.0.11, @alfalab/core-components-bank-card@workspace:packages/bank-card":
+"@alfalab/core-components-bank-card@npm:^7.0.12, @alfalab/core-components-bank-card@workspace:packages/bank-card":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-bank-card@workspace:packages/bank-card"
   dependencies:
@@ -333,7 +333,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-card-image@npm:^5.0.2, @alfalab/core-components-card-image@workspace:packages/card-image":
+"@alfalab/core-components-card-image@npm:^5.0.3, @alfalab/core-components-card-image@workspace:packages/card-image":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-card-image@workspace:packages/card-image"
   dependencies:
@@ -362,7 +362,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-cdn-icon@npm:^7.1.5, @alfalab/core-components-cdn-icon@workspace:packages/cdn-icon":
+"@alfalab/core-components-cdn-icon@npm:^7.1.6, @alfalab/core-components-cdn-icon@workspace:packages/cdn-icon":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-cdn-icon@workspace:packages/cdn-icon"
   dependencies:
@@ -1410,7 +1410,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-product-cover@npm:^3.2.3, @alfalab/core-components-product-cover@workspace:packages/product-cover":
+"@alfalab/core-components-product-cover@npm:^3.2.4, @alfalab/core-components-product-cover@workspace:packages/product-cover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
   dependencies:
@@ -2188,7 +2188,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-universal-modal@npm:^3.2.0, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
+"@alfalab/core-components-universal-modal@npm:^3.2.1, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-universal-modal@workspace:packages/universal-modal"
   dependencies:
@@ -2209,7 +2209,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-vars@npm:^11.1.1, @alfalab/core-components-vars@workspace:packages/vars":
+"@alfalab/core-components-vars@npm:^11.2.0, @alfalab/core-components-vars@workspace:packages/vars":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-vars@workspace:packages/vars"
   languageName: unknown
@@ -2242,7 +2242,7 @@ __metadata:
     "@alfalab/core-components-attach": "npm:^8.0.9"
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
     "@alfalab/core-components-badge": "npm:^7.0.2"
-    "@alfalab/core-components-bank-card": "npm:^7.0.11"
+    "@alfalab/core-components-bank-card": "npm:^7.0.12"
     "@alfalab/core-components-base-modal": "npm:^7.1.7"
     "@alfalab/core-components-bottom-sheet": "npm:^8.1.11"
     "@alfalab/core-components-button": "npm:^13.2.1"
@@ -2250,9 +2250,9 @@ __metadata:
     "@alfalab/core-components-calendar-input": "npm:^12.0.15"
     "@alfalab/core-components-calendar-range": "npm:^9.1.1"
     "@alfalab/core-components-calendar-with-skeleton": "npm:^7.0.14"
-    "@alfalab/core-components-card-image": "npm:^5.0.2"
+    "@alfalab/core-components-card-image": "npm:^5.0.3"
     "@alfalab/core-components-carousel": "npm:^1.1.2"
-    "@alfalab/core-components-cdn-icon": "npm:^7.1.5"
+    "@alfalab/core-components-cdn-icon": "npm:^7.1.6"
     "@alfalab/core-components-chart": "npm:^5.0.9"
     "@alfalab/core-components-checkbox": "npm:^6.2.3"
     "@alfalab/core-components-checkbox-group": "npm:^6.0.7"
@@ -2314,7 +2314,7 @@ __metadata:
     "@alfalab/core-components-popover": "npm:^8.1.0"
     "@alfalab/core-components-popup-sheet": "npm:^3.0.14"
     "@alfalab/core-components-portal": "npm:^5.0.3"
-    "@alfalab/core-components-product-cover": "npm:^3.2.3"
+    "@alfalab/core-components-product-cover": "npm:^3.2.4"
     "@alfalab/core-components-progress-bar": "npm:^5.0.2"
     "@alfalab/core-components-pure-cell": "npm:^6.0.12"
     "@alfalab/core-components-radio": "npm:^6.0.6"
@@ -2353,8 +2353,8 @@ __metadata:
     "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/core-components-underlay": "npm:^3.0.2"
     "@alfalab/core-components-universal-date-input": "npm:^4.0.15"
-    "@alfalab/core-components-universal-modal": "npm:^3.2.0"
-    "@alfalab/core-components-vars": "npm:^11.1.1"
+    "@alfalab/core-components-universal-modal": "npm:^3.2.1"
+    "@alfalab/core-components-vars": "npm:^11.2.0"
     "@alfalab/core-components-with-suffix": "npm:^6.0.11"
   peerDependencies:
     "@alfalab/core-components-config": ^1.1.0

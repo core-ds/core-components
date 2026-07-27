@@ -1,5 +1,17 @@
 # @alfalab/core-components-cdn-icon
 
+## 7.1.6
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### CdnIcon, CardImage, ProductCover
+
+- Небольшие изменения не влияющие на работу компонента
+
 ## 7.1.5
 
 ### Patch Changes
