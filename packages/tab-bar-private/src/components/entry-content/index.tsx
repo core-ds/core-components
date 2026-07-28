@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Indicator } from '@alfalab/core-components-indicator';
 import { type TabBarPrivateEntryContentProps } from '@alfalab/core-components-tab-bar-private/types';
 
-import styles from '@alfalab/core-components-tab-bar-private/components/entry-content/index.module.css';
+import styles from './index.module.css';
 
 export const TabBarPrivateEntryContent: FC<TabBarPrivateEntryContentProps> = ({
     Icon = 'div',

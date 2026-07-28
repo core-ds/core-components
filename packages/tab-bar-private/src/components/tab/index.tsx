@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { TabBarPrivateEntry } from '@alfalab/core-components-tab-bar-private/components/entry';
 import { type TabBarPrivateTabProps } from '@alfalab/core-components-tab-bar-private/types';
 
-import styles from '@alfalab/core-components-tab-bar-private/components/tab/index.module.css';
+import styles from './index.module.css';
 
 export const TabBarPrivateTab: FC<TabBarPrivateTabProps> = ({
     tab: { icon, label, disabled, indicator },

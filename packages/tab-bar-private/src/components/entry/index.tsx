@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { TabBarPrivateEntryContent } from '@alfalab/core-components-tab-bar-private/components/entry-content';
 import { type TabBarPrivateEntryProps } from '@alfalab/core-components-tab-bar-private/types';
 
-import styles from '@alfalab/core-components-tab-bar-private/components/entry/index.module.css';
+import styles from './index.module.css';
 
 export const TabBarPrivateEntry: FC<TabBarPrivateEntryProps> = ({
     className,

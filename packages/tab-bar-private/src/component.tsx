@@ -7,7 +7,7 @@ import {
     type TabKey,
 } from '@alfalab/core-components-tab-bar-private/types';
 
-import styles from '@alfalab/core-components-tab-bar-private/index.module.css';
+import styles from './index.module.css';
 
 export const TabBarPrivate: FC<TabBarPrivateProps> = ({
     items = [],
