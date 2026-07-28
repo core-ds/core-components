@@ -133,8 +133,8 @@ export const DaysTable: FC<DaysTableProps> = ({
             (selectedFrom && isSameDay(day.date, selectedFrom)) ||
             (selectedTo && isSameDay(day.date, selectedTo));
 
-        const dayHighlighted = highlighted && isEqual(day.date, highlighted);
-        const inRange = selection && isWithinInterval(day.date, selection);
+        const dayHighlighted = highlighted && !day.disabled && isEqual(day.date, highlighted);
+        const inRange = selection && !day.disabled && isWithinInterval(day.date, selection);
 
         const firstDayOfMonth = day.date.getDate() === 1;
         const lastDayOfMonth = isLastDayOfMonth(day.date);
@@ -145,8 +145,8 @@ export const DaysTable: FC<DaysTableProps> = ({
         const transitLeft = firstDayOfMonth && inRange && selection && day.date > selection.start;
         const transitRight = lastDayOfMonth && inRange && selection && day.date < selection.end;
 
-        const rangeStart = selection && isSameDay(day.date, selection.start);
-        const rangeEnd = selection && isSameDay(day.date, selection.end);
+        const rangeStart = selection && !day.disabled && isSameDay(day.date, selection.start);
+        const rangeEnd = selection && !day.disabled && isSameDay(day.date, selection.end);
 
         const sharpTransitLeft =
             firstDayOfWeek &&
