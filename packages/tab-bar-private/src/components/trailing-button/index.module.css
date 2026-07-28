@@ -3,4 +3,5 @@
 .component {
     margin-left: var(--gap-8);
     height: 64px;
+    flex-shrink: 0;
 }

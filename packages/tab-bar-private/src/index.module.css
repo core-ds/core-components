@@ -1,5 +1,6 @@
 @import '@alfalab/core-components-tab-bar-private/src/vars.css';
 
 .component {
-    display: inline-flex;
+    display: flex;
+    margin: 0 var(--gap-12) var(--gap-8);
 }

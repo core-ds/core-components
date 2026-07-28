@@ -6,4 +6,5 @@
     box-shadow: var(--tab-bar-private-box-shadow);
     padding: var(--gap-4);
     margin-left: var(--gap-8);
+    flex-shrink: 0;
 }
