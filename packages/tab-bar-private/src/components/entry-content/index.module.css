@@ -10,6 +10,10 @@
     @mixin action_secondary_small;
 
     margin: 0 var(--gap-10) var(--gap-6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - var(--gap-10));
 }
 
 .indicator {

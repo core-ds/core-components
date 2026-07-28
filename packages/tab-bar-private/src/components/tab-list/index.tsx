@@ -35,6 +35,8 @@ export const TabBarPrivateTabList: FC<TabBarPrivateTabListProps> = ({
                         />
                     );
                 })}
+            </div>
+            <div className={styles.track}>
                 {activeKeyIndex >= 0 && (
                     <div
                         className={styles.tracker}

@@ -2,5 +2,11 @@
 
 .component {
     display: flex;
-    margin: 0 var(--gap-12) var(--gap-8);
+    margin: 0 var(--gap-20) var(--gap-8);
+
+    justify-content: space-around;
+
+    &.margin {
+        margin: 0 var(--gap-12) var(--gap-8);
+    }
 }

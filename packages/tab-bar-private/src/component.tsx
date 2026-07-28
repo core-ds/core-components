@@ -1,4 +1,5 @@
 import React, { type FC, useState } from 'react';
+import cn from 'classnames';
 
 import { TabBarPrivateTab } from '@alfalab/core-components-tab-bar-private/components/tab';
 import { TabBarPrivateTabList } from '@alfalab/core-components-tab-bar-private/components/tab-list';
@@ -35,7 +36,11 @@ export const TabBarPrivate: FC<TabBarPrivateProps> = ({
     };
 
     return (
-        <div className={styles.component}>
+        <div
+            className={cn(styles.component, {
+                [styles.margin]: items.length >= 4 || (items.length === 3 && trailingAddon),
+            })}
+        >
             <TabBarPrivateTabList
                 activeKey={activeKey}
                 Tab={TabBarPrivateTab}

@@ -7,6 +7,7 @@
     cursor: pointer;
     color: var(--tab-bar-private-tab-color);
     user-select: none;
+    outline: none;
     display: flex;
     flex-direction: column;
     align-items: center;

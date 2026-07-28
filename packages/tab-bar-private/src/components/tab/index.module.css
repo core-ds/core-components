@@ -1,11 +1,19 @@
 @import '@alfalab/core-components-tab-bar-private/src/vars.css';
 
 .tab {
-    width: var(--tab-bar-private-tab-max-size);
-    flex-shrink: 1;
+    border-radius: var(--tab-bar-private-border-radius);
+    flex: 1;
+    width: 92px;
+    max-width: 92px;
 
     &.active {
         z-index: 1;
         color: var(--tab-bar-private-tab-active-color);
+    }
+
+    &:first-child:nth-last-child(2),
+    &:first-child:nth-last-child(2) ~ & {
+        width: var(--tab-bar-private-tab-max-size);
+        max-width: var(--tab-bar-private-tab-max-size);
     }
 }
