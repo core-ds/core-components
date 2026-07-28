@@ -1,36 +1,95 @@
-## Basic text
+## Icon
 
 ```jsx live
 render(() => {
-    const [activeKey, setActiveKey] = React.useState('money');
-
-    React.useEffect(() => {
-        const timerId = setInterval(() => {
-            setActiveKey((prevActiveKey) => {
-                switch (prevActiveKey) {
-                    case 'money':
-                        return Math.random() >= 0.5 ? 'payments' : 'history';
-                    case 'payments':
-                        return Math.random() >= 0.5 ? 'money' : 'history';
-                    case 'history':
-                        return Math.random() >= 0.5 ? 'money' : 'payments';
-                }
-            });
-        }, 1000);
-
-        return () => {
-            clearInterval(timerId);
-        };
-    }, []);
-
     return (
         <TabBarPrivate
-            activeKey={activeKey}
             items={[
                 { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
                 { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
                 { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
             ]}
+            trailingAddon={
+                <TabBarPrivateTrailingIconButton icon={<DiamondsMIcon />} label='Поддержка' />
+            }
+        />
+    );
+});
+```
+
+## Image
+
+```jsx live
+const IconComponent = ({ style, children, ...restProps }) => (
+    <div {...restProps} style={{ ...style, width: 48 }}>
+        {children}
+    </div>
+);
+
+render(() => {
+    return (
+        <TabBarPrivate
+            items={[
+                { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
+                { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
+            ]}
+            trailingAddon={
+                <TabBarPrivateTrailingIconButton
+                    Icon={IconComponent}
+                    icon={
+                        <img
+                            style={{
+                                width: 48,
+                                height: 56,
+                                left: '50%',
+                                bottom: 0,
+                                position: 'absolute',
+                                transform: 'translate(-50%, 0)',
+                                objectFit: 'cover',
+                                objectPosition: 'top left',
+                            }}
+                            src='/images/test.png'
+                        />
+                    }
+                    label='Новый'
+                />
+            }
+        />
+    );
+});
+```
+
+## Full Image
+
+```jsx live
+const IconComponent = ({ style, children, ...restProps }) => (
+    <div {...restProps} style={{ ...style, width: 48 }}>
+        {children}
+    </div>
+);
+
+render(() => {
+    return (
+        <TabBarPrivate
+            items={[
+                { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
+                { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
+            ]}
+            trailingAddon={
+                <TabBarPrivateTrailingButton style={{ width: 64 }}>
+                    <img
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'top left',
+                        }}
+                        src='/images/test.png'
+                    />
+                </TabBarPrivateTrailingButton>
+            }
         />
     );
 });

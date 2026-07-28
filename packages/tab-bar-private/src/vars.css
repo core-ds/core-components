@@ -1,6 +1,7 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 :root {
+    --tab-bar-private-tab-icon-size: 24px;
     --tab-bar-private-tab-min-size: 54px;
     --tab-bar-private-tab-max-size: 120px;
     --tab-bar-private-border-radius: 40px;

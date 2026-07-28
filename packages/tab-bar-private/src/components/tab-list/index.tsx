@@ -2,7 +2,7 @@ import React, { type FC, useMemo } from 'react';
 
 import { type TabBarPrivateTabListProps } from '@alfalab/core-components-tab-bar-private/types';
 
-import styles from './index.module.css';
+import styles from '@alfalab/core-components-tab-bar-private/components/tab-list/index.module.css';
 
 export const TabBarPrivateTabList: FC<TabBarPrivateTabListProps> = ({
     activeKey,

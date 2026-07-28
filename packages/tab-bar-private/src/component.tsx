@@ -7,7 +7,7 @@ import {
     type TabKey,
 } from '@alfalab/core-components-tab-bar-private/types';
 
-import styles from './index.module.css';
+import styles from '@alfalab/core-components-tab-bar-private/index.module.css';
 
 export const TabBarPrivate: FC<TabBarPrivateProps> = ({
     items = [],
@@ -15,6 +15,7 @@ export const TabBarPrivate: FC<TabBarPrivateProps> = ({
     activeKey: activeKeyFromProps,
     defaultActiveKey,
     onActiveKeyChange,
+    trailingAddon,
 }) => {
     const [activeKey, setActiveKey] = useState(
         () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
@@ -42,6 +43,7 @@ export const TabBarPrivate: FC<TabBarPrivateProps> = ({
                 gap={gap}
                 onActiveKeyChange={handleActiveKeyChange}
             />
+            {trailingAddon}
         </div>
     );
 };

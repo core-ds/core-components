@@ -1,0 +1,15 @@
+@import '@alfalab/core-components-tab-bar-private/src/vars.css';
+
+.entry {
+    min-width: var(--tab-bar-private-tab-min-size);
+    cursor: pointer;
+    color: var(--tab-bar-private-tab-color);
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}
