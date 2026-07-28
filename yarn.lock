@@ -2215,6 +2215,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-video@workspace:packages/video":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-video@workspace:packages/video"
+  dependencies:
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
+    "@alfalab/icons-glyph": "npm:^2.286.0"
+    classnames: "npm:^2.5.1"
+    hls.js: "npm:^1.5.17"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-with-suffix@npm:^6.0.11, @alfalab/core-components-with-suffix@workspace:packages/with-suffix":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-with-suffix@workspace:packages/with-suffix"
@@ -2407,6 +2425,16 @@ __metadata:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   checksum: 10c0/16379909c9f11af8cac3c8a77fb090b141f4a992ae5e6f10d528ac7281be8af2d1af9733cb9873416157664fd4a7a45e5c835790b875fbbb5af4b8475626095e
+  languageName: node
+  linkType: hard
+
+"@alfalab/icons-glyph@npm:^2.286.0":
+  version: 2.286.0
+  resolution: "@alfalab/icons-glyph@npm:2.286.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/049570a78ea4a20bead56ded522416f4a6e6f31779a7f98945d571e4b419b965df34101f28c6f9ae6988b25430f87469d03746787c4290aa1454c1f7d066363c
   languageName: node
   linkType: hard
 
@@ -20479,6 +20507,13 @@ __metadata:
   version: 1.5.13
   resolution: "hls.js@npm:1.5.13"
   checksum: 10c0/58f5b9dda5c0faca72059be51f88180a8cff49bf1011f50c9d6f30cdb21b44ab9f9493f18443bf6861ee68f262adb0e43bbba8dea668108816adff738e2a3f7e
+  languageName: node
+  linkType: hard
+
+"hls.js@npm:^1.5.17":
+  version: 1.6.16
+  resolution: "hls.js@npm:1.6.16"
+  checksum: 10c0/dedf0255fdea857f29e46caab990b2bbdfde9410e64932466e03fc95018238b94486ce57e4b6a96aa4d0e8f9fd26c877e3905951f900fd58437f5eab2b284722
   languageName: node
   linkType: hard
 

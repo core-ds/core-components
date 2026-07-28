@@ -1,0 +1,22 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.seek {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 80px;
+    background-color: rgba(0, 0, 0, 0.24);
+    padding: var(--gap-8) var(--gap-12);
+    border-radius: var(--border-radius-pill);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    backdrop-filter: blur(80px);
+    width: 110px;
+    height: 36px;
+    z-index: 2;
+}
+
+.arrows {
+    transform: translateY(1px);
+}

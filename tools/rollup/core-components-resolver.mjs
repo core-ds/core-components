@@ -36,6 +36,11 @@ export const coreComponentsResolver = (buildPath) => ({
 export const externalsResolver = (externals) => ({
     name: 'externals-resolver',
     resolveId: (id) => {
+        // delete after resolve all threads in PR
+        if (/\.(png|svg|jpe?g)$/i.test(id)) {
+            return { id, external: true };
+        }
+
         if (externals.some((external) => id.startsWith(external))) {
             return { id, external: true };
         }
