@@ -1,0 +1,19 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.tab {
+    border-radius: var(--tab-bar-island-border-radius);
+    flex: 1;
+    width: var(--tab-bar-island-tab-max-size);
+    max-width: var(--tab-bar-island-tab-max-size);
+
+    &.active {
+        z-index: 1;
+        color: var(--tab-bar-island-tab-active-color);
+    }
+
+    &:first-child:nth-last-child(2),
+    &:first-child:nth-last-child(2) ~ & {
+        width: 120px;
+        max-width: 120px;
+    }
+}

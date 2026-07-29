@@ -121,7 +121,7 @@
         "packages/switch",
         "packages/system-message",
         "packages/tab-bar",
-        "packages/tab-bar-private",
+        "packages/tab-bar-island",
         "packages/table",
         "packages/tabs",
         "packages/tag",

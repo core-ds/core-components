@@ -1938,9 +1938,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tab-bar-private@workspace:packages/tab-bar-private":
+"@alfalab/core-components-tab-bar-island@workspace:packages/tab-bar-island":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-tab-bar-private@workspace:packages/tab-bar-private"
+  resolution: "@alfalab/core-components-tab-bar-island@workspace:packages/tab-bar-island"
   dependencies:
     "@alfalab/core-components-indicator": "npm:^4.0.2"
     "@alfalab/core-components-shared": "npm:^2.2.2"
