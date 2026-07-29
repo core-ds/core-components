@@ -45,6 +45,7 @@ export interface TabBarIslandProps {
     items?: TabBarIslandItem[];
     onActiveKeyChange?: (nextActiveKey: TabBarIslandTabKey) => void;
     trailingAddon?: ReactNode;
+    className?: string;
 }
 
 export interface TabBarIslandTrailingIconButtonProps

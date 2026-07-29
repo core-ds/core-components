@@ -17,6 +17,7 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
     defaultActiveKey,
     onActiveKeyChange,
     trailingAddon,
+    className,
 }) => {
     const [activeKey, setActiveKey] = useState(
         () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
@@ -37,7 +38,7 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
 
     return (
         <div
-            className={cn(styles.component, {
+            className={cn(styles.component, className, {
                 [styles.margin]: items.length >= 4 || (items.length === 3 && trailingAddon),
             })}
         >
