@@ -3,8 +3,8 @@
 .tab {
     border-radius: var(--tab-bar-island-border-radius);
     flex: 1;
-    width: var(--tab-bar-island-tab-max-size);
-    max-width: var(--tab-bar-island-tab-max-size);
+    width: var(--tab-bar-island-tab-default-size);
+    max-width: var(--tab-bar-island-tab-default-size);
 
     &.active {
         z-index: 1;
@@ -13,7 +13,7 @@
 
     &:first-child:nth-last-child(2),
     &:first-child:nth-last-child(2) ~ & {
-        width: 120px;
-        max-width: 120px;
+        width: var(--tab-bar-island-tab-max-size);
+        max-width: var(--tab-bar-island-tab-max-size);
     }
 }

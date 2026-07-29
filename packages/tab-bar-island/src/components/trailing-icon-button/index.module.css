@@ -6,5 +6,5 @@
     box-shadow: var(--tab-bar-island-box-shadow);
     padding: var(--gap-4);
     margin-left: var(--gap-8);
-    max-width: var(--tab-bar-island-tab-max-size);
+    max-width: calc(var(--tab-bar-island-tab-max-size) - 2 * var(--gap-4));
 }
