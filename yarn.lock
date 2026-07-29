@@ -2037,6 +2037,7 @@ __metadata:
   resolution: "@alfalab/core-components-textarea@workspace:packages/textarea"
   dependencies:
     "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
     "@alfalab/core-components-mq": "npm:^6.0.6"
     "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
