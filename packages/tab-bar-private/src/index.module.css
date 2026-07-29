@@ -4,7 +4,7 @@
     display: flex;
     margin: 0 var(--gap-20) var(--gap-8);
 
-    justify-content: space-around;
+    justify-content: center;
 
     &.margin {
         margin: 0 var(--gap-12) var(--gap-8);

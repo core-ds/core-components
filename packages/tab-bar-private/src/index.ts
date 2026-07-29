@@ -1,5 +1,6 @@
 export * from '@alfalab/core-components-tab-bar-private/component';
 export type {
+    TabKey,
     TabBarPrivateProps,
     TabBarPrivateItem,
     TabBarPrivateTrailingButtonProps,

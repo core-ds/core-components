@@ -21,7 +21,7 @@ export const button: Story = {
         return (
             <TabBarPrivate
                 items={[
-                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                    { key: 'money', icon: <DiamondsMIcon />, label: 'Поддержка' },
                     { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
                     { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
                     { key: 'x', icon: <DiamondsMIcon />, label: 'Икс' },
