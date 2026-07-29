@@ -1,17 +1,35 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
 import { Plate } from '@alfalab/core-components-plate';
-import { TabBarIsland } from '../index';
+import { TabBarIsland, TabBarIslandTrailingIconButton, TabBarIslandTrailingButton } from '../index';
 import styles from '!!raw-loader!../vars.css';
 
 ## Подключение
 
+<Plate
+    view='attention'
+    titleView='light'
+    limitContentWidth={false}
+    title={
+        <>
+            Компонент не входит в стандартную поставку @alfalab/core-components. Его необходимо
+            устанавливать через отдельный npm-пакет
+        </>
+    }
+/>
+
 ```jsx
-import { TabBarIsland } from '@alfalab/core-components/tab-bar-island';
+import { TabBarIsland } from '@alfalab/core-components-tab-bar-island';
 ```
 
 ## Свойства
 
-<ArgsTabs components={{ TabBarIsland }} />
+<ArgsTabs
+    components={{
+        TabBarIsland,
+        TabBarIslandTrailingIconButton,
+        TabBarIslandTrailingButton,
+    }}
+/>
 
 ## Переменные
 

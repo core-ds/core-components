@@ -3,15 +3,36 @@ import { type ComponentProps, type ComponentType, type ElementType, type ReactNo
 export type TabBarIslandTabKey = string | number;
 
 export interface TabBarIslandEntryBaseProps {
+    /**
+     * Иконка
+     */
     icon?: ReactNode;
+    /**
+     * Лэйбл
+     */
     label?: ReactNode;
+    /**
+     * Заблокировать
+     */
     disabled?: boolean;
+    /**
+     * Индикатор
+     */
     indicator?: boolean | number;
 }
 
 export interface TabBarIslandEntryCustomProps {
+    /**
+     * Кастомный компонент контента
+     */
     Content?: ComponentType<TabBarIslandEntryContentProps>;
+    /**
+     * Кастомный компонент иконки
+     */
     Icon?: ElementType<ComponentProps<'div'>>;
+    /**
+     * Кастомный компонент лэйбла
+     */
     Label?: ElementType<ComponentProps<'div'>>;
 }
 
@@ -21,6 +42,9 @@ export interface TabBarIslandEntryProps
         TabBarIslandEntryCustomProps {}
 
 export interface TabBarIslandItem extends TabBarIslandEntryBaseProps {
+    /**
+     * Ключ таба
+     */
     key: TabBarIslandTabKey;
 }
 
@@ -39,12 +63,34 @@ export interface TabBarIslandTabListProps {
 }
 
 export interface TabBarIslandProps {
+    /**
+     * Отступ
+     * @default -10
+     */
     gap?: number;
+    /**
+     * Ключ активного таба
+     */
     activeKey?: TabBarIslandTabKey;
+    /**
+     * Дефолтный ключ активного таба
+     */
     defaultActiveKey?: TabBarIslandTabKey;
+    /**
+     * Табы
+     */
     items?: TabBarIslandItem[];
+    /**
+     * Обработчик смены активного таба
+     */
     onActiveKeyChange?: (nextActiveKey: TabBarIslandTabKey) => void;
+    /**
+     * Контент после табов
+     */
     trailingAddon?: ReactNode;
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 }
 
