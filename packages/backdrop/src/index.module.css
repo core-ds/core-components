@@ -11,29 +11,42 @@
     -webkit-tap-highlight-color: transparent; /* убирает хайлайт */
 }
 
-.appear,
-.enter {
-    background-color: var(--backdrop-hidden-background);
-}
-
-.appearActive,
-.enterActive,
-.appearDone,
-.enterDone {
-    background-color: var(--backdrop-visible-background);
-    transition: background-color 200ms ease-in;
-}
-
-.exit {
+.backdrop:before {
+    position: absolute;
+    inset: var(--gap-0);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
     background-color: var(--backdrop-visible-background);
 }
 
-.exitActive,
-.exitDone {
-    background-color: var(--backdrop-hidden-background);
-    transition: background-color 200ms ease-out;
+.appear:before,
+.enter:before {
+    opacity: 0;
+}
+
+.appearActive:before,
+.enterActive:before,
+.appearDone:before,
+.enterDone:before {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.exit:before {
+    opacity: 1;
+}
+
+.exitActive:before,
+.exitDone:before {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
 }
 
 .transparent.transparent {
+    background-color: var(--backdrop-hidden-background);
+}
+
+.transparent.transparent:before {
     background-color: var(--backdrop-hidden-background);
 }
