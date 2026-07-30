@@ -1339,7 +1339,7 @@ export const colorMapper: TColorMapper = {
     textColorTertiaryInvertedTransparent: getWithThemeValue('text-tertiary-inverted-transparent'),
     textColorTertiaryPress: getWithThemeValue('text-tertiary-press'),
     textColorTertiaryTransparent: getWithThemeValue('text-tertiary-transparent'),
-    transparent: getWithoutThemeValue('dynamic-nulled'),
+    transparent: getWithThemeValue('transparent-default'),
     transparentColorDefault: getWithThemeValue('transparent-default'),
     transparentColorDefaultHover: getWithThemeValue('transparent-default-hover'),
     transparentColorDefaultInvertedHover: getWithThemeValue('transparent-default-inverted-hover'),

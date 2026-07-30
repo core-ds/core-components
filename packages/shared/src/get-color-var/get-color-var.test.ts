@@ -67,6 +67,10 @@ describe('getColorVar', () => {
             expected: 'var(--color-light-status-muted-positive)',
         },
         {
+            color: 'transparent',
+            expected: 'var(--color-light-transparent-default)',
+        },
+        {
             color: '#44ddAA',
             expected: '#44ddAA',
         },

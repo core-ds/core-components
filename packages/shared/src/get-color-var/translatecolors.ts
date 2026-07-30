@@ -34,8 +34,7 @@ const notStandardNames = [
          */
         colorIn: 'transparent',
         // На выходе
-        colorOut: 'dynamic-nulled',
-        withTheme: false,
+        colorOut: 'transparent-default',
     },
 ];
 
@@ -63,10 +62,6 @@ export const translateColors = (colorName: string): ColorValue => {
             value = `${rule.colorPrefixOut}${endStr}`;
         } else if (rule.colorIn === colorNameLow) {
             value = rule.colorOut;
-        }
-
-        if (value && rule.withTheme === false) {
-            withThemeSetting = false;
         }
     }
 
