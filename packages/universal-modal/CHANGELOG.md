@@ -1,5 +1,25 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.2
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2292](https://github.com/core-ds/core-components/pull/2292)
+
+##### UniversalModal
+
+- Исправлена регрессия в `UniversalModal` (desktop): для `height="hugContent"` без переданного пропа `margin` не применялось ограничение `max-height`, из-за чего модалка растягивалась по высоте контента и не появлялся внутренний скролл вместо ограничения по высоте вьюпорта
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-navigation-bar-private@2.0.13
+- @alfalab/core-components-scrollbar@5.0.6
+
 ## 3.2.1
 
 ### Patch Changes

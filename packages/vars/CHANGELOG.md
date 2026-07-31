@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.2.1
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2296](https://github.com/core-ds/core-components/pull/2296)
+
+##### Vars
+
+- Исправлено определение переменных `border-radius` и `gaps`
+
 ## 11.2.0
 
 ### Minor Changes

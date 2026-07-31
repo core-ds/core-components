@@ -1,5 +1,13 @@
 # @alfalab/core-components-scrollbar
 
+## 5.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
 ## 5.0.5
 
 ### Patch Changes

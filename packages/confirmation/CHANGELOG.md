@@ -1,5 +1,17 @@
 # @alfalab/core-components-confirmation
 
+## 15.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-spinner@6.0.7
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-code-input@5.1.1
+
 ## 15.1.0
 
 ### Minor Changes
