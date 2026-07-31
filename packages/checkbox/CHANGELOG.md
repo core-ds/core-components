@@ -1,5 +1,21 @@
 # @alfalab/core-components-checkbox
 
+## 6.2.4
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2291](https://github.com/core-ds/core-components/pull/2291)
+
+##### Checkbox
+
+- Исправлен отступ между текстом и чекбоксом при `position="after"`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
 ## 6.2.3
 
 ### Patch Changes
