@@ -1,9 +1,10 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
+import { LockIcon } from '@alfalab/core-components-input/shared';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
@@ -227,13 +228,18 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
-                rightAddons={rightAddons}
+                rightAddons={
+                    <Fragment>
+                        {rightAddons}
+                        {(disabled || restProps.readOnly) && (
+                            <LockIcon colors={colors} size={size} />
+                        )}
+                    </Fragment>
+                }
                 bottomAddons={getBottomAddons()}
                 breakpoint={breakpoint}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}
-                addonsClassName={cn(styles[`size-${size}`], {
-                    [styles.rightAddonsClassName]: rightAddons,
-                })}
+                addonsClassName={cn(styles.rightAddonsClassName, styles[`size-${size}`])}
             >
                 <React.Fragment>
                     {hasOverflow && (
