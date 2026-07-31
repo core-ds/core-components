@@ -14,11 +14,29 @@
     margin-bottom: var(--confirmation-phone-margin-bottom-mobile);
 }
 
+.phoneLabel {
+    color: var(--confirmation-phone-label-color);
+}
+
+.phoneLabelMobile {
+    color: var(--confirmation-phone-label-color-mobile);
+}
+
+.phoneNumber {
+    color: var(--confirmation-phone-number-color);
+}
+
+.phoneNumberMobile {
+    color: var(--confirmation-phone-number-color-mobile);
+}
+
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
 }
 
 .typographyThemeMobile.typographyThemeMobile {
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
     color: var(--color-light-text-secondary);
 }
 
@@ -42,6 +60,10 @@
     & .loaderWrap {
         justify-content: center;
     }
+
+    & .countdownMobile {
+        justify-content: center;
+    }
 }
 
 .codeInput {
@@ -62,10 +84,14 @@
 
 .countdownContainer.countdownContainer {
     color: var(--color-light-text-secondary);
+    height: var(--confirmation-countdown-height);
     margin-bottom: var(--confirmation-countdown-margin-bottom);
 }
 
 .countdownMobile.countdownMobile {
+    display: flex;
+    align-items: center;
+    width: 100%;
     margin-bottom: var(--confirmation-countdown-margin-bottom-mobile);
 }
 
@@ -74,6 +100,9 @@
 }
 
 .countdownLoaderMobile.countdownLoaderMobile {
+    width: 100%;
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
     margin-bottom: var(--confirmation-countdown-loader-margin-bottom-mobile);
 }
 
@@ -83,6 +112,11 @@
     color: var(--color-light-text-secondary);
     text-align: left;
     font-variant-numeric: lining-nums tabular-nums;
+}
+
+.timeCounterMobile {
+    min-width: 0;
+    text-align: inherit;
 }
 
 .getCodeButton {

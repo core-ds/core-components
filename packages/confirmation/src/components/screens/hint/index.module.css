@@ -24,10 +24,21 @@
 
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
+    color: var(--confirmation-hint-text-color);
 }
 
 .typographyThemeMobile.typographyThemeMobile {
-    color: var(--color-light-text-secondary);
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    color: var(--confirmation-hint-text-color-mobile);
+}
+
+.phoneDescription.phoneDescription {
+    color: var(--confirmation-hint-phone-description-color);
+}
+
+.phoneDescriptionMobile.phoneDescriptionMobile {
+    color: var(--confirmation-hint-phone-description-color-mobile);
 }
 
 .phonesWrap {
@@ -58,6 +69,11 @@
 
 .phoneLink.phoneLink {
     @mixin action_primary_medium;
+}
+
+.phoneLink.phoneLinkMobile {
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
 }
 
 .hintButton {

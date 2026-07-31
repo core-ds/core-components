@@ -12,10 +12,13 @@
 
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
+    color: var(--confirmation-temp-block-description-color);
 }
 
 .typographyThemeMobile.typographyThemeMobile {
-    color: var(--color-light-text-secondary);
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    color: var(--confirmation-temp-block-description-color-mobile);
 }
 
 .description.description {
@@ -29,6 +32,11 @@
 .countdownWrap {
     display: flex;
     align-items: center;
+}
+
+.countdownWrapMobile {
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
 }
 
 .timeCounter {

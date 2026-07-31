@@ -7,10 +7,13 @@
 
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
+    color: var(--confirmation-fatal-error-description-color);
 }
 
 .typographyThemeMobile.typographyThemeMobile {
-    color: var(--color-light-text-secondary);
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    color: var(--confirmation-fatal-error-description-color-mobile);
 }
 
 .left {

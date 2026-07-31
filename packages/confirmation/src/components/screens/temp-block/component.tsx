@@ -57,7 +57,12 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
                 {texts.tempBlockDescription}
             </TypographyText>
 
-            <div className={cn(styles.countdownWrap, { [styles.typographyTheme]: !mobile })}>
+            <div
+                className={cn(styles.countdownWrap, {
+                    [styles.typographyTheme]: !mobile,
+                    [styles.countdownWrapMobile]: mobile,
+                })}
+            >
                 <CountdownLoader
                     progress={1 - timeLeft / tempBlockDuration}
                     className={styles.loader}

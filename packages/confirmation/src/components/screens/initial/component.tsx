@@ -188,7 +188,20 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.phoneMobile]: mobile,
                     })}
                 >
-                    Отправили на {phone}
+                    <span
+                        className={cn(styles.phoneLabel, {
+                            [styles.phoneLabelMobile]: mobile,
+                        })}
+                    >
+                        Отправили на{'\u00A0'}
+                    </span>
+                    <span
+                        className={cn(styles.phoneNumber, {
+                            [styles.phoneNumberMobile]: mobile,
+                        })}
+                    >
+                        {phone}
+                    </span>
                 </TypographyText>
             ) : null}
             <ComponentCodeInput
