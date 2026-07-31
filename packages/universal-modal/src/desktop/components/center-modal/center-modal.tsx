@@ -8,8 +8,6 @@ import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
-import { getHugContentStyles } from '../../utils/get-hug-content-styles';
-import { getMarginStyles } from '../../utils/get-margin-styles';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
@@ -50,6 +48,17 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
 
     const withoutOverlay = !overlay;
 
+    const componentDivProps = {
+        'data-universal-modal-margin-top': margin?.top,
+        'data-universal-modal-margin-right': margin?.right,
+        'data-universal-modal-margin-bottom': margin?.bottom,
+        'data-universal-modal-margin-left': margin?.left,
+        style: {
+            width: getWidthStyle(width, margin),
+            ...getHeightStyle(height, margin),
+        },
+    };
+
     return (
         <BaseModal
             {...restProps}
@@ -65,10 +74,15 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
                 [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin }),
-                ...getHugContentStyles({ styles, margin, height }),
-            })}
+            className={cn(
+                styles.component,
+                className,
+                styles.baseModalComponent,
+                styles.marginBox,
+                {
+                    [styles.hugContent]: height === 'hugContent',
+                },
+            )}
             transitionProps={{
                 classNames: transitionProps,
                 ...(isFullSizeModal && fullSizeModalContentTransitions),
@@ -79,12 +93,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}
-            componentDivProps={{
-                style: {
-                    width: getWidthStyle(width, margin),
-                    ...getHeightStyle(height, margin),
-                },
-            }}
+            componentDivProps={componentDivProps}
             onWheel={handleWheel}
             onClose={onClose}
         >
