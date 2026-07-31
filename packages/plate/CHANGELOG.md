@@ -1,5 +1,16 @@
 # @alfalab/core-components-plate
 
+## 9.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-icon-button@8.0.10
+
 ## 9.0.9
 
 ### Patch Changes

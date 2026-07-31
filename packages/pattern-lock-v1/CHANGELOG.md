@@ -1,5 +1,15 @@
 # @alfalab/core-components-pattern-lock-v1
 
+## 3.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+
 ## 3.0.9
 
 ### Patch Changes

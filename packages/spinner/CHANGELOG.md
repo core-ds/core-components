@@ -1,5 +1,13 @@
 # @alfalab/core-components-spinner
 
+## 6.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
 ## 6.0.6
 
 ### Patch Changes

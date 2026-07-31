@@ -1,5 +1,26 @@
 # @alfalab/core-components-calendar
 
+## 9.1.11
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2287](https://github.com/core-ds/core-components/pull/2287)
+
+##### Calendar
+
+- Исправлено выделение диапазона в режиме `range` при наведении и выборе недоступных дат: disabled-дни больше не подсвечиваются hover-эффектом и не включаются в предпросмотр периода
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-modal@11.0.15
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-icon-button@8.0.10
+
 ## 9.1.10
 
 ### Patch Changes

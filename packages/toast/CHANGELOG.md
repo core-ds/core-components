@@ -1,5 +1,17 @@
 # @alfalab/core-components-toast
 
+## 8.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-portal@5.0.4
+- @alfalab/core-components-toast-plate@9.1.6
+
 ## 8.0.11
 
 ### Patch Changes

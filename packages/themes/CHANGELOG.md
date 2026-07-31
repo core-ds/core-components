@@ -1,5 +1,17 @@
 # @alfalab/core-components-themes
 
+## 15.2.1
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2286](https://github.com/core-ds/core-components/pull/2286)
+
+##### Themes
+
+- Исправлен фон шкалы слайдера: в состоянии "ошибка" красная нижняя граница заменена на валидное значение токена.
+
 ## 15.2.0
 
 ### Minor Changes
