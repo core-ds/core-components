@@ -388,6 +388,20 @@ describe('SidePanel | hug content', () => {
                     },
                 }),
             ],
+            [
+                '004 interactive center without margin',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        verticalAlign: 'center',
+                        withMargin: false,
+                    },
+                }),
+            ],
         ],
         screenshotOpts: {
             fullPage: false,
