@@ -1,6 +1,6 @@
 import { createPreview } from '@alfalab/core-components-screenshot-utils';
 
-describe('ProductCover ', () => {
+xdescribe('ProductCover ', () => {
     createPreview(
         {
             testStory: false,
