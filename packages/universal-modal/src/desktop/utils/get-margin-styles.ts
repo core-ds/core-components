@@ -15,9 +15,11 @@ export const getMarginStyles = (params: Params): Record<string, boolean> => {
     }
 
     return {
-        [styles[`marginTop-${margin.top}`]]: hasOwnProperty(margin, 'top'),
-        [styles[`marginRight-${margin.right}`]]: hasOwnProperty(margin, 'right'),
-        [styles[`marginBottom-${margin.bottom}`]]: hasOwnProperty(margin, 'bottom'),
-        [styles[`marginLeft-${margin.left}`]]: hasOwnProperty(margin, 'left'),
+        ...(hasOwnProperty(margin, 'top') && { [styles[`marginTop-${margin.top}`]]: true }),
+        ...(hasOwnProperty(margin, 'right') && { [styles[`marginRight-${margin.right}`]]: true }),
+        ...(hasOwnProperty(margin, 'bottom') && {
+            [styles[`marginBottom-${margin.bottom}`]]: true,
+        }),
+        ...(hasOwnProperty(margin, 'left') && { [styles[`marginLeft-${margin.left}`]]: true }),
     };
 };

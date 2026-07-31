@@ -34,8 +34,14 @@ describe('getHugContentStyles', () => {
 
         expect(getHugContentStyles({ styles, margin, height: 'hugContent' })).toEqual({
             hugContent: true,
-            'topGap-undefined': false,
-            'bottomGap-undefined': false,
+        });
+    });
+
+    it('height === hugContent, with empty margin object', () => {
+        const margin: Margin = {};
+
+        expect(getHugContentStyles({ styles, margin, height: 'hugContent' })).toEqual({
+            hugContent: true,
         });
     });
 });

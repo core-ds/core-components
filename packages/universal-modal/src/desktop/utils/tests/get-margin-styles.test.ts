@@ -28,10 +28,14 @@ describe('getMarginStyles', () => {
         const margin: Margin = { right: 16, left: 16 };
 
         expect(getMarginStyles({ styles, margin })).toEqual({
-            'marginTop-undefined': false,
             'marginRight-16': true,
-            'marginBottom-undefined': false,
             'marginLeft-16': true,
         });
+    });
+
+    it('empty margin object', () => {
+        const margin: Margin = {};
+
+        expect(getMarginStyles({ styles, margin })).toEqual({});
     });
 });

@@ -17,9 +17,8 @@ export const getHugContentStyles = (params: Params): Record<string, boolean> => 
 
     return {
         [styles.hugContent]: true,
-        ...(margin && {
-            [styles[`topGap-${margin.top}`]]: hasOwnProperty(margin, 'top'),
-            [styles[`bottomGap-${margin.bottom}`]]: hasOwnProperty(margin, 'bottom'),
-        }),
+        ...(margin && hasOwnProperty(margin, 'top') && { [styles[`topGap-${margin.top}`]]: true }),
+        ...(margin &&
+            hasOwnProperty(margin, 'bottom') && { [styles[`bottomGap-${margin.bottom}`]]: true }),
     };
 };
