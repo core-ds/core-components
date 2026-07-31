@@ -74,7 +74,8 @@ export const modal: Story = {
             'start',
         );
         const bigTitle = boolean('bigTitle', false);
-        const margin = object('margin', {});
+        const withMargin = boolean('withMargin', true);
+        const margin = withMargin ? object('margin', {}) : undefined;
         const open = boolean('open', false);
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
@@ -147,7 +148,8 @@ export const side_panel: Story = {
             'start',
         );
         const bigTitle = boolean('bigTitle', false);
-        const margin = object('margin', {});
+        const withMargin = boolean('withMargin', true);
+        const margin = withMargin ? object('margin', {}) : undefined;
         const open = boolean('open', false);
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
