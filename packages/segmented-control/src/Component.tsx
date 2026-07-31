@@ -128,7 +128,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     useEffect(() => {
         setSelectedBoxStylesRef.current = setSelectedBoxStyles;
         setSelectedBoxStyles();
-    }, [setSelectedBoxStyles]);
+    }, [setSelectedBoxStyles, skeleton?.visible]);
 
     useEffect(() => {
         if (!wrapperRef.current) return undefined;
@@ -140,7 +140,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         observer.observe(wrapperRef.current);
 
         return () => observer.disconnect();
-    }, []);
+    }, [skeleton?.visible]);
 
     if (skeleton?.visible) {
         return (
