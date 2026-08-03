@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { IndicatorTag } from './components/indicator-tag';
 import { TagDesktop as Tag } from './desktop';
+import { TagMobile } from './mobile';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
@@ -146,6 +147,73 @@ describe('Render tests', () => {
             expect(parseFloat(indicator.style.left)).toBeLessThanOrEqual(36);
         },
     );
+
+    it('should render clear button', () => {
+        const { container, getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} onClear={jest.fn()}>
+                Tag text
+            </Tag>,
+        );
+
+        expect(getAllButtonsByRole('button')).toHaveLength(2);
+        expect(container.querySelector('.clear')).toBeInTheDocument();
+    });
+
+    it('should not render clear when showClear=false', () => {
+        const { container, getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={false} onClear={jest.fn()}>
+                Tag text
+            </Tag>,
+        );
+
+        expect(getAllButtonsByRole('button')).toHaveLength(1);
+        expect(container.querySelector('.clear')).not.toBeInTheDocument();
+    });
+
+    it('should not render clear when not checked', () => {
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={false} showClear={true} onClear={jest.fn()}>
+                Tag text
+            </Tag>,
+        );
+
+        expect(getAllButtonsByRole('button')).toHaveLength(1);
+    });
+
+    it('should not render clear when no children', () => {
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} onClear={jest.fn()} />,
+        );
+
+        expect(getAllButtonsByRole('button')).toHaveLength(1);
+    });
+
+    it('should not render clear when disabled', () => {
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} disabled={true} onClear={jest.fn()}>
+                Tag text
+            </Tag>,
+        );
+
+        expect(getAllButtonsByRole('button')).toHaveLength(1);
+    });
+
+    it('should hide rightAddons when clear is shown', () => {
+        const rightAddonText = 'Right addon text';
+
+        const { queryByText } = render(
+            <Tag
+                checked={true}
+                showClear={true}
+                onClear={jest.fn()}
+                rightAddons={<span>{rightAddonText}</span>}
+            >
+                Tag text
+            </Tag>,
+        );
+
+        expect(queryByText(rightAddonText)).not.toBeInTheDocument();
+    });
 });
 
 describe('Interaction its', () => {
@@ -191,6 +259,80 @@ describe('Interaction its', () => {
         }
 
         expect(cb).toHaveBeenCalledTimes(0);
+    });
+
+    it('should call onClear on clear click', () => {
+        const onClear = jest.fn();
+
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} onClear={onClear}>
+                Tag text
+            </Tag>,
+        );
+
+        fireEvent.click(getAllButtonsByRole('button')[1]);
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call onClear on Enter keydown', () => {
+        const onClear = jest.fn();
+
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} onClear={onClear}>
+                Tag text
+            </Tag>,
+        );
+
+        fireEvent.keyDown(getAllButtonsByRole('button')[1], { key: 'Enter' });
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not call onClear on other keys', () => {
+        const onClear = jest.fn();
+
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} onClear={onClear}>
+                Tag text
+            </Tag>,
+        );
+
+        fireEvent.keyDown(getAllButtonsByRole('button')[1], { key: 'Space' });
+
+        expect(onClear).not.toHaveBeenCalled();
+    });
+
+    it('should not call onClick when clear clicked', () => {
+        const onClick = jest.fn();
+        const onClear = jest.fn();
+
+        const { getAllByRole: getAllButtonsByRole } = render(
+            <Tag checked={true} showClear={true} onClick={onClick} onClear={onClear}>
+                Tag text
+            </Tag>,
+        );
+
+        fireEvent.click(getAllButtonsByRole('button')[1]);
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+        expect(onClick).not.toHaveBeenCalled();
+    });
+
+    it('should not call onClear when clear not rendered', () => {
+        const onClear = jest.fn();
+
+        const { container } = render(
+            <Tag checked={true} showClear={false} onClear={onClear}>
+                Tag text
+            </Tag>,
+        );
+
+        if (container.firstElementChild) {
+            fireEvent.click(container.firstElementChild);
+        }
+
+        expect(onClear).not.toHaveBeenCalled();
     });
 });
 
@@ -289,6 +431,39 @@ describe('Indicator tag', () => {
 
             expect(container.firstElementChild).toHaveAttribute('data-test-id', dataTestId);
         });
+
+        it.each(['transparent', 'outlined'] as const)(
+            'should fallback to filled view when view is %s',
+            (view) => {
+                const { container } = render(
+                    <Tag Component={IndicatorTag} view={view} leftAddons={<span />} />,
+                );
+
+                expect(container.firstElementChild).toHaveClass('filled');
+            },
+        );
+
+        it('should apply filled view styles for TagMobile with IndicatorTag', () => {
+            const tagProps = {
+                view: 'filled' as const,
+                shape: 'rectangular' as const,
+                size: 40 as const,
+            };
+
+            const { container: nativeContainer } = render(
+                <TagMobile {...tagProps}>Label</TagMobile>,
+            );
+            const { container: indicatorContainer } = render(
+                <TagMobile {...tagProps} Component={IndicatorTag} leftAddons={<span />} />,
+            );
+
+            const nativeButton = nativeContainer.firstElementChild;
+            const indicatorButton = indicatorContainer.firstElementChild;
+
+            expect(nativeButton).toHaveClass('filled');
+            expect(indicatorButton).toHaveClass('filled');
+            expect(indicatorContainer.querySelector('.shapePath')).toBeInTheDocument();
+        });
     });
 
     describe('Edge Cases', () => {
@@ -296,7 +471,7 @@ describe('Indicator tag', () => {
             const { container } = render(
                 <Tag
                     Component={IndicatorTag}
-                    size={48 as unknown as 32}
+                    size={56 as unknown as 32}
                     indicatorProps={{ mode: 'dot' }}
                     leftAddons={<span />}
                 />,

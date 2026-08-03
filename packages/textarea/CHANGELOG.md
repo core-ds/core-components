@@ -1,5 +1,26 @@
 # @alfalab/core-components-textarea
 
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2290](https://github.com/core-ds/core-components/pull/2290)
+
+##### Textarea
+
+- Добавлена иконка замка для readOnly/disabled состояний
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-mq@6.0.7
+
 ## 10.0.8
 
 ### Patch Changes
@@ -775,8 +796,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [6.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-textarea@6.3.0...@alfalab/core-components-textarea@6.3.1) (2022-08-17)
 

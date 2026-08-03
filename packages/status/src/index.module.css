@@ -11,7 +11,8 @@
     text-align: center;
     text-transform: initial;
 
-    & .leftAddons {
+    & .leftAddons,
+    & .rightAddons {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -90,6 +91,28 @@
         &.size-40 {
             gap: var(--gap-6);
             padding-left: var(--gap-16);
+        }
+    }
+
+    &.withRightAddons {
+        &.size-20 {
+            gap: 3px;
+            padding-right: var(--gap-6);
+        }
+
+        &.size-24 {
+            gap: var(--gap-4);
+            padding-right: var(--gap-8);
+        }
+
+        &.size-32 {
+            gap: var(--gap-6);
+            padding-right: var(--gap-12);
+        }
+
+        &.size-40 {
+            gap: var(--gap-6);
+            padding-right: var(--gap-16);
         }
     }
 }

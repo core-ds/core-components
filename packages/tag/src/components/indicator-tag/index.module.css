@@ -23,7 +23,8 @@
 
 .badgeIcon {
     position: relative;
-    cursor: pointer;
+    pointer-events: none;
+    cursor: default;
     margin: 0;
     padding: 0;
     border: 0;
@@ -43,6 +44,11 @@
     height: 40px;
 }
 
+.size-48 {
+    width: 48px;
+    height: 48px;
+}
+
 .svg {
     display: block;
     width: 100%;
@@ -51,7 +57,14 @@
 }
 
 .shapePath {
+    pointer-events: visiblePainted;
+    cursor: pointer;
     transition: fill 0.2s ease;
+}
+
+.badgeIcon:disabled .shapePath {
+    pointer-events: none;
+    cursor: default;
 }
 
 .focused {

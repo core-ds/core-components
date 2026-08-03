@@ -1,5 +1,14 @@
 # @alfalab/core-components-base-modal
 
+## 7.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-portal@5.0.4
+
 ## 7.1.7
 
 ### Patch Changes
@@ -755,8 +764,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.3.0...@alfalab/core-components-base-modal@4.3.1) (2022-08-17)
 

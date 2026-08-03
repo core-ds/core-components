@@ -1,5 +1,31 @@
 # @alfalab/core-components-amount-input
 
+## 9.3.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-number-input@4.0.12
+- @alfalab/core-components-with-suffix@6.0.12
+
+## 9.3.0
+
+### Minor Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2276](https://github.com/core-ds/core-components/pull/2276)
+
+##### AmountInput
+
+- Добавлен проп `zeroValue` `(false /* @default */ | true)` для обновленной логики работы с нулем `0`:
+    - при фокусе нуль заменяется пустым значением
+    - при потере фокуса пустое значение заменяется нулем
+- Внутренние улучшения работы компонента
+
 ## 9.2.8
 
 ### Patch Changes
@@ -1301,7 +1327,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1428,8 +1454,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount-input@5.7.1...@alfalab/core-components-amount-input@5.7.2) (2022-08-17)
 

@@ -1,5 +1,14 @@
 # @alfalab/core-components-typography
 
+## 6.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+
 ## 6.0.9
 
 ### Patch Changes
@@ -620,8 +629,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [2.7.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-typography@2.7.0...@alfalab/core-components-typography@2.7.1) (2022-08-17)
 

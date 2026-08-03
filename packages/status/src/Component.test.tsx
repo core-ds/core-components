@@ -91,12 +91,20 @@ describe('Status', () => {
         });
     });
 
-    it('should set rightAddons', () => {
+    it('should set leftAddons', () => {
         render(<Status leftAddons={<div data-test-id='left-addons-id'>leftAddons</div>} />);
 
         const leftAddon = screen.queryByTestId('left-addons-id');
 
         expect(leftAddon).toBeInTheDocument();
+    });
+
+    it('should set rightAddons', () => {
+        render(<Status rightAddons={<div data-test-id='right-addons-id'>rightAddons</div>} />);
+
+        const rightAddon = screen.queryByTestId('right-addons-id');
+
+        expect(rightAddon).toBeInTheDocument();
     });
 
     it('should unmount without errors', () => {

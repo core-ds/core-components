@@ -1,5 +1,17 @@
 # @alfalab/core-components-calendar-range
 
+## 9.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-calendar@9.1.11
+- @alfalab/core-components-universal-date-input@4.0.16
+- @alfalab/core-components-calendar-input@12.0.16
+- @alfalab/core-components-date-input@6.0.12
+
 ## 9.1.1
 
 ### Patch Changes
@@ -1761,8 +1773,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.7.2...@alfalab/core-components-calendar-range@5.7.3) (2022-08-17)
 
