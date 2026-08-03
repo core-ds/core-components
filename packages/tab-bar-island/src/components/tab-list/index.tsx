@@ -1,5 +1,7 @@
-import React, { type FC, useMemo } from 'react';
+import React, { type FC, useLayoutEffect, useMemo, useState } from 'react';
+import cn from 'classnames';
 
+import { usePrevious } from '@alfalab/core-components-shared';
 import { type TabBarIslandTabListProps } from '@alfalab/core-components-tab-bar-island/types';
 
 import styles from './index.module.css';
@@ -11,11 +13,19 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     Tab,
     onActiveKeyChange,
 }) => {
+    const [phase, setPhase] = useState<number>();
     const activeKeyIndex = useMemo(
-        () => items.findIndex((item) => item.key === activeKey),
+        () => (activeKey ? items.findIndex((item) => item.key === activeKey) : -1),
         [activeKey, items],
     );
+    const prevActiveKeyIndex = usePrevious(activeKeyIndex) ?? -1;
     const tabWidth = `calc(${100 / items.length}% ${Math.sign(gap) === 1 ? '-' : '+'} ${(Math.abs(gap) * (items.length - 1)) / items.length}px)`;
+
+    useLayoutEffect(() => {
+        if (prevActiveKeyIndex >= 0) {
+            setPhase((prevPhase = 0) => Math.abs(prevPhase - 1));
+        }
+    }, [prevActiveKeyIndex]);
 
     return (
         <div role='tablist' className={styles.list}>
@@ -39,12 +49,22 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
             <div className={styles.track}>
                 {activeKeyIndex >= 0 && (
                     <div
-                        className={styles.tracker}
+                        className={styles.frame}
                         style={{
                             width: tabWidth,
                             transform: `translateX(calc(${activeKeyIndex * 100}% + ${activeKeyIndex * gap}px))`,
                         }}
-                    />
+                    >
+                        <div
+                            className={cn(
+                                styles.tracker,
+                                prevActiveKeyIndex >= 0 &&
+                                    styles[
+                                        `${prevActiveKeyIndex > activeKeyIndex ? 'right' : 'left'}${phase}`
+                                    ],
+                            )}
+                        />
+                    </div>
                 )}
             </div>
         </div>

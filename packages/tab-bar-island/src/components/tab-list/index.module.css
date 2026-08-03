@@ -27,11 +27,10 @@
     z-index: 1;
 }
 
-.tracker {
+.frame {
     min-width: var(--tab-bar-island-tab-min-size);
-    border-radius: var(--tab-bar-island-border-radius);
     height: 100%;
-    background: var(--color-light-neutral-translucent-200);
+    position: relative;
     will-change: transform;
     transition: transform 600ms
         linear(
@@ -56,4 +55,53 @@
             1.0003,
             1
         );
+}
+
+.tracker {
+    border-radius: var(--tab-bar-island-border-radius);
+    height: 100%;
+    width: 100%;
+    background: var(--color-light-neutral-translucent-200);
+    will-change: transform, width, height;
+}
+
+/* prettier-ignore */
+@each $phase in 0, 1 {
+    .left$(phase) {
+        animation: leftShrink$(phase) 600ms linear;
+    }
+
+    @keyframes leftShrink$(phase) {
+        0% {
+            width: 104%;
+        }
+        90% {
+            width: 90%;
+            height: 120%;
+            transform: translate(11.11%, -8.33%);
+        }
+    }
+
+    .right$(phase) {
+        animation: rightShrink$(phase) 600ms linear;
+
+    }
+
+    @keyframes rightShrink$(phase) {
+        0% {
+            width: 104%;
+            transform: translate(-4.16%, 0);
+        }
+        90% {
+            width: 90%;
+            height: 120%;
+            transform: translate(0, -8.33%);
+        }
+    }
+}
+
+@keyframes leftShift {
+    100% {
+        width: 104%;
+    }
 }
