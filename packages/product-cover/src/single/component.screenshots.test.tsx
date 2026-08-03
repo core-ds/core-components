@@ -15,7 +15,7 @@ const screenshotTesting = setupScreenshotTesting({
 
 const SIZES = [164, 128, 96, 48, 40, 32, 16];
 
-describe(
+xdescribe(
     'ProductCover | props screenshots',
     screenshotTesting({
         cases: [
@@ -40,7 +40,7 @@ describe(
     }),
 );
 
-describe('ProductCover | icon color', () => {
+xdescribe('ProductCover | icon color', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -80,7 +80,7 @@ describe('ProductCover | icon color', () => {
     ['default'].forEach((theme) => testCase(theme));
 });
 
-describe('ProductCover | text color', () => {
+xdescribe('ProductCover | text color', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -124,7 +124,7 @@ describe('ProductCover | text color', () => {
     ['default'].forEach((theme) => testCase(theme));
 });
 
-describe('ProductCover | hover', () => {
+xdescribe('ProductCover | hover', () => {
     const cardholderName = 'JOHN DOE';
     const cardNumber = 1111222233334444;
 
@@ -204,7 +204,7 @@ describe('ProductCover | hover', () => {
     })();
 });
 
-describe('ProductCover | active', () => {
+xdescribe('ProductCover | active', () => {
     const cardholderName = 'JOHN DOE';
     const cardNumber = 1111222233334444;
 

@@ -1,5 +1,16 @@
 # @alfalab/core-components-modal
 
+## 11.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-navigation-bar-private@2.0.13
+
 ## 11.0.14
 
 ### Patch Changes

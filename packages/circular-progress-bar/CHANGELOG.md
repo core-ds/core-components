@@ -1,5 +1,14 @@
 # @alfalab/core-components-circular-progress-bar
 
+## 5.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-typography@6.0.10
+
 ## 5.0.9
 
 ### Patch Changes

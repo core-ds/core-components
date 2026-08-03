@@ -7,6 +7,7 @@ import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
+import { getHugContentStyles } from '../../utils/get-hug-content-styles';
 import { getMarginStyles } from '../../utils/get-margin-styles';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
@@ -64,7 +65,8 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 [styles.withoutOverlay]: withoutOverlay,
             })}
             className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin, height }),
+                ...getMarginStyles({ styles, margin }),
+                ...getHugContentStyles({ styles, margin, height }),
             })}
             contentClassName={styles.content}
             transitionProps={{
