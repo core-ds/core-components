@@ -754,7 +754,7 @@ __metadata:
     "@alfalab/core-components-icon-button": "npm:^8.0.10"
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
     "@alfalab/core-components-mq": "npm:^6.0.7"
-    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/core-components-spinner": "npm:^6.0.7"
     "@alfalab/core-components-tooltip": "npm:^9.0.17"
     "@alfalab/core-components-typography": "npm:^6.0.10"
@@ -1712,7 +1712,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-shared@npm:^2.2.2, @alfalab/core-components-shared@npm:^2.2.3, @alfalab/core-components-shared@workspace:packages/shared":
+"@alfalab/core-components-shared@npm:^2.2.3, @alfalab/core-components-shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-shared@workspace:packages/shared"
   dependencies:
