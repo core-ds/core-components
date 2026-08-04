@@ -1,6 +1,8 @@
 import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
+import { isClient } from '@alfalab/core-components-shared';
+
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
 import { ImagePreview } from '../image-preview';
@@ -92,7 +94,7 @@ export const NavigationBar: FC = () => {
     };
 
     useEffect(() => {
-        if (!isDragging) {
+        if (!isClient() || !isDragging) {
             return undefined;
         }
 
