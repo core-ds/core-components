@@ -1,27 +1,25 @@
-/* prettier-ignore */
-@for $i from 0 to 128 {
-    .marginTop-$(i) {
-        margin-top: $(i)px;
-    }
+.marginBox {
+    margin-top: var(--universal-modal-margin-top, 0);
+    margin-right: var(--universal-modal-margin-right, 0);
+    margin-bottom: var(--universal-modal-margin-bottom, 0);
+    margin-left: var(--universal-modal-margin-left, 0);
 }
 
 /* prettier-ignore */
-@for $i from 0 to 128 {
-    .marginRight-$(i) {
-        margin-right: $(i)px;
+@each $size in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+    [data-universal-modal-margin-top='$(size)'] {
+        --universal-modal-margin-top: $(size)px;
     }
-}
 
-/* prettier-ignore */
-@for $i from 0 to 128 {
-    .marginBottom-$(i) {
-        margin-bottom: $(i)px;
+    [data-universal-modal-margin-right='$(size)'] {
+        --universal-modal-margin-right: $(size)px;
     }
-}
 
-/* prettier-ignore */
-@for $i from 0 to 128 {
-    .marginLeft-$(i) {
-        margin-left: $(i)px;
+    [data-universal-modal-margin-bottom='$(size)'] {
+        --universal-modal-margin-bottom: $(size)px;
+    }
+
+    [data-universal-modal-margin-left='$(size)'] {
+        --universal-modal-margin-left: $(size)px;
     }
 }

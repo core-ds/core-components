@@ -21,25 +21,8 @@
     }
 }
 
-:root {
-    /* stylelint-disable-next-line length-zero-no-unit */
-    --hug-content-top-gap: 0px;
-    /* stylelint-disable-next-line length-zero-no-unit */
-    --hug-content-bottom-gap: 0px;
-}
-
 .hugContent {
-    max-height: calc(100% - var(--hug-content-top-gap) - var(--hug-content-bottom-gap));
-    margin-top: var(--hug-content-top-gap);
-    margin-bottom: var(--hug-content-bottom-gap);
-
-    /* prettier-ignore */
-    @for $i from 0 to 128 {
-        &.topGap-$(i) {
-            --hug-content-top-gap: $(i)px;
-        }
-        &.bottomGap-$(i) {
-            --hug-content-bottom-gap: $(i)px;
-        }
-    }
+    max-height: calc(
+        100% - var(--universal-modal-margin-top, 0px) - var(--universal-modal-margin-bottom, 0px)
+    );
 }
