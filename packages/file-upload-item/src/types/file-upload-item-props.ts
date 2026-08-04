@@ -29,6 +29,11 @@ export interface FileUploadItemProps {
     subtitle?: string;
 
     /**
+     * Дополнительный класс для subtitle
+     */
+    subtitleClassName?: string;
+
+    /**
      * Размер файла
      */
     size?: string | number;
