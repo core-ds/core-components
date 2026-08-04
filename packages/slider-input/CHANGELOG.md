@@ -1,5 +1,13 @@
 # @alfalab/core-components-slider-input
 
+## 11.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.10
+
 ## 11.1.6
 
 ### Patch Changes
@@ -1108,7 +1116,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1236,8 +1244,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@5.1.1...@alfalab/core-components-slider-input@5.1.2) (2022-08-17)
 

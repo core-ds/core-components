@@ -1,5 +1,31 @@
 # @alfalab/core-components-table
 
+## 4.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-select@19.2.2
+- @alfalab/core-components-pagination@4.0.8
+
+## 4.0.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+
+## 4.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-pagination@4.0.7
+
 ## 4.0.18
 
 ### Patch Changes
@@ -1792,8 +1818,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.6.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.6.3...@alfalab/core-components-table@1.6.4) (2022-08-17)
 

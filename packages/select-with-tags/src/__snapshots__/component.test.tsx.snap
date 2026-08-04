@@ -95,7 +95,9 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
-                  <span>
+                  <span
+                    class="content"
+                  >
                     <span
                       class="tagContentWrap cursorPointer"
                     >
@@ -125,7 +127,9 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
-                  <span>
+                  <span
+                    class="content"
+                  >
                     <span
                       class="tagContentWrap cursorPointer"
                     >
@@ -155,7 +159,9 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   class="component component component size-32 size-32 outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
-                  <span>
+                  <span
+                    class="content"
+                  >
                     <span
                       class="tagContentWrap cursorPointer"
                     >

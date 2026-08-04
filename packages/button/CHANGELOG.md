@@ -1,5 +1,15 @@
 # @alfalab/core-components-button
 
+## 13.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-spinner@6.0.7
+
 ## 13.2.1
 
 ### Patch Changes
@@ -1062,8 +1072,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@5.3.1...@alfalab/core-components-button@5.3.2) (2022-08-17)
 

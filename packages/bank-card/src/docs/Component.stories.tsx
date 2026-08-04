@@ -7,12 +7,12 @@ import {
 } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 import styles from './preview.module.css';
 
-import { AlfaBankSignMIcon } from '@alfalab/icons-logo/AlfaBankSignMIcon';
 import { AlfaInvestEnLogoShortLIcon } from '@alfalab/icons-logotype/AlfaInvestEnLogoShortLIcon';
 import { BankCard } from '@alfalab/core-components-bank-card';
+import { DefaultLogo } from '../default-logo';
 
 const logo = {
-    default: <AlfaBankSignMIcon width={30} height={40} />,
+    default: <DefaultLogo width={30} height={40} />,
     custom: <AlfaInvestEnLogoShortLIcon />,
 };
 

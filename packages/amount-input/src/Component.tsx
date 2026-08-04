@@ -98,6 +98,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             labelView,
             stepper,
             rightAddons,
+            zeroValue,
             // don't needed, used maskito
             pattern,
             ...restProps
@@ -146,8 +147,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 view,
                 toIntegerDigits(integerLength, toFractionDigits(minority)),
                 handleInputReject,
+                zeroValue,
             );
-        }, [integerLength, minority, numberParams, positiveOnly, view]);
+        }, [integerLength, minority, numberParams, positiveOnly, view, zeroValue]);
         const maskitoRef = useMaskito({ options: maskitoOptions });
         const [numberValue, setNumberValue] = useState(valueFromProps ?? defaultValue);
         const [inputValue, setInputValue] = useState(() =>

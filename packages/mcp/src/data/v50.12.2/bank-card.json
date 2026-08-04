@@ -25,7 +25,7 @@
 },
 "bankLogo": {
 "defaultValue": {
-"value": "<AlfaBankSignMIcon width={30} height={40} />"
+"value": "<DefaultLogo width={30} height={40} />"
 },
 "description": "Иконка логотипа банка (размер L)",
 "name": "bankLogo",

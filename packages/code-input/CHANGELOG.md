@@ -1,5 +1,35 @@
 # @alfalab/core-components-code-input
 
+## 5.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.7
+
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#1900](https://github.com/core-ds/core-components/pull/1900)
+
+##### CodeInput, Confirmation
+
+- Добавлен проп `strictFocus` для включения последовательного ввода:
+    - при клике на ячейку правее первой пустой — фокус остается на первой
+    - фокус разрешается только на уже заполненные ячейки и первую пустую ячейку
+
+- Добавлено поведение автоматического фокуса на первый инпут при клике на любое пустое поле
+
+- Улучшена доступность компонента, добавлены `aria-label`.
+
+##### Confirmation
+
+- Добавлена поддержка пропа `strictFocus` для использования в `CodeInput`
+
 ## 5.0.6
 
 ### Patch Changes
@@ -597,8 +627,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.5.0...@alfalab/core-components-code-input@1.5.1) (2022-08-17)
 

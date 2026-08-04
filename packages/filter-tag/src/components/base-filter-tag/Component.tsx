@@ -8,7 +8,6 @@ import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
 import { getSizeClassName } from '../../helpers/get-size-class-name';
-import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
 import { type PrivateProps } from '../../types/base-filter-tag-private-props';
 import { type BaseFilterTagProps } from '../../types/base-filter-tag-props';
 
@@ -34,6 +33,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
             view = 'outlined',
             onClear = () => null,
             showClear = true,
+            showArrow = true,
             block = false,
             className,
             dataTestId,
@@ -48,18 +48,21 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
 
         const [focused] = useFocus(valueRef, 'keyboard');
 
-        const handleClear = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+        const shouldShowChevron = !checked || showArrow;
+        const shouldShowClear = Boolean(checked && !disabled && showClear);
+
+        const withClearOnly = shouldShowClear && !shouldShowChevron;
+        const withChevronAndClear = shouldShowChevron && shouldShowClear;
+
+        const handleClear = (event: MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+            onClear();
+        };
+
+        const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
             event.stopPropagation();
 
-            if (isKeyBoardEvent(event)) {
-                const clickSimilarKeys = ['Enter'].includes(event.key);
-
-                if (clickSimilarKeys) onClear();
-
-                return;
-            }
-
-            onClear();
+            if (event.key === 'Enter') onClear();
         };
 
         return (
@@ -74,7 +77,9 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                     styles.component,
                     styles[shape],
                     styles[getSizeClassName(size)],
+                    colorStyles[colors][view],
                     {
+                        [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                         [commonStyles.checked]: checked,
                         [colorStyles[colors].checked]: checked,
                         [styles.checked]: checked,
@@ -83,6 +88,10 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
                         [commonStyles.block]: block,
+                        [commonStyles.withClearOnly]: withClearOnly,
+                        [colorStyles[colors].withClearOnly]: withClearOnly,
+                        [commonStyles.withSplitControls]: withChevronAndClear,
+                        [colorStyles[colors].withSplitControls]: withChevronAndClear,
                     },
                 )}
                 ref={ref}
@@ -115,17 +124,20 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                             [styles.close]: !showClear,
                             [commonStyles.block]: block,
                             [commonStyles.withClear]: showClear,
+                            [commonStyles.withChevronAndClear]: withChevronAndClear,
                         },
                     )}
                 >
                     {leftAddons && <div className={commonStyles.addons}>{leftAddons}</div>}
                     <span className={commonStyles.content}>{children}</span>
-                    <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
-                        {[40, 32].includes(size) ? <ChevronDownSIcon /> : <ChevronDownMIcon />}
-                    </span>
+                    {shouldShowChevron && (
+                        <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
+                            {[40, 32].includes(size) ? <ChevronDownSIcon /> : <ChevronDownMIcon />}
+                        </span>
+                    )}
                 </button>
 
-                {checked && !disabled && showClear && (
+                {shouldShowClear && (
                     <div
                         role='button'
                         className={cn(
@@ -138,7 +150,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                             commonStyles[shape],
                         )}
                         onClick={handleClear}
-                        onKeyDown={handleClear}
+                        onKeyDown={handleKeyDown}
                         tabIndex={0}
                     >
                         {[40, 32].includes(size) ? <CrossCircleSIcon /> : <CrossCircleMIcon />}

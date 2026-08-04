@@ -137,6 +137,106 @@ describe('FilterTag | main props', () => {
     availableThemes.map(testCase);
 });
 
+describe('FilterTag | view variants', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 48,
+                            view: ['outlined', 'filled', 'muted'],
+                            checked: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 48,
+                            view: ['outlined', 'filled', 'muted'],
+                            disabled: true,
+                            checked: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 48,
+                            view: ['outlined', 'filled', 'muted'],
+                            colors: 'inverted',
+                            checked: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 1024, height: 100 },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});
+
+describe('FilterTag | showClear showArrow', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 48,
+                            checked: true,
+                            showClear: [true, false],
+                            showArrow: [true, false],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 48,
+                            checked: true,
+                            colors: 'inverted',
+                            showClear: [true, false],
+                            showArrow: [true, false],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 1024, height: 100 },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});
+
 describe(
     'FilerTag | screenshots hover state',
     screenshotTesting({

@@ -118,7 +118,9 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 1
           </span>
           <span
@@ -134,7 +136,9 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           tabindex="0"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 2
           </span>
         </button>
@@ -145,7 +149,9 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 3
           </span>
         </button>
@@ -156,7 +162,9 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 4
           </span>
         </button>
@@ -167,7 +175,9 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 5
           </span>
         </button>
@@ -307,7 +317,9 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             tabindex="-1"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Таб 1
             </span>
             <span
@@ -323,7 +335,9 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             tabindex="0"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Таб 2
             </span>
           </button>
@@ -334,7 +348,9 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             tabindex="-1"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Таб 3
             </span>
           </button>
@@ -345,7 +361,9 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             tabindex="-1"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Таб 4
             </span>
           </button>
@@ -356,7 +374,9 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             tabindex="-1"
             type="button"
           >
-            <span>
+            <span
+              class="content"
+            >
               Таб 5
             </span>
           </button>
@@ -492,7 +512,9 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 1
           </span>
           <span
@@ -508,7 +530,9 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
           tabindex="0"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 2
           </span>
         </button>
@@ -519,7 +543,9 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 3
           </span>
         </button>
@@ -530,7 +556,9 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 4
           </span>
         </button>
@@ -541,7 +569,9 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
           tabindex="-1"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Таб 5
           </span>
         </button>

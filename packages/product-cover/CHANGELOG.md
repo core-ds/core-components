@@ -1,5 +1,27 @@
 # @alfalab/core-components-product-cover
 
+## 3.2.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-typography@6.0.10
+
+## 3.2.4
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2254](https://github.com/core-ds/core-components/pull/2254)
+
+##### CdnIcon, CardImage, ProductCover
+
+- Небольшие изменения не влияющие на работу компонента
+
 ## 3.2.3
 
 ### Patch Changes

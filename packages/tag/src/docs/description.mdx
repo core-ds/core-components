@@ -1,6 +1,6 @@
 ## Размеры
 
-Рекомендуется использовать 48, 40 и 32 размеры. Размеры 72, 64, 56 — не рекомендованы к использованию.
+Рекомендуется использовать 32, 40 и 48 размеры. Размеры 56, 64, 72 — не рекомендованы к использованию.
 
 ```jsx live
 render(() => {
@@ -15,7 +15,7 @@ render(() => {
             <Row align='middle'>
                 {SIZES.map((size) => (
                     <div key={size} style={{ marginRight: 12 }}>
-                        <Tag
+                        <TagDesktop
                             size={size}
                             checked={checked[size]}
                             onClick={() => setChecked({ ...checked, [size]: !checked[size] })}
@@ -23,7 +23,35 @@ render(() => {
                             shape='rectangular'
                         >
                             Label
-                        </Tag>
+                        </TagDesktop>
+                    </div>
+                ))}
+            </Row>
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+    const SIZES = [48, 40, 32];
+
+    const [checked, setChecked] = React.useState(
+        Object.fromEntries(SIZES.map((key) => [key, false])),
+    );
+
+    return (
+        <Container>
+            <Row align='middle'>
+                {SIZES.map((size) => (
+                    <div key={size} style={{ marginRight: 12 }}>
+                        <TagMobile
+                            size={size}
+                            checked={checked[size]}
+                            onClick={() => setChecked({ ...checked, [size]: !checked[size] })}
+                            view='filled'
+                            shape='rectangular'
+                        >
+                            Label
+                        </TagMobile>
                     </div>
                 ))}
             </Row>
@@ -96,7 +124,7 @@ render(() => {
                 {`
                     .tag-description-amount-addon .tag-description-amount,
                     .tag-description-amount-addon .tag-description-amount span {
-                        color: var(--text-primary, rgba(3, 3, 6, 0.88));
+                        color: var(--tag-text-color);
                         font-family: var(--font-family-20, "Alfa Interface Sans");
                         font-size: 14px;
                         font-style: normal;
@@ -112,70 +140,70 @@ render(() => {
                 `}
             </style>
             <Container>
-            <Row>
-                <div style={{ marginRight: 8 }}>
-                    <TagDesktop
-                        rightAddons={addon}
-                        leftAddons={addon}
-                        checked={checkedMap.icon}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagDesktop>
-                </div>
-                <div style={{ marginRight: 8 }}>
-                    <TagDesktop
-                        rightAddons={<Badge view='count' height={16} content={1} />}
-                        checked={checkedMap.badge}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagDesktop>
-                </div>
-                <div style={{ marginRight: 8 }}>
-                    <TagDesktop
-                        rightAddons={<Badge view='count' height={16} />}
-                        checked={checkedMap.emptyBadge}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagDesktop>
-                </div>
-                <div style={{ marginRight: 8 }}>
-                    <TagDesktop
-                        size={40}
-                        rightAddons={amountAddon}
-                        view='filled'
-                        shape='rectangular'
-                        checked={checkedMap.amount}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
-                        }
-                    >
-                        Label
-                    </TagDesktop>
-                </div>
-                <div style={{ marginRight: 8 }}>
-                    <TagDesktop
-                        Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownSIcon />}
-                        checked={checkedMap.indicator}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
-                        }
-                        {...defaultProps}
-                    />
-                </div>
-            </Row>
+                <Row>
+                    <div style={{ marginRight: 8 }}>
+                        <TagDesktop
+                            rightAddons={addon}
+                            leftAddons={addon}
+                            checked={checkedMap.icon}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagDesktop>
+                    </div>
+                    <div style={{ marginRight: 8 }}>
+                        <TagDesktop
+                            rightAddons={<Badge view='count' height={16} content={1} />}
+                            checked={checkedMap.badge}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagDesktop>
+                    </div>
+                    <div style={{ marginRight: 8 }}>
+                        <TagDesktop
+                            rightAddons={<Badge view='count' height={16} />}
+                            checked={checkedMap.emptyBadge}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagDesktop>
+                    </div>
+                    <div style={{ marginRight: 8 }}>
+                        <TagDesktop
+                            size={40}
+                            rightAddons={amountAddon}
+                            view='filled'
+                            shape='rectangular'
+                            checked={checkedMap.amount}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
+                            }
+                        >
+                            Label
+                        </TagDesktop>
+                    </div>
+                    <div style={{ marginRight: 8 }}>
+                        <TagDesktop
+                            Component={IndicatorTag}
+                            leftAddons={<ArrowsUpDownSIcon />}
+                            checked={checkedMap.indicator}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
+                            }
+                            {...defaultProps}
+                        />
+                    </div>
+                </Row>
             </Container>
         </React.Fragment>
     );
@@ -239,7 +267,7 @@ render(() => {
                 {`
                     .tag-description-amount-addon .tag-description-amount,
                     .tag-description-amount-addon .tag-description-amount span {
-                        color: var(--text-primary, rgba(3, 3, 6, 0.88));
+                        color: var(--tag-text-color);
                         font-family: var(--font-family-20, "Alfa Interface Sans");
                         font-size: 14px;
                         font-style: normal;
@@ -255,77 +283,77 @@ render(() => {
                 `}
             </style>
             <Container>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'nowrap',
-                    gap: 12,
-                    overflowX: 'auto',
-                    WebkitOverflowScrolling: 'touch',
-                }}
-            >
-                <div>
-                    <TagMobile
-                        rightAddons={addon}
-                        leftAddons={addon}
-                        checked={checkedMap.icon}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagMobile>
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexWrap: 'nowrap',
+                        gap: 12,
+                        overflowX: 'auto',
+                        WebkitOverflowScrolling: 'touch',
+                    }}
+                >
+                    <div>
+                        <TagMobile
+                            rightAddons={addon}
+                            leftAddons={addon}
+                            checked={checkedMap.icon}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagMobile>
+                    </div>
+                    <div>
+                        <TagMobile
+                            rightAddons={<Badge view='count' height={16} content={1} />}
+                            checked={checkedMap.badge}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagMobile>
+                    </div>
+                    <div>
+                        <TagMobile
+                            rightAddons={<Badge view='count' height={16} />}
+                            checked={checkedMap.emptyBadge}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagMobile>
+                    </div>
+                    <div>
+                        <TagMobile
+                            rightAddons={amountAddon}
+                            checked={checkedMap.amount}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
+                            }
+                            {...defaultProps}
+                        >
+                            Label
+                        </TagMobile>
+                    </div>
+                    <div style={{ marginRight: 8 }}>
+                        <TagMobile
+                            Component={IndicatorTag}
+                            leftAddons={<ArrowsUpDownSIcon />}
+                            checked={checkedMap.indicator}
+                            onClick={(_, { checked: nextChecked }) =>
+                                setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
+                            }
+                            {...defaultProps}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <TagMobile
-                        rightAddons={<Badge view='count' height={16} content={1} />}
-                        checked={checkedMap.badge}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagMobile>
-                </div>
-                <div>
-                    <TagMobile
-                        rightAddons={<Badge view='count' height={16} />}
-                        checked={checkedMap.emptyBadge}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagMobile>
-                </div>
-                <div>
-                    <TagMobile
-                        rightAddons={amountAddon}
-                        checked={checkedMap.amount}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
-                        }
-                        {...defaultProps}
-                    >
-                        Label
-                    </TagMobile>
-                </div>
-                <div style={{ marginRight: 8 }}>
-                    <TagMobile
-                        Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownSIcon />}
-                        checked={checkedMap.indicator}
-                        onClick={(_, { checked: nextChecked }) =>
-                            setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
-                        }
-                        {...defaultProps}
-                    />
-                </div>
-            </div>
             </Container>
         </React.Fragment>
     );
@@ -351,29 +379,39 @@ render(() => {
         disabled,
     };
 
+    const tagBackdropStyle = {
+        display: 'inline-flex',
+        padding: 20,
+        alignItems: 'flex-start',
+        gap: 8,
+        borderRadius: 20,
+        border: '1px solid var(--color-light-neutral-300)',
+        background:
+            view === 'muted'
+                ? 'var(--color-light-base-bg-secondary)'
+                : 'var(--color-light-base-bg-primary)',
+    };
+
     return (
         <Container>
-            <Row align='middle'>
-                <div style={{ marginRight: 8 }}>
-                    <TagDesktop
-                        {...tagProps}
-                        checked={checkedWithAddon}
-                        leftAddons={<DiamondsMIcon height={16} width={16} />}
-                        onClick={() => setCheckedWithAddon((v) => !v)}
-                    >
-                        Label
-                    </TagDesktop>
-                </div>
-                <div>
-                    <TagDesktop
-                        {...tagProps}
-                        checked={checkedPlain}
-                        onClick={() => setCheckedPlain((v) => !v)}
-                    >
-                        Label
-                    </TagDesktop>
-                </div>
-            </Row>
+            <div style={tagBackdropStyle}>
+                <TagDesktop
+                    {...tagProps}
+                    checked={checkedWithAddon}
+                    leftAddons={<DiamondsMIcon height={16} width={16} />}
+                    onClick={() => setCheckedWithAddon((v) => !v)}
+                >
+                    Label
+                </TagDesktop>
+
+                <TagDesktop
+                    {...tagProps}
+                    checked={checkedPlain}
+                    onClick={() => setCheckedPlain((v) => !v)}
+                >
+                    Label
+                </TagDesktop>
+            </div>
 
             <Gap size={20} />
 
@@ -400,6 +438,7 @@ render(() => {
                 <Radio label='Filled' value='filled' />
                 <Radio label='Transparent' value='transparent' />
                 <Radio label='Outlined' value='outlined' />
+                <Radio label='Muted' value='muted' />
             </RadioGroup>
 
             <Gap size={32} />
@@ -433,10 +472,23 @@ render(() => {
         disabled,
     };
 
+    const tagBackdropStyle = {
+        display: 'inline-flex',
+        padding: 20,
+        alignItems: 'flex-start',
+        gap: 8,
+        borderRadius: 20,
+        border: '1px solid var(--color-light-neutral-300)',
+        background:
+            view === 'muted'
+                ? 'var(--color-light-base-bg-secondary)'
+                : 'var(--color-light-base-bg-primary)',
+    };
+
     return (
         <Container>
             <Row align='middle' style={{ marginBottom: 20 }}>
-                <div style={{ marginRight: 8 }}>
+                <div style={tagBackdropStyle}>
                     <TagMobile
                         {...tagProps}
                         checked={checkedWithAddon}
@@ -445,8 +497,7 @@ render(() => {
                     >
                         Label
                     </TagMobile>
-                </div>
-                <div>
+
                     <TagMobile
                         {...tagProps}
                         checked={checkedPlain}
@@ -482,6 +533,7 @@ render(() => {
                 <Radio label='Filled' value='filled' />
                 <Radio label='Transparent' value='transparent' />
                 <Radio label='Outlined' value='outlined' />
+                <Radio label='Muted' value='muted' />
             </RadioGroup>
 
             <Gap size={32} />
@@ -496,6 +548,48 @@ render(() => {
                 checked={disabled}
                 label='Заблокированное состояние'
                 onChange={() => setDisabled((v) => !v)}
+            />
+        </Container>
+    );
+});
+```
+
+## Механики
+
+Если теги используются в составе фильтр-группы, рекомендуется включать крестик для выбранного состояния.
+Крестик не нужен, если теги используются в качестве чекбоксов или радио-кнопок.
+
+```jsx live
+render(() => {
+    const [showClear, setShowClear] = React.useState(false);
+    const [checked, setChecked] = React.useState(false);
+
+    return (
+        <Container>
+            <TagDesktop
+                size={40}
+                view='filled'
+                shape='rectangular'
+                checked={checked}
+                showClear={showClear}
+                onClear={() => setChecked(false)}
+                onClick={() => setChecked((v) => !v)}
+            >
+                Label
+            </TagDesktop>
+
+            <Gap size={20} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={20} />
+
+            <Switch
+                checked={showClear}
+                label='Крестик в выбранном состоянии'
+                onChange={() => setShowClear((v) => !v)}
             />
         </Container>
     );
@@ -584,6 +678,12 @@ render(() => {
         }));
     };
 
+    const clearDraftDynamic = (key) =>
+        setDraft((p) => ({ ...p, dynamicKeys: p.dynamicKeys.filter((k) => k !== key) }));
+
+    const clearAppliedDynamic = (key) =>
+        setApplied((p) => ({ ...p, dynamicKeys: p.dynamicKeys.filter((k) => k !== key) }));
+
     const [periodOpen, setPeriodOpen] = React.useState(false);
     const [accountsOpen, setAccountsOpen] = React.useState(false);
     const [periodAnchorEl, setPeriodAnchorEl] = React.useState(null);
@@ -671,8 +771,10 @@ render(() => {
                         size={DESKTOP_TAG_SIZE}
                         view='filled'
                         shape='rectangular'
+                        showClear={true}
                         checked={true}
                         onClick={() => toggleAppliedDynamic(id)}
+                        onClear={() => clearAppliedDynamic(id)}
                     >
                         {DYNAMIC_META[id]}
                     </TagDesktop>
@@ -681,8 +783,10 @@ render(() => {
                     size={DESKTOP_TAG_SIZE}
                     view='filled'
                     shape='rectangular'
+                    showClear={true}
                     checked={applied.replenishment}
                     onClick={() => setApplied((p) => ({ ...p, replenishment: !p.replenishment }))}
+                    onClear={() => setApplied((p) => ({ ...p, replenishment: false }))}
                 >
                     Пополнения
                 </TagDesktop>
@@ -690,8 +794,10 @@ render(() => {
                     size={DESKTOP_TAG_SIZE}
                     view='filled'
                     shape='rectangular'
+                    showClear={true}
                     checked={applied.writeoff}
                     onClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}
+                    onClear={() => setApplied((p) => ({ ...p, writeoff: false }))}
                 >
                     Списания
                 </TagDesktop>
@@ -710,16 +816,7 @@ render(() => {
                             setPeriodOpen((v) => !v);
                         }}
                     >
-                        {appliedPeriodOption ? (
-                            <>
-                                Период:
-                                <span style={{ fontWeight: 700 }}>
-                                    {appliedPeriodOption.content}
-                                </span>
-                            </>
-                        ) : (
-                            'Период'
-                        )}
+                        {appliedPeriodOption ? `Период: ${appliedPeriodOption.content}` : 'Период'}
                     </FilterTagDesktop>
                     <Popover
                         anchorElement={periodAnchorEl}
@@ -737,7 +834,9 @@ render(() => {
                             size={OPTIONS_LIST_ROW_SIZE}
                             options={PERIOD_OPTIONS}
                             open={periodOpen}
-                            selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
+                            selectedItems={PERIOD_OPTIONS.filter(
+                                (item) => item.key === applied.period,
+                            )}
                             getOptionProps={(option, index) => ({
                                 option,
                                 index,
@@ -775,23 +874,11 @@ render(() => {
                             setAccountsOpen((v) => !v);
                         }}
                     >
-                        {accountsSelectedOpts.length === 0 ? (
-                            'Счета'
-                        ) : accountsSelectedOpts.length === 1 ? (
-                            <>
-                                Счета:
-                                <span style={{ fontWeight: 700 }}>
-                                    {accountsSelectedOpts[0].content}
-                                </span>
-                            </>
-                        ) : (
-                            <>
-                                Счета:
-                                <span style={{ fontWeight: 700 }}>
-                                    Выбрано {accountsSelectedOpts.length}
-                                </span>
-                            </>
-                        )}
+                        {accountsSelectedOpts.length === 0
+                            ? 'Счета'
+                            : accountsSelectedOpts.length === 1
+                              ? `Счета: ${accountsSelectedOpts[0].content}`
+                              : `Счета: Выбрано (${accountsSelectedOpts.length})`}
                     </FilterTagDesktop>
                     <Popover
                         anchorElement={accountsAnchorEl}
@@ -924,9 +1011,13 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.replenishment}
                                     onClick={() =>
                                         setDraft((p) => ({ ...p, replenishment: !p.replenishment }))
+                                    }
+                                    onClear={() =>
+                                        setDraft((p) => ({ ...p, replenishment: false }))
                                     }
                                 >
                                     Пополнение
@@ -935,10 +1026,12 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.writeoff}
                                     onClick={() =>
                                         setDraft((p) => ({ ...p, writeoff: !p.writeoff }))
                                     }
+                                    onClear={() => setDraft((p) => ({ ...p, writeoff: false }))}
                                 >
                                     Списание
                                 </TagDesktop>
@@ -946,8 +1039,10 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.dynamicKeys.includes('added_expenses')}
                                     onClick={() => toggleDraftDynamic('added_expenses')}
+                                    onClear={() => clearDraftDynamic('added_expenses')}
                                 >
                                     Добавленные расходы
                                 </TagDesktop>
@@ -968,8 +1063,10 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.dynamicKeys.includes('to_client')}
                                     onClick={() => toggleDraftDynamic('to_client')}
+                                    onClear={() => clearDraftDynamic('to_client')}
                                 >
                                     Клиенту банка
                                 </TagDesktop>
@@ -977,8 +1074,10 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.dynamicKeys.includes('between_accounts')}
                                     onClick={() => toggleDraftDynamic('between_accounts')}
+                                    onClear={() => clearDraftDynamic('between_accounts')}
                                 >
                                     Между счетами
                                 </TagDesktop>
@@ -999,8 +1098,10 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.dynamicKeys.includes('templates')}
                                     onClick={() => toggleDraftDynamic('templates')}
+                                    onClear={() => clearDraftDynamic('templates')}
                                 >
                                     Шаблоны
                                 </TagDesktop>
@@ -1008,8 +1109,10 @@ render(() => {
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
+                                    showClear={true}
                                     checked={draft.dynamicKeys.includes('autopay')}
                                     onClick={() => toggleDraftDynamic('autopay')}
+                                    onClear={() => clearDraftDynamic('autopay')}
                                 >
                                     Автоплатежи
                                 </TagDesktop>
@@ -1143,8 +1246,23 @@ const DYNAMIC_GROUPS = [
     },
 ];
 
-const FilterTagItem = ({ checked, onClick, size = MOBILE_ROW_TAG_SIZE, children }) => (
-    <TagMobile size={size} view='filled' shape='rectangular' checked={checked} onClick={onClick}>
+const FilterTagItem = ({
+    checked,
+    onClick,
+    onClear,
+    showClear = false,
+    size = MOBILE_ROW_TAG_SIZE,
+    children,
+}) => (
+    <TagMobile
+        size={size}
+        view='filled'
+        shape='rectangular'
+        checked={checked}
+        onClick={onClick}
+        showClear={showClear}
+        onClear={onClear}
+    >
         {children}
     </TagMobile>
 );
@@ -1221,6 +1339,9 @@ render(() => {
         updateDraft({
             dynamicKeys: toggleInArray(draft.dynamicKeys, key),
         });
+
+    const clearAppliedDynamic = (key) =>
+        setApplied((p) => ({ ...p, dynamicKeys: p.dynamicKeys.filter((k) => k !== key) }));
 
     const appliedPeriodOption = React.useMemo(
         () => PERIOD_OPTIONS.find((o) => o.key === applied.period),
@@ -1317,14 +1438,10 @@ render(() => {
                     {applied.dynamicKeys.map((id) => (
                         <div key={id}>
                             <FilterTagItem
+                                showClear={true}
                                 checked={true}
-                                onClick={() =>
-                                    updateApplied({
-                                        dynamicKeys: applied.dynamicKeys.filter(
-                                            (key) => key !== id,
-                                        ),
-                                    })
-                                }
+                                onClick={() => clearAppliedDynamic(id)}
+                                onClear={() => clearAppliedDynamic(id)}
                             >
                                 {DYNAMIC_META[id]}
                             </FilterTagItem>
@@ -1333,16 +1450,20 @@ render(() => {
 
                     <div>
                         <FilterTagItem
+                            showClear={true}
                             checked={applied.replenishment}
                             onClick={() => updateApplied({ replenishment: !applied.replenishment })}
+                            onClear={() => updateApplied({ replenishment: false })}
                         >
                             Пополнения
                         </FilterTagItem>
                     </div>
                     <div>
                         <FilterTagItem
+                            showClear={true}
                             checked={applied.writeoff}
                             onClick={() => updateApplied({ writeoff: !applied.writeoff })}
+                            onClear={() => updateApplied({ writeoff: false })}
                         >
                             Списания
                         </FilterTagItem>
@@ -1359,16 +1480,9 @@ render(() => {
                             open={filterSheet === 'period'}
                             onClick={() => toggleFilterSheet('period')}
                         >
-                            {appliedPeriodOption ? (
-                                <>
-                                    Период:
-                                    <span style={{ fontWeight: 700 }}>
-                                        {appliedPeriodOption.content}
-                                    </span>
-                                </>
-                            ) : (
-                                'Период'
-                            )}
+                            {appliedPeriodOption
+                                ? `Период: ${appliedPeriodOption.content}`
+                                : 'Период'}
                         </FilterTagMobile>
                     </div>
                     <div>
@@ -1382,23 +1496,11 @@ render(() => {
                             open={filterSheet === 'accounts'}
                             onClick={() => toggleFilterSheet('accounts')}
                         >
-                            {accountsSelectedOpts.length === 0 ? (
-                                'Счета'
-                            ) : accountsSelectedOpts.length === 1 ? (
-                                <>
-                                    Счета:
-                                    <span style={{ fontWeight: 700 }}>
-                                        {accountsSelectedOpts[0].content}
-                                    </span>
-                                </>
-                            ) : (
-                                <>
-                                    Счета:
-                                    <span style={{ fontWeight: 700 }}>
-                                        Выбрано {accountsSelectedOpts.length}
-                                    </span>
-                                </>
-                            )}
+                            {accountsSelectedOpts.length === 0
+                                ? 'Счета'
+                                : accountsSelectedOpts.length === 1
+                                  ? `Счета: ${accountsSelectedOpts[0].content}`
+                                  : `Счета: Выбрано (${accountsSelectedOpts.length})`}
                         </FilterTagMobile>
                     </div>
                 </div>

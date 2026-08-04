@@ -1,5 +1,13 @@
 # @alfalab/core-components-calendar-with-skeleton
 
+## 7.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.11
+
 ## 7.0.14
 
 ### Patch Changes
@@ -1331,8 +1339,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.5.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.5.2...@alfalab/core-components-calendar-with-skeleton@4.5.3) (2022-08-17)
 
