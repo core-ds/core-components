@@ -186,6 +186,30 @@ describe('AccountSelectDesktop', () => {
         await waitFor(() => expect(queryByText(ERRORS.EXPIRY_EMPTY)).not.toBeInTheDocument());
     });
 
+    it('should show invalid expiry error and clear it after a character is deleted', async () => {
+        const { getByPlaceholderText, queryByText } = render(
+            <AccountSelectDesktop
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{ content: 'Add card' }}
+                OptionsList={() => null}
+            />,
+        );
+
+        const cardInput = getByPlaceholderText('Карта');
+        const expiryInput = getByPlaceholderText('ММ/ГГ');
+
+        fireEvent.input(cardInput, { target: { value: '4111111111111111' } });
+        fireEvent.focus(expiryInput);
+        fireEvent.input(expiryInput, { target: { value: '12/20' } });
+
+        await waitFor(() => expect(queryByText(ERRORS.EXPIRY_ERROR)).toBeInTheDocument());
+
+        fireEvent.input(expiryInput, { target: { value: '12/2' } });
+
+        await waitFor(() => expect(queryByText(ERRORS.EXPIRY_ERROR)).not.toBeInTheDocument());
+    });
+
     it('should reset card data when selected option changes from add card', async () => {
         const { getByPlaceholderText, rerender } = render(
             <AccountSelectDesktop

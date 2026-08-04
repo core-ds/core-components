@@ -67,8 +67,22 @@ export function useValidationError({
     const { setError } = useError();
 
     useEffect(() => {
-        if (valuesEmpty || activeField) {
+        if (valuesEmpty) {
             setError(null);
+
+            return;
+        }
+
+        if (activeField) {
+            const expiryStr = typeof cardExpiry === 'string' ? cardExpiry : '';
+            const isInvalidCompleteExpiry =
+                activeField === 'expiry' &&
+                validateCardNumber(cardNumber) &&
+                needExpiryDate &&
+                EXPIRY_COMPLETE_REGEXP.test(expiryStr) &&
+                !validateExpiry(expiryStr);
+
+            setError(isInvalidCompleteExpiry ? ERRORS.EXPIRY_ERROR : null);
 
             return;
         }
