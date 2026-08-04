@@ -9,6 +9,7 @@ import styles from './index.module.css';
 export const TabBarIslandEntryContent: FC<TabBarIslandEntryContentProps> = ({
     Icon = 'div',
     icon,
+    iconClassName,
     indicator,
     label,
     Label = 'div',
@@ -19,7 +20,7 @@ export const TabBarIslandEntryContent: FC<TabBarIslandEntryContentProps> = ({
 
     return (
         <React.Fragment>
-            <Icon className={styles.icon}>
+            <Icon className={cn(styles.icon, iconClassName)}>
                 {icon}
                 {showIndicator && (
                     <Indicator

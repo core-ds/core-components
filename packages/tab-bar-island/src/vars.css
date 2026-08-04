@@ -10,4 +10,5 @@
     --tab-bar-island-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
     --tab-bar-island-tab-color: var(--color-light-text-secondary);
     --tab-bar-island-tab-active-color: var(--color-light-accent-secondary);
+    --tab-bar-island-animation-time: 300ms;
 }

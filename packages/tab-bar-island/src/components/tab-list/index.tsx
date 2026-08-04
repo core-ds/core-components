@@ -29,8 +29,10 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
 
     return (
         <div role='tablist' className={styles.list}>
-            <div className={styles.wrapper}>
+            <div className={cn(styles.underlay, styles[`pulse${phase}`])} />
+            <div className={cn(styles.wrapper, styles[`pulse${phase}`])}>
                 {items.map((tab, index) => {
+                    const isTabActive = tab.key === activeKey;
                     const handleTabClick = () => {
                         onActiveKeyChange?.(tab.key);
                     };
@@ -40,8 +42,9 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                             key={tab.key}
                             style={{ marginLeft: index > 0 ? gap : undefined }}
                             tab={tab}
-                            active={activeKey === tab.key}
+                            active={isTabActive}
                             onClick={handleTabClick}
+                            iconClassName={cn(isTabActive && styles[`icon${phase}`])}
                         />
                     );
                 })}
@@ -60,7 +63,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                                 styles.tracker,
                                 prevActiveKeyIndex >= 0 &&
                                     styles[
-                                        `${prevActiveKeyIndex > activeKeyIndex ? 'right' : 'left'}${phase}`
+                                        `${prevActiveKeyIndex > activeKeyIndex ? 'trailing' : 'leading'}${phase}`
                                     ],
                             )}
                         />

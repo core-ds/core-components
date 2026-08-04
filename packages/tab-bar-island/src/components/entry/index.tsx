@@ -16,6 +16,7 @@ export const TabBarIslandEntry: FC<TabBarIslandEntryProps> = ({
     onKeyDown,
     Content = TabBarIslandEntryContent,
     Icon,
+    iconClassName,
     Label,
     children,
     ...restProps
@@ -30,6 +31,7 @@ export const TabBarIslandEntry: FC<TabBarIslandEntryProps> = ({
     >
         <Content
             Icon={Icon}
+            iconClassName={iconClassName}
             // eslint-disable-next-line react/jsx-no-duplicate-props
             icon={icon}
             Label={Label}

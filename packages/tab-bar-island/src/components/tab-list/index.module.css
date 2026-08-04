@@ -1,18 +1,22 @@
 @import '@alfalab/core-components-tab-bar-island/src/vars.css';
 
 .list {
-    border-radius: var(--tab-bar-island-border-radius);
-    background: var(--tab-bar-island-background);
-    box-shadow: var(--tab-bar-island-box-shadow);
     flex-shrink: 1;
     min-width: 0;
     display: inline-flex;
     position: relative;
 }
 
+.underlay {
+    border-radius: var(--tab-bar-island-border-radius);
+    background: var(--tab-bar-island-background);
+    box-shadow: var(--tab-bar-island-box-shadow);
+}
+
 .wrapper {
     display: flex;
     max-width: 100%;
+    position: relative;
 }
 
 .list,
@@ -20,11 +24,14 @@
     padding: var(--gap-4);
 }
 
-.track {
+.track,
+.underlay {
     position: absolute;
     inset: 0;
+}
+
+.track {
     pointer-events: none;
-    z-index: 1;
 }
 
 .frame {
@@ -32,29 +39,7 @@
     height: 100%;
     position: relative;
     will-change: transform;
-    transition: transform 600ms
-        linear(
-            0,
-            0.1011,
-            0.3035,
-            0.5132,
-            0.6889,
-            0.8189,
-            0.9064,
-            0.9603,
-            0.9903,
-            1.0048,
-            1.0101,
-            1.0106,
-            1.0089,
-            1.0066,
-            1.0045,
-            1.0028,
-            1.0015,
-            1.0008,
-            1.0003,
-            1
-        );
+    transition: transform var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1);
 }
 
 .tracker {
@@ -67,41 +52,59 @@
 
 /* prettier-ignore */
 @each $phase in 0, 1 {
-    .left$(phase) {
-        animation: leftShrink$(phase) 600ms linear;
+    .leading$(phase) {
+        animation: leadingAnim$(phase) var(--tab-bar-island-animation-time) linear;
     }
 
-    @keyframes leftShrink$(phase) {
+    @keyframes leadingAnim$(phase) {
         0% {
-            width: 104%;
+            width: 125%;
         }
-        90% {
-            width: 90%;
-            height: 120%;
-            transform: translate(11.11%, -8.33%);
+
+        80% {
+            height: calc(100% + var(--gap-4) * 2.5);
+            transform: translate(0, -5px);
         }
     }
 
-    .right$(phase) {
-        animation: rightShrink$(phase) 600ms linear;
+    .trailing$(phase) {
+        animation: trailingAnim$(phase) var(--tab-bar-island-animation-time) linear;
 
     }
 
-    @keyframes rightShrink$(phase) {
+    @keyframes trailingAnim$(phase) {
         0% {
-            width: 104%;
-            transform: translate(-4.16%, 0);
+            width: 125%;
+            transform: translate(-20%, 0);
         }
-        90% {
-            width: 90%;
-            height: 120%;
-            transform: translate(0, -8.33%);
+
+        80% {
+            height: calc(100% + var(--gap-4) * 2.5);
+            transform: translate(0, -5px);
         }
     }
-}
 
-@keyframes leftShift {
-    100% {
-        width: 104%;
+    .pulse$(phase) {
+        animation: pulseAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1);
+    }
+
+    @keyframes pulseAnim$(phase) {
+        50% {
+            transform: scale(1.035);
+        }
+    }
+
+    .icon$(phase) {
+        animation: iconAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1)
+    }
+
+    @keyframes iconAnim$(phase) {
+        50% {
+            transform: scale(1/1.035);
+        }
+
+        to {
+            transform: scale(1.1);
+        }
     }
 }

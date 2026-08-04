@@ -31,6 +31,10 @@ export interface TabBarIslandEntryCustomProps {
      */
     Icon?: ElementType<ComponentProps<'div'>>;
     /**
+     * Дополнительный класс иконки
+     */
+    iconClassName?: string;
+    /**
      * Кастомный компонент лэйбла
      */
     Label?: ElementType<ComponentProps<'div'>>;
@@ -49,7 +53,8 @@ export interface TabBarIslandItem extends TabBarIslandEntryBaseProps {
 }
 
 export interface TabBarIslandTabProps
-    extends Pick<ComponentProps<'div'>, 'style' | 'onClick' | 'onKeyDown'> {
+    extends Pick<ComponentProps<'div'>, 'style' | 'onClick' | 'onKeyDown'>,
+        Pick<TabBarIslandEntryCustomProps, 'iconClassName'> {
     active?: boolean;
     tab: TabBarIslandItem;
 }
@@ -102,7 +107,7 @@ export interface TabBarIslandTrailingIconButtonProps
 export type TabBarIslandTrailingButtonProps = ComponentProps<'div'>;
 
 export interface TabBarIslandEntryContentProps
-    extends Pick<TabBarIslandEntryCustomProps, 'Icon' | 'Label'> {
+    extends Pick<TabBarIslandEntryCustomProps, 'Icon' | 'iconClassName' | 'Label'> {
     icon?: ReactNode;
     label?: ReactNode;
     indicator?: boolean | number;
