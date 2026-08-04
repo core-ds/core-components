@@ -1,10 +1,34 @@
-import React, { type FC, useLayoutEffect, useMemo, useState } from 'react';
+import React, {
+    type Dispatch,
+    type FC,
+    type SetStateAction,
+    useLayoutEffect,
+    useMemo,
+    useReducer,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
-import { usePrevious } from '@alfalab/core-components-shared';
 import { type TabBarIslandTabListProps } from '@alfalab/core-components-tab-bar-island/types';
 
 import styles from './index.module.css';
+
+const phaseReducer = (prevPhase = 0): number | undefined => Math.abs(prevPhase - 1);
+
+function usePreviousActiveTabIndex(
+    activeTabIndex: number,
+): [number, Dispatch<SetStateAction<number>>] {
+    const ref = useRef(activeTabIndex);
+    const [prev, setPrev] = useState(-1);
+
+    if (ref.current !== activeTabIndex) {
+        setPrev(ref.current);
+        ref.current = activeTabIndex;
+    }
+
+    return [prev, setPrev];
+}
 
 export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     activeKey,
@@ -13,17 +37,18 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     Tab,
     onActiveKeyChange,
 }) => {
-    const [phase, setPhase] = useState<number>();
+    const [phase, nextPhase] = useReducer(phaseReducer, undefined);
     const activeKeyIndex = useMemo(
         () => (activeKey ? items.findIndex((item) => item.key === activeKey) : -1),
         [activeKey, items],
     );
-    const prevActiveKeyIndex = usePrevious(activeKeyIndex) ?? -1;
+    const [prevActiveKeyIndex, setPrevActiveKeyIndex] = usePreviousActiveTabIndex(activeKeyIndex);
     const tabWidth = `calc(${100 / items.length}% ${Math.sign(gap) === 1 ? '-' : '+'} ${(Math.abs(gap) * (items.length - 1)) / items.length}px)`;
+    const isPrevActiveIndexEqualActiveIndex = prevActiveKeyIndex === activeKeyIndex;
 
     useLayoutEffect(() => {
         if (prevActiveKeyIndex >= 0) {
-            setPhase((prevPhase = 0) => Math.abs(prevPhase - 1));
+            nextPhase();
         }
     }, [prevActiveKeyIndex]);
 
@@ -35,6 +60,11 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                     const isTabActive = tab.key === activeKey;
                     const handleTabClick = () => {
                         onActiveKeyChange?.(tab.key);
+
+                        if (isTabActive) {
+                            setPrevActiveKeyIndex(activeKeyIndex);
+                            nextPhase();
+                        }
                     };
 
                     return (
@@ -44,12 +74,21 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                             tab={tab}
                             active={isTabActive}
                             onClick={handleTabClick}
-                            iconClassName={cn(isTabActive && styles[`icon${phase}`])}
+                            iconClassName={cn(
+                                isTabActive &&
+                                    !isPrevActiveIndexEqualActiveIndex &&
+                                    styles[`icon${phase}`],
+                            )}
                         />
                     );
                 })}
             </div>
-            <div className={styles.track}>
+            <div
+                className={cn(
+                    styles.track,
+                    isPrevActiveIndexEqualActiveIndex && styles[`pulse${phase}`],
+                )}
+            >
                 {activeKeyIndex >= 0 && (
                     <div
                         className={styles.frame}
@@ -62,6 +101,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                             className={cn(
                                 styles.tracker,
                                 prevActiveKeyIndex >= 0 &&
+                                    !isPrevActiveIndexEqualActiveIndex &&
                                     styles[
                                         `${prevActiveKeyIndex > activeKeyIndex ? 'trailing' : 'leading'}${phase}`
                                     ],
