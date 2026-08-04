@@ -1,5 +1,3 @@
-import { hasOwnProperty } from '@alfalab/core-components-shared';
-
 import { type UniversalModalDesktopProps } from '../types/props';
 
 interface Params {
@@ -15,10 +13,11 @@ export const getHugContentStyles = (params: Params): Record<string, boolean> => 
         return {};
     }
 
+    const topGap = margin?.top ?? 0;
+    const bottomGap = margin?.bottom ?? 0;
+
     return {
         [styles.hugContent]: true,
-        ...(margin && hasOwnProperty(margin, 'top') && { [styles[`topGap-${margin.top}`]]: true }),
-        ...(margin &&
-            hasOwnProperty(margin, 'bottom') && { [styles[`bottomGap-${margin.bottom}`]]: true }),
+        [styles[`hugGap-${topGap}-${bottomGap}`]]: true,
     };
 };
