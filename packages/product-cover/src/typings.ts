@@ -29,7 +29,6 @@ export type SingleCommonProps = {
 
     /**
      * Базовый URL сервиса с изображениями
-     * (например: https://online.alfabank.ru/cards-images/cards/)
      */
     baseUrl?: string;
 

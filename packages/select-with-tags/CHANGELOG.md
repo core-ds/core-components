@@ -1,5 +1,19 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.12
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-select@19.2.2
+- @alfalab/core-components-tag@10.2.1
+
 ## 10.1.14
 
 ### Patch Changes
@@ -2034,8 +2048,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.3...@alfalab/core-components-select-with-tags@5.7.4) (2022-08-17)
 

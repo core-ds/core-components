@@ -119,7 +119,7 @@
 {
 "title": "Кнопка-ссылка",
 "description": "Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.",
-"desktop": "render(() => {\nreturn (\n<ActionButton icon={<DiamondsMIcon />} href='http://www.alfabank.ru'>\n{'Переход  по ссылке'}\n</ActionButton>\n);\n});"
+"desktop": "render(() => {\nreturn (\n<ActionButton icon={<DiamondsMIcon />} href='http://www.example.ru'>\n{'Переход  по ссылке'}\n</ActionButton>\n);\n});"
 }
 ]
 }

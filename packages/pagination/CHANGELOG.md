@@ -1,5 +1,13 @@
 # @alfalab/core-components-pagination
 
+## 4.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.2.1
+
 ## 4.0.7
 
 ### Patch Changes
@@ -610,8 +618,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pagination@1.4.1...@alfalab/core-components-pagination@1.4.2) (2022-08-17)
 

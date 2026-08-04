@@ -1,5 +1,15 @@
 # @alfalab/core-components-notification
 
+## 9.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-portal@5.0.4
+- @alfalab/core-components-toast-plate@9.1.6
+
 ## 9.0.10
 
 ### Patch Changes
@@ -991,8 +1001,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification@5.4.1...@alfalab/core-components-notification@5.4.2) (2022-08-17)
 

@@ -1,5 +1,26 @@
 # @alfalab/core-components-calendar
 
+## 9.1.11
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2287](https://github.com/core-ds/core-components/pull/2287)
+
+##### Calendar
+
+- Исправлено выделение диапазона в режиме `range` при наведении и выборе недоступных дат: disabled-дни больше не подсвечиваются hover-эффектом и не включаются в предпросмотр периода
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-modal@11.0.15
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-icon-button@8.0.10
+
 ## 9.1.10
 
 ### Patch Changes
@@ -1940,8 +1961,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [5.6.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.6.2...@alfalab/core-components-calendar@5.6.3) (2022-08-17)
 
 ### Bug Fixes
@@ -2143,7 +2162,7 @@ Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 

@@ -177,7 +177,7 @@
         "tinyglobby": "^0.2.14",
         "ts-jest": "^29.4.1",
         "typescript": "~5.5.4",
-        "ui-primitives": "^35.3.0",
+        "ui-primitives": "^35.56.0",
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },

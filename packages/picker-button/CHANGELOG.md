@@ -1,5 +1,24 @@
 # @alfalab/core-components-picker-button
 
+## 13.0.20
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2293](https://github.com/core-ds/core-components/pull/2293)
+
+##### PickerButton
+
+- Исправлен перенос текста опции
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-select@19.2.2
+
 ## 13.0.19
 
 ### Patch Changes
@@ -1966,8 +1985,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [7.11.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.3...@alfalab/core-components-picker-button@7.11.4) (2022-08-17)
 
