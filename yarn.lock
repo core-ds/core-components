@@ -214,30 +214,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-base-modal@npm:^7.1.8, @alfalab/core-components-base-modal@workspace:packages/base-modal":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-base-modal@workspace:packages/base-modal"
-  dependencies:
-    "@alfalab/core-components-backdrop": "npm:^5.0.2"
-    "@alfalab/core-components-global-store": "npm:^4.0.1"
-    "@alfalab/core-components-portal": "npm:^5.0.4"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-stack": "npm:^7.0.1"
-    "@juggle/resize-observer": "npm:^3.3.1"
-    "@types/react-transition-group": "npm:^4.4.12"
-    classnames: "npm:^2.5.1"
-    react-focus-lock: "npm:^2.12.1"
-    react-merge-refs: "npm:^1.1.0"
-    react-remove-scroll: "npm:^2.5.5"
-    react-transition-group: "npm:^4.4.5"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    "@alfalab/core-components-stack-context": ^1.0.1
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-base-modal@npm:^7.1.8":
   version: 7.1.8
   resolution: "@alfalab/core-components-base-modal@npm:7.1.8"
@@ -263,23 +239,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-bottom-sheet@npm:^8.1.12, @alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet":
+"@alfalab/core-components-base-modal@workspace:packages/base-modal":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet"
+  resolution: "@alfalab/core-components-base-modal@workspace:packages/base-modal"
   dependencies:
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
-    "@alfalab/core-components-base-modal": "npm:^7.1.8"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.13"
+    "@alfalab/core-components-global-store": "npm:^4.0.1"
+    "@alfalab/core-components-portal": "npm:^5.0.4"
     "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-types": "npm:^2.0.1"
+    "@alfalab/core-components-stack": "npm:^7.0.1"
+    "@juggle/resize-observer": "npm:^3.3.1"
+    "@types/react-transition-group": "npm:^4.4.12"
     classnames: "npm:^2.5.1"
-    react-div-100vh: "npm:^0.7.0"
+    react-focus-lock: "npm:^2.12.1"
     react-merge-refs: "npm:^1.1.0"
-    react-swipeable: "npm:^7.0.0"
+    react-remove-scroll: "npm:^2.5.5"
     react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
-    use-sync-external-store: "npm:^1.4.0"
   peerDependencies:
+    "@alfalab/core-components-stack-context": ^1.0.1
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -308,17 +286,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-button@npm:^13.2.2, @alfalab/core-components-button@workspace:packages/button":
+"@alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-button@workspace:packages/button"
+  resolution: "@alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.7"
+    "@alfalab/core-components-backdrop": "npm:^5.0.2"
+    "@alfalab/core-components-base-modal": "npm:^7.1.8"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.13"
     "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-spinner": "npm:^6.0.7"
-    "@alfalab/hooks": "npm:^1.17.0"
+    "@alfalab/core-components-types": "npm:^2.0.1"
     classnames: "npm:^2.5.1"
+    react-div-100vh: "npm:^0.7.0"
     react-merge-refs: "npm:^1.1.0"
+    react-swipeable: "npm:^7.0.0"
+    react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
+    use-sync-external-store: "npm:^1.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -342,6 +325,23 @@ __metadata:
   checksum: 10c0/72d90889bea94c377b3fb2d530d986d02a708e5a473a0b8ae4ea0b9f3a412fba8c7e5f0efa29707b085e40ce9e394a87c402ffe300ce8d3e8a60181f975b4b9d
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-button@workspace:packages/button":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-button@workspace:packages/button"
+  dependencies:
+    "@alfalab/core-components-mq": "npm:^6.0.7"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/core-components-spinner": "npm:^6.0.7"
+    "@alfalab/hooks": "npm:^1.17.0"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-calendar-input@npm:^12.0.16, @alfalab/core-components-calendar-input@workspace:packages/calendar-input":
   version: 0.0.0-use.local
@@ -494,21 +494,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-checkbox@npm:^6.2.4, @alfalab/core-components-checkbox@workspace:packages/checkbox":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
-  dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/hooks": "npm:^1.17.0"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-checkbox@npm:^6.2.4":
   version: 6.2.4
   resolution: "@alfalab/core-components-checkbox@npm:6.2.4"
@@ -524,6 +509,21 @@ __metadata:
   checksum: 10c0/3572fe2e3e95df44c2b64ce23aa2604c6daa6217082796385ab7e67453df2dbd6fd44f50b2728fafd57113db35a4bffa107e732e6516bc156e88e09414c18c02
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-checkbox@workspace:packages/checkbox":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
+  dependencies:
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/hooks": "npm:^1.17.0"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-circular-progress-bar@npm:^5.0.10, @alfalab/core-components-circular-progress-bar@workspace:packages/circular-progress-bar":
   version: 0.0.0-use.local
@@ -837,20 +837,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-form-control@npm:^14.0.9, @alfalab/core-components-form-control@workspace:packages/form-control":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-form-control@workspace:packages/form-control"
-  dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.7"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    classnames: "npm:^2.5.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-form-control@npm:^14.0.9":
   version: 14.0.9
   resolution: "@alfalab/core-components-form-control@npm:14.0.9"
@@ -865,6 +851,20 @@ __metadata:
   checksum: 10c0/38426df874e2da48c242174aaa944ff7bfdc9690ea8055837e312bd0d180e6d0c79cbbe93cbc7721009ebc842916d24c6459803276de6210bb0b4af840790f38
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-form-control@workspace:packages/form-control":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-form-control@workspace:packages/form-control"
+  dependencies:
+    "@alfalab/core-components-mq": "npm:^6.0.7"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    classnames: "npm:^2.5.1"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-gallery@npm:^7.2.2, @alfalab/core-components-gallery@workspace:packages/gallery":
   version: 0.0.0-use.local
@@ -949,21 +949,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-icon-button@npm:^8.0.10":
-  version: 8.0.10
-  resolution: "@alfalab/core-components-icon-button@npm:8.0.10"
-  dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.2"
-    "@alfalab/core-components-mq": "npm:^6.0.7"
-    classnames: "npm:^2.5.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/0fc19df5fa71d5e1abc9536af71ae9d999827ef39fabd19613363ff42c4e1f0bb815086f9c57b69106236eac845c49c865e8d33a64618b5e3904d39266f877cb
-  languageName: node
-  linkType: hard
-
 "@alfalab/core-components-icon-button@npm:^8.0.10, @alfalab/core-components-icon-button@workspace:packages/icon-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-icon-button@workspace:packages/icon-button"
@@ -1026,27 +1011,6 @@ __metadata:
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
-
-"@alfalab/core-components-input@npm:^17.1.10":
-  version: 17.1.10
-  resolution: "@alfalab/core-components-input@npm:17.1.10"
-  dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.2"
-    "@alfalab/core-components-form-control": "npm:^14.0.9"
-    "@alfalab/core-components-mq": "npm:^6.0.7"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-status-badge": "npm:^3.0.2"
-    "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/b1cf891915da8620bc8d9d3416e93f394e57d37dcdf39c9a9aa614cc7b6be87f52dedaa59747f714e2720e1ea2a1536caf74e9345998d2765be759307601635a
-  languageName: node
-  linkType: hard
 
 "@alfalab/core-components-input@npm:^17.1.10, @alfalab/core-components-input@workspace:packages/input":
   version: 0.0.0-use.local
@@ -1224,23 +1188,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-modal@npm:^11.0.15, @alfalab/core-components-modal@workspace:packages/modal":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-modal@workspace:packages/modal"
-  dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.7"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.13"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-modal@npm:^11.0.15":
   version: 11.0.15
   resolution: "@alfalab/core-components-modal@npm:11.0.15"
@@ -1259,15 +1206,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-mq@npm:^6.0.7, @alfalab/core-components-mq@workspace:packages/mq":
+"@alfalab/core-components-modal@workspace:packages/modal":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-mq@workspace:packages/mq"
+  resolution: "@alfalab/core-components-modal@workspace:packages/modal"
   dependencies:
+    "@alfalab/core-components-base-modal": "npm:^7.1.8"
+    "@alfalab/core-components-mq": "npm:^6.0.7"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.13"
     "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/hooks": "npm:^1.17.0"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
-    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -1288,20 +1238,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-navigation-bar-private@npm:^2.0.13, @alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private":
+"@alfalab/core-components-mq@workspace:packages/mq":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private"
+  resolution: "@alfalab/core-components-mq@workspace:packages/mq"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.2"
-    "@alfalab/core-components-icon-button": "npm:^8.0.10"
     "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-typography": "npm:^6.0.10"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -1326,6 +1271,25 @@ __metadata:
   checksum: 10c0/15f76f94e6228b79fed70b3058f2ce131d87108d4469aec52bd36e9ebad2014df32d304cf7837f29414d1648f22b6d52dfa4879d47dd7a0895d2d751a381764d
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private"
+  dependencies:
+    "@alfalab/core-components-button": "npm:^13.2.2"
+    "@alfalab/core-components-icon-button": "npm:^8.0.10"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/core-components-typography": "npm:^6.0.10"
+    "@alfalab/hooks": "npm:^1.17.0"
+    "@alfalab/icons-glyph": "npm:^2.260.0"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-navigation-bar@npm:^3.0.12, @alfalab/core-components-navigation-bar@workspace:packages/navigation-bar":
   version: 0.0.0-use.local
@@ -1561,30 +1525,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-popover@npm:^8.1.1, @alfalab/core-components-popover@workspace:packages/popover":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-popover@workspace:packages/popover"
-  dependencies:
-    "@alfalab/core-components-portal": "npm:^5.0.4"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-stack": "npm:^7.0.1"
-    "@alfalab/hooks": "npm:^1.17.0"
-    "@juggle/resize-observer": "npm:^3.3.1"
-    "@popperjs/core": "npm:^2.11.8"
-    "@types/react-transition-group": "npm:^4.4.12"
-    classnames: "npm:^2.5.1"
-    popper-max-size-modifier: "npm:^0.2.0"
-    react-merge-refs: "npm:^1.1.0"
-    react-popper: "npm:^2.3.0"
-    react-transition-group: "npm:^4.4.5"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    "@alfalab/core-components-stack-context": ^1.0.1
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-popover@npm:^8.1.1":
   version: 8.1.1
   resolution: "@alfalab/core-components-popover@npm:8.1.1"
@@ -1610,6 +1550,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@alfalab/core-components-popover@workspace:packages/popover":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-popover@workspace:packages/popover"
+  dependencies:
+    "@alfalab/core-components-portal": "npm:^5.0.4"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/core-components-stack": "npm:^7.0.1"
+    "@alfalab/hooks": "npm:^1.17.0"
+    "@juggle/resize-observer": "npm:^3.3.1"
+    "@popperjs/core": "npm:^2.11.8"
+    "@types/react-transition-group": "npm:^4.4.12"
+    classnames: "npm:^2.5.1"
+    popper-max-size-modifier: "npm:^0.2.0"
+    react-merge-refs: "npm:^1.1.0"
+    react-popper: "npm:^2.3.0"
+    react-transition-group: "npm:^4.4.5"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@alfalab/core-components-stack-context": ^1.0.1
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-popup-sheet@npm:^3.0.15, @alfalab/core-components-popup-sheet@workspace:packages/popup-sheet":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-popup-sheet@workspace:packages/popup-sheet"
@@ -1624,22 +1588,6 @@ __metadata:
     react-swipeable: "npm:^7.0.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
-"@alfalab/core-components-portal@npm:^5.0.4, @alfalab/core-components-portal@workspace:packages/portal":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-portal@workspace:packages/portal"
-  dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.2"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-space": "npm:^5.0.2"
-    "@alfalab/hooks": "npm:^1.17.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -1660,19 +1608,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-product-cover@npm:^3.2.5, @alfalab/core-components-product-cover@workspace:packages/product-cover":
+"@alfalab/core-components-portal@workspace:packages/portal":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
+  resolution: "@alfalab/core-components-portal@workspace:packages/portal"
   dependencies:
     "@alfalab/core-components-button": "npm:^13.2.2"
     "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-typography": "npm:^6.0.10"
+    "@alfalab/core-components-space": "npm:^5.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@alfalab/utils": "npm:^1.18.0"
-    classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -1696,6 +1642,24 @@ __metadata:
   checksum: 10c0/791fe363f185e0f22e8adbee6f1909e3000bb0e60b3d95c573ded73d8fa3804ced8047a6a93034b6871ae6183a54a723abfc4191193421db475d42b95244c426
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-product-cover@workspace:packages/product-cover":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
+  dependencies:
+    "@alfalab/core-components-button": "npm:^13.2.2"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/core-components-typography": "npm:^6.0.10"
+    "@alfalab/hooks": "npm:^1.17.0"
+    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/utils": "npm:^1.18.0"
+    classnames: "npm:^2.5.1"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-progress-bar@npm:^5.0.2, @alfalab/core-components-progress-bar@workspace:packages/progress-bar":
   version: 0.0.0-use.local
@@ -1949,38 +1913,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select@npm:^19.2.2, @alfalab/core-components-select@workspace:packages/select":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-select@workspace:packages/select"
-  dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.8"
-    "@alfalab/core-components-bottom-sheet": "npm:^8.1.12"
-    "@alfalab/core-components-button": "npm:^13.2.2"
-    "@alfalab/core-components-checkbox": "npm:^6.2.4"
-    "@alfalab/core-components-form-control": "npm:^14.0.9"
-    "@alfalab/core-components-input": "npm:^17.1.10"
-    "@alfalab/core-components-modal": "npm:^11.0.15"
-    "@alfalab/core-components-mq": "npm:^6.0.7"
-    "@alfalab/core-components-popover": "npm:^8.1.1"
-    "@alfalab/core-components-scrollbar-private": "npm:^0.0.1"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-skeleton": "npm:^7.0.4"
-    "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    classnames: "npm:^2.5.1"
-    compute-scroll-into-view: "npm:^3.1.0"
-    downshift: "npm:8.4.0"
-    intersection-observer: "npm:^0.12.0"
-    react-fast-compare: "npm:^3.2.2"
-    react-merge-refs: "npm:^1.1.0"
-    react-virtual: "npm:^2.3.2"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-select@npm:^19.2.2":
   version: 19.2.2
   resolution: "@alfalab/core-components-select@npm:19.2.2"
@@ -2014,15 +1946,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-shared@npm:^2.2.3, @alfalab/core-components-shared@workspace:packages/shared":
+"@alfalab/core-components-select@workspace:packages/select":
   version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-shared@workspace:packages/shared"
+  resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
-    "@alfalab/core-components-types": "npm:^2.0.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.8"
+    "@alfalab/core-components-bottom-sheet": "npm:^8.1.12"
+    "@alfalab/core-components-button": "npm:^13.2.2"
+    "@alfalab/core-components-checkbox": "npm:^6.2.4"
+    "@alfalab/core-components-form-control": "npm:^14.0.9"
+    "@alfalab/core-components-input": "npm:^17.1.10"
+    "@alfalab/core-components-modal": "npm:^11.0.15"
+    "@alfalab/core-components-mq": "npm:^6.0.7"
+    "@alfalab/core-components-popover": "npm:^8.1.1"
+    "@alfalab/core-components-scrollbar-private": "npm:^0.0.1"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@maskito/core": "npm:^1.7.0"
+    "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
-    detect-browser: "npm:^5.3.0"
+    compute-scroll-into-view: "npm:^3.1.0"
+    downshift: "npm:8.4.0"
+    intersection-observer: "npm:^0.12.0"
+    react-fast-compare: "npm:^3.2.2"
+    react-merge-refs: "npm:^1.1.0"
+    react-virtual: "npm:^2.3.2"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -2046,6 +1994,22 @@ __metadata:
   checksum: 10c0/508edb6e46265ed6ea8b7c3ba416002168710ffcfebb378db83252eb551525c80d203e73ce14523ed2262fb568f92761b7f5f23d43cf14a3279a403f8d4312b6
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-shared@workspace:packages/shared"
+  dependencies:
+    "@alfalab/core-components-types": "npm:^2.0.1"
+    "@alfalab/hooks": "npm:^1.17.0"
+    "@maskito/core": "npm:^1.7.0"
+    classnames: "npm:^2.5.1"
+    detect-browser: "npm:^5.3.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-side-panel@npm:^7.0.15, @alfalab/core-components-side-panel@workspace:packages/side-panel":
   version: 0.0.0-use.local
@@ -2135,20 +2099,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-spinner@npm:^6.0.7, @alfalab/core-components-spinner@workspace:packages/spinner":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-spinner@workspace:packages/spinner"
-  dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/hooks": "npm:^1.17.0"
-    classnames: "npm:^2.5.1"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-spinner@npm:^6.0.7":
   version: 6.0.7
   resolution: "@alfalab/core-components-spinner@npm:6.0.7"
@@ -2163,6 +2113,20 @@ __metadata:
   checksum: 10c0/f79c2141b53f6a6553f0fdd135b8288282498f4cc9fedd9ed802f24aa53465d88527d1bfe7b8b2b6cdd555e4a3adbb7e78eb3303f8028e0ac4f9671bb12c7060
   languageName: node
   linkType: hard
+
+"@alfalab/core-components-spinner@workspace:packages/spinner":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-spinner@workspace:packages/spinner"
+  dependencies:
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    "@alfalab/hooks": "npm:^1.17.0"
+    classnames: "npm:^2.5.1"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
 
 "@alfalab/core-components-stack-context@workspace:packages/stack-context":
   version: 0.0.0-use.local
@@ -2471,23 +2435,6 @@ __metadata:
   resolution: "@alfalab/core-components-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
-
-"@alfalab/core-components-typography@npm:^6.0.10":
-  version: 6.0.10
-  resolution: "@alfalab/core-components-typography@npm:6.0.10"
-  dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.7"
-    "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/core-components-skeleton": "npm:^7.0.4"
-    classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/1e0818f29dbf70c8aed329fb7250e3dc6f8dcc333ad177e58ca8609c3c2f6cf734304374d334429419f6dde3dd3a3d262437c2bcaa326aa5e29d1aa99a9cc548
-  languageName: node
-  linkType: hard
 
 "@alfalab/core-components-typography@npm:^6.0.10, @alfalab/core-components-typography@workspace:packages/typography":
   version: 0.0.0-use.local
