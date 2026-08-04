@@ -10,7 +10,7 @@ exports[`segmented-control should display correctly 1`] = `
         class="container"
       >
         <div
-          class="selectedBox selectedBox rectangular"
+          class="selectedBox selectedBox rectangular withoutTransition"
           style="width: 0px; transform: translateX(0px);"
         />
         <div

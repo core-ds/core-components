@@ -81,3 +81,7 @@
         width 0.2s ease,
         transform 0.2s ease;
 }
+
+.selectedBox.withoutTransition {
+    transition: none;
+}
