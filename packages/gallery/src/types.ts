@@ -1,5 +1,26 @@
 import { type MouseEvent, type RefObject } from 'react';
 
+export type PaginationDirection = 'next' | 'prev';
+
+export type GalleryPaginationConfig = {
+    /**
+     * Доступна ли следующая пачка изображений
+     * @default true
+     */
+    hasNextPage?: boolean;
+
+    /**
+     * Доступна ли предыдущая пачка изображений
+     * @default true
+     */
+    hasPrevPage?: boolean;
+
+    /**
+     * Вызывается при попытке перелистнуть крайний слайд
+     */
+    onEdgeReached: (direction: PaginationDirection) => void | Promise<void>;
+};
+
 export type TBottomButton = {
     text: string;
     onClick: (e: MouseEvent) => void;
@@ -16,6 +37,10 @@ export type GalleryImage = {
     alt?: string;
     canDownload?: boolean;
     canShare?: boolean;
+    /**
+     * дата создания
+     */
+    createdAt?: string;
     /**
      * Нижняя кнопка, есть только у видео
      */

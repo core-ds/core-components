@@ -7,6 +7,8 @@ import { GalleryContext } from '../../context';
 import { isVideo } from '../../utils';
 import * as Buttons from '../buttons';
 
+import { formatDate } from './utils';
+
 import styles from './index.module.css';
 
 export const InfoBar = () => {
@@ -14,6 +16,7 @@ export const InfoBar = () => {
         useContext(GalleryContext);
 
     const image = getCurrentImage();
+    const createdAt = formatDate(image?.createdAt ?? '');
 
     const handleMuteVideo = useCallback(() => {
         if (image) {
@@ -60,6 +63,14 @@ export const InfoBar = () => {
                 color='static-primary-light'
             >
                 {image?.name}
+            </TypographyText>
+            <TypographyText
+                className={styles.description}
+                tag='div'
+                view='primary-small'
+                color='secondary-inverted'
+            >
+                {createdAt}
             </TypographyText>
         </section>
     );

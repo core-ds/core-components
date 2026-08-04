@@ -1,19 +1,15 @@
 import React, { type FC, type MouseEvent, useCallback, useEffect, useState } from 'react';
-import cn from 'classnames';
 import type SwiperCore from 'swiper';
 
-import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BottomButton } from './components/bottom-button';
-import { Single } from './components/image-viewer/single';
-import { Subtitles } from './components/subtitles';
-import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
+import { GalleryView } from './components/gallery-view/Component';
+import { useGalleryNavigation } from './hooks/use-gallery-navigation';
 import { SWIPE_THRESHOLD } from './constants';
-import { GalleryContext } from './context';
-import { type GalleryImage, type ImageMeta } from './types';
+import { type GalleryContext } from './context';
+import { type GalleryImage, type GalleryPaginationConfig, type ImageMeta } from './types';
 
-import styles from './index.module.css';
+export type { GalleryPaginationConfig } from './types';
 
 export type GalleryProps = {
     /**
@@ -57,14 +53,22 @@ export type GalleryProps = {
      * Дополнительный класс для попапа
      */
     popupClassName?: string;
+
+    /**
+     * обработчик нажатия на кнопку перехода к посту
+     */
+    navigateToPostHandler?: () => void;
+
+    /**
+     * Настройки пагинации галереи
+     */
+    paginationConfig?: GalleryPaginationConfig;
 };
 
 const DEFAULT_FULL_SCREEN = false;
 const DEFAULT_MUTED_VIDEO = true;
 const DEFAULT_PLAYING_VIDEO = true;
 const DEFAULT_HIDE_NAVIGATION = false;
-
-const Backdrop = () => null;
 
 export const Gallery: FC<GalleryProps> = ({
     open,
@@ -75,6 +79,8 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    navigateToPostHandler,
+    paginationConfig,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -109,29 +115,11 @@ export const Gallery: FC<GalleryProps> = ({
         [images, setCurrentSlideIndex, swiper],
     );
 
-    const slideNext = useCallback(() => {
-        const lastIndex = images.length - 1;
-
-        let nextIndex = currentSlideIndex + 1;
-
-        if (nextIndex >= images.length) {
-            nextIndex = loop ? 0 : lastIndex;
-        }
-
-        slideTo(nextIndex);
-    }, [images.length, loop, currentSlideIndex, slideTo]);
-
-    const slidePrev = useCallback(() => {
-        const lastIndex = images.length - 1;
-
-        let nextIndex = currentSlideIndex - 1;
-
-        if (nextIndex < 0) {
-            nextIndex = loop ? lastIndex : 0;
-        }
-
-        slideTo(nextIndex);
-    }, [images.length, loop, currentSlideIndex, slideTo]);
+    const { navigation, pagination } = useGalleryNavigation({
+        state: { currentSlideIndex, images },
+        actions: { setCurrentSlideIndex, slideTo },
+        options: { loop, paginationConfig },
+    });
 
     const setImageMeta = useCallback((meta: ImageMeta, index: number) => {
         setImagesMeta((prevImagesMeta) => {
@@ -179,14 +167,14 @@ export const Gallery: FC<GalleryProps> = ({
 
             switch (event.key) {
                 case 'ArrowLeft':
-                    slidePrev();
+                    navigation.slidePrev();
                     break;
                 case 'ArrowRight':
-                    slideNext();
+                    navigation.slideNext();
                     break;
             }
         },
-        [fullScreen, open, slideNext, slidePrev],
+        [fullScreen, navigation, open],
     );
 
     const onUnmount = useCallback(() => {
@@ -195,10 +183,10 @@ export const Gallery: FC<GalleryProps> = ({
     }, [setPlayingVideo]);
 
     useEffect(() => {
-        if (!uncontrolled && !swiper?.destroyed) {
-            swiper?.slideTo(currentSlideIndex);
+        if (swiper && !swiper.destroyed && swiper.activeIndex !== currentSlideIndex) {
+            swiper.slideTo(currentSlideIndex, 0);
         }
-    }, [uncontrolled, currentSlideIndex, swiper]);
+    }, [currentSlideIndex, swiper]);
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
@@ -248,10 +236,14 @@ export const Gallery: FC<GalleryProps> = ({
     const galleryContext: GalleryContext = {
         view: isDesktop ? 'desktop' : 'mobile',
         singleSlide,
+        canSlideNext: navigation.canSlideNext,
+        canSlidePrev: navigation.canSlidePrev,
         currentSlideIndex,
         images,
         imagesMeta,
         fullScreen,
+        loadingSlide: pagination.loading,
+        paginationError: pagination.error,
         initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
         setFullScreen,
         playingVideo,
@@ -261,8 +253,9 @@ export const Gallery: FC<GalleryProps> = ({
         hideNavigation,
         setHideNavigation,
         setImageMeta,
-        slideNext,
-        slidePrev,
+        slideNext: navigation.slideNext,
+        slidePrev: navigation.slidePrev,
+        retryPagination: pagination.retry,
         slideTo,
         getSwiper: () => swiper,
         setSwiper,
@@ -270,45 +263,24 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        navigateToPostHandler,
     };
 
     return (
-        <GalleryContext.Provider value={galleryContext}>
-            <BaseModal
-                open={open}
-                className={cn(styles.modal, popupClassName)}
-                onEscapeKeyDown={handleEscapeKeyDown}
-                Backdrop={Backdrop}
-                onUnmount={onUnmount}
-            >
-                <div
-                    className={cn(styles.container, {
-                        [styles.mobile]: !isDesktop,
-                    })}
-                >
-                    {isDesktop ? <Header /> : <HeaderMobile />}
-                    {images.length === 1 ? <Single /> : <ImageViewer />}
-                    <nav
-                        className={cn({
-                            [styles.navigationVideo]: isCurrentVideo && !isDesktop,
-                            [styles.hide]: showNavigationBar && hideNavigation && !isDesktop,
-                            [styles.hideInfo]: !showNavigationBar && hideNavigation && !isDesktop,
-                        })}
-                    >
-                        {!isDesktop && <Subtitles />}
-                        {isCurrentVideo && !isDesktop && bottomButton && (
-                            <BottomButton
-                                bottomButton={bottomButton}
-                                onClick={handleBottomButtonClick}
-                                className={styles.bottomButton}
-                            />
-                        )}
-
-                        {showNavigationBar && <NavigationBar />}
-                        {!isDesktop && <InfoBar />}
-                    </nav>
-                </div>
-            </BaseModal>
-        </GalleryContext.Provider>
+        <GalleryView
+            bottomButton={bottomButton}
+            galleryContext={galleryContext}
+            handleBottomButtonClick={handleBottomButtonClick}
+            handleEscapeKeyDown={handleEscapeKeyDown}
+            hideNavigation={hideNavigation}
+            isCurrentVideo={isCurrentVideo}
+            isDesktop={isDesktop}
+            hasPagination={pagination.enabled}
+            onUnmount={onUnmount}
+            open={open}
+            popupClassName={popupClassName}
+            showNavigationBar={showNavigationBar}
+            singleSlide={singleSlide}
+        />
     );
 };
