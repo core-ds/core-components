@@ -2189,7 +2189,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-universal-modal@npm:^3.2.2, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
+"@alfalab/core-components-universal-modal@npm:^3.2.3, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-universal-modal@workspace:packages/universal-modal"
   dependencies:
@@ -2354,7 +2354,7 @@ __metadata:
     "@alfalab/core-components-typography": "npm:^6.0.10"
     "@alfalab/core-components-underlay": "npm:^3.0.2"
     "@alfalab/core-components-universal-date-input": "npm:^4.0.16"
-    "@alfalab/core-components-universal-modal": "npm:^3.2.2"
+    "@alfalab/core-components-universal-modal": "npm:^3.2.3"
     "@alfalab/core-components-vars": "npm:^11.2.1"
     "@alfalab/core-components-with-suffix": "npm:^6.0.12"
   peerDependencies:
