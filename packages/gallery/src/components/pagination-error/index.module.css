@@ -1,3 +1,5 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
 .component {
     display: flex;
     flex: 1;
