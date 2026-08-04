@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "50.25.0",
+    "version": "50.25.1",
     "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -132,7 +132,7 @@
         "@alfalab/core-components-typography": "^6.0.10",
         "@alfalab/core-components-underlay": "^3.0.2",
         "@alfalab/core-components-universal-date-input": "^4.0.16",
-        "@alfalab/core-components-universal-modal": "^3.2.2",
+        "@alfalab/core-components-universal-modal": "^3.2.3",
         "@alfalab/core-components-vars": "^11.2.1",
         "@alfalab/core-components-with-suffix": "^6.0.12"
     },

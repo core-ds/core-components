@@ -1,5 +1,21 @@
 # @alfalab/core-components
 
+## 50.25.1
+
+### Patch Changes
+
+<sup><time>04.08.2026</time></sup>
+
+#### [#2301](https://github.com/core-ds/core-components/pull/2301)
+
+##### UniversalModal
+
+- Механизм `height="hugContent"` + `margin.top`/`margin.bottom` переведён с CSS custom properties на статически сгенерированные классы
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.2.3
+
 ## 50.25.0
 
 ### Minor Changes
