@@ -1,4 +1,12 @@
-import React, { forwardRef, Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    Fragment,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
@@ -169,6 +177,24 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             textareaClassName,
         );
 
+        /*
+         * для react v18 сохраняем ref функцию между рендерами
+         * если она меняется, react вызовет старую с null, этот null в state не сохраняем,
+         * иначе снова ререндер и бесконечный цикл.
+         */
+        const handleTextareaNodeRef = useCallback((node: HTMLTextAreaElement | null) => {
+            if (node === null) {
+                return;
+            }
+
+            setTextareaNode((current) => (current === node ? current : node));
+        }, []);
+
+        const textareaMergedRef = useMemo(
+            () => mergeRefs([ref, handleTextareaNodeRef]),
+            [ref, handleTextareaNodeRef],
+        );
+
         const textareaProps = {
             ...restProps,
             className: textareaClassNameCalc,
@@ -180,7 +206,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange: handleTextareaChange,
             value: uncontrolled ? stateValue : value,
             rows,
-            ref: mergeRefs([ref, textareaNodeRef]),
+            ref: textareaMergedRef,
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
         };

@@ -4,6 +4,7 @@ import React, {
     type HTMLAttributes,
     useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -217,9 +218,27 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
         }
     };
 
+    /*
+     * для react v18 сохраняем ref функцию между рендерами
+     * если она меняется, react вызовет старую с null, этот null в state не сохраняем,
+     * иначе снова ререндер и бесконечный цикл.
+     */
+    const setTargetStable = useCallback((node: HTMLElement | null) => {
+        if (node === null) {
+            return;
+        }
+
+        setTarget((current) => (current === node ? current : node));
+    }, []);
+
+    const targetMergedRef = useMemo(
+        () => mergeRefs([targetRef, setTargetStable]),
+        [targetRef, setTargetStable],
+    );
+
     return (
         <Fragment>
-            <TargetTag ref={mergeRefs([targetRefFromProps, targetRef])} {...getTargetProps()}>
+            <TargetTag ref={targetMergedRef} {...getTargetProps()}>
                 {children.props.disabled && <div className={styles.overlap} />}
                 {children}
             </TargetTag>

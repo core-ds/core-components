@@ -5,6 +5,7 @@ import React, {
     type ReactNode,
     type RefAttributes,
     useCallback,
+    useMemo,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -90,10 +91,28 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const isInverted = restProps.colors === 'inverted';
 
+            /*
+             * для react v18 сохраняем ref функцию между рендерами
+             * если она меняется, react вызовет старую с null, этот null в state не сохраняем,
+             * иначе снова ререндер и бесконечный цикл.
+             */
+            const handleInputNodeRef = useCallback((node: HTMLInputElement | null) => {
+                if (node === null) {
+                    return;
+                }
+
+                setInputNode((current) => (current === node ? current : node));
+            }, []);
+
+            const inputMergedRef = useMemo(
+                () => mergeRefs([ref, handleInputNodeRef]),
+                [ref, handleInputNodeRef],
+            );
+
             return (
                 <Fragment>
                     <Input
-                        ref={mergeRefs([ref, inputNodeRef])}
+                        ref={inputMergedRef}
                         value={visibleValue}
                         disabled={disabled}
                         readOnly={readOnly}

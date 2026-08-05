@@ -3,6 +3,7 @@ import React, {
     type MouseEvent,
     useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -136,6 +137,24 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
             setTextHidden(false);
         }, []);
 
+        /*
+         * для react v18 сохраняем ref функцию между рендерами
+         * если она меняется, react вызовет старую с null, этот null в state не сохраняем,
+         * иначе снова ререндер и бесконечный цикл.
+         */
+        const handleInputNodeRef = useCallback((node: HTMLInputElement | null) => {
+            if (node === null) {
+                return;
+            }
+
+            setInputNode((current) => (current === node ? current : node));
+        }, []);
+
+        const inputMergedRef = useMemo(
+            () => mergeRefs([ref, handleInputNodeRef]),
+            [ref, handleInputNodeRef],
+        );
+
         return (
             <Input
                 {...restProps}
@@ -143,7 +162,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                 value={inputValue}
                 onChange={handleInputChange}
                 onClear={handleClear}
-                ref={mergeRefs([ref, inputNodeRef])}
+                ref={inputMergedRef}
             />
         );
     },

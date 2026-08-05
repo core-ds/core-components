@@ -1,5 +1,6 @@
 import React, { ForwardRefRenderFunction, SyntheticEvent } from 'react';
 import {
+    act,
     render,
     screen,
     fireEvent,
@@ -449,5 +450,47 @@ describe('Props test', () => {
         expect(onTargetClick).toHaveBeenCalledTimes(1);
 
         expect(onTargetClick).toHaveBeenCalledWith(expect.anything());
+    });
+
+    it('should not throw Maximum update depth on mount and parent rerenders with unstable targetRef', async () => {
+        const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+        const Parent = ({ tick }: { tick: number }) => (
+            <Tooltip
+                // нестабильный callback ref каждый рендер родителя (React >= v18)
+                targetRef={() => {
+                    void tick;
+                }}
+                content={<div>content</div>}
+                open={true}
+            >
+                <div data-test-id='tooltip-trigger'>trigger</div>
+            </Tooltip>
+        );
+
+        let rerender: ReturnType<typeof render>['rerender'];
+        let getByTestId: ReturnType<typeof render>['getByTestId'];
+
+        await act(async () => {
+            ({ rerender, getByTestId } = render(<Parent tick={0} />));
+        });
+
+        expect(getByTestId!('tooltip-trigger')).toBeInTheDocument();
+
+        await expect(
+            act(async () => {
+                rerender!(<Parent tick={1} />);
+                rerender!(<Parent tick={2} />);
+                rerender!(<Parent tick={3} />);
+            }),
+        ).resolves.not.toThrow();
+
+        const updateDepthErrors = consoleError.mock.calls.filter((args) =>
+            String(args[0]).includes('Maximum update depth'),
+        );
+
+        expect(updateDepthErrors).toHaveLength(0);
+
+        consoleError.mockRestore();
     });
 });

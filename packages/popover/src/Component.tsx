@@ -3,6 +3,7 @@ import React, {
     forwardRef,
     type MutableRefObject,
     type ReactNode,
+    useCallback,
     useEffect,
     useMemo,
     useRef,
@@ -350,9 +351,27 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             return noop;
         }, [anchorElement, useAnchorWidth]);
 
+        /*
+         * для react v18 сохраняем ref функцию между рендерами
+         * если она меняется, react вызовет старую с null, этот null в state не сохраняем,
+         * иначе снова ререндер и бесконечный цикл.
+         */
+        const handlePopperElementRef = useCallback((node: HTMLElement | null) => {
+            if (node === null) {
+                return;
+            }
+
+            setPopperElement((current) => (current === node ? current : node));
+        }, []);
+
+        const popperMergedRef = useMemo(
+            () => mergeRefs([ref, popperRef, handlePopperElementRef]),
+            [ref, popperRef, handlePopperElementRef],
+        );
+
         const renderContent = (computedZIndex: number) => (
             <div
-                ref={mergeRefs([ref, popperRef, popperElementRef])}
+                ref={popperMergedRef}
                 style={{
                     zIndex: computedZIndex,
                     [widthProp]: useAnchorWidth ? anchorElement?.offsetWidth : undefined,

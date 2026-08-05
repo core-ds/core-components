@@ -256,4 +256,38 @@ describe('Textarea', () => {
 
         expect(unmount).not.toThrow();
     });
+
+    it('should not throw Maximum update depth on mount and parent rerenders with unstable ref', () => {
+        const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+        const Parent = ({ tick }: { tick: number }) => (
+            <Textarea
+                // нестабильный callback ref каждый рендер родителя (React >= v18)
+                ref={() => {
+                    void tick;
+                }}
+                value='value'
+                onChange={jest.fn()}
+                dataTestId='textarea'
+            />
+        );
+
+        const { rerender, getByTestId } = render(<Parent tick={0} />);
+
+        expect(getByTestId('textarea')).toBeInTheDocument();
+
+        expect(() => {
+            rerender(<Parent tick={1} />);
+            rerender(<Parent tick={2} />);
+            rerender(<Parent tick={3} />);
+        }).not.toThrow();
+
+        const updateDepthErrors = consoleError.mock.calls.filter((args) =>
+            String(args[0]).includes('Maximum update depth'),
+        );
+
+        expect(updateDepthErrors).toHaveLength(0);
+
+        consoleError.mockRestore();
+    });
 });

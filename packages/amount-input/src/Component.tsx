@@ -338,6 +338,15 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             </Fragment>
         );
 
+        /*
+         * для react v18 сохраняем ref функцию между рендерами
+         * иначе react каждый раз вызывает старую с null и новую с DOM узлом
+         */
+        const inputMergedRef = useMemo(
+            () => mergeRefs([ref, inputRef, maskitoRef]),
+            [ref, inputRef, maskitoRef],
+        );
+
         return (
             <div
                 className={cn(styles.container, {
@@ -385,7 +394,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onBlur={handleBlur}
                     inputMode={numberParams.maximumFractionDigits ? 'decimal' : 'numeric'}
                     dataTestId={dataTestId}
-                    ref={mergeRefs([ref, inputRef, maskitoRef])}
+                    ref={inputMergedRef}
                     breakpoint={breakpoint}
                     client={client}
                     fieldClassName={cn(

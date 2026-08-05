@@ -104,4 +104,47 @@ describe('Render tests', () => {
 
         expect(unmount).not.toThrow();
     });
+
+    it('should not throw Maximum update depth on mount and parent rerenders with unstable ref', async () => {
+        const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+        const Parent = ({ tick }: { tick: number }) => (
+            <Popover
+                // нестабильный callback ref каждый рендер родителя (React >= v18)
+                ref={() => {
+                    void tick;
+                }}
+                open={true}
+                anchorElement={document.body}
+                dataTestId='popover'
+            >
+                <div>I am popover</div>
+            </Popover>
+        );
+
+        let rerender: ReturnType<typeof render>['rerender'];
+        let getByTestId: ReturnType<typeof render>['getByTestId'];
+
+        await act(async () => {
+            ({ rerender, getByTestId } = render(<Parent tick={0} />));
+        });
+
+        expect(getByTestId!('popover')).toBeInTheDocument();
+
+        await expect(
+            act(async () => {
+                rerender!(<Parent tick={1} />);
+                rerender!(<Parent tick={2} />);
+                rerender!(<Parent tick={3} />);
+            }),
+        ).resolves.not.toThrow();
+
+        const updateDepthErrors = consoleError.mock.calls.filter((args) =>
+            String(args[0]).includes('Maximum update depth'),
+        );
+
+        expect(updateDepthErrors).toHaveLength(0);
+
+        consoleError.mockRestore();
+    });
 });
