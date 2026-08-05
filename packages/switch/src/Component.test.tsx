@@ -38,6 +38,30 @@ describe('Switch', () => {
 
             expect(container.firstElementChild).toHaveClass('reversed');
         });
+
+        it('should set size 24 as default size', () => {
+            const { container } = render(<Switch />);
+
+            expect(container.firstElementChild).toHaveClass('size-24');
+        });
+
+        it('should set size 20', () => {
+            const { container } = render(<Switch size={20} />);
+
+            expect(container.firstElementChild).toHaveClass('size-20');
+        });
+
+        it('should set size 24', () => {
+            const { container } = render(<Switch size={24} />);
+
+            expect(container.firstElementChild).toHaveClass('size-24');
+        });
+
+        it('should set `compact` class', () => {
+            const { container } = render(<Switch compact={true} />);
+
+            expect(container.firstElementChild).toHaveClass('compact');
+        });
     });
 
     describe('Attributes tests', () => {

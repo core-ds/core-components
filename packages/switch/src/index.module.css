@@ -74,9 +74,22 @@
     flex-grow: 1;
 }
 
+.size-20 .content {
+    margin-left: var(--gap-8);
+}
+
+.size-20.reversed .content {
+    margin-right: var(--gap-8);
+    margin-left: var(--gap-0);
+}
+
 .label {
     @mixin paragraph_primary_medium;
     display: block;
+}
+
+.compact .label {
+    @mixin paragraph_primary_small;
 }
 
 .labelWrap {
@@ -129,11 +142,32 @@
     padding-right: var(--gap-16);
 }
 
+/* Size 20 */
+
+.size-20 .switch {
+    width: 32px;
+    height: 20px;
+}
+
+.size-20 .switchSkeleton {
+    width: 32px;
+    height: 20px;
+}
+
+.size-20 .switch:before {
+    right: var(--gap-12);
+}
+
 /* Checked state */
 
 .checked .switch:before {
     /* ширина компонента(36px + 2*2px) - отступы(2 * 2px) - размер кружка(20px) */
     transform: translateX(16px);
+}
+
+.size-20.checked .switch:before {
+    /* ширина 32px (border-box) - border 4px - thumb 16px = 12px */
+    transform: translateX(12px);
 }
 
 /* Disabled state */

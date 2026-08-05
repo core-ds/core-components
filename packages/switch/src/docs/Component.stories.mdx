@@ -28,6 +28,8 @@ import Changelog from '../../CHANGELOG.md?raw';
         const hint = text('hint', 'Описание пункта');
         const error = text('error', '');
         const showSkeleton = boolean('showSkeleton', false);
+        const size = select('size', [20, 24], 24);
+        const compact = boolean('compact', false);
         return (
             <div
                 style={{
@@ -57,6 +59,8 @@ import Changelog from '../../CHANGELOG.md?raw';
                     error={error}
                     colors={colors}
                     showSkeleton={showSkeleton}
+                    size={size}
+                    compact={compact}
                     onChange={handleChange}
                 />
             </div>

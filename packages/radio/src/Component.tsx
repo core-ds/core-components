@@ -52,6 +52,18 @@ export type RadioProps = Omit<
     size?: 20 | 24;
 
     /**
+     * Компактный текст подписи
+     * @default false
+     */
+    compact?: boolean;
+
+    /**
+     * Радио будет отрисовано справа от контента
+     * @default false
+     */
+    reversed?: boolean;
+
+    /**
      * Управление состоянием отмечен/не отмечен
      */
     checked?: boolean;
@@ -138,6 +150,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             block,
             labelProps,
             colors = 'default',
+            compact = false,
+            reversed = false,
             ...restProps
         },
         ref,
@@ -171,6 +185,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                         [colorStyle.checked]: checked,
                         [styles.focused]: focused,
                         [styles.block]: block,
+                        [styles.compact]: compact,
+                        [styles.reversed]: reversed,
                     },
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}

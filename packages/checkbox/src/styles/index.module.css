@@ -90,6 +90,11 @@
     display: block;
 }
 
+.compact .label,
+.size-20.compact .content .label {
+    @mixin paragraph_primary_small;
+}
+
 .label:not(:only-child) {
     margin-bottom: var(--gap-4);
 }

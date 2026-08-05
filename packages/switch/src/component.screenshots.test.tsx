@@ -225,6 +225,35 @@ describe(
 );
 
 describe(
+    'Switch | size, compact',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        checked: [false, true],
+                        size: [20, 24],
+                        compact: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 1100,
+            height: 240,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
     'Switch | hover state',
     screenshotTesting({
         cases: generateTestCases({

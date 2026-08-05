@@ -23,6 +23,8 @@ import Changelog from '../../CHANGELOG.md?raw';
         const inactive = boolean('inactive', false);
         const checkedKnob = boolean('checked', false);
         const block = boolean('block', false);
+        const reversed = boolean('reversed', false);
+        const compact = boolean('compact', false);
         const label = text('label', 'Text label');
         const hint = text('hint', 'Hint');
         const align = select('align', ['start', 'center'], 'start');
@@ -54,6 +56,8 @@ import Changelog from '../../CHANGELOG.md?raw';
                     hint={hint}
                     label={label}
                     colors={colors}
+                    reversed={reversed}
+                    compact={compact}
                 />
             </div>
         );

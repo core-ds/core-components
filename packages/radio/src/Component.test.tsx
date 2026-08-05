@@ -69,6 +69,18 @@ describe('Radio', () => {
 
             expect(container.firstElementChild).toHaveClass('size-24');
         });
+
+        it('should set `reversed` class', () => {
+            const { container } = render(<Radio reversed={true} />);
+
+            expect(container.firstElementChild).toHaveClass('reversed');
+        });
+
+        it('should set `compact` class', () => {
+            const { container } = render(<Radio compact={true} />);
+
+            expect(container.firstElementChild).toHaveClass('compact');
+        });
     });
 
     describe('Attributes tests', () => {
