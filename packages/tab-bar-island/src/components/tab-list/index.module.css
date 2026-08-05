@@ -39,7 +39,7 @@
     height: 100%;
     position: relative;
     will-change: transform;
-    transition: transform var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1);
+    transition: transform var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .tracker {
@@ -53,22 +53,22 @@
 /* prettier-ignore */
 @each $phase in 0, 1 {
     .leading$(phase) {
-        animation: leadingAnim$(phase) var(--tab-bar-island-animation-time) ease-out;
+        animation: leadingAnim$(phase) 350ms linear(0, 0.21, 0.77, 1);
     }
 
     @keyframes leadingAnim$(phase) {
         0% {
             width: calc(100% + 40px);
         }
-
-        75% {
+        77.14% {
+            width: 100%;
             height: calc(100% + 20px);
             transform: translate(0, -10px);
         }
     }
 
     .trailing$(phase) {
-        animation: trailingAnim$(phase) var(--tab-bar-island-animation-time) ease-out;
+        animation: trailingAnim$(phase) 350ms linear(0, 0.21, 0.77, 1);
 
     }
 
@@ -77,9 +77,8 @@
             width: calc(100% + 40px);
             transform: translate(-40px, 0);
         }
-
-        75% {
-            /* width: 100%; */
+        77.14% {
+            width: 100%;
             height: calc(100% + 20px);
             transform: translate(0, -10px);
         }
@@ -96,7 +95,7 @@
     }
 
     .icon$(phase) {
-        animation: iconAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1);
+        animation: iconAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     @keyframes iconAnim$(phase) {
