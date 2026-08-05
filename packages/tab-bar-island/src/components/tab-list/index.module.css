@@ -53,39 +53,40 @@
 /* prettier-ignore */
 @each $phase in 0, 1 {
     .leading$(phase) {
-        animation: leadingAnim$(phase) var(--tab-bar-island-animation-time) linear;
+        animation: leadingAnim$(phase) var(--tab-bar-island-animation-time) ease-out;
     }
 
     @keyframes leadingAnim$(phase) {
         0% {
-            width: 125%;
+            width: calc(100% + 40px);
         }
 
-        80% {
-            height: calc(100% + var(--gap-4) * 2.5);
-            transform: translate(0, -5px);
+        75% {
+            height: calc(100% + 20px);
+            transform: translate(0, -10px);
         }
     }
 
     .trailing$(phase) {
-        animation: trailingAnim$(phase) var(--tab-bar-island-animation-time) linear;
+        animation: trailingAnim$(phase) var(--tab-bar-island-animation-time) ease-out;
 
     }
 
     @keyframes trailingAnim$(phase) {
         0% {
-            width: 125%;
-            transform: translate(-20%, 0);
+            width: calc(100% + 40px);
+            transform: translate(-40px, 0);
         }
 
-        80% {
-            height: calc(100% + var(--gap-4) * 2.5);
-            transform: translate(0, -5px);
+        75% {
+            /* width: 100%; */
+            height: calc(100% + 20px);
+            transform: translate(0, -10px);
         }
     }
 
     .pulse$(phase) {
-        animation: pulseAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1);
+        animation: pulseAnim$(phase) var(--tab-bar-island-animation-time) ease-out;
     }
 
     @keyframes pulseAnim$(phase) {
@@ -95,7 +96,7 @@
     }
 
     .icon$(phase) {
-        animation: iconAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1)
+        animation: iconAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0, 0.9, 0.6, 1);
     }
 
     @keyframes iconAnim$(phase) {
