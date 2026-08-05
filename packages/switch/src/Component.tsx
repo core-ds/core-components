@@ -154,24 +154,18 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
 
         return (
             <label
-                className={cn(
-                    styles.component,
-                    styles[align],
-                    styles[`size-${size}`],
-                    className,
-                    {
-                        [styles.disabled]: disabled,
-                        [colorStyles[colors].disabled]: disabled,
+                className={cn(styles.component, styles[align], styles[`size-${size}`], className, {
+                    [styles.disabled]: disabled,
+                    [colorStyles[colors].disabled]: disabled,
 
-                        [styles.checked]: checked,
-                        [colorStyles[colors].checked]: checked,
+                    [styles.checked]: checked,
+                    [colorStyles[colors].checked]: checked,
 
-                        [styles.reversed]: reversed,
-                        [styles.focused]: focused,
-                        [styles.block]: block,
-                        [styles.compact]: compact,
-                    },
-                )}
+                    [styles.reversed]: reversed,
+                    [styles.focused]: focused,
+                    [styles.block]: block,
+                    [styles.compact]: compact,
+                })}
                 ref={mergeRefs([labelRef, ref])}
             >
                 <input
