@@ -9,6 +9,7 @@ render(() => {
             {slow && (
                 <style>{`:root {
             --tab-bar-island-animation-time: 900ms;
+            --tab-bar-island-animation-extended-time: 1050ms;
             }`}</style>
             )}
             <Switch label='Медленно' checked={slow} onChange={() => setSlow((p) => !p)} />

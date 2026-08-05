@@ -53,7 +53,7 @@
 /* prettier-ignore */
 @each $phase in 0, 1 {
     .leading$(phase) {
-        animation: leadingAnim1$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1), leadingAnim2$(phase) 350ms linear(0, 0.21, 0.77, 1);
+        animation: leadingAnim1$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1), leadingAnim2$(phase) var(--tab-bar-island-animation-extended-time) linear(0, 0.21, 0.77, 1);
     }
 
     @keyframes leadingAnim1$(phase) {
@@ -71,7 +71,7 @@
     }
 
     .trailing$(phase) {
-        animation: trailingAnim1$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1), trailingAnim2$(phase) 350ms linear(0, 0.21, 0.77, 1);
+        animation: trailingAnim1$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1), trailingAnim2$(phase) var(--tab-bar-island-animation-extended-time) linear(0, 0.21, 0.77, 1);
 
     }
 
