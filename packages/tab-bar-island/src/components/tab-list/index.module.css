@@ -62,8 +62,8 @@
         }
         77.14% {
             width: 100%;
-            height: calc(100% + 20px);
-            transform: translate(0, -10px);
+            height: calc(100% + 10px);
+            transform: translate(0, -5px);
         }
     }
 
@@ -79,13 +79,13 @@
         }
         77.14% {
             width: 100%;
-            height: calc(100% + 20px);
-            transform: translate(0, -10px);
+            height: calc(100% + 10px);
+            transform: translate(0, -5px);
         }
     }
 
     .pulse$(phase) {
-        animation: pulseAnim$(phase) var(--tab-bar-island-animation-time) ease-out;
+        animation: pulseAnim$(phase) var(--tab-bar-island-animation-time) cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     @keyframes pulseAnim$(phase) {
