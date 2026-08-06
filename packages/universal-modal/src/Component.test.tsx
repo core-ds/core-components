@@ -1,5 +1,6 @@
 import React, { useContext, ContextType, useEffect, useRef, useState } from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { BaseModal } from '@alfalab/core-components-base-modal';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
@@ -547,6 +548,145 @@ describe('UniversalModal', () => {
                 const backdrop = screen.queryByTestId(testId);
 
                 expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+    });
+
+    describe('desktop scroll lock tests', () => {
+        let savedBodyStyle: CSSStyleDeclaration;
+
+        beforeAll(() => {
+            savedBodyStyle = document.body.style;
+        });
+
+        beforeEach(() => {
+            // eslint-disable-next-line
+            // @ts-ignore
+            document.body.setAttribute('style', savedBodyStyle);
+        });
+
+        describe('side modal', () => {
+            it('should not lock scroll when overlay=false', () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='start' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(
+                    <UniversalModalDesktop open={true} horizontalAlign='start' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+            });
+
+            it('should lock scroll via legacy mechanism by default (overlay=true)', async () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='start' />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<UniversalModalDesktop open={true} horizontalAlign='start' />);
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<UniversalModalDesktop open={false} horizontalAlign='start' />);
+
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
+            });
+        });
+
+        describe('center modal', () => {
+            it('should not lock scroll when overlay=false', () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='center' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(
+                    <UniversalModalDesktop open={true} horizontalAlign='center' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+            });
+
+            it('should lock scroll via legacy mechanism by default (overlay=true)', async () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='center' />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<UniversalModalDesktop open={true} horizontalAlign='center' />);
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<UniversalModalDesktop open={false} horizontalAlign='center' />);
+
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
+            });
+        });
+
+        describe('coordination with other modals', () => {
+            const TestCase = ({
+                sideOpen,
+                otherOpen,
+            }: {
+                sideOpen: boolean;
+                otherOpen: boolean;
+            }) => (
+                <React.Fragment>
+                    <UniversalModalDesktop open={sideOpen} horizontalAlign='start' />
+                    <BaseModal open={otherOpen}>
+                        <div>Other modal</div>
+                    </BaseModal>
+                </React.Fragment>
+            );
+
+            it('should not block wheel scroll inside the other (top) modal while the sidebar is open underneath', () => {
+                render(<TestCase sideOpen={true} otherOpen={true} />);
+
+                const content = screen.getByText('Other modal');
+
+                const wheelEvent = new WheelEvent('wheel', {
+                    bubbles: true,
+                    cancelable: true,
+                    deltaY: 10,
+                });
+
+                content.dispatchEvent(wheelEvent);
+
+                expect(wheelEvent.defaultPrevented).toBe(false);
+            });
+
+            it('should keep background scroll locked while the sidebar is open, even after the other modal closes', async () => {
+                const { rerender } = render(<TestCase sideOpen={false} otherOpen={false} />);
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<TestCase sideOpen={true} otherOpen={true} />);
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<TestCase sideOpen={true} otherOpen={false} />);
+
+                await waitFor(() => {
+                    expect(screen.queryByText('Other modal')).not.toBeInTheDocument();
+                });
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<TestCase sideOpen={false} otherOpen={false} />);
+
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
             });
         });
     });
