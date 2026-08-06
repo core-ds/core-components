@@ -1,18 +1,82 @@
-From ddba5738614fd8f9eb3fbe6b74e6240365724e8d Mon Sep 17 00:00:00 2001
+From 82af0643332ce00e6c34eb5651f189d00162b16b Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Tue, 9 Jun 2026 11:51:02 +0300
-Subject: [PATCH] fix: only system alfasans
+Date: Wed, 15 Jul 2026 12:29:01 +0300
+Subject: [PATCH] fix: alfasans
 
 ---
+ packages/checkbox/src/styles/index.module.css |  12 +-
+ packages/radio/src/styles/index.module.css    |  12 +-
  packages/typography/src/title/component.tsx   |  11 +-
  .../typography/src/title/index.module.css     |   8 -
  packages/typography/src/title/utils.test.ts   |  12 -
  packages/typography/src/title/utils.ts        |  14 -
  packages/vars/src/typography.css              | 282 ++++++++++--------
- 5 files changed, 167 insertions(+), 160 deletions(-)
+ 7 files changed, 179 insertions(+), 172 deletions(-)
  delete mode 100644 packages/typography/src/title/utils.test.ts
  delete mode 100644 packages/typography/src/title/utils.ts
 
+diff --git a/packages/checkbox/src/styles/index.module.css b/packages/checkbox/src/styles/index.module.css
+index bc1312da21..2c2c837ab0 100644
+--- a/packages/checkbox/src/styles/index.module.css
++++ b/packages/checkbox/src/styles/index.module.css
+@@ -7,20 +7,20 @@
+     --checkbox-label-font-size: 16px;
+     --checkbox-label-line-height: 24px;
+     --checkbox-label-font-weight: 400;
+-    --checkbox-label-letter-spacing: normal;
+-    --checkbox-label-font-family: var(--font-family-system);
++    --checkbox-label-letter-spacing: -0.24px;
++    --checkbox-label-font-family: var(--font-family-alfasans);
+     --checkbox-label-size-20-font-size: 16px;
+     --checkbox-label-size-20-line-height: 20px;
+     --checkbox-label-size-20-font-weight: 400;
+-    --checkbox-label-size-20-letter-spacing: normal;
+-    --checkbox-label-size-20-font-family: var(--font-family-system);
++    --checkbox-label-size-20-letter-spacing: -0.24px;
++    --checkbox-label-size-20-font-family: var(--font-family-alfasans);
+
+     /* Hint */
+     --checkbox-hint-font-size: 14px;
+     --checkbox-hint-line-height: 18px;
+     --checkbox-hint-font-weight: 400;
+-    --checkbox-hint-letter-spacing: normal;
+-    --checkbox-hint-font-family: var(--font-family-system);
++    --checkbox-hint-letter-spacing: -0.08px;
++    --checkbox-hint-font-family: var(--font-family-alfasans);
+ }
+
+ .component {
+diff --git a/packages/radio/src/styles/index.module.css b/packages/radio/src/styles/index.module.css
+index 24ec6d1536..07e3e1e58f 100644
+--- a/packages/radio/src/styles/index.module.css
++++ b/packages/radio/src/styles/index.module.css
+@@ -5,20 +5,20 @@
+     --radio-label-font-size: 16px;
+     --radio-label-line-height: 24px;
+     --radio-label-font-weight: 400;
+-    --radio-label-letter-spacing: normal;
+-    --radio-label-font-family: var(--font-family-system);
++    --radio-label-letter-spacing: -0.24px;
++    --radio-label-font-family: var(--font-family-alfasans);
+     --radio-label-size-20-font-size: 16px;
+     --radio-label-size-20-line-height: 20px;
+     --radio-label-size-20-font-weight: 400;
+-    --radio-label-size-20-letter-spacing: normal;
+-    --radio-label-size-20-font-family: var(--font-family-system);
++    --radio-label-size-20-letter-spacing: -0.24px;
++    --radio-label-size-20-font-family: var(--font-family-alfasans);
+
+     /* Hint */
+     --radio-hint-font-size: 14px;
+     --radio-hint-line-height: 18px;
+     --radio-hint-font-weight: 400;
+-    --radio-hint-letter-spacing: normal;
+-    --radio-hint-font-family: var(--font-family-system);
++    --radio-hint-letter-spacing: -0.08px;
++    --radio-hint-font-family: var(--font-family-alfasans);
+ }
+
+ .container {
 diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
 index 8f1ff6ac59..420012c85b 100644
 --- a/packages/typography/src/title/component.tsx
