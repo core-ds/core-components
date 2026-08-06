@@ -1,5 +1,21 @@
 # @alfalab/core-components
 
+## 50.25.2
+
+### Patch Changes
+
+<sup><time>06.08.2026</time></sup>
+
+#### [#2308](https://github.com/core-ds/core-components/pull/2308)
+
+##### UniversalModal
+
+- Исправлена несогласованность блокировки скролла при одновременном использовании разных модальных сущностей (например `UniversalModal` и `Modal`)
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.2.4
+
 ## 50.25.1
 
 ### Patch Changes
