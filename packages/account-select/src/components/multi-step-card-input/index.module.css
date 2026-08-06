@@ -33,11 +33,6 @@
     gap: var(--gap-24);
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
 .cardNumberInput {
     min-width: 5ch;
     max-width: 19ch;

@@ -190,6 +190,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const handleCardNumberFocus = () => {
             lastActiveFieldRef.current = 'cardNumber';
             setActiveField('cardNumber');
+            setStep(1);
             setTimeout(() => {
                 const { current } = numberRef;
 
@@ -289,7 +290,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const areAdditionalFieldsHidden =
-            activeField === 'cardNumber' || valuesEmpty || !isCardNumberValid;
+            (activeField === 'cardNumber' && step === 1) || valuesEmpty || !isCardNumberValid;
         const isCardNumberLastVisible = !needExpiryDate || areAdditionalFieldsHidden;
         const isExpiryLastVisible = needExpiryDate && (!needCVC || areAdditionalFieldsHidden);
         const isCvvLastVisible = needCVC && !areAdditionalFieldsHidden;
@@ -331,9 +332,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                             onInput={handleExpiryChange}
                             onFocus={handleExpiryFocus}
                             className={cn(styles.multistepInput, styles.expiryInput, {
-                                [styles.hidden]: areAdditionalFieldsHidden,
                                 [styles.stretchedInput]: isExpiryLastVisible,
                             })}
+                            hidden={areAdditionalFieldsHidden}
                             tabIndex={isCardNumberValid ? 0 : -1}
                             inputMode='numeric'
                             onBlur={handleExpiryBlur}
@@ -350,9 +351,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                             onInput={handleCvcChange}
                             onFocus={handleCVVFocus}
                             className={cn(styles.multistepInput, styles.cvvInput, {
-                                [styles.hidden]: areAdditionalFieldsHidden,
                                 [styles.stretchedInput]: isCvvLastVisible,
                             })}
+                            hidden={areAdditionalFieldsHidden}
                             tabIndex={isCardNumberValid ? 0 : -1}
                             inputMode='numeric'
                             onBlur={handleCvcBlur}

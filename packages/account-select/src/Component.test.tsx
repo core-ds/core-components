@@ -6,6 +6,31 @@ import { AccountSelectDesktop } from './desktop';
 import { ADD_CARD_KEY, ERRORS } from './constants';
 
 describe('AccountSelectDesktop', () => {
+    it('should remove inactive card fields from the layout while the card number is entered', async () => {
+        const { getByPlaceholderText } = render(
+            <AccountSelectDesktop
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{ content: 'Add card' }}
+                OptionsList={() => null}
+            />,
+        );
+
+        const cardInput = getByPlaceholderText('Карта');
+        const expiryInput = getByPlaceholderText('ММ/ГГ');
+        const cvcInput = getByPlaceholderText('CVC');
+
+        await waitFor(() => expect(cardInput).toHaveFocus());
+        expect(expiryInput).not.toBeVisible();
+        expect(cvcInput).not.toBeVisible();
+
+        fireEvent.input(cardInput, { target: { value: '4111111111111111' } });
+
+        await waitFor(() => expect(expiryInput).toHaveFocus());
+        expect(expiryInput).toBeVisible();
+        expect(cvcInput).toBeVisible();
+    });
+
     it('should keep card input focused and pristine on chevron click', async () => {
         const { container, getByPlaceholderText, queryByText } = render(
             <AccountSelectDesktop
