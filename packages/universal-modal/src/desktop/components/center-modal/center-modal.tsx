@@ -58,7 +58,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             ref={ref}
             componentRef={componentRef}
             scrollHandler='content'
-            scrollLock={overlay}
+            disableBlockingScroll={withoutOverlay}
             wrapperClassName={cn(styles.baseModalContainer, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
