@@ -1,5 +1,15 @@
 # @alfalab/core-components-amount-input
 
+## 9.3.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+- @alfalab/core-components-number-input@4.0.13
+- @alfalab/core-components-with-suffix@6.0.13
+
 ## 9.3.1
 
 ### Patch Changes
