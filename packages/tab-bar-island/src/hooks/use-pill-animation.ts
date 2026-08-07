@@ -25,38 +25,13 @@ import {
 import { type TabBarIslandItem } from '@alfalab/core-components-tab-bar-island/types';
 
 /**
- * Номинальное время посадки `PILL_SPRING`. Относительно него считается rate:
- * `--tab-bar-island-animation-time` больше базового — анимация замедляется.
- */
-const BASE_ANIMATION_TIME = 300;
-
-/**
  * Потолок шага кадра. После долгого пропуска кадров (вкладка была в фоне)
  * пружина иначе перепрыгнула бы сразу к цели.
  */
 const MAX_FRAME_DELTA = 64;
 
-/**
- * Пружины не имеют длительности, поэтому публичный токен
- * `--tab-bar-island-animation-time` работает как коэффициент замедления:
- * `rate = 300ms / значение токена`. Само замедление честное — не «проигрываем
- * медленнее», а растягиваем ту же физику по времени, см. `scaledSpring`.
- */
-function readRate(element: HTMLElement | null) {
-    if (!element) {
-        return 1;
-    }
-
-    const raw = getComputedStyle(element)
-        .getPropertyValue('--tab-bar-island-animation-time')
-        .trim();
-    const time = raw.endsWith('ms') ? parseFloat(raw) : parseFloat(raw) * 1000;
-
-    if (!Number.isFinite(time) || time <= 0) {
-        return 1;
-    }
-
-    return clamp(BASE_ANIMATION_TIME / time, 0.05, 4);
+function readRate(_: HTMLElement | null) {
+    return 1;
 }
 
 /**

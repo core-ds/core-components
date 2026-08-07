@@ -1,18 +1,9 @@
 ## Icon
 
-```jsx live mobileOnly mobileHeight={120}
+```jsx live mobileOnly mobileHeight={100}
 render(() => {
-    const [slow, setSlow] = React.useState(false);
-
     return (
         <div style={{ margin: '0 -20px -20px' }}>
-            {slow && (
-                <style>{`:root {
-            --tab-bar-island-animation-time: 900ms;
-            --tab-bar-island-animation-extended-time: 1050ms;
-            }`}</style>
-            )}
-            <Switch label='Медленно' checked={slow} onChange={() => setSlow((p) => !p)} />
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
