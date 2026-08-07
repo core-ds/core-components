@@ -1,0 +1,32 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.icon {
+    position: relative;
+    margin: var(--gap-6) var(--gap-10) var(--gap-2);
+    height: var(--tab-bar-island-tab-icon-size);
+}
+
+.label {
+    @mixin action_secondary_small;
+
+    margin: 0 var(--gap-10) var(--gap-6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - var(--gap-10));
+}
+
+.indicator {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+
+    &.size8 {
+        transform: translate(50%, 0);
+    }
+
+    &.size16 {
+        transform: translate(50%, -25%);
+    }
+}
