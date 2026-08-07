@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -63,7 +63,7 @@ export const Closer: FC<CloserProps> = ({
     view,
     className,
     sticky,
-    icon = view === 'desktop' ? CrossHeavyMIcon : CrossMIcon,
+    icon = view === 'desktop' ? CrossHeavyMIcon : CrossLine24Icon,
     colors = 'default',
     dataTestId,
     onClose,
@@ -80,7 +80,7 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
-                size={view === 'desktop' ? 48 : 32}
+                size={view === 'desktop' ? 48 : 40}
                 className={cn(styles.button, colorStyles[colors].button, {
                     [colorStyles[colors].mobile]: view === 'mobile',
                 })}

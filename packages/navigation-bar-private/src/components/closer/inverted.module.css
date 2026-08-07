@@ -7,6 +7,5 @@
 
     &.mobile {
         background: var(--color-light-neutral-translucent-100-inverted);
-        color: var(--navigation-bar-closer-mobile-color-inverted);
     }
 }

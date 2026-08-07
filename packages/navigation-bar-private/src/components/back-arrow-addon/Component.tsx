@@ -2,9 +2,8 @@ import React from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { TypographyText } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
-import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
+import { ChevronLeftLine24Icon } from '@alfalab/icons-glyph-26/ChevronLeftLine24Icon';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -19,11 +18,6 @@ type ColorType = 'default' | 'inverted';
 
 export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElement> {
     /**
-     * Текст после иконки
-     */
-    text?: string | null;
-
-    /**
      * Дополнительный класс
      */
     className?: string;
@@ -32,11 +26,6 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
      * Вид компонента
      */
     view: 'mobile' | 'desktop';
-
-    /**
-     * Прозрачность текста
-     */
-    textOpacity?: number;
 
     /**
      * Обработчик клика
@@ -50,21 +39,19 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
 }
 
 export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
-    text = 'Назад',
     onClick,
     className,
-    textOpacity = 1,
     view,
     colors = 'default',
     ...htmlAttributes
 }) => {
-    const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
+    const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ChevronLeftLine24Icon;
     const isMobileView = view === 'mobile';
 
     return (
         <ButtonDesktop
             view='text'
-            size={isMobileView ? 32 : 48}
+            size={isMobileView ? 40 : 48}
             onClick={onClick}
             aria-label='назад'
             className={cn(
@@ -84,16 +71,6 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
                 >
                     <Icon />
                 </div>
-                {textOpacity > 0 && text && (
-                    <TypographyText
-                        className={cn(styles.text, colorStyles[colors].text)}
-                        view={view === 'desktop' ? 'primary-large' : 'component-primary'}
-                        weight='medium'
-                        style={{ opacity: textOpacity }}
-                    >
-                        {text}
-                    </TypographyText>
-                )}
             </div>
         </ButtonDesktop>
     );

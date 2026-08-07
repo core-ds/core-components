@@ -21,15 +21,7 @@
     }
 }
 
-.text {
-    color: var(--button-text-base-color);
-}
-
 .mobileWrapper {
     background: var(--color-light-neutral-translucent-100);
     color: var(--color-light-neutral-translucent-100);
-
-    & svg > path {
-        fill: var(--navigation-bar-back-arrow-mobile-fill);
-    }
 }
