@@ -3,6 +3,7 @@
 @import '../../vars.css';
 
 .component {
+    height: 100%;
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-pill);
     min-width: 48px;
@@ -13,8 +14,9 @@
 }
 
 .mobileComponent {
+    height: 32px;
     min-width: 32px;
-
+    margin: var(--gap-0) var(--gap-8);
     backdrop-filter: none;
     background: none;
 }
@@ -31,11 +33,19 @@
     height: 48px;
     margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-12);
     border-radius: var(--border-radius-circle);
+
+    & + .text {
+        margin-right: var(--gap-12);
+    }
 }
 
 .mobileWrapper {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     backdrop-filter: blur(10px);
     margin: var(--gap-0);
+
+    & + .text {
+        margin: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-8);
+    }
 }

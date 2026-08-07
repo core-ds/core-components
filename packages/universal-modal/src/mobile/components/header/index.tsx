@@ -6,13 +6,27 @@ import {
     type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { ChevronLeftLine24Icon } from '@alfalab/icons-glyph-26/ChevronLeftLine24Icon';
+import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
 
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
 import styles from '../../../components/base-header/index.module.css';
 import mobileStyles from './index.module.css';
 
-export type HeaderMobileProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderMobileProps = Omit<
+    NavigationBarPrivateProps,
+    'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps'
+> & {
+    closerProps?: Omit<
+        NonNullable<NavigationBarPrivateProps['closerProps']>,
+        'size' | 'buttonClassName'
+    >;
+    backButtonProps?: Omit<
+        NonNullable<NavigationBarPrivateProps['backButtonProps']>,
+        'icon' | 'size' | 'iconWrapperClassName'
+    >;
+};
 
 export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {
@@ -27,7 +41,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
         ...restProps
     } = props;
 
-    const { bottomAddons } = restProps;
+    const { bottomAddons, closerIcon, closerProps, backButtonProps } = restProps;
 
     const { headerHighlighted, hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
         title,
@@ -53,6 +67,19 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
             scrollableParentRef={componentRef}
             titleRef={titleRef}
             onClose={handleClose}
+            closerIcon={closerIcon ?? CrossLine24Icon}
+            closerProps={{
+                ...closerProps,
+                size: 40,
+                buttonClassName: styles.closeButtonClassName,
+            }}
+            backButtonProps={{
+                ...backButtonProps,
+                icon: ChevronLeftLine24Icon,
+                size: 40,
+                text: null,
+                iconWrapperClassName: styles.backButtonClassName,
+            }}
         >
             {children}
         </NavigationBarPrivate>

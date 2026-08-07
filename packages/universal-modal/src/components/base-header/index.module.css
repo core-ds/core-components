@@ -22,4 +22,17 @@
             background: var(--universal-modal-header-background);
         }
     }
+
+    & .closeButtonClassName {
+        color: var(--color-light-neutral-translucent-1300);
+    }
+
+    & .backButtonClassName {
+        width: 40px;
+        height: 40px;
+
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300);
+        }
+    }
 }

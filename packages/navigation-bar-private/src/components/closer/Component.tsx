@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
-import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -26,6 +26,11 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
 
     /**
+     * Дополнительный класс для внутреннего компонента кнопки
+     */
+    buttonClassName?: string;
+
+    /**
      * Позиция крестика
      */
     align?: 'left' | 'right';
@@ -39,6 +44,12 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Иконка
      */
     icon?: ElementType;
+
+    /**
+     * Размер компонента
+     * @default 48 для desktop, 32 для mobile
+     */
+    size?: IconButtonProps['size'];
 
     /**
      * Набор цветов для компонента
@@ -62,8 +73,10 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Closer: FC<CloserProps> = ({
     view,
     className,
+    buttonClassName,
     sticky,
-    icon = view === 'desktop' ? CrossHeavyMIcon : CrossLine24Icon,
+    icon = view === 'desktop' ? CrossHeavyMIcon : CrossMIcon,
+    size = view === 'desktop' ? 48 : 32,
     colors = 'default',
     dataTestId,
     onClose,
@@ -80,8 +93,8 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
-                size={view === 'desktop' ? 48 : 40}
-                className={cn(styles.button, colorStyles[colors].button, {
+                size={size}
+                className={cn(styles.button, colorStyles[colors].button, buttonClassName, {
                     [colorStyles[colors].mobile]: view === 'mobile',
                 })}
                 aria-label='закрыть'

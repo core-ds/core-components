@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { type ElementType } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonDesktop, type ButtonDesktopProps } from '@alfalab/core-components-button/desktop';
+import { TypographyText } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
-import { ChevronLeftLine24Icon } from '@alfalab/icons-glyph-26/ChevronLeftLine24Icon';
+import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -18,6 +19,11 @@ type ColorType = 'default' | 'inverted';
 
 export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElement> {
     /**
+     * Текст после иконки
+     */
+    text?: string | null;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -28,6 +34,22 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     view: 'mobile' | 'desktop';
 
     /**
+     * Прозрачность текста
+     */
+    textOpacity?: number;
+
+    /**
+     * Иконка
+     */
+    icon?: ElementType;
+
+    /**
+     * Размер компонента
+     * @default 48 для desktop, 32 для mobile
+     */
+    size?: ButtonDesktopProps['size'];
+
+    /**
      * Обработчик клика
      */
     onClick?: () => void;
@@ -36,22 +58,32 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
      * Набор цветов для компонента
      */
     colors?: ColorType;
+
+    /**
+     * Дополнительный класс обертки иконки
+     */
+    iconWrapperClassName?: string;
 }
 
 export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
+    text = 'Назад',
     onClick,
     className,
+    textOpacity = 1,
+    icon,
     view,
+    size = view === 'desktop' ? 48 : 32,
     colors = 'default',
+    iconWrapperClassName,
     ...htmlAttributes
 }) => {
-    const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ChevronLeftLine24Icon;
     const isMobileView = view === 'mobile';
+    const Icon = icon ?? (view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon);
 
     return (
         <ButtonDesktop
             view='text'
-            size={isMobileView ? 40 : 48}
+            size={size}
             onClick={onClick}
             aria-label='назад'
             className={cn(
@@ -64,13 +96,23 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
         >
             <div className={styles.flex}>
                 <div
-                    className={cn(styles.iconWrapper, {
+                    className={cn(styles.iconWrapper, iconWrapperClassName, {
                         [styles.mobileWrapper]: isMobileView,
                         [colorStyles[colors].mobileWrapper]: isMobileView,
                     })}
                 >
                     <Icon />
                 </div>
+                {textOpacity > 0 && text && (
+                    <TypographyText
+                        className={cn(styles.text, colorStyles[colors].text)}
+                        view={view === 'desktop' ? 'primary-large' : 'component-primary'}
+                        weight='medium'
+                        style={{ opacity: textOpacity }}
+                    >
+                        {text}
+                    </TypographyText>
+                )}
             </div>
         </ButtonDesktop>
     );
