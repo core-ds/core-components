@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-textarea",
-    "version": "10.1.0",
+    "version": "10.1.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^14.0.9",
-        "@alfalab/core-components-input": "^17.1.10",
+        "@alfalab/core-components-input": "^17.2.0",
         "@alfalab/core-components-mq": "^6.0.7",
         "@alfalab/core-components-shared": "^2.2.3",
         "@alfalab/hooks": "^1.17.0",
