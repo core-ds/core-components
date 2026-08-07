@@ -4,14 +4,20 @@
     /* text */
     --confirmation-text-color: var(--color-light-text-primary);
     --confirmation-text-font-size: 16px;
+    --confirmation-text-font-weight: 400;
     --confirmation-text-line-height: 24px;
+    --confirmation-text-letter-spacing: normal;
     --confirmation-text-font-size-mobile: 16px;
     --confirmation-text-line-height-mobile: 24px;
+    --confirmation-text-letter-spacing-mobile: normal;
     --confirmation-countdown-height: auto;
 
     @define-mixin _confirmation-text {
         font-size: var(--confirmation-text-font-size);
         line-height: var(--confirmation-text-line-height);
+        letter-spacing: var(--confirmation-text-letter-spacing);
+        font-weight: var(--confirmation-text-font-weight);
+        font-family: var(--font-family-system);
         color: var(--confirmation-text-color);
     }
 

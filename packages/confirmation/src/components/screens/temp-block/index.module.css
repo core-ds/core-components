@@ -18,6 +18,7 @@
 .typographyThemeMobile.typographyThemeMobile {
     font-size: var(--confirmation-text-font-size-mobile);
     line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
     color: var(--confirmation-temp-block-description-color-mobile);
 }
 
@@ -37,6 +38,7 @@
 .countdownWrapMobile {
     font-size: var(--confirmation-text-font-size-mobile);
     line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
 }
 
 .timeCounter {
