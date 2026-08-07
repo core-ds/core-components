@@ -41,7 +41,7 @@ describe('Input', () => {
         expect(ref.current.classList.contains('wrapperClassName'));
     });
 
-    it('should set `data-test-id` atribute to input', () => {
+    it('should set `data-test-id` attribute to input', () => {
         const dti = 'input-dti';
         const { getByTestId } = render(
             <Input
@@ -75,8 +75,19 @@ describe('Input', () => {
         );
 
         expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
-        expect(getByTestId(testIds.successIcon)).toBeInTheDocument();
         expect(getByTestId(testIds.clearIcon)).toBeInTheDocument();
+    });
+
+    it('should set success `data-test-id` attribute to input', () => {
+        const dti = 'input-dti';
+
+        const { getByTestId } = render(
+            <Input dataTestId={dti} value='value' clear='auto' success={true} />,
+        );
+
+        const testIds = getInputTestIds(dti);
+
+        expect(getByTestId(testIds.successIcon)).toBeInTheDocument();
     });
 
     it('should set `aria-label` atribute to input', () => {
@@ -424,5 +435,125 @@ describe('Input', () => {
         const { unmount } = render(<Input value='value' onChange={jest.fn()} />);
 
         expect(unmount).not.toThrow();
+    });
+
+    describe('clearButton tests', () => {
+        const dti = 'input-dti';
+
+        describe('auto', () => {
+            it('should not render if status icon and empty input', () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='' clear='auto' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                expect(queryByTestId(testIds.clearIcon)).not.toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).toBeInTheDocument();
+            });
+
+            it('should not render if status icon', () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='value' clear='auto' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                expect(queryByTestId(testIds.clearIcon)).not.toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).toBeInTheDocument();
+            });
+
+            it('should render if status icon and focus input', async () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='value' clear='auto' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                const inputElement = queryByTestId(testIds.input);
+
+                if (inputElement) {
+                    await userEvent.click(inputElement);
+                }
+
+                expect(queryByTestId(testIds.clearIcon)).toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).not.toBeInTheDocument();
+            });
+
+            it('should render if status icons and hover input', async () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='value' clear='auto' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                const inputElement = queryByTestId(testIds.input);
+
+                if (inputElement) {
+                    await userEvent.hover(inputElement);
+                }
+
+                expect(queryByTestId(testIds.clearIcon)).toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).not.toBeInTheDocument();
+            });
+        });
+
+        describe('always', () => {
+            it('should render if status icon', () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='value' clear='always' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                expect(queryByTestId(testIds.clearIcon)).toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).not.toBeInTheDocument();
+            });
+
+            it('should render if status icon and focus input', async () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='value' clear='always' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                const inputElement = queryByTestId(testIds.input);
+
+                if (inputElement) {
+                    await userEvent.click(inputElement);
+                }
+
+                expect(queryByTestId(testIds.clearIcon)).toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).not.toBeInTheDocument();
+            });
+
+            it('should render if status icon and hover input', async () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='value' clear='always' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                const inputElement = queryByTestId(testIds.input);
+
+                if (inputElement) {
+                    await userEvent.hover(inputElement);
+                }
+
+                expect(queryByTestId(testIds.clearIcon)).toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).not.toBeInTheDocument();
+            });
+
+            it('should not render if status and empty input', async () => {
+                const { queryByTestId } = render(
+                    <Input dataTestId={dti} value='' clear='always' success={true} />,
+                );
+
+                const testIds = getInputTestIds(dti);
+
+                expect(queryByTestId(testIds.clearIcon)).not.toBeInTheDocument();
+                expect(queryByTestId(testIds.successIcon)).toBeInTheDocument();
+            });
+        });
     });
 });
