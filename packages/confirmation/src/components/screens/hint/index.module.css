@@ -15,25 +15,53 @@
 }
 
 .text.text {
-    margin-bottom: var(--gap-24);
+    margin-bottom: var(--confirmation-hint-text-margin-bottom);
+}
+
+.text.textMobile {
+    margin-bottom: var(--confirmation-hint-text-margin-bottom-mobile);
 }
 
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
+    color: var(--confirmation-hint-text-color);
 }
 
 .typographyThemeMobile.typographyThemeMobile {
-    color: var(--color-light-text-secondary);
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
+    color: var(--confirmation-hint-text-color-mobile);
+}
+
+.phoneDescription.phoneDescription {
+    color: var(--confirmation-hint-phone-description-color);
+}
+
+.phoneDescriptionMobile.phoneDescriptionMobile {
+    color: var(--confirmation-hint-phone-description-color-mobile);
 }
 
 .phonesWrap {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-24);
+    margin-bottom: var(--confirmation-hint-phones-margin-bottom);
+}
+
+.phonesWrap.phonesWrapMobile {
+    margin-bottom: var(--confirmation-hint-phones-margin-bottom-mobile);
 }
 
 .phoneWrap {
-    margin-bottom: var(--gap-8);
+    margin-bottom: var(--confirmation-hint-phone-item-margin-bottom);
+
+    &:last-child {
+        margin-bottom: var(--gap-0);
+    }
+}
+
+.phoneWrap.phoneWrapMobile {
+    margin-bottom: var(--confirmation-hint-phone-item-margin-bottom-mobile);
 
     &:last-child {
         margin-bottom: var(--gap-0);
@@ -44,8 +72,18 @@
     @mixin action_primary_medium;
 }
 
+.phoneLink.phoneLinkMobile {
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
+}
+
 .hintButton {
-    margin-top: var(--gap-32);
+    margin-top: var(--confirmation-hint-button-margin-top);
+}
+
+.hintButton.hintButtonMobile {
+    margin-top: var(--confirmation-hint-button-margin-top-mobile);
 }
 
 .phoneContentMobile {
