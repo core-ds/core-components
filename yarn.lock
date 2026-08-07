@@ -1938,6 +1938,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-tab-bar-island@workspace:packages/tab-bar-island":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-tab-bar-island@workspace:packages/tab-bar-island"
+  dependencies:
+    "@alfalab/core-components-indicator": "npm:^4.0.2"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
+    classnames: "npm:^2.5.1"
+    motion: "npm:^13.0.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-tab-bar@npm:^4.0.11, @alfalab/core-components-tab-bar@workspace:packages/tab-bar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tab-bar@workspace:packages/tab-bar"
@@ -19440,6 +19455,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "framer-motion@npm:13.0.0"
+  dependencies:
+    motion-dom: "npm:^13.0.0"
+    motion-utils: "npm:^13.0.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/96647614a9dd1b89f3243d766772b3641ee5b84c49b59f0578090c1e66985203eb9d635c4933b5923477206f7f89e33de7359bb0d3d7b3334788fe8c64445759
+  languageName: node
+  linkType: hard
+
 "fresh@npm:0.5.2":
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
@@ -25374,6 +25408,40 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 10c0/46ea0f3ffa8bc6a5bc0c7081ffc3907777f0ed6516888d40a518c5111f8366d97d2678911ad1a6882bf592fa9de6c784fea32e1687bb94e1f4944170af48a5cf
+  languageName: node
+  linkType: hard
+
+"motion-dom@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "motion-dom@npm:13.0.0"
+  dependencies:
+    motion-utils: "npm:^13.0.0"
+  checksum: 10c0/3029e249515976f1eea67b26c88cfc6037e3ed3a821400e9e10a211dafad7b70f1d0e9243878dcc3011249e8fd84bc0c587a667fe750c74ad41418a85365f61e
+  languageName: node
+  linkType: hard
+
+"motion-utils@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "motion-utils@npm:13.0.0"
+  checksum: 10c0/4b279ce85f71926d668ff5966feb898b174541d16952a61c7150982388553266602ecd2a76e057530076ff8f38d06672e585639ddc73c41dd1a67d04aaa3662d
+  languageName: node
+  linkType: hard
+
+"motion@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "motion@npm:13.0.0"
+  dependencies:
+    framer-motion: "npm:^13.0.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/08d32acb63fff8763d6591d6e4f114b0e16aea878969aecea65de696481e7af3eecd0a5c1a1ba91e504e82e5a9b851b4f8387da7afbfbb2db3d77f5d941fa6a4
   languageName: node
   linkType: hard
 
