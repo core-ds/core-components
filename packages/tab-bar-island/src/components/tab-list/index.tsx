@@ -1,34 +1,9 @@
-import React, {
-    type Dispatch,
-    type FC,
-    type SetStateAction,
-    useLayoutEffect,
-    useMemo,
-    useReducer,
-    useRef,
-    useState,
-} from 'react';
-import cn from 'classnames';
+import React, { type FC, useMemo, useState } from 'react';
 
+import { usePillAnimation } from '@alfalab/core-components-tab-bar-island/hooks/use-pill-animation';
 import { type TabBarIslandTabListProps } from '@alfalab/core-components-tab-bar-island/types';
 
 import styles from './index.module.css';
-
-const phaseReducer = (prevPhase = 0): number | undefined => Math.abs(prevPhase - 1);
-
-function usePreviousActiveTabIndex(
-    activeTabIndex: number,
-): [number, Dispatch<SetStateAction<number>>] {
-    const ref = useRef(activeTabIndex);
-    const [prev, setPrev] = useState(-1);
-
-    if (ref.current !== activeTabIndex) {
-        setPrev(ref.current);
-        ref.current = activeTabIndex;
-    }
-
-    return [prev, setPrev];
-}
 
 export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     activeKey,
@@ -37,76 +12,62 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     Tab,
     onActiveKeyChange,
 }) => {
-    const [phase, nextPhase] = useReducer(phaseReducer, undefined);
     const activeKeyIndex = useMemo(
         () => (activeKey ? items.findIndex((item) => item.key === activeKey) : -1),
         [activeKey, items],
     );
-    const [prevActiveKeyIndex, setPrevActiveKeyIndex] = usePreviousActiveTabIndex(activeKeyIndex);
     const tabWidth = `calc(${100 / items.length}% ${Math.sign(gap) === 1 ? '-' : '+'} ${(Math.abs(gap) * (items.length - 1)) / items.length}px)`;
-    const isPrevActiveIndexEqualActiveIndex = prevActiveKeyIndex === activeKeyIndex;
 
-    useLayoutEffect(() => {
-        if (prevActiveKeyIndex >= 0) {
-            nextPhase();
-        }
-    }, [prevActiveKeyIndex]);
+    /*
+     * Стартовая позиция пилюли по-прежнему задаётся в разметке — она нужна до
+     * того, как отработает usePillAnimation (SSR, первый кадр до гидратации).
+     * Индекс фиксируем на первом рендере: дальше позицию покадрово пишет
+     * анимация, и React не должен перетирать её своим transform.
+     */
+    const [initialKeyIndex] = useState(activeKeyIndex);
+    const initialTransform = `translateX(calc(${initialKeyIndex * 100}% + ${initialKeyIndex * gap}px))`;
+
+    const {
+        listRef,
+        underlayRef,
+        wrapperRef,
+        trackRef,
+        frameRef,
+        trackerRef,
+        handlePointerDown,
+        handlePointerUp,
+    } = usePillAnimation({ activeKeyIndex, items, gap, iconClassName: styles.icon });
 
     return (
-        <div role='tablist' className={styles.list}>
-            <div className={cn(styles.underlay, styles[`pulse${phase}`])} />
-            <div className={cn(styles.wrapper, styles[`pulse${phase}`])}>
-                {items.map((tab, index) => {
-                    const isTabActive = tab.key === activeKey;
-                    const handleTabClick = () => {
-                        onActiveKeyChange?.(tab.key);
-
-                        if (isTabActive) {
-                            setPrevActiveKeyIndex(activeKeyIndex);
-                            nextPhase();
-                        }
-                    };
-
-                    return (
-                        <Tab
-                            key={tab.key}
-                            style={{ marginLeft: index > 0 ? gap : undefined }}
-                            tab={tab}
-                            active={isTabActive}
-                            onClick={handleTabClick}
-                            iconClassName={cn(
-                                isTabActive &&
-                                    !isPrevActiveIndexEqualActiveIndex &&
-                                    styles[`icon${phase}`],
-                            )}
-                        />
-                    );
-                })}
-            </div>
+        <div role='tablist' className={styles.list} ref={listRef}>
+            <div className={styles.underlay} ref={underlayRef} />
             <div
-                className={cn(
-                    styles.track,
-                    isPrevActiveIndexEqualActiveIndex && styles[`pulse${phase}`],
-                )}
+                className={styles.wrapper}
+                ref={wrapperRef}
+                onPointerDown={handlePointerDown}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerUp}
+                onPointerLeave={handlePointerUp}
             >
+                {items.map((tab, index) => (
+                    <Tab
+                        key={tab.key}
+                        style={{ marginLeft: index > 0 ? gap : undefined }}
+                        tab={tab}
+                        active={tab.key === activeKey}
+                        onClick={() => onActiveKeyChange?.(tab.key)}
+                        iconClassName={styles.icon}
+                    />
+                ))}
+            </div>
+            <div className={styles.track} ref={trackRef}>
                 {activeKeyIndex >= 0 && (
                     <div
                         className={styles.frame}
-                        style={{
-                            width: tabWidth,
-                            transform: `translateX(calc(${activeKeyIndex * 100}% + ${activeKeyIndex * gap}px))`,
-                        }}
+                        ref={frameRef}
+                        style={{ width: tabWidth, transform: initialTransform }}
                     >
-                        <div
-                            className={cn(
-                                styles.tracker,
-                                prevActiveKeyIndex >= 0 &&
-                                    !isPrevActiveIndexEqualActiveIndex &&
-                                    styles[
-                                        `${prevActiveKeyIndex > activeKeyIndex ? 'trailing' : 'leading'}${phase}`
-                                    ],
-                            )}
-                        />
+                        <div className={styles.tracker} ref={trackerRef} />
                     </div>
                 )}
             </div>
