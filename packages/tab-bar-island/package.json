@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tab-bar-island",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -26,5 +26,7 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    }
+    },
+    "themesVersion": "15.2.1",
+    "varsVersion": "11.2.1"
 }
