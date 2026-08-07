@@ -5,6 +5,8 @@ import {
     type ReactNode,
 } from 'react';
 
+import { type Color } from '@alfalab/core-components-typography';
+
 import { type FileUploadItemStatus } from './status';
 
 export interface FileUploadItemProps {
@@ -29,9 +31,10 @@ export interface FileUploadItemProps {
     subtitle?: string;
 
     /**
-     * Дополнительный класс для subtitle
+     * Цвет подзаголовка (Typography Color)
+     * @default secondary
      */
-    subtitleClassName?: string;
+    subtitleColor?: Color;
 
     /**
      * Размер файла

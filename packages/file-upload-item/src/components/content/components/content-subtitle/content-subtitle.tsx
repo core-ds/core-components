@@ -21,7 +21,7 @@ export const ContentSubtitle = () => {
     const {
         uploadStatus,
         subtitle,
-        subtitleClassName,
+        subtitleColor,
         uploadDate,
         size,
         truncate,
@@ -81,11 +81,11 @@ export const ContentSubtitle = () => {
 
     return (
         <TypographyText
-            className={cn(styles.subtitle, subtitleClassName, {
+            className={cn(styles.subtitle, {
                 [styles.truncate]: truncate,
             })}
             view='primary-small'
-            color={subtitleClassName ? undefined : 'secondary'}
+            color={subtitleColor}
         >
             {subtitle}
         </TypographyText>

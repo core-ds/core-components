@@ -2,4 +2,4 @@
 '@alfalab/core-components-file-upload-item': minor
 ---
 
-- Добавлен проп `subtitleClassName` для кастомной стилизации подзаголовка.
+- Добавлен проп `subtitleColor` (Typography Color) для цвета подзаголовка

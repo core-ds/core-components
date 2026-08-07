@@ -10,7 +10,7 @@ interface ContextType
         | 'error'
         | 'title'
         | 'subtitle'
-        | 'subtitleClassName'
+        | 'subtitleColor'
         | 'uploadDate'
         | 'size'
         | 'id'
