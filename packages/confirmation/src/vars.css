@@ -34,8 +34,8 @@
     /* INITIAL */
     --confirmation-header-margin-bottom: var(--gap-24);
     --confirmation-phone-margin-bottom: var(--gap-32);
-    --confirmation-phone-label-color: var(--color-light-text-secondary);
-    --confirmation-phone-number-color: var(--color-light-text-secondary);
+    --confirmation-phone-label-color: var(--color-light-text-primary);
+    --confirmation-phone-number-color: var(--color-light-text-primary);
     --confirmation-input-margin-bottom: var(--gap-12);
     --confirmation-input-min-height: 80px;
     --confirmation-code-button-margin-bottom: var(--gap-16);
@@ -75,8 +75,8 @@
     /* INITIAL */
     --confirmation-header-margin-bottom-mobile: var(--gap-24);
     --confirmation-phone-margin-bottom-mobile: var(--gap-32);
-    --confirmation-phone-label-color-mobile: var(--color-light-text-secondary);
-    --confirmation-phone-number-color-mobile: var(--color-light-text-secondary);
+    --confirmation-phone-label-color-mobile: var(--color-light-text-primary);
+    --confirmation-phone-number-color-mobile: var(--color-light-text-primary);
     --confirmation-input-margin-bottom-mobile: var(--gap-12);
     --confirmation-input-min-height-mobile: 80px;
     --confirmation-code-button-margin-bottom-mobile: var(--gap-0);
