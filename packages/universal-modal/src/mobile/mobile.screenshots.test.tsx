@@ -2,6 +2,11 @@ import {
     setupScreenshotTesting,
     generateTestCases,
     customSnapshotIdentifier,
+    createStorybookUrl,
+    openBrowserPage,
+    matchHtml,
+    closeBrowser,
+    waitForPreviewShowed,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -120,6 +125,64 @@ describe(
         },
     }),
 );
+
+describe('Mobile | title transition', () => {
+    const scrollStops = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    test('sticky=true | hasBackButton=true | hasCloser=true', async () => {
+        const pageUrl = createStorybookUrl({
+            testStory: false,
+            componentName: 'UniversalModal',
+            subComponentName: 'Mobile',
+            knobs: {
+                open: true,
+                header: true,
+                showMore: true,
+                'header.sticky': true,
+                'header.hasBackButton': true,
+                'header.hasCloser': true,
+            },
+        });
+
+        const { browser, context, page } = await openBrowserPage(pageUrl);
+
+        const scrollTo = (top: number) =>
+            page.$eval(
+                'div[role="dialog"] div[class*=component]',
+                (el, value) => {
+                    el.scrollTop = value;
+                },
+                top,
+            );
+
+        try {
+            await waitForPreviewShowed(page);
+            await page.waitForTimeout(500);
+
+            for (const top of scrollStops) {
+                await scrollTo(top);
+                await page.waitForTimeout(500);
+
+                await matchHtml({
+                    context,
+                    page,
+                    expect,
+                    viewport: {
+                        width: 320,
+                        height: 600,
+                    },
+                });
+            }
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});
 
 describe('Mobile | trim title', () => {
     const testCase = (theme: string) =>
