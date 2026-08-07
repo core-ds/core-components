@@ -76,6 +76,29 @@ describe('UniversalModal', () => {
         });
     });
 
+    describe('mobile back button', () => {
+        it('should render back button without text', () => {
+            const dti = 'modal-dti';
+
+            render(
+                <UniversalModalMobile dataTestId={dti} open={true}>
+                    <UniversalModalMobile.Header
+                        title='Title'
+                        dataTestId={dti}
+                        hasBackButton={true}
+                    />
+                    <UniversalModalMobile.Content dataTestId={dti} />
+                    <UniversalModalMobile.Footer dataTestId={dti} />
+                </UniversalModalMobile>,
+            );
+
+            const backButton = screen.getByRole('button', { name: 'назад' });
+
+            expect(backButton).toBeInTheDocument();
+            expect(backButton).not.toHaveTextContent('Назад');
+        });
+    });
+
     describe('interactive tests', () => {
         describe('desktop closing tests', () => {
             it('should close by context "onClose"', async () => {
