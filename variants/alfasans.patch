@@ -1,24 +1,45 @@
-From 3c4fe4ccb596d2a91c3be742e90b34612ee4115c Mon Sep 17 00:00:00 2001
-From: hextion <100ishundred@gmail.com>
-Date: Fri, 17 Jul 2026 15:12:09 +0300
+From 9b6118ee94e144a301ad4b256afed427144d0150 Mon Sep 17 00:00:00 2001
+From: Vadim Kalushko <vakalushko.job@yandex.ru>
+Date: Fri, 7 Aug 2026 16:29:20 +0300
 Subject: [PATCH] fix: alfasans
 
 ---
- packages/confirmation/src/vars.css            |   8 +-
+ packages/confirmation/src/vars.css            |  14 +-
  packages/typography/src/title/component.tsx   |  11 +-
  .../typography/src/title/index.module.css     |   8 -
  packages/typography/src/title/utils.test.ts   |  12 -
  packages/typography/src/title/utils.ts        |  14 -
  packages/vars/src/typography.css              | 282 ++++++++++--------
- 6 files changed, 171 insertions(+), 164 deletions(-)
+ 6 files changed, 174 insertions(+), 167 deletions(-)
  delete mode 100644 packages/typography/src/title/utils.test.ts
  delete mode 100644 packages/typography/src/title/utils.ts
 
 diff --git a/packages/confirmation/src/vars.css b/packages/confirmation/src/vars.css
-index be7397c737..d12d9ab9ea 100644
+index c5f89d62a1..dfb3055a59 100644
 --- a/packages/confirmation/src/vars.css
 +++ b/packages/confirmation/src/vars.css
-@@ -12,11 +12,11 @@
+@@ -5,10 +5,10 @@
+     --confirmation-text-color: var(--color-light-text-primary);
+     --confirmation-text-font-size: 16px;
+     --confirmation-text-line-height: 24px;
+-    --confirmation-text-letter-spacing: normal;
++    --confirmation-text-letter-spacing: -0.24px;
+     --confirmation-text-font-size-mobile: 16px;
+     --confirmation-text-line-height-mobile: 24px;
+-    --confirmation-text-letter-spacing-mobile: normal;
++    --confirmation-text-letter-spacing-mobile: -0.24px;
+     --confirmation-countdown-height: auto;
+
+     @define-mixin _confirmation-text {
+@@ -16,18 +16,18 @@
+         line-height: var(--confirmation-text-line-height);
+         letter-spacing: var(--confirmation-text-letter-spacing);
+         font-weight: 400;
+-        font-family: var(--font-family-system);
++        font-family: var(--font-family-alfasans);
+         color: var(--confirmation-text-color);
+     }
+
      /* === Desktop === */
 
      /* HEADER */
@@ -32,7 +53,7 @@ index be7397c737..d12d9ab9ea 100644
      --confirmation-header-color: var(--color-light-text-primary);
 
      /* INITIAL */
-@@ -47,11 +47,11 @@
+@@ -64,11 +64,11 @@
      /* === Mobile === */
 
      /* HEADER */
