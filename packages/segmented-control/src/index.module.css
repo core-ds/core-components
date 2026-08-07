@@ -82,6 +82,6 @@
         transform 0.2s ease;
 }
 
-.selectedBox.withoutTransition {
+.selectedBox.noTransition {
     transition: none;
 }

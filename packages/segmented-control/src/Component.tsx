@@ -197,7 +197,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                                 colorStyles[colors].selectedBox,
                                 styles[shape],
                                 {
-                                    [styles.withoutTransition]: skipTransition,
+                                    [styles.noTransition]: skipTransition,
                                 },
                             )}
                             ref={selectedBoxRef}
