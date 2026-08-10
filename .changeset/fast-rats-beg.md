@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-select': minor
+'@alfalab/core-components-select': patch
 ---
 
-При клике 'Выбрать все' выбираются все значения кроме `disabled`
+- При клике 'Выбрать все' выбираются все значения кроме `disabled`

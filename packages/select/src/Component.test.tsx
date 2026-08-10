@@ -1175,9 +1175,6 @@ describe('Select', () => {
                     name: 'apply-footer',
                 }),
             );
-            expect(onChange.mock.calls[0][0].selectedMultiple).not.toContainEqual(
-                optionsWithDisabled[1],
-            );
         });
 
         it('does not select disabled options via list "Select all" and does not pass them to onChange', () => {
@@ -1194,9 +1191,6 @@ describe('Select', () => {
                     selectedMultiple: enabledOptions,
                     name: 'apply-footer',
                 }),
-            );
-            expect(onChange.mock.calls[0][0].selectedMultiple).not.toContainEqual(
-                optionsWithDisabled[1],
             );
         });
 

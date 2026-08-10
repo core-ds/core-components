@@ -158,9 +158,12 @@ export function useSelectWithApply({
 
     const selectedKeys = useMemo(() => selectedDraft.map(({ key }) => key), [selectedDraft]);
 
-    const allSelectableSelected =
-        selectableOptions.length > 0 &&
-        selectableOptions.every(({ key }) => selectedKeys.includes(key));
+    const allSelectableSelected = useMemo(
+        () =>
+            selectableOptions.length > 0 &&
+            selectableOptions.every(({ key }) => selectedKeys.includes(key)),
+        [selectableOptions, selectedKeys],
+    );
 
     const handleApply = () => {
         onChange({
