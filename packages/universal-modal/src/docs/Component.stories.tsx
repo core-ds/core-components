@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { object, boolean, select, text } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
@@ -224,6 +224,7 @@ export const mobile: Story = {
         const bottomAddons = text('header.bottomAddons', '');
         const headerLeftAddons = boolean('header.leftAddons', false);
         const headerRightAddons = boolean('header.rightAddons', false);
+        const headerBigRightAddons = headerRightAddons && boolean('header.bigRightAddons', false);
 
         const shouldRenderHeader = header && Boolean(headerTitle);
 
@@ -261,11 +262,20 @@ export const mobile: Story = {
                             }
                             rightAddons={
                                 headerRightAddons && (
-                                    <ButtonMobile
-                                        leftAddons={<DiamondsMIcon />}
-                                        size={48}
-                                        view='secondary'
-                                    />
+                                    <Fragment>
+                                        <ButtonMobile
+                                            leftAddons={<DiamondsMIcon />}
+                                            size={48}
+                                            view='secondary'
+                                        />
+                                        {headerBigRightAddons && (
+                                            <ButtonMobile
+                                                leftAddons={<DiamondsMIcon />}
+                                                size={48}
+                                                view='secondary'
+                                            />
+                                        )}
+                                    </Fragment>
                                 )
                             }
                         />

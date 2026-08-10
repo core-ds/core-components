@@ -242,6 +242,90 @@ describe('Mobile | title transition', () => {
     });
 });
 
+describe('Mobile | addons position', () => {
+    return screenshotTesting({
+        cases: [
+            [
+                '001 | back | close | align=center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        titleSize: 'compact',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                    },
+                }),
+            ],
+            [
+                '002 | back | close | align=center | leftAddon | rightAddon',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        titleSize: 'compact',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        'header.leftAddons': true,
+                        'header.rightAddons': true,
+                    },
+                }),
+            ],
+            [
+                '003 | back | close | align=center | rightAddon',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        titleSize: 'compact',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        'header.rightAddons': true,
+                    },
+                }),
+            ],
+            [
+                '004 | back | close | align=center | rightAddon | ',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        titleSize: 'compact',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        'header.rightAddons': true,
+                        'header.bigRightAddons': true,
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 360,
+            height: 720,
+        },
+    })();
+});
+
 describe('Mobile | trim title', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
