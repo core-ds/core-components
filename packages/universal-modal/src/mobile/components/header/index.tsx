@@ -71,6 +71,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
             closerProps={{
                 ...closerProps,
                 size: 40,
+                className: cn(closerProps?.className, styles.closeButtonWrapperClassName),
                 buttonClassName: styles.closeButtonClassName,
             }}
             backButtonProps={{
@@ -78,7 +79,8 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
                 icon: ChevronLeftLine24Icon,
                 size: 40,
                 text: null,
-                iconWrapperClassName: styles.backButtonClassName,
+                className: cn(backButtonProps?.className, styles.backButtonClassName),
+                iconWrapperClassName: styles.backButtonIconClassName,
             }}
         >
             {children}
