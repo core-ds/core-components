@@ -66,6 +66,7 @@ export const ImageViewer: FC = () => {
         () => ({
             slidesPerView: 1,
             effect: 'slide',
+            spaceBetween: 16,
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),

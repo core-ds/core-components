@@ -7,6 +7,8 @@ import { GalleryContext } from '../../context';
 import { isVideo } from '../../utils';
 import * as Buttons from '../buttons';
 
+import { formatDate } from './utils';
+
 import styles from './index.module.css';
 
 export const InfoBar = () => {
@@ -14,6 +16,7 @@ export const InfoBar = () => {
         useContext(GalleryContext);
 
     const image = getCurrentImage();
+    const createdAt = formatDate(image?.createdAt ?? '');
 
     const handleMuteVideo = useCallback(() => {
         if (image) {
@@ -37,14 +40,26 @@ export const InfoBar = () => {
             ) : (
                 <Buttons.Play onClick={handlePlayVideo} />
             )}
-            <TypographyText
-                className={styles.description}
-                tag='div'
-                view='component-primary'
-                color='static-primary-light'
-            >
-                {image?.name}
-            </TypographyText>
+            <div className={styles.infoBlock}>
+                <TypographyText
+                    className={styles.description}
+                    tag='div'
+                    view='component-primary'
+                    color='static-primary-light'
+                >
+                    {image?.name}
+                </TypographyText>
+                {image?.createdAt && (
+                    <TypographyText
+                        className={styles.description}
+                        tag='div'
+                        view='primary-small'
+                        color='secondary-inverted'
+                    >
+                        {createdAt}
+                    </TypographyText>
+                )}
+            </div>
             {mutedVideo ? (
                 <Buttons.UnmuteVideo onClick={handleMuteVideo} />
             ) : (
@@ -52,7 +67,7 @@ export const InfoBar = () => {
             )}
         </section>
     ) : (
-        <section className={styles.infoWrapper}>
+        <section className={cn(styles.infoWrapper, styles.infoBlock)}>
             <TypographyText
                 className={styles.description}
                 tag='div'
@@ -61,6 +76,16 @@ export const InfoBar = () => {
             >
                 {image?.name}
             </TypographyText>
+            {image?.createdAt && (
+                <TypographyText
+                    className={styles.description}
+                    tag='div'
+                    view='primary-small'
+                    color='secondary-inverted'
+                >
+                    {createdAt}
+                </TypographyText>
+            )}
         </section>
     );
 };
