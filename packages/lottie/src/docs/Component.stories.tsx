@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Lottie>;
 export const lottie: Story = {
     name: 'Lottie',
     render: () => {
-        return <Lottie animation={{ path: 'http://localhost:9009/twitter-heart.json' }} />;
+        return <Lottie src='./twitter-heart.json' />;
     },
 };
 
