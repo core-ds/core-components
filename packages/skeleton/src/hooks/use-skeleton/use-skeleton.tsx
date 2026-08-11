@@ -19,8 +19,16 @@ type SkeletonProps = {
     dataTestId?: string;
 };
 
+const getFallbackSkeletonParams = (skeletonProps?: TextSkeletonProps): TextSkeletonParams => ({
+    height: 16,
+    padding: '4px 0',
+    rows: skeletonProps?.rows ?? 1,
+});
+
 export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeletonProps) {
-    const [skeletonParams, setSkeletonParams] = useState<TextSkeletonParams>();
+    const [skeletonParams, setSkeletonParams] = useState<TextSkeletonParams | undefined>(() =>
+        showSkeleton ? getFallbackSkeletonParams(skeletonProps) : undefined,
+    );
     const textRef = useRef<HTMLElement>(null);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -60,6 +68,8 @@ export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeleton
                 padding: `${padding}px 0`,
                 rows,
             });
+        } else if (showSkeleton) {
+            setSkeletonParams(getFallbackSkeletonParams(skeletonProps));
         } else {
             setSkeletonParams(undefined);
         }
