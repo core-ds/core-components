@@ -1,5 +1,21 @@
 # @alfalab/core-components-select
 
+## 19.2.3
+
+### Patch Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2312](https://github.com/core-ds/core-components/pull/2312)
+
+##### Select
+
+- Исправлен перенос текста опции
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+
 ## 19.2.2
 
 ### Patch Changes
