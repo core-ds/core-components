@@ -11,6 +11,17 @@ import lottie, {
 import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+interface AnimationData {
+    /**
+     * In point - начальный кадр анимации
+     */
+    ip: number;
+    /**
+     * Out point - конечный кадр анимации
+     */
+    op: number;
+}
+
 type LottieParams =
     | Partial<AnimationConfigWithPath<'svg'>>
     | Partial<AnimationConfigWithData<'svg'>>;
@@ -23,6 +34,7 @@ export interface InternalAnimationItem extends AnimationItem {
     _cbs?: never[] & {
         [P in AnimationEventName]?: Array<AnimationEventCallback<AnimationEvents[P]>>;
     };
+    animationData?: AnimationData;
 }
 
 export function useLottie<T extends Element>(
