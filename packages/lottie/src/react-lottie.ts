@@ -37,6 +37,16 @@ export interface InternalAnimationItem extends AnimationItem {
     animationData?: AnimationData;
 }
 
+function checkOptions(
+    options: LottieParams,
+): options is AnimationConfigWithPath<'svg'> | AnimationConfigWithData<'svg'> {
+    return (
+        options.container &&
+        ((hasOwnProperty(options, 'animationData') && options.animationData) ||
+            (hasOwnProperty(options, 'path') && options.path))
+    );
+}
+
 export function useLottie<T extends Element>(
     props: UseLottieProps,
 ): [ref: Ref<T>, animation: InternalAnimationItem | null, reset: () => void] {
@@ -67,17 +77,8 @@ export function useLottie<T extends Element>(
     }, [animationData, options, path]);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        const { container } = options;
-
-        if (
-            container &&
-            ((hasOwnProperty(options, 'animationData') && options.animationData) ||
-                (hasOwnProperty(options, 'path') && options.path))
-        ) {
-            const animationItem: InternalAnimationItem = lottie.loadAnimation({
-                ...options,
-                container,
-            });
+        if (checkOptions(options)) {
+            const animationItem: InternalAnimationItem = lottie.loadAnimation(options);
 
             setAnimation(animationItem);
 
