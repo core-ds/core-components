@@ -391,6 +391,7 @@ export const Chart = (props: OptionsProps) => {
                     onMouseMove={mouseMove}
                     onMouseLeave={mouseLeave}
                     data={data}
+                    style={{ cursor: state.composeChart.onClick ? 'pointer' : 'default' }}
                 >
                     <defs>{renderGradient}</defs>
                     {state.cartesianGrid && renderCartesianGrid}

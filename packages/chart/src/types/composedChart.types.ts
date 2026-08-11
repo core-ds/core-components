@@ -1,3 +1,5 @@
+import { type CategoricalChartFunc } from 'recharts/types/chart/generateCategoricalChart';
+
 export interface ComposedChartProps {
     /**
      * Отступы графика на момент инициализации компонента
@@ -33,4 +35,9 @@ export interface ComposedChartProps {
      * Разрыв между двумя столбцами одной категории
      */
     barGap?: number;
+
+    /**
+     * Обработчик клика по диаграммe
+     */
+    onClick?: CategoricalChartFunc;
 }
