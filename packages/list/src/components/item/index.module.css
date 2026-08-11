@@ -1,12 +1,7 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
-:root {
-    --list-marker-color: var(--color-light-text-primary);
-    --list-item-margin: var(--gap-12);
-}
-
 .item {
-    margin-top: var(--list-item-margin);
+    margin-top: var(--gap-12);
     display: flex;
 
     &:first-child {
@@ -14,7 +9,7 @@
     }
 
     &.reversed:first-child {
-        margin-top: var(--list-item-margin);
+        margin-top: var(--gap-12);
     }
 
     &.reversed:last-child {
@@ -35,7 +30,7 @@
     flex-shrink: 0;
 
     &.defaultColor {
-        color: var(--list-marker-color);
+        color: currentColor;
     }
 
     &.disc {
