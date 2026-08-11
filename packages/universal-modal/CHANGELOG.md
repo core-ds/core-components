@@ -1,5 +1,29 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.4
+
+### Patch Changes
+
+<sup><time>06.08.2026</time></sup>
+
+#### [#2308](https://github.com/core-ds/core-components/pull/2308)
+
+##### UniversalModal
+
+- Исправлена несогласованность блокировки скролла при одновременном использовании разных модальных сущностей (например `UniversalModal` и `Modal`)
+
+## 3.2.3
+
+### Patch Changes
+
+<sup><time>04.08.2026</time></sup>
+
+#### [#2301](https://github.com/core-ds/core-components/pull/2301)
+
+##### UniversalModal
+
+- Механизм `height="hugContent"` + `margin.top`/`margin.bottom` переведён с CSS custom properties на статически сгенерированные классы
+
 ## 3.2.2
 
 ### Patch Changes

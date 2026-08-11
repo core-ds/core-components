@@ -16,6 +16,7 @@ describe('getHugContentStyles', () => {
     it('height === hugContent, without margin', () => {
         expect(getHugContentStyles({ styles, margin: undefined, height: 'hugContent' })).toEqual({
             hugContent: true,
+            'hugGap-0-0': true,
         });
     });
 
@@ -24,8 +25,7 @@ describe('getHugContentStyles', () => {
 
         expect(getHugContentStyles({ styles, margin, height: 'hugContent' })).toEqual({
             hugContent: true,
-            'topGap-48': true,
-            'bottomGap-24': true,
+            'hugGap-48-24': true,
         });
     });
 
@@ -34,6 +34,7 @@ describe('getHugContentStyles', () => {
 
         expect(getHugContentStyles({ styles, margin, height: 'hugContent' })).toEqual({
             hugContent: true,
+            'hugGap-0-0': true,
         });
     });
 
@@ -42,6 +43,7 @@ describe('getHugContentStyles', () => {
 
         expect(getHugContentStyles({ styles, margin, height: 'hugContent' })).toEqual({
             hugContent: true,
+            'hugGap-0-0': true,
         });
     });
 });
