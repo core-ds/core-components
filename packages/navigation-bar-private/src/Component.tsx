@@ -78,11 +78,67 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
             if (align === 'center' && (showStaticContentOnTop || showAnimatedContentOnTop)) {
+                // в случае когда есть оба элемента управления, не делаем никаких компенсаций
+                if (hasCloser && hasBackButton) {
+                    return undefined;
+                }
+
+                if (hasCloser && !hasBackButton) {
+                    // остпуп компнесируем для mainline
+                    return undefined;
+                }
+
+                if (!hasCloser && hasBackButton) {
+                    // остпуп компнесируем для mainline
+                    return undefined;
+                }
+
+                if (!hasCloser && !hasBackButton) {
+                    // если нет элементов управления - ничего не компенсируем
+                    return undefined;
+                }
+
                 const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
                 const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
 
                 const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
                 const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
+
+                setTitleMargin((prev) => {
+                    const newState = shouldAddLeftMargin
+                        ? { left: marginSize, right: 0 }
+                        : { left: 0, right: marginSize };
+
+                    const isStateChanged =
+                        prev.left !== newState.left || prev.right !== newState.right;
+
+                    return isStateChanged ? newState : prev;
+                });
+            }
+
+            if (align === 'left' && (showStaticContentOnTop || showAnimatedContentOnTop)) {
+                if (!hasBackButton && hasCloser && leftAddons && rightAddons) {
+                    return undefined;
+                }
+
+                if (hasBackButton && !hasCloser && leftAddons && rightAddons) {
+                    return undefined;
+                }
+
+                const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
+                const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
+
+                let marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
+                let shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
+
+                if (!hasBackButton && !rightAddons && leftAddons && hasCloser) {
+                    marginSize += leftAddonsWidth;
+                }
+
+                if (hasBackButton && rightAddons && !leftAddons && !hasCloser) {
+                    marginSize += rightAddonsWidth;
+                    shouldAddLeftMargin = true;
+                }
 
                 setTitleMargin((prev) => {
                     const newState = shouldAddLeftMargin
@@ -230,6 +286,28 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                                   paddingTop: headerPaddingTop,
                               }
                             : null),
+                        ...(align === 'center' &&
+                            hasBackButton &&
+                            !hasCloser && {
+                                marginRight: 48,
+                            }),
+                        ...(align === 'center' &&
+                            !hasBackButton &&
+                            hasCloser && {
+                                marginLeft: 48,
+                            }),
+                        ...(align === 'left' &&
+                            hasBackButton &&
+                            !hasCloser &&
+                            rightAddons && {
+                                marginRight: 48,
+                            }),
+                        ...(align === 'left' &&
+                            !hasBackButton &&
+                            hasCloser &&
+                            leftAddons && {
+                                marginLeft: 48,
+                            }),
                     }}
                 >
                     {hasLeftPart && (
@@ -251,6 +329,14 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                                       },
                                   }
                                 : null),
+                            ...(align === 'left'
+                                ? {
+                                      style: {
+                                          marginLeft: titleMargin.left,
+                                          marginRight: titleMargin.right,
+                                      },
+                                  }
+                                : null),
                         })}
 
                     {showAnimatedContentOnTop &&
@@ -259,6 +345,12 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             style: {
                                 opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
                                 ...(align === 'center'
+                                    ? {
+                                          marginLeft: titleMargin.left,
+                                          marginRight: titleMargin.right,
+                                      }
+                                    : null),
+                                ...(align === 'left'
                                     ? {
                                           marginLeft: titleMargin.left,
                                           marginRight: titleMargin.right,

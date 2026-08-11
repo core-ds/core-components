@@ -205,6 +205,7 @@ export const mobile: Story = {
     render: () => {
         const [isOpen, setOpen] = useState(false);
 
+        const open = boolean('open', false);
         const header = boolean('header', false);
         const headerTitle = text('header.title', 'Заголовок');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
@@ -216,7 +217,6 @@ export const mobile: Story = {
             ['start', 'center', 'space-between', 'column'],
             'start',
         );
-        const open = boolean('open', false);
         const appearance = select('appearance', ['bottom', 'right'], 'bottom');
         const hasCloser = boolean('header.hasCloser', false);
         const hasBackButton = boolean('header.hasBackButton', false);
