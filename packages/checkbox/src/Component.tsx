@@ -63,7 +63,7 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     size?: 20 | 24;
 
     /**
-     * Компактный текст подписи
+     * Компактный текст подписи Только для `size=20`
      * @default false
      */
     compact?: boolean;
@@ -240,7 +240,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         [styles.focused]: focused,
                         [styles.block]: block,
                         [styles['position-after']]: position === 'after',
-                        [styles.compact]: compact,
+                        [styles.compact]: Boolean(compact) && Number(size) === 20,
                     },
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}

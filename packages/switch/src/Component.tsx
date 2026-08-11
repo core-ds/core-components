@@ -51,7 +51,7 @@ export type SwitchProps = Omit<
     size?: 20 | 24;
 
     /**
-     * Компактный текст подписи
+     * Компактный текст подписи . Только для `size=20`
      * @default false
      */
     compact?: boolean;
@@ -164,7 +164,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     [styles.reversed]: reversed,
                     [styles.focused]: focused,
                     [styles.block]: block,
-                    [styles.compact]: compact,
+                    [styles.compact]: Boolean(compact) && Number(size) === 20,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >

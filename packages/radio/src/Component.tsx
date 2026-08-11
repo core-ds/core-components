@@ -52,7 +52,7 @@ export type RadioProps = Omit<
     size?: 20 | 24;
 
     /**
-     * Компактный текст подписи
+     * Компактный текст подписи. Только для `size=20`
      * @default false
      */
     compact?: boolean;
@@ -185,7 +185,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                         [colorStyle.checked]: checked,
                         [styles.focused]: focused,
                         [styles.block]: block,
-                        [styles.compact]: compact,
+                        [styles.compact]: Boolean(compact) && Number(size) === 20,
                         [styles.reversed]: reversed,
                     },
                 )}

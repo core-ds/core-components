@@ -108,10 +108,16 @@ describe('Checkbox', () => {
             expect(container.firstElementChild).toHaveClass('size-24');
         });
 
-        it('should set `compact` class', () => {
-            const { container } = render(<Checkbox compact={true} />);
+        it('should set `compact` class for size 20', () => {
+            const { container } = render(<Checkbox size={20} compact={true} />);
 
             expect(container.firstElementChild).toHaveClass('compact');
+        });
+
+        it('should not set `compact` class for size 24', () => {
+            const { container } = render(<Checkbox size={24} compact={true} />);
+
+            expect(container.firstElementChild).not.toHaveClass('compact');
         });
     });
 

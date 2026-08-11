@@ -72,9 +72,13 @@
     }
 }
 
-.compact .label,
 .size-20.compact .content .label {
     @mixin paragraph_primary_small;
+}
+
+.size-20.compact .content .hint {
+    @mixin paragraph_secondary_medium;
+    margin-top: var(--gap-2);
 }
 
 /* Reversed state */
