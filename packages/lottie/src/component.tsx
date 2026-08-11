@@ -25,7 +25,8 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             endFrame,
             iterations: iterationsFromProps = 0,
             direction,
-            animation: animationDataFromProps,
+            src,
+            data,
             placeholder,
             scale = 'fill',
             size,
@@ -40,8 +41,8 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
         const [containerRef, animation, reset] = useLottie<HTMLDivElement>({
             autoplay: false,
             loop: false,
-            path: animationDataFromProps.path,
-            animationData: animationDataFromProps.data,
+            path: src,
+            animationData: data,
             rendererSettings: {
                 preserveAspectRatio: scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice',
             },
