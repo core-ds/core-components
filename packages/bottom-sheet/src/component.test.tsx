@@ -494,6 +494,38 @@ describe('Bottom sheet', () => {
             await waitFor(() => expect(onMagnetizeEnd).toHaveBeenCalledWith(1));
         });
 
+        it('should remap active magnetic area after magneticAreas change', async () => {
+            const onMagnetize = jest.fn();
+
+            const { rerender } = render(
+                <BottomSheetWrapper
+                    magneticAreas={[0, 200, 500]}
+                    initialActiveAreaIndex={2}
+                    onMagnetize={onMagnetize}
+                    transitionProps={{
+                        timeout: 0,
+                    }}
+                />,
+            );
+
+            await waitFor(() => expect(onMagnetize).toHaveBeenCalledWith(2));
+
+            onMagnetize.mockClear();
+
+            rerender(
+                <BottomSheetWrapper
+                    magneticAreas={[0, 200]}
+                    initialActiveAreaIndex={2}
+                    onMagnetize={onMagnetize}
+                    transitionProps={{
+                        timeout: 0,
+                    }}
+                />,
+            );
+
+            await waitFor(() => expect(onMagnetize).toHaveBeenCalledWith(1));
+        });
+
         it('should call onMagnetize and onMagnetizeEnd prop after closing', async () => {
             const onMagnetize = jest.fn();
             const onMagnetizeEnd = jest.fn();
