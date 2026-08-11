@@ -300,7 +300,7 @@ describe('Mobile | addons position', () => {
                 }),
             ],
             [
-                '004 | back | close | align=center | rightAddon | ',
+                '004 | back | close | align=center | rightAddon',
                 createStorybookUrl({
                     testStory: false,
                     componentName: 'UniversalModal',
@@ -322,6 +322,105 @@ describe('Mobile | addons position', () => {
         viewport: {
             width: 360,
             height: 720,
+        },
+    })();
+});
+
+describe('Mobile | addons position interactive', () => {
+    return screenshotTesting({
+        cases: [
+            [
+                '001 | back | close | align=center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        'header.sticky': true,
+                        titleSize: 'default',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        showMore: true,
+                    },
+                }),
+            ],
+            [
+                '002 | back | close | align=center | leftAddon | rightAddon',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        'header.sticky': true,
+                        titleSize: 'default',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        'header.leftAddons': true,
+                        'header.rightAddons': true,
+                        showMore: true,
+                    },
+                }),
+            ],
+            [
+                '003 | back | close | align=center | rightAddon',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        'header.sticky': true,
+                        titleSize: 'default',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        'header.rightAddons': true,
+                        showMore: true,
+                    },
+                }),
+            ],
+            [
+                '004 | back | close | align=center | rightAddon | bigRightAddons',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        'header.sticky': true,
+                        titleSize: 'default',
+                        'header.title': 'Заголовок',
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.align': 'center',
+                        'header.rightAddons': true,
+                        'header.bigRightAddons': true,
+                        showMore: true,
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 360,
+            height: 720,
+        },
+        evaluate: async (page) => {
+            await page.waitForTimeout(500);
+            await page.$eval('button[class*=showMoreButton]', (el) => {
+                el.scrollIntoView();
+            });
+            await page.waitForTimeout(500);
         },
     })();
 });
