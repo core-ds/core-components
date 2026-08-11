@@ -36,7 +36,11 @@ export interface LottieProps {
     /**
      * Источник анимации
      */
-    animation: { path: string; data?: never } | { path?: never; data: unknown };
+    src?: string;
+    /**
+     * Анимация
+     */
+    data?: Record<string, undefined>;
     /**
      * Плейсхолдер анимации
      */
