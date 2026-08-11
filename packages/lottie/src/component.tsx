@@ -21,12 +21,11 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
         {
             play = true,
             speed = 1,
-            startFrame = 0,
-            initialFrame: initialFrameFromProps = startFrame,
+            startFrame,
             endFrame,
             iterations: iterationsFromProps = 0,
             direction,
-            animation: animationData,
+            animation: animationDataFromProps,
             placeholder,
             scale = 'fill',
             size,
@@ -39,11 +38,10 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             1,
         );
         const [containerRef, animation, reset] = useLottie<HTMLDivElement>({
-            initialSegment: typeof endFrame === 'number' ? [startFrame, endFrame] : undefined,
             autoplay: false,
             loop: false,
-            path: animationData.path,
-            animationData: animationData.data,
+            path: animationDataFromProps.path,
+            animationData: animationDataFromProps.data,
             rendererSettings: {
                 preserveAspectRatio: scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice',
             },
@@ -51,10 +49,6 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
         const playCountRef = useRef(animation?.playCount ?? 0);
         const [dataState, setDataState] = useState(LottieDataState.INITIAL);
         const [events] = useState(() => createNanoEvents<LottieEvents>());
-        let initialFrame = Math.max(startFrame, initialFrameFromProps);
-
-        initialFrame =
-            typeof endFrame === 'number' ? Math.min(endFrame, initialFrame) : initialFrame;
 
         useImperativeHandle(
             forwardedRef,
@@ -90,6 +84,21 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             }
         }, [animation, direction, iterations, speed]);
 
+        // handle start/end frame
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (animation && dataState === LottieDataState.OK) {
+                const { animationData } = animation;
+                const firstFrame = Math.round(animationData!.ip);
+                const totalFrames = Math.floor(animationData!.op - animationData!.ip);
+                const start =
+                    typeof startFrame === 'number' ? Math.max(startFrame, firstFrame) : firstFrame;
+                const end =
+                    typeof endFrame === 'number' ? Math.min(endFrame, totalFrames) : totalFrames;
+
+                animation.setSegment(start, end);
+            }
+        }, [animation, dataState, endFrame, startFrame]);
+
         // handle play
         useLayoutEffect_SAFE_FOR_SSR(() => {
             const playCount = playCountRef.current;
@@ -101,22 +110,16 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
                 play &&
                 animation.isPaused
             ) {
-                if (playCount === 0) {
-                    const playFrame = Math.max(animation.currentFrame, initialFrame);
+                const { firstFrame } = animation;
+                const playFrame =
+                    playCount === 0
+                        ? Math.max(animation.currentFrame, firstFrame)
+                        : animation.currentFrame;
 
-                    if (playFrame === animation.currentFrame) {
-                        animation.play();
-                    } else {
-                        animation.goToAndPlay(playFrame, true);
-                    }
-
-                    events.emit(playFrame === initialFrame ? 'started' : 'resumed');
-                } else {
-                    animation.play();
-                    events.emit('resumed');
-                }
+                animation.play();
+                events.emit(playFrame === firstFrame ? 'started' : 'resumed');
             }
-        }, [animation, dataState, events, initialFrame, iterations, play]);
+        }, [animation, dataState, events, iterations, play]);
 
         // handle pause
         useLayoutEffect_SAFE_FOR_SSR(() => {
