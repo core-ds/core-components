@@ -24,7 +24,7 @@ export const CoreConfigContext = createContext<CoreConfigContextValue>({
     client: 'desktop',
     haptics: {
         enabled: true,
-        debug: true,
+        debug: false,
     },
 });
 

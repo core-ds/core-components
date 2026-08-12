@@ -2,6 +2,7 @@ import { defaultPatterns } from 'web-haptics';
 
 import {
     type HapticConfig,
+    type HapticInput,
     type HapticPattern,
     type HapticPreset,
     type HapticPresetValue,
@@ -10,6 +11,8 @@ import {
 
 const DEFAULT_REPEAT = 1;
 const DEFAULT_PRESET: HapticPreset = 'selection';
+
+export const IOS_SINGLE_TICK = defaultPatterns.selection.pattern as HapticPattern;
 
 const normalizeRepeat = (repeat = DEFAULT_REPEAT) => Math.max(1, Math.floor(repeat));
 
@@ -20,6 +23,21 @@ const normalizeRepeat = (repeat = DEFAULT_REPEAT) => Math.max(1, Math.floor(repe
  */
 export const repeatHapticPattern = (pattern: HapticPattern, repeat = DEFAULT_REPEAT) =>
     Array.from({ length: normalizeRepeat(repeat) }).flatMap(() => pattern);
+
+export type ResolvePlatformHapticInputParams = {
+    isSupported: boolean;
+    debug: boolean;
+};
+
+export const resolvePlatformHapticInput = (
+    input: HapticInput | undefined,
+    { isSupported, debug }: ResolvePlatformHapticInputParams,
+): HapticInput | undefined => {
+    if (input === undefined) return undefined;
+    if (isSupported || debug) return input;
+
+    return IOS_SINGLE_TICK;
+};
 
 const resolvePresetValue = (
     presetValue: HapticPresetValue,

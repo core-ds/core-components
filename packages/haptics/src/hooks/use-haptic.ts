@@ -3,8 +3,9 @@ import { useWebHaptics } from 'web-haptics/react';
 
 import { useCoreConfig } from '@alfalab/core-components-config';
 
+import { triggerIosSystemTick } from '../ios-system-tick';
 import { type HapticInput, type HapticPresetValue, type TriggerOptions } from '../types';
-import { resolveHapticConfig } from '../utils';
+import { resolveHapticConfig, resolvePlatformHapticInput } from '../utils';
 
 export interface UseHapticParams {
     /**
@@ -24,9 +25,6 @@ export interface UseHapticParams {
 
 interface UseHapticResponse {
     /**
-     * `true`, если окружение поддерживает haptic и есть resolved config
-     * для вызова `trigger()` без аргументов.
-     *
      * Прямой `trigger(input)` работает независимо от этого флага.
      */
     enabled: boolean;
@@ -39,8 +37,6 @@ interface UseHapticResponse {
     /**
      * Запускает haptic feedback.
      *
-     * Если передать `input`, он будет отправлен напрямую в `web-haptics.trigger`.
-     * Если `input` не передан, используется payload из `preset` или `CoreConfig.haptics`.
      */
     trigger: (input?: HapticInput, options?: TriggerOptions) => void;
 
@@ -65,12 +61,22 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
     const { haptics } = useCoreConfig();
 
     const isDebug = debug ?? haptics?.debug ?? false;
+
+    /**
+     * `web-haptics` с `debug: true` делает `await ensureAudio()` до `label.click()`.
+     * На iOS это теряет user-gesture grant → tick не срабатывает.
+     */
+    const isVibrateSupported =
+        typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
+
+    const webHapticsDebug = isVibrateSupported ? isDebug : false;
+
     const {
         cancel,
         isSupported,
         trigger: triggerHaptics,
     } = useWebHaptics({
-        debug: isDebug,
+        debug: webHapticsDebug,
     });
 
     const config = resolveHapticConfig({
@@ -78,29 +84,44 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
         global: haptics,
     });
 
-    const canTrigger = isSupported || isDebug;
-
     const trigger = useCallback(
         (input?: HapticInput, options?: TriggerOptions) => {
-            if (!canTrigger) return;
+            const hasWork = input !== undefined || Boolean(config?.input);
+            if (!hasWork) return;
 
-            // Direct trigger has the highest priority and bypasses local/global config.
-            if (input !== undefined) {
-                triggerHaptics(input, options)?.catch(() => {});
+            // iOS / no Vibration API: programmatic tick (works on iOS < 26.5).
+            if (!isSupported) {
+                triggerIosSystemTick();
 
                 return;
             }
 
-            if (!config) return;
+            // Android / Vibration API path via web-haptics.
+            if (input !== undefined) {
+                const platformInput = resolvePlatformHapticInput(input, {
+                    isSupported,
+                    debug: webHapticsDebug,
+                });
 
-            // No direct input: use resolved local preset or global CoreConfig.haptics.
-            triggerHaptics(config.input, options ?? config.options)?.catch(() => {});
+                triggerHaptics(platformInput, options)?.catch(() => {});
+
+                return;
+            }
+
+            if (!config?.input) return;
+
+            const platformInput = resolvePlatformHapticInput(config.input, {
+                isSupported,
+                debug: webHapticsDebug,
+            });
+
+            triggerHaptics(platformInput, options ?? config.options)?.catch(() => {});
         },
-        [canTrigger, config, triggerHaptics],
+        [config, isSupported, triggerHaptics, webHapticsDebug],
     );
 
     return {
-        enabled: canTrigger && Boolean(config),
+        enabled: Boolean(config),
         isSupported,
         trigger,
         cancel,
