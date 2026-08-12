@@ -1,0 +1,177 @@
+{
+"packageName": "navigation-bar",
+"displayName": "NavigationBar",
+"description": "Используется для навигации между страницами.",
+"props": {
+"title": {
+"defaultValue": null,
+"description": "Заголовок",
+"name": "title",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"subtitle": {
+"defaultValue": null,
+"description": "Подзаголовок",
+"name": "subtitle",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент шапки",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"align": {
+"defaultValue": {
+"value": "center"
+},
+"description": "Выравнивание заголовка",
+"name": "align",
+"required": false,
+"type": {
+"name": "\"left\" | \"center\" | undefined"
+}
+},
+"backgroundColor": {
+"defaultValue": {
+"value": "var(--color-light-base-bg-primary)"
+},
+"description": "Цвет фона",
+"name": "backgroundColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"border": {
+"defaultValue": null,
+"description": "Наличие бордера",
+"name": "border",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"sticky": {
+"defaultValue": null,
+"description": "Фиксирует шапку",
+"name": "sticky",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот снизу",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контента",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentWrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки контента",
+"name": "contentWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"rightAddonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для правого аддона",
+"name": "rightAddonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"leftAddonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для левого аддона",
+"name": "leftAddonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bottomAddonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для нижнего аддона",
+"name": "bottomAddonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Анатомия",
+"description": "Компонент содержит основной, левый, правый, и нижний слоты.\nПоддерживается два вида выравнивания: левое и центральное.\nПри левом выравнивании недоступен левый слот.",
+"desktop": "const ALIGN_SELECT_OPTIONS = [\n{ key: 'left', content: 'Левое' },\n{ key: 'center', content: 'Центральное' },\n];\n\nrender(() => {\nconst [alignViewSelected, setAlignView] = React.useState(ALIGN_SELECT_OPTIONS[0].key);\n\nconst wrapperStyles = {\nwidth: 360,\nmargin: 'var(--gap-20-neg)',\n};\n\nconst commonStyles = {\nbackgroundColor: 'var(--color-light-status-muted-alt-attention)',\nborder: '1px dashed var(--color-light-status-attention)',\nboxSizing: 'border-box',\nborderRadius: '8px',\nheight: '40px',\n...(alignViewSelected === 'left' && {\nbackgroundColor: 'var(--color-light-status-muted-alt-negative)',\n}),\n};\n\nconst addonsStyles = {\n...commonStyles,\nbackgroundColor: 'var(--color-light-status-muted-alt-positive)',\nborderColor: 'var(--color-light-status-positive)',\nwidth: '48px',\n};\n\nconst bottomAddonsStyles = {\n...commonStyles,\nbackgroundColor: 'var(--color-light-status-muted-alt-info)',\nborderColor: 'var(--color-light-status-info)',\nwidth: '100%',\n};\nreturn (\n<div>\n<div style={wrapperStyles}>\n<NavigationBar\nleftAddons={<div style={addonsStyles} />}\nrightAddons={<div style={addonsStyles} />}\nbottomAddons={<div style={bottomAddonsStyles} />}\nbackgroundColor='var(--color-light-base-bg-secondary)'\nalign={alignViewSelected}\n>\n<div style={commonStyles} />\n</NavigationBar>\n</div>\n<Gap size={40} />\n<div style={{ margin: ' 0 -4px' }}>\n<SelectMobile\nblock={true}\noptions={ALIGN_SELECT_OPTIONS}\nlabel='Выравнивание'\nlabelView='outer'\nselected={alignViewSelected}\nonChange={({ selected }) => setAlignView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n</div>\n</div>\n);\n});"
+},
+{
+"title": "Конструктор",
+"description": "В качестве контента для слотов можно передавать как дефолтные варианты, так и кастомную вёрстку. Кастомные варианты контента отмечены в списках астериском.",
+"desktop": "const ALIGN_SELECT_OPTIONS = [\n{ key: 'center', content: 'Центральное' },\n{ key: 'left', content: 'Левое' },\n];\nconst BACKGROUND_SELECT_OPTIONS = [\n{ key: 'var(--color-light-base-bg-primary)', content: 'base-bg-primary' },\n{ key: 'var(--color-light-base-bg-secondary)', content: 'base-bg-secondary' },\n{ key: 'transparent', content: 'transparent-default' },\n];\nconst BORDER_SELECT_OPTIONS = [\n{ key: 'scroll', content: '*Только при скролле' },\n{ key: 'no', content: 'Без бордера' },\n{ key: 'yes', content: 'Всегда есть' },\n];\nconst STICKY_SELECT_OPTIONS = [\n{ key: 'yes', content: 'Фиксированное' },\n{ key: 'no', content: 'Скроллится с контентом' },\n];\nconst MAIN_SELECT_OPTIONS = [\n{ key: 'title', content: 'Заголовок' },\n{ key: 'titleWithSubtitle', content: 'Заголовок и подпись' },\n{ key: 'no', content: 'Пустой' },\n];\nconst LEFT_SELECT_OPTIONS = [\n{ key: 'back', content: 'Стрелка назад' },\n{ key: 'floatingBack', content: 'Плавающая стрелка назад' },\n{ key: 'primary', content: 'Основное действие' },\n{ key: 'secondary', content: 'Второстепенное действие' },\n{ key: 'no', content: 'Пустой' },\n];\nconst RIGHT_SELECT_OPTIONS = [\n{ key: 'close', content: 'Плавающий крестик' },\n{ key: 'primary', content: 'Основное действие' },\n{ key: 'secondary', content: 'Второстепенное действие' },\n{ key: 'oneIcon', content: 'Одна иконка' },\n{ key: 'twoIcons', content: 'Две иконки' },\n{ key: 'threeIcons', content: 'Три иконки' },\n{ key: 'no', content: 'Пустой' },\n];\nconst BOTTOM_SELECT_OPTIONS = [\n{ key: 'no', content: 'Пустой' },\n{ key: 'input', content: '*Input' },\n{ key: 'segmentedControl', content: '*SegmentedControl' },  \n];\n\nconst ShowIcontAddons = ({ quantity }) => (\n<div style={{ display: 'flex', gap: '4px', padding: '0 4px' }}>\n{Array(quantity)\n.fill('')\n.map((_, key) => (\n<div key={key}>\n<IconButton view='primary' size={40} icon={DiamondsMIcon} />\n</div>\n))}\n</div>\n);\n\nrender(() => {\nconst [alignViewSelected, setAlignView] = React.useState(ALIGN_SELECT_OPTIONS[0].key);\nconst [backgroundViewSelected, setBackgroundView] = React.useState(\nBACKGROUND_SELECT_OPTIONS[0].key,\n);\nconst [borderViewSelected, setBorderView] = React.useState(BORDER_SELECT_OPTIONS[0].key);\nconst [stickyViewSelected, setStickyView] = React.useState(STICKY_SELECT_OPTIONS[0].key);\n\nconst [mainSelected, setMainView] = React.useState(MAIN_SELECT_OPTIONS[0].key);\nconst [leftSelected, setLeftView] = React.useState(LEFT_SELECT_OPTIONS[0].key);\nconst [rightSelected, setRightView] = React.useState(RIGHT_SELECT_OPTIONS[0].key);\nconst [bottomSelected, setBottomView] = React.useState(BOTTOM_SELECT_OPTIONS[0].key);\n\nconst [selectedId, setSelectedId] = React.useState(1);\nconst [scrollTop, setScrollTop] = React.useState(false);\n\nconst mainContent = {\ntitle: { title: 'Название экрана', subtitle: undefined },\ntitleWithSubtitle: { title: 'Название экрана', subtitle: 'Подпись экрана' },\nno: { title: undefined, subtitle: undefined },\n};\n\nconst leftContent = {\nback: <ActionIconAddon action='back' />,\nfloatingBack: <ActionIconAddon action='floatingBack' />,\nprimary: <ActionTextAddon text='Label' action='primary' />,\nsecondary: <ActionTextAddon text='Label' action='secondary' />,\nno: undefined,\n};\n\nconst rightContent = {\nclose: <ActionIconAddon action='close' />,\nprimary: <ActionTextAddon text='Label' action='primary' />,\nsecondary: <ActionTextAddon text='Label' action='secondary' />,\noneIcon: <ShowIcontAddons quantity={1} />,\ntwoIcons: <ShowIcontAddons quantity={2} />,\nthreeIcons: <ShowIcontAddons quantity={3} />,\nno: undefined,\n};\n\nconst border = {\nyes: true,\nno: false,\nscroll: scrollTop,\n};\n\nconst wrapperBottomStyles = {\npadding: '8px 12px 0px',\n};\n\nconst input = (\n<div style={wrapperBottomStyles}>\n<Input block leftAddons={<MagnifierMIcon color='#86868A' />} placeholder='Поиск' />\n</div>\n);\n\nconst segmentedControl = (\n<div style={wrapperBottomStyles}>\n<SegmentedControl onChange={(id) => setSelectedId(id)} selectedId={selectedId}>\n<Segment id={1} title='Label' />\n<Segment id={2} title='Label' />\n</SegmentedControl>\n</div>\n);\n\nconst bottomContent = {\ninput,\nsegmentedControl: segmentedControl,\nno: undefined,\n};\n\nconst wrapperStyles = {\nheight: 635,\noverflowY: 'scroll',\nwidth: 360,\nmargin: 'var(--gap-20-neg)',\n};\n\nconst handleScroll = (event) => {\nconst scrolledToHeader = event.currentTarget.scrollTop > 0;\nsetScrollTop(scrolledToHeader);\n};\n\nconst css = `\ndiv[data-test-id='title'] {\npadding: 0 var(--gap-4);\n}\n`;\n\nreturn (\n<div style={wrapperStyles} onScroll={handleScroll}>\n<style>{css}</style>\n<NavigationBar\ntitle={mainContent[mainSelected].title}\nsubtitle={mainContent[mainSelected].subtitle}\nleftAddons={leftContent[leftSelected]}\nrightAddons={rightContent[rightSelected]}\nbottomAddons={bottomContent[bottomSelected]}\nalign={alignViewSelected}\nbackgroundColor={backgroundViewSelected}\nborder={border[borderViewSelected]}\nsticky={stickyViewSelected === 'yes'}\n/>\n<Gap size={24} />\n<div style={{ margin: '0px 16px 20px' }}>\n<Space size={24} fullWidth>\n<Typography.TitleMobile\nview='xsmall'\nfont='system'\nweight='semibold'\ndataTestId='title'\n>\nОсновные настройки\n</Typography.TitleMobile>\n<SelectMobile\nblock={true}\noptions={BACKGROUND_SELECT_OPTIONS}\nlabel='Цвет фона'\nlabelView='outer'\nselected={backgroundViewSelected}\nonChange={({ selected }) => setBackgroundView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n<SelectMobile\nblock={true}\noptions={BORDER_SELECT_OPTIONS}\nlabel='Бордер'\nlabelView='outer'\nselected={borderViewSelected}\nonChange={({ selected }) => setBorderView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n<SelectMobile\nblock={true}\noptions={ALIGN_SELECT_OPTIONS}\nlabel='Выравнивание'\nlabelView='outer'\nselected={alignViewSelected}\nonChange={({ selected }) => setAlignView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n<SelectMobile\nblock={true}\noptions={STICKY_SELECT_OPTIONS}\nlabel='Положение'\nlabelView='outer'\nselected={stickyViewSelected}\nonChange={({ selected }) => setStickyView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n</Space>\n<Gap size={24} />\n<Space size={24} fullWidth>\n<Typography.TitleMobile\nview='xsmall'\nfont='system'\nweight='semibold'\ndataTestId='title'\n>\nКонтент\n</Typography.TitleMobile>\n<SelectMobile\nblock={true}\noptions={MAIN_SELECT_OPTIONS}\nlabel='Основной слот'\nlabelView='outer'\nselected={mainSelected}\nonChange={({ selected }) => setMainView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n{alignViewSelected === 'center' && (\n<SelectMobile\nblock={true}\noptions={LEFT_SELECT_OPTIONS}\nlabel='Левый слот'\nlabelView='outer'\nselected={leftSelected}\nonChange={({ selected }) => setLeftView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n)}\n<SelectMobile\nblock={true}\noptions={RIGHT_SELECT_OPTIONS}\nlabel='Правый слот'\nlabelView='outer'\nselected={rightSelected}\nonChange={({ selected }) => setRightView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n<SelectMobile\nblock={true}\noptions={BOTTOM_SELECT_OPTIONS}\nlabel='Нижний слот'\nlabelView='outer'\nselected={bottomSelected}\nonChange={({ selected }) => setBottomView(selected.key)}\nOption={BaseOption}\nsize={48}\n/>\n</Space>\n</div>\n</div>\n);\n});"
+}
+],
+"changelog": []
+}

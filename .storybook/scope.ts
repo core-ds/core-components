@@ -41,4 +41,9 @@ export default {
     ...grid,
     ...dateUtils,
     ...knobs,
+    process: {
+        env: {
+            CORE_COMPONENTS_CARD_IMAGE_BASE_URL: process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+        },
+    },
 };

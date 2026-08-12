@@ -1,0 +1,89 @@
+{
+"packageName": "table",
+"displayName": "Table",
+"description": "Набор компонентов для построения таблиц.",
+"props": {
+"compactView": {
+"defaultValue": null,
+"description": "Компактный вид",
+"name": "compactView",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"compactHorizontal": {
+"defaultValue": null,
+"description": "Уменьшение горизонтальных паддингов",
+"name": "compactHorizontal",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"wrapper": {
+"defaultValue": null,
+"description": "Оборачивает таблицу в стилизованный контейнер",
+"name": "wrapper",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"pagination": {
+"defaultValue": null,
+"description": "Слот для пагинации",
+"name": "pagination",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"stickyHeader": {
+"defaultValue": null,
+"description": "Если true то заголовок будет фиксироваться при скроле",
+"name": "stickyHeader",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Простая таблица.",
+"desktop": "const data = [\n{\nid: 28,\ndate: '30.06.2022',\ntitle: 'ООО \"КОРПУС-ИТ\"',\nsum: 21000000,\n},\n{\nid: 12,\ndate: '30.06.2022',\ntitle: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МОБИЛСТИЛ\"',\nsubtitle:\n'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',\nsum: 10002030,\n},\n{\nid: 5,\ndate: '30.06.2022',\ntitle: 'ИП Жуков Валерий Сергеевич',\nsubtitle: 'Услуги по ремонту за июнь, НДС не облагается',\nsum: 3000069,\n},\n];\n\nrender(() => {\nreturn (\n<Table>\n<Table.THead>\n<Table.THeadCell title='Дата'>Дата</Table.THeadCell>\n\n<Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>\n\n<Table.THeadCell title='Сумма' textAlign='right' width={268}>\nСумма\n</Table.THeadCell>\n</Table.THead>\n<Table.TBody>\n{data.map((row) => (\n<Table.TRow key={row.id}>\n<Table.TCell>\n<Typography.Text view='primary-small' tag='div'>\n{row.date}\n</Typography.Text>\n</Table.TCell>\n\n<Table.TCell>\n<Space size={2}>\n<Typography.Text view='primary-small' tag='div'>\n{row.title}\n</Typography.Text>\n<Typography.Text view='primary-small' color='secondary'>\n{row.subtitle}\n</Typography.Text>\n</Space>\n</Table.TCell>\n\n<Table.TCell>\n<Amount\nvalue={row.sum}\ncurrency='RUR'\nminority={100}\nview='withZeroMinorPart'\nbold='full'\ntransparentMinor={true}\n/>\n</Table.TCell>\n</Table.TRow>\n))}\n</Table.TBody>\n</Table>\n);\n});"
+},
+{
+"title": "Настройка колонок",
+"description": "Задавая настройки для `THeadCell` можно контролировать отображение колонки целиком:\n\n-   `hidden` — позволяет скрыть колонку\n-   `width` — задает ширину колонки\n-   `textAlign` — задает выравнивание контента",
+"desktop": "const data = [\n{\nid: 28,\ndate: '30.06.2022',\ntitle: 'ООО \"КОРПУС-ИТ\"',\nsum: 21000000,\n},\n{\nid: 12,\ndate: '30.06.2022',\ntitle: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МОБИЛСТИЛ\"',\nsubtitle:\n'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',\nsum: 10002030,\n},\n{\nid: 5,\ndate: '30.06.2022',\ntitle: 'ИП Жуков Валерий Сергеевич',\nsubtitle: 'Услуги по ремонту за июнь, НДС не облагается',\nsum: 3000069,\n},\n];\n\nrender(() => {\nreturn (\n<Table>\n<Table.THead>\n<Table.THeadCell title='Id' hidden={true}>\nId\n</Table.THeadCell>\n\n<Table.THeadCell title='Дата' width={120}>\nДата\n</Table.THeadCell>\n\n<Table.THeadCell title='Контрагент' textAlign='center'>\nКонтрагент\n</Table.THeadCell>\n\n<Table.THeadCell title='Сумма' textAlign='right' width={268}>\nСумма\n</Table.THeadCell>\n</Table.THead>\n<Table.TBody>\n{data.map((row) => (\n<Table.TRow key={row.id}>\n<Table.TCell>{row.id}</Table.TCell>\n\n<Table.TCell>\n<Typography.Text view='primary-small' tag='div'>\n{row.date}\n</Typography.Text>\n</Table.TCell>\n\n<Table.TCell>\n<Space size={2} align='center'>\n<Typography.Text view='primary-small' tag='div'>\n{row.title}\n</Typography.Text>\n<Typography.Text view='primary-small' color='secondary'>\n{row.subtitle}\n</Typography.Text>\n</Space>\n</Table.TCell>\n\n<Table.TCell>\n<Amount\nvalue={row.sum}\ncurrency='RUR'\nminority={100}\nview='withZeroMinorPart'\nbold='full'\ntransparentMinor={true}\n/>\n</Table.TCell>\n</Table.TRow>\n))}\n</Table.TBody>\n</Table>\n);\n});"
+},
+{
+"title": "Сортировка",
+"description": "Реализация сортировки лежит на разработчике, пакет предоставляет только компоненты для сборки UI.\nTSortableHeadCell позволяет отобразить индикатор сортировки и вызвать обработчик сортировки при клике.\n\n-   Если `isSortedDesc=true` — показывается индиктор сортировки по убыванию (desc)\n-   Если `isSortedDesc=false` — показывается индиктор по возрастанию (asc)\n-   Если `isSortedDesc=undefined` — показывается индиктор, что данные не отсортированы (unset)\n\nЕсли нужно показать, что данные отсортированы заранее, то можно использовать `defaultIsSortedDesc`, тогда иконка индикатора будет серой, а не синей.\nКод сортировки указан только в качестве примера. В реальном приложении следует реализовать более универсальный подход.",
+"desktop": "const data = [\n{\nid: 1,\ndate: '27.06.2022',\ntitle: 'ИП Жуков Валерий Сергеевич',\nsubtitle: 'Услуги по ремонту за июнь, НДС не облагается',\nsum: 21000000,\n},\n{\nid: 2,\ndate: '28.06.2022',\ntitle: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МОБИЛСТИЛ\"',\nsubtitle:\n'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',\nsum: 10002030,\n},\n{\nid: 3,\ndate: '29.06.2022',\ntitle: 'ООО \"КОРПУС-ИТ\"',\nsum: 3000069,\n},\n{\nid: 4,\ndate: '30.06.2022',\ntitle: 'MasterBrok',\nsum: 42130000,\n},\n];\n\nrender(() => {\nconst [sortKey, setSortKey] = React.useState(undefined);\nconst [isSortedDesc, setIsSortedDesc] = React.useState(undefined);\n\nconst defaultIsSortedDesc = false;\n\nconst handleSort = (key) => {\nsetSortKey(key);\n\nif (isSortedDesc !== undefined) {\nsetIsSortedDesc(!isSortedDesc ? undefined : defaultIsSortedDesc);\n} else {\nsetIsSortedDesc(!defaultIsSortedDesc);\n}\n};\n\nconst sortedData = React.useMemo(() => {\nif (!sortKey || isSortedDesc === undefined) return data;\n\nreturn [...data].sort((a, b) => {\nif (sortKey === 'sum') {\nreturn isSortedDesc ? b.sum - a.sum : a.sum - b.sum;\n}\n\nif (sortKey === 'date') {\nreturn isSortedDesc ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date);\n}\n});\n}, [data, isSortedDesc, sortKey]);\n\nreturn (\n<Table>\n<Table.THead>\n<Table.TSortableHeadCell\ntitle='Дата'\ndefaultIsSortedDesc={defaultIsSortedDesc}\nisSortedDesc={sortKey === 'date' ? isSortedDesc : undefined}\nonSort={() => handleSort('date')}\n>\nДата\n</Table.TSortableHeadCell>\n\n<Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>\n\n<Table.TSortableHeadCell\ntitle='Сумма'\nisSortedDesc={sortKey === 'sum' ? isSortedDesc : undefined}\nonSort={() => handleSort('sum')}\n>\nСумма\n</Table.TSortableHeadCell>\n</Table.THead>\n<Table.TBody>\n{sortedData.map((row) => (\n<Table.TRow key={row.id}>\n<Table.TCell>\n<Typography.Text view='primary-small' tag='div'>\n{row.date}\n</Typography.Text>\n</Table.TCell>\n\n<Table.TCell>\n<Space size={2}>\n<Typography.Text view='primary-small' tag='div'>\n{row.title}\n</Typography.Text>\n<Typography.Text view='primary-small' color='secondary'>\n{row.subtitle}\n</Typography.Text>\n</Space>\n</Table.TCell>\n\n<Table.TCell>\n<Amount\nvalue={row.sum}\ncurrency='RUR'\nminority={100}\nview='withZeroMinorPart'\nbold='full'\ntransparentMinor={true}\n/>\n</Table.TCell>\n</Table.TRow>\n))}\n</Table.TBody>\n</Table>\n);\n});"
+},
+{
+"title": "Пагинация",
+"description": "Для реализации пагинации следует использовать компонент [Pagination](?path=/docs/pagination--docs).\nКак и в случае с сортировкой, контроль над данными лежит на разработчике.",
+"desktop": "const data = [\n{\nid: 28,\ndate: '30.06.2022',\ntitle: 'ООО \"КОРПУС-ИТ\"',\nsum: 21000000,\n},\n{\nid: 12,\ndate: '30.06.2022',\ntitle: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МОБИЛСТИЛ\"',\nsubtitle:\n'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',\nsum: 10002030,\n},\n{\nid: 5,\ndate: '30.06.2022',\ntitle: 'ИП Жуков Валерий Сергеевич',\nsubtitle: 'Услуги по ремонту за июнь, НДС не облагается',\nsum: 3000069,\n},\n{\nid: 4,\ndate: '30.06.2022',\ntitle: 'ООО \"Берест\"',\nsum: 84300,\n},\n{\nid: 1,\ndate: '30.06.2022',\ntitle: 'УФК по Свердловской области (Государственное учреждение - Свердловское региональное отделение Фонда социального страхования Российской Федерации)',\nsum: 15900,\n},\n{\nid: 27,\ndate: '21.10.2021',\ntitle: 'MasterBrok',\nsum: 106000,\n},\n{\nid: 26,\ndate: '20.10.2021',\ntitle: 'MR ANTON TAGUNOV',\nsum: 189800,\n},\n];\n\nArray(100)\n.fill('')\n.forEach((_, i) =>\ndata.push({\nid: (i + 1) * 100,\ndate: '20.10.2021',\ntitle: `Контрагент #${i + 1}`,\nsum: 1000000 + (i + 1) * 10000,\n}),\n);\n\nrender(() => {\nconst [perPage, setPerPage] = React.useState(5);\nconst [page, setPage] = React.useState(0);\n\nconst handlePerPageChange = (value) => {\nsetPage(0);\nsetPerPage(value);\n};\n\nconst handlePageChange = (pageIndex) => setPage(pageIndex);\n\nconst pagesCount = Math.ceil(data.length / perPage);\n\nconst currentPageData = React.useMemo(() => {\nreturn data.slice(page * perPage).slice(0, perPage);\n}, [data, page, perPage]);\n\nreturn (\n<Table\npagination={\n<Table.Pagination\nperPage={perPage}\ncurrentPageIndex={page}\npagesCount={pagesCount}\npossiblePerPage={[5, 25, 50, 100]}\nonPageChange={handlePageChange}\nonPerPageChange={handlePerPageChange}\n/>\n}\n>\n<Table.THead>\n<Table.THeadCell title='Дата' width='120px'>\nДата\n</Table.THeadCell>\n\n<Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>\n\n<Table.THeadCell title='Сумма' textAlign='right' width={268}>\nСумма\n</Table.THeadCell>\n</Table.THead>\n<Table.TBody>\n{currentPageData.map((row) => (\n<Table.TRow key={row.id}>\n<Table.TCell>\n<Typography.Text view='primary-small' tag='div'>\n{row.date}\n</Typography.Text>\n</Table.TCell>\n\n<Table.TCell>\n<Typography.Text view='primary-small' tag='div'>\n{row.title}\n</Typography.Text>\n</Table.TCell>\n\n<Table.TCell>\n<Amount\nvalue={row.sum}\ncurrency='RUR'\nminority={100}\nview='withZeroMinorPart'\nbold='full'\ntransparentMinor={true}\n/>\n</Table.TCell>\n</Table.TRow>\n))}\n</Table.TBody>\n</Table>\n);\n});"
+},
+{
+"title": "Раскрывающаяся строка",
+"description": "`TExpandableRow` позволяет реализовывать раскрывающиеся строки.\nСкрытый контент отрисовывается с помощью рендер-пропса `renderContent`, в который передается состояние `expanded`.\nЭто позволяет более гибко управлять рендером и, например, использовать [Collapse](?path=/docs/collapse--docs) для плавного раскрытия.\n\n`TExpandableRow` может использоваться как в uncontrolled, так и controlled режиме, когда нужно самостоятельно управлять раскрытием.",
+"desktop": "const data = [\n{\nid: 5,\ndate: '30.06.2022',\ntitle: 'ИП Жуков Валерий Сергеевич',\nsubtitle: 'Услуги по ремонту за июнь, НДС не облагается',\nsum: 21000000,\n},\n{\nid: 12,\ndate: '30.06.2022',\ntitle: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МОБИЛСТИЛ\"',\nsubtitle:\n'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',\nsum: 10002030,\n},\n{\nid: 28,\ndate: '30.06.2022',\ntitle: 'ООО \"КОРПУС-ИТ\"',\nsum: 3000069,\n},\n];\n\nrender(() => {\nreturn (\n<Table>\n<Table.THead>\n<Table.THeadCell title='Дата'>Дата</Table.THeadCell>\n\n<Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>\n\n<Table.THeadCell title='Сумма' textAlign='right' width={268}>\nСумма\n</Table.THeadCell>\n</Table.THead>\n<Table.TBody>\n{data.map((row) => (\n<Table.TExpandableRow\nkey={row.id}\ndefaultExpanded={row.id === 5}\nrenderContent={(expanded) => (\n<>\n<Table.TCell colSpan={1} />\n<Table.TCell colSpan={2}>\n<Collapse expanded={expanded}>\n<div style={{ paddingBottom: '16px' }}>\n<div\nstyle={{\nborder: '1px dashed #007AFF',\nheight: '200px',\n}}\n/>\n</div>\n</Collapse>\n</Table.TCell>\n</>\n)}\n>\n<Table.TCell>\n<Typography.Text view='primary-small' tag='div'>\n{row.date}\n</Typography.Text>\n</Table.TCell>\n\n<Table.TCell>\n<Space size={2}>\n<Typography.Text view='primary-small' tag='div'>\n{row.title}\n</Typography.Text>\n<Typography.Text view='primary-small' color='secondary'>\n{row.subtitle}\n</Typography.Text>\n</Space>\n</Table.TCell>\n\n<Table.TCell>\n<Amount\nvalue={row.sum}\ncurrency='RUR'\nminority={100}\nview='withZeroMinorPart'\nbold='full'\ntransparentMinor={true}\n/>\n</Table.TCell>\n</Table.TExpandableRow>\n))}\n</Table.TBody>\n</Table>\n);\n});"
+}
+],
+"changelog": []
+}

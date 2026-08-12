@@ -17,7 +17,8 @@ const colorCommonStyles = {
     inverted: invertedColors,
 } as const;
 
-const INDICATOR_TAG_SIZES = [32, 40] as const;
+const INDICATOR_TAG_SIZES = [32, 40, 48] as const;
+const INDICATOR_TAG_VIEWS = ['filled', 'muted'] as const;
 
 export interface IndicatorTagProps
     extends Omit<
@@ -32,7 +33,8 @@ export interface IndicatorTagProps
         | 'childrenRef'
         | 'size'
     > {
-    size?: 32 | 40;
+    size?: 32 | 40 | 48;
+    view?: 'filled' | 'muted';
     colorStyles?: StyleColors['default'];
     styles?: BaseTagProps['styles'];
     onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -48,6 +50,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
             className,
             childrenClassName,
             shape = 'rounded',
+            view = 'muted',
             checked,
             children,
             leftAddons,
@@ -55,7 +58,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
             dataTestId,
             onClick,
             focused = false,
-            colorStyles,
+            colorStyles = {},
             style,
             styles = {},
             ...restProps
@@ -73,8 +76,11 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
         const pathMode = hasIndicator ? mode : 'none';
 
         const colorStyle = colorCommonStyles?.[colors];
+        const indicatorView = INDICATOR_TAG_VIEWS.includes(view) ? view : 'filled';
+
         const { width, height, indicatorX, indicatorY } =
-            indicatorTagGeometry[mode][indicatorTagSize];
+            indicatorTagGeometry[shape][mode][indicatorTagSize];
+
         const shapePath = indicatorTagPaths[shape][pathMode][indicatorTagSize];
 
         const buttonProps = {
@@ -82,8 +88,10 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                 commonStyles.badgeIcon,
                 commonStyles[`size-${indicatorTagSize}`],
                 colorStyle.badgeIcon,
-                colorStyles?.indicatorFilled,
+                colorStyle[indicatorView],
                 styles[shape],
+                colorStyles?.[indicatorView],
+                colorStyles?.badgeIcon,
                 className,
                 {
                     [commonStyles.focused]: focused,
@@ -105,9 +113,14 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                     focusable={false}
                 >
                     <path
-                        className={cn(commonStyles.shapePath, colorStyle.shapePath, {
-                            [colorStyle.checkedShapePath]: Boolean(checked),
-                        })}
+                        className={cn(
+                            commonStyles.shapePath,
+                            colorStyle.shapePath,
+                            colorStyles?.shapePath,
+                            {
+                                [colorStyle.checkedShapePath]: Boolean(checked),
+                            },
+                        )}
                         d={shapePath}
                     />
                 </svg>

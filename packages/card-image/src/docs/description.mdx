@@ -4,7 +4,7 @@
 <CardImage
     cardId='EG'
     width={isMobile() ? 320 : 380}
-    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+    baseUrl={process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
     className='some name'
     id='some id'
     dataTestId='test id'

@@ -55,6 +55,7 @@ export interface UniversalModalDesktopProps
                 | 'dataTestId'
                 | 'className'
                 | 'wrapperClassName'
+                | 'onMount'
                 | 'onUnmount'
                 | 'transitionProps'
                 | 'backdropProps'
@@ -62,6 +63,8 @@ export interface UniversalModalDesktopProps
                 | 'onClose'
                 | 'disableFocusLock'
                 | 'container'
+                | 'disableRestoreFocus'
+                | 'disableAutoFocus'
             >
         > {
     /**

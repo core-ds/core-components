@@ -8,6 +8,7 @@ import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
+import { getHugContentStyles } from '../../utils/get-hug-content-styles';
 import { getMarginStyles } from '../../utils/get-margin-styles';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
@@ -57,7 +58,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             ref={ref}
             componentRef={componentRef}
             scrollHandler='content'
-            scrollLock={overlay}
+            disableBlockingScroll={withoutOverlay}
             wrapperClassName={cn(styles.baseModalContainer, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
@@ -65,7 +66,8 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 [styles.withoutOverlay]: withoutOverlay,
             })}
             className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin, height }),
+                ...getMarginStyles({ styles, margin }),
+                ...getHugContentStyles({ styles, margin, height }),
             })}
             transitionProps={{
                 classNames: transitionProps,

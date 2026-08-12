@@ -1,0 +1,47 @@
+{
+"packageName": "portal",
+"displayName": "Portal",
+"description": "Используется для рендера дочерних элементов в DOM-узел, который находится вне DOM-иерархии родительского компонента.",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"getPortalContainer": {
+"defaultValue": null,
+"description": "Функция, возвращающая контейнер, в который будут рендериться дочерние элементы",
+"name": "getPortalContainer",
+"required": false,
+"type": {
+"name": "(() => Element | null | undefined) | undefined"
+}
+},
+"immediateMount": {
+"defaultValue": null,
+"description": "Немедленно отрендерить дочерние элементы (false - контент будет отрендерен на след. рендер).",
+"name": "immediateMount",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst [show, setShow] = React.useState(false);\nconst containerRef = React.useRef();\n\nconst handleClick = () => setShow(!show);\n\nconst styles = {\ndisplay: 'flex',\nflexDirection: 'column',\nalignItems: 'center',\njustifyContent: 'center',\nwidth: 240,\nheight: 95,\nborder: '1px solid var(--color-light-neutral-300)',\nborderRadius: 8,\nmarginTop: 6,\n};\n\nconst styleText = {\ncolor: 'var(--color-light-text-secondary)',\nfontSize: '14px',\nlineHeight: '18px',\n}\n\nreturn (\n<Container>\n<Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>\n<div>\n{show && (\n<Portal getPortalContainer={() => containerRef.current}>\n<StarMIcon />\n</Portal>\n)}\n</div>\n<Gap size={24}/>\n<div style={styleText}>Контейнер для контента портала</div>\n<div ref={containerRef} style={styles}/>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks\n\n#### [#2249](https://github.com/core-ds/core-components/pull/2249)\n\n- Возвращена проверка доступности dom узла"
+}
+]
+}

@@ -1,0 +1,206 @@
+{
+"packageName": "calendar-range",
+"displayName": "CalendarRange",
+"description": "Используется для ввода диапазона дат.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"valueFrom": {
+"defaultValue": null,
+"description": "Значение инпута (используется и для календаря)",
+"name": "valueFrom",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"valueTo": {
+"defaultValue": null,
+"description": "Значение инпута (используется и для календаря)",
+"name": "valueTo",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultMonth": {
+"defaultValue": null,
+"description": "Месяц в календаре по умолчанию",
+"name": "defaultMonth",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"minDate": {
+"defaultValue": null,
+"description": "Минимальная дата, доступная для выбора (timestamp)",
+"name": "minDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"maxDate": {
+"defaultValue": null,
+"description": "Максимальная дата, доступная для выбора (timestamp)",
+"name": "maxDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"onDateFromChange": {
+"defaultValue": null,
+"description": "Обработчик изменения даты от",
+"name": "onDateFromChange",
+"required": false,
+"type": {
+"name": "((payload: { date: number | null; value: string; }) => void) | undefined"
+}
+},
+"onDateToChange": {
+"defaultValue": null,
+"description": "Обработчик изменения даты до",
+"name": "onDateToChange",
+"required": false,
+"type": {
+"name": "((payload: { date: number | null; value: string; }) => void) | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((payload: { dateFrom: number | null; valueFrom: string; dateTo: number | null; valueTo: string; }) => void) | undefined"
+}
+},
+"onError": {
+"defaultValue": null,
+"description": "Коллбэк, срабатывающий при возникновении ошибок валидации дат внутри компонента.",
+"name": "onError",
+"required": false,
+"type": {
+"name": "((hasError: boolean) => void) | undefined"
+}
+},
+"events": {
+"defaultValue": null,
+"description": "Список событий",
+"name": "events",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"offDays": {
+"defaultValue": null,
+"description": "Список выходных",
+"name": "offDays",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"inputFromProps": {
+"defaultValue": null,
+"description": "Пропсы для инпута даты от",
+"name": "inputFromProps",
+"required": false,
+"type": {
+"name": "CalendarInputResponsiveProps | undefined"
+}
+},
+"inputToProps": {
+"defaultValue": null,
+"description": "Пропсы для инпута даты до",
+"name": "inputToProps",
+"required": false,
+"type": {
+"name": "CalendarInputResponsiveProps | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"calendarPosition": {
+"defaultValue": {
+"value": "static"
+},
+"description": "Определяет, как рендерить календарь — в поповере или снизу инпута",
+"name": "calendarPosition",
+"required": false,
+"type": {
+"name": "\"static\" | \"popover\" | undefined"
+}
+},
+"defaultMonthPosition": {
+"defaultValue": null,
+"description": "calendarPosition = static\nОтображать начальный месяц слева или справа (влияет только на начальный рендер)",
+"name": "defaultMonthPosition",
+"required": false,
+"type": {
+"name": "\"left\" | \"right\" | undefined"
+}
+},
+"returnInvalidDates": {
+"defaultValue": null,
+"description": "Возвращать невалидную дату для кастомной валидации",
+"name": "returnInvalidDates",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"calendarContainerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контейнера календаря",
+"name": "calendarContainerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"autoSwap": {
+"defaultValue": null,
+"description": "Автоподмена дат",
+"name": "autoSwap",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Доступные даты с 10 декабря 2021 по 10 июня 2022.",
+"desktop": "// import { startOfDay, subMonths, addMonths, startOfMonth, startOfDay } from 'date-fns';\n// import { parseDateString } from '@alfalab/core-components/calendar-input';\n\nrender(() => {\nconst [calendarPosition, setCalendarPosition] = React.useState('static');\n\nconst defaultDate = parseDateString('10.03.2022');\nconst [valueFrom, setValueFrom] = React.useState({ value: '', date: null });\nconst [valueTo, setValueTo] = React.useState({ value: '', date: null });\n\nconst minDate = subMonths(startOfDay(defaultDate), 3).getTime();\nconst maxDate = addMonths(startOfDay(defaultDate), 3).getTime();\n\nreturn (\n<Space size={24}>\n<CalendarRange\nvalueFrom={valueFrom.value}\nvalueTo={valueTo.value}\nminDate={minDate}\nmaxDate={maxDate}\ndefaultMonth={startOfMonth(defaultDate)}\noffDays={[startOfDay(defaultDate)]}\ncalendarPosition={calendarPosition}\nonChange={({ valueFrom, valueTo, dateFrom, dateTo }) => {\nsetValueFrom({ value: valueFrom, date: dateFrom });\nsetValueTo({ value: valueTo, date: dateTo });\n}}\n/>\n<>\n<Typography.Text view='primary-medium' color='secondary'>\nValues: {valueFrom.value} — {valueTo.value}\n</Typography.Text>\n<Gap size={16} />\n<Typography.Text view='primary-medium' color='secondary'>\nDates:\n{valueFrom.date &&\n(() => {\nconst dateObj = new Date(valueFrom.date);\nreturn isNaN(dateObj.getTime())\n? ''\n: formatDate(dateObj, 'dd.MM.yyyy');\n})()}\n{' — '}\n{valueTo.date &&\n(() => {\nconst dateObj = new Date(valueTo.date);\nreturn isNaN(dateObj.getTime())\n? ''\n: formatDate(dateObj, 'dd.MM.yyyy');\n})()}\n</Typography.Text>\n</>\n<RadioGroup\nlabel='Конфигурация пикера'\ndirection='vertical'\nonChange={(_, { value }) => setCalendarPosition(value)}\nvalue={calendarPosition}\n>\n<Radio label='Доступен сразу' value='static' />\n<Radio label='Открывается в popover' value='popover' />\n</RadioGroup>\n</Space>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.19.0",
+"description": "#### [#1702](https://github.com/core-ds/core-components/pull/1702)\n\n- Добавлено переключение фокуса при обмене датами между инпутами\n- Добавлен обмен датами между инпутами при изменении правого инпута\n- Отключена автокоррекция даты\n- Исправлен баг с мигающими датами\n- Исправлен баг с датой в демо"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+}
+]
+}

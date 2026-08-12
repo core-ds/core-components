@@ -6,6 +6,7 @@ import {
     type MouseEvent,
     type ReactElement,
     type ReactNode,
+    type Ref,
     type RefAttributes,
     type SVGProps,
 } from 'react';
@@ -155,6 +156,7 @@ export interface BaseSelectProps {
 
     /**
      * Размер пунктов меню
+     * @deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.
      */
     optionsSize?: 40 | 48 | 56 | 64 | 72;
 
@@ -691,6 +693,26 @@ export type OptionsListProps = Pick<SelectProps, 'client'> & {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
+
+    /**
+     *
+     */
+    scrollableNodeClassName?: string;
+
+    /**
+     *
+     */
+    contentNodeClassName?: string;
+
+    /**
+     *
+     */
+    listNodeClassName?: string;
+
+    /**
+     *
+     */
+    ctrlRef?: Ref<OptionsListController>;
 };
 
 export type OptgroupProps = {
@@ -1003,3 +1025,7 @@ export type ClearButtonProps = {
      */
     size?: FormControlProps['size'];
 };
+
+export interface OptionsListController {
+    scrollToIndex(index: number): void;
+}

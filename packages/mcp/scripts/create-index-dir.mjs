@@ -11,7 +11,7 @@ const { version } = rootPackageJson;
 
 export function createIndexDir() {
     const indexDir = `v${version}`;
-    const versionDir = path.resolve(dirname, '..', 'data', indexDir);
+    const versionDir = path.resolve(dirname, '..', 'src', 'data', indexDir);
 
     rmSync(versionDir, { recursive: true, force: true });
     mkdirSync(versionDir, { recursive: true });
@@ -21,7 +21,7 @@ export function createIndexDir() {
         `export const DATA_VERSION = 'v${version}';\n`,
     );
 
-    console.log(`📁  Created directory: ${indexDir}`);
+    console.log(`📁 Created directory: ${indexDir}`);
 
     return versionDir;
 }

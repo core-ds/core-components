@@ -1,13 +1,5 @@
 @import '@alfalab/core-components-vars/src/index.css';
-
-:root {
-    --scrollbar-rail-size: 12px;
-    --scrollbar-thumb-size: 4px;
-    --scrollbar-hover-size: 6px;
-    --scrollbar-thumb-border-radius: 3px;
-    --scrollbar-thumb-side-outer-offset: var(--gap-4);
-    --scrollbar-thumb-margin: 3px;
-}
+@import './vars.css';
 
 .component {
     position: relative;

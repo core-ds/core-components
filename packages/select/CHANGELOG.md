@@ -1,5 +1,72 @@
 # @alfalab/core-components-select
 
+## 19.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-checkbox@6.2.4
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-bottom-sheet@8.1.12
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-modal@11.0.15
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+
+## 19.2.1
+
+### Patch Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2277](https://github.com/core-ds/core-components/pull/2277)
+
+##### Select
+
+- Повышена специфичность CSS-правила для фона выпадающего списка Select
+
+## 19.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Select
+
+- Добавлена возможность использования нового внешнего вида компонента `OptionsList`
+- Внутренние исправления и улучшения
+
+### Patch Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2232](https://github.com/core-ds/core-components/pull/2232)
+
+##### Select
+
+- Исправлена поддержка `size={40}` в `Select`
+- Проп `optionsSize` помечен как deprecated: размер пунктов списка определяется контентом
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-scrollbar-private@0.0.1
+- @alfalab/core-components-bottom-sheet@8.1.11
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-checkbox@6.2.3
+- @alfalab/core-components-form-control@14.0.8
+- @alfalab/core-components-input@17.1.9
+- @alfalab/core-components-modal@11.0.14
+- @alfalab/core-components-mq@6.0.6
+
 ## 19.1.10
 
 ### Patch Changes
@@ -2741,7 +2808,7 @@
 
 ### [#346](https://github.com/core-ds/core-components/pull/346)
 
-- В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компоненте Select иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### [#329](https://github.com/core-ds/core-components/pull/329)
 
@@ -2929,8 +2996,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [11.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@11.1.3...@alfalab/core-components-select@11.1.4) (2022-08-17)
 
 ### Bug Fixes
@@ -2959,11 +3024,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
-- Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+- Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.ru data: 'self'`
 
 - chore(screenshot-utils): change cdn
 

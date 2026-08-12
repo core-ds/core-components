@@ -327,6 +327,33 @@ describe('Gallery desktop', () => {
             expect(queryByTestId(TestIds.PREV_SLIDE_BUTTON)).not.toBeInTheDocument();
             expect(queryByTestId(TestIds.NEXT_SLIDE_BUTTON)).not.toBeInTheDocument();
         });
+
+        it('should show image after exit fullscreen mode', async () => {
+            const { getByTestId } = render(
+                <Gallery open={true} images={[images[0]]} onClose={() => null} />,
+            );
+
+            const activeImage = getByTestId(TestIds.ACTIVE_IMAGE);
+
+            Object.defineProperties(activeImage, {
+                naturalWidth: { value: 1000, configurable: true },
+                naturalHeight: { value: 500, configurable: true },
+            });
+
+            fireEvent.load(activeImage);
+
+            const fullscreenButton = getByTestId(TestIds.FULLSCREEN_BUTTON);
+
+            fireEvent.click(fullscreenButton);
+
+            const exitFullscreenButton = getByTestId(TestIds.EXIT_FULLSCREEN_BUTTON);
+
+            fireEvent.click(exitFullscreenButton);
+
+            await waitFor(() => {
+                expect(getByTestId(TestIds.ACTIVE_IMAGE)).not.toHaveStyle({ maxHeight: '0px' });
+            });
+        });
     });
 
     it('should unmount without errors', () => {

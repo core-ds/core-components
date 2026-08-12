@@ -15,5 +15,6 @@
 .sticky {
     position: sticky;
     bottom: var(--gap-0);
+    left: var(--gap-0);
     z-index: 1;
 }

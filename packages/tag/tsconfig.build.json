@@ -11,12 +11,15 @@
             "@alfalab/core-components-indicator/*": ["../indicator/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-tag": ["./src"],
             "@alfalab/core-components-tag/*": ["./src/*"]
         }
     },
     "references": [
         { "path": "../indicator/tsconfig.build.json" },
-        { "path": "../mq/tsconfig.build.json" }
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
     ]
 }

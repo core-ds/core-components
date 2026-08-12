@@ -1,40 +1,73 @@
 @import '../vars.css';
 
-.filled,
-.indicatorFilled {
-    --tag-filled-background-color: var(--tag-filled-mobile-background-color);
-    --tag-filled-background-color-hover: var(--tag-filled-mobile-background-color-hover);
-    --tag-filled-background-color-active: var(--tag-filled-mobile-background-color-active);
-}
+.badgeIcon {
+    &.filled {
+        path.shapePath {
+            fill: var(--tag-mobile-filled-background-color);
+        }
 
-.indicatorFilled > svg > path {
-    fill: var(--tag-filled-mobile-background-color);
-}
+        &:active:not(:disabled) path.shapePath {
+            fill: var(--tag-mobile-filled-background-color-active);
+        }
 
-.indicatorFilled:active:not(:disabled) > svg > path {
-    fill: var(--tag-filled-mobile-background-color-active);
-}
-
-@media (hover: hover) {
-    .indicatorFilled:hover > svg > path {
-        fill: var(--tag-filled-mobile-background-color-hover);
+        @media (hover: hover) {
+            path.shapePath:hover {
+                fill: var(--tag-mobile-filled-background-color-hover);
+            }
+        }
     }
 }
 
 .filled {
-    background-color: var(--tag-filled-mobile-background-color);
+    background-color: var(--tag-mobile-filled-background-color);
 
     &:disabled {
-        background-color: var(--tag-filled-mobile-background-color-disabled);
+        background-color: var(--tag-mobile-filled-background-color-disabled);
     }
 
     @media (hover: hover) {
         &:hover:not(:disabled) {
-            background-color: var(--tag-filled-mobile-background-color-hover);
+            background-color: var(--tag-mobile-filled-background-color-hover);
         }
     }
 
     &:active:not(:disabled) {
-        background-color: var(--tag-filled-mobile-background-color-active);
+        background-color: var(--tag-mobile-filled-background-color-active);
+    }
+}
+
+.muted {
+    background-color: var(--tag-mobile-muted-background-color);
+
+    &:disabled {
+        background-color: var(--tag-mobile-muted-background-color-disabled);
+    }
+
+    @media (hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: var(--tag-mobile-muted-background-color-hover);
+        }
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-mobile-muted-background-color-active);
+    }
+
+    &.checked {
+        background-color: var(--tag-mobile-muted-checked-background-color);
+
+        &:disabled {
+            background-color: var(--tag-mobile-muted-checked-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-mobile-muted-checked-background-color-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-mobile-muted-checked-background-color-active);
+        }
     }
 }

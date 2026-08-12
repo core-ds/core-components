@@ -212,6 +212,52 @@ describe('FileUploadItem', () => {
 
             expect(element).toBeInTheDocument();
         });
+
+        it('should set default subtitleColor secondary', () => {
+            const subtitle = 'subtitle';
+
+            render(
+                <FileUploadItem title='title' subtitle={subtitle} uploadStatus='INITIAL'>
+                    <FileUploadItem.Content />
+                </FileUploadItem>,
+            );
+
+            expect(screen.getByText(subtitle)).toHaveClass('secondary');
+        });
+
+        it('should set subtitleColor attention', () => {
+            const subtitle = 'subtitle';
+
+            render(
+                <FileUploadItem
+                    title='title'
+                    subtitle={subtitle}
+                    subtitleColor='attention'
+                    uploadStatus='INITIAL'
+                >
+                    <FileUploadItem.Content />
+                </FileUploadItem>,
+            );
+
+            expect(screen.getByText(subtitle)).toHaveClass('attention');
+        });
+
+        it('should set subtitleColor accent', () => {
+            const subtitle = 'subtitle';
+
+            render(
+                <FileUploadItem
+                    title='title'
+                    subtitle={subtitle}
+                    subtitleColor='accent'
+                    uploadStatus='INITIAL'
+                >
+                    <FileUploadItem.Content />
+                </FileUploadItem>,
+            );
+
+            expect(screen.getByText(subtitle)).toHaveClass('accent');
+        });
     });
 
     describe('Error tests', () => {

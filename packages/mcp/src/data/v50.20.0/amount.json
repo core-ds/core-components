@@ -1,0 +1,159 @@
+{
+"packageName": "amount",
+"displayName": "Amount",
+"description": "Используется для отображения сумм.",
+"props": {
+"value": {
+"defaultValue": null,
+"description": "Денежное значение в минорных единицах",
+"name": "value",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"currency": {
+"defaultValue": null,
+"description": "Валюта",
+"name": "currency",
+"required": false,
+"type": {
+"name": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ... | undefined"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"minority": {
+"defaultValue": null,
+"description": "Количество минорных единиц в валюте",
+"name": "minority",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"codeFormat": {
+"defaultValue": null,
+"description": "Формат отображения кода валюты",
+"name": "codeFormat",
+"required": false,
+"type": {
+"name": "\"letter\" | \"symbolic\" | undefined"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"default\" | \"withZeroMinorPart\" | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Управление жирностью\n@deprecated Используйте проп {@link AmountProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "\"full\" | \"major\" | \"none\" | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Управление жирностью",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | { major: \"bold\" | \"medium\"; } | undefined"
+}
+},
+"transparentMinor": {
+"defaultValue": null,
+"description": "Делает минорную часть полупрозрачной",
+"name": "transparentMinor",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"showPlus": {
+"defaultValue": null,
+"description": "Показывать значок + для положительных значений",
+"name": "showPlus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"trimZero": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Обрезать ноль в минорной части. Например: 1.70 -> 1.7",
+"name": "trimZero",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент состоит из четырёх частей: мажорной, минорной, валютной и дополнительного слота.",
+"desktop": "render(() => {\nconst [minor, setMinor] = React.useState(true);\nconst [currency, setCurrency] = React.useState(false);\nconst [rightAddons, setRightAddons] = React.useState(false);\nconst [rightAddonsWithIcon, setRightAddonsWithIcon] = React.useState(false);\n\nconst handleMinorChange = () => setMinor(!minor);\nconst handleCurrencyChange = () => setCurrency(!currency);\nconst handleRightAddonsChange = () => {\nsetRightAddons(!rightAddons);\nsetRightAddonsWithIcon(false);\n};\nconst handleRightAddonsWithIconChange = () => {\nsetRightAddonsWithIcon(!rightAddonsWithIcon);\nsetRightAddons(false);\n};\n\nconst styleAddons = {\nborderRadius: '99px',\nbackground: 'linear-gradient(264deg, #FF42CA 0%, #FF8A00 100%)',\nboxSizing: 'border-box',\npadding: '6px 12px',\ndisplay: 'inline-flex',\nverticalAlign: 'bottom',\nmarginLeft: '4px',\n};\n\nconst rightAddonsContent = rightAddons && (\n<span style={styleAddons}>\n<Typography.Text\nview='primary-medium'\nweight='medium'\nfont='system'\ncolor='primary-inverted'\n>\nCustom\n</Typography.Text>\n</span>\n);\n\nconst rightAddonsWithIconContent = rightAddonsWithIcon && (\n<span style={{ marginLeft: '5px', display: 'inline-flex' }}>\n<CDNIcon color='var(--color-dark-accent-primary)' name='glyph_diamonds_s' />\n</span>\n);\n\nreturn (\n<Container>\n<Typography.Title font='system' view='medium' weight='regular'>\n<AmountComponent\nvalue={123456700}\nminority={100}\ncurrency={currency && 'RUB'}\nview={minor ? 'withZeroMinorPart' : 'default'}\nrightAddons={rightAddonsContent || rightAddonsWithIconContent}\n/>\n</Typography.Title>\n<Gap size={24} />\n<Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />\n<Gap size={20} />\n<Switch label='Валюта' checked={currency} onChange={handleCurrencyChange} />\n<Gap size={20} />\n<Switch\nlabel='Кастомный слот'\nchecked={rightAddons}\nonChange={handleRightAddonsChange}\n/>\n<Gap size={20} />\n<Switch\nlabel='Кастомный слот с иконкой'\nchecked={rightAddonsWithIcon}\nonChange={handleRightAddonsWithIconChange}\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Мажорная часть",
+"description": "Для положительных значений можно включить отображение символа «+».",
+"desktop": "render(() => {\nconst [plus, setPlus] = React.useState(false);\n\nconst handlePlusChange = () => setPlus(!plus);\n\nreturn (\n<Container>\n<Typography.Title font='system' view='medium' weight='regular'>\n<AmountComponent\nvalue={123456700}\nminority={100}\nshowPlus={plus}\nview='withZeroMinorPart'\n/>\n</Typography.Title>\n<Gap size={24} />\n<Switch label='Отображать плюс' checked={plus} onChange={handlePlusChange} />\n</Container>\n);\n});"
+},
+{
+"title": "Минорная часть",
+"description": "При необходимости можно скрыть незначащую минорную часть.",
+"desktop": "render(() => {\nconst [minor, setMinor] = React.useState(false);\n\nconst handleMinorChange = () => setMinor(!minor);\n\nreturn (\n<Container>\n<Typography.Title font='system' view='medium' weight='regular'>\n<AmountComponent value={123456789} minority={100} view='withZeroMinorPart' />\n</Typography.Title>\n<Gap size={20} />\n<Typography.Title font='system' view='medium' weight='regular'>\n<AmountComponent\nvalue={123456700}\nminority={100}\nview={minor ? 'default' : 'withZeroMinorPart'}\n/>\n</Typography.Title>\n<Gap size={24} />\n<Switch\nlabel='Не отображать нулевую минорную часть'\nchecked={minor}\nonChange={handleMinorChange}\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Валюта",
+"description": "Для валюты можно использовать символ или буквенный код.",
+"desktop": "<Container>\n<Typography.Title font='system' view='medium' weight='regular'>\n<AmountComponent value={123400} minority={100} currency='RUB' />\n</Typography.Title>\n<Gap size={20} />\n<Typography.Title font='system' view='medium' weight='regular'>\n<AmountComponent value={123400} minority={100} currency='RUB' codeFormat='letter' />\n</Typography.Title>\n</Container>"
+},
+{
+"title": "Стиль",
+"description": "Компонент наследует стиль текста родителя и имеет два модификатора.",
+"desktop": "render(() => {\nconst [textStyle, setTextStyle] = React.useState('headline');\nconst [fontWeight, setFontWeight] = React.useState('regular');\nconst [transparent, setTransparent] = React.useState('none');\n\nconst onTextStyleChange = React.useCallback((_, payload) => {\nsetTextStyle(payload.value);\n}, []);\n\nconst onFontWeightChange = React.useCallback((_, payload) => {\nsetFontWeight(payload.value);\n}, []);\n\nconst onTransparentChange = React.useCallback((_, payload) => {\nsetTransparent(payload.value);\n}, []);\n\nconst isHeadline = textStyle === 'headline';\nconst Component = isHeadline ? Typography.Title : Typography.Text;\n\nreturn (\n<Container>\n<Component\nfont='system'\ncolor={textStyle}\nview={isHeadline ? 'medium' : 'primary-large'}\nweight={isHeadline ? 'bold' : 'regular'}\n>\n<AmountComponent\nvalue={123456700}\nminority={100}\nfontWeight={\nisHeadline || fontWeight === 'regular'\n? undefined\n: fontWeight.startsWith('major-')\n? { major: fontWeight.replace('major-', '') }\n: fontWeight\n}\ncurrency='RUB'\nview='withZeroMinorPart'\ntransparentMinor={transparent === 'minor'}\n/>\n</Component>\n<Gap size={24} />\n<RadioGroup\nlabel='Стиль текста'\ndirection='vertical'\nname='radioGroup'\nonChange={onTextStyleChange}\nvalue={textStyle}\n>\n<Radio size={24} label='Заголовок' value='headline' />\n<Radio size={24} label='Обычный текст' value='defaultText' />\n<Radio size={24} label='Зелёный текст' value='positive' />\n<Radio size={24} label='Красный текст' value='accent' />\n</RadioGroup>\n<Gap size={24} />\n<RadioGroup\nlabel='Модификатор «fontWeight»'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={onFontWeightChange}\nvalue={fontWeight}\n>\n<Radio size={24} label='Без модификатора' value='regular' />\n<Radio size={24} label='Для всей суммы (bold)' value='bold' />\n<Radio size={24} label='Только для мажорной части (bold)' value='major-bold' />\n<Radio size={24} label='Для всей суммы (medium)' value='medium' />\n<Radio size={24} label='Только для мажорной части (medium)' value='major-medium' />\n</RadioGroup>\n<Gap size={24} />\n<RadioGroup\nlabel='Модификатор «transparent»'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={onTransparentChange}\nvalue={transparent}\n>\n<Radio size={24} label='Без модификатора' value='none' />\n<Radio size={24} label='Только для минорной и валютной части' value='minor' />\n</RadioGroup>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.4.0",
+"description": "#### [#2076](https://github.com/core-ds/core-components/pull/2076)\n\n- Добавлен проп `fontWeight` для управления жирностью шрифта\n- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`"
+}
+]
+}
