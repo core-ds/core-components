@@ -1,5 +1,11 @@
 import { type CSSProperties, type ReactNode } from 'react';
-import { type AnimationDirection } from 'lottie-web/build/player/lottie_light';
+import {
+    type AnimationDirection,
+    type AnimationEventCallback,
+    type AnimationEventName,
+    type AnimationEvents,
+    type AnimationItem,
+} from 'lottie-web/build/player/lottie_light';
 
 export enum LottieDataState {
     OK,
@@ -11,8 +17,17 @@ export enum LottieDataState {
 export interface LottieProps {
     /**
      * Воспроизводится ли анимация
+     * @default true
      */
     play?: boolean;
+    /**
+     * Обработчик изменения воспроизведения
+     */
+    onPlayChange?: (nextPlay: boolean) => void;
+    /**
+     * Обработчик завершения анимации
+     */
+    onComplete?: () => void;
     /**
      * Скорость воспроизведения анимации
      */
@@ -26,13 +41,22 @@ export interface LottieProps {
      */
     endFrame?: number;
     /**
-     * Число итераций
+     * Обработчик изменения кадра
+     */
+    onFrameChange?: (nextFrame: number) => void;
+    /**
+     * Число итераций. 0 - бесконечное число итераций
+     * @default 0
      */
     iterations?: number;
     /**
+     * Обработчик изменения итерации
+     */
+    onIterationChange?: (nextIteration: number) => void;
+    /**
      * Направление воспроизведения анимации
      */
-    direction?: AnimationDirection | 'reverseOnRepeat';
+    direction?: AnimationDirection;
     /**
      * Источник анимации
      */
@@ -40,13 +64,14 @@ export interface LottieProps {
     /**
      * Анимация
      */
-    data?: Record<string, unknown>;
+    data?: unknown;
     /**
      * Плейсхолдер анимации
      */
     placeholder?: (dataState: LottieDataState.LOADING | LottieDataState.ERROR) => ReactNode;
     /**
      * Режим масштабирования анимации
+     * @default fill
      */
     scale?: 'fit' | 'fill';
     /**
@@ -72,7 +97,20 @@ export interface LottieEvents {
     frame: (data: { currentFrame: number }) => void;
 }
 
-export interface LottieRef {
-    reset(): void;
-    subscribe<T extends keyof LottieEvents>(name: T, callback: LottieEvents[T]): () => void;
+export interface AnimationData {
+    /**
+     * In point - начальный кадр анимации
+     */
+    ip: number;
+    /**
+     * Out point - конечный кадр анимации
+     */
+    op: number;
+}
+
+export interface LottieAnimationItem extends AnimationItem {
+    _cbs?: unknown[] & {
+        [P in AnimationEventName]?: Array<AnimationEventCallback<AnimationEvents[P]>>;
+    };
+    animationData?: AnimationData;
 }
