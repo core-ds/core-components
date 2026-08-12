@@ -1,26 +1,13 @@
-import { type Ref, useCallback, useRef, useState } from 'react';
+import { type Ref, useState } from 'react';
 import lottie, {
     type AnimationConfigWithData,
     type AnimationConfigWithPath,
-    type AnimationEventCallback,
-    type AnimationEventName,
-    type AnimationEvents,
-    type AnimationItem,
 } from 'lottie-web/build/player/lottie_light';
 
-import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
+import { hasOwnProperty, noop, useRefAsState } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-interface AnimationData {
-    /**
-     * In point - начальный кадр анимации
-     */
-    ip: number;
-    /**
-     * Out point - конечный кадр анимации
-     */
-    op: number;
-}
+import { type LottieAnimationItem, LottieDataState } from './types';
 
 type LottieParams =
     | Partial<AnimationConfigWithPath<'svg'>>
@@ -29,13 +16,6 @@ type LottieParams =
 type UseLottieProps =
     | Omit<AnimationConfigWithPath<'svg'>, 'container' | 'renderer'>
     | Omit<AnimationConfigWithData<'svg'>, 'container' | 'renderer'>;
-
-export interface InternalAnimationItem extends AnimationItem {
-    _cbs?: never[] & {
-        [P in AnimationEventName]?: Array<AnimationEventCallback<AnimationEvents[P]>>;
-    };
-    animationData?: AnimationData;
-}
 
 function checkOptions(
     options: LottieParams,
@@ -49,43 +29,40 @@ function checkOptions(
 
 export function useLottie<T extends Element>(
     props: UseLottieProps,
-): [ref: Ref<T>, animation: InternalAnimationItem | null, reset: () => void] {
-    const ref = useRef<T>(null);
-    const [animation, setAnimation] = useState<InternalAnimationItem | null>(null);
+): [ref: Ref<T>, animation: LottieAnimationItem | null, dataState: LottieDataState] {
+    const [elementRef, element] = useRefAsState<T>(null);
+    const [animation, setAnimation] = useState<LottieAnimationItem | null>(null);
     const [options, setOptions] = useState<LottieParams>(props);
+    const [dataState, setDataState] = useState(LottieDataState.INITIAL);
     const path = hasOwnProperty(props, 'path') ? props.path : undefined;
     const animationData: unknown = hasOwnProperty(props, 'animationData')
         ? props.animationData
         : undefined;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        const container = ref.current ?? undefined;
+        const container = element ?? undefined;
 
-        if (options.container !== container) {
-            setOptions((prevOptions) => ({ ...prevOptions, container }));
-        }
-    });
-
-    useLayoutEffect_SAFE_FOR_SSR(() => {
         if (
             (hasOwnProperty(options, 'animationData') && options.animationData !== animationData) ||
-            (hasOwnProperty(options, 'path') && options.path !== path)
+            (hasOwnProperty(options, 'path') && options.path !== path) ||
+            options.container !== container
         ) {
-            setOptions((prevOptions) => ({ ...prevOptions, animationData, path }));
+            setOptions((prevOptions) => ({ ...prevOptions, animationData, path, container }));
         }
-    }, [animationData, options, path]);
+    }, [animationData, element, options, path]);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (checkOptions(options)) {
-            const animationItem: InternalAnimationItem = lottie.loadAnimation(options);
+            const animationItem: LottieAnimationItem = lottie.loadAnimation(options);
 
             setAnimation(animationItem);
+            setDataState(animationItem.isLoaded ? LottieDataState.OK : LottieDataState.LOADING);
 
             return () => {
                 animationItem.destroy();
                 // eslint-disable-next-line no-underscore-dangle
                 animationItem._cbs = [];
+                setDataState(LottieDataState.INITIAL);
                 setAnimation(null);
             };
         }
@@ -93,9 +70,20 @@ export function useLottie<T extends Element>(
         return noop;
     }, [options]);
 
-    const reset = useCallback(() => {
-        setOptions((prevOptions) => ({ ...prevOptions }));
-    }, []);
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        const subscriptions = [
+            animation?.addEventListener('DOMLoaded', () => {
+                setDataState(LottieDataState.OK);
+            }),
+            animation?.addEventListener('data_failed', () => {
+                setDataState(LottieDataState.ERROR);
+            }),
+        ];
 
-    return [ref, animation, reset];
+        return () => {
+            subscriptions.forEach((unsubscribe) => unsubscribe?.());
+        };
+    }, [animation]);
+
+    return [elementRef, animation, dataState];
 }
