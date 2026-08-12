@@ -1,196 +1,139 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import React, { type FC, useRef, useState } from 'react';
 import cn from 'classnames';
-import { createNanoEvents } from 'nanoevents';
 
-import { noop } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { useLottie } from './react-lottie';
-import {
-    type AnimationDirection,
-    LottieDataState,
-    type LottieEvents,
-    type LottieProps,
-    type LottieRef,
-} from './types';
+import { LottieDataState, type LottieProps } from './types';
 
 import styles from './index.module.css';
 
-export const Lottie = forwardRef<LottieRef, LottieProps>(
-    (
-        {
-            play = true,
-            speed = 1,
-            startFrame,
-            endFrame,
-            iterations: iterationsFromProps = 0,
-            direction,
-            src,
-            data,
-            placeholder,
-            scale = 'fill',
-            size,
-            className,
+export const Lottie: FC<LottieProps> = ({
+    play = true,
+    onPlayChange,
+    speed = 1,
+    startFrame,
+    endFrame,
+    onFrameChange,
+    iterations = 0,
+    onIterationChange,
+    direction = 1,
+    src,
+    data,
+    placeholder,
+    scale = 'fill',
+    size,
+    className,
+    onComplete,
+}) => {
+    const maxIterations = Math.max(
+        Math.max(iterations, 0) === 0 ? Number.POSITIVE_INFINITY : iterations,
+        1,
+    );
+    const [containerRef, animation, dataState] = useLottie<HTMLDivElement>({
+        autoplay: false,
+        loop: false,
+        path: src,
+        animationData: data,
+        rendererSettings: {
+            preserveAspectRatio: scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice',
         },
-        forwardedRef,
-    ) => {
-        const iterations = Math.max(
-            Math.max(iterationsFromProps, 0) === 0 ? Number.POSITIVE_INFINITY : iterationsFromProps,
-            1,
-        );
-        const [containerRef, animation, reset] = useLottie<HTMLDivElement>({
-            autoplay: false,
-            loop: false,
-            path: src,
-            animationData: data,
-            rendererSettings: {
-                preserveAspectRatio: scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice',
-            },
-        });
-        const playCountRef = useRef(animation?.playCount ?? 0);
-        const [dataState, setDataState] = useState(LottieDataState.INITIAL);
-        const [events] = useState(() => createNanoEvents<LottieEvents>());
+    });
+    const onPlayChangeRef = useRef(onPlayChange);
+    const onFrameChangeRef = useRef(onFrameChange);
+    const onIterationChangeRef = useRef(onIterationChange);
+    const onCompleteRef = useRef(onComplete);
+    const [iteration, setIteration] = useState(0);
 
-        useImperativeHandle(
-            forwardedRef,
-            () => ({
-                reset,
-                subscribe(name, callback) {
-                    return events.on(name, callback);
-                },
-            }),
-            [events, reset],
-        );
+    // refs
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        onPlayChangeRef.current = onPlayChange;
+        onFrameChangeRef.current = onFrameChange;
+        onCompleteRef.current = onComplete;
+        onIterationChangeRef.current = onIterationChange;
+    });
 
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            playCountRef.current = animation?.playCount ?? 0;
-        }, [animation]);
+    // setup direction and speed
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        animation?.setDirection(direction);
+        animation?.setSpeed(speed);
+    }, [animation, direction, speed]);
 
-        // set loading state
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (animation) {
-                setDataState(animation.isLoaded ? LottieDataState.OK : LottieDataState.LOADING);
-            } else {
-                setDataState(LottieDataState.INITIAL);
-            }
-        }, [animation]);
+    // setup start/end frame
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        if (animation && dataState === LottieDataState.OK) {
+            const { animationData } = animation;
+            const firstFrame = Math.round(animationData!.ip);
+            const totalFrames = Math.floor(animationData!.op - animationData!.ip);
+            const start =
+                typeof startFrame === 'number' ? Math.max(startFrame, firstFrame) : firstFrame;
+            const end =
+                typeof endFrame === 'number' ? Math.min(endFrame, totalFrames) : totalFrames;
 
-        // handle direction and speed
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (animation && playCountRef.current < iterations) {
-                if (typeof direction === 'number') {
-                    animation.setDirection(direction);
+            animation.setSegment(start, end);
+        }
+    }, [animation, dataState, endFrame, startFrame]);
+
+    // handle play
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        if (animation && dataState === LottieDataState.OK && iteration < maxIterations) {
+            if (play && animation.isPaused) {
+                const { playDirection, currentFrame, firstFrame, totalFrames } = animation;
+
+                // see https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js#L504
+                if (playDirection === 1 && currentFrame >= totalFrames - 1) {
+                    animation.goToAndPlay(firstFrame, true);
+                } else if (playDirection === -1 && currentFrame === firstFrame) {
+                    animation.goToAndPlay(totalFrames, true);
+                } else {
+                    animation.play();
                 }
-                animation.setSpeed(speed);
             }
-        }, [animation, direction, iterations, speed]);
 
-        // handle start/end frame
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (animation && dataState === LottieDataState.OK) {
-                const { animationData } = animation;
-                const firstFrame = Math.round(animationData!.ip);
-                const totalFrames = Math.floor(animationData!.op - animationData!.ip);
-                const start =
-                    typeof startFrame === 'number' ? Math.max(startFrame, firstFrame) : firstFrame;
-                const end =
-                    typeof endFrame === 'number' ? Math.min(endFrame, totalFrames) : totalFrames;
-
-                animation.setSegment(start, end);
-            }
-        }, [animation, dataState, endFrame, startFrame]);
-
-        // handle play
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            const playCount = playCountRef.current;
-
-            if (
-                animation &&
-                dataState === LottieDataState.OK &&
-                playCount < iterations &&
-                play &&
-                animation.isPaused
-            ) {
-                const isFirstLoop = playCount === 0;
-                const { firstFrame, currentFrame } = animation;
-                const pendingFrame = isFirstLoop
-                    ? Math.max(currentFrame, firstFrame)
-                    : currentFrame;
-
-                animation.play();
-                events.emit(isFirstLoop && pendingFrame === firstFrame ? 'started' : 'resumed');
-            }
-        }, [animation, dataState, events, iterations, play]);
-
-        // handle pause
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (
-                animation &&
-                dataState === LottieDataState.OK &&
-                playCountRef.current < iterations &&
-                !play &&
-                !animation.isPaused
-            ) {
+            if (!play && !animation.isPaused) {
                 animation.pause();
-                events.emit('stopped');
             }
-        }, [animation, dataState, events, iterations, play]);
+        }
+    }, [animation, dataState, maxIterations, play, iteration]);
 
-        // handle listeners
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (animation) {
-                const subscriptions = [
-                    animation.addEventListener('complete', () => {
-                        playCountRef.current += 1;
+    // handle complete
+    useLayoutEffect_SAFE_FOR_SSR(
+        () =>
+            animation?.addEventListener('complete', () => {
+                const nextIteration = iteration + 1;
 
-                        events.emit('ended');
+                setIteration(nextIteration);
+                onIterationChangeRef.current?.(nextIteration);
 
-                        if (playCountRef.current < iterations) {
-                            if (direction === 'reverseOnRepeat') {
-                                animation.setDirection(
-                                    (animation.playDirection * -1) as AnimationDirection,
-                                );
-                            }
-                            animation.goToAndPlay(
-                                animation[
-                                    animation.playDirection === 1 ? 'firstFrame' : 'totalFrames'
-                                ],
-                                true,
-                            );
-                            events.emit('started');
-                        }
-                    }),
-                    animation.addEventListener('DOMLoaded', () => {
-                        setDataState(LottieDataState.OK);
-                    }),
-                    animation.addEventListener('data_failed', () => {
-                        setDataState(LottieDataState.ERROR);
-                    }),
-                    animation.addEventListener('enterFrame', ({ currentTime }) => {
-                        events.emit('frame', { currentFrame: currentTime });
-                    }),
-                ];
+                if (nextIteration === maxIterations) {
+                    setIteration(0);
+                    onPlayChangeRef.current?.(false);
+                    onCompleteRef?.current?.();
+                }
+            }),
+        [animation, maxIterations, iteration],
+    );
 
-                return () => {
-                    subscriptions.forEach((unsubscribe) => unsubscribe());
-                };
-            }
+    // handle listeners
+    useLayoutEffect_SAFE_FOR_SSR(
+        () =>
+            animation?.addEventListener('enterFrame', ({ currentTime }) => {
+                onFrameChangeRef.current?.(currentTime);
+            }),
+        [animation],
+    );
 
-            return noop;
-        }, [animation, direction, events, iterations]);
-
-        return (
-            <div className={cn(styles.component, className)} style={size}>
-                <div
-                    ref={containerRef}
-                    className={cn(styles.container, {
-                        [styles.show]: dataState === LottieDataState.OK,
-                    })}
-                />
-                {(dataState === LottieDataState.LOADING || dataState === LottieDataState.ERROR) && (
-                    <div className={styles.placeholder}>{placeholder?.(dataState)}</div>
-                )}
-            </div>
-        );
-    },
-);
+    return (
+        <div className={cn(styles.component, className)} style={size}>
+            <div
+                ref={containerRef}
+                className={cn(styles.container, {
+                    [styles.show]: dataState === LottieDataState.OK,
+                })}
+            />
+            {(dataState === LottieDataState.LOADING || dataState === LottieDataState.ERROR) && (
+                <div className={styles.placeholder}>{placeholder?.(dataState)}</div>
+            )}
+        </div>
+    );
+};
