@@ -40,7 +40,7 @@ export interface LottieProps {
     /**
      * Анимация
      */
-    data?: Record<string, undefined>;
+    data?: Record<string, unknown>;
     /**
      * Плейсхолдер анимации
      */
