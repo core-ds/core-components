@@ -9,6 +9,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { ChevronLeftLine24Icon } from '@alfalab/icons-glyph-26/ChevronLeftLine24Icon';
 import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
 
+import { getUniversalModalTitleMargin } from '../../../components/base-header/get-title-margin';
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
 import styles from '../../../components/base-header/index.module.css';
@@ -16,7 +17,7 @@ import mobileStyles from './index.module.css';
 
 export type HeaderMobileProps = Omit<
     NavigationBarPrivateProps,
-    'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps'
+    'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps' | 'computeTitleMargin'
 > & {
     closerProps?: Omit<
         NonNullable<NavigationBarPrivateProps['closerProps']>,
@@ -54,6 +55,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
         <NavigationBarPrivate
             {...restProps}
             view='mobile'
+            computeTitleMargin={getUniversalModalTitleMargin}
             dataTestId={getDataTestId(dataTestId, 'header')}
             sticky={sticky}
             title={title}
