@@ -16,12 +16,12 @@ export enum LottieDataState {
 
 export interface LottieProps {
     /**
-     * Воспроизводится ли анимация
+     * Воспроизведение анимации
      * @default true
      */
     play?: boolean;
     /**
-     * Обработчик изменения воспроизведения
+     * Обработчик изменения воспроизведения анимации
      */
     onPlayChange?: (nextPlay: boolean) => void;
     /**
@@ -45,12 +45,12 @@ export interface LottieProps {
      */
     onFrameChange?: (nextFrame: number) => void;
     /**
-     * Число итераций. 0 - бесконечное число итераций
+     * Число итераций анимации. 0 - бесконечное
      * @default 0
      */
     iterations?: number;
     /**
-     * Обработчик изменения итерации
+     * Обработчик изменения итерации анимации
      */
     onIterationChange?: (nextIteration: number) => void;
     /**
