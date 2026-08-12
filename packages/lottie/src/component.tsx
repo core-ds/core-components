@@ -111,14 +111,14 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
                 play &&
                 animation.isPaused
             ) {
-                const { firstFrame } = animation;
-                const playFrame =
-                    playCount === 0
-                        ? Math.max(animation.currentFrame, firstFrame)
-                        : animation.currentFrame;
+                const isFirstLoop = playCount === 0;
+                const { firstFrame, currentFrame } = animation;
+                const pendingFrame = isFirstLoop
+                    ? Math.max(currentFrame, firstFrame)
+                    : currentFrame;
 
                 animation.play();
-                events.emit(playFrame === firstFrame ? 'started' : 'resumed');
+                events.emit(isFirstLoop && pendingFrame === firstFrame ? 'started' : 'resumed');
             }
         }, [animation, dataState, events, iterations, play]);
 
