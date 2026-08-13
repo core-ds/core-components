@@ -3,7 +3,7 @@
 ```jsx live
 render(() => {
     const [play, setPlay] = React.useState(true);
-    const [direction, setDirection] = React.useState(-1);
+    const { direction, onIterationChange } = useBounce(1);
     const handleTooglePlay = () => {
         setPlay((p) => !p);
     };
@@ -19,9 +19,7 @@ render(() => {
                 iterations={4}
                 src='./twitter-heart.json'
                 size={{ width: 400, height: 400 }}
-                onIterationChange={(v) => {
-                    setDirection((d) => d * -1);
-                }}
+                onIterationChange={onIterationChange}
             />
         </div>
     );
