@@ -1,10 +1,10 @@
 import React, { type FC, useRef, useState } from 'react';
 import cn from 'classnames';
 
+import { LottieDataState, type LottieProps } from '@alfalab/core-components-lottie/types';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { useLottie } from './react-lottie';
-import { LottieDataState, type LottieProps } from './types';
 
 import styles from './index.module.css';
 
