@@ -39,7 +39,7 @@ export const lottie: Story = {
                 speed={speed}
                 startFrame={startFrame}
                 endFrame={endFrame}
-                src='./twitter-heart.json'
+                src='./lottie/twitter-heart.json'
             />
         );
     },
