@@ -254,6 +254,62 @@ describe(
 );
 
 describe(
+    'Switch | size, reversed',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        size: [20, 24],
+                        reversed: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 1100,
+            height: 240,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'Switch | size, skeleton',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: '',
+                        size: [20, 24],
+                        showSkeleton: [true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 1100,
+            height: 120,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
     'Switch | hover state',
     screenshotTesting({
         cases: generateTestCases({
