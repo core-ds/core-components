@@ -1,2 +1,2 @@
-export { Lottie } from './component';
-export { type LottieProps, LottieDataState } from './types';
+export { Lottie } from '@alfalab/core-components-lottie/component';
+export { type LottieProps, LottieDataState } from '@alfalab/core-components-lottie/types';
