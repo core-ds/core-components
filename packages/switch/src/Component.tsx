@@ -164,7 +164,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     [styles.reversed]: reversed,
                     [styles.focused]: focused,
                     [styles.block]: block,
-                    [styles.compact]: Boolean(compact) && Number(size) === 20,
+                    [styles.compact]: compact && size === 20,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
