@@ -22,8 +22,8 @@ function checkOptions(
 ): options is AnimationConfigWithPath<'svg'> | AnimationConfigWithData<'svg'> {
     return (
         options.container &&
-        ((hasOwnProperty(options, 'animationData') && options.animationData) ||
-            (hasOwnProperty(options, 'path') && options.path))
+        ((hasOwnProperty(options, 'path') && options.path) ||
+            (hasOwnProperty(options, 'animationData') && options.animationData))
     );
 }
 
