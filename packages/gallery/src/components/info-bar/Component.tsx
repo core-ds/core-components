@@ -16,7 +16,7 @@ export const InfoBar = () => {
         useContext(GalleryContext);
 
     const image = getCurrentImage();
-    const createdAt = formatDate(image?.createdAt ?? '');
+    const createdAt = formatDate(image?.createdAt);
 
     const handleMuteVideo = useCallback(() => {
         if (image) {
@@ -64,14 +64,16 @@ export const InfoBar = () => {
             >
                 {image?.name}
             </TypographyText>
-            <TypographyText
-                className={styles.description}
-                tag='div'
-                view='primary-small'
-                color='secondary-inverted'
-            >
-                {createdAt}
-            </TypographyText>
+            {createdAt && (
+                <TypographyText
+                    className={styles.description}
+                    tag='div'
+                    view='primary-small'
+                    color='secondary-inverted'
+                >
+                    {createdAt}
+                </TypographyText>
+            )}
         </section>
     );
 };
