@@ -274,6 +274,8 @@
             "@alfalab/core-components-test-utils/*": ["./packages/test-utils/src/*"],
             "@alfalab/core-components-text": ["./packages/text/src"],
             "@alfalab/core-components-text/*": ["./packages/text/src/*"],
+            "@alfalab/core-components-text-shimmer": ["./packages/text-shimmer/src"],
+            "@alfalab/core-components-text-shimmer/*": ["./packages/text-shimmer/src/*"],
             "@alfalab/core-components-textarea": ["./packages/textarea/src"],
             "@alfalab/core-components-textarea/*": ["./packages/textarea/src/*"],
             "@alfalab/core-components-themes": ["./packages/themes/src"],

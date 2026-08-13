@@ -127,6 +127,7 @@
         "packages/tag",
         "packages/test-utils",
         "packages/text",
+        "packages/text-shimmer",
         "packages/textarea",
         "packages/time-input",
         "packages/toast",
