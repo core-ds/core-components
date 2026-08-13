@@ -1,0 +1,76 @@
+import { ArgTypes } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { TextShimmer } from '../component';
+import styles from '!!raw-loader!../vars.css';
+
+## Подключение
+
+```jsx
+import { TextShimmer } from '@alfalab/core-components/text-shimmer';
+```
+
+## Использование
+
+```jsx
+<TextShimmer active={hidden}>{amount}</TextShimmer>
+```
+
+Значение текста можно обновить, пока шиммер активен. После выключения частицы соберутся уже в новый
+текст.
+
+По умолчанию частицы наследуют цвет текстового слоя. Другой цвет можно передать через проп color
+или переопределить переменную --text-shimmer-particle-color.
+
+## Использование с Typography
+
+Компонент размещается внутри текстового слоя. Так измеряется реальная типографика, а семантический
+тег остаётся на Typography:
+
+```jsx
+import { Typography } from '@alfalab/core-components/typography';
+
+<Typography.Title tag='h2' view='medium'>
+    <TextShimmer active={hidden}>{title}</TextShimmer>
+</Typography.Title>
+
+<Typography.Text view='primary-medium'>
+    Доступно: <TextShimmer active={hidden}>{amount}</TextShimmer>
+</Typography.Text>
+```
+
+Не передавайте Typography.Text или другой React-элемент в children: движок строит одну Canvas-маску
+по строковому или числовому значению. Для многострочного текста используйте отдельный TextShimmer на
+каждую строку.
+
+## Управление движением
+
+Активное состояние управляет скрытием, а animate — движением частиц. Это позволяет оставить скрытое
+состояние статичным независимо от системной настройки:
+
+```jsx
+<TextShimmer active={hidden} animate={allowMotion}>
+    {amount}
+</TextShimmer>
+```
+
+При animate={false} и при prefers-reduced-motion: reduce активный шиммер показывает статичное
+облако. Исходный текст остаётся доступным, Canvas исключён из accessibility tree.
+
+Корневой span принимает нативные HTML-атрибуты и ref, поэтому ему можно передавать id, style, lang,
+dir, aria-* и обработчики. Для сумм разной ширины рекомендуется зарезервировать место через min-width
+и использовать font-variant-numeric: tabular-nums на Typography-слое.
+
+Размер и количество частиц по умолчанию считаются от кегля текстового слоя: на мелком тексте облако
+получается более разреженным и мелкозернистым. Явное значение particleCount отключает этот расчёт и
+ограничивается диапазоном от 12 до 300.
+
+Без Web Animations API используется статичное облако, а если недоступен Canvas — компонент оставляет
+читаемый текст вместо пустого состояния.
+
+## Свойства
+
+<ArgTypes of={TextShimmer} />
+
+## Переменные
+
+<CssVars css={styles} />

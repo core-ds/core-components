@@ -1,0 +1,84 @@
+@import './vars.css';
+
+.component {
+    position: relative;
+    isolation: isolate;
+    display: inline-block;
+    box-sizing: border-box;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    vertical-align: baseline;
+}
+
+.text {
+    position: relative;
+    z-index: 0;
+    display: inline;
+    opacity: 1;
+    transition: opacity var(--text-shimmer-text-transition-duration) ease-out;
+}
+
+.textHidden {
+    opacity: 0;
+}
+
+.textRevealing {
+    animation-name: text-reveal;
+    animation-duration: var(--text-shimmer-assemble-duration);
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+.textPaused {
+    animation-play-state: paused;
+}
+
+.canvas {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: visible;
+    color: var(--text-shimmer-particle-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--text-shimmer-canvas-transition-duration) linear;
+}
+
+.canvasVisible {
+    opacity: 1;
+}
+
+.motionDisabled .text,
+.motionDisabled .canvas {
+    transition: none;
+}
+
+.motionDisabled .textRevealing {
+    animation: none;
+}
+
+@keyframes text-reveal {
+    0%,
+    55% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .text,
+    .canvas {
+        transition: none;
+    }
+
+    .textRevealing {
+        animation: none;
+    }
+}

@@ -122,6 +122,7 @@
         "@alfalab/core-components-tabs": "^10.0.22",
         "@alfalab/core-components-tag": "^10.2.1",
         "@alfalab/core-components-text": "^3.0.2",
+        "@alfalab/core-components-text-shimmer": "^0.0.0",
         "@alfalab/core-components-textarea": "^10.1.1",
         "@alfalab/core-components-themes": "^15.2.1",
         "@alfalab/core-components-time-input": "^4.0.13",

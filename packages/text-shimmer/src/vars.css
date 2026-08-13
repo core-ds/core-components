@@ -1,0 +1,9 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+:root {
+    /* По умолчанию частицы наследуют цвет текстового слоя, в который вложен компонент. */
+    --text-shimmer-particle-color: currentColor;
+    --text-shimmer-text-transition-duration: 90ms;
+    --text-shimmer-canvas-transition-duration: 60ms;
+    --text-shimmer-assemble-duration: 180ms;
+}

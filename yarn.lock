@@ -2034,6 +2034,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-text-shimmer@npm:^0.0.0, @alfalab/core-components-text-shimmer@workspace:packages/text-shimmer":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-text-shimmer@workspace:packages/text-shimmer"
+  dependencies:
+    "@alfalab/core-components-switch": "npm:^6.1.5"
+    "@alfalab/core-components-typography": "npm:^6.0.10"
+    "@alfalab/hooks": "npm:^1.17.0"
+    "@juggle/resize-observer": "npm:^3.3.1"
+    classnames: "npm:^2.5.1"
+    jest-canvas-mock: "npm:^2.5.8"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-text@npm:^3.0.2, @alfalab/core-components-text@workspace:packages/text":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-text@workspace:packages/text"
@@ -2359,6 +2376,7 @@ __metadata:
     "@alfalab/core-components-tabs": "npm:^10.0.22"
     "@alfalab/core-components-tag": "npm:^10.2.1"
     "@alfalab/core-components-text": "npm:^3.0.2"
+    "@alfalab/core-components-text-shimmer": "npm:^0.0.0"
     "@alfalab/core-components-textarea": "npm:^10.1.1"
     "@alfalab/core-components-themes": "npm:^15.2.1"
     "@alfalab/core-components-time-input": "npm:^4.0.13"
@@ -15018,7 +15036,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-name@npm:~1.1.4":
+"color-name@npm:^1.1.4, color-name@npm:~1.1.4":
   version: 1.1.4
   resolution: "color-name@npm:1.1.4"
   checksum: 10c0/a1a3f914156960902f46f7f56bc62effc6c94e84b2cae157a526b1c1f74b677a47ec602bf68a61abfa2b42d15b7c5651c6dbe72a43af720bc588dff885b10f95
@@ -15947,6 +15965,13 @@ __metadata:
   bin:
     cssesc: bin/cssesc
   checksum: 10c0/6bcfd898662671be15ae7827120472c5667afb3d7429f1f917737f3bf84c4176003228131b643ae74543f17a394446247df090c597bb9a728cce298606ed0aa7
+  languageName: node
+  linkType: hard
+
+"cssfontparser@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "cssfontparser@npm:1.2.1"
+  checksum: 10c0/ceb9b2976d503dbff3ac2aff0229b263affb4fb221a6947b357682cd8a952f6995253646ca5f820020d2fe05b5e29b56dbdd2343388c32203e8dd0ed15bdc1ca
   languageName: node
   linkType: hard
 
@@ -22248,6 +22273,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-canvas-mock@npm:^2.5.8":
+  version: 2.5.8
+  resolution: "jest-canvas-mock@npm:2.5.8"
+  dependencies:
+    cssfontparser: "npm:^1.2.1"
+    moo-color: "npm:^1.0.2"
+  checksum: 10c0/25e621650bebb0a7c86fa6cf0ba8ab463dd784514a922875b2707e458d29aef943de5b9f3032d378f089c15d6676bd10f4542b822a67d9e715eb93c4ae11c51e
+  languageName: node
+  linkType: hard
+
 "jest-changed-files@npm:30.0.5":
   version: 30.0.5
   resolution: "jest-changed-files@npm:30.0.5"
@@ -25408,6 +25443,15 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 10c0/46ea0f3ffa8bc6a5bc0c7081ffc3907777f0ed6516888d40a518c5111f8366d97d2678911ad1a6882bf592fa9de6c784fea32e1687bb94e1f4944170af48a5cf
+  languageName: node
+  linkType: hard
+
+"moo-color@npm:^1.0.2":
+  version: 1.0.3
+  resolution: "moo-color@npm:1.0.3"
+  dependencies:
+    color-name: "npm:^1.1.4"
+  checksum: 10c0/778c82f67f638c03a1d0fa78dcd6ea376a9f17b5e78e349c7e34a290b496dbdb43fd0b1c38070e2062d5e784bcf08e57f499015fcbcf52b3a1887d7825ebb80d
   languageName: node
   linkType: hard
 

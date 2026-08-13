@@ -44,6 +44,7 @@ export const CONFIG: TConfig = {
         'CircularProgressBar',
         'Spinner',
         'Skeleton',
+        'TextShimmer',
     ],
     Уведомления: ['Notification', 'Toast', 'Plate', 'SystemMessage'],
     Аутентификация: ['PassCode', 'PatternLock', 'Confirmation'],

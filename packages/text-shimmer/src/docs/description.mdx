@@ -1,0 +1,106 @@
+TextShimmer скрывает баланс или другую чувствительную информацию за облаком частиц. При включении
+точки мягко разлетаются от контуров символов, а при выключении собираются в актуальное значение.
+
+Если пользователь включил prefers-reduced-motion, движущаяся анимация заменяется статичным
+состоянием частиц.
+
+## Примеры
+
+Значение текста можно обновить, пока шиммер активен. После выключения частицы соберутся уже в новый
+текст.
+
+```jsx live
+const VALUES = ['−4 940 ₽', '−5 186 ₽'];
+
+render(() => {
+    const [active, setActive] = React.useState(false);
+    const [valueIndex, setValueIndex] = React.useState(0);
+
+    React.useEffect(() => {
+        if (!active) {
+            return undefined;
+        }
+
+        const timer = window.setTimeout(() => {
+            setValueIndex((current) => (current + 1) % VALUES.length);
+        }, 500);
+
+        return () => window.clearTimeout(timer);
+    }, [active]);
+
+    return (
+        <>
+            <Typography.Title tag='div' view='medium' font='system'>
+                <TextShimmer active={active} style={{ fontVariantNumeric: 'tabular-nums' }}>
+                    {VALUES[valueIndex]}
+                </TextShimmer>
+            </Typography.Title>
+
+            <Gap size={24} />
+
+            <Switch
+                checked={active}
+                label='Shimmer'
+                onChange={() => setActive((current) => !current)}
+            />
+        </>
+    );
+});
+```
+
+## Пример с текстом
+
+TextShimmer рассчитан на один однострочный типографический слой с единым шрифтом. Для
+Typography.Text и Typography.Title его нужно размещать внутри текстового компонента — тогда он
+наследует фактические font, line-height, letter-spacing и text-transform.
+
+```jsx live
+render(() => {
+    const [active, setActive] = React.useState(false);
+
+    return (
+        <>
+            <Typography.Text tag='div' view='primary-large'>
+                Доступно: <TextShimmer active={active}>125 600 ₽</TextShimmer>
+            </Typography.Text>
+
+            <Gap size={24} />
+
+            <Switch
+                checked={active}
+                label='Shimmer'
+                onChange={() => setActive((current) => !current)}
+            />
+        </>
+    );
+});
+```
+
+## Управление движением
+
+Активное состояние управляет скрытием, а animate — движением частиц. Это позволяет оставить
+скрытое состояние статичным независимо от системной настройки.
+
+```jsx live
+render(() => {
+    const [animate, setAnimate] = React.useState(false);
+
+    return (
+        <>
+            <div style={{ fontSize: 24, lineHeight: '32px' }}>
+                <TextShimmer active={true} animate={animate}>
+                    125 600 ₽
+                </TextShimmer>
+            </div>
+
+            <Gap size={24} />
+
+            <Switch
+                checked={animate}
+                label='Движение частиц'
+                onChange={() => setAnimate((current) => !current)}
+            />
+        </>
+    );
+});
+```

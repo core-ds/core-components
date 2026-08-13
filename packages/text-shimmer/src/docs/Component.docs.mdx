@@ -1,0 +1,22 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+
+<Meta title='Components/TextShimmer' of={Stories} />
+
+{/* Docs */}
+
+<ComponentHeader
+    name='TextShimmer'
+    children='Скрывает баланс или другую информацию за облаком частиц.'
+/>
+
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>
