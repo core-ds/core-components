@@ -38,18 +38,16 @@ export function useLottie<T extends Element>(
     const animationData: unknown = hasOwnProperty(props, 'animationData')
         ? props.animationData
         : undefined;
+    const container = element ?? undefined;
 
-    useLayoutEffect_SAFE_FOR_SSR(() => {
-        const container = element ?? undefined;
-
-        if (
-            (hasOwnProperty(options, 'animationData') && options.animationData !== animationData) ||
-            (hasOwnProperty(options, 'path') && options.path !== path) ||
-            options.container !== container
-        ) {
-            setOptions((prevOptions) => ({ ...prevOptions, animationData, path, container }));
-        }
-    }, [animationData, element, options, path]);
+    // getDerivedStateFromProps
+    if (
+        (hasOwnProperty(options, 'animationData') && options.animationData !== animationData) ||
+        (hasOwnProperty(options, 'path') && options.path !== path) ||
+        options.container !== container
+    ) {
+        setOptions({ ...props, container });
+    }
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (checkOptions(options)) {
