@@ -4,10 +4,9 @@ import lottie, {
     type AnimationConfigWithPath,
 } from 'lottie-web/build/player/lottie_light';
 
+import { type LottieAnimationItem, LottieDataState } from '@alfalab/core-components-lottie/types';
 import { hasOwnProperty, noop, useRefAsState } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-
-import { type LottieAnimationItem, LottieDataState } from './types';
 
 type LottieParams =
     | Partial<AnimationConfigWithPath<'svg'>>
