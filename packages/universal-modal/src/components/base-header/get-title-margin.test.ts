@@ -197,7 +197,7 @@ const leftCases: Case[] = [
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
-        name: '#5 back + leftAddons + rightAddons (статика вместо расчёта)',
+        name: '#5 back + leftAddons + rightAddons — аддоны уравновешивают друг друга, сдвигается только вся строка (заголовок не сдвигается)',
         align: 'left',
         hasBackButton: true,
         leftAddons: true,
@@ -214,7 +214,7 @@ const leftCases: Case[] = [
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
-        name: '#7 back + rightAddons (расчёт + статика одновременно)',
+        name: '#7 back + rightAddons — сдвигаются одновременно и заголовок, и вся строка',
         align: 'left',
         hasBackButton: true,
         rightAddons: true,
@@ -229,7 +229,7 @@ const leftCases: Case[] = [
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
-        name: '#9 closer + leftAddons + rightAddons (статика вместо расчёта)',
+        name: '#9 closer + leftAddons + rightAddons — аддоны уравновешивают друг друга, сдвигается только вся строка (заголовок не сдвигается)',
         align: 'left',
         hasCloser: true,
         leftAddons: true,
@@ -238,7 +238,7 @@ const leftCases: Case[] = [
         mainLineMargin: { left: 48, right: undefined },
     },
     {
-        name: '#10 closer + leftAddons (расчёт + статика одновременно)',
+        name: '#10 closer + leftAddons — сдвигаются одновременно и заголовок, и вся строка',
         align: 'left',
         hasCloser: true,
         leftAddons: true,
@@ -304,8 +304,8 @@ describe('getUniversalModalTitleMargin', () => {
         });
     });
 
-    describe('big (96px) addon', () => {
-        it('align=left, только rightAddons "big" (двойной аддон, 96px) — content margin кратен 96', () => {
+    describe('аддон из двух элементов по 48px (суммарно 96px)', () => {
+        it('align=left, только rightAddons (96px), без back и closer — заголовок сдвигается на всю ширину аддона', () => {
             const result = getUniversalModalTitleMargin({
                 align: 'left',
                 hasBackButton: false,
@@ -321,7 +321,7 @@ describe('getUniversalModalTitleMargin', () => {
             expect(result.mainLineMargin?.right).toBeUndefined();
         });
 
-        it('align=left, back + rightAddons "big" — расчёт (коррекция B) + статика одновременно', () => {
+        it('align=left, back + rightAddons (96px) — сдвигаются одновременно и заголовок, и вся строка', () => {
             const result = getUniversalModalTitleMargin({
                 align: 'left',
                 hasBackButton: true,
@@ -332,7 +332,64 @@ describe('getUniversalModalTitleMargin', () => {
                 rightAddonsWidth: ADDON_WIDTH * 2,
             });
 
-            expect(result.contentMargin).toEqual({ left: 144, right: 0 });
+            expect(result.contentMargin).toEqual({ left: 96, right: 0 });
+            expect(result.mainLineMargin?.left).toBeUndefined();
+            expect(result.mainLineMargin?.right).toBe(48);
+        });
+
+        it('align=left, closer + leftAddons (96px) — сдвигаются одновременно и заголовок, и вся строка', () => {
+            const result = getUniversalModalTitleMargin({
+                align: 'left',
+                hasBackButton: false,
+                hasCloser: true,
+                hasLeftAddons: true,
+                hasRightAddons: false,
+                leftAddonsWidth: ADDON_WIDTH * 2,
+                rightAddonsWidth: ADDON_WIDTH,
+            });
+
+            expect(result.contentMargin).toEqual({ left: 0, right: 96 });
+            expect(result.mainLineMargin?.left).toBe(48);
+            expect(result.mainLineMargin?.right).toBeUndefined();
+        });
+    });
+
+    describe('аддон из двух элементов разной ширины (48 + 40 = 88px)', () => {
+        /*
+         * .addon имеет min-width: 48px, поэтому реальная ширина аддон-блока
+         * никогда не бывает меньше 48px — 88 = 48 + 40 (два разных по
+         * ширине элемента внутри одного leftAddons/rightAddons).
+         */
+        const UNEVEN_ADDON_WIDTH = 88;
+
+        it('align=left, closer + leftAddons (88px) — заголовок сдвигается ровно на реальную ширину аддона', () => {
+            const result = getUniversalModalTitleMargin({
+                align: 'left',
+                hasBackButton: false,
+                hasCloser: true,
+                hasLeftAddons: true,
+                hasRightAddons: false,
+                leftAddonsWidth: UNEVEN_ADDON_WIDTH,
+                rightAddonsWidth: ADDON_WIDTH,
+            });
+
+            expect(result.contentMargin).toEqual({ left: 0, right: UNEVEN_ADDON_WIDTH });
+            expect(result.mainLineMargin?.left).toBe(48);
+            expect(result.mainLineMargin?.right).toBeUndefined();
+        });
+
+        it('align=left, back + rightAddons (88px) — заголовок сдвигается ровно на реальную ширину аддона', () => {
+            const result = getUniversalModalTitleMargin({
+                align: 'left',
+                hasBackButton: true,
+                hasCloser: false,
+                hasLeftAddons: false,
+                hasRightAddons: true,
+                leftAddonsWidth: ADDON_WIDTH,
+                rightAddonsWidth: UNEVEN_ADDON_WIDTH,
+            });
+
+            expect(result.contentMargin).toEqual({ left: UNEVEN_ADDON_WIDTH, right: 0 });
             expect(result.mainLineMargin?.left).toBeUndefined();
             expect(result.mainLineMargin?.right).toBe(48);
         });

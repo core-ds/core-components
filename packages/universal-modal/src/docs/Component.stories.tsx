@@ -223,6 +223,7 @@ export const mobile: Story = {
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
         const headerLeftAddons = boolean('header.leftAddons', false);
+        const headerBigLeftAddons = headerLeftAddons && boolean('header.bigLeftAddons', false);
         const headerRightAddons = boolean('header.rightAddons', false);
         const headerBigRightAddons = headerRightAddons && boolean('header.bigRightAddons', false);
 
@@ -253,11 +254,20 @@ export const mobile: Story = {
                             bottomAddons={bottomAddons}
                             leftAddons={
                                 headerLeftAddons && (
-                                    <ButtonMobile
-                                        leftAddons={<DiamondsMIcon />}
-                                        size={48}
-                                        view='secondary'
-                                    />
+                                    <Fragment>
+                                        <ButtonMobile
+                                            leftAddons={<DiamondsMIcon />}
+                                            size={48}
+                                            view='secondary'
+                                        />
+                                        {headerBigLeftAddons && (
+                                            <ButtonMobile
+                                                leftAddons={<DiamondsMIcon />}
+                                                size={48}
+                                                view='secondary'
+                                            />
+                                        )}
+                                    </Fragment>
                                 )
                             }
                             rightAddons={
