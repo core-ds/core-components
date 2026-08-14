@@ -108,9 +108,12 @@ export interface AnimationData {
     op: number;
 }
 
-export interface LottieAnimationItem extends AnimationItem {
+export interface LottieAnimationItem extends Omit<AnimationItem, 'renderer'> {
     _cbs?: unknown[] & {
         [P in AnimationEventName]?: Array<AnimationEventCallback<AnimationEvents[P]>>;
     };
     animationData?: AnimationData;
+    renderer: {
+        svgElement: SVGSVGElement;
+    };
 }

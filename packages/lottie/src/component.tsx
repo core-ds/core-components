@@ -30,14 +30,13 @@ export const Lottie: FC<LottieProps> = ({
         Math.max(iterations, 0) === 0 ? Number.POSITIVE_INFINITY : iterations,
         1,
     );
+    const preserveAspectRatio = scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice';
     const [containerRef, animation, dataState] = useLottie<HTMLDivElement>({
         autoplay: false,
         loop: false,
         path: src,
         animationData: data,
-        rendererSettings: {
-            preserveAspectRatio: scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice',
-        },
+        rendererSettings: { preserveAspectRatio },
     });
     const onPlayChangeRef = useRef(onPlayChange);
     const onFrameChangeRef = useRef(onFrameChange);
@@ -53,11 +52,15 @@ export const Lottie: FC<LottieProps> = ({
         onIterationChangeRef.current = onIterationChange;
     });
 
-    // setup direction and speed
+    // setup direction, speed and preserveAspectRatio
     useLayoutEffect_SAFE_FOR_SSR(() => {
+        const svgElement = animation?.renderer.svgElement;
+
+        setIteration(animation?.playCount ?? 0);
         animation?.setDirection(direction);
         animation?.setSpeed(speed);
-    }, [animation, direction, speed]);
+        svgElement?.setAttribute('preserveAspectRatio', preserveAspectRatio);
+    }, [animation, direction, preserveAspectRatio, speed]);
 
     // setup start/end frame
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -76,23 +79,29 @@ export const Lottie: FC<LottieProps> = ({
 
     // handle play
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        if (animation && dataState === LottieDataState.OK && iteration < maxIterations) {
-            if (play && animation.isPaused) {
-                const { playDirection, currentFrame, firstFrame, totalFrames } = animation;
+        if (iteration < maxIterations) {
+            if (animation && dataState === LottieDataState.OK) {
+                if (play && animation.isPaused) {
+                    const { playDirection, currentFrame, firstFrame, totalFrames } = animation;
 
-                // see https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js#L504
-                if (playDirection === 1 && currentFrame >= totalFrames - 1) {
-                    animation.goToAndPlay(firstFrame, true);
-                } else if (playDirection === -1 && currentFrame === firstFrame) {
-                    animation.goToAndPlay(totalFrames, true);
-                } else {
-                    animation.play();
+                    // see https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js#L504
+                    if (playDirection === 1 && currentFrame >= totalFrames - 1) {
+                        animation.goToAndPlay(firstFrame, true);
+                    } else if (playDirection === -1 && currentFrame === firstFrame) {
+                        animation.goToAndPlay(totalFrames, true);
+                    } else {
+                        animation.play();
+                    }
+                }
+
+                if (!play && !animation.isPaused) {
+                    animation.pause();
                 }
             }
-
-            if (!play && !animation.isPaused) {
-                animation.pause();
-            }
+        } else {
+            setIteration(0);
+            onPlayChangeRef.current?.(false);
+            onCompleteRef?.current?.();
         }
     }, [animation, dataState, maxIterations, play, iteration]);
 
@@ -104,14 +113,8 @@ export const Lottie: FC<LottieProps> = ({
 
                 setIteration(nextIteration);
                 onIterationChangeRef.current?.(nextIteration);
-
-                if (nextIteration === maxIterations) {
-                    setIteration(0);
-                    onPlayChangeRef.current?.(false);
-                    onCompleteRef?.current?.();
-                }
             }),
-        [animation, maxIterations, iteration],
+        [animation, iteration],
     );
 
     // handle listeners
