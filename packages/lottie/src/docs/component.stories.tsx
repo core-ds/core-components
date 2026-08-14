@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, number, object, button } from '@storybook/addon-knobs';
 
@@ -29,7 +29,6 @@ export const lottie: Story = {
 
         return (
             <Lottie
-                key={[scale, iterations].join('')}
                 iterations={iterations}
                 onPlayChange={setPlay}
                 scale={scale}
