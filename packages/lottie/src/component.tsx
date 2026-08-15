@@ -52,11 +52,17 @@ export const Lottie: FC<LottieProps> = ({
         onIterationChangeRef.current = onIterationChange;
     });
 
+    // reset iterations on animation update
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        if (animation) {
+            setIteration(0);
+        }
+    }, [animation]);
+
     // setup direction, speed and preserveAspectRatio
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const svgElement = animation?.renderer.svgElement;
 
-        setIteration(animation?.playCount ?? 0);
         animation?.setDirection(direction);
         animation?.setSpeed(speed);
         svgElement?.setAttribute('preserveAspectRatio', preserveAspectRatio);
