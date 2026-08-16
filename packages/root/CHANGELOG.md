@@ -1,5 +1,54 @@
 # @alfalab/core-components
 
+## 50.26.1
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2314](https://github.com/core-ds/core-components/pull/2314)
+
+##### Select
+
+- При клике 'Выбрать все' выбираются все значения кроме `disabled`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-intl-phone-input@11.0.22
+- @alfalab/core-components-masked-input@8.0.14
+- @alfalab/core-components-with-suffix@6.0.14
+- @alfalab/core-components-calendar@9.1.12
+- @alfalab/core-components-textarea@10.1.2
+- @alfalab/core-components-popover@8.1.2
+- @alfalab/core-components-tooltip@9.0.18
+- @alfalab/core-components-select@19.2.4
+- @alfalab/core-components-bank-card@7.0.15
+- @alfalab/core-components-phone-input@9.0.15
+- @alfalab/core-components-amount-input@9.3.3
+- @alfalab/core-components-calendar-input@12.0.18
+- @alfalab/core-components-calendar-range@9.1.4
+- @alfalab/core-components-calendar-with-skeleton@7.0.16
+- @alfalab/core-components-date-range-input@5.0.18
+- @alfalab/core-components-date-time-input@6.0.18
+- @alfalab/core-components-universal-date-input@4.0.18
+- @alfalab/core-components-input-autocomplete@14.0.22
+- @alfalab/core-components-picker-button@13.0.22
+- @alfalab/core-components-select-with-tags@10.1.17
+- @alfalab/core-components-toast@8.0.13
+- @alfalab/core-components-gallery@7.2.3
+- @alfalab/core-components-custom-picker-button@4.1.15
+- @alfalab/core-components-international-phone-input@4.0.22
+- @alfalab/core-components-table@4.0.23
+- @alfalab/core-components-tabs@10.0.23
+
 ## 50.26.0
 
 ### Minor Changes

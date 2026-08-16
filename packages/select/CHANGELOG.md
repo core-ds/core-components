@@ -1,5 +1,21 @@
 # @alfalab/core-components-select
 
+## 19.2.4
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2314](https://github.com/core-ds/core-components/pull/2314)
+
+##### Select
+
+- При клике 'Выбрать все' выбираются все значения кроме `disabled`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
 ## 19.2.3
 
 ### Patch Changes
