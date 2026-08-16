@@ -597,12 +597,20 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const getSwipeStyles = (): CSSProperties =>
             sheetOffset ? { transform: `translateY(${sheetOffset}px)` } : {};
 
+        const isPWA =
+            isClient() &&
+            typeof window.matchMedia === 'function' &&
+            window.matchMedia('(display-mode: standalone)').matches;
+
+        const safeAreaMaxHeight = `min(${lastMagneticArea}px, calc(100vh - env(safe-area-inset-top) - ${headerOffset}px))`;
+        const maxHeight = isPWA ? safeAreaMaxHeight : `${lastMagneticArea}px`;
+
         const getHeightStyles = (): CSSProperties => ({
             height:
                 !isFirstRender && (initialHeight === 'full' || magneticAreasProp)
                     ? `${lastMagneticArea}px`
                     : 'unset',
-            maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
+            maxHeight: isFirstRender ? 0 : maxHeight,
             marginBottom:
                 virtualKeyboard && visualViewportSize && windowHeight > visualViewportSize.height
                     ? windowHeight - visualViewportSize.height - visualViewportSize.offsetTop
