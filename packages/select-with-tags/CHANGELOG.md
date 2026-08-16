@@ -1,5 +1,14 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+- @alfalab/core-components-select@19.2.4
+
 ## 10.1.16
 
 ### Patch Changes

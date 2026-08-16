@@ -1,5 +1,13 @@
 # @alfalab/core-components-toast
 
+## 8.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
 ## 8.0.12
 
 ### Patch Changes
