@@ -1,11 +1,11 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 
 import { CalendarDesktop } from '../../desktop';
 import { isRangeValue, WEEKDAYS } from '../../utils';
@@ -65,7 +65,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         },
         ref,
     ) => {
-        const [modalRef, setModalRef] = useState<HTMLElement>();
+        const [modalRef, modalNode] = useRefAsState<HTMLElement>(null);
         const monthOnlyView = selectorView === 'month-only';
 
         const handleClose = () => {
@@ -97,7 +97,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 return (
                     <CalendarMonthOnlyView
                         yearsAmount={yearsAmount}
-                        scrollableContainer={modalRef}
+                        scrollableContainer={modalNode ?? undefined}
                         onMonthTitleClick={onMonthTitleClick}
                         clickableMonth={clickableMonth}
                         {...commonProps}
@@ -190,7 +190,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             <ModalMobile
                 open={open}
                 onClose={handleClose}
-                ref={mergeRefs([(node: HTMLDivElement) => setModalRef(node), ref])}
+                ref={mergeRefs([ref, modalRef])}
                 className={className}
                 wrapperClassName={styles.wrapper}
                 transitionProps={{

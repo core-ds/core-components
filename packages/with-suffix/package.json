@@ -15,6 +15,7 @@
     "dependencies": {
         "@alfalab/core-components-input": "^17.2.0",
         "@alfalab/core-components-portal": "^5.0.4",
+        "@alfalab/core-components-shared": "^2.2.3",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
