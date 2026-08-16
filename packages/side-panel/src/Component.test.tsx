@@ -47,10 +47,28 @@ const COMPONENT_NAME_TO_WRAPPER = {
     SidePanelMobile: SidePanelMobileWrapper,
 } as const;
 
+const COMPONENT_NAME_TO_SIDE_PANEL = {
+    SidePanelDesktop,
+    SidePanelMobile,
+} as const;
+
 (['SidePanelDesktop', 'SidePanelMobile'] as const).forEach((componentName) => {
     const Component = COMPONENT_NAME_TO_WRAPPER[componentName];
+    const SidePanel = COMPONENT_NAME_TO_SIDE_PANEL[componentName];
 
     describe(componentName, () => {
+        it('should forward ref to header root element', () => {
+            const headerRef = React.createRef<HTMLDivElement>();
+
+            render(
+                <SidePanel open={true}>
+                    <SidePanel.Header ref={headerRef} dataTestId='header-ref' />
+                </SidePanel>,
+            );
+
+            expect(headerRef.current).toBe(screen.getByTestId('header-ref'));
+        });
+
         describe('snapshots tests', () => {
             it('should match snapshot', () => {
                 render(<Component />);
