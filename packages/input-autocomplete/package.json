@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "14.0.21",
+    "version": "14.0.22",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,8 +16,8 @@
         "@alfalab/core-components-form-control": "^14.0.9",
         "@alfalab/core-components-input": "^17.2.0",
         "@alfalab/core-components-mq": "^6.0.7",
-        "@alfalab/core-components-popover": "^8.1.1",
-        "@alfalab/core-components-select": "^19.2.3",
+        "@alfalab/core-components-popover": "^8.1.2",
+        "@alfalab/core-components-select": "^19.2.4",
         "@alfalab/core-components-shared": "^2.2.3",
         "@alfalab/core-components-status-badge": "^3.0.2",
         "@alfalab/hooks": "^1.17.0",
