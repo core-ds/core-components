@@ -940,6 +940,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-input-autocomplete": "npm:^14.0.21"
     "@alfalab/core-components-select": "npm:^19.2.3"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@alfalab/utils": "npm:^1.18.0"
@@ -1041,6 +1042,7 @@ __metadata:
   resolution: "@alfalab/core-components-masked-input@workspace:packages/masked-input"
   dependencies:
     "@alfalab/core-components-input": "npm:^17.2.0"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     text-mask-core: "npm:^5.1.2"
@@ -2237,6 +2239,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-input": "npm:^17.2.0"
     "@alfalab/core-components-portal": "npm:^5.0.4"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
