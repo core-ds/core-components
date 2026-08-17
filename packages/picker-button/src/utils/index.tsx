@@ -8,15 +8,17 @@ import { DotsThreeHorizontalLine24Icon } from '@alfalab/icons-glyph-26/DotsThree
 
 import { type PickerButtonVariant } from '../types';
 
+const DotsThreeHorizontalLine20AdapterIcon = (props: SVGProps<SVGSVGElement>) => (
+    <Icon20Adapter icon={DotsThreeHorizontalLine20Icon} {...props} />
+);
+
 export const getCompactIcon = (size: string, Icon?: ComponentType<SVGProps<SVGSVGElement>>) => {
     if (Icon) {
         return Icon;
     }
 
     if (size === 'size-32') {
-        return (props: SVGProps<SVGSVGElement>) => (
-            <Icon20Adapter icon={DotsThreeHorizontalLine20Icon} {...props} />
-        );
+        return DotsThreeHorizontalLine20AdapterIcon;
     }
 
     return DotsThreeHorizontalLine24Icon;
