@@ -3,7 +3,9 @@ import mergeRefs from 'react-merge-refs';
 
 import { useHaptic } from '../../hooks/use-haptic';
 import { type HapticBaseProps } from '../../typings';
-import { HapticSwitchOverlay } from '../haptic-fallback';
+import { HapticFallback } from '../haptic-fallback';
+
+import styles from './index.module.css';
 
 type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
 
@@ -35,7 +37,10 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
         return (
             <Fragment>
                 {input}
-                <HapticSwitchOverlay onTap={() => innerRef.current?.click()} />
+                <HapticFallback
+                    className={`${styles.overlayLabel} ${styles.overlayLabelInline}`}
+                    onTap={() => innerRef.current?.click()}
+                />
             </Fragment>
         );
     },

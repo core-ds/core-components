@@ -4,6 +4,8 @@ import { useHaptic } from '../../hooks/use-haptic';
 import { type HapticBaseProps } from '../../typings';
 import { HapticFallback } from '../haptic-fallback';
 
+import styles from './index.module.css';
+
 type HapticAProps = AnchorHTMLAttributes<HTMLAnchorElement> & HapticBaseProps;
 
 /**
@@ -34,11 +36,12 @@ export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
         }
 
         return (
-            <HapticFallback
-                onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLAnchorElement>)}
-            >
+            <span className={styles.wrapper}>
                 {anchor}
-            </HapticFallback>
+                <HapticFallback
+                    onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLAnchorElement>)}
+                />
+            </span>
         );
     },
 );

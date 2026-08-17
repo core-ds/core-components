@@ -4,6 +4,8 @@ import { useHaptic } from '../../hooks/use-haptic';
 import { type HapticBaseProps } from '../../typings';
 import { HapticFallback } from '../haptic-fallback';
 
+import styles from './index.module.css';
+
 type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
     type?: 'button' | 'submit';
 } & HapticBaseProps;
@@ -50,11 +52,12 @@ export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
         }
 
         return (
-            <HapticFallback
-                onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLButtonElement>)}
-            >
+            <span className={styles.wrapper}>
                 {button}
-            </HapticFallback>
+                <HapticFallback
+                    onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLButtonElement>)}
+                />
+            </span>
         );
     },
 );
