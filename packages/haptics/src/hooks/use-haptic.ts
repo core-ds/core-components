@@ -2,15 +2,14 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useCoreConfig } from '@alfalab/core-components-config';
 
-import { type HapticInput, type HapticPresetValue, type TriggerOptions } from '../typings';
+import { type HapticInput, type HapticPresetValue, type Options } from '../typings';
 import {
     cancelHaptic,
-    isVibrationSupported,
-    needsIosHapticSwitch,
     resolveHapticConfig,
     resolvePlatformHapticInput,
     triggerHaptic,
 } from '../utils';
+import { isIosFallback, isSupported } from '../utils/helpers';
 
 export interface UseHapticParams {
     preset?: HapticPresetValue;
@@ -18,6 +17,16 @@ export interface UseHapticParams {
 }
 
 export interface UseHapticResponse {
+    /**
+     * Запускает haptic feedback.
+     */
+    trigger: (input?: HapticInput, options?: Options) => void;
+
+    /**
+     * Отменяет haptic feedback.
+     */
+    cancel: () => void;
+
     /**
      * Прямой `trigger(input)` работает независимо от этого флага.
      */
@@ -28,16 +37,6 @@ export interface UseHapticResponse {
      * взаимодействие с iOS switch-overlay.
      */
     isSupported: boolean;
-
-    /**
-     * Отменяет текущий haptic feedback.
-     */
-    trigger: (input?: HapticInput, options?: TriggerOptions) => void;
-
-    /**
-     * Отменяет текущую вибрацию, если она ещё проигрывается.
-     */
-    cancel: () => void;
 
     /**
      *
@@ -57,11 +56,12 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
     const { haptics } = useCoreConfig();
 
     const isDebug = debug ?? haptics?.debug ?? false;
-    const supportsVibration = isVibrationSupported();
+
+    // todo: maybe remove
     const [needsIosOverlay, setNeedsIosOverlay] = useState(false);
 
     useEffect(() => {
-        setNeedsIosOverlay(needsIosHapticSwitch());
+        setNeedsIosOverlay(isIosFallback);
     }, []);
 
     const config = useMemo(
@@ -70,13 +70,13 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
     );
 
     const trigger = useCallback(
-        (input?: HapticInput, options?: TriggerOptions) => {
+        (input?: HapticInput, options?: Options) => {
             const resolvedInput = input ?? config?.input;
 
             if (resolvedInput === undefined) return;
 
             const platformInput = resolvePlatformHapticInput(resolvedInput, {
-                supportsVibration,
+                supportsVibration: isSupported,
             });
 
             if (platformInput === undefined) return;
@@ -87,16 +87,16 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
                 isDebug,
             );
         },
-        [config, isDebug, supportsVibration],
+        [config, isDebug],
     );
 
     const cancel = useCallback(() => cancelHaptic(isDebug), [isDebug]);
 
     return {
-        enabled: Boolean(config),
-        isSupported: supportsVibration || needsIosOverlay,
         trigger,
         cancel,
+        enabled: Boolean(config),
+        isSupported: isSupported || needsIosOverlay,
         fallback: needsIosOverlay,
     };
 };

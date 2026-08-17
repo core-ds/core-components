@@ -1,4 +1,3 @@
-import { DEFAULT_PRESET, DEFAULT_REPEAT } from '../constants';
 import { defaultPatterns } from '../patterns';
 import {
     type HapticConfig,
@@ -8,11 +7,8 @@ import {
     type HapticTriggerConfig,
 } from '../typings';
 
-/**
- * На iOS доступен только одиночный системный тик, поэтому любой паттерн
- * схлопывается в него.
- */
-export const IOS_SINGLE_TICK = defaultPatterns.selection.pattern as HapticPattern;
+import { DEFAULT_PRESET, DEFAULT_REPEAT, IOS_SINGLE_TICK } from './constants';
+
 
 const normalizeRepeat = (repeat = DEFAULT_REPEAT) => Math.max(1, Math.floor(repeat));
 
@@ -33,6 +29,7 @@ export const resolvePlatformHapticInput = (
     { supportsVibration }: ResolvePlatformHapticInputParams,
 ): HapticInput | undefined => {
     if (input === undefined) return undefined;
+
     if (supportsVibration) return input;
 
     return IOS_SINGLE_TICK;

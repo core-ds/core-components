@@ -1,18 +1,17 @@
 import React, { forwardRef, type MouseEvent } from 'react';
+import cn from 'classnames';
+
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+
+import { ensureDOM, TICK_ID } from '../../utils';
 
 import styles from './index.module.css';
 
-/**
- * Hack from https://github.com/WebKit/WebKit/pull/38473
- * Native Safari `<input type="checkbox" switch>` plays a system haptic on a real user tap.
- */
-const SWITCH_TYPE = { switch: '' };
-
 export interface HapticFallbackProps {
     /**
-     * Прямой tap по нативному switch.
+     * Прямой tap по label, связанному с нативным switch.
      */
-    onTap: (event: MouseEvent<HTMLInputElement>) => void;
+    onTap: (event: MouseEvent<HTMLLabelElement>) => void;
 
     /**
      * Класс для стилизации.
@@ -21,29 +20,30 @@ export interface HapticFallbackProps {
 }
 
 /**
- * Невидимый overlay с нативным Safari `<input type="checkbox" switch>`.
+ * Невидимый overlay, связанный с общим нативным Safari switch.
  */
 export const HapticFallback = forwardRef<HTMLLabelElement, HapticFallbackProps>(
     ({ onTap, className }, ref) => {
-        const handleClick = (e: MouseEvent<HTMLInputElement>) => {
-            const { currentTarget } = e;
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            // overlay для отрисовки tick на iOS
+            ensureDOM();
+        }, []);
 
+        const handleClick = (e: MouseEvent<HTMLLabelElement>) => {
             e.stopPropagation();
 
             onTap(e);
-            currentTarget.checked = false;
         };
 
         return (
-            <label ref={ref} className={className ?? styles.overlayLabel} aria-hidden={true}>
-                <input
-                    {...SWITCH_TYPE}
-                    type='checkbox'
-                    className={styles.overlayInput}
-                    tabIndex={-1}
-                    onClick={handleClick}
-                />
-            </label>
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label
+                ref={ref}
+                htmlFor={TICK_ID}
+                className={cn(className, styles.overlayLabel)}
+                aria-hidden={true}
+                onClick={handleClick}
+            />
         );
     },
 );

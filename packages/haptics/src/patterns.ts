@@ -1,22 +1,22 @@
 import { type HapticPatternPreset } from './typings';
 
 export const defaultPatterns = {
+    /** Двойной отклик с нарастанием — паттерн "Успех". */
     success: {
-        // ascending double-tap indicating success.
         pattern: [
             { duration: 30, intensity: 0.5 },
             { delay: 60, duration: 40, intensity: 1 },
         ],
     },
+    /** Двойной отклик с паузой — паттерн "Предупреждение". */
     warning: {
-        // two taps with hesitation indicating a warning.
         pattern: [
             { duration: 40, intensity: 0.8 },
             { delay: 100, duration: 40, intensity: 0.6 },
         ],
     },
+    /** Несколько резких откликов — паттерн "Ошибка". */
     error: {
-        // three rapid harsh taps indicating an error.
         pattern: [
             { duration: 40, intensity: 0.7 },
             { delay: 40, duration: 40, intensity: 0.7 },
@@ -24,39 +24,39 @@ export const defaultPatterns = {
             { delay: 40, duration: 50, intensity: 0.6 },
         ],
     },
+    /** Лёгкий одиночный отклик */
     light: {
-        // single light tap indicating a minor impact.
         pattern: [{ duration: 15, intensity: 0.4 }],
     },
+    /** Средний отклик для обычных действий. */
     medium: {
-        // moderate tap for standard interactions.
         pattern: [{ duration: 25, intensity: 0.7 }],
     },
+    /** Сильный отклик для значимых действий. */
     heavy: {
-        // strong tap for significant interactions.
         pattern: [{ duration: 35, intensity: 1 }],
     },
+    /** Мягкий отклик. */
     soft: {
-        // soft, cushioned tap with a rounded feel.
         pattern: [{ duration: 40, intensity: 0.5 }],
     },
+    /** Короткий жёсткий отклик. */
     rigid: {
-        // hard, crisp tap with a precise feel.
         pattern: [{ duration: 10, intensity: 1 }],
     },
+    /** Едва заметный отклик при смене выбора. */
     selection: {
-        // subtle tap for selection changes.
         pattern: [{ duration: 8, intensity: 0.3 }],
     },
+    /** Два отклика с паузой. */
     nudge: {
-        // two quick taps with a pause, indicating a nudge or reminder.
         pattern: [
             { duration: 80, intensity: 0.8 },
             { delay: 80, duration: 50, intensity: 0.3 },
         ],
     },
+    /** Длинная непрерывная вибрация. */
     buzz: {
-        // rapid, low-intensity taps creating a buzzing effect.
         pattern: [{ duration: 1000, intensity: 1 }],
     },
 } as const satisfies Record<string, HapticPatternPreset>;

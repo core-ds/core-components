@@ -23,7 +23,7 @@ export interface HapticPatternPreset {
 
 export type HapticInput = number | string | number[] | HapticPattern | HapticPatternPreset;
 
-export interface TriggerOptions {
+export interface Options {
     /**
      * Сила вибрации по умолчанию.
      *
@@ -65,7 +65,7 @@ export interface HapticTriggerConfig {
     /**
      * Опции, которые будут переданы напрямую в `triggerHaptic`.
      */
-    options?: TriggerOptions;
+    options?: Options;
 }
 
 export interface HapticConfig extends HapticTriggerConfig, Partial<Vibration> {

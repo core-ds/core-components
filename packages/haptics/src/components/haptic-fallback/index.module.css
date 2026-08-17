@@ -8,23 +8,3 @@
     cursor: inherit;
     -webkit-tap-highlight-color: transparent;
 }
-
-.overlayInput {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    /* Empirical native size; overscale covers the host, clipped by .overlayLabel */
-    width: 51px;
-    height: 31px;
-
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-
-    appearance: auto;
-    -webkit-appearance: auto;
-
-    transform-origin: 0 0;
-    transform: scale(20, 20);
-}

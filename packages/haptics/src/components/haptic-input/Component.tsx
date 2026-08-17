@@ -1,4 +1,10 @@
-import React, { forwardRef, Fragment, type InputHTMLAttributes, type MouseEvent, useRef } from 'react';
+import React, {
+    forwardRef,
+    Fragment,
+    type InputHTMLAttributes,
+    type MouseEvent,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 
 import { useHaptic } from '../../hooks/use-haptic';
@@ -28,7 +34,9 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
             trigger();
         };
 
-        const input = <input {...restProps} ref={mergeRefs([innerRef, ref])} onClick={handleClick} />;
+        const input = (
+            <input {...restProps} ref={mergeRefs([innerRef, ref])} onClick={handleClick} />
+        );
 
         if (!fallback) {
             return input;
@@ -38,7 +46,7 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
             <Fragment>
                 {input}
                 <HapticFallback
-                    className={`${styles.overlayLabel} ${styles.overlayLabelInline}`}
+                    className={styles.overlayLabelInline}
                     onTap={() => innerRef.current?.click()}
                 />
             </Fragment>

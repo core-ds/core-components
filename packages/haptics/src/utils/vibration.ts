@@ -1,12 +1,37 @@
-import { CYCLE, MAX_PHASE_MS } from '../constants';
 import { defaultPatterns } from '../patterns';
 import { type HapticInput, type Vibration } from '../typings';
 
-export const clamp01 = (value: number): number => Math.max(0, Math.min(1, value));
+import { CYCLE, MAX_PHASE_MS } from './constants';
 
-/**
- * Приводит любой `HapticInput` к массиву фаз вибрации.
- */
+export const clamp = (value: number): number => Math.max(0, Math.min(1, value));
+
+/** Обрезает `duration` каждой фазы до {@link MAX_PHASE_MS}. */
+export const clampVibrations = (vibrations: Vibration[] | null): Vibration[] | null => {
+    if (!vibrations) return null;
+
+    const clamped: Vibration[] = [];
+
+    for (const vibration of vibrations) {
+        const { delay } = vibration;
+        const isValid =
+            Number.isFinite(vibration.duration) &&
+            vibration.duration >= 0 &&
+            (delay === undefined || (Number.isFinite(delay) && delay >= 0));
+
+        if (!isValid) {
+            return null;
+        }
+
+        clamped.push({
+            ...vibration,
+            duration: Math.min(vibration.duration, MAX_PHASE_MS),
+        });
+    }
+
+    return clamped;
+};
+
+/** Приводит `HapticInput` к массиву фаз вибрации. */
 export const normalizeInput = (input: HapticInput): Vibration[] | null => {
     if (typeof input === 'number') {
         return [{ duration: input }];
@@ -48,39 +73,8 @@ export const normalizeInput = (input: HapticInput): Vibration[] | null => {
     return input.pattern.map((vibration) => ({ ...vibration }));
 };
 
-/**
- * Обрезает слишком длинные фазы и отбрасывает паттерн целиком,
- * если в нём есть некорректные значения.
- */
-export const clampVibrations = (vibrations: Vibration[] | null): Vibration[] | null => {
-    if (!vibrations) return null;
-
-    const clamped: Vibration[] = [];
-
-    for (const vibration of vibrations) {
-        const { delay } = vibration;
-        const isValid =
-            Number.isFinite(vibration.duration) &&
-            vibration.duration >= 0 &&
-            (delay === undefined || (Number.isFinite(delay) && delay >= 0));
-
-        if (!isValid) {
-            return null;
-        }
-
-        clamped.push({
-            ...vibration,
-            duration: Math.min(vibration.duration, MAX_PHASE_MS),
-        });
-    }
-
-    return clamped;
-};
-
-/**
- * Разбивает одну фазу.
- */
-export const modulateVibration = (duration: number, intensity: number): number[] => {
+/** Разбивает одну фазу на набор импульсов и пауз. */
+const modulateVibration = (duration: number, intensity: number): number[] => {
     if (intensity >= 1) return [duration];
     if (intensity <= 0) return [];
 
@@ -107,10 +101,7 @@ export const modulateVibration = (duration: number, intensity: number): number[]
     return result;
 };
 
-/**
- * Собирает плоский паттерн для `navigator.vibrate()`,
- * применяя PWM-модуляцию интенсивности к каждой фазе.
- */
+/** Собирает плоский паттерн для `navigator.vibrate()`, применяя PWM-модуляцию интенсивности к каждой фазе. */
 export const toVibratePattern = (vibrations: Vibration[], defaultIntensity: number): number[] => {
     const result: number[] = [];
 
@@ -125,7 +116,7 @@ export const toVibratePattern = (vibrations: Vibration[], defaultIntensity: numb
     };
 
     for (const vibration of vibrations) {
-        const intensity = clamp01(vibration.intensity ?? defaultIntensity);
+        const intensity = clamp(vibration.intensity ?? defaultIntensity);
         const delay = vibration.delay ?? 0;
 
         if (delay > 0) {

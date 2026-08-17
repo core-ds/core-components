@@ -1,5 +1,6 @@
 export * from './config';
-export * from './haptic-engine';
-export * from './ios-tick';
+export { TICK_ID } from './constants';
+export { triggerHaptic, cancelHaptic } from './haptic';
+export { isSupported, isIosFallback, ensureDOM } from './helpers';
 export * from './logger';
-export * from './vibration';
+export { clamp, clampVibrations, normalizeInput, toVibratePattern } from './vibration';
