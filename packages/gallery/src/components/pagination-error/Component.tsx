@@ -31,13 +31,7 @@ export const PaginationError: FC = () => {
                 <br />
                 Попробуйте зайти позже
             </TypographyText>
-            <Button
-                className={styles.retryButton}
-                view='secondary'
-                colors='inverted'
-                size={48}
-                onClick={handleRetry}
-            >
+            <Button className={styles.retryButton} view='secondary' size={48} onClick={handleRetry}>
                 Попробовать ещё раз
             </Button>
         </div>

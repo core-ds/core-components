@@ -69,7 +69,7 @@ export const InfoBar = () => {
                     className={styles.description}
                     tag='div'
                     view='primary-small'
-                    color='secondary-inverted'
+                    color='static-primary-light'
                 >
                     {createdAt}
                 </TypographyText>

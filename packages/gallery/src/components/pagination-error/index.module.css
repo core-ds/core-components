@@ -26,4 +26,6 @@
 .retryButton {
     min-width: 240px;
     margin-top: var(--gap-40);
+    background-color: var(--color-static-neutral-translucent-100-inverted);
+    color: var(--color-static-neutral-0);
 }
