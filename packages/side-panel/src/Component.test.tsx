@@ -42,56 +42,46 @@ const SidePanelMobileWrapper = (props: Partial<SidePanelMobileProps>) => {
     );
 };
 
-const COMPONENT_NAME_TO_WRAPPER = {
-    SidePanelDesktop: SidePanelDesktopWrapper,
-    SidePanelMobile: SidePanelMobileWrapper,
-} as const;
+const SIDE_PANEL_TEST_CASES = [
+    ['SidePanelDesktop', SidePanelDesktopWrapper, SidePanelDesktop],
+    ['SidePanelMobile', SidePanelMobileWrapper, SidePanelMobile],
+] as const;
 
-const COMPONENT_NAME_TO_SIDE_PANEL = {
-    SidePanelDesktop,
-    SidePanelMobile,
-} as const;
+describe.each(SIDE_PANEL_TEST_CASES)('%s', (_componentName, Component, SidePanel) => {
+    it('should forward ref to header root element', () => {
+        const headerRef = React.createRef<HTMLDivElement>();
 
-(['SidePanelDesktop', 'SidePanelMobile'] as const).forEach((componentName) => {
-    const Component = COMPONENT_NAME_TO_WRAPPER[componentName];
-    const SidePanel = COMPONENT_NAME_TO_SIDE_PANEL[componentName];
+        render(
+            <SidePanel open={true}>
+                <SidePanel.Header ref={headerRef} dataTestId='header-ref' />
+            </SidePanel>,
+        );
 
-    describe(componentName, () => {
-        it('should forward ref to header root element', () => {
-            const headerRef = React.createRef<HTMLDivElement>();
+        expect(headerRef.current).toBe(screen.getByTestId('header-ref'));
+    });
 
-            render(
-                <SidePanel open={true}>
-                    <SidePanel.Header ref={headerRef} dataTestId='header-ref' />
-                </SidePanel>,
-            );
-
-            expect(headerRef.current).toBe(screen.getByTestId('header-ref'));
+    describe('snapshots tests', () => {
+        it('should match snapshot', () => {
+            render(<Component />);
+            expect(screen.getByRole('dialog')).toMatchSnapshot();
         });
+    });
 
-        describe('snapshots tests', () => {
-            it('should match snapshot', () => {
-                render(<Component />);
-                expect(screen.getByRole('dialog')).toMatchSnapshot();
-            });
-        });
+    describe('attributes test', () => {
+        it('should have data-test-id', () => {
+            const dti = 'modal-dti';
+            const { getByTestId } = render(<Component dataTestId={dti} />);
 
-        describe('attributes test', () => {
-            it('should have data-test-id', () => {
-                const dti = 'modal-dti';
-                const { getByTestId } = render(<Component dataTestId={dti} />);
+            const testIds = getSidePanelTestIds(dti);
 
-                const testIds = getSidePanelTestIds(dti);
-
-                expect(getByTestId(testIds.modal)).toBeInTheDocument();
-                expect(getByTestId(testIds.header)).toBeInTheDocument();
-                expect(getByTestId(testIds.title)).toBeInTheDocument();
-                expect(getByTestId(testIds.content)).toBeInTheDocument();
-                expect(getByTestId(testIds.footer)).toBeInTheDocument();
-                expect(getByTestId(testIds.controls)).toBeInTheDocument();
-                expect(getByTestId(testIds.closer)).toBeInTheDocument();
-                expect(getByTestId(testIds.backButton)).toBeInTheDocument();
-            });
+            expect(getByTestId(testIds.modal)).toBeInTheDocument();
+            expect(getByTestId(testIds.header)).toBeInTheDocument();
+            expect(getByTestId(testIds.title)).toBeInTheDocument();
+            expect(getByTestId(testIds.content)).toBeInTheDocument();
+            expect(getByTestId(testIds.footer)).toBeInTheDocument();
+            expect(getByTestId(testIds.controls)).toBeInTheDocument();
+            expect(getByTestId(testIds.closer)).toBeInTheDocument();
+            expect(getByTestId(testIds.backButton)).toBeInTheDocument();
         });
     });
 });
