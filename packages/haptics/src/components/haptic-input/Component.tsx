@@ -1,24 +1,14 @@
 import React, { forwardRef, type InputHTMLAttributes, type MouseEvent } from 'react';
 
 import { useHaptic } from '../../hooks/use-haptic';
-import { useIosHapticSwitch } from '../../hooks/use-ios-haptic-switch';
-import { type HapticBaseProps } from '../../types';
+import { type HapticBaseProps } from '../../typings';
+import { HapticOverlay } from '../haptic-overlay';
 
 type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
 
 export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
-    ({ 'data-haptic-preset': dataHapticPreset, onClick, disabled, ...restProps }, ref) => {
-        const { trigger } = useHaptic({ preset: dataHapticPreset });
-
-        const iosSwitch = useIosHapticSwitch({
-            disabled,
-            fillParent: true,
-            onSwitchTap: (event) => {
-                onClick?.(event as unknown as MouseEvent<HTMLInputElement>);
-            },
-        });
-
-        console.log({ dataHapticPreset, iosSwitch, disabled, trigger }, 'HapticInput');
+    ({ 'data-haptic-preset': preset, onClick, disabled, ...restProps }, ref) => {
+        const { trigger, needsOverlay } = useHaptic({ preset, disabled });
 
         const handleClick = (event: MouseEvent<HTMLInputElement>) => {
             onClick?.(event);
@@ -30,15 +20,18 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
 
         const input = <input {...restProps} ref={ref} disabled={disabled} onClick={handleClick} />;
 
-        if (!iosSwitch.active) {
+        if (!needsOverlay) {
             return input;
         }
 
+        /*
+         * Обёртки нет: input живёт внутри чужого `<label>` (Switch, Checkbox),
+         * и лишний элемент сломал бы их раскладку.
+         */
         return (
-            <React.Fragment>
+            <HapticOverlay fillParent={true} onTap={(event) => onClick?.(event)}>
                 {input}
-                {iosSwitch.node}
-            </React.Fragment>
+            </HapticOverlay>
         );
     },
 );

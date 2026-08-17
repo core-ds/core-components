@@ -5,7 +5,7 @@
     vertical-align: middle;
 }
 
-.childStretch {
+.wrapper > *:first-child {
     width: 100%;
 }
 
@@ -17,6 +17,7 @@
     display: block;
     overflow: hidden;
     cursor: inherit;
+
     /* iOS рисует системный highlight поверх opacity:0 у switch */
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
@@ -26,9 +27,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* Intrinsic switch ~48px; scale so hit-area covers the whole host */
+
+    /* Нативный switch ~51x31; растягиваем, чтобы хит-зона покрыла весь хост */
     width: 51px;
     height: 31px;
+
     margin: 0;
     padding: 0;
     opacity: 0;
@@ -37,6 +40,7 @@
     -webkit-appearance: auto;
     -webkit-tap-highlight-color: transparent;
     transform-origin: 0 0;
-    /* Filled via inline --haptic-overlay-scale from measured parent */
+
+    /* Заполняется инлайново после замера хоста */
     transform: scale(var(--haptic-overlay-scale-x, 20), var(--haptic-overlay-scale-y, 20));
 }

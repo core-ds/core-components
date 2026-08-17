@@ -1,8 +1,8 @@
 import React, { type ButtonHTMLAttributes, forwardRef, type MouseEvent } from 'react';
 
 import { useHaptic } from '../../hooks/use-haptic';
-import { useIosHapticSwitch } from '../../hooks/use-ios-haptic-switch';
-import { type HapticBaseProps } from '../../types';
+import { type HapticBaseProps } from '../../typings';
+import { HapticOverlay } from '../haptic-overlay';
 
 type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
     type?: 'button' | 'submit';
@@ -11,7 +11,7 @@ type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> &
 export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
     (
         {
-            'data-haptic-preset': dataHapticPreset,
+            'data-haptic-preset': preset,
             onClick,
             type = 'button',
             className,
@@ -20,20 +20,12 @@ export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
         },
         ref,
     ) => {
-        const { trigger } = useHaptic({ preset: dataHapticPreset });
-        const iosSwitch = useIosHapticSwitch({
-            disabled,
-            onSwitchTap: (e) => {
-                onClick?.(e as unknown as MouseEvent<HTMLButtonElement>);
-            },
-        });
+        const { trigger, needsOverlay } = useHaptic({ preset, disabled });
 
-        console.log({ dataHapticPreset, iosSwitch, disabled, trigger }, 'HapticButton');
+        const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+            onClick?.(event);
 
-        const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-            onClick?.(e);
-
-            if (e.defaultPrevented) return;
+            if (event.defaultPrevented) return;
 
             trigger();
         };
@@ -42,22 +34,23 @@ export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
             <button
                 {...restProps}
                 ref={ref}
-                className={[className, iosSwitch.childClassName].filter(Boolean).join(' ') || undefined}
+                className={className}
                 disabled={disabled}
                 type={type === 'submit' ? 'submit' : 'button'}
                 onClick={handleClick}
             />
         );
 
-        if (!iosSwitch.active) {
+        if (!needsOverlay) {
             return button;
         }
 
         return (
-            <span className={iosSwitch.wrapperClassName}>
+            <HapticOverlay
+                onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLButtonElement>)}
+            >
                 {button}
-                {iosSwitch.node}
-            </span>
+            </HapticOverlay>
         );
     },
 );
