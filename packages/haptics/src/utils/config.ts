@@ -25,15 +25,15 @@ export const repeatHapticPattern = (pattern: HapticPattern, repeat = DEFAULT_REP
     Array.from({ length: normalizeRepeat(repeat) }).flatMap(() => pattern);
 
 export type ResolvePlatformHapticInputParams = {
-    isSupported: boolean;
+    supportsVibration: boolean;
 };
 
 export const resolvePlatformHapticInput = (
     input: HapticInput | undefined,
-    { isSupported }: ResolvePlatformHapticInputParams,
+    { supportsVibration }: ResolvePlatformHapticInputParams,
 ): HapticInput | undefined => {
     if (input === undefined) return undefined;
-    if (isSupported) return input;
+    if (supportsVibration) return input;
 
     return IOS_SINGLE_TICK;
 };

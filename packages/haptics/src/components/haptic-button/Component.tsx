@@ -2,12 +2,18 @@ import React, { type ButtonHTMLAttributes, forwardRef, type MouseEvent } from 'r
 
 import { useHaptic } from '../../hooks/use-haptic';
 import { type HapticBaseProps } from '../../typings';
-import { HapticOverlay } from '../haptic-overlay';
+import { HapticFallback } from '../haptic-fallback';
 
 type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
     type?: 'button' | 'submit';
 } & HapticBaseProps;
 
+/**
+ * Компонент адаптер для поддержки haptic feedback `<button/>` элемента.
+ *
+ * @description
+ *
+ */
 export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
     (
         {
@@ -15,12 +21,11 @@ export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
             onClick,
             type = 'button',
             className,
-            disabled,
             ...restProps
         },
         ref,
     ) => {
-        const { trigger, needsOverlay } = useHaptic({ preset, disabled });
+        const { trigger, fallback } = useHaptic({ preset });
 
         const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
             onClick?.(event);
@@ -35,22 +40,21 @@ export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
                 {...restProps}
                 ref={ref}
                 className={className}
-                disabled={disabled}
                 type={type === 'submit' ? 'submit' : 'button'}
                 onClick={handleClick}
             />
         );
 
-        if (!needsOverlay) {
+        if (!fallback) {
             return button;
         }
 
         return (
-            <HapticOverlay
+            <HapticFallback
                 onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLButtonElement>)}
             >
                 {button}
-            </HapticOverlay>
+            </HapticFallback>
         );
     },
 );

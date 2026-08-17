@@ -15,7 +15,6 @@ import {
 export interface UseHapticParams {
     preset?: HapticPresetValue;
     debug?: boolean;
-    disabled?: boolean;
 }
 
 export interface UseHapticResponse {
@@ -25,7 +24,8 @@ export interface UseHapticResponse {
     enabled: boolean;
 
     /**
-     * Поддерживает ли текущее окружение нативную вибрацию через `navigator.vibrate`.
+     * Доступен ли haptic feedback через `navigator.vibrate` или прямое
+     * взаимодействие с iOS switch-overlay.
      */
     isSupported: boolean;
 
@@ -40,10 +40,9 @@ export interface UseHapticResponse {
     cancel: () => void;
 
     /**
-     * `true` на iPhone/iPad/iPod без `navigator.vibrate` — контрол нужно
-     * обернуть в `HapticOverlay`, иначе системного тика не будет.
+     *
      */
-    needsOverlay: boolean;
+    fallback: boolean;
 }
 
 /**
@@ -54,11 +53,11 @@ export interface UseHapticResponse {
  * 2. `useHaptic({ preset })` — локальный preset или кастомный vibration-конфиг.
  * 3. `CoreConfig.haptics` — глобальная конфигурация из провайдера.
  */
-export const useHaptic = ({ preset, debug, disabled }: UseHapticParams = {}): UseHapticResponse => {
+export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticResponse => {
     const { haptics } = useCoreConfig();
 
     const isDebug = debug ?? haptics?.debug ?? false;
-    const isSupported = isVibrationSupported();
+    const supportsVibration = isVibrationSupported();
     const [needsIosOverlay, setNeedsIosOverlay] = useState(false);
 
     useEffect(() => {
@@ -70,14 +69,15 @@ export const useHaptic = ({ preset, debug, disabled }: UseHapticParams = {}): Us
         [preset, haptics],
     );
 
-    // todo: fixed
     const trigger = useCallback(
         (input?: HapticInput, options?: TriggerOptions) => {
             const resolvedInput = input ?? config?.input;
 
             if (resolvedInput === undefined) return;
 
-            const platformInput = resolvePlatformHapticInput(resolvedInput, { isSupported });
+            const platformInput = resolvePlatformHapticInput(resolvedInput, {
+                supportsVibration,
+            });
 
             if (platformInput === undefined) return;
 
@@ -87,17 +87,16 @@ export const useHaptic = ({ preset, debug, disabled }: UseHapticParams = {}): Us
                 isDebug,
             );
         },
-        [config, isDebug, isSupported],
+        [config, isDebug, supportsVibration],
     );
 
     const cancel = useCallback(() => cancelHaptic(isDebug), [isDebug]);
 
     return {
         enabled: Boolean(config),
-        isSupported,
+        isSupported: supportsVibration || needsIosOverlay,
         trigger,
         cancel,
-        // todo: refactor to isSupported
-        needsOverlay: needsIosOverlay && !disabled,
+        fallback: needsIosOverlay,
     };
 };

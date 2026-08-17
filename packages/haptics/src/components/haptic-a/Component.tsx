@@ -2,15 +2,19 @@ import React, { type AnchorHTMLAttributes, forwardRef, type MouseEvent } from 'r
 
 import { useHaptic } from '../../hooks/use-haptic';
 import { type HapticBaseProps } from '../../typings';
-import { HapticOverlay } from '../haptic-overlay';
+import { HapticFallback } from '../haptic-fallback';
 
 type HapticAProps = AnchorHTMLAttributes<HTMLAnchorElement> & HapticBaseProps;
 
+/**
+ * Компонент адаптер для поддержки haptic feedback `<a/>` элемента.
+ *
+ * @description
+ *
+ */
 export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
     ({ 'data-haptic-preset': preset, onClick, className, ...restProps }, ref) => {
-        const disabled = Boolean((restProps as { disabled?: boolean }).disabled);
-
-        const { trigger, needsOverlay } = useHaptic({ preset, disabled });
+        const { trigger, fallback } = useHaptic({ preset });
 
         const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
             onClick?.(event);
@@ -25,16 +29,16 @@ export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
             <a {...restProps} ref={ref} className={className} onClick={handleClick} />
         );
 
-        if (!needsOverlay) {
+        if (!fallback) {
             return anchor;
         }
 
         return (
-            <HapticOverlay
+            <HapticFallback
                 onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLAnchorElement>)}
             >
                 {anchor}
-            </HapticOverlay>
+            </HapticFallback>
         );
     },
 );

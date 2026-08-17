@@ -18,7 +18,6 @@
     overflow: hidden;
     cursor: inherit;
 
-    /* iOS рисует системный highlight поверх opacity:0 у switch */
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
 }
@@ -28,7 +27,7 @@
     top: 0;
     left: 0;
 
-    /* Нативный switch ~51x31; растягиваем, чтобы хит-зона покрыла весь хост */
+    /* Empirical native size; overscale covers the host, clipped by .overlayLabel */
     width: 51px;
     height: 31px;
 
@@ -36,11 +35,11 @@
     padding: 0;
     opacity: 0;
     cursor: inherit;
+
     appearance: auto;
     -webkit-appearance: auto;
     -webkit-tap-highlight-color: transparent;
-    transform-origin: 0 0;
 
-    /* Заполняется инлайново после замера хоста */
-    transform: scale(var(--haptic-overlay-scale-x, 20), var(--haptic-overlay-scale-y, 20));
+    transform-origin: 0 0;
+    transform: scale(20, 20);
 }

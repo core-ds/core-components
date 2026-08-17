@@ -1,14 +1,22 @@
-import React, { forwardRef, type InputHTMLAttributes, type MouseEvent } from 'react';
+import React, { forwardRef, Fragment, type InputHTMLAttributes, type MouseEvent, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 
 import { useHaptic } from '../../hooks/use-haptic';
 import { type HapticBaseProps } from '../../typings';
-import { HapticOverlay } from '../haptic-overlay';
+import { HapticSwitchOverlay } from '../haptic-fallback';
 
 type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
 
+/**
+ * Компонент адаптер для поддержки haptic feedback `<input/>` элемента.
+ *
+ * @description
+ *
+ */
 export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
-    ({ 'data-haptic-preset': preset, onClick, disabled, ...restProps }, ref) => {
-        const { trigger, needsOverlay } = useHaptic({ preset, disabled });
+    ({ 'data-haptic-preset': preset, onClick, ...restProps }, ref) => {
+        const { trigger, fallback } = useHaptic({ preset });
+        const innerRef = useRef<HTMLInputElement>(null);
 
         const handleClick = (event: MouseEvent<HTMLInputElement>) => {
             onClick?.(event);
@@ -18,20 +26,17 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
             trigger();
         };
 
-        const input = <input {...restProps} ref={ref} disabled={disabled} onClick={handleClick} />;
+        const input = <input {...restProps} ref={mergeRefs([innerRef, ref])} onClick={handleClick} />;
 
-        if (!needsOverlay) {
+        if (!fallback) {
             return input;
         }
 
-        /*
-         * Обёртки нет: input живёт внутри чужого `<label>` (Switch, Checkbox),
-         * и лишний элемент сломал бы их раскладку.
-         */
         return (
-            <HapticOverlay fillParent={true} onTap={(event) => onClick?.(event)}>
+            <Fragment>
                 {input}
-            </HapticOverlay>
+                <HapticSwitchOverlay onTap={() => innerRef.current?.click()} />
+            </Fragment>
         );
     },
 );
