@@ -2,17 +2,28 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useCoreConfig } from '@alfalab/core-components-config';
 
-import { type HapticInput, type HapticPresetValue, type Options } from '../typings';
 import {
-    cancelHaptic,
-    resolveHapticConfig,
-    resolvePlatformHapticInput,
-    triggerHaptic,
-} from '../utils';
+    type HapticComponentValue,
+    type HapticInput,
+    type HapticPattern,
+    type Options,
+} from '../typings';
+import { cancelHaptic, triggerHaptic } from '../utils';
+import { DEFAULT_REPEAT } from '../utils/constants';
 import { isIosFallback, isSupported } from '../utils/helpers';
 
+const repeatHapticPattern = (pattern: HapticPattern, repeat = DEFAULT_REPEAT): HapticPattern =>
+    Array.from({ length: Math.max(1, Math.floor(repeat)) }).flatMap(() => pattern);
+
 export interface UseHapticParams {
-    preset?: HapticPresetValue;
+    /**
+     * Локальный preset или `false` для отключения этого экземпляра хука.
+     */
+    preset?: HapticComponentValue;
+
+    /**
+     * Включает диагностические сообщения.
+     */
     debug?: boolean;
 }
 
@@ -28,7 +39,7 @@ export interface UseHapticResponse {
     cancel: () => void;
 
     /**
-     * Прямой `trigger(input)` работает независимо от этого флага.
+     * Разрешён ли haptic глобальной и локальной политикой.
      */
     enabled: boolean;
 
@@ -39,55 +50,60 @@ export interface UseHapticResponse {
     isSupported: boolean;
 
     /**
-     *
+     * Нужен ли iOS overlay (`HapticFallback`) для нативного тика.
+     * `false`, если нет локального preset или haptic отключён.
      */
     fallback: boolean;
 }
 
 /**
- * Хук для ручного запуска haptic feedback.
+ * Предоставляет управление haptic feedback.
  *
- * Приоритет источников:
- * 1. `trigger(input, options)` — прямой вызов, самый высокий приоритет.
- * 2. `useHaptic({ preset })` — локальный preset или кастомный vibration-конфиг.
- * 3. `CoreConfig.haptics` — глобальная конфигурация из провайдера.
+ * ! todo: add more description
+ * @remarks
+ * Приоритет разрешения вызова `trigger`:
+ *
+ * 1. Глобально отключённый haptic — no-op.
+ * 2. `preset=false` — локальный no-op.
+ * 3. Явно переданный `input`.
+ * 4. Значение `preset`.
+ * 5. Без `input` и `preset` — no-op.
+ *
+ * @returns Методы управления и текущее состояние haptic feedback.
  */
 export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticResponse => {
     const { haptics } = useCoreConfig();
 
     const isDebug = debug ?? haptics?.debug ?? false;
+    const enabled = haptics?.enabled !== false && preset !== false;
 
-    // todo: maybe remove
-    const [needsIosOverlay, setNeedsIosOverlay] = useState(false);
+    const [overlay, setOverlay] = useState(false);
 
     useEffect(() => {
-        setNeedsIosOverlay(isIosFallback);
+        setOverlay(isIosFallback);
     }, []);
 
-    const config = useMemo(
-        () => resolveHapticConfig({ preset, global: haptics }),
-        [preset, haptics],
-    );
+    const presetInput = useMemo<HapticInput | undefined>(() => {
+        if (!enabled || preset === undefined) return undefined;
+
+        if (typeof preset === 'string') return preset;
+
+        const { repeat = DEFAULT_REPEAT, ...vibration } = preset;
+
+        return repeatHapticPattern([vibration] as HapticPattern, repeat);
+    }, [enabled, preset]);
 
     const trigger = useCallback(
         (input?: HapticInput, options?: Options) => {
-            const resolvedInput = input ?? config?.input;
+            if (!enabled) return;
+
+            const resolvedInput = input ?? presetInput;
 
             if (resolvedInput === undefined) return;
 
-            const platformInput = resolvePlatformHapticInput(resolvedInput, {
-                supportsVibration: isSupported,
-            });
-
-            if (platformInput === undefined) return;
-
-            triggerHaptic(
-                platformInput,
-                input === undefined ? (options ?? config?.options) : options,
-                isDebug,
-            );
+            triggerHaptic(resolvedInput, options, isDebug);
         },
-        [config, isDebug],
+        [enabled, isDebug, presetInput],
     );
 
     const cancel = useCallback(() => cancelHaptic(isDebug), [isDebug]);
@@ -95,8 +111,8 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
     return {
         trigger,
         cancel,
-        enabled: Boolean(config),
-        isSupported: isSupported || needsIosOverlay,
-        fallback: needsIosOverlay,
+        enabled,
+        isSupported: isSupported || overlay,
+        fallback: overlay && presetInput !== undefined,
     };
 };

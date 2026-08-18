@@ -35,6 +35,7 @@ export const ensureDOM = (): EnsureDOMProps | null => {
     });
     Object.assign(input.style, VISUALLY_HIDDEN);
 
+    // ! todo: fix bug iOs local tap
     const label = document.createElement('label');
 
     Object.assign(label, {

@@ -1,4 +1,3 @@
-export * from './config';
 export { TICK_ID } from './constants';
 export { triggerHaptic, cancelHaptic } from './haptic';
 export { isSupported, isIosFallback, ensureDOM } from './helpers';

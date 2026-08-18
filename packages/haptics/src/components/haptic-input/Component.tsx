@@ -29,7 +29,9 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
         const handleClick = (event: MouseEvent<HTMLInputElement>) => {
             onClick?.(event);
 
-            if (event.defaultPrevented) return;
+            if (event.defaultPrevented || preset === false) {
+                return;
+            }
 
             trigger();
         };

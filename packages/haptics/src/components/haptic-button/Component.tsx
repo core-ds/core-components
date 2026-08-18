@@ -17,22 +17,13 @@ type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> &
  *
  */
 export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
-    (
-        {
-            'data-haptic-preset': preset,
-            onClick,
-            type = 'button',
-            className,
-            ...restProps
-        },
-        ref,
-    ) => {
+    ({ 'data-haptic-preset': preset, onClick, type = 'button', className, ...restProps }, ref) => {
         const { trigger, fallback } = useHaptic({ preset });
 
         const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
             onClick?.(event);
 
-            if (event.defaultPrevented) return;
+            if (event.defaultPrevented || preset === false) return;
 
             trigger();
         };

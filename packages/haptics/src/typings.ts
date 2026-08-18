@@ -47,7 +47,11 @@ export type HapticPreset =
 
 export type HapticPresetValue = HapticPreset | (Partial<Vibration> & { repeat?: number });
 
-export type HapticBaseProps = Pick<HapticConfig, 'data-haptic-preset'>;
+export type HapticComponentValue = HapticPresetValue | false;
+
+export type HapticBaseProps = {
+    'data-haptic-preset'?: HapticComponentValue;
+};
 
 export interface HapticTriggerConfig {
     enabled?: boolean;
@@ -72,10 +76,9 @@ export interface HapticConfig extends HapticTriggerConfig, Partial<Vibration> {
     enabled?: boolean;
 
     /**
-     * Haptic-пресет или кастомный vibration-конфиг
-     * @default selection
+     * Haptic-пресет, кастомный vibration-конфиг или `false` для отключения.
      */
-    'data-haptic-preset'?: HapticPresetValue;
+    'data-haptic-preset'?: HapticComponentValue;
 
     /**
      * Повтор всего паттерна

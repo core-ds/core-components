@@ -6,11 +6,7 @@ import { hapticLog } from './logger';
 import { clamp, clampVibrations, normalizeInput, toVibratePattern } from './vibration';
 
 /** Запускает haptic feedback. */
-export const triggerHaptic = (
-    input: HapticInput,
-    options?: Options,
-    debug = false,
-): void => {
+export const triggerHaptic = (input: HapticInput, options?: Options, debug = false): void => {
     const vibrations = clampVibrations(normalizeInput(input));
 
     if (!vibrations?.length) {

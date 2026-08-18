@@ -21,7 +21,7 @@ export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
         const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
             onClick?.(event);
 
-            if (event.defaultPrevented) return;
+            if (event.defaultPrevented || preset === false) return;
 
             trigger();
         };
