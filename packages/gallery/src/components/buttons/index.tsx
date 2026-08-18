@@ -158,13 +158,13 @@ export const PostLink: FC<Props> = (props) => (
     <TooltipDesktop
         trigger='hover'
         position='bottom'
-        content='Перейти к посту в чате'
+        content='Показать сообщение'
         fallbackPlacements={['bottom-end']}
     >
         <IconButton
             {...props}
             icon={BubbleArrowRightMIcon}
-            aria-label='Перейти к посту в чате'
+            aria-label='Показать сообщение'
             className={styles.iconButton}
         />
     </TooltipDesktop>
