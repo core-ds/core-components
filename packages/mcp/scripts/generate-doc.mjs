@@ -53,7 +53,7 @@ export function generateDoc(entries) {
      * создаёт под него отдельный Program, и результат перестаёт зависеть от остальных
      * файлов в списке.
      */
-    entries.forEach(({ file, sourceName, componentName }, index) => {
+    entries.forEach(({ file, sourceName, componentName, packageName, subKey }, index) => {
         const docs = parser.parse([file]);
 
         /**
@@ -72,35 +72,70 @@ export function generateDoc(entries) {
          * явно ищем doc с именем, под которым компонент реально объявлен в файле
          * (sourceName), а не берём первый попавшийся из массива
          */
-        const doc = resolveDoc(docs, sourceName);
+        let doc = resolveDoc(docs, sourceName);
 
-        if (!doc) {
+        /**
+         * Файлы подкомпонентов почти всегда однокомпонентные — если явные кандидаты
+         * (sourceName / sourceNameComponent) не совпали, но в файле распарсился
+         * ровно один компонент, это он и есть. Нужно из-за случаев вроде
+         * `list`'s Item, где docgen репортит displayName через явный
+         * `Component.displayName = 'ListItem'`, не совпадающий ни с одним кандидатом
+         */
+        if (!doc && subKey && docs.length === 1) {
+            [doc] = docs;
+        }
+
+        if (!doc && !subKey) {
             return;
         }
 
-        const { filePath, props: componentProps } = doc;
-        const [packageName] = filePath.split('packages/')[1].split('/');
+        const props = doc
+            ? Object.fromEntries(
+                  Object.entries(doc.props)
+                      .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
+                      .map(([key, prop]) => {
+                          const { defaultValue, description, name, required, type } = prop;
 
-        const props = Object.fromEntries(
-            Object.entries(componentProps)
-                .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
-                .map(([key, prop]) => {
-                    const { defaultValue, description, name, required, type } = prop;
+                          return [key, { defaultValue, description, name, required, type }];
+                      }),
+              )
+            : {};
 
-                    return [key, { defaultValue, description, name, required, type }];
-                }),
-        );
+        if (!subKey) {
+            docsMap.set(packageName, {
+                /**
+                 * публичное имя компонента (из имени папки пакета), а не sourceName —
+                 * внутреннее имя объявления часто отличается суффиксом Responsive/Component
+                 */
+                displayName: componentName,
+                packageName,
+                props,
+                filePath: doc.filePath,
+                subComponents: {},
+            });
 
-        docsMap.set(packageName, {
-            /**
-             * публичное имя компонента (из имени папки пакета), а не sourceName —
-             * внутреннее имя объявления часто отличается суффиксом Responsive/Component
-             */
-            displayName: componentName,
-            packageName,
+            return;
+        }
+
+        /**
+         * Подкомпонент compound-компонента (Header/Content/Footer и т. п.) —
+         * основная запись для этого пакета уже должна быть в docsMap, так как
+         * generate-data.mjs пушит её в entries раньше собственных subKey-записей.
+         * Если doc не нашёлся вовсе (например компонент вообще без пропсов, как
+         * FileUploadItem.Content — берёт всё из контекста), всё равно фиксируем
+         * подкомпонент с пустыми props, а не молча теряем его — сам факт, что
+         * это часть публичного API компаунд-компонента, ценнее, чем список пропсов
+         */
+        const parentDoc = docsMap.get(packageName);
+
+        if (!parentDoc) {
+            return;
+        }
+
+        parentDoc.subComponents[subKey] = {
+            displayName: `${parentDoc.displayName}.${subKey}`,
             props,
-            filePath,
-        });
+        };
     });
 
     process.stdout.write('\n');

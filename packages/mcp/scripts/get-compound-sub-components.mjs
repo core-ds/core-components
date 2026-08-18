@@ -1,0 +1,124 @@
+import { Node, SymbolFlags, SyntaxKind } from 'ts-morph';
+
+/**
+ * Разворачивает цепочку алиасов (import/re-export) до реальной декларации —
+ * react-docgen-typescript репортит компонент по внутреннему имени, а не по алиасу,
+ * поэтому для парсинга нужна именно исходная декларация, а не символ реэкспорта
+ */
+function resolveAliasedDeclaration(symbol) {
+    let current = symbol;
+    let guard = 0;
+
+    while (current && current.getFlags() & SymbolFlags.Alias && guard++ < 10) {
+        current = current.getAliasedSymbol();
+    }
+
+    return current?.getDeclarations()?.[0];
+}
+
+/**
+ * У shorthand-свойств (`Header,`) getSymbol() на самом узле возвращает служебный
+ * "property"-символ объекта, а не символ переменной — нужен именно getValueSymbol()
+ */
+function getValueSymbol(property) {
+    if (Node.isShorthandPropertyAssignment(property)) {
+        return property.getValueSymbol();
+    }
+
+    if (Node.isPropertyAssignment(property)) {
+        return property.getInitializer()?.getSymbol();
+    }
+
+    return undefined;
+}
+
+function isObjectAssignCall(node) {
+    return Node.isCallExpression(node) && node.getExpression().getText() === 'Object.assign';
+}
+
+function collectFromObjectAssign(callExpr) {
+    const objectLiteral = callExpr.getArguments()[1];
+
+    if (!objectLiteral || !Node.isObjectLiteralExpression(objectLiteral)) {
+        return {};
+    }
+
+    const result = {};
+
+    objectLiteral.getProperties().forEach((property) => {
+        if (!Node.isPropertyAssignment(property) && !Node.isShorthandPropertyAssignment(property)) {
+            return;
+        }
+
+        const key = property.getName();
+        const declaration = resolveAliasedDeclaration(getValueSymbol(property));
+
+        if (!declaration) {
+            return;
+        }
+
+        result[key] = {
+            file: declaration.getSourceFile().getFilePath(),
+            sourceName: declaration.getSymbol()?.getName() ?? key,
+        };
+    });
+
+    return result;
+}
+
+/**
+ * Ищет compound-подкомпоненты (Header/Content/Footer и т. п.), прикреплённые к
+ * главному компоненту через `Object.assign(Main, { Header, Content, ... })`.
+ * Паттерн встречается в трёх формах:
+ *
+ * 1) декларация обёрнута напрямую:
+ *    `export const X = Object.assign(Y, {...})`
+ *
+ * 2) обёрнута косвенно через helper (см. createCompound в system-message):
+ *    `export const X = createCompound(Y)`, где сам Object.assign спрятан
+ *    в теле createCompound, часто в другом файле
+ *
+ * 3) compound объявлен под СОСЕДНИМ экспортом того же файла (см. universal-modal):
+ *    файл экспортирует и голый `UniversalModal`, и
+ *    `UniversalModalResponsive = Object.assign(UniversalModal, {...})` —
+ *    резолвинг по имени пакета берёт первый, поэтому здесь ищем по всему файлу
+ *    Object.assign, чей первый аргумент указывает на ту же mainDeclaration
+ */
+export function getCompoundSubComponents(mainDeclaration) {
+    const initializer = mainDeclaration.getInitializer?.();
+
+    if (initializer && isObjectAssignCall(initializer)) {
+        return collectFromObjectAssign(initializer);
+    }
+
+    if (initializer && Node.isCallExpression(initializer)) {
+        const calleeDeclaration = resolveAliasedDeclaration(
+            initializer.getExpression().getSymbol(),
+        );
+
+        const nestedAssign = calleeDeclaration
+            ?.getDescendantsOfKind(SyntaxKind.CallExpression)
+            .find(isObjectAssignCall);
+
+        if (nestedAssign) {
+            return collectFromObjectAssign(nestedAssign);
+        }
+    }
+
+    const assignCalls = mainDeclaration
+        .getSourceFile()
+        .getDescendantsOfKind(SyntaxKind.CallExpression)
+        .filter(isObjectAssignCall);
+
+    const sameDeclarationAssign = assignCalls.find((call) => {
+        const firstArgDeclaration = resolveAliasedDeclaration(call.getArguments()[0]?.getSymbol());
+
+        return (
+            firstArgDeclaration &&
+            firstArgDeclaration.getStart() === mainDeclaration.getStart() &&
+            firstArgDeclaration.getSourceFile() === mainDeclaration.getSourceFile()
+        );
+    });
+
+    return sameDeclarationAssign ? collectFromObjectAssign(sameDeclarationAssign) : {};
+}
