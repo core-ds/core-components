@@ -1,19 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { useCoreConfig } from '@alfalab/core-components-config';
 
-import {
-    type HapticComponentValue,
-    type HapticInput,
-    type HapticPattern,
-    type Options,
-} from '../typings';
-import { cancelHaptic, triggerHaptic } from '../utils';
-import { DEFAULT_REPEAT } from '../utils/constants';
+import { type HapticComponentValue, type HapticInput, type Options } from '../typings';
+import { cancelHaptic, hapticPreset, triggerHaptic } from '../utils';
 import { isIosFallback, isSupported } from '../utils/helpers';
-
-const repeatHapticPattern = (pattern: HapticPattern, repeat = DEFAULT_REPEAT): HapticPattern =>
-    Array.from({ length: Math.max(1, Math.floor(repeat)) }).flatMap(() => pattern);
 
 export interface UseHapticParams {
     /**
@@ -73,37 +64,24 @@ export interface UseHapticResponse {
  */
 export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticResponse => {
     const { haptics } = useCoreConfig();
+    const [overlay, setOverlay] = useState(false);
 
     const isDebug = debug ?? haptics?.debug ?? false;
     const enabled = haptics?.enabled !== false && preset !== false;
 
-    const [overlay, setOverlay] = useState(false);
-
     useEffect(() => {
-        setOverlay(isIosFallback);
+        if (isIosFallback) {
+            setOverlay(true);
+        }
     }, []);
 
-    const presetInput = useMemo<HapticInput | undefined>(() => {
-        if (!enabled || preset === undefined) return undefined;
-
-        if (typeof preset === 'string') return preset;
-
-        const { repeat = DEFAULT_REPEAT, ...vibration } = preset;
-
-        return repeatHapticPattern([vibration] as HapticPattern, repeat);
-    }, [enabled, preset]);
-
     const trigger = useCallback(
-        (input?: HapticInput, options?: Options) => {
-            if (!enabled) return;
+        (input = hapticPreset(preset), options?: Options) => {
+            if (!enabled || input === undefined) return;
 
-            const resolvedInput = input ?? presetInput;
-
-            if (resolvedInput === undefined) return;
-
-            triggerHaptic(resolvedInput, options, isDebug);
+            triggerHaptic(input, options, isDebug);
         },
-        [enabled, isDebug, presetInput],
+        [enabled, isDebug, preset],
     );
 
     const cancel = useCallback(() => cancelHaptic(isDebug), [isDebug]);
@@ -113,6 +91,6 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
         cancel,
         enabled,
         isSupported: isSupported || overlay,
-        fallback: overlay && presetInput !== undefined,
+        fallback: overlay && enabled && preset !== undefined,
     };
 };

@@ -1,9 +1,30 @@
 import { defaultPatterns } from '../patterns';
-import { type HapticInput, type Vibration } from '../typings';
+import {
+    type HapticComponentValue,
+    type HapticInput,
+    type HapticPattern,
+    type Vibration,
+} from '../typings';
 
-import { CYCLE, MAX_PHASE_MS } from './constants';
+import { CYCLE, DEFAULT_REPEAT, MAX_PHASE_MS } from './constants';
 
 export const clamp = (value: number): number => Math.max(0, Math.min(1, value));
+
+/** Преобразует component preset в формат запуска haptic feedback. */
+export const hapticPreset = (preset?: HapticComponentValue): HapticInput | undefined => {
+    if (preset === undefined || preset === false || typeof preset === 'string') {
+        return preset || undefined;
+    }
+
+    const { repeat = DEFAULT_REPEAT, ...vibration } = preset;
+
+    // ! todo: fix bug iOs local tap
+    const count = Number.isFinite(repeat)
+        ? Math.max(DEFAULT_REPEAT, Math.floor(repeat))
+        : DEFAULT_REPEAT;
+
+    return Array.from({ length: count }, () => vibration) as HapticPattern;
+};
 
 /** Обрезает `duration` каждой фазы до {@link MAX_PHASE_MS}. */
 export const clampVibrations = (vibrations: Vibration[] | null): Vibration[] | null => {

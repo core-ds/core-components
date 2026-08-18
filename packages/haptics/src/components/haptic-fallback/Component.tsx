@@ -19,6 +19,8 @@ export interface HapticFallbackProps {
     className?: string;
 }
 
+// ! todo: нашел возможность избавиться от этой обертки 
+
 /**
  * Невидимый overlay, связанный с общим нативным Safari switch.
  */
