@@ -1,0 +1,93 @@
+{
+"packageName": "tab-bar-island",
+"displayName": "TabBarIsland",
+"description": "DO NOT USE",
+"props": {
+"gap": {
+"defaultValue": {
+"value": -10
+},
+"description": "Отступ",
+"name": "gap",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"activeKey": {
+"defaultValue": null,
+"description": "Ключ активного таба",
+"name": "activeKey",
+"required": false,
+"type": {
+"name": "TabBarIslandTabKey | undefined"
+}
+},
+"defaultActiveKey": {
+"defaultValue": null,
+"description": "Дефолтный ключ активного таба",
+"name": "defaultActiveKey",
+"required": false,
+"type": {
+"name": "TabBarIslandTabKey | undefined"
+}
+},
+"items": {
+"defaultValue": {
+"value": "[]"
+},
+"description": "Табы",
+"name": "items",
+"required": false,
+"type": {
+"name": "TabBarIslandItem[] | undefined"
+}
+},
+"onActiveKeyChange": {
+"defaultValue": null,
+"description": "Обработчик смены активного таба",
+"name": "onActiveKeyChange",
+"required": false,
+"type": {
+"name": "((nextActiveKey: TabBarIslandTabKey) => void) | undefined"
+}
+},
+"trailingAddon": {
+"defaultValue": null,
+"description": "Контент после табов",
+"name": "trailingAddon",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"subComponents": {},
+"demos": [
+{
+"title": "Icon",
+"description": "",
+"desktop": "render(() => {\nreturn (\n<div style={{ margin: '0 -20px -20px' }}>\n<TabBarIsland\nitems={[\n{ key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },\n{ key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },\n{ key: 'history', icon: <DiamondsMIcon />, label: 'История' },\n]}\ntrailingAddon={\n<TabBarIslandTrailingIconButton icon={<DiamondsMIcon />} label='Поддержка' />\n}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Image",
+"description": "",
+"desktop": "const IconComponent = ({ style, children, ...restProps }) => (\n<div {...restProps} style={{ ...style, width: 48 }}>\n{children}\n</div>\n);\n\nrender(() => {\nreturn (\n<div style={{ margin: '10px -20px -20px' }}>\n<TabBarIsland\nitems={[\n{ key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },\n{ key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },\n{ key: 'history', icon: <DiamondsMIcon />, label: 'История' },\n]}\ntrailingAddon={\n<TabBarIslandTrailingIconButton\nIcon={IconComponent}\nicon={\n<img\nstyle={{\nwidth: 48,\nheight: 56,\nleft: '50%',\nbottom: 0,\nposition: 'absolute',\ntransform: 'translate(-50%, 0)',\nobjectFit: 'cover',\nobjectPosition: 'top left',\n}}\nsrc='./images/test.png'\n/>\n}\nlabel='Новый'\n/>\n}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Full Image",
+"description": "",
+"desktop": "const IconComponent = ({ style, children, ...restProps }) => (\n<div {...restProps} style={{ ...style, width: 48 }}>\n{children}\n</div>\n);\n\nrender(() => {\nreturn (\n<div style={{ margin: '0 -20px -20px' }}>\n<TabBarIsland\nitems={[\n{ key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },\n{ key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },\n{ key: 'history', icon: <DiamondsMIcon />, label: 'История' },\n]}\ntrailingAddon={\n<TabBarIslandTrailingButton style={{ width: 64 }}>\n<img\nstyle={{\nwidth: '100%',\nheight: '100%',\nobjectFit: 'cover',\nobjectPosition: 'top left',\n}}\nsrc='./images/test.png'\n/>\n</TabBarIslandTrailingButton>\n}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": []
+}
