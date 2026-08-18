@@ -72,18 +72,7 @@ export function generateDoc(entries) {
          * явно ищем doc с именем, под которым компонент реально объявлен в файле
          * (sourceName), а не берём первый попавшийся из массива
          */
-        let doc = resolveDoc(docs, sourceName);
-
-        /**
-         * Файлы подкомпонентов почти всегда однокомпонентные — если явные кандидаты
-         * (sourceName / sourceNameComponent) не совпали, но в файле распарсился
-         * ровно один компонент, это он и есть. Нужно из-за случаев вроде
-         * `list`'s Item, где docgen репортит displayName через явный
-         * `Component.displayName = 'ListItem'`, не совпадающий ни с одним кандидатом
-         */
-        if (!doc && subKey && docs.length === 1) {
-            [doc] = docs;
-        }
+        const doc = resolveDoc(docs, sourceName);
 
         if (!doc && !subKey) {
             return;
