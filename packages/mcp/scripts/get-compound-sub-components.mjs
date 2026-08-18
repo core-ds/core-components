@@ -1,4 +1,4 @@
-import { Node, SymbolFlags, SyntaxKind } from 'ts-morph';
+import { Node, SyntaxKind } from 'ts-morph';
 
 /**
  * Разворачивает цепочку алиасов (import/re-export) до реальной декларации —
@@ -7,9 +7,8 @@ import { Node, SymbolFlags, SyntaxKind } from 'ts-morph';
  */
 function resolveAliasedDeclaration(symbol) {
     let current = symbol;
-    let guard = 0;
 
-    while (current && current.getFlags() & SymbolFlags.Alias && guard++ < 10) {
+    for (let guard = 0; current?.isAlias() && guard < 10; guard += 1) {
         current = current.getAliasedSymbol();
     }
 
@@ -69,24 +68,27 @@ function collectFromObjectAssign(callExpr) {
 /**
  * Ищет compound-подкомпоненты (Header/Content/Footer и т. п.), прикреплённые к
  * главному компоненту через `Object.assign(Main, { Header, Content, ... })`.
- * Паттерн встречается в двух формах:
- *
- * 1) декларация обёрнута напрямую:
- *    `export const X = Object.assign(Y, {...})`
- *
- * 2) compound объявлен под СОСЕДНИМ экспортом того же файла (см. universal-modal):
- *    файл экспортирует и голый `UniversalModal`, и
- *    `UniversalModalResponsive = Object.assign(UniversalModal, {...})` —
- *    резолвинг по имени пакета берёт первый, поэтому здесь ищем по всему файлу
- *    Object.assign, чей первый аргумент указывает на ту же mainDeclaration
  */
 export function getCompoundSubComponents(mainDeclaration) {
     const initializer = mainDeclaration.getInitializer?.();
 
+    /*
+     * Кейс 1: сама декларация и есть Object.assign —
+     * `export const X = Object.assign(Y, {...})`
+     */
     if (initializer && isObjectAssignCall(initializer)) {
         return collectFromObjectAssign(initializer);
     }
 
+    /*
+     * Кейс 2 (сейчас нужен только universal-modal): compound собран
+     * не в самой mainDeclaration, а в соседнем экспорте того же файла —
+     * файл экспортирует и голый `UniversalModal`, и
+     * `UniversalModalResponsive = Object.assign(UniversalModal, {...})`.
+     * Резолвинг по имени пакета попадает на голый компонент, поэтому здесь
+     * сканируем весь файл в поисках Object.assign, первый аргумент которого
+     * указывает на ту же mainDeclaration
+     */
     const assignCalls = mainDeclaration
         .getSourceFile()
         .getDescendantsOfKind(SyntaxKind.CallExpression)

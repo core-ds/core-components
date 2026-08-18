@@ -106,15 +106,7 @@ export function generateDoc(entries) {
             return;
         }
 
-        /**
-         * Подкомпонент compound-компонента (Header/Content/Footer и т. п.) —
-         * основная запись для этого пакета уже должна быть в docsMap, так как
-         * generate-data.mjs пушит её в entries раньше собственных subKey-записей.
-         * Если doc не нашёлся вовсе (например компонент вообще без пропсов, как
-         * FileUploadItem.Content — берёт всё из контекста), всё равно фиксируем
-         * подкомпонент с пустыми props, а не молча теряем его — сам факт, что
-         * это часть публичного API компаунд-компонента, ценнее, чем список пропсов
-         */
+        // Записываем подкомпонент (Header/Content/Footer и т. п.) в subComponents родителя
         const parentDoc = docsMap.get(packageName);
 
         if (!parentDoc) {

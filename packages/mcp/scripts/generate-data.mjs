@@ -117,7 +117,7 @@ function main() {
                 },
                 null,
                 1,
-            ),
+            ).replace(/^ +/gm, ''),
         );
     });
 
