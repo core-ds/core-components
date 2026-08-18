@@ -69,16 +69,12 @@ function collectFromObjectAssign(callExpr) {
 /**
  * Ищет compound-подкомпоненты (Header/Content/Footer и т. п.), прикреплённые к
  * главному компоненту через `Object.assign(Main, { Header, Content, ... })`.
- * Паттерн встречается в трёх формах:
+ * Паттерн встречается в двух формах:
  *
  * 1) декларация обёрнута напрямую:
  *    `export const X = Object.assign(Y, {...})`
  *
- * 2) обёрнута косвенно через helper (см. createCompound в system-message):
- *    `export const X = createCompound(Y)`, где сам Object.assign спрятан
- *    в теле createCompound, часто в другом файле
- *
- * 3) compound объявлен под СОСЕДНИМ экспортом того же файла (см. universal-modal):
+ * 2) compound объявлен под СОСЕДНИМ экспортом того же файла (см. universal-modal):
  *    файл экспортирует и голый `UniversalModal`, и
  *    `UniversalModalResponsive = Object.assign(UniversalModal, {...})` —
  *    резолвинг по имени пакета берёт первый, поэтому здесь ищем по всему файлу
@@ -89,20 +85,6 @@ export function getCompoundSubComponents(mainDeclaration) {
 
     if (initializer && isObjectAssignCall(initializer)) {
         return collectFromObjectAssign(initializer);
-    }
-
-    if (initializer && Node.isCallExpression(initializer)) {
-        const calleeDeclaration = resolveAliasedDeclaration(
-            initializer.getExpression().getSymbol(),
-        );
-
-        const nestedAssign = calleeDeclaration
-            ?.getDescendantsOfKind(SyntaxKind.CallExpression)
-            .find(isObjectAssignCall);
-
-        if (nestedAssign) {
-            return collectFromObjectAssign(nestedAssign);
-        }
     }
 
     const assignCalls = mainDeclaration
