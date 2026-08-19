@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
-import { fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
 import { Gallery, TestIds } from '.';
 
 const mockMatchMedia = (matches: boolean, query: string) => {
@@ -157,6 +157,246 @@ describe('Gallery desktop', () => {
             fireEvent.keyDown(window.document, { key: 'ArrowLeft', code: 'ArrowLeft' });
 
             await waitForActiveImage(getByTestId, 0);
+        });
+
+        it('should request next page at the edge and show its first image', async () => {
+            const nextPage = [images[1], images[2]];
+
+            const PaginatedGallery = () => {
+                const [page, setPage] = useState([images[0]]);
+
+                return (
+                    <Gallery
+                        open={true}
+                        images={page}
+                        onClose={() => null}
+                        paginationConfig={{
+                            onEdgeReached: async (direction) => {
+                                if (direction === 'next') {
+                                    setPage(nextPage);
+                                }
+                            },
+                        }}
+                    />
+                );
+            };
+
+            const { getByTestId } = render(<PaginatedGallery />);
+
+            fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
+
+            await waitFor(() => {
+                expect(getByTestId(TestIds.ACTIVE_IMAGE)).toHaveAttribute('src', nextPage[0].src);
+            });
+        });
+
+        it('should request prev page at the edge and show its last image', async () => {
+            const prevPage = [images[0], images[1]];
+
+            const PaginatedGallery = () => {
+                const [page, setPage] = useState([images[2]]);
+
+                return (
+                    <Gallery
+                        open={true}
+                        images={page}
+                        onClose={() => null}
+                        paginationConfig={{
+                            onEdgeReached: async (direction) => {
+                                if (direction === 'prev') {
+                                    setPage(prevPage);
+                                }
+                            },
+                        }}
+                    />
+                );
+            };
+
+            const { baseElement, getByTestId } = render(<PaginatedGallery />);
+
+            fireEvent.click(getByTestId(TestIds.PREV_SLIDE_BUTTON));
+
+            await waitFor(() => {
+                expect(getByTestId(TestIds.ACTIVE_IMAGE)).toHaveAttribute(
+                    'src',
+                    prevPage[prevPage.length - 1].src,
+                );
+                expect(baseElement.querySelector('.swiper-slide-active img')).toHaveAttribute(
+                    'src',
+                    prevPage[prevPage.length - 1].src,
+                );
+            });
+        });
+
+        it('should keep a single video page active after pagination', async () => {
+            const playSpy = jest
+                .spyOn(HTMLMediaElement.prototype, 'play')
+                .mockResolvedValue(undefined);
+            const pauseSpy = jest
+                .spyOn(HTMLMediaElement.prototype, 'pause')
+                .mockImplementation(() => undefined);
+            const videoPage = [
+                {
+                    name: 'Video.m3u8',
+                    src: 'https://example.com/video.m3u8',
+                },
+            ];
+
+            const PaginatedGallery = () => {
+                const [page, setPage] = useState(images);
+
+                return (
+                    <Gallery
+                        open={true}
+                        images={page}
+                        onClose={() => null}
+                        paginationConfig={{
+                            onEdgeReached: async (direction) => {
+                                if (direction === 'next') {
+                                    setPage(videoPage);
+                                }
+                            },
+                        }}
+                    />
+                );
+            };
+
+            const { getByTestId } = render(<PaginatedGallery />);
+            const nextSlideButton = getByTestId(TestIds.NEXT_SLIDE_BUTTON);
+
+            fireEvent.click(nextSlideButton);
+            fireEvent.click(nextSlideButton);
+            fireEvent.click(nextSlideButton);
+
+            await waitForActiveImage(getByTestId, images.length - 1);
+
+            fireEvent.click(nextSlideButton);
+
+            await waitFor(() => {
+                expect(getByTestId(TestIds.UNMUTE_BUTTON)).toBeInTheDocument();
+            });
+
+            playSpy.mockRestore();
+            pauseSpy.mockRestore();
+        });
+
+        it('should not request another page while the previous request is pending', async () => {
+            let resolveRequest: () => void = () => undefined;
+            const request = new Promise<void>((resolve) => {
+                resolveRequest = resolve;
+            });
+            const onEdgeReached = jest.fn(() => request);
+
+            const { getByTestId } = render(
+                <Gallery
+                    open={true}
+                    images={[images[0]]}
+                    onClose={() => null}
+                    paginationConfig={{ onEdgeReached }}
+                />,
+            );
+
+            const nextSlideButton = getByTestId(TestIds.NEXT_SLIDE_BUTTON);
+
+            fireEvent.click(nextSlideButton);
+            fireEvent.click(nextSlideButton);
+
+            await waitFor(() => {
+                expect(onEdgeReached).toHaveBeenCalledTimes(1);
+                expect(onEdgeReached).toHaveBeenCalledWith('next');
+            });
+
+            await act(async () => {
+                resolveRequest();
+                await request;
+            });
+        });
+
+        it('should allow retrying page request after an error', async () => {
+            const onEdgeReached = jest.fn().mockRejectedValue(new Error('Pagination failed'));
+
+            const { getByTestId } = render(
+                <Gallery
+                    open={true}
+                    images={[images[0]]}
+                    onClose={() => null}
+                    paginationConfig={{ onEdgeReached }}
+                />,
+            );
+
+            const nextSlideButton = getByTestId(TestIds.NEXT_SLIDE_BUTTON);
+
+            fireEvent.click(nextSlideButton);
+
+            await waitFor(() => {
+                expect(onEdgeReached).toHaveBeenCalledTimes(1);
+            });
+
+            fireEvent.click(nextSlideButton);
+
+            await waitFor(() => {
+                expect(onEdgeReached).toHaveBeenCalledTimes(2);
+            });
+        });
+
+        it('should show pagination error and retry the failed request', async () => {
+            const onEdgeReached = jest
+                .fn()
+                .mockRejectedValueOnce(new Error('Pagination failed'))
+                .mockResolvedValueOnce(undefined);
+
+            const { findByRole, getByRole, getByTestId, queryByTestId } = render(
+                <Gallery
+                    open={true}
+                    images={[images[0], images[1]]}
+                    onClose={() => null}
+                    paginationConfig={{ onEdgeReached }}
+                />,
+            );
+
+            expect(getByTestId(TestIds.NAVIGATION_BAR)).toBeInTheDocument();
+
+            fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
+            await waitForActiveImage(getByTestId, 1);
+            fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
+
+            expect(await findByRole('alert', { hidden: true })).toHaveTextContent(
+                'Не получилось загрузить',
+            );
+            expect(queryByTestId(TestIds.NAVIGATION_BAR)).not.toBeInTheDocument();
+
+            fireEvent.click(getByRole('button', { name: 'Попробовать ещё раз', hidden: true }));
+
+            await waitFor(() => {
+                expect(onEdgeReached).toHaveBeenCalledTimes(2);
+                expect(onEdgeReached).toHaveBeenLastCalledWith('next');
+            });
+        });
+
+        it('should visually hide edge controls when adjacent pages are unavailable', () => {
+            const onEdgeReached = jest.fn();
+            const { getByTestId } = render(
+                <Gallery
+                    open={true}
+                    images={[images[0]]}
+                    onClose={() => null}
+                    paginationConfig={{
+                        onEdgeReached,
+                        hasPrevPage: false,
+                        hasNextPage: false,
+                    }}
+                />,
+            );
+
+            expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).toHaveClass('arrowHidden');
+            expect(getByTestId(TestIds.NEXT_SLIDE_BUTTON)).toHaveClass('arrowHidden');
+            expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).toHaveAttribute('tabindex', '-1');
+            expect(getByTestId(TestIds.NEXT_SLIDE_BUTTON)).toHaveAttribute('tabindex', '-1');
+
+            fireEvent.keyDown(window.document, { key: 'ArrowLeft', code: 'ArrowLeft' });
+            fireEvent.keyDown(window.document, { key: 'ArrowRight', code: 'ArrowRight' });
+
+            expect(onEdgeReached).not.toHaveBeenCalled();
         });
     });
 

@@ -83,7 +83,8 @@ export const Slide: FC<SlideProps> = ({
     slideVisible,
     fullScreen,
 }) => {
-    const { view } = useContext(GalleryContext);
+    const { view, loadingSlide } = useContext(GalleryContext);
+
     const { handleLoad, handleLoadError } = useHandleImageViewer();
 
     const broken = Boolean(meta?.broken);
@@ -107,7 +108,12 @@ export const Slide: FC<SlideProps> = ({
 
     if (isVideo(image.src)) {
         return (
-            <SlideInner isVideoView={true} active={isActive} broken={broken} loading={!meta}>
+            <SlideInner
+                isVideoView={true}
+                active={isActive}
+                broken={broken}
+                loading={!meta || loadingSlide}
+            >
                 <Video
                     url={image.src}
                     index={index}
@@ -119,7 +125,7 @@ export const Slide: FC<SlideProps> = ({
     }
 
     return (
-        <SlideInner active={isActive} broken={broken} loading={!meta}>
+        <SlideInner active={isActive} broken={broken} loading={!meta || loadingSlide}>
             <img
                 ref={handleImageRef}
                 src={image.src}

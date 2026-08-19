@@ -6,12 +6,16 @@ import { type GalleryImage, type ImageMeta } from './types';
 export type GalleryContext = {
     view: 'desktop' | 'mobile';
     singleSlide: boolean;
+    canSlideNext: boolean;
+    canSlidePrev: boolean;
     currentSlideIndex: number;
     images: GalleryImage[];
     imagesMeta: ImageMeta[];
     fullScreen: boolean;
     mutedVideo: boolean;
     playingVideo: boolean;
+    loadingSlide: boolean;
+    paginationError: boolean;
     hideNavigation: boolean;
     setHideNavigation: (hideNavigation: boolean) => void;
     initialSlide: number;
@@ -22,12 +26,14 @@ export type GalleryContext = {
     slideTo: (index: number) => void;
     slideNext: () => void;
     slidePrev: () => void;
+    retryPagination: () => void;
     getSwiper: () => SwiperCore | undefined;
     setSwiper: (swiper: SwiperCore) => void;
     onClose: () => void;
     setCurrentSlideIndex?: (index: number) => void;
     getCurrentImage: () => GalleryImage | undefined;
     getCurrentImageMeta: () => ImageMeta | undefined;
+    navigateToPostHandler?: () => void;
 };
 
 const mockFn = () => undefined;
@@ -36,12 +42,16 @@ const mockFn = () => undefined;
 export const GalleryContext = createContext<GalleryContext>({
     view: 'desktop',
     singleSlide: false,
+    canSlideNext: true,
+    canSlidePrev: true,
     currentSlideIndex: 0,
     images: [],
     imagesMeta: [],
     fullScreen: false,
     mutedVideo: false,
     playingVideo: false,
+    loadingSlide: false,
+    paginationError: false,
     hideNavigation: false,
     setHideNavigation: mockFn,
     setMutedVideo: mockFn,
@@ -52,10 +62,12 @@ export const GalleryContext = createContext<GalleryContext>({
     slideTo: mockFn,
     slideNext: mockFn,
     slidePrev: mockFn,
+    retryPagination: mockFn,
     getSwiper: mockFn,
     setSwiper: mockFn,
     onClose: mockFn,
     setCurrentSlideIndex: mockFn,
     getCurrentImage: mockFn,
     getCurrentImageMeta: mockFn,
+    navigateToPostHandler: mockFn,
 });

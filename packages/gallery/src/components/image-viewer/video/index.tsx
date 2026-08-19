@@ -26,6 +26,12 @@ type Props = {
     className?: string;
 };
 
+const playVideo = (player: HTMLVideoElement) => {
+    const playPromise = player.play();
+
+    playPromise?.catch(() => undefined);
+};
+
 export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
@@ -144,18 +150,31 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     }, [url, index]);
 
     useEffect(() => {
-        if (playerRef.current && isActive) {
-            if (playingVideo) {
-                playerRef.current.play();
-            } else {
-                playerRef.current.pause();
-            }
+        const player = playerRef.current;
+
+        if (!player) {
+            return;
         }
-        if (playerRef.current && !isActive) {
-            playerRef.current.pause();
-            playerRef.current.currentTime = 0;
+
+        if (!isActive) {
+            player.pause();
+            player.currentTime = 0;
+
+            return;
+        }
+
+        if (playingVideo) {
+            playVideo(player);
+        } else {
+            player.pause();
         }
     }, [isActive, playingVideo]);
+
+    const handleCanPlay = () => {
+        if (playerRef.current && isActive && playingVideo) {
+            playVideo(playerRef.current);
+        }
+    };
 
     useEffect(() => {
         const handleSpacePress = (e: KeyboardEvent) => {
@@ -235,6 +254,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             <video
                 onPlay={onPlay}
                 onPause={onPause}
+                onCanPlay={handleCanPlay}
                 ref={playerRef}
                 playsInline={true}
                 muted={mutedVideo}

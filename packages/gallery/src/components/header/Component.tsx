@@ -19,6 +19,7 @@ export const Header: FC = () => {
         onClose,
         mutedVideo,
         setMutedVideo,
+        navigateToPostHandler,
     } = useContext(GalleryContext);
 
     const currentImage = getCurrentImage();
@@ -94,6 +95,13 @@ export const Header: FC = () => {
                         href={currentImage?.src}
                         download={currentImage?.name}
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
+                    />
+                )}
+
+                {navigateToPostHandler && (
+                    <Buttons.PostLink
+                        onClick={navigateToPostHandler}
+                        dataTestId={TestIds.NAVIGATE_TO_POST_BUTTON}
                     />
                 )}
 

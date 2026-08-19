@@ -35,7 +35,7 @@
     color: var(--color-static-neutral-0);
 }
 
-.iconShape {
+.videoButton .iconShape {
     fill: var(--color-static-neutral-translucent-700);
 }
 
