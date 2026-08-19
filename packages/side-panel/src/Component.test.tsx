@@ -83,5 +83,13 @@ describe.each(SIDE_PANEL_TEST_CASES)('%s', (_componentName, Component, SidePanel
             expect(getByTestId(testIds.closer)).toBeInTheDocument();
             expect(getByTestId(testIds.backButton)).toBeInTheDocument();
         });
+
+        describe('back-button defaults', () => {
+            it('should render back button with default "Назад" text', () => {
+                const { getByText } = render(<Component />);
+
+                expect(getByText('Назад')).toBeInTheDocument();
+            });
+        });
     });
 });

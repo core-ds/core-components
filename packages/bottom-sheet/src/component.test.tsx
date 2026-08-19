@@ -286,6 +286,12 @@ describe('Bottom sheet', () => {
                 backButtonProps.className,
             );
         });
+
+        it('should render back button with default "Назад" text', () => {
+            const { getByText } = render(<BottomSheetWrapper hasBacker={true} />);
+
+            expect(getByText('Назад')).toBeInTheDocument();
+        });
     });
 
     describe('Interactions tests', () => {

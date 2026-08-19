@@ -8,10 +8,17 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { BackArrowAddon } from './components/back-arrow-addon';
 import { Closer } from './components/closer';
+import { defaultComputeTitleMargin } from './default-title-margin';
 import { type ContentParams, type NavigationBarPrivateProps } from './types';
 
 import styles from './index.module.css';
 
+/**
+ * Компенсация отступов заголовка (`titleMargin`/`mainLineMargin`)
+ * рассчитывается инжектируемой стратегией — проп `computeTitleMargin`.
+ * Если проп не передан, используется `defaultComputeTitleMargin`.
+ * У разных потребителей компонента могут быть свои стратегии.
+ */
 const ADDONS_HEIGHT = 48;
 
 export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPrivateProps>(
@@ -49,11 +56,16 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             titleClassName,
             titleRef,
             colors = 'default',
+            computeTitleMargin,
         },
         ref,
     ) => {
         const [scrollTop, setScrollTop] = useState(0);
         const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
+        const [mainLineMargin, setMainLineMargin] = useState<{
+            left?: number;
+            right?: number;
+        }>({});
         const bottomContentRef = useRef<HTMLDivElement>(null);
         const headerRef = useRef<HTMLDivElement>(null);
         const mainLinePaddingTopRef = useRef<string>('0px');
@@ -77,24 +89,30 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         const headerPaddingTop = mainLinePaddingTopRef.current;
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (align === 'center' && (showStaticContentOnTop || showAnimatedContentOnTop)) {
-                const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
-                const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
+            const compute = computeTitleMargin ?? defaultComputeTitleMargin;
+            const { contentMargin, mainLineMargin: nextMainLineMargin } = compute({
+                align,
+                hasBackButton: Boolean(hasBackButton),
+                hasCloser: Boolean(hasCloser),
+                hasLeftAddons: Boolean(leftAddons),
+                hasRightAddons: Boolean(rightAddons),
+                leftAddonsWidth: leftAddonsRef.current?.offsetWidth || 0,
+                rightAddonsWidth: rightAddonsRef.current?.offsetWidth || 0,
+            });
 
-                const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
-                const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
+            setTitleMargin((prev) => {
+                const isStateChanged =
+                    prev.left !== contentMargin.left || prev.right !== contentMargin.right;
 
-                setTitleMargin((prev) => {
-                    const newState = shouldAddLeftMargin
-                        ? { left: marginSize, right: 0 }
-                        : { left: 0, right: marginSize };
+                return isStateChanged ? contentMargin : prev;
+            });
 
-                    const isStateChanged =
-                        prev.left !== newState.left || prev.right !== newState.right;
+            setMainLineMargin((prev) => {
+                const next = nextMainLineMargin ?? {};
+                const isStateChanged = prev.left !== next.left || prev.right !== next.right;
 
-                    return isStateChanged ? newState : prev;
-                });
-            }
+                return isStateChanged ? next : prev;
+            });
         }, [
             align,
             showStaticContentOnTop,
@@ -103,6 +121,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             rightAddons,
             hasBackButton,
             hasCloser,
+            computeTitleMargin,
         ]);
 
         useEffect(() => {
@@ -230,6 +249,8 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                                   paddingTop: headerPaddingTop,
                               }
                             : null),
+                        marginLeft: mainLineMargin.left,
+                        marginRight: mainLineMargin.right,
                     }}
                 >
                     {hasLeftPart && (
@@ -243,14 +264,10 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
 
                     {showStaticContentOnTop &&
                         renderContent({
-                            ...(align === 'center'
-                                ? {
-                                      style: {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      },
-                                  }
-                                : null),
+                            style: {
+                                marginLeft: titleMargin.left,
+                                marginRight: titleMargin.right,
+                            },
                         })}
 
                     {showAnimatedContentOnTop &&
@@ -258,12 +275,8 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             extraClassName: styles.withBothAddons,
                             style: {
                                 opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
-                                ...(align === 'center'
-                                    ? {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      }
-                                    : null),
+                                marginLeft: titleMargin.left,
+                                marginRight: titleMargin.right,
                             },
                             extraAlign: 'center',
                         })}

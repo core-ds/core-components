@@ -75,5 +75,13 @@ const COMPONENT_NAME_TO_WRAPPER = {
                 expect(getByTestId(testIds.backButton)).toBeInTheDocument();
             });
         });
+
+        describe('back-button defaults', () => {
+            it('should render back button with default "Назад" text', () => {
+                const { getByText } = render(<Component />);
+
+                expect(getByText('Назад')).toBeInTheDocument();
+            });
+        });
     });
 });
