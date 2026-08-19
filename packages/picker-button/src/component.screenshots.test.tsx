@@ -145,7 +145,7 @@ describe(
                     knobs: {
                         options: [options],
                         label: 'Открыть',
-                        size: [40, 48, 56],
+                        size: [40, 48, 56, 32],
                         view: ['transparent', 'primary', 'secondary'],
                         variant: 'compact',
                         disabled: true,
@@ -159,7 +159,7 @@ describe(
                     knobs: {
                         options: [options],
                         label: 'Открыть',
-                        size: [40, 48, 56],
+                        size: [40, 48, 56, 32],
                         view: ['transparent', 'primary', 'secondary'],
                         variant: 'compact',
                         disabled: false,
