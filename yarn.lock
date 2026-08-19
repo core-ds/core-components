@@ -1325,7 +1325,9 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.7"
     "@alfalab/core-components-popover": "npm:^8.1.2"
     "@alfalab/core-components-select": "npm:^19.2.4"
+    "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph-26": "npm:^1.20.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -2416,6 +2418,16 @@ __metadata:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   checksum: 10c0/9102ca27b5f92b2a72ec2a54ff11196f7c3fd3d793ac87cd886e4c1454d93d9d8bb10391077f390c8ac673daf5c030308f23cf5d8e24505050c51bca4d304dda
+  languageName: node
+  linkType: hard
+
+"@alfalab/icons-glyph-26@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "@alfalab/icons-glyph-26@npm:1.20.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/4437a306cd6ab9d57791fce8b51095ed78fb6cd32fba0129efb0bf4b008d29968dd1dabe4fcc3eefaf07c71abde75dfc60d988dd93cee2623bc007d4fff98041
   languageName: node
   linkType: hard
 
