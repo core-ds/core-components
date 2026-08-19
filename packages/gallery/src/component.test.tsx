@@ -248,6 +248,22 @@ describe('Gallery desktop', () => {
     });
 
     describe('Header tests', () => {
+        it('should navigate to post', () => {
+            const navigateToPostHandler = jest.fn();
+            const { getByTestId } = render(
+                <Gallery
+                    open={true}
+                    images={images}
+                    onClose={() => null}
+                    navigateToPostHandler={navigateToPostHandler}
+                />,
+            );
+
+            fireEvent.click(getByTestId(TestIds.NAVIGATE_TO_POST_BUTTON));
+
+            expect(navigateToPostHandler).toHaveBeenCalledTimes(1);
+        });
+
         // broken in swiper@12
         xit('should display active image name and active index', () => {
             const initialSlide = 1;

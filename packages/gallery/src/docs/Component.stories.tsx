@@ -77,6 +77,7 @@ export const gallery: Story = {
                 </div>
                 <Gallery
                     open={openMultiple}
+                    navigateToPostHandler={() => {}}
                     onClose={() => {
                         setOpenMultiple(false);
                     }}

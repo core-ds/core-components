@@ -9,4 +9,5 @@ export const TestIds = {
     NAVIGATION_BAR: 'navigation-bar',
     MUTE_BUTTON: 'mute-button',
     UNMUTE_BUTTON: 'unmute-button',
+    NAVIGATE_TO_POST_BUTTON: 'navigate-to-post',
 };

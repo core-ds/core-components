@@ -57,6 +57,11 @@ export type GalleryProps = {
      * Дополнительный класс для попапа
      */
     popupClassName?: string;
+
+    /**
+     * Обработчик перехода к посту в чате
+     */
+    navigateToPostHandler?: () => void;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -75,6 +80,7 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    navigateToPostHandler,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -270,6 +276,7 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        navigateToPostHandler,
     };
 
     return (

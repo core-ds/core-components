@@ -28,6 +28,7 @@ export type GalleryContext = {
     setCurrentSlideIndex?: (index: number) => void;
     getCurrentImage: () => GalleryImage | undefined;
     getCurrentImageMeta: () => ImageMeta | undefined;
+    navigateToPostHandler?: () => void;
 };
 
 const mockFn = () => undefined;
@@ -58,4 +59,5 @@ export const GalleryContext = createContext<GalleryContext>({
     setCurrentSlideIndex: mockFn,
     getCurrentImage: mockFn,
     getCurrentImageMeta: mockFn,
+    navigateToPostHandler: mockFn,
 });
