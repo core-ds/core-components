@@ -4,7 +4,7 @@ import { useCoreConfig } from '@alfalab/core-components-config';
 
 import { type HapticComponentValue, type HapticInput, type Options } from '../typings';
 import { cancelHaptic, hapticPreset, triggerHaptic } from '../utils';
-import { isIosFallback, isSupported } from '../utils/helpers';
+import { isIosFallback, isSupported as isVibrationSupported } from '../utils/helpers';
 
 export interface UseHapticParams {
     /**
@@ -35,16 +35,9 @@ export interface UseHapticResponse {
     enabled: boolean;
 
     /**
-     * Доступен ли haptic feedback через `navigator.vibrate` или прямое
-     * взаимодействие с iOS switch-overlay.
+     * Доступен ли программный haptic feedback через Vibration API или iOS switch.
      */
     isSupported: boolean;
-
-    /**
-     * Нужен ли iOS overlay (`HapticFallback`) для нативного тика.
-     * `false`, если нет локального preset или haptic отключён.
-     */
-    fallback: boolean;
 }
 
 /**
@@ -64,15 +57,13 @@ export interface UseHapticResponse {
  */
 export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticResponse => {
     const { haptics } = useCoreConfig();
-    const [overlay, setOverlay] = useState(false);
+    const [isIosSupported, setIsIosSupported] = useState(false);
 
     const isDebug = debug ?? haptics?.debug ?? false;
     const enabled = haptics?.enabled !== false && preset !== false;
 
     useEffect(() => {
-        if (isIosFallback) {
-            setOverlay(true);
-        }
+        setIsIosSupported(isIosFallback);
     }, []);
 
     const trigger = useCallback(
@@ -90,7 +81,6 @@ export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticRes
         trigger,
         cancel,
         enabled,
-        isSupported: isSupported || overlay,
-        fallback: overlay && enabled && preset !== undefined,
+        isSupported: isVibrationSupported || isIosSupported,
     };
 };

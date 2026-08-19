@@ -17,13 +17,23 @@ type EnsureDOMProps = {
 };
 
 /**
- * Монтирует в `document.body` скрытый `input[type=checkbox][switch]`с id {@link TICK_ID} и `label`,
- * чтобы WebKit мог воспроизвести системный tick `label.click()`.
+ * Возвращает общий скрытый `input[type=checkbox][switch]`, создавая его при необходимости.
  */
 export const ensureDOM = (): EnsureDOMProps | null => {
     if (typeof document === 'undefined' || !document.body) return null;
 
-    // ! todo: add getElementById for input and label (memoize)
+    const existingInput = document.getElementById(TICK_ID);
+
+    if (existingInput) {
+        const label = existingInput.closest('label');
+
+        if (existingInput.tagName === 'INPUT' && label) {
+            return { label, input: existingInput as HTMLInputElement };
+        }
+
+        return null;
+    }
+
     const input = document.createElement('input');
 
     Object.assign(input, {
@@ -35,7 +45,6 @@ export const ensureDOM = (): EnsureDOMProps | null => {
     });
     Object.assign(input.style, VISUALLY_HIDDEN);
 
-    // ! todo: fix bug iOs local tap
     const label = document.createElement('label');
 
     Object.assign(label, {

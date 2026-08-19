@@ -8,6 +8,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 
 import { useHaptic } from '../../hooks/use-haptic';
+import { useIosHapticFallback } from '../../hooks/use-ios-haptic-fallback';
 import { type HapticBaseProps } from '../../typings';
 import { HapticFallback } from '../haptic-fallback';
 
@@ -23,7 +24,11 @@ type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
  */
 export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
     ({ 'data-haptic-preset': preset, onClick, ...restProps }, ref) => {
-        const { trigger, fallback } = useHaptic({ preset });
+        const { trigger, enabled } = useHaptic({ preset });
+
+        const fallback = useIosHapticFallback(
+            enabled && preset !== undefined && !restProps.disabled,
+        );
         const innerRef = useRef<HTMLInputElement>(null);
 
         const handleClick = (event: MouseEvent<HTMLInputElement>) => {
@@ -33,7 +38,9 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
                 return;
             }
 
-            trigger();
+            if (!fallback) {
+                trigger();
+            }
         };
 
         const input = (

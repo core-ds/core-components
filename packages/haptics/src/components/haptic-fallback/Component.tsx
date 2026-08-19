@@ -1,9 +1,7 @@
 import React, { forwardRef, type MouseEvent } from 'react';
 import cn from 'classnames';
 
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-
-import { ensureDOM, TICK_ID } from '../../utils';
+import { TICK_ID } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -19,18 +17,11 @@ export interface HapticFallbackProps {
     className?: string;
 }
 
-// ! todo: нашел возможность избавиться от этой обертки 
-
 /**
  * Невидимый overlay, связанный с общим нативным Safari switch.
  */
 export const HapticFallback = forwardRef<HTMLLabelElement, HapticFallbackProps>(
     ({ onTap, className }, ref) => {
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            // overlay для отрисовки tick на iOS
-            ensureDOM();
-        }, []);
-
         const handleClick = (e: MouseEvent<HTMLLabelElement>) => {
             e.stopPropagation();
 

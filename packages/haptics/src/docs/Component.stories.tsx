@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import { CoreConfigContext } from '@alfalab/core-components-config';
-import { HapticButton, useHaptic } from '@alfalab/core-components-haptics';
+import { HapticButton } from '@alfalab/core-components-haptics';
 
 import type { HapticPreset } from '../typings';
 

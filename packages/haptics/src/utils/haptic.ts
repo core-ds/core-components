@@ -1,7 +1,7 @@
 import { type HapticInput, type Options } from '../typings';
 
 import { DEFAULT_INTENSITY } from './constants';
-import { ensureDOM, isIosFallback, isSupported } from './helpers';
+import { isIosFallback, isSupported, triggerIosSwitchTick } from './helpers';
 import { hapticLog } from './logger';
 import { clamp, clampVibrations, normalizeInput, toVibratePattern } from './vibration';
 
@@ -28,16 +28,11 @@ export const triggerHaptic = (input: HapticInput, options?: Options, debug = fal
         return;
     }
 
-    /* iOS без Vibration API — haptic только через нативный `<input type="checkbox" switch>`. */
     if (isIosFallback) {
-        const tick = ensureDOM();
+        const tick = triggerIosSwitchTick();
 
         if (tick) {
-            const checkedBefore = tick.input.checked;
-
-            // programmatic single tick
-            tick.label.click();
-            hapticLog(debug, 'ios:tick', { ticked: checkedBefore !== tick.input.checked });
+            hapticLog(debug, 'ios:tick', { ticked: tick.toggled });
         }
     }
 };
