@@ -88,6 +88,7 @@ export function isInputValueCorrect(value: string, numberParams: NumberParams): 
 /**
  * -0,00 => 0,00
  * -0 => 0
+ * - => *empty*
  */
 function dropMinusZeroPlugin(numberParams: NumberParams): MaskitoPlugin {
     const { minusSign } = numberParams;
@@ -100,7 +101,7 @@ function dropMinusZeroPlugin(numberParams: NumberParams): MaskitoPlugin {
                 numberParams,
             );
 
-            if (minus === minusSign && integerPart === ZERO_AS_STRING && /^0*$/.test(decimalPart)) {
+            if (minus === minusSign && /^0?$/.test(integerPart) && /^0*$/.test(decimalPart)) {
                 const newValue = fromNumberParts(
                     { ...numberParts, integerPart, decimalPart },
                     numberParams,
@@ -910,12 +911,32 @@ function maskGenerator(numberParams: NumberParams, posivite: boolean) {
     );
 }
 
+function zeroHandlePlugin(numberParams: NumberParams): MaskitoPlugin {
+    return mergePlugins([
+        maskitoEventHandler('focus', (element) => {
+            const { integerPart, decimalPart } = toNumberParts(element.value, numberParams);
+
+            if (integerPart === ZERO_AS_STRING && /^0*$/.test(decimalPart)) {
+                maskitoUpdateElement(element, '');
+            }
+        }),
+        maskitoEventHandler('blur', (element) => {
+            if (!element.value) {
+                const nextValue = fromNumberParts({ integerPart: ZERO_AS_STRING }, numberParams);
+
+                maskitoUpdateElement(element, nextValue);
+            }
+        }),
+    ]);
+}
+
 export function maskitoOptionsGenerator(
     numberParams: NumberParams,
     posivite: boolean,
     view: 'default' | 'withZeroMinorPart',
     maximumIntegerDigits: number,
     onInputReject?: () => void,
+    zeroValue?: boolean,
 ): MaskitoOptions {
     const { minusSign, decimalSeparator } = numberParams;
 
@@ -928,6 +949,7 @@ export function maskitoOptionsGenerator(
             createLeadingZeroesValidationPlugin(numberParams),
             createNotEmptyIntegerPlugin(numberParams),
             dropMinusZeroPlugin(numberParams),
+            zeroValue ? zeroHandlePlugin(numberParams) : noop,
             processDecimalPartPlugin(numberParams, view),
             clipboardPlugin(numberParams),
             maskitoRejectEvent(onInputReject),

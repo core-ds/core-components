@@ -1,5 +1,45 @@
 # @alfalab/core-components-tooltip
 
+## 9.0.18
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
+## 9.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-bottom-sheet@8.1.12
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+
+## 9.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-bottom-sheet@8.1.11
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+
 ## 9.0.15
 
 ### Patch Changes
@@ -1552,8 +1592,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.7.3...@alfalab/core-components-tooltip@5.7.4) (2022-08-17)
 

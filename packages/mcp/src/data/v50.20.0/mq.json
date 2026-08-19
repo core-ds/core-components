@@ -1,0 +1,67 @@
+{
+"packageName": "mq",
+"displayName": "Mq",
+"description": "Используется для имплементации поддержки медиа запросов.",
+"props": {
+"query": {
+"defaultValue": {
+"value": ""
+},
+"description": "Media выражение или кастомный запрос из `mq.json`, например `--mobile`.",
+"name": "query",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"touch": {
+"defaultValue": null,
+"description": "Запрос на поддержку тач-событий",
+"name": "touch",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": null,
+"description": "Значение по-умолчанию для хука useMatchMedia",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"onMatchChange": {
+"defaultValue": null,
+"description": "Обработчик изменений в совпадении запросов",
+"name": "onMatchChange",
+"required": false,
+"type": {
+"name": "((isMatched: boolean) => void) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "В этом примере при изменении ширины окна браузера кнопка будет переключаться между мобильной и десктопной версией.",
+"desktop": "<div>\n<Mq query='--mobile'>\n<Button breakpoint={BREAKPOINT} >Мобильная кнопка</Button>\n</Mq>\n<Mq query='--tablet-s'>\n<Button breakpoint={BREAKPOINT} >Десктопная кнопка</Button>\n</Mq>\n</div>"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+}
+]
+}

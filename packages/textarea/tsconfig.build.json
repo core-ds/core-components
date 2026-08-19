@@ -9,6 +9,8 @@
         "paths": {
             "@alfalab/core-components-form-control": ["../form-control/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
@@ -19,6 +21,7 @@
     },
     "references": [
         { "path": "../form-control/tsconfig.build.json" },
+        { "path": "../input/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" }
     ]

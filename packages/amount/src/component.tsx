@@ -10,7 +10,6 @@ import styles from './index.module.css';
 
 /**
  * Компонент для отображения суммы, согласно следующему гайдлайну:
- * https://design.alfabank.ru/patterns/amount
  */
 export const Amount: React.FC<AmountProps> = ({
     value,

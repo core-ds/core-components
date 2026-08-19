@@ -1,5 +1,45 @@
 # @alfalab/core-components-input
 
+## 17.2.0
+
+### Minor Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2203](https://github.com/core-ds/core-components/pull/2203)
+
+##### Input
+
+- Работа пропа `clear` разделена на 2 механики:
+    - `false` или `never` — не отображается
+    - `true` или `always` — отображается всегда
+    - `auto` — отображается только при взаимодействии c input (hover, focus)
+- Исправлен размер контейнера иконки статусов (success, error)
+
+- Булевы значения будут удалены в core-components@51
+
+## 17.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-mq@6.0.7
+
+## 17.1.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-form-control@14.0.8
+- @alfalab/core-components-mq@6.0.6
+
 ## 17.1.8
 
 ### Patch Changes
@@ -1260,7 +1300,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ## 11.0.2
 
@@ -1368,8 +1408,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [9.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@9.1.1...@alfalab/core-components-input@9.1.2) (2022-08-17)
 
 ### Bug Fixes
@@ -1390,11 +1428,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
-- Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+- Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.ru data: 'self'`
 
 - chore(screenshot-utils): change cdn
 
@@ -1477,7 +1515,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 

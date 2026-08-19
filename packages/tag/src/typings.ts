@@ -64,8 +64,20 @@ export interface BaseTagProps extends Omit<NativeProps, 'onClick'> {
 
     /**
      * Слот справа
+     * @description Несовместим с `showClear`. При `showClear=true` игнорируется
      */
     rightAddons?: ReactNode;
+
+    /**
+     * Показывать крестик для сброса выбора
+     * @default false
+     */
+    showClear?: boolean;
+
+    /**
+     * Обработчик нажатия на крестик
+     */
+    onClear?: () => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -109,7 +121,7 @@ export interface BaseTagProps extends Omit<NativeProps, 'onClick'> {
      * Стиль тега
      * @default outlined
      */
-    view?: 'outlined' | 'filled' | 'transparent';
+    view?: 'outlined' | 'filled' | 'transparent' | 'muted';
 
     /**
      * Включает размытие фона для некоторых вариантов тега

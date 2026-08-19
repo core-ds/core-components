@@ -1,5 +1,45 @@
 # @alfalab/core-components-popover
 
+## 8.1.2
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+## 8.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-portal@5.0.4
+
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Popover
+
+- Добавлен проп `widthProp` `('width' /* @default */ | 'minWidth')`, указывающий какое свойство задействуется при использовании размера родительского элемента `useAnchorWidth={true}`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-portal@5.0.3
+
 ## 8.0.5
 
 ### Patch Changes
@@ -472,8 +512,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-popover@5.8.0...@alfalab/core-components-popover@5.8.1) (2022-08-17)
 

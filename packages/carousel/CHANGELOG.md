@@ -1,5 +1,21 @@
 # @alfalab/core-components-carousel
 
+## 1.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
+## 1.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+
 ## 1.1.1
 
 ### Patch Changes

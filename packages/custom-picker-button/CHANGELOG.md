@@ -1,5 +1,54 @@
 # @alfalab/core-components-custom-picker-button
 
+## 4.1.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.4
+- @alfalab/core-components-picker-button@13.0.22
+
+## 4.1.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.3
+- @alfalab/core-components-picker-button@13.0.21
+
+## 4.1.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.20
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-select@19.2.2
+- @alfalab/core-components-custom-button@5.0.10
+
+## 4.1.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+- @alfalab/core-components-picker-button@13.0.19
+
+## 4.1.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.0
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-picker-button@13.0.18
+- @alfalab/core-components-custom-button@5.0.9
+
 ## 4.1.10
 
 ### Patch Changes

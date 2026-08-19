@@ -1,5 +1,21 @@
 # @alfalab/core-components-switch
 
+## 6.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
+## 6.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+
 ## 6.1.3
 
 ### Patch Changes
@@ -475,8 +491,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [2.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-switch@2.4.0...@alfalab/core-components-switch@2.4.1) (2022-08-17)
 

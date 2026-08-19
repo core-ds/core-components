@@ -1,0 +1,176 @@
+{
+"packageName": "checkbox-group",
+"displayName": "CheckboxGroup",
+"description": "Используется для выбора одного или нескольких доступных значений.",
+"props": {
+"label": {
+"defaultValue": null,
+"description": "Заголовок группы",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"direction": {
+"defaultValue": null,
+"description": "Направление",
+"name": "direction",
+"required": false,
+"type": {
+"name": "Direction | undefined"
+}
+},
+"type": {
+"defaultValue": null,
+"description": "Тип компонента",
+"name": "type",
+"required": false,
+"type": {
+"name": "CheckboxGroupType | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки снизу",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactNode"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+}
+},
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра.",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса.",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Горизонтальная группа",
+"description": "Горизонтальное расположение используется при коротких названиях пунктов и малом количестве вариантов — от двух до трёх.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState({ one: false, two: false, three: false });\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupDesktop\nlabel='Планеты расположенные между Землёй и Солнцем'\ndirection='horizontal'\nonChange={onChange}\nhint='Выберите несколько планет'\nerror={error}\n>\n<Checkbox label='Меркурий' name='one' checked={value.one} size={24} />\n<Checkbox label='Венера' name='two' checked={value.two} size={24} />\n<Checkbox label='Нептун' name='three' checked={value.three} size={24} />\n</CheckboxGroupDesktop>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Правильный ответ: Венера и Меркурий')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState({ one: false, two: false, three: false });\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupMobile\nlabel='Планеты расположенные между Землёй и Солнцем'\ndirection='horizontal'\nonChange={onChange}\nhint='Выберите несколько планет'\nerror={error}\n>\n<Checkbox label='Меркурий' name='one' checked={value.one} size={24} />\n<Checkbox label='Венера' name='two' checked={value.two} size={24} />\n<Checkbox label='Нептун' name='three' checked={value.three} size={24} />\n</CheckboxGroupMobile>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Правильный ответ: Венера и Меркурий')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});"
+},
+{
+"title": "Вертикальная группа",
+"description": "Вертикальное расположение используется при длинных названиях пунктов. Рекомендуемое количество вариантов от двух до пяти.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState({\none: false,\ntwo: false,\nthree: false,\nfour: false,\nfive: false,\n});\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupDesktop\nlabel='Выберите планеты земной группы'\nonChange={onChange}\nhint='Несколько из этих планет принадлежат земной группе'\nerror={error}\n>\n<Checkbox label='Марс' name='one' checked={value.one} size={24} />\n<Checkbox label='Юпитер' name='two' checked={value.two} size={24} />\n<Checkbox label='Меркурий' name='three' checked={value.three} size={24} />\n<Checkbox label='Сатурн' name='four' checked={value.four} size={24} />\n<Checkbox label='Нептун' name='five' checked={value.five} size={24} />\n</CheckboxGroupDesktop>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Правильный ответ: Марс и Меркурий')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState({\none: false,\ntwo: false,\nthree: false,\nfour: false,\nfive: false,\n});\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupMobile\nlabel='Выберите планеты земной группы'\nonChange={onChange}\nhint='Несколько из этих планет принадлежат земной группе'\nerror={error}\n>\n<Checkbox label='Марс' name='one' checked={value.one} size={24} />\n<Checkbox label='Юпитер' name='two' checked={value.two} size={24} />\n<Checkbox label='Меркурий' name='three' checked={value.three} size={24} />\n<Checkbox label='Сатурн' name='four' checked={value.four} size={24} />\n<Checkbox label='Нептун' name='five' checked={value.five} size={24} />\n</CheckboxGroupMobile>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Правильный ответ: Марс и Меркурий')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});"
+},
+{
+"title": "Группа тегов",
+"description": "Теги могут использоваться в качестве радиокнопок в составе группы.\nГруппа тегов используется при коротких названиях пунктов и малом количестве вариантов — от двух до трех.\nЕсли варианты не помещаются в одну строку они могут перенестись на следующую.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState({ one: true, two: false, three: false, four: false });\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupDesktop\nlabel='Выберите один или несколько вариантов'\nonChange={onChange}\ndirection='horizontal'\ntype='tag'\nhint='Выберите один из вариантов'\nerror={error}\n>\n<Tag name='one' checked={value.one} view='filled' shape='rectangular'>\nВариант 1\n</Tag>\n<Tag name='two' checked={value.two} view='filled' shape='rectangular'>\nВариант 2\n</Tag>\n<Tag name='three' checked={value.three} view='filled' shape='rectangular'>\nВариант 3\n</Tag>\n<Tag name='four' checked={value.four} view='filled' shape='rectangular'>\nВариант 4\n</Tag>\n</CheckboxGroupDesktop>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Error message')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState({ one: true, two: false, three: false, four: false });\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupMobile\nlabel='Выберите один или несколько вариантов'\nonChange={onChange}\ndirection='horizontal'\ntype='tag'\nhint='Выберите один из вариантов'\nerror={error}\n>\n<Tag name='one' checked={value.one} view='filled' shape='rectangular'>\nВариант 1\n</Tag>\n<Tag name='two' checked={value.two} view='filled' shape='rectangular'>\nВариант 2\n</Tag>\n<Tag name='three' checked={value.three} view='filled' shape='rectangular'>\nВариант 3\n</Tag>\n<Tag name='four' checked={value.four} view='filled' shape='rectangular'>\nВариант 4\n</Tag>\n</CheckboxGroupMobile>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Error message')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.12.2",
+"description": "#### [#2186](https://github.com/core-ds/core-components/pull/2186)\n\n- Удалены боковые отступы в мобильном компоненте для `label`, `hint`"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1731](https://github.com/core-ds/core-components/pull/1731)\n\n- Убрана красная линия и отступ слева в состоянии ошибки:\n    - Для мобильных компонентов во всех темах\n    - Для десктопных компонентов в теме `click`\n\n- Изменены отступы для групп с `type=\"tag\"`:\n    - Между label и группой: с 12px до 8px\n    - Между группой и hint/error: с 12px до 8px"
+}
+]
+}

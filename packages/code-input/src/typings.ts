@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 
-export type BaseCodeInputProps = {
+export interface BaseCodeInputProps {
     /**
      * Количество полей
      */
@@ -10,6 +10,12 @@ export type BaseCodeInputProps = {
      * Значение для предзаполнения
      */
     initialValues?: string;
+
+    /**
+     * Ограничение навигации фокусом между ячейками
+     * @default false
+     */
+    strictFocus?: boolean;
 
     /**
      * Заблокированное состояние
@@ -62,7 +68,7 @@ export type BaseCodeInputProps = {
      * Основные стили компонента.
      */
     stylesInput?: { [key: string]: string };
-};
+}
 
 export type CustomInputRef = {
     focus: (index?: number) => void;

@@ -41,6 +41,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         hideCountdownSection,
         initialScreenHintSlot,
         errorVisibleDuration,
+        strictFocus,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -184,9 +185,23 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                     className={cn(styles.phone, {
                         [styles.typographyTheme]: !mobile,
                         [styles.typographyThemeMobile]: mobile,
+                        [styles.phoneMobile]: mobile,
                     })}
                 >
-                    Отправили на {phone}
+                    <span
+                        className={cn(styles.phoneLabel, {
+                            [styles.phoneLabelMobile]: mobile,
+                        })}
+                    >
+                        Отправили на{'\u00A0'}
+                    </span>
+                    <span
+                        className={cn(styles.phoneNumber, {
+                            [styles.phoneNumberMobile]: mobile,
+                        })}
+                    >
+                        {phone}
+                    </span>
                 </TypographyText>
             ) : null}
             <ComponentCodeInput
@@ -194,7 +209,10 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 error={getCodeInputError()}
                 ref={inputRef}
                 fields={requiredCharAmount}
-                className={cn(styles.containerInput, styles.codeInput)}
+                strictFocus={strictFocus}
+                className={cn(styles.containerInput, styles.codeInput, {
+                    [styles.codeInputMobile]: mobile,
+                })}
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
                 clearCodeOnError={clearCodeOnError}

@@ -27,6 +27,7 @@ export const amount_input: Story = {
         const step = stepper && number('step', 100);
         const min = stepper && number('min', 0);
         const max = stepper && number('max', 1500);
+        const zeroValue = boolean('zeroValue', false);
 
         const handleChange: AmountInputProps['onChange'] = (_, payload) => {
             if (payload?.value) {
@@ -73,6 +74,7 @@ export const amount_input: Story = {
                     clear={boolean('clear', false)}
                     labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     stepper={stepper && { step, min, max }}
+                    zeroValue={zeroValue}
                     onChange={handleChange}
                 />
             </div>

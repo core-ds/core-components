@@ -1,5 +1,43 @@
 # @alfalab/core-components-with-suffix
 
+## 6.0.14
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+## 6.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+
+## 6.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-portal@5.0.4
+
+## 6.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.9
+- @alfalab/core-components-portal@5.0.3
+
 ## 6.0.10
 
 ### Patch Changes
@@ -949,8 +987,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [3.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.4.1...@alfalab/core-components-with-suffix@3.4.2) (2022-08-17)
 
