@@ -19,7 +19,7 @@ const meta: Meta<typeof Tag> = {
 type Story = StoryObj<typeof Tag>;
 
 const SIZES = [32, 40, 48, 56, 64, 72] as const;
-const MOBILE_INDICATOR_SIZES = [32, 40, 48] as const;
+const MOBILE_INDICATOR_SIZES = [32, 40, 48, 56] as const;
 const INDICATOR_MODE_OPTIONS = ['dot', 'count'] as const;
 
 const storyWrapperStyle = (colors: 'default' | 'inverted'): React.CSSProperties => ({
