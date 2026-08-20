@@ -19,7 +19,7 @@ export const Header: FC = () => {
         onClose,
         mutedVideo,
         setMutedVideo,
-        navigateToPostHandler,
+        customButton,
     } = useContext(GalleryContext);
 
     const currentImage = getCurrentImage();
@@ -98,11 +98,8 @@ export const Header: FC = () => {
                     />
                 )}
 
-                {navigateToPostHandler && (
-                    <Buttons.PostLink
-                        onClick={navigateToPostHandler}
-                        dataTestId={TestIds.NAVIGATE_TO_POST_BUTTON}
-                    />
+                {customButton && (
+                    <Buttons.CustomButton {...customButton} dataTestId={TestIds.CUSTOM_BUTTON} />
                 )}
 
                 <Buttons.Exit onClick={onClose} dataTestId={TestIds.CLOSE_BUTTON} />

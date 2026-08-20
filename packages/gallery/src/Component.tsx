@@ -11,7 +11,7 @@ import { Subtitles } from './components/subtitles';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
-import { type GalleryImage, type ImageMeta } from './types';
+import { type GalleryCustomButton, type GalleryImage, type ImageMeta } from './types';
 
 import styles from './index.module.css';
 
@@ -59,9 +59,9 @@ export type GalleryProps = {
     popupClassName?: string;
 
     /**
-     * Обработчик перехода к посту в чате
+     * Дополнительная кнопка в шапке галереи
      */
-    navigateToPostHandler?: () => void;
+    customButton?: GalleryCustomButton;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -80,7 +80,7 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
-    navigateToPostHandler,
+    customButton,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -276,7 +276,7 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
-        navigateToPostHandler,
+        customButton,
     };
 
     return (

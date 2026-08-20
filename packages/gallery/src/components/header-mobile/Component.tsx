@@ -17,7 +17,7 @@ export const HeaderMobile = () => {
         getCurrentImage,
         getCurrentImageMeta,
         hideNavigation,
-        navigateToPostHandler,
+        customButton,
     } = useContext(GalleryContext);
 
     const currentImage = getCurrentImage();
@@ -101,11 +101,8 @@ export const HeaderMobile = () => {
                 {description}
             </TypographyText>
             <div className={styles.rightButtons}>
-                {navigateToPostHandler && (
-                    <Buttons.PostLink
-                        onClick={navigateToPostHandler}
-                        dataTestId={TestIds.NAVIGATE_TO_POST_BUTTON}
-                    />
+                {customButton && (
+                    <Buttons.CustomButton {...customButton} dataTestId={TestIds.CUSTOM_BUTTON} />
                 )}
                 {showDownloadButton && (
                     <Buttons.Download

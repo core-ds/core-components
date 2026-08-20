@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
+import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import { Gallery, TestIds } from '.';
 
 const mockMatchMedia = (matches: boolean, query: string) => {
@@ -248,20 +249,29 @@ describe('Gallery desktop', () => {
     });
 
     describe('Header tests', () => {
-        it('should navigate to post', () => {
-            const navigateToPostHandler = jest.fn();
-            const { getByTestId } = render(
+        it('should handle custom button click and show its tooltip', async () => {
+            const handleCustomButtonClick = jest.fn();
+            const customButtonText = 'Показать сообщение';
+            const { getByTestId, getByText } = render(
                 <Gallery
                     open={true}
                     images={images}
                     onClose={() => null}
-                    navigateToPostHandler={navigateToPostHandler}
+                    customButton={{
+                        text: customButtonText,
+                        icon: BubbleArrowRightMIcon,
+                        onClick: handleCustomButtonClick,
+                    }}
                 />,
             );
 
-            fireEvent.click(getByTestId(TestIds.NAVIGATE_TO_POST_BUTTON));
+            const customButton = getByTestId(TestIds.CUSTOM_BUTTON);
 
-            expect(navigateToPostHandler).toHaveBeenCalledTimes(1);
+            fireEvent.click(customButton);
+            fireEvent.mouseOver(customButton);
+
+            expect(handleCustomButtonClick).toHaveBeenCalledTimes(1);
+            await waitFor(() => expect(getByText(customButtonText)).toBeInTheDocument());
         });
 
         // broken in swiper@12

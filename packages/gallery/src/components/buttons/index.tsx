@@ -2,11 +2,11 @@ import React, { type FC, type MutableRefObject } from 'react';
 import cn from 'classnames';
 
 import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
 import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
-import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PauseCompactMIcon } from '@alfalab/icons-glyph/PauseCompactMIcon';
 import { PlayCompactMIcon } from '@alfalab/icons-glyph/PlayCompactMIcon';
@@ -15,12 +15,16 @@ import { ShareMIcon } from '@alfalab/icons-glyph/ShareMIcon';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
+import { type GalleryCustomButton } from '../../types';
+
 import styles from './index.module.css';
 
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
     download?: string | boolean;
 };
+
+type CustomButtonProps = GalleryCustomButton & Props;
 
 export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
     <TooltipDesktop
@@ -154,21 +158,26 @@ export const Share: FC<Props> = (props) => (
     </TooltipDesktop>
 );
 
-export const PostLink: FC<Props> = (props) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Показать сообщение'
-        fallbackPlacements={['bottom-end']}
-    >
-        <IconButton
-            {...props}
-            icon={BubbleArrowRightMIcon}
-            aria-label='Показать сообщение'
-            className={styles.iconButton}
-        />
-    </TooltipDesktop>
-);
+export const CustomButton: FC<CustomButtonProps> = ({ text, icon, ...restProps }) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
+        <IconButton {...restProps} icon={icon} aria-label={text} className={styles.iconButton} />
+    );
+
+    return isDesktop ? (
+        <TooltipDesktop
+            trigger='hover'
+            position='bottom'
+            content={text}
+            fallbackPlacements={['bottom-end']}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
 
 export const Exit: FC<Props> = (props) => (
     <IconButton {...props} icon={CrossMIcon} aria-label='Закрыть' className={styles.iconButton} />
