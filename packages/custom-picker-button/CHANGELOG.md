@@ -1,5 +1,13 @@
 # @alfalab/core-components-custom-picker-button
 
+## 4.1.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.0
+
 ## 4.1.15
 
 ### Patch Changes
