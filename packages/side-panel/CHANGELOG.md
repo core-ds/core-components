@@ -1,5 +1,17 @@
 # @alfalab/core-components-side-panel
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2319](https://github.com/core-ds/core-components/pull/2319)
+
+##### SidePanel
+
+- Добавлен проброс `ref` на корневой элемент `SidePanel.Header`
+
 ## 7.0.15
 
 ### Patch Changes

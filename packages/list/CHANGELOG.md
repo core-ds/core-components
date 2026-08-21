@@ -1,5 +1,17 @@
 # @alfalab/core-components-list
 
+## 5.0.11
+
+### Patch Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2322](https://github.com/core-ds/core-components/pull/2322)
+
+##### List
+
+- Исправлен `dispayName` компонента `Item`
+
 ## 5.0.10
 
 ### Patch Changes

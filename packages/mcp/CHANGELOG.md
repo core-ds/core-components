@@ -1,5 +1,15 @@
 # @alfalab/core-components-mcp
 
+## 0.2.3
+
+### Patch Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2322](https://github.com/core-ds/core-components/pull/2322)
+
+- `component_info` теперь возвращает `subComponents` для compound-компонентов
+
 ## 0.2.2
 
 ### Patch Changes

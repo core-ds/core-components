@@ -1,5 +1,65 @@
 # @alfalab/core-components
 
+## 50.27.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2319](https://github.com/core-ds/core-components/pull/2319)
+
+##### SidePanel
+
+- Добавлен проброс `ref` на корневой элемент `SidePanel.Header`
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#1762](https://github.com/core-ds/core-components/pull/1762)
+
+##### Gallery
+
+- Добавлена поддержка скачивания видео для мобильных браузеров.
+- Расширены возможности управления видео в галерее. Заменен цвет для плейсхолдеров и заглушек, что улучшает видимость на темном фоне галереи.
+- Исправлены отступы у навигации.
+- При свайпе до закрытия, галерея следует за свайпом
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2318](https://github.com/core-ds/core-components/pull/2318)
+
+##### PickerButton
+
+- Изменено положение `dots` иконок (отображаются в `compact` режиме)
+
+### Patch Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2322](https://github.com/core-ds/core-components/pull/2322)
+
+##### List
+
+- Исправлен `dispayName` компонента `Item`
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2322](https://github.com/core-ds/core-components/pull/2322)
+
+##### SystemMessage
+
+- Внутренние изменения не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-side-panel@7.1.0
+- @alfalab/core-components-list@5.0.11
+- @alfalab/core-components-gallery@7.3.0
+- @alfalab/core-components-picker-button@13.1.0
+- @alfalab/core-components-system-message@4.0.8
+- @alfalab/core-components-markdown@3.0.15
+- @alfalab/core-components-custom-picker-button@4.1.16
+- @alfalab/core-components-tabs@10.0.24
+
 ## 50.26.1
 
 ### Patch Changes
