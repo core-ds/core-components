@@ -1,0 +1,10 @@
+.overlayLabel {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
