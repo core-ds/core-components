@@ -59,6 +59,30 @@ describe('Checkbox | size, disabled, checked', () => {
     availableThemes.map(testCase);
 });
 
+describe(
+    'Checkbox | compact',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Checkbox',
+                    knobs: {
+                        label: 'Согласен с условиями',
+                        hint: 'Дополнительная информация',
+                        size: [20, 24],
+                        compact: [false, true],
+                    },
+                    size: { width: 400, height: 100 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
 describe('Checkbox | checked', () => {
     const testCase = (theme: string) =>
         screenshotTesting({

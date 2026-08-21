@@ -90,6 +90,18 @@
     display: block;
 }
 
+.size-20.compact .content .label {
+    @mixin paragraph_primary_small;
+}
+
+.size-20.compact .content .hint {
+    @mixin paragraph_secondary_medium;
+}
+
+.size-20.compact .label:not(:only-child) {
+    margin-bottom: var(--gap-2);
+}
+
 .label:not(:only-child) {
     margin-bottom: var(--gap-4);
 }
