@@ -58,10 +58,10 @@ export type RadioProps = Omit<
     compact?: boolean;
 
     /**
-     * Радио будет отрисовано справа от контента
-     * @default false
+     * Положение радиокнопки относительно контента
+     * @default start
      */
-    reversed?: boolean;
+    controlPosition?: 'start' | 'end';
 
     /**
      * Управление состоянием отмечен/не отмечен
@@ -151,7 +151,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             labelProps,
             colors = 'default',
             compact = false,
-            reversed = false,
+            controlPosition = 'start',
             ...restProps
         },
         ref,
@@ -161,6 +161,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         const [focused] = useFocus(labelRef, 'keyboard');
 
         const colorStyle = colorStyles[colors];
+        const isControlAtEnd = controlPosition === 'end';
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
@@ -186,7 +187,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                         [styles.focused]: focused,
                         [styles.block]: block,
                         [styles.compact]: Boolean(compact) && Number(size) === 20,
-                        [styles.reversed]: reversed,
+                        [styles.reversed]: isControlAtEnd,
                     },
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}

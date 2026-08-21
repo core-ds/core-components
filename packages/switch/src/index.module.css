@@ -153,13 +153,14 @@
 /* Size 20 */
 
 .size-20 .switch {
-    width: 32px;
-    height: 20px;
+    width: 28px;
+    height: 16px;
+    border-radius: var(--border-radius-16);
 }
 
 .size-20 .switchSkeleton {
-    width: 32px;
-    height: 20px;
+    width: 28px;
+    height: 16px;
 }
 
 .size-20 .switch:before {
@@ -174,7 +175,7 @@
 }
 
 .size-20.checked .switch:before {
-    /* ширина 32px (border-box) - border 4px - thumb 16px = 12px */
+    /* inner 24px - thumb 12px = 12px */
     transform: translateX(12px);
 }
 

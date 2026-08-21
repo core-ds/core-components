@@ -70,8 +70,8 @@ describe('Radio', () => {
             expect(container.firstElementChild).toHaveClass('size-24');
         });
 
-        it('should set `reversed` class', () => {
-            const { container } = render(<Radio reversed={true} />);
+        it('should set `reversed` class for controlPosition end', () => {
+            const { container } = render(<Radio controlPosition='end' />);
 
             expect(container.firstElementChild).toHaveClass('reversed');
         });

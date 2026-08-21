@@ -91,7 +91,7 @@ describe(
 );
 
 describe(
-    'Radio | reversed, compact',
+    'Radio | controlPosition, compact',
     screenshotTesting({
         cases: [
             [
@@ -102,7 +102,7 @@ describe(
                         label: 'Лейбл',
                         hint: 'Подсказка',
                         size: [20, 24],
-                        reversed: [false, true],
+                        controlPosition: ['start', 'end'],
                         compact: [false, true],
                     },
                     size: { width: 240, height: 60 },
