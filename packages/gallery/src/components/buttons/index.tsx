@@ -16,6 +16,7 @@ import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
 import { type GalleryCustomButton } from '../../types';
+import { downloadFile, isVideo } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -26,13 +27,10 @@ type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
 
 type CustomButtonProps = GalleryCustomButton & Props;
 
-export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Открыть в полноэкранном режиме'
-        fallbackPlacements={['bottom-end']}
-    >
+export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
         <IconButton
             {...restProps}
             ref={buttonRef}
@@ -40,8 +38,23 @@ export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             aria-label='Открыть в полноэкранном режиме'
             className={styles.iconButton}
         />
-    </TooltipDesktop>
-);
+    );
+
+    return isDesktop ? (
+        <TooltipDesktop
+            view='hint'
+            colors='inverted'
+            trigger='hover'
+            position='bottom'
+            content='Открыть в полноэкранном режиме'
+            fallbackPlacements={['bottom-end']}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
 
 export const BackArrow: FC<Props> = ({ buttonRef, ...restProps }) => (
     <IconButton
@@ -73,13 +86,10 @@ export const Pause: FC<Props> = ({ buttonRef, className, ...restProps }) => (
     />
 );
 
-export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Выйти из полноэкранного режима'
-        fallbackPlacements={['bottom-end']}
-    >
+export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
         <IconButton
             {...restProps}
             ref={buttonRef}
@@ -87,17 +97,28 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             aria-label='Выйти из полноэкранного режима'
             className={styles.iconButton}
         />
-    </TooltipDesktop>
-);
+    );
 
-export const MuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Выключить звук'
-        fallbackPlacements={['bottom-end']}
-        targetClassName={className}
-    >
+    return isDesktop ? (
+        <TooltipDesktop
+            view='hint'
+            colors='inverted'
+            trigger='hover'
+            position='bottom'
+            content='Выйти из полноэкранного режима'
+            fallbackPlacements={['bottom-end']}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
+
+export const MuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
         <IconButton
             {...restProps}
             ref={buttonRef}
@@ -105,17 +126,29 @@ export const MuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) => 
             aria-label='Выключить звук'
             className={styles.iconButton}
         />
-    </TooltipDesktop>
-);
+    );
 
-export const UnmuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Включить звук'
-        fallbackPlacements={['bottom-end']}
-        targetClassName={className}
-    >
+    return isDesktop ? (
+        <TooltipDesktop
+            view='hint'
+            colors='inverted'
+            trigger='hover'
+            position='bottom'
+            content='Выключить звук'
+            fallbackPlacements={['bottom-end']}
+            targetClassName={className}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
+
+export const UnmuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
         <IconButton
             {...restProps}
             ref={buttonRef}
@@ -123,40 +156,100 @@ export const UnmuteVideo: FC<Props> = ({ buttonRef, className, ...restProps }) =
             aria-label='Включить звук'
             className={styles.iconButton}
         />
-    </TooltipDesktop>
-);
+    );
 
-export const Download: FC<Props> = (props) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Скачать'
-        fallbackPlacements={['bottom-end']}
-    >
-        <IconButton
-            {...props}
-            icon={PointerDownMIcon}
-            aria-label='Скачать'
-            className={styles.iconButton}
-        />
-    </TooltipDesktop>
-);
+    return isDesktop ? (
+        <TooltipDesktop
+            view='hint'
+            colors='inverted'
+            trigger='hover'
+            position='bottom'
+            content='Включить звук'
+            fallbackPlacements={['bottom-end']}
+            targetClassName={className}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
 
-export const Share: FC<Props> = (props) => (
-    <TooltipDesktop
-        trigger='hover'
-        position='bottom'
-        content='Поделиться'
-        fallbackPlacements={['bottom-end']}
-    >
+export const Download: FC<Props & { href?: string }> = ({ href, ...props }) => {
+    const isDesktop = useIsDesktop();
+
+    const handleMobileVideoDownload = async (e: React.MouseEvent) => {
+        e.preventDefault();
+
+        if (!href) return;
+
+        const fileName = props.download?.toString() || 'video';
+        const fileType = isVideo(href) ? 'video/*' : undefined;
+
+        await downloadFile({
+            url: href,
+            fileName,
+            fileType,
+        });
+    };
+
+    const iconButtonProps = {
+        ...props,
+        icon: PointerDownMIcon,
+        'aria-label': 'Скачать' as const,
+        className: styles.iconButton,
+    };
+
+    const iconButton =
+        !isDesktop && isVideo(href) ? (
+            <IconButton {...iconButtonProps} onClick={handleMobileVideoDownload} />
+        ) : (
+            <IconButton {...iconButtonProps} href={href} />
+        );
+
+    return isDesktop ? (
+        <TooltipDesktop
+            view='hint'
+            colors='inverted'
+            trigger='hover'
+            position='bottom'
+            content='Скачать'
+            fallbackPlacements={['bottom-end']}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
+
+export const Share: FC<Props> = (props) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
         <IconButton
             {...props}
             icon={ShareMIcon}
             aria-label='Поделиться'
             className={styles.iconButton}
         />
-    </TooltipDesktop>
-);
+    );
+
+    return isDesktop ? (
+        <TooltipDesktop
+            view='hint'
+            colors='inverted'
+            trigger='hover'
+            position='bottom'
+            content='Поделиться'
+            fallbackPlacements={['bottom-end']}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
 
 export const CustomButton: FC<CustomButtonProps> = ({ text, icon, ...restProps }) => {
     const isDesktop = useIsDesktop();
