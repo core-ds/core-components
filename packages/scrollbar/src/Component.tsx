@@ -1,5 +1,7 @@
 import React, { type HTMLAttributes, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+import canUseDOM from 'can-use-dom';
 import cn from 'classnames';
 // eslint-disable-next-line no-restricted-imports
 import throttle from 'lodash.throttle';
@@ -166,12 +168,13 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const contentNodeRef = useRef<HTMLDivElement>(null);
         const maskNodeRef = useRef<HTMLDivElement>(null);
+        const instanceRef = useRef<SimpleBar | null>(null);
         const [width, setWidth] = useState<number>();
 
         const colorStyles = colorStylesMap[colors];
 
         useEffect(() => {
-            let instance: SimpleBar | null;
+            let instance: SimpleBar | null = null;
 
             if (elRef.current) {
                 instance = new SimpleBar(elRef.current, {
@@ -185,6 +188,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     scrollableNode: scrollableNodeRef.current,
                     contentNode: contentNodeRef.current,
                 });
+                instanceRef.current = instance;
 
                 if (onContentScroll) {
                     instance.getScrollElement().addEventListener('scroll', onContentScroll);
@@ -198,9 +202,47 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     }
                     instance.unMount();
                     instance = null;
+                    instanceRef.current = null;
                 }
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
+
+        useEffect(() => {
+            const contentNode = contentNodeRef.current;
+            const instance = instanceRef.current;
+
+            if (!canUseDOM || !contentNode || !instance) {
+                return undefined;
+            }
+
+            const Observer =
+                typeof ResizeObserver === 'undefined' ? ResizeObserverPolyfill : ResizeObserver;
+            const resizeObserver = new Observer(() => {
+                instance.recalculate();
+            });
+
+            const observeTargets = () => {
+                resizeObserver.disconnect();
+                resizeObserver.observe(contentNode);
+                Array.from(contentNode.children).forEach((child) => {
+                    resizeObserver.observe(child);
+                });
+            };
+
+            observeTargets();
+
+            const mutationObserver = new MutationObserver(() => {
+                observeTargets();
+                instance.recalculate();
+            });
+
+            mutationObserver.observe(contentNode, { childList: true });
+
+            return () => {
+                resizeObserver.disconnect();
+                mutationObserver.disconnect();
+            };
         }, []);
 
         useEffect(() => {

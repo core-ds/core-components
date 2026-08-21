@@ -7,11 +7,13 @@ import {
     useRef,
     useState,
 } from 'react';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
 import {
     fnUtils,
     getDataTestId,
     getElementWindow,
+    isClient,
     useIsMounted,
 } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -161,6 +163,102 @@ type useVisibleOptionsArgs = {
     actualOptionsCount?: boolean;
 };
 
+function measureVisibleOptionsHeight({
+    list,
+    visibleOptions,
+    options,
+    size,
+    actualOptionsCount,
+}: {
+    list: HTMLElement;
+    visibleOptions: number;
+    options?: Array<OptionShape | GroupShape>;
+    size?: Extract<OptionsListProps['size'], number>;
+    actualOptionsCount?: boolean;
+}) {
+    const measureOptionHeight = (element: HTMLElement) =>
+        typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
+
+    const childCount = list.children.length;
+    const optionsNodes = ([] as HTMLElement[]).slice.call(list.children, 0, visibleOptions + 1);
+
+    let height = optionsNodes
+        .slice(0, visibleOptions)
+        .reduce((acc, child) => acc + measureOptionHeight(child), 0);
+
+    if (visibleOptions < childCount) {
+        const lastVisibleOptionHeight = measureOptionHeight(optionsNodes[optionsNodes.length - 1]);
+
+        // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
+        height += Math.round(
+            childCount - visibleOptions === 1
+                ? lastVisibleOptionHeight
+                : lastVisibleOptionHeight / 2,
+        );
+    } else if (visibleOptions > childCount && actualOptionsCount && typeof size === 'number') {
+        const actualCount = (options ?? []).reduce(
+            (sum, option) => sum + 1 + (isGroup(option) ? option.options.length : 0),
+            0,
+        );
+
+        height =
+            Math.min(actualCount === 0 ? /** empty placeholder */ 1 : actualCount, visibleOptions) *
+            size;
+
+        if (visibleOptions < actualCount) {
+            height += size / 2;
+        }
+    }
+
+    const win = getElementWindow(list);
+
+    // jsdom logs (and does not throw) on getComputedStyle with pseudo-elements
+    if (!/jsdom/i.test(win.navigator.userAgent)) {
+        try {
+            height += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+                .reduce((a, b) => a + b);
+        } catch {
+            // Some browsers throw on getComputedStyle with pseudo-elements
+        }
+    }
+
+    return height;
+}
+
+function observeElementSize(element: HTMLElement, onResize: () => void) {
+    if (!isClient()) {
+        return fnUtils.noop;
+    }
+
+    const Observer =
+        typeof ResizeObserver === 'undefined' ? ResizeObserverPolyfill : ResizeObserver;
+    const resizeObserver = new Observer(onResize);
+
+    const observeTargets = () => {
+        resizeObserver.disconnect();
+        resizeObserver.observe(element);
+        Array.from(element.children).forEach((child) => {
+            resizeObserver.observe(child);
+        });
+    };
+
+    observeTargets();
+    onResize();
+
+    const mutationObserver = new MutationObserver(() => {
+        observeTargets();
+        onResize();
+    });
+
+    mutationObserver.observe(element, { childList: true });
+
+    return () => {
+        resizeObserver.disconnect();
+        mutationObserver.disconnect();
+    };
+}
+
 // copy-paste of original `useVisibleOptions` before https://github.com/core-ds/core-components/pull/1368
 export function useVirtualVisibleOptions({
     visibleOptions,
@@ -174,63 +272,25 @@ export function useVirtualVisibleOptions({
     const [height, setHeight] = useState<number>();
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        const measureOptionHeight = (element: HTMLElement) =>
-            typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
-
         const list = listRef.current;
 
         if (open && list && visibleOptions > 0) {
-            const childCount = list.children.length;
-            const optionsNodes = ([] as HTMLElement[]).slice.call(
-                list.children,
-                0,
-                visibleOptions + 1,
-            );
+            const applyHeight = () => {
+                const nextHeight = measureVisibleOptionsHeight({
+                    list,
+                    visibleOptions,
+                    options,
+                    size,
+                    actualOptionsCount,
+                });
 
-            let nextHeight = optionsNodes
-                .slice(0, visibleOptions)
-                .reduce((acc, child) => acc + measureOptionHeight(child), 0);
+                setHeight((prev) => (prev === nextHeight ? prev : nextHeight));
+            };
 
-            if (visibleOptions < childCount) {
-                const lastVisibleOptionHeight = measureOptionHeight(
-                    optionsNodes[optionsNodes.length - 1],
-                );
-
-                // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
-                nextHeight += Math.round(
-                    childCount - visibleOptions === 1
-                        ? lastVisibleOptionHeight
-                        : lastVisibleOptionHeight / 2,
-                );
-            } else if (
-                visibleOptions > childCount &&
-                actualOptionsCount &&
-                typeof size === 'number'
-            ) {
-                const actualCount = (options ?? []).reduce(
-                    (sum, option) => sum + 1 + (isGroup(option) ? option.options.length : 0),
-                    0,
-                );
-
-                nextHeight =
-                    Math.min(
-                        actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
-                        visibleOptions,
-                    ) * size;
-
-                if (visibleOptions < actualCount) {
-                    nextHeight += size / 2;
-                }
-            }
-
-            const win = getElementWindow(list);
-
-            nextHeight += ['::before', '::after']
-                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
-                .reduce((a, b) => a + b);
-
-            setHeight(nextHeight);
+            return observeElementSize(list, applyHeight);
         }
+
+        return fnUtils.noop;
     }, [actualOptionsCount, listRef, open, options, size, visibleOptions, invalidate]);
 
     return height;
@@ -249,66 +309,26 @@ export function useVisibleOptions({
     const [height, setHeight] = useState<number | undefined>();
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        const measureOptionHeight = (element: HTMLElement) =>
-            typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
-
         const list = listRef.current;
 
         if (open && list && visibleOptions > 0) {
-            const childCount = list.children.length;
-            const optionsNodes = ([] as HTMLElement[]).slice.call(
-                list.children,
-                0,
-                visibleOptions + 1,
-            );
+            const applyHeight = () => {
+                const nextHeight = measureVisibleOptionsHeight({
+                    list,
+                    visibleOptions,
+                    options,
+                    size,
+                    actualOptionsCount,
+                });
 
-            let measuredHeight = optionsNodes
-                .slice(0, visibleOptions)
-                .reduce((acc, child) => acc + measureOptionHeight(child), 0);
+                setHeight((prev) => (prev === nextHeight ? prev : nextHeight));
+                setMeasured(true);
+            };
 
-            if (visibleOptions < childCount) {
-                const lastVisibleOptionHeight = measureOptionHeight(
-                    optionsNodes[optionsNodes.length - 1],
-                );
-
-                // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
-                measuredHeight += Math.round(
-                    childCount - visibleOptions === 1
-                        ? lastVisibleOptionHeight
-                        : lastVisibleOptionHeight / 2,
-                );
-            } else if (
-                visibleOptions > childCount &&
-                actualOptionsCount &&
-                typeof size === 'number'
-            ) {
-                const actualCount = (options ?? []).reduce(
-                    (sum, option) => sum + 1 + (isGroup(option) ? option.options.length : 0),
-                    0,
-                );
-
-                measuredHeight =
-                    Math.min(
-                        actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
-                        visibleOptions,
-                    ) * size;
-
-                if (visibleOptions < actualCount) {
-                    measuredHeight += size / 2;
-                }
-            }
-
-            const win = getElementWindow(list);
-
-            measuredHeight += ['::before', '::after']
-                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
-                .reduce((a, b) => a + b);
-
-            setHeight(measuredHeight);
-
-            setMeasured(true);
+            const disconnect = observeElementSize(list, applyHeight);
 
             return () => {
+                disconnect();
                 runIfMounted(() => setMeasured(false));
             };
         }

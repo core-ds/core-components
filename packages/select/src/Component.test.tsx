@@ -1,5 +1,12 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, screen, waitFor, queryByText } from '@testing-library/react';
+import {
+    fireEvent,
+    render,
+    screen,
+    waitFor,
+    queryByText,
+    act as rtlAct,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
@@ -11,6 +18,7 @@ import {
     FieldProps as BaseFieldProps,
     OptionsListProps,
     OptionProps,
+    OptgroupProps,
     useSelectWithApply,
     Arrow,
     SelectProps,
@@ -20,6 +28,36 @@ import { SelectMobile, SelectModalMobile } from './mobile';
 import { BaseOption } from './components';
 import { getSelectTestIds } from './utils';
 import { Environment } from 'downshift';
+
+const resizeObserverCallbacks: ResizeObserverCallback[] = [];
+
+jest.mock('@juggle/resize-observer', () => ({
+    ResizeObserver: class MockResizeObserver {
+        constructor(callback: ResizeObserverCallback) {
+            resizeObserverCallbacks.push(callback);
+        }
+
+        observe() {}
+
+        unobserve() {}
+
+        disconnect() {}
+    },
+}));
+
+beforeAll(() => {
+    global.ResizeObserver = class MockResizeObserver {
+        constructor(callback: ResizeObserverCallback) {
+            resizeObserverCallbacks.push(callback);
+        }
+
+        observe() {}
+
+        unobserve() {}
+
+        disconnect() {}
+    } as typeof ResizeObserver;
+});
 
 function SelectWithApplyComponent({ testId }: { testId: string }) {
     const selectProps = useSelectWithApply({
@@ -1131,6 +1169,90 @@ describe('Select', () => {
             await waitFor(() => {
                 expect(screen.getByRole('listbox')).toBeInTheDocument();
             });
+        });
+    });
+
+    describe('OptionsList height', () => {
+        const COLLAPSED_GROUP_HEIGHT = 48;
+        const EXPANDED_GROUP_HEIGHT = 144;
+        const OPTION_HEIGHT = 48;
+
+        const groupedOptions = [
+            {
+                label: 'Группа 1',
+                options: [
+                    { key: 'g1', content: 'Рублёвый счёт' },
+                    { key: 'g2', content: 'Ипотечный счёт' },
+                ],
+            },
+            { key: '3', content: 'Сберегательный счёт' },
+        ];
+
+        const CollapsibleOptgroup = ({ children, label }: OptgroupProps) => {
+            const [expanded, setExpanded] = React.useState(false);
+
+            return (
+                <div
+                    data-test-id='collapsible-optgroup'
+                    data-client-height={expanded ? EXPANDED_GROUP_HEIGHT : COLLAPSED_GROUP_HEIGHT}
+                >
+                    <button
+                        type='button'
+                        data-test-id='optgroup-toggle'
+                        onClick={() => setExpanded((value) => !value)}
+                    >
+                        {label}
+                    </button>
+                    <div style={{ display: expanded ? 'block' : 'none' }}>{children}</div>
+                </div>
+            );
+        };
+
+        let clientHeightSpy: jest.SpyInstance;
+
+        beforeEach(() => {
+            resizeObserverCallbacks.length = 0;
+
+            clientHeightSpy = jest
+                .spyOn(HTMLElement.prototype, 'clientHeight', 'get')
+                .mockImplementation(function getClientHeight(this: HTMLElement) {
+                    const height = this.getAttribute('data-client-height');
+
+                    return height ? Number(height) : OPTION_HEIGHT;
+                });
+        });
+
+        afterEach(() => {
+            clientHeightSpy.mockRestore();
+        });
+
+        it('should recalculate list height when custom Optgroup expands', () => {
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    options={groupedOptions}
+                    Optgroup={CollapsibleOptgroup}
+                    visibleOptions={8}
+                    defaultOpen={true}
+                    optionsListProps={{ nativeScrollbar: true }}
+                    dataTestId='select'
+                />,
+            );
+
+            const optionsList = getByTestId('select-options-list');
+            const scrollable = optionsList.querySelector('.scrollable') as HTMLElement;
+
+            expect(scrollable.style.maxHeight).toBe(`${COLLAPSED_GROUP_HEIGHT + OPTION_HEIGHT}px`);
+
+            fireEvent.click(getByTestId('optgroup-toggle'));
+
+            rtlAct(() => {
+                resizeObserverCallbacks.forEach((callback) => {
+                    callback([], {} as ResizeObserver);
+                });
+            });
+
+            expect(scrollable.style.maxHeight).toBe(`${EXPANDED_GROUP_HEIGHT + OPTION_HEIGHT}px`);
         });
     });
 
