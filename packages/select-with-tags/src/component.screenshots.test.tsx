@@ -200,7 +200,7 @@ describe(
                 subComponentName: 'SelectWithTagsDesktop',
                 testStory: false,
                 knobs: {
-                    size: [48],
+                    size: [48, 40],
                     disabled: [false, true],
                 },
             }),
@@ -224,7 +224,7 @@ describe(
                 subComponentName: 'SelectWithTagsMobile',
                 testStory: false,
                 knobs: {
-                    size: [48],
+                    size: [48, 40],
                     disabled: [false, true],
                 },
             }),
@@ -240,7 +240,7 @@ describe(
 );
 
 describe('SelectWithTags', () => {
-    [48, 56, 64, 72].forEach((size) => {
+    [40, 48, 56, 64, 72].forEach((size) => {
         test(`right addons desktop size=${size}`, async () => {
             const pageUrl = createStorybookUrl({
                 componentName: 'SelectWithTags',
@@ -276,6 +276,8 @@ describe('SelectWithTags', () => {
             } catch (error) {
                 // eslint-disable-next-line no-console
                 console.error((error as Error).message);
+
+                throw error;
             } finally {
                 await closeBrowser({ browser, context, page });
             }

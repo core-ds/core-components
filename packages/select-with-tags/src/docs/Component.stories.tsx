@@ -51,6 +51,8 @@ const renderComponent = (component = SelectWithTags) => {
 
     const nativeScrollbar = boolean('nativeScrollbar', true);
     const scrollbar = nativeScrollbar ? true : undefined;
+    const _size = select('size', [40, 48, 56, 64, 72], 72);
+    const size = typeof _size === 'string' ? (Number(_size) as SelectWithTagsProps['size']) : _size;
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
@@ -71,7 +73,7 @@ const renderComponent = (component = SelectWithTags) => {
                     moveInputToNewLine={boolean('moveInputToNewLine', true)}
                     options={options}
                     block={boolean('block', true)}
-                    size={select('size', [48, 56, 64, 72], 72)}
+                    size={size}
                     disabled={boolean('disabled', false)}
                     error={text('error', '')}
                     hint={text('hint', '')}

@@ -5,6 +5,13 @@
     padding-left: var($var-name);
 }
 
+.component.size-40 {
+    & .input,
+    & .placeholder {
+        @mixin paragraph_component_secondary;
+    }
+}
+
 .component.size-72 {
     & .contentWrapper {
         padding: 18px var(--gap-2s);

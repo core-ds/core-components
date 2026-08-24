@@ -60,6 +60,14 @@ describe('SelectWithTags', () => {
     });
 
     describe('Attributes tests', () => {
+        it('should set size-40 class on tag list', () => {
+            const { getByRole } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} size={40} />,
+            );
+
+            expect(getByRole('combobox').firstElementChild).toHaveClass('size-40');
+        });
+
         it('should forward ref', () => {
             const ref = jest.fn();
 

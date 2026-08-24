@@ -28,7 +28,7 @@ import { Tag as DefaultTag } from '../tag';
 import styles from './index.module.css';
 
 type TagListOwnProps = {
-    size?: Exclude<FormControlProps['size'], 40>;
+    size?: FormControlProps['size'];
     value?: string;
     handleDeleteTag?: (key: string) => void;
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -51,6 +51,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     m: 'size-56',
     l: 'size-64',
     xl: 'size-72',
+    40: 'size-40',
     48: 'size-48',
     56: 'size-56',
     64: 'size-64',
