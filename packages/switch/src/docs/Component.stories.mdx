@@ -18,7 +18,7 @@ import Changelog from '../../CHANGELOG.md?raw';
         const handleChange = () => setChecked(!checked);
         const disabled = boolean('disabled', false);
         const checkedKnob = boolean('checked', false);
-        const reversed = boolean('reversed', false);
+        const controlPosition = select('controlPosition', ['start', 'end'], 'start');
         const block = boolean('block', false);
         const addons = text('addons');
         const align = select('align', ['start', 'center']);
@@ -48,7 +48,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 <Switch
                     disabled={disabled}
                     checked={checked || checkedKnob}
-                    reversed={reversed}
+                    controlPosition={controlPosition}
                     block={block}
                     addons={addons}
                     align={align}

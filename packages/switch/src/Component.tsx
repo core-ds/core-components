@@ -57,7 +57,14 @@ export type SwitchProps = Omit<
     compact?: boolean;
 
     /**
+     * Положение переключателя относительно контента
+     * @default start
+     */
+    controlPosition?: 'start' | 'end';
+
+    /**
      * Переключатель будет отрисован справа от контента
+     * @deprecated Используйте prop controlPosition`
      */
     reversed?: boolean;
 
@@ -118,6 +125,7 @@ export type SwitchProps = Omit<
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
     (
         {
+            controlPosition,
             reversed = false,
             checked = false,
             align = 'start',
@@ -151,6 +159,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         };
 
         const errorMessage = typeof error === 'boolean' ? '' : error;
+        const isControlAtEnd = (controlPosition ?? (reversed ? 'end' : 'start')) === 'end';
 
         return (
             <label
@@ -161,7 +170,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     [styles.checked]: checked,
                     [colorStyles[colors].checked]: checked,
 
-                    [styles.reversed]: reversed,
+                    [styles.reversed]: isControlAtEnd,
                     [styles.focused]: focused,
                     [styles.block]: block,
                     [styles.compact]: compact && size === 20,
