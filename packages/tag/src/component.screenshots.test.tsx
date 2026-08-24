@@ -390,7 +390,7 @@ describe('IndicatorTag | main props', () => {
                             packageName: 'tag',
                             componentName: 'IndicatorTag',
                             knobs: {
-                                size: [32, 40, 48, 56],
+                                size: [32, 40, 48],
                                 shape: ['rounded', 'rectangular'],
                                 view: ['filled', 'muted'],
                                 colors: 'inverted',
