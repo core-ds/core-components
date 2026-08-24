@@ -1,7 +1,6 @@
 import React, { type HTMLAttributes, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
-import canUseDOM from 'can-use-dom';
 import cn from 'classnames';
 // eslint-disable-next-line no-restricted-imports
 import throttle from 'lodash.throttle';
@@ -212,13 +211,11 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             const contentNode = contentNodeRef.current;
             const instance = instanceRef.current;
 
-            if (!canUseDOM || !contentNode || !instance) {
+            if (!contentNode || !instance) {
                 return undefined;
             }
 
-            const Observer =
-                typeof ResizeObserver === 'undefined' ? ResizeObserverPolyfill : ResizeObserver;
-            const resizeObserver = new Observer(() => {
+            const resizeObserver = new ResizeObserverPolyfill(() => {
                 instance.recalculate();
             });
 

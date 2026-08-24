@@ -23,20 +23,6 @@ jest.mock('@juggle/resize-observer', () => ({
     },
 }));
 
-beforeAll(() => {
-    global.ResizeObserver = class MockResizeObserver {
-        constructor(callback: ResizeObserverCallback) {
-            resizeObserverCallbacks.push(callback);
-        }
-
-        observe() {}
-
-        unobserve() {}
-
-        disconnect() {}
-    } as typeof ResizeObserver;
-});
-
 const renderScrollbar = (props?: ScrollbarProps) => (
     <Scrollbar
         {...props}

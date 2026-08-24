@@ -7,13 +7,11 @@ import {
     useRef,
     useState,
 } from 'react';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
 import {
     fnUtils,
     getDataTestId,
     getElementWindow,
-    isClient,
     useIsMounted,
 } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -212,49 +210,49 @@ function measureVisibleOptionsHeight({
 
     const win = getElementWindow(list);
 
-    // jsdom logs (and does not throw) on getComputedStyle with pseudo-elements
-    if (!/jsdom/i.test(win.navigator.userAgent)) {
-        try {
-            height += ['::before', '::after']
-                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
-                .reduce((a, b) => a + b);
-        } catch {
-            // Some browsers throw on getComputedStyle with pseudo-elements
-        }
-    }
+    height += ['::before', '::after']
+        .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+        .reduce((a, b) => a + b);
 
     return height;
 }
 
-function observeElementSize(element: HTMLElement, onResize: () => void) {
-    if (!isClient()) {
-        return fnUtils.noop;
-    }
+function observeOptionsSize(list: HTMLElement, onResize: () => void) {
+    const win = getElementWindow(list);
+    let frameId = 0;
 
-    const Observer =
-        typeof ResizeObserver === 'undefined' ? ResizeObserverPolyfill : ResizeObserver;
-    const resizeObserver = new Observer(onResize);
+    /*
+     * Пересчитываем в следующем кадре: замер прямо в колбэке ResizeObserver
+     * вклинивается в позиционирование поповера, и список остаётся скрытым.
+     */
+    const scheduleResize = () => {
+        win.cancelAnimationFrame(frameId);
+        frameId = win.requestAnimationFrame(onResize);
+    };
 
-    const observeTargets = () => {
+    const resizeObserver = win.ResizeObserver ? new win.ResizeObserver(scheduleResize) : null;
+
+    const observeOptions = () => {
+        if (!resizeObserver) return;
+
         resizeObserver.disconnect();
-        resizeObserver.observe(element);
-        Array.from(element.children).forEach((child) => {
-            resizeObserver.observe(child);
+        Array.from(list.children).forEach((option) => {
+            resizeObserver.observe(option);
         });
     };
 
-    observeTargets();
-    onResize();
+    observeOptions();
 
-    const mutationObserver = new MutationObserver(() => {
-        observeTargets();
-        onResize();
+    const mutationObserver = new win.MutationObserver(() => {
+        observeOptions();
+        scheduleResize();
     });
 
-    mutationObserver.observe(element, { childList: true });
+    mutationObserver.observe(list, { childList: true });
 
     return () => {
-        resizeObserver.disconnect();
+        win.cancelAnimationFrame(frameId);
+        resizeObserver?.disconnect();
         mutationObserver.disconnect();
     };
 }
@@ -276,18 +274,20 @@ export function useVirtualVisibleOptions({
 
         if (open && list && visibleOptions > 0) {
             const applyHeight = () => {
-                const nextHeight = measureVisibleOptionsHeight({
-                    list,
-                    visibleOptions,
-                    options,
-                    size,
-                    actualOptionsCount,
-                });
-
-                setHeight((prev) => (prev === nextHeight ? prev : nextHeight));
+                setHeight(
+                    measureVisibleOptionsHeight({
+                        list,
+                        visibleOptions,
+                        options,
+                        size,
+                        actualOptionsCount,
+                    }),
+                );
             };
 
-            return observeElementSize(list, applyHeight);
+            applyHeight();
+
+            return observeOptionsSize(list, applyHeight);
         }
 
         return fnUtils.noop;
@@ -313,19 +313,21 @@ export function useVisibleOptions({
 
         if (open && list && visibleOptions > 0) {
             const applyHeight = () => {
-                const nextHeight = measureVisibleOptionsHeight({
-                    list,
-                    visibleOptions,
-                    options,
-                    size,
-                    actualOptionsCount,
-                });
-
-                setHeight((prev) => (prev === nextHeight ? prev : nextHeight));
+                setHeight(
+                    measureVisibleOptionsHeight({
+                        list,
+                        visibleOptions,
+                        options,
+                        size,
+                        actualOptionsCount,
+                    }),
+                );
                 setMeasured(true);
             };
 
-            const disconnect = observeElementSize(list, applyHeight);
+            applyHeight();
+
+            const disconnect = observeOptionsSize(list, applyHeight);
 
             return () => {
                 disconnect();

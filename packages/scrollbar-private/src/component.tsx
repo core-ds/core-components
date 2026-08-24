@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment } from 'react';
+import React, { forwardRef, Fragment, useEffect, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import SimpleBar, { type Props as SimpleBarProps } from 'simplebar-react';
@@ -51,6 +51,56 @@ export const ScrollbarPrivate = forwardRef<ScrollbarPrivateRef, ScrollbarPrivate
         },
         ref,
     ) => {
+        const instanceRef = useRef<ScrollbarPrivateRef>(null);
+        const contentNodeRef = useRef<HTMLElement>(null);
+
+        useEffect(() => {
+            const contentNode = contentNodeRef.current;
+            const instance = instanceRef.current;
+            const win = contentNode?.ownerDocument.defaultView;
+
+            if (!contentNode || !instance || !win?.ResizeObserver) {
+                return undefined;
+            }
+
+            let frameId = 0;
+
+            const scheduleRecalculate = () => {
+                win.cancelAnimationFrame(frameId);
+                frameId = win.requestAnimationFrame(() => instance.recalculate());
+            };
+
+            /*
+             * Высота узла с контентом ограничена высотой корня SimpleBar, а та задаётся
+             * плейсхолдером по итогам предыдущего замера. Поэтому при росте содержимого
+             * бокс самого узла не меняется, и встроенный в SimpleBar ResizeObserver не
+             * срабатывает. Разрываем цикл, наблюдая за потомками узла.
+             */
+            const resizeObserver = new win.ResizeObserver(scheduleRecalculate);
+
+            const observeChildren = () => {
+                resizeObserver.disconnect();
+                Array.from(contentNode.children).forEach((child) => {
+                    resizeObserver.observe(child);
+                });
+            };
+
+            observeChildren();
+
+            const mutationObserver = new win.MutationObserver(() => {
+                observeChildren();
+                scheduleRecalculate();
+            });
+
+            mutationObserver.observe(contentNode, { childList: true });
+
+            return () => {
+                win.cancelAnimationFrame(frameId);
+                resizeObserver.disconnect();
+                mutationObserver.disconnect();
+            };
+        }, []);
+
         const render = ({
             scrollableNodeProps,
             contentNodeProps,
@@ -76,6 +126,7 @@ export const ScrollbarPrivate = forwardRef<ScrollbarPrivateRef, ScrollbarPrivate
                     ref={mergeRefs([
                         contentNodeProps?.ref ?? null,
                         contentNodePropsFromProps?.ref ?? null,
+                        contentNodeRef,
                     ])}
                     className={cn(
                         contentNodeProps?.className,
@@ -99,7 +150,7 @@ export const ScrollbarPrivate = forwardRef<ScrollbarPrivateRef, ScrollbarPrivate
         ) : (
             <SimpleBar
                 {...restProps}
-                ref={ref}
+                ref={mergeRefs([ref, instanceRef])}
                 style={style}
                 className={cn(styles.component, colorStyles[colors].component, className)}
                 tabIndex={tabIndex}

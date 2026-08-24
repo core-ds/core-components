@@ -31,22 +31,8 @@ import { Environment } from 'downshift';
 
 const resizeObserverCallbacks: ResizeObserverCallback[] = [];
 
-jest.mock('@juggle/resize-observer', () => ({
-    ResizeObserver: class MockResizeObserver {
-        constructor(callback: ResizeObserverCallback) {
-            resizeObserverCallbacks.push(callback);
-        }
-
-        observe() {}
-
-        unobserve() {}
-
-        disconnect() {}
-    },
-}));
-
 beforeAll(() => {
-    global.ResizeObserver = class MockResizeObserver {
+    window.ResizeObserver = class MockResizeObserver {
         constructor(callback: ResizeObserverCallback) {
             resizeObserverCallbacks.push(callback);
         }
@@ -56,7 +42,7 @@ beforeAll(() => {
         unobserve() {}
 
         disconnect() {}
-    } as typeof ResizeObserver;
+    } as unknown as typeof ResizeObserver;
 });
 
 function SelectWithApplyComponent({ testId }: { testId: string }) {
@@ -1226,7 +1212,7 @@ describe('Select', () => {
             clientHeightSpy.mockRestore();
         });
 
-        it('should recalculate list height when custom Optgroup expands', () => {
+        it('should recalculate list height when custom Optgroup expands', async () => {
             const { getByTestId } = render(
                 <Select
                     {...baseProps}
@@ -1246,9 +1232,13 @@ describe('Select', () => {
 
             fireEvent.click(getByTestId('optgroup-toggle'));
 
-            rtlAct(() => {
+            await rtlAct(async () => {
                 resizeObserverCallbacks.forEach((callback) => {
                     callback([], {} as ResizeObserver);
+                });
+
+                await new Promise((resolve) => {
+                    requestAnimationFrame(resolve);
                 });
             });
 
