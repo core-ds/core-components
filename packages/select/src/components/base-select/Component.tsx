@@ -468,6 +468,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             className: cn(optionClassName, {
                 [styles.option]: view === 'desktop',
                 [mobileStyles.option]: view === 'mobile',
+                [styles.optionNoWrap]: optionsListWidth === 'content',
             }),
             innerProps: getItemProps({
                 index,

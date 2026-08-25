@@ -130,3 +130,7 @@
         bottom: var(--select-options-list-scrollbar-gap);
     }
 }
+
+.optionNoWrap {
+    white-space: nowrap;
+}
