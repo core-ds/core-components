@@ -6,8 +6,8 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getHeightStyle } from '../../utils/get-height-style';
-import { getHugContentStyles } from '../../utils/get-hug-content-styles';
+import { getHeightCapStyles } from '../../utils/get-height-cap-styles';
+import { getHeightValue } from '../../utils/get-height-value';
 import { getMarginStyles } from '../../utils/get-margin-styles';
 import { getWidthCapStyles } from '../../utils/get-width-cap-styles';
 import { ModalContent } from '../modal-content/modal-content';
@@ -66,7 +66,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             })}
             className={cn(styles.component, className, styles.baseModalComponent, {
                 ...getMarginStyles({ styles, margin }),
-                ...getHugContentStyles({ styles, margin, height }),
+                ...getHeightCapStyles({ styles, margin }),
                 ...getWidthCapStyles({ styles, margin }),
             })}
             contentClassName={styles.content}
@@ -86,7 +86,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             componentDivProps={{
                 style: {
                     width: width === 'fullWidth' ? '100%' : width,
-                    ...getHeightStyle(height, margin),
+                    height: getHeightValue(height),
                 },
             }}
             onWheel={handleWheel}
