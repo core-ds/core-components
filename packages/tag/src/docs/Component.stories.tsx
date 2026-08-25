@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Tag>;
 
 const SIZES = [32, 40, 48, 56, 64, 72] as const;
 const MOBILE_INDICATOR_SIZES = [32, 40, 48, 56] as const;
-const INDICATOR_MODE_OPTIONS = ['dot', 'count', undefined] as const;
+const INDICATOR_MODE_OPTIONS = ['dot', 'count', 'undefined'] as const;
 
 const storyWrapperStyle = (colors: 'default' | 'inverted'): React.CSSProperties => ({
     backgroundColor:
@@ -49,7 +49,7 @@ const indicatorStoryWrapperStyle = (colors: 'default' | 'inverted'): React.CSSPr
 const getIndicatorPropsFromKnobs = () => {
     const mode = select('indicatorMode', INDICATOR_MODE_OPTIONS, 'dot');
 
-    if (mode === undefined) {
+    if (mode === 'undefined') {
         return undefined;
     }
 
@@ -164,7 +164,7 @@ export const tag_mobile_indicator: Story = {
         return (
             <div style={indicatorStoryWrapperStyle(colors)}>
                 <TagMobile
-                    key={indicatorProps?.mode}
+                    key={indicatorProps?.mode ?? 'none'}
                     Component={IndicatorTag}
                     leftAddons={<SlidersSIcon height={16} width={16} />}
                     size={select('size', MOBILE_INDICATOR_SIZES, 40)}
@@ -189,7 +189,7 @@ export const tag_desktop_indicator: Story = {
         return (
             <div style={indicatorStoryWrapperStyle(colors)}>
                 <TagDesktop
-                    key={indicatorProps?.mode}
+                    key={indicatorProps?.mode ?? 'none'}
                     Component={IndicatorTag}
                     leftAddons={<SlidersSIcon height={16} width={16} />}
                     size={select('size', MOBILE_INDICATOR_SIZES, 40)}
