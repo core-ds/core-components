@@ -5,14 +5,11 @@ interface Params {
     margin: UniversalModalDesktopProps['margin'];
 }
 
-export const getHeightCapStyles = (params: Params): Record<string, boolean> => {
+export const getHeightCapStyles = (params: Params): string[] => {
     const { margin, styles } = params;
 
     const topGap = margin?.top ?? 0;
     const bottomGap = margin?.bottom ?? 0;
 
-    return {
-        [styles.heightCap]: true,
-        [styles[`heightGap-${topGap}-${bottomGap}`]]: true,
-    };
+    return [styles.heightCap, styles[`heightGap-${topGap}-${bottomGap}`]];
 };

@@ -64,11 +64,14 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
                 [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin }),
-                ...getHeightCapStyles({ styles, margin }),
-                ...getWidthCapStyles({ styles, margin }),
-            })}
+            className={cn(
+                styles.component,
+                className,
+                styles.baseModalComponent,
+                getMarginStyles({ styles, margin }),
+                getHeightCapStyles({ styles, margin }),
+                getWidthCapStyles({ styles, margin }),
+            )}
             contentClassName={styles.content}
             transitionProps={{
                 ...getDefaultTransitionProps({

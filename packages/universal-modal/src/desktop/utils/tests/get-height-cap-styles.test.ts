@@ -10,36 +10,27 @@ const styles = new Proxy(
 
 describe('getHeightCapStyles', () => {
     it('without margin', () => {
-        expect(getHeightCapStyles({ styles, margin: undefined })).toEqual({
-            heightCap: true,
-            'heightGap-0-0': true,
-        });
+        expect(getHeightCapStyles({ styles, margin: undefined })).toEqual([
+            'heightCap',
+            'heightGap-0-0',
+        ]);
     });
 
     it('with margin, with top/bottom', () => {
         const margin: Margin = { top: 48, bottom: 24 };
 
-        expect(getHeightCapStyles({ styles, margin })).toEqual({
-            heightCap: true,
-            'heightGap-48-24': true,
-        });
+        expect(getHeightCapStyles({ styles, margin })).toEqual(['heightCap', 'heightGap-48-24']);
     });
 
     it('with margin, without top/bottom', () => {
         const margin: Margin = { left: 16, right: 16 };
 
-        expect(getHeightCapStyles({ styles, margin })).toEqual({
-            heightCap: true,
-            'heightGap-0-0': true,
-        });
+        expect(getHeightCapStyles({ styles, margin })).toEqual(['heightCap', 'heightGap-0-0']);
     });
 
     it('with empty margin object', () => {
         const margin: Margin = {};
 
-        expect(getHeightCapStyles({ styles, margin })).toEqual({
-            heightCap: true,
-            'heightGap-0-0': true,
-        });
+        expect(getHeightCapStyles({ styles, margin })).toEqual(['heightCap', 'heightGap-0-0']);
     });
 });
