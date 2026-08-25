@@ -10,7 +10,7 @@ import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-tra
 import { getHeightStyle } from '../../utils/get-height-style';
 import { getHugContentStyles } from '../../utils/get-hug-content-styles';
 import { getMarginStyles } from '../../utils/get-margin-styles';
-import { getWidthStyle } from '../../utils/get-width-style';
+import { getWidthCapStyles } from '../../utils/get-width-cap-styles';
 import { ModalContent } from '../modal-content/modal-content';
 
 import styles from './index.module.css';
@@ -68,6 +68,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             className={cn(styles.component, className, styles.baseModalComponent, {
                 ...getMarginStyles({ styles, margin }),
                 ...getHugContentStyles({ styles, margin, height }),
+                ...getWidthCapStyles({ styles, margin }),
             })}
             transitionProps={{
                 classNames: transitionProps,
@@ -81,7 +82,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             }}
             componentDivProps={{
                 style: {
-                    width: getWidthStyle(width, margin),
+                    width: width === 'fullWidth' ? '100%' : width,
                     ...getHeightStyle(height, margin),
                 },
             }}

@@ -33,3 +33,16 @@
         }
     }
 }
+
+.widthCap {
+    max-width: 100%;
+
+    /* prettier-ignore */
+    @each $left in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+        @each $right in 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 128 {
+            &.widthGap-$(left)-$(right) {
+            max-width: calc(100% - $(left)px - $(right)px);
+        }
+        }
+    }
+}
