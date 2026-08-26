@@ -471,7 +471,7 @@ describe('Indicator tag', () => {
             const { container } = render(
                 <Tag
                     Component={IndicatorTag}
-                    size={56 as unknown as 32}
+                    size={64}
                     indicatorProps={{ mode: 'dot' }}
                     leftAddons={<span />}
                 />,
