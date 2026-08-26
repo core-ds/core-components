@@ -1,1 +1,0 @@
-export const FOOTER_MEDIUM_BREAKPOINT = 800;
