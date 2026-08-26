@@ -756,6 +756,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.7"
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/core-components-spinner": "npm:^6.0.7"
+    "@alfalab/core-components-system-message": "npm:^4.0.8"
     "@alfalab/core-components-tooltip": "npm:^9.0.18"
     "@alfalab/core-components-typography": "npm:^6.0.10"
     "@alfalab/hooks": "npm:^1.17.0"
