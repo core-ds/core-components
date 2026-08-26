@@ -7,6 +7,8 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
+            "@alfalab/core-components-haptics": ["../haptics/src"],
+            "@alfalab/core-components-haptics/*": ["../haptics/src/*"],
             "@alfalab/core-components-icon-button": ["../icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
             "@alfalab/core-components-input": ["../input/src"],
@@ -20,6 +22,7 @@
         }
     },
     "references": [
+        { "path": "../haptics/tsconfig.build.json" },
         { "path": "../icon-button/tsconfig.build.json" },
         { "path": "../input/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },

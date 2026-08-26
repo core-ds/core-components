@@ -1,0 +1,288 @@
+## Пресеты
+
+Это аналоги системных паттернов тактильной отдачи в iOS, для которых описаны ситуации в которых они применимы. Если описание пресета не не подходит под вашу задачу, старайтесь не использовать его, даже если сама вибрация вас устраивает. Ознакомиться с формой вибраций можно в гайдлайнах Apple (https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
+
+Уведомления. Эти пресеты обеспечивают обратную связь о результатах выполнения задачи или действия, таких как завершение операции или сохранение настроек.
+
+```jsx live mobileOnly mobileHeight={452}
+render(() => {
+    const presets = [
+        {
+            items: [
+                {
+                    label: 'Success',
+                    description: 'Всё прошло успешно',
+                    preset: 'success',
+                },
+                {
+                    label: 'Warning',
+                    description: 'Что-то требует внимания',
+                    preset: 'warning',
+                },
+                {
+                    label: 'Error',
+                    description: 'Что-то пошло не так',
+                    preset: 'error',
+                },
+            ],
+        },
+    ];
+
+    return (
+        <>
+            {presets.map((group) => (
+                <div key='notification'>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+                        {group.items.map(({ preset, label, description }) => (
+                            <div
+                                key={preset}
+                                style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
+                            >
+                                <Button block={true} data-haptic-preset={preset} view='secondary'>
+                                    {label}
+                                </Button>
+
+                                <Typography.Text
+                                    view='primary-small'
+                                    color='secondary'
+                                    style={{ textAlign: 'center' }}
+                                >
+                                    {description}
+                                </Typography.Text>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </>
+    );
+});
+```
+
+Взаимодействие. Это вибрации, которые дополняют визуальный опыт и делают его более ощутимым.
+
+```jsx live mobileOnly mobileHeight={750}
+render(() => {
+    const presets = [
+        {
+            items: [
+                {
+                    label: 'Light',
+                    description: 'Лёгкий, едва заметный щелчёк',
+                    preset: 'light',
+                },
+                {
+                    label: 'Medium',
+                    description: 'Более ощутимый щелчок, как мягкое нажатие кнопки',
+                    preset: 'medium',
+                },
+                {
+                    label: 'Heavy',
+                    description: 'Плотный, уверенный щелчёк будто нажал тугую физическую кнопку',
+                    preset: 'heavy',
+                },
+                {
+                    label: 'Rigid',
+                    description: 'Короткий, резкий щелчёк',
+                    preset: 'rigid',
+                },
+                {
+                    label: 'Soft',
+                    description: 'Мягкий импульс',
+                    preset: 'soft',
+                },
+            ],
+        },
+    ];
+
+    return (
+        <>
+            {presets.map((group) => (
+                <div key='notification'>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+                        {group.items.map(({ preset, label, description }) => (
+                            <div
+                                key={preset}
+                                style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
+                            >
+                                <Button block={true} data-haptic-preset={preset} view='secondary'>
+                                    {label}
+                                </Button>
+
+                                <Typography.Text
+                                    view='primary-small'
+                                    color='secondary'
+                                    style={{ textAlign: 'center' }}
+                                >
+                                    {description}
+                                </Typography.Text>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </>
+    );
+});
+```
+
+Изменение. Сигнал о том, что значение UI-элемента меняется.
+
+```jsx live mobileOnly mobileHeight={96}
+render(() => {
+    const presets = [
+        {
+            items: [
+                {
+                    label: 'Selection',
+                    preset: 'selection',
+                },
+            ],
+        },
+    ];
+
+    return (
+        <>
+            {presets.map((group) => (
+                <div key='notification'>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+                        {group.items.map(({ preset, label }) => (
+                            <div
+                                key={preset}
+                                style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
+                            >
+                                <Button block={true} data-haptic-preset={preset} view='secondary'>
+                                    {label}
+                                </Button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </>
+    );
+});
+```
+
+## Кастом
+
+Управляя параметрами [delay], [intensity], [duration] — можно получить нужный вид вибрации, если ни один из пресетов не подходит.
+
+```jsx live mobileHeight={96} mobileOnly
+<Space direction='horizontal' size={12} align='center'>
+    <Button
+        view='secondary'
+        data-haptic-preset={{
+            duration: 12,
+            intensity: 0.4,
+            repeat: 2,
+        }}
+    >
+        Custom
+    </Button>
+</Space>
+```
+
+## Дефолтные вибрации
+
+В некоторые компоненты зашиты аналогичные iOS паттерны вибрации.
+
+```jsx live mobileHeight={658}
+render(() => {
+    const [checkboxFirst, setCheckboxFirst] = React.useState(false);
+    const [checkboxSecond, setCheckboxSecond] = React.useState(false);
+    const [radio, setRadio] = React.useState('first');
+    const [switchChecked, setSwitchChecked] = React.useState(true);
+    const [sliderValue, setSliderValue] = React.useState(2.5);
+    const [numberValue, setNumberValue] = React.useState(1);
+    const [date, setDate] = React.useState(null);
+
+    return (
+        <CoreConfigContext.Provider
+            value={{
+                breakpoint: 1024,
+                client: 'mobile',
+                haptics: { enabled: true, debug: true },
+            }}
+        >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <Typography.Text view='primary-small' color='secondary'>
+                        Чекбоксы
+                    </Typography.Text>
+                    <Checkbox
+                        checked={checkboxFirst}
+                        label='Чекбокс 1'
+                        onChange={(_, { checked }) => setCheckboxFirst(checked)}
+                    />
+                    <Checkbox
+                        checked={checkboxSecond}
+                        label='Чекбокс 2'
+                        onChange={(_, { checked }) => setCheckboxSecond(checked)}
+                    />
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <Typography.Text view='primary-small' color='secondary'>
+                        Радио
+                    </Typography.Text>
+                    <Radio
+                        checked={radio === 'first'}
+                        label='Радио 1'
+                        name='haptic-radio'
+                        onChange={() => setRadio('first')}
+                    />
+                    <Radio
+                        checked={radio === 'second'}
+                        label='Радио 2'
+                        name='haptic-radio'
+                        onChange={() => setRadio('second')}
+                    />
+                </div>
+
+                <Switch
+                    checked={switchChecked}
+                    label='Свитч'
+                    onChange={(_, { checked }) => setSwitchChecked(checked)}
+                />
+
+                <Slider
+                    min={1}
+                    max={10}
+                    step={1}
+                    value={sliderValue}
+                    pips={{ mode: 'steps', values: 1 }}
+                    onChange={({ value }) => setSliderValue(value)}
+                />
+
+                <NumberInput
+                    block={true}
+                    label='Инпут со степпером'
+                    labelView='inner'
+                    min={1}
+                    max={10}
+                    step={1}
+                    value={numberValue}
+                    onChange={(_, { value }) => setNumberValue(value)}
+                />
+
+                <UniversalDateInput
+                    block={true}
+                    view='date'
+                    label='Календарь'
+                    labelView='inner'
+                    value={date}
+                    onChange={setDate}
+                    picker={true}
+                    Calendar={Calendar}
+                    disableUserInput={true}
+                />
+            </div>
+        </CoreConfigContext.Provider>
+    );
+});
+```
+
+## Ограничения
+
+В данной реализации не поддерживается нативный параметр [sharpness] и длительный тип вибрации [Continuous].
