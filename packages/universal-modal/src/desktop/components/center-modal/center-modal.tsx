@@ -17,7 +17,10 @@ import styles from './index.module.css';
 import safariTransitions from './transitions/safari-transitions.module.css';
 import transitions from './transitions/transitions.module.css';
 
-// в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
+/*
+ * в safari position:sticky некорректно синхронизируется с transform:scale на предке —
+ * sticky-футер "доезжает" при анимации, поэтому применяем немного другую анимацию
+ */
 const transitionProps = isMacOS() && isSafari() ? safariTransitions : transitions;
 
 export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
