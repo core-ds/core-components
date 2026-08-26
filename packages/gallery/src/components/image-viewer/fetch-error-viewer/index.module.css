@@ -1,0 +1,25 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.component {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    color: var(--color-static-neutral-translucent-700-inverted);
+}
+
+.text {
+    color: var(--color-static-text-primary-light);
+    white-space: pre-line;
+}
+
+.retryButton {
+    min-width: 240px;
+    background-color: var(--color-static-neutral-translucent-100-inverted);
+    color: var(--color-static-neutral-0);
+}

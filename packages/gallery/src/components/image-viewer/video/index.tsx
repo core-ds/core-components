@@ -26,6 +26,12 @@ type Props = {
     className?: string;
 };
 
+const playVideo = (player: HTMLVideoElement) => {
+    const playPromise = player.play();
+
+    playPromise?.catch(() => undefined);
+};
+
 export const Video = ({ url, index, className, isActive }: Props) => {
     const [videoLoaded, setVideoLoaded] = useState(false);
     const playerRef = useRef<HTMLVideoElement>(null);
@@ -190,7 +196,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     useEffect(() => {
         if (playerRef.current && isActive) {
             if (playingVideo) {
-                playerRef.current.play();
+                playVideo(playerRef.current);
             } else {
                 playerRef.current.pause();
             }
@@ -200,6 +206,12 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             playerRef.current.currentTime = 0;
         }
     }, [isActive, playingVideo]);
+
+    const handleCanPlay = () => {
+        if (playerRef.current && isActive && playingVideo) {
+            playVideo(playerRef.current);
+        }
+    };
 
     useEffect(() => {
         const { signal } = abortController.current;
@@ -284,6 +296,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             <video
                 onPlay={onPlay}
                 onPause={onPause}
+                onCanPlay={handleCanPlay}
                 ref={playerRef}
                 playsInline={true}
                 muted={mutedVideo}
