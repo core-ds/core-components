@@ -127,11 +127,14 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     useEffect(() => {
         setSelectedBoxStylesRef.current = setSelectedBoxStyles;
-        setSelectedBoxStyles();
-    }, [setSelectedBoxStyles]);
+
+        if (!skeleton?.visible) {
+            setSelectedBoxStyles();
+        }
+    }, [setSelectedBoxStyles, skeleton?.visible]);
 
     useEffect(() => {
-        if (!wrapperRef.current) return undefined;
+        if (skeleton?.visible || !wrapperRef.current) return undefined;
 
         const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
@@ -140,7 +143,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         observer.observe(wrapperRef.current);
 
         return () => observer.disconnect();
-    }, []);
+    }, [skeleton?.visible]);
 
     if (skeleton?.visible) {
         return (
