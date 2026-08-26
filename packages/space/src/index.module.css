@@ -32,6 +32,18 @@
     display: none;
 }
 
+/*
+ * Отступ получает каждый непустой элемент, перед которым существует
+ * другой непустой элемент. Пустые DOM-обёртки не влияют на результат.
+ */
+.verticalMarginGaps > :not(:empty) ~ :not(:empty) {
+    margin-top: var(--space-vertical-gap);
+}
+
+.horizontalMarginGaps > :not(:empty) ~ :not(:empty) {
+    margin-inline-start: var(--space-horizontal-gap);
+}
+
 .wrap {
     flex-wrap: wrap;
 }

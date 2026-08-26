@@ -31,6 +31,97 @@ describe('Space', () => {
             ).toMatchSnapshot();
         });
 
+        it('should not add trailing margin when the last child renders null', () => {
+            const Empty = () => null;
+
+            const { container } = render(
+                <Space useCssGaps={false} direction='vertical' size={[8, 20]}>
+                    <div>Visible child</div>
+                    <Empty />
+                </Space>,
+            );
+
+            const space = container.firstElementChild;
+            const visibleItem = space?.firstElementChild;
+            const emptyItem = space?.lastElementChild;
+
+            expect(space).toHaveClass('verticalMarginGaps');
+            expect(visibleItem).toHaveStyle('--space-vertical-gap: 20px');
+            expect(visibleItem).not.toHaveStyle('margin-bottom: 20px');
+            expect(emptyItem).toBeEmptyDOMElement();
+        });
+
+        it('should not add gap before the first visible child without css gaps', () => {
+            const Empty = () => null;
+
+            const { container } = render(
+                <Space useCssGaps={false} direction='vertical'>
+                    <Empty />
+                    <div>First visible child</div>
+                    <div>Second visible child</div>
+                </Space>,
+            );
+
+            const space = container.firstElementChild;
+            const emptyItem = space?.firstElementChild;
+            const firstVisibleItem = emptyItem?.nextElementSibling;
+            const secondVisibleItem = firstVisibleItem?.nextElementSibling;
+            const itemsWithGap = space?.querySelectorAll(':scope > :not(:empty) ~ :not(:empty)');
+
+            expect(emptyItem).toBeEmptyDOMElement();
+            expect(itemsWithGap).toHaveLength(1);
+            expect(itemsWithGap?.item(0)).toBe(secondVisibleItem);
+        });
+
+        it('should preserve gaps between visible children separated by empty children without css gaps', () => {
+            const Empty = () => null;
+
+            const { container } = render(
+                <Space useCssGaps={false} direction='vertical'>
+                    <div>First visible child</div>
+                    <Empty />
+                    <div>Second visible child</div>
+                    <Empty />
+                    <div>Third visible child</div>
+                </Space>,
+            );
+
+            const space = container.firstElementChild;
+            const firstVisibleItem = space?.firstElementChild;
+            const firstEmptyItem = firstVisibleItem?.nextElementSibling;
+            const secondVisibleItem = firstEmptyItem?.nextElementSibling;
+            const secondEmptyItem = secondVisibleItem?.nextElementSibling;
+            const thirdVisibleItem = secondEmptyItem?.nextElementSibling;
+            const itemsWithGap = space?.querySelectorAll(':scope > :not(:empty) ~ :not(:empty)');
+
+            expect(firstEmptyItem).toBeEmptyDOMElement();
+            expect(secondEmptyItem).toBeEmptyDOMElement();
+            expect(Array.from(itemsWithGap ?? [])).toEqual([secondVisibleItem, thirdVisibleItem]);
+        });
+
+        it('should preserve gaps between horizontal children without css gaps and wrap', () => {
+            const Empty = () => null;
+
+            const { container } = render(
+                <Space useCssGaps={false} direction='horizontal' size={[8, 20]}>
+                    <div>First child</div>
+                    <div>Second child</div>
+                    <Empty />
+                </Space>,
+            );
+
+            const space = container.firstElementChild;
+            const firstItem = space?.firstElementChild;
+            const secondItem = firstItem?.nextElementSibling;
+            const emptyItem = space?.lastElementChild;
+
+            expect(space).toHaveClass('horizontalMarginGaps');
+            expect(firstItem).toHaveStyle('--space-horizontal-gap: 8px');
+            expect(firstItem).not.toHaveStyle('margin-right: 8px');
+            expect(secondItem).not.toHaveStyle('margin-right: 8px');
+            expect(emptyItem).toBeEmptyDOMElement();
+        });
+
         it('should unmount only 1 child component when it removed', () => {
             const unmountSpy = jest.fn();
 
