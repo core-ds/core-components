@@ -1133,4 +1133,82 @@ describe('Select', () => {
             });
         });
     });
+
+    describe('useSelectWithApply', () => {
+        const optionsWithDisabled = [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium', disabled: true },
+            { key: '3', content: 'Americium' },
+        ];
+
+        const enabledOptions = [optionsWithDisabled[0], optionsWithDisabled[2]];
+
+        function SelectWithApplyDisabled({
+            onChange = jest.fn(),
+            selected = [] as typeof optionsWithDisabled,
+            showHeaderWithSelectAll = false,
+            showSelectAll = false,
+        }) {
+            const selectProps = useSelectWithApply({
+                options: optionsWithDisabled,
+                selected,
+                onChange,
+                showHeaderWithSelectAll,
+                showSelectAll,
+            });
+
+            return <Select open={true} {...selectProps} dataTestId='select' />;
+        }
+
+        it('does not select disabled options via header "Select all" and does not pass them to onChange', () => {
+            const onChange = jest.fn();
+            const { getByTestId, getByText } = render(
+                <SelectWithApplyDisabled onChange={onChange} showHeaderWithSelectAll={true} />,
+            );
+
+            fireEvent.click(getByText('Выбрать все'));
+            fireEvent.click(getByTestId(getSelectTestIds('select').applyButton));
+
+            expect(onChange).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    selectedMultiple: enabledOptions,
+                    name: 'apply-footer',
+                }),
+            );
+        });
+
+        it('does not select disabled options via list "Select all" and does not pass them to onChange', () => {
+            const onChange = jest.fn();
+            const { getByTestId, getByText } = render(
+                <SelectWithApplyDisabled onChange={onChange} showSelectAll={true} />,
+            );
+
+            fireEvent.click(getByText('Выбрать все'));
+            fireEvent.click(getByTestId(getSelectTestIds('select').applyButton));
+
+            expect(onChange).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    selectedMultiple: enabledOptions,
+                    name: 'apply-footer',
+                }),
+            );
+        });
+
+        it('does not select disabled option on click', () => {
+            const onChange = jest.fn();
+            const { getByTestId, getByText } = render(
+                <SelectWithApplyDisabled onChange={onChange} />,
+            );
+
+            fireEvent.click(getByText('Plutonium'));
+            fireEvent.click(getByTestId(getSelectTestIds('select').applyButton));
+
+            expect(onChange).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    selectedMultiple: [],
+                    name: 'apply-footer',
+                }),
+            );
+        });
+    });
 });

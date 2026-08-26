@@ -1,4 +1,12 @@
-import React, { cloneElement, forwardRef, isValidElement, useContext, useRef } from 'react';
+import React, {
+    cloneElement,
+    forwardRef,
+    type ForwardRefExoticComponent,
+    isValidElement,
+    type RefAttributes,
+    useContext,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -104,7 +112,9 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
     },
 );
 
-const HeaderDesktop = Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>;
+const HeaderDesktop = Header as ForwardRefExoticComponent<
+    Omit<HeaderProps, 'titleSize' | 'subtitle'> & RefAttributes<HTMLDivElement>
+>;
 const ControlsDesktop = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
 
 const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {

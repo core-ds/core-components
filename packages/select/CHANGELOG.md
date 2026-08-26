@@ -1,5 +1,54 @@
 # @alfalab/core-components-select
 
+## 19.2.4
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2314](https://github.com/core-ds/core-components/pull/2314)
+
+##### Select
+
+- При клике 'Выбрать все' выбираются все значения кроме `disabled`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
+## 19.2.3
+
+### Patch Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2312](https://github.com/core-ds/core-components/pull/2312)
+
+##### Select
+
+- Исправлен перенос текста опции
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+
+## 19.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-checkbox@6.2.4
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-bottom-sheet@8.1.12
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-modal@11.0.15
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+
 ## 19.2.1
 
 ### Patch Changes

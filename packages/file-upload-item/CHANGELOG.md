@@ -1,5 +1,27 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.2.0
+
+### Minor Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2302](https://github.com/core-ds/core-components/pull/2302)
+
+##### FileUploadItem
+
+- Добавлен проп `subtitleColor` (Typography Color) для цвета подзаголовка
+
+## 8.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-icon-button@8.0.10
+
 ## 8.1.1
 
 ### Patch Changes

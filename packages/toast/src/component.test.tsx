@@ -1,11 +1,9 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, renderHook, waitFor } from '@testing-library/react';
+import { fireEvent, render, renderHook, waitFor, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import { act } from 'react-dom/test-utils';
 import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './desktop';
 
-import { asyncRender } from '@alfalab/core-components-test-utils';
 import { useTimer } from './components/base-toast/use-timer';
 import { ToastMobile } from './mobile';
 
@@ -49,11 +47,11 @@ describe('Toast', () => {
             expect(baseElement).toMatchSnapshot();
         });
 
-        it('should math snapshot when prop `anchorElement` is passed', async () => {
+        it('should math snapshot when prop `anchorElement` is passed', () => {
             const anchorElement = document.createElement('div');
             document.body.appendChild(anchorElement);
 
-            const { baseElement } = await asyncRender(
+            const { baseElement } = render(
                 <Toast {...baseProps} anchorElement={anchorElement}>
                     text
                 </Toast>,
@@ -62,13 +60,13 @@ describe('Toast', () => {
             expect(baseElement).toMatchSnapshot();
         });
 
-        it('should math snapshot when prop `anchorElement` and `useAnchorWidth` is passed', async () => {
+        it('should math snapshot when prop `anchorElement` and `useAnchorWidth` is passed', () => {
             const anchorElement = document.createElement('div');
             anchorElement.style.width = '100px';
 
             document.body.appendChild(anchorElement);
 
-            const { baseElement } = await asyncRender(
+            const { baseElement } = render(
                 <Toast {...baseProps} anchorElement={anchorElement} useAnchorWidth={true}>
                     text
                 </Toast>,

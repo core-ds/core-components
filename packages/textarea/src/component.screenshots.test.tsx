@@ -186,6 +186,28 @@ describe('Textarea | rightAddons', () => {
                         maxLength: 500,
                     },
                 }),
+                // disabled case
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'textarea Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение.',
+                        block: true,
+                        size: [56],
+                        disabled: [true],
+                    },
+                }),
+                // readOnly case
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'textarea Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение.',
+                        block: true,
+                        size: [56],
+                        readOnly: [true],
+                    },
+                }),
             ],
             screenshotOpts: {
                 fullPage: true,

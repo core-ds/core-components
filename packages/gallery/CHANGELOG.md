@@ -1,5 +1,42 @@
 # @alfalab/core-components-gallery
 
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#1762](https://github.com/core-ds/core-components/pull/1762)
+
+##### Gallery
+
+- Добавлена поддержка скачивания видео для мобильных браузеров.
+- Расширены возможности управления видео в галерее. Заменен цвет для плейсхолдеров и заглушек, что улучшает видимость на темном фоне галереи.
+- Исправлены отступы у навигации.
+- При свайпе до закрытия, галерея следует за свайпом
+
+## 7.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tooltip@9.0.18
+
+## 7.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-spinner@6.0.7
+- @alfalab/core-components-tooltip@9.0.17
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-icon-button@8.0.10
+
 ## 7.2.1
 
 ### Patch Changes

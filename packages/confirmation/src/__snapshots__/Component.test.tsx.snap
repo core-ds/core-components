@@ -624,7 +624,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
             </span>
           </a>
           <span
-            class="text typographyTheme primary primary-medium"
+            class="text phoneDescription typographyTheme primary primary-medium"
           >
              — в Москве и за границей
           </span>
@@ -643,7 +643,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
             </span>
           </a>
           <span
-            class="text typographyTheme primary primary-medium"
+            class="text phoneDescription typographyTheme primary primary-medium"
           >
              — для звонков по России
           </span>

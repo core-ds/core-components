@@ -18,9 +18,9 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
         <div className={styles.info}>
             <div className={styles.filenameContainer}>
                 <TypographyTitle
-                    tag='h1'
+                    tag='h2'
                     className={styles.filenameHead}
-                    view='xsmall'
+                    view='small'
                     font='system'
                     color='static-primary-light'
                 >

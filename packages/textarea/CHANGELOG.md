@@ -1,5 +1,46 @@
 # @alfalab/core-components-textarea
 
+## 10.1.2
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+## 10.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2290](https://github.com/core-ds/core-components/pull/2290)
+
+##### Textarea
+
+- Добавлена иконка замка для readOnly/disabled состояний
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-mq@6.0.7
+
 ## 10.0.8
 
 ### Patch Changes

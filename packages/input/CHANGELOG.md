@@ -1,5 +1,34 @@
 # @alfalab/core-components-input
 
+## 17.2.0
+
+### Minor Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2203](https://github.com/core-ds/core-components/pull/2203)
+
+##### Input
+
+- Работа пропа `clear` разделена на 2 механики:
+    - `false` или `never` — не отображается
+    - `true` или `always` — отображается всегда
+    - `auto` — отображается только при взаимодействии c input (hover, focus)
+- Исправлен размер контейнера иконки статусов (success, error)
+
+- Булевы значения будут удалены в core-components@51
+
+## 17.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-mq@6.0.7
+
 ## 17.1.9
 
 ### Patch Changes

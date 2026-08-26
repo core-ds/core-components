@@ -1,5 +1,53 @@
 # @alfalab/core-components-picker-button
 
+## 13.1.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2318](https://github.com/core-ds/core-components/pull/2318)
+
+##### PickerButton
+
+- Изменено положение `dots` иконок (отображаются в `compact` режиме)
+
+## 13.0.22
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+- @alfalab/core-components-select@19.2.4
+
+## 13.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.3
+
+## 13.0.20
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2293](https://github.com/core-ds/core-components/pull/2293)
+
+##### PickerButton
+
+- Исправлен перенос текста опции
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-select@19.2.2
+
 ## 13.0.19
 
 ### Patch Changes

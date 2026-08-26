@@ -1,5 +1,17 @@
 # @alfalab/core-components-segmented-control
 
+## 3.1.4
+
+### Patch Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2303](https://github.com/core-ds/core-components/pull/2303)
+
+##### SegmentedControl
+
+- Исправлена начальная анимация индикатора при монтировании: индикатор больше не «доезжает» от первого сегмента, если по умолчанию выбран другой элемент
+
 ## 3.1.3
 
 ### Patch Changes
