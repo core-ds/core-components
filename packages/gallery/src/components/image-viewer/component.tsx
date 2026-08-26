@@ -1,4 +1,11 @@
-import React, { type FC, type KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
+import React, {
+    type FC,
+    type KeyboardEventHandler,
+    useCallback,
+    useContext,
+    useMemo,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 import { A11y, Controller } from 'swiper/modules';
 import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react';
@@ -16,6 +23,8 @@ import { Slide } from './slide';
 
 import styles from './index.module.css';
 
+const PAGINATION_SWIPE_THRESHOLD = 50;
+
 export const ImageViewer: FC = () => {
     const {
         images,
@@ -29,13 +38,20 @@ export const ImageViewer: FC = () => {
         slidePrev,
         slideNext,
         getCurrentImage,
-        pagination: { canSlideNext, canSlidePrev, error: paginationError, retry: retryPagination },
+        pagination: {
+            enabled: paginationEnabled,
+            canSlideNext,
+            canSlidePrev,
+            error: paginationError,
+            retry: retryPagination,
+        },
     } = useContext(GalleryContext);
 
     const { handleWrapperClick, isMobile, rightArrowRef, leftArrowRef } = useHandleImageViewer();
 
     const [leftArrowFocused] = useFocus(leftArrowRef, 'keyboard');
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
+    const touchStartSlide = useRef(0);
 
     const swiper = getSwiper();
     const currentImage = getCurrentImage();
@@ -89,6 +105,31 @@ export const ImageViewer: FC = () => {
             zoom: { maxRatio: 4, minRatio: 1, toggle: true },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
+            onTouchStart: (swiperInstance) => {
+                touchStartSlide.current = swiperInstance.activeIndex;
+            },
+            onTouchEnd: (swiperInstance) => {
+                if (
+                    !isMobile ||
+                    !paginationEnabled ||
+                    fullScreen ||
+                    Math.abs(swiperInstance.touches.diff) < PAGINATION_SWIPE_THRESHOLD
+                ) {
+                    return;
+                }
+
+                if (
+                    swiperInstance.swipeDirection === 'next' &&
+                    touchStartSlide.current >= images.length - 1
+                ) {
+                    slideNext();
+                } else if (
+                    swiperInstance.swipeDirection === 'prev' &&
+                    touchStartSlide.current <= 0
+                ) {
+                    slidePrev();
+                }
+            },
             lazy: { loadPrevNext: true },
         }),
         [
@@ -97,8 +138,12 @@ export const ImageViewer: FC = () => {
             isMobile,
             swiper,
             initialSlide,
+            images.length,
+            paginationEnabled,
             setSwiper,
             handleSlideChange,
+            slideNext,
+            slidePrev,
         ],
     );
 

@@ -295,6 +295,7 @@ export const Gallery: FC<GalleryProps> = ({
         view: isDesktop ? 'desktop' : 'mobile',
         singleSlide,
         pagination: {
+            enabled: pagination.enabled,
             canSlideNext,
             canSlidePrev,
             loading: pagination.loading,

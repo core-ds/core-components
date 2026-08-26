@@ -13,7 +13,7 @@
     color: var(--color-static-neutral-translucent-700-inverted);
 }
 
-.text {
+.component .text {
     color: var(--color-static-text-primary-light);
     white-space: pre-line;
 }

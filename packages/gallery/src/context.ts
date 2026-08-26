@@ -7,6 +7,7 @@ export type GalleryContext = {
     view: 'desktop' | 'mobile';
     singleSlide: boolean;
     pagination: {
+        enabled: boolean;
         canSlideNext: boolean;
         canSlidePrev: boolean;
         loading: boolean;
@@ -44,6 +45,7 @@ export const GalleryContext = createContext<GalleryContext>({
     view: 'desktop',
     singleSlide: false,
     pagination: {
+        enabled: false,
         canSlideNext: true,
         canSlidePrev: true,
         loading: false,
