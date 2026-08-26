@@ -17,7 +17,7 @@ const colorCommonStyles = {
     inverted: invertedColors,
 } as const;
 
-const INDICATOR_TAG_SIZES = [32, 40, 48] as const;
+const INDICATOR_TAG_SIZES = [32, 40, 48, 56] as const;
 const INDICATOR_TAG_VIEWS = ['filled', 'muted'] as const;
 
 export interface IndicatorTagProps
@@ -33,7 +33,7 @@ export interface IndicatorTagProps
         | 'childrenRef'
         | 'size'
     > {
-    size?: 32 | 40 | 48;
+    size?: 32 | 40 | 48 | 56;
     view?: 'filled' | 'muted';
     colorStyles?: StyleColors['default'];
     styles?: BaseTagProps['styles'];
@@ -66,7 +66,8 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
         ref,
     ) => {
         const indicatorTagSize = INDICATOR_TAG_SIZES.includes(size) ? size : 40;
-        const hasIndicator = indicatorProps !== undefined;
+        const isSize56 = indicatorTagSize === 56;
+        const hasIndicator = !isSize56 && indicatorProps !== undefined;
 
         const { mode: modeProp, value, ...restIndicatorProps } = indicatorProps ?? {};
         const mode = modeProp ?? (typeof value === 'number' ? 'count' : 'dot');
