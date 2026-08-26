@@ -250,7 +250,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         [styles.focused]: focused,
                         [styles.block]: block,
                         [styles['position-after']]: isControlAtEnd,
-                        [styles.compact]: Boolean(compact) && Number(size) === 20,
+                        [styles.compact]: compact && size === 20,
                     },
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}

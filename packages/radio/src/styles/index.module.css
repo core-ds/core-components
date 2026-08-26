@@ -66,10 +66,6 @@
 
 .size-20 .content {
     margin-left: var(--gap-8);
-
-    & .label {
-        @mixin paragraph_component;
-    }
 }
 
 .size-20.compact .content .label {
@@ -123,10 +119,22 @@
 }
 
 .label {
+    display: block;
+}
+
+.size-24 .label {
     @mixin paragraph_primary_medium;
 }
 
+.size-20:not(.compact) .label {
+    @mixin paragraph_component;
+}
+
 .hint {
-    @mixin paragraph_component_secondary;
     margin-top: var(--gap-4);
+}
+
+.size-24 .hint,
+.size-20:not(.compact) .hint {
+    @mixin paragraph_component_secondary;
 }
