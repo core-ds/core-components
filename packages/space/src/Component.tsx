@@ -113,18 +113,12 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     const directionClassName = styles[direction];
     const alignClassName = styles[align];
 
-    /*
-     * При useCssGaps=false расстояние между видимыми элементами рассчитывается
-     * CSS-селекторами, так как React не может определить, вернёт ли ребёнок null.
-     */
     const containerClassName = cn(
         styles.spaceContainer,
         directionClassName,
         {
             [alignClassName]: align,
             [styles.spaceContainerFullWidth]: fullWidth,
-            [styles.verticalMarginGaps]: !useCssGaps && direction === 'vertical',
-            [styles.horizontalMarginGaps]: !useCssGaps && direction === 'horizontal' && !wrap,
         },
         className,
     );

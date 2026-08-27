@@ -16,11 +16,6 @@ export interface ItemProps {
     useCssGaps: boolean;
 }
 
-type ItemStyle = React.CSSProperties & {
-    '--space-vertical-gap'?: string;
-    '--space-horizontal-gap'?: string;
-};
-
 const Item = (props: ItemProps) => {
     const {
         className,
@@ -36,33 +31,19 @@ const Item = (props: ItemProps) => {
         useCssGaps,
     } = props;
 
-    let style: ItemStyle | undefined;
+    let style: React.CSSProperties | undefined;
 
     if (!useCssGaps) {
         if (direction === 'vertical') {
-            /*
-             * Передаём размер в CSS вместо установки marginBottom по React-индексу.
-             * CSS сможет определить реально непустые элементы уже после рендера.
-             */
-            style = {
-                '--space-vertical-gap': `${verticalSize / (divider ? 2 : 1)}px`,
-            };
-        } else if (wrap) {
-            /*
-             * Для wrap сохраняется прежний алгоритм, поскольку CSS-селекторы
-             * не позволяют определить начало новой flex-строки.
-             */
+            if (index < length - 1) {
+                style = { marginBottom: verticalSize / (divider ? 2 : 1) };
+            }
+        } else {
             style = {
                 ...(index < length - 1 && { marginRight: horizontalSize / (divider ? 2 : 1) }),
-                paddingBottom: verticalSize,
-            };
-        } else {
-            /*
-             * Для горизонтального Space без переноса используется тот же подход:
-             * отступ получает следующий непустой DOM-элемент.
-             */
-            style = {
-                '--space-horizontal-gap': `${horizontalSize / (divider ? 2 : 1)}px`,
+                ...(wrap && {
+                    paddingBottom: verticalSize,
+                }),
             };
         }
     }

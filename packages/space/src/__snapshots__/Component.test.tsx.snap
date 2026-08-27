@@ -6,11 +6,10 @@ exports[`Space Display tests should display radio group with one child correctly
   "baseElement": <body>
     <div>
       <div
-        class="spaceContainer vertical start verticalMarginGaps"
+        class="spaceContainer vertical start"
       >
         <div
           class="spaceItem"
-          style="--space-vertical-gap: 16px;"
         >
           <div
             class="cardImage rounded"
@@ -31,11 +30,10 @@ exports[`Space Display tests should display radio group with one child correctly
   </body>,
   "container": <div>
     <div
-      class="spaceContainer vertical start verticalMarginGaps"
+      class="spaceContainer vertical start"
     >
       <div
         class="spaceItem"
-        style="--space-vertical-gap: 16px;"
       >
         <div
           class="cardImage rounded"
@@ -113,11 +111,10 @@ exports[`Space Display tests should display with children like boolean or string
   "baseElement": <body>
     <div>
       <div
-        class="spaceContainer vertical start verticalMarginGaps"
+        class="spaceContainer vertical start"
       >
         <div
           class="spaceItem"
-          style="--space-vertical-gap: 16px;"
         >
           0
         </div>
@@ -126,11 +123,10 @@ exports[`Space Display tests should display with children like boolean or string
   </body>,
   "container": <div>
     <div
-      class="spaceContainer vertical start verticalMarginGaps"
+      class="spaceContainer vertical start"
     >
       <div
         class="spaceItem"
-        style="--space-vertical-gap: 16px;"
       >
         0
       </div>

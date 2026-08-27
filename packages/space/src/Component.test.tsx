@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import { CardImage } from '@alfalab/core-components-card-image';
 
@@ -44,10 +44,11 @@ describe('Space', () => {
             const space = container.firstElementChild;
             const visibleItem = space?.firstElementChild;
             const emptyItem = space?.lastElementChild;
+            const visibleItems = space?.querySelectorAll('.spaceItem:not(:empty)');
+            const lastVisibleItem = visibleItems?.item((visibleItems?.length ?? 0) - 1);
 
-            expect(space).toHaveClass('verticalMarginGaps');
-            expect(visibleItem).toHaveStyle('--space-vertical-gap: 20px');
-            expect(visibleItem).not.toHaveStyle('margin-bottom: 20px');
+            expect(visibleItem).toHaveStyle('margin-bottom: 20px');
+            expect(lastVisibleItem).toBe(visibleItem);
             expect(emptyItem).toBeEmptyDOMElement();
         });
 
@@ -66,11 +67,10 @@ describe('Space', () => {
             const emptyItem = space?.firstElementChild;
             const firstVisibleItem = emptyItem?.nextElementSibling;
             const secondVisibleItem = firstVisibleItem?.nextElementSibling;
-            const itemsWithGap = space?.querySelectorAll(':scope > :not(:empty) ~ :not(:empty)');
 
             expect(emptyItem).toBeEmptyDOMElement();
-            expect(itemsWithGap).toHaveLength(1);
-            expect(itemsWithGap?.item(0)).toBe(secondVisibleItem);
+            expect(firstVisibleItem).toHaveStyle('margin-bottom: 16px');
+            expect(secondVisibleItem).not.toHaveStyle('margin-bottom: 16px');
         });
 
         it('should preserve gaps between visible children separated by empty children without css gaps', () => {
@@ -92,14 +92,15 @@ describe('Space', () => {
             const secondVisibleItem = firstEmptyItem?.nextElementSibling;
             const secondEmptyItem = secondVisibleItem?.nextElementSibling;
             const thirdVisibleItem = secondEmptyItem?.nextElementSibling;
-            const itemsWithGap = space?.querySelectorAll(':scope > :not(:empty) ~ :not(:empty)');
 
             expect(firstEmptyItem).toBeEmptyDOMElement();
             expect(secondEmptyItem).toBeEmptyDOMElement();
-            expect(Array.from(itemsWithGap ?? [])).toEqual([secondVisibleItem, thirdVisibleItem]);
+            expect(firstVisibleItem).toHaveStyle('margin-bottom: 16px');
+            expect(secondVisibleItem).toHaveStyle('margin-bottom: 16px');
+            expect(thirdVisibleItem).not.toHaveStyle('margin-bottom: 16px');
         });
 
-        it('should preserve gaps between horizontal children without css gaps and wrap', () => {
+        it('should preserve gaps between horizontal children without css gaps', () => {
             const Empty = () => null;
 
             const { container } = render(
@@ -115,11 +116,48 @@ describe('Space', () => {
             const secondItem = firstItem?.nextElementSibling;
             const emptyItem = space?.lastElementChild;
 
-            expect(space).toHaveClass('horizontalMarginGaps');
-            expect(firstItem).toHaveStyle('--space-horizontal-gap: 8px');
-            expect(firstItem).not.toHaveStyle('margin-right: 8px');
-            expect(secondItem).not.toHaveStyle('margin-right: 8px');
+            const visibleItems = space?.querySelectorAll('.spaceItem:not(:empty)');
+            const lastVisibleItem = visibleItems?.item((visibleItems?.length ?? 0) - 1);
+
+            expect(firstItem).toHaveStyle('margin-right: 8px');
+            expect(secondItem).toHaveStyle('margin-right: 8px');
+            expect(lastVisibleItem).toBe(secondItem);
             expect(emptyItem).toBeEmptyDOMElement();
+        });
+
+        it('should update the last visible item when a child stops rendering content', () => {
+            const Toggle = () => {
+                const [visible, setVisible] = React.useState(true);
+
+                return visible ? (
+                    <button type='button' onClick={() => setVisible(false)}>
+                        Hide
+                    </button>
+                ) : null;
+            };
+
+            const { container, getByRole } = render(
+                <Space useCssGaps={false} direction='vertical'>
+                    <div>Visible child</div>
+                    <Toggle />
+                </Space>,
+            );
+
+            const space = container.firstElementChild;
+            const firstItem = space?.firstElementChild;
+            const secondItem = firstItem?.nextElementSibling;
+            const getLastVisibleItem = () => {
+                const visibleItems = space?.querySelectorAll('.spaceItem:not(:empty)');
+
+                return visibleItems?.item((visibleItems?.length ?? 0) - 1);
+            };
+
+            expect(getLastVisibleItem()).toBe(secondItem);
+
+            fireEvent.click(getByRole('button'));
+
+            expect(secondItem).toBeEmptyDOMElement();
+            expect(getLastVisibleItem()).toBe(firstItem);
         });
 
         it('should unmount only 1 child component when it removed', () => {
