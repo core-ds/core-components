@@ -137,11 +137,15 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     useLayoutEffect(() => {
         setSelectedBoxStylesRef.current = setSelectedBoxStyles;
-        setSelectedBoxStyles();
 
-        if (!skeleton?.visible) {
-            setSelectedBoxStyles();
+        if (skeleton?.visible) {
+            isInitialLayoutRef.current = true;
+            setSkipTransition(true);
+
+            return;
         }
+
+        setSelectedBoxStyles();
 
         if (isInitialLayoutRef.current) {
             isInitialLayoutRef.current = false;
