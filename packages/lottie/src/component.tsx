@@ -1,4 +1,4 @@
-import React, { type FC, useRef, useState } from 'react';
+import React, { type FC, Fragment, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { LottieDataState, type LottieProps } from '@alfalab/core-components-lottie/types';
@@ -133,16 +133,16 @@ export const Lottie: FC<LottieProps> = ({
     );
 
     return (
-        <div className={cn(styles.component, className)} style={size}>
+        <Fragment>
             <div
                 ref={containerRef}
-                className={cn(styles.container, {
+                style={size}
+                className={cn(styles.container, className, {
                     [styles.show]: dataState === LottieDataState.OK,
                 })}
             />
-            {(dataState === LottieDataState.LOADING || dataState === LottieDataState.ERROR) && (
-                <div className={styles.placeholder}>{placeholder?.(dataState)}</div>
-            )}
-        </div>
+            {(dataState === LottieDataState.LOADING || dataState === LottieDataState.ERROR) &&
+                placeholder?.(dataState)}
+        </Fragment>
     );
 };
