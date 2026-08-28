@@ -1,4 +1,11 @@
-import React, { type FC, type KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
+import React, {
+    type FC,
+    type KeyboardEventHandler,
+    useCallback,
+    useContext,
+    useMemo,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 import { A11y, Controller } from 'swiper/modules';
 import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react';
@@ -10,10 +17,13 @@ import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHea
 import { GalleryContext } from '../../context';
 import { getImageKey, isVideo, TestIds } from '../../utils';
 
+import { FetchErrorViewer } from './fetch-error-viewer/component';
 import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
 import styles from './index.module.css';
+
+const PAGINATION_SWIPE_THRESHOLD = 50;
 
 export const ImageViewer: FC = () => {
     const {
@@ -28,12 +38,20 @@ export const ImageViewer: FC = () => {
         slidePrev,
         slideNext,
         getCurrentImage,
+        pagination: {
+            enabled: paginationEnabled,
+            canSlideNext,
+            canSlidePrev,
+            error: paginationError,
+            retry: retryPagination,
+        },
     } = useContext(GalleryContext);
 
     const { handleWrapperClick, isMobile, rightArrowRef, leftArrowRef } = useHandleImageViewer();
 
     const [leftArrowFocused] = useFocus(leftArrowRef, 'keyboard');
     const [rightArrowFocused] = useFocus(rightArrowRef, 'keyboard');
+    const touchStartSlide = useRef(0);
 
     const swiper = getSwiper();
     const currentImage = getCurrentImage();
@@ -43,28 +61,33 @@ export const ImageViewer: FC = () => {
     }, [setCurrentSlideIndex, swiper, initialSlide]);
 
     const handlePrevClick = () => {
-        slidePrev();
+        if (canSlidePrev) {
+            slidePrev();
+        }
     };
 
     const handleNextClick = () => {
-        slideNext();
+        if (canSlideNext) {
+            slideNext();
+        }
     };
 
     const handleArrowLeftKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
-            slidePrev();
+            handlePrevClick();
         }
     };
 
     const handleArrowRightKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
-            slideNext();
+            handleNextClick();
         }
     };
 
     const swiperProps = useMemo<SwiperProps>(
         () => ({
             slidesPerView: 1,
+            spaceBetween: isMobile ? 16 : 0,
             effect: 'slide',
             className: cn(styles.swiper, {
                 [styles.hidden]: fullScreen && !isVideo(currentImage?.src),
@@ -82,6 +105,31 @@ export const ImageViewer: FC = () => {
             zoom: { maxRatio: 4, minRatio: 1, toggle: true },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
+            onTouchStart: (swiperInstance) => {
+                touchStartSlide.current = swiperInstance.activeIndex;
+            },
+            onTouchEnd: (swiperInstance) => {
+                if (
+                    !isMobile ||
+                    !paginationEnabled ||
+                    fullScreen ||
+                    Math.abs(swiperInstance.touches.diff) < PAGINATION_SWIPE_THRESHOLD
+                ) {
+                    return;
+                }
+
+                if (
+                    swiperInstance.swipeDirection === 'next' &&
+                    touchStartSlide.current >= images.length - 1
+                ) {
+                    slideNext();
+                } else if (
+                    swiperInstance.swipeDirection === 'prev' &&
+                    touchStartSlide.current <= 0
+                ) {
+                    slidePrev();
+                }
+            },
             lazy: { loadPrevNext: true },
         }),
         [
@@ -90,8 +138,12 @@ export const ImageViewer: FC = () => {
             isMobile,
             swiper,
             initialSlide,
+            images.length,
+            paginationEnabled,
             setSwiper,
             handleSlideChange,
+            slideNext,
+            slidePrev,
         ],
     );
 
@@ -115,13 +167,15 @@ export const ImageViewer: FC = () => {
                 <div
                     className={cn(styles.arrow, {
                         [styles.focused]: leftArrowFocused,
+                        [styles.arrowHidden]: !canSlidePrev,
                     })}
                     onClick={handlePrevClick}
                     role='button'
                     onKeyDown={handleArrowLeftKeyDown}
-                    tabIndex={0}
+                    tabIndex={canSlideNext ? 0 : -1}
                     ref={leftArrowRef}
                     aria-label='Предыдущее изображение'
+                    aria-hidden={!canSlidePrev}
                     data-test-id={TestIds.PREV_SLIDE_BUTTON}
                 >
                     <ChevronBackHeavyMIcon />
@@ -155,55 +209,61 @@ export const ImageViewer: FC = () => {
                     [styles.hiddenFrame]: fullScreen && !isVideo(currentImage?.src),
                 })}
             >
-                <Swiper {...swiperProps}>
-                    {images.map((image, index) => {
-                        const meta = imagesMeta[index];
+                {paginationError ? (
+                    <FetchErrorViewer onRetry={retryPagination} />
+                ) : (
+                    <Swiper {...swiperProps}>
+                        {images.map((image, index) => {
+                            const meta = imagesMeta[index];
 
-                        const imageWidth = meta?.width || 1;
-                        const imageHeight = meta?.height || 1;
+                            const imageWidth = meta?.width || 1;
+                            const imageHeight = meta?.height || 1;
 
-                        const imageAspectRatio = imageWidth / imageHeight;
+                            const imageAspectRatio = imageWidth / imageHeight;
 
-                        const slideVisible = index === currentSlideIndex;
+                            const slideVisible = index === currentSlideIndex;
 
-                        return (
-                            <SwiperSlide
-                                key={getImageKey(image, index)}
-                                style={{
-                                    pointerEvents: slideVisible ? 'auto' : 'none',
-                                    transitionProperty: 'opacity',
-                                }}
-                            >
-                                {({ isActive }) => (
-                                    <Slide
-                                        isActive={isActive}
-                                        containerAspectRatio={swiperAspectRatio}
-                                        image={image}
-                                        containerHeight={swiperHeight}
-                                        meta={meta}
-                                        index={index}
-                                        imageAspectRatio={imageAspectRatio}
-                                        slideVisible={slideVisible}
-                                        fullScreen={fullScreen && isVideo(image.src)}
-                                    />
-                                )}
-                            </SwiperSlide>
-                        );
-                    })}
-                </Swiper>
+                            return (
+                                <SwiperSlide
+                                    key={getImageKey(image, index)}
+                                    style={{
+                                        pointerEvents: slideVisible ? 'auto' : 'none',
+                                        transitionProperty: 'opacity',
+                                    }}
+                                >
+                                    {({ isActive }) => (
+                                        <Slide
+                                            isActive={isActive}
+                                            containerAspectRatio={swiperAspectRatio}
+                                            image={image}
+                                            containerHeight={swiperHeight}
+                                            meta={meta}
+                                            index={index}
+                                            imageAspectRatio={imageAspectRatio}
+                                            slideVisible={slideVisible}
+                                            fullScreen={fullScreen && isVideo(image.src)}
+                                        />
+                                    )}
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
+                )}
             </div>
 
             {showControls && (
                 <div
                     className={cn(styles.arrow, {
                         [styles.focused]: rightArrowFocused,
+                        [styles.arrowHidden]: !canSlideNext,
                     })}
                     onClick={handleNextClick}
                     role='button'
                     onKeyDown={handleArrowRightKeyDown}
-                    tabIndex={0}
+                    tabIndex={canSlideNext ? 0 : -1}
                     ref={rightArrowRef}
                     aria-label='Следующее изображение'
+                    aria-hidden={!canSlideNext}
                     data-test-id={TestIds.NEXT_SLIDE_BUTTON}
                 >
                     <ChevronForwardHeavyMIcon />

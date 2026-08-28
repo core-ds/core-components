@@ -23,6 +23,8 @@
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-spinner": ["../spinner/src"],
             "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
+            "@alfalab/core-components-system-message": ["../system-message/src"],
+            "@alfalab/core-components-system-message/*": ["../system-message/src/*"],
             "@alfalab/core-components-tooltip": ["../tooltip/src"],
             "@alfalab/core-components-tooltip/*": ["../tooltip/src/*"],
             "@alfalab/core-components-typography": ["../typography/src"],
@@ -37,6 +39,7 @@
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../spinner/tsconfig.build.json" },
+        { "path": "../system-message/tsconfig.build.json" },
         { "path": "../tooltip/tsconfig.build.json" },
         { "path": "../typography/tsconfig.build.json" }
     ]
