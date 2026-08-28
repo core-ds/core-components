@@ -89,12 +89,20 @@ export const Lottie: FC<LottieProps> = ({
             if (animation && dataState === LottieDataState.OK) {
                 if (play && animation.isPaused) {
                     const { playDirection, currentFrame, totalFrames } = animation;
+                    const isForward = playDirection === 1;
 
-                    // see https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js#L504
-                    if (playDirection === 1 && currentFrame >= totalFrames - 1) {
-                        animation.goToAndPlay(0, true);
-                    } else if (playDirection === -1 && currentFrame === 0) {
-                        animation.goToAndPlay(totalFrames, true);
+                    if (
+                        isForward
+                            ? currentFrame >= totalFrames - 1 // see https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js#L504
+                            : currentFrame === 0
+                    ) {
+                        const nextFrame = Math.max(
+                            totalFrames -
+                                (isForward ? Math.max(totalFrames, currentFrame) : currentFrame),
+                            0,
+                        );
+
+                        animation.goToAndPlay(nextFrame, true);
                     } else {
                         animation.play();
                     }
