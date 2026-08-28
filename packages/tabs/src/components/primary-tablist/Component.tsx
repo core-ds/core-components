@@ -15,6 +15,8 @@ export const PrimaryTabList = ({
     styles = {},
     className,
     containerClassName,
+    scrollControlsClassName,
+    scrollControlsButtonClassName,
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
@@ -99,7 +101,11 @@ export const PrimaryTabList = ({
             containerWrapperClassName={wrapperClassName}
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
-            scrollControlsClassName={cn(textStyle && styles.scrollControls)}
+            scrollControlsClassName={cn(
+                textStyle && styles.scrollControls,
+                scrollControlsClassName,
+            )}
+            scrollControlsButtonClassName={scrollControlsButtonClassName}
             fullWidthScroll={fullWidthScroll}
             view='primary'
             size={textStyle ? undefined : size}

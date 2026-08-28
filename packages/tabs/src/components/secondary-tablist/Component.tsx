@@ -26,6 +26,8 @@ export const SecondaryTabList = ({
     styles = {},
     className,
     containerClassName,
+    scrollControlsClassName,
+    scrollControlsButtonClassName,
     size,
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
@@ -115,6 +117,8 @@ export const SecondaryTabList = ({
         <ScrollableContainer
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
+            scrollControlsClassName={scrollControlsClassName}
+            scrollControlsButtonClassName={scrollControlsButtonClassName}
             fullWidthScroll={fullWidthScroll}
             view='secondary'
             size={size}

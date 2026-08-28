@@ -29,6 +29,11 @@ export type ScrollableContainerProps = {
     scrollControlsClassName?: string;
 
     /**
+     * Дополнительный класс для кнопок прокрутки
+     */
+    scrollControlsButtonClassName?: string;
+
+    /**
      * Дочерние компоненты
      */
     children: ReactNode;
@@ -72,6 +77,7 @@ export const ScrollableContainer = ({
     containerWrapperClassName,
     containerClassName,
     scrollControlsClassName,
+    scrollControlsButtonClassName,
     children,
     activeChild,
     fullWidthScroll,
@@ -145,6 +151,7 @@ export const ScrollableContainer = ({
             {overflown && platform === 'desktop' ? (
                 <ScrollControls
                     className={scrollControlsClassName}
+                    buttonClassName={scrollControlsButtonClassName}
                     ref={controlsRef}
                     containerRef={containerRef}
                     view={view}
