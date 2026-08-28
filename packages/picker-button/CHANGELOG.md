@@ -1,5 +1,21 @@
 # @alfalab/core-components-picker-button
 
+## 13.1.1
+
+### Patch Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2329](https://github.com/core-ds/core-components/pull/2329)
+
+##### PickerButton, Select
+
+- Исправлен перенос текста опции
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.5
+
 ## 13.1.0
 
 ### Minor Changes
