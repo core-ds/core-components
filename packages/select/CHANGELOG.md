@@ -1,5 +1,29 @@
 # @alfalab/core-components-select
 
+## 19.2.5
+
+### Patch Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2329](https://github.com/core-ds/core-components/pull/2329)
+
+##### PickerButton, Select
+
+- Исправлен перенос текста опции
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2336](https://github.com/core-ds/core-components/pull/2336)
+
+##### Select
+
+- Исправлена высота `OptionsList` при изменении размера содержимого
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-checkbox@6.3.0
+
 ## 19.2.4
 
 ### Patch Changes

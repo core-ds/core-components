@@ -1,5 +1,19 @@
 # @alfalab/core-components-switch
 
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2307](https://github.com/core-ds/core-components/pull/2307)
+
+##### Switch
+
+- Добавлен проп `size` (`20 | 24`, по умолчанию `24`):
+    - `20` — компактный размер (32×20)
+- Добавлен проп `compact` для компактного текста подписи (`paragraph_primary_small`, 14/20)
+
 ## 6.1.5
 
 ### Patch Changes
