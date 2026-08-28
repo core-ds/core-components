@@ -6,6 +6,8 @@ export const Tabs = ({
     TabList,
     className,
     containerClassName,
+    scrollControlsClassName,
+    scrollControlsButtonClassName,
     size,
     children,
     selectedId,
@@ -62,6 +64,8 @@ export const Tabs = ({
         <div className={className} {...restProps}>
             <TabList
                 containerClassName={containerClassName}
+                scrollControlsClassName={scrollControlsClassName}
+                scrollControlsButtonClassName={scrollControlsButtonClassName}
                 size={size}
                 titles={titles}
                 selectedId={selectedId}
