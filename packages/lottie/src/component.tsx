@@ -88,12 +88,12 @@ export const Lottie: FC<LottieProps> = ({
         if (iteration < maxIterations) {
             if (animation && dataState === LottieDataState.OK) {
                 if (play && animation.isPaused) {
-                    const { playDirection, currentFrame, firstFrame, totalFrames } = animation;
+                    const { playDirection, currentFrame, totalFrames } = animation;
 
                     // see https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js#L504
                     if (playDirection === 1 && currentFrame >= totalFrames - 1) {
-                        animation.goToAndPlay(firstFrame, true);
-                    } else if (playDirection === -1 && currentFrame === firstFrame) {
+                        animation.goToAndPlay(0, true);
+                    } else if (playDirection === -1 && currentFrame === 0) {
                         animation.goToAndPlay(totalFrames, true);
                     } else {
                         animation.play();
@@ -126,7 +126,7 @@ export const Lottie: FC<LottieProps> = ({
     // handle listeners
     useLayoutEffect_SAFE_FOR_SSR(
         () =>
-            animation?.addEventListener('enterFrame', ({ currentTime }) => {
+            animation?.addEventListener('drawnFrame', ({ currentTime }) => {
                 onFrameChangeRef.current?.(currentTime);
             }),
         [animation],
