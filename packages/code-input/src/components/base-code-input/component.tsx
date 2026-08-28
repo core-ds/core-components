@@ -57,7 +57,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             const input = getInputs()?.[index];
 
             if (input) {
-                input.focus();
+                input.focus({ preventScroll: true });
             }
         };
 
@@ -212,7 +212,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 return isPrev && !input.value && canFocusEmpty;
             });
 
-            target?.focus();
+            target?.focus({ preventScroll: true });
 
             if (e.currentTarget.value) {
                 syncSelection(e.currentTarget);
