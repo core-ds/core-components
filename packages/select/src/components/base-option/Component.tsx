@@ -21,6 +21,7 @@ export const BaseOption: FC<OptionProps> = ({
     dataTestId,
     mobile = false,
     size,
+    optionsListWidth = 'content',
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
@@ -57,7 +58,13 @@ export const BaseOption: FC<OptionProps> = ({
         >
             {checkmarkPosition === 'before' && renderCheckmark('before')}
 
-            <div className={cn(styles.content)}>{content}</div>
+            <div
+                className={cn(styles.content, {
+                    [styles.textNoWrap]: !mobile && optionsListWidth === 'content',
+                })}
+            >
+                {content}
+            </div>
 
             {checkmarkPosition === 'after' && renderCheckmark('after')}
         </div>
