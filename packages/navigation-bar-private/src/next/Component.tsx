@@ -6,15 +6,23 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { BackArrowAddon } from './components/back-arrow-addon';
-import { Closer } from './components/closer';
-import { type ContentParams, type NavigationBarPrivateProps } from './types';
+import { BackArrowAddon } from '../components/back-arrow-addon';
+import { Closer } from '../components/closer';
+import { type ContentParams, type NavigationBarPrivateProps } from '../types';
+
+import { getUniversalModalTitleMargin } from './get-title-margin';
 
 import styles from './index.module.css';
 
 const ADDONS_HEIGHT = 48;
 
-export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPrivateProps>(
+/**
+ * Копия `NavigationBarPrivate` с компенсацией отступов заголовка,
+ * зашитой под конкретного потребителя — мобильную шапку `universal-modal`
+ * (см. `getUniversalModalTitleMargin`). Не предназначен для использования
+ * другими компонентами.
+ */
+export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBarPrivateProps>(
     (
         {
             addonClassName,
@@ -54,6 +62,10 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
     ) => {
         const [scrollTop, setScrollTop] = useState(0);
         const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
+        const [mainLineMargin, setMainLineMargin] = useState<{
+            left?: number;
+            right?: number;
+        }>({});
         const bottomContentRef = useRef<HTMLDivElement>(null);
         const headerRef = useRef<HTMLDivElement>(null);
         const mainLinePaddingTopRef = useRef<string>('0px');
@@ -77,24 +89,30 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         const headerPaddingTop = mainLinePaddingTopRef.current;
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (align === 'center' && (showStaticContentOnTop || showAnimatedContentOnTop)) {
-                const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
-                const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
-
-                const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
-                const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
-
-                setTitleMargin((prev) => {
-                    const newState = shouldAddLeftMargin
-                        ? { left: marginSize, right: 0 }
-                        : { left: 0, right: marginSize };
-
-                    const isStateChanged =
-                        prev.left !== newState.left || prev.right !== newState.right;
-
-                    return isStateChanged ? newState : prev;
+            const { contentMargin, mainLineMargin: nextMainLineMargin } =
+                getUniversalModalTitleMargin({
+                    align,
+                    hasBackButton: Boolean(hasBackButton),
+                    hasCloser: Boolean(hasCloser),
+                    hasLeftAddons: Boolean(leftAddons),
+                    hasRightAddons: Boolean(rightAddons),
+                    leftAddonsWidth: leftAddonsRef.current?.offsetWidth || 0,
+                    rightAddonsWidth: rightAddonsRef.current?.offsetWidth || 0,
                 });
-            }
+
+            setTitleMargin((prev) => {
+                const isStateChanged =
+                    prev.left !== contentMargin.left || prev.right !== contentMargin.right;
+
+                return isStateChanged ? contentMargin : prev;
+            });
+
+            setMainLineMargin((prev) => {
+                const next = nextMainLineMargin ?? {};
+                const isStateChanged = prev.left !== next.left || prev.right !== next.right;
+
+                return isStateChanged ? next : prev;
+            });
         }, [
             align,
             showStaticContentOnTop,
@@ -230,6 +248,8 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                                   paddingTop: headerPaddingTop,
                               }
                             : null),
+                        marginLeft: mainLineMargin.left,
+                        marginRight: mainLineMargin.right,
                     }}
                 >
                     {hasLeftPart && (
@@ -243,14 +263,10 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
 
                     {showStaticContentOnTop &&
                         renderContent({
-                            ...(align === 'center'
-                                ? {
-                                      style: {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      },
-                                  }
-                                : null),
+                            style: {
+                                marginLeft: titleMargin.left,
+                                marginRight: titleMargin.right,
+                            },
                         })}
 
                     {showAnimatedContentOnTop &&
@@ -258,12 +274,8 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             extraClassName: styles.withBothAddons,
                             style: {
                                 opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
-                                ...(align === 'center'
-                                    ? {
-                                          marginLeft: titleMargin.left,
-                                          marginRight: titleMargin.right,
-                                      }
-                                    : null),
+                                marginLeft: titleMargin.left,
+                                marginRight: titleMargin.right,
                             },
                             extraAlign: 'center',
                         })}
@@ -312,4 +324,4 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
     },
 );
 
-NavigationBarPrivate.displayName = 'NavigationBarPrivate';
+NavigationBarPrivateNext.displayName = 'NavigationBarPrivateNext';

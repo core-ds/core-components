@@ -167,14 +167,6 @@ export type NavigationBarPrivateProps = {
      * Набор цветов для компонента
      */
     colors?: ColorType;
-
-    /**
-     * Стратегия компенсации отступа заголовка под аддоны/back-button/closer.
-     * @default defaultComputeTitleMargin — align='center': всегда компенсация
-     * по разнице ширин leftAddons/rightAddons (без веток по back/closer);
-     * align='left': компенсации нет.
-     */
-    computeTitleMargin?: ComputeTitleMargin;
 };
 
 export type ContentParams = {
@@ -184,20 +176,3 @@ export type ContentParams = {
     hidden?: boolean;
     extraAlign?: NavigationBarPrivateProps['align'];
 };
-
-export type TitleMarginParams = {
-    align: 'left' | 'center';
-    hasBackButton: boolean;
-    hasCloser: boolean;
-    hasLeftAddons: boolean;
-    hasRightAddons: boolean;
-    leftAddonsWidth: number;
-    rightAddonsWidth: number;
-};
-
-export type TitleMarginResult = {
-    contentMargin: { left: number; right: number };
-    mainLineMargin?: { left?: number; right?: number };
-};
-
-export type ComputeTitleMargin = (params: TitleMarginParams) => TitleMarginResult;

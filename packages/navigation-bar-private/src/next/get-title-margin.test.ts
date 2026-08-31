@@ -1,6 +1,4 @@
-import { type TitleMarginParams } from '@alfalab/core-components-navigation-bar-private';
-
-import { getUniversalModalTitleMargin } from './get-title-margin';
+import { getUniversalModalTitleMargin, type TitleMarginParams } from './get-title-margin';
 
 const ADDON_WIDTH = 48;
 

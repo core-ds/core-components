@@ -1,4 +1,17 @@
-import { type ComputeTitleMargin } from '@alfalab/core-components-navigation-bar-private';
+export type TitleMarginParams = {
+    align: 'left' | 'center';
+    hasBackButton: boolean;
+    hasCloser: boolean;
+    hasLeftAddons: boolean;
+    hasRightAddons: boolean;
+    leftAddonsWidth: number;
+    rightAddonsWidth: number;
+};
+
+export type TitleMarginResult = {
+    contentMargin: { left: number; right: number };
+    mainLineMargin?: { left?: number; right?: number };
+};
 
 /** Фиксированная ширина одного control-элемента (closer/back button), см. их CSS. */
 const CONTROL_WIDTH = 48;
@@ -68,7 +81,7 @@ const CONTROL_WIDTH = 48;
  * одновременно.
  */
 // eslint-disable-next-line complexity
-export const getUniversalModalTitleMargin: ComputeTitleMargin = ({
+export const getUniversalModalTitleMargin = ({
     align,
     hasBackButton,
     hasCloser,
@@ -76,7 +89,7 @@ export const getUniversalModalTitleMargin: ComputeTitleMargin = ({
     hasRightAddons,
     leftAddonsWidth,
     rightAddonsWidth,
-}) => {
+}: TitleMarginParams): TitleMarginResult => {
     const hasOnlyBackButton = hasBackButton && !hasCloser;
     const hasOnlyCloser = hasCloser && !hasBackButton;
 

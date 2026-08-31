@@ -15,14 +15,7 @@ import desktopStyles from './desktop.module.css';
 export interface HeaderDesktopProps
     extends Omit<
         NavigationBarPrivateProps,
-        | 'size'
-        | 'view'
-        | 'parentRef'
-        | 'titleSize'
-        | 'subtitle'
-        | 'closerProps'
-        | 'backButtonProps'
-        | 'computeTitleMargin'
+        'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle' | 'closerProps' | 'backButtonProps'
     > {
     /**
      * Заголовок в шапке крупного размера
