@@ -11,7 +11,7 @@ import { Subtitles } from './components/subtitles';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
-import { type GalleryImage, type ImageMeta } from './types';
+import { type GalleryCustomButton, type GalleryImage, type ImageMeta } from './types';
 
 import styles from './index.module.css';
 
@@ -57,6 +57,11 @@ export type GalleryProps = {
      * Дополнительный класс для попапа
      */
     popupClassName?: string;
+
+    /**
+     * Дополнительная кнопка в шапке галереи
+     */
+    customButton?: GalleryCustomButton;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -75,6 +80,7 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    customButton,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -323,6 +329,7 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        customButton,
     };
 
     return (
