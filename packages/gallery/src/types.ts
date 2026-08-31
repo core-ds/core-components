@@ -1,5 +1,13 @@
 import { type MouseEvent, type RefObject } from 'react';
 
+import { type IconButtonProps } from '@alfalab/core-components-icon-button';
+
+export type GalleryCustomButton = {
+    text: string;
+    icon: IconButtonProps['icon'];
+    onClick: () => void;
+};
+
 export type TBottomButton = {
     text: string;
     onClick: (e: MouseEvent) => void;
