@@ -1,5 +1,32 @@
 # @alfalab/core-components
 
+## 50.29.0
+
+### Minor Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2323](https://github.com/core-ds/core-components/pull/2323)
+
+##### Gallery
+
+- Добавлена возможность передать дополнительную кнопку в шапку галереи
+
+### Patch Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2338](https://github.com/core-ds/core-components/pull/2338)
+
+##### Carousel
+
+- Исправлена анимация удаления элемента карусели
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-gallery@7.4.0
+- @alfalab/core-components-carousel@1.1.4
+
 ## 50.28.0
 
 ### Minor Changes

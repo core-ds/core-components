@@ -1,5 +1,17 @@
 # @alfalab/core-components-carousel
 
+## 1.1.4
+
+### Patch Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2338](https://github.com/core-ds/core-components/pull/2338)
+
+##### Carousel
+
+- Исправлена анимация удаления элемента карусели
+
 ## 1.1.3
 
 ### Patch Changes
