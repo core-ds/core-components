@@ -58,7 +58,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             titleClassName,
             titleRef,
             colors = 'default',
-            textAlign = 'left',
+            textAlign = mainAlign === 'center' ? 'center' : 'left',
         },
         ref,
     ) => {
@@ -197,7 +197,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                             <div className={styles.titleTextContent}>{title}</div>
                         </div>
                     )}
-                    {compactTitle && subtitle && (
+                    {subtitle && (
                         <div
                             className={cn(styles.subtitle, subtitleClassName)}
                             data-test-id={getDataTestId(dataTestId, 'subtitle')}

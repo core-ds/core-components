@@ -32,6 +32,7 @@
 }
 
 .content {
+    @mixin headline-system-mobile_small;
     color: var(--color-light-text-primary);
     display: flex;
     flex-flow: column nowrap;

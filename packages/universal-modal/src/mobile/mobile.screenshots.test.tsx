@@ -8,6 +8,7 @@ import {
     closeBrowser,
     waitForPreviewShowed,
 } from '@alfalab/core-components-screenshot-utils';
+import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -17,7 +18,7 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe(
-    'Mobile',
+    'Mobile | show more',
     screenshotTesting({
         cases: [
             ...generateTestCases({
@@ -31,6 +32,22 @@ describe(
                     showMore: [false, true],
                 },
             }),
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        viewport: {
+            width: 1024,
+            height: 768,
+        },
+        evaluate: (page: Page) => page.waitForTimeout(300),
+    }),
+);
+
+describe(
+    'Mobile',
+    screenshotTesting({
+        cases: [
             ...generateTestCases({
                 componentName: 'UniversalModal',
                 subComponentName: 'Mobile',
@@ -44,7 +61,11 @@ describe(
             }),
         ],
         screenshotOpts: {
-            fullPage: true,
+            fullPage: false,
+        },
+        viewport: {
+            width: 1024,
+            height: 768,
         },
     }),
 );
