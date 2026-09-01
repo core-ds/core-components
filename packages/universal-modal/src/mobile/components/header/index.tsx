@@ -1,8 +1,10 @@
 import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { type NavigationBarPrivateProps } from '@alfalab/core-components-navigation-bar-private';
-import { NavigationBarPrivateNext } from '@alfalab/core-components-navigation-bar-private/next';
+import {
+    NavigationBarPrivateNext,
+    type NavigationBarPrivateNextProps,
+} from '@alfalab/core-components-navigation-bar-private/next';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { ChevronLeftLine24Icon } from '@alfalab/icons-glyph-26/ChevronLeftLine24Icon';
 import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
@@ -13,15 +15,15 @@ import styles from '../../../components/base-header/index.module.css';
 import mobileStyles from './index.module.css';
 
 export type HeaderMobileProps = Omit<
-    NavigationBarPrivateProps,
+    NavigationBarPrivateNextProps,
     'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps'
 > & {
     closerProps?: Omit<
-        NonNullable<NavigationBarPrivateProps['closerProps']>,
+        NonNullable<NavigationBarPrivateNextProps['closerProps']>,
         'size' | 'buttonClassName'
     >;
     backButtonProps?: Omit<
-        NonNullable<NavigationBarPrivateProps['backButtonProps']>,
+        NonNullable<NavigationBarPrivateNextProps['backButtonProps']>,
         'icon' | 'size' | 'iconWrapperClassName'
     >;
 };

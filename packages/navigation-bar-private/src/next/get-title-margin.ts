@@ -1,5 +1,5 @@
 export type TitleMarginParams = {
-    align: 'left' | 'center';
+    mainAlign: 'left' | 'center';
     hasBackButton: boolean;
     hasCloser: boolean;
     hasLeftAddons: boolean;
@@ -25,7 +25,7 @@ const CONTROL_WIDTH = 48;
  * - `mainLineMargin` — фиксированный отступ 48px у всей строки шапки
  *   целиком, для случаев, где одной компенсации заголовка недостаточно.
  *
- * ## Заголовок по центру (`align === 'center'`)
+ * ## Заголовок по центру (`mainAlign === 'center'`)
  *
  * `contentMargin` не меняется. Асимметрию поправляет только сдвиг всей
  * строки — если есть только "назад" ИЛИ только closer (не оба и не ни
@@ -39,14 +39,14 @@ const CONTROL_WIDTH = 48;
  * |  –   |   ✓    | `left: 48`           |
  * |  –   |   –    | —                    |
  *
- * ## Заголовок слева (`align === 'left'`)
+ * ## Заголовок слева (`mainAlign === 'left'`)
  *
  * Базовый расчёт: `contentMargin = |rightAddonsWidth - leftAddonsWidth|`,
  * добавляется с более лёгкой стороны. Плюс два частных случая:
  *
  * 1. **Один control-элемент, аддоны с обеих сторон.** contentMargin не
  *    нужен (аддоны уже уравновешивают друг друга), лишний control
- *    компенсируется сдвигом всей строки на 48px — как в `align='center'`.
+ *    компенсируется сдвигом всей строки на 48px — как в `mainAlign='center'`.
  *
  * 2. **Один control-элемент, аддон только на противоположной стороне.**
  *    К базовой разнице доплюсовывается `CONTROL_WIDTH` (реальная фиксированная
@@ -82,7 +82,7 @@ const CONTROL_WIDTH = 48;
  */
 // eslint-disable-next-line complexity
 export const getUniversalModalTitleMargin = ({
-    align,
+    mainAlign,
     hasBackButton,
     hasCloser,
     hasLeftAddons,
@@ -93,7 +93,7 @@ export const getUniversalModalTitleMargin = ({
     const hasOnlyBackButton = hasBackButton && !hasCloser;
     const hasOnlyCloser = hasCloser && !hasBackButton;
 
-    if (align === 'center') {
+    if (mainAlign === 'center') {
         return {
             contentMargin: { left: 0, right: 0 },
             mainLineMargin: {

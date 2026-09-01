@@ -68,6 +68,14 @@
     & .titleTextContent {
         word-break: break-word;
     }
+
+    &.left {
+        text-align: left;
+    }
+
+    &.center {
+        text-align: center;
+    }
 }
 
 .subtitle {
@@ -102,14 +110,6 @@
 
 .closer {
     margin-left: auto;
-}
-
-.left {
-    text-align: left;
-}
-
-.center {
-    text-align: center;
 }
 
 .trim {

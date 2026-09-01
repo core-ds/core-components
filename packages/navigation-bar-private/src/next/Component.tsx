@@ -8,9 +8,10 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { BackArrowAddon } from '../components/back-arrow-addon';
 import { Closer } from '../components/closer';
-import { type ContentParams, type NavigationBarPrivateProps } from '../types';
+import { type ContentParams } from '../types';
 
 import { getUniversalModalTitleMargin } from './get-title-margin';
+import { type NavigationBarPrivateNextProps } from './types';
 
 import styles from './index.module.css';
 
@@ -22,7 +23,7 @@ const ADDONS_HEIGHT = 48;
  * (см. `getUniversalModalTitleMargin`). Не предназначен для использования
  * другими компонентами.
  */
-export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBarPrivateProps>(
+export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBarPrivateNextProps>(
     (
         {
             addonClassName,
@@ -34,7 +35,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             bottomAddons,
             bottomAddonsClassName,
             children,
-            align = 'left',
+            mainAlign = 'left',
             trim = true,
             title,
             titleSize = 'default',
@@ -57,6 +58,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             titleClassName,
             titleRef,
             colors = 'default',
+            textAlign = 'left',
         },
         ref,
     ) => {
@@ -91,7 +93,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         useLayoutEffect_SAFE_FOR_SSR(() => {
             const { contentMargin, mainLineMargin: nextMainLineMargin } =
                 getUniversalModalTitleMargin({
-                    align,
+                    mainAlign,
                     hasBackButton: Boolean(hasBackButton),
                     hasCloser: Boolean(hasCloser),
                     hasLeftAddons: Boolean(leftAddons),
@@ -114,7 +116,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 return isStateChanged ? next : prev;
             });
         }, [
-            align,
+            mainAlign,
             showStaticContentOnTop,
             showAnimatedContentOnTop,
             leftAddons,
@@ -175,22 +177,20 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 <div
                     style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
                     ref={wrapperRef}
-                    className={cn(
-                        styles.content,
-                        extraClassName,
-                        contentClassName,
-                        styles[extraAlign || align],
-                        {
-                            [styles.trim]: trim,
-                            [styles.withCompactTitle]: isMobile && compactTitle && hasContent,
-                        },
-                    )}
+                    className={cn(styles.content, extraClassName, contentClassName, {
+                        [styles.trim]: trim,
+                        [styles.withCompactTitle]: isMobile && compactTitle && hasContent,
+                    })}
                     aria-hidden={hidden}
                 >
                     {children && <div className={styles.children}>{children}</div>}
                     {title && (
                         <div
-                            className={cn(styles.title, titleClassName)}
+                            className={cn(
+                                styles.title,
+                                styles[extraAlign || textAlign],
+                                titleClassName,
+                            )}
                             data-test-id={hidden ? undefined : getDataTestId(dataTestId, 'title')}
                             ref={titleRef}
                         >
@@ -277,7 +277,6 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
                             },
-                            extraAlign: 'center',
                         })}
 
                     {hasRightPart && (

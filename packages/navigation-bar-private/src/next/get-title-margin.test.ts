@@ -6,7 +6,7 @@ type Margin = { left: number | undefined; right: number | undefined };
 
 type Case = {
     name: string;
-    align: TitleMarginParams['align'];
+    mainAlign: TitleMarginParams['mainAlign'];
     hasBackButton?: boolean;
     hasCloser?: boolean;
     leftAddons?: boolean;
@@ -15,9 +15,9 @@ type Case = {
     mainLineMargin: Margin;
 };
 
-const runCase = ({ align, hasBackButton, hasCloser, leftAddons, rightAddons }: Case) =>
+const runCase = ({ mainAlign, hasBackButton, hasCloser, leftAddons, rightAddons }: Case) =>
     getUniversalModalTitleMargin({
-        align,
+        mainAlign,
         hasBackButton: Boolean(hasBackButton),
         hasCloser: Boolean(hasCloser),
         hasLeftAddons: Boolean(leftAddons),
@@ -29,7 +29,7 @@ const runCase = ({ align, hasBackButton, hasCloser, leftAddons, rightAddons }: C
 const centerCases: Case[] = [
     {
         name: '#1 back + closer + leftAddons + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         hasCloser: true,
         leftAddons: true,
@@ -39,7 +39,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#2 back + closer + leftAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         hasCloser: true,
         leftAddons: true,
@@ -48,7 +48,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#3 back + closer + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         hasCloser: true,
         rightAddons: true,
@@ -57,7 +57,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#4 back + closer',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         hasCloser: true,
         contentMargin: { left: 0, right: 0 },
@@ -65,7 +65,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#5 back + leftAddons + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         leftAddons: true,
         rightAddons: true,
@@ -74,7 +74,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#6 back + leftAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         leftAddons: true,
         contentMargin: { left: 0, right: 0 },
@@ -82,7 +82,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#7 back + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         rightAddons: true,
         contentMargin: { left: 0, right: 0 },
@@ -90,14 +90,14 @@ const centerCases: Case[] = [
     },
     {
         name: '#8 back',
-        align: 'center',
+        mainAlign: 'center',
         hasBackButton: true,
         contentMargin: { left: 0, right: 0 },
         mainLineMargin: { left: undefined, right: 48 },
     },
     {
         name: '#9 closer + leftAddons + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasCloser: true,
         leftAddons: true,
         rightAddons: true,
@@ -106,7 +106,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#10 closer + leftAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasCloser: true,
         leftAddons: true,
         contentMargin: { left: 0, right: 0 },
@@ -114,7 +114,7 @@ const centerCases: Case[] = [
     },
     {
         name: '#11 closer + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         hasCloser: true,
         rightAddons: true,
         contentMargin: { left: 0, right: 0 },
@@ -122,14 +122,14 @@ const centerCases: Case[] = [
     },
     {
         name: '#12 closer',
-        align: 'center',
+        mainAlign: 'center',
         hasCloser: true,
         contentMargin: { left: 0, right: 0 },
         mainLineMargin: { left: 48, right: undefined },
     },
     {
         name: '#13 leftAddons + rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         leftAddons: true,
         rightAddons: true,
         contentMargin: { left: 0, right: 0 },
@@ -137,21 +137,21 @@ const centerCases: Case[] = [
     },
     {
         name: '#14 leftAddons',
-        align: 'center',
+        mainAlign: 'center',
         leftAddons: true,
         contentMargin: { left: 0, right: 0 },
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
         name: '#15 rightAddons',
-        align: 'center',
+        mainAlign: 'center',
         rightAddons: true,
         contentMargin: { left: 0, right: 0 },
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
         name: '#16 (ничего нет)',
-        align: 'center',
+        mainAlign: 'center',
         contentMargin: { left: 0, right: 0 },
         mainLineMargin: { left: undefined, right: undefined },
     },
@@ -160,7 +160,7 @@ const centerCases: Case[] = [
 const leftCases: Case[] = [
     {
         name: '#1 back + closer + leftAddons + rightAddons',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         hasCloser: true,
         leftAddons: true,
@@ -170,7 +170,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#2 back + closer + leftAddons',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         hasCloser: true,
         leftAddons: true,
@@ -179,7 +179,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#3 back + closer + rightAddons',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         hasCloser: true,
         rightAddons: true,
@@ -188,7 +188,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#4 back + closer',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         hasCloser: true,
         contentMargin: { left: 0, right: 0 },
@@ -196,7 +196,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#5 back + leftAddons + rightAddons — аддоны уравновешивают друг друга, сдвигается только вся строка (заголовок не сдвигается)',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         leftAddons: true,
         rightAddons: true,
@@ -205,7 +205,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#6 back + leftAddons',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         leftAddons: true,
         contentMargin: { left: 0, right: 96 },
@@ -213,7 +213,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#7 back + rightAddons — сдвигаются одновременно и заголовок, и вся строка',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         rightAddons: true,
         contentMargin: { left: 48, right: 0 },
@@ -221,14 +221,14 @@ const leftCases: Case[] = [
     },
     {
         name: '#8 back',
-        align: 'left',
+        mainAlign: 'left',
         hasBackButton: true,
         contentMargin: { left: 0, right: 48 },
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
         name: '#9 closer + leftAddons + rightAddons — аддоны уравновешивают друг друга, сдвигается только вся строка (заголовок не сдвигается)',
-        align: 'left',
+        mainAlign: 'left',
         hasCloser: true,
         leftAddons: true,
         rightAddons: true,
@@ -237,7 +237,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#10 closer + leftAddons — сдвигаются одновременно и заголовок, и вся строка',
-        align: 'left',
+        mainAlign: 'left',
         hasCloser: true,
         leftAddons: true,
         contentMargin: { left: 0, right: 48 },
@@ -245,7 +245,7 @@ const leftCases: Case[] = [
     },
     {
         name: '#11 closer + rightAddons',
-        align: 'left',
+        mainAlign: 'left',
         hasCloser: true,
         rightAddons: true,
         contentMargin: { left: 96, right: 0 },
@@ -253,14 +253,14 @@ const leftCases: Case[] = [
     },
     {
         name: '#12 closer',
-        align: 'left',
+        mainAlign: 'left',
         hasCloser: true,
         contentMargin: { left: 48, right: 0 },
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
         name: '#13 leftAddons + rightAddons',
-        align: 'left',
+        mainAlign: 'left',
         leftAddons: true,
         rightAddons: true,
         contentMargin: { left: 0, right: 0 },
@@ -268,21 +268,21 @@ const leftCases: Case[] = [
     },
     {
         name: '#14 leftAddons',
-        align: 'left',
+        mainAlign: 'left',
         leftAddons: true,
         contentMargin: { left: 0, right: 48 },
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
         name: '#15 rightAddons',
-        align: 'left',
+        mainAlign: 'left',
         rightAddons: true,
         contentMargin: { left: 48, right: 0 },
         mainLineMargin: { left: undefined, right: undefined },
     },
     {
         name: '#16 (ничего нет)',
-        align: 'left',
+        mainAlign: 'left',
         contentMargin: { left: 0, right: 0 },
         mainLineMargin: { left: undefined, right: undefined },
     },
@@ -292,7 +292,7 @@ describe('getUniversalModalTitleMargin', () => {
     describe.each([
         ['center', centerCases],
         ['left', leftCases],
-    ] as const)("align='%s'", (_align, cases) => {
+    ] as const)("mainAlign='%s'", (_mainAlign, cases) => {
         it.each(cases.map((c): [string, Case] => [c.name, c]))('%s', (_name, testCase) => {
             const result = runCase(testCase);
 
@@ -303,9 +303,9 @@ describe('getUniversalModalTitleMargin', () => {
     });
 
     describe('аддон из двух элементов по 48px (суммарно 96px)', () => {
-        it('align=left, только rightAddons (96px), без back и closer — заголовок сдвигается на всю ширину аддона', () => {
+        it('mainAlign=left, только rightAddons (96px), без back и closer — заголовок сдвигается на всю ширину аддона', () => {
             const result = getUniversalModalTitleMargin({
-                align: 'left',
+                mainAlign: 'left',
                 hasBackButton: false,
                 hasCloser: false,
                 hasLeftAddons: false,
@@ -319,9 +319,9 @@ describe('getUniversalModalTitleMargin', () => {
             expect(result.mainLineMargin?.right).toBeUndefined();
         });
 
-        it('align=left, back + rightAddons (96px) — сдвигаются одновременно и заголовок, и вся строка', () => {
+        it('mainAlign=left, back + rightAddons (96px) — сдвигаются одновременно и заголовок, и вся строка', () => {
             const result = getUniversalModalTitleMargin({
-                align: 'left',
+                mainAlign: 'left',
                 hasBackButton: true,
                 hasCloser: false,
                 hasLeftAddons: false,
@@ -335,9 +335,9 @@ describe('getUniversalModalTitleMargin', () => {
             expect(result.mainLineMargin?.right).toBe(48);
         });
 
-        it('align=left, closer + leftAddons (96px) — сдвигаются одновременно и заголовок, и вся строка', () => {
+        it('mainAlign=left, closer + leftAddons (96px) — сдвигаются одновременно и заголовок, и вся строка', () => {
             const result = getUniversalModalTitleMargin({
-                align: 'left',
+                mainAlign: 'left',
                 hasBackButton: false,
                 hasCloser: true,
                 hasLeftAddons: true,
@@ -360,9 +360,9 @@ describe('getUniversalModalTitleMargin', () => {
          */
         const UNEVEN_ADDON_WIDTH = 88;
 
-        it('align=left, closer + leftAddons (88px) — заголовок сдвигается ровно на реальную ширину аддона', () => {
+        it('mainAlign=left, closer + leftAddons (88px) — заголовок сдвигается ровно на реальную ширину аддона', () => {
             const result = getUniversalModalTitleMargin({
-                align: 'left',
+                mainAlign: 'left',
                 hasBackButton: false,
                 hasCloser: true,
                 hasLeftAddons: true,
@@ -376,9 +376,9 @@ describe('getUniversalModalTitleMargin', () => {
             expect(result.mainLineMargin?.right).toBeUndefined();
         });
 
-        it('align=left, back + rightAddons (88px) — заголовок сдвигается ровно на реальную ширину аддона', () => {
+        it('mainAlign=left, back + rightAddons (88px) — заголовок сдвигается ровно на реальную ширину аддона', () => {
             const result = getUniversalModalTitleMargin({
-                align: 'left',
+                mainAlign: 'left',
                 hasBackButton: true,
                 hasCloser: false,
                 hasLeftAddons: false,
