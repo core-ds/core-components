@@ -43,7 +43,7 @@
     min-height: 48px;
 
     &.withBothAddons,
-    &.withCompactTitle {
+    &.showStaticContentOnTop {
         @mixin action_component;
         align-self: center;
         padding-top: var(--gap-4);
@@ -62,10 +62,6 @@
 
     &.contentOnBotMobile.contentOnBotMobile {
         padding-top: var(--gap-12);
-    }
-
-    &.showStaticContentOnTop {
-        @mixin headline-system-mobile_xsmall;
     }
 }
 

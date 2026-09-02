@@ -247,9 +247,7 @@ export const mobile: Story = {
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
-                            {...(titleSize === 'compact' && {
-                                subtitle: text('header.subtitle', ''),
-                            })}
+                            subtitle={text('header.subtitle', '')}
                             titleSize={titleSize}
                             mainAlign={headerMainAlign}
                             hasCloser={hasCloser}

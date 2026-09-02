@@ -38,7 +38,6 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             mainAlign = 'relative',
             trim = true,
             title,
-            titleSize = 'default',
             subtitle,
             subtitleClassName,
             hasCloser,
@@ -77,13 +76,13 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
 
         const isMobile = view === 'mobile';
 
-        const compactTitle = isMobile && titleSize === 'compact';
         const hasLeftPart = Boolean(leftAddons || hasBackButton);
         const hasRightPart = Boolean(rightAddons || hasCloser);
         const hasContent = Boolean(title || children);
-        const withAnimation = Boolean(isMobile && hasLeftPart && sticky && !compactTitle);
-        const showContentOnTop = hasContent && (compactTitle || !hasLeftPart);
-        const showContentOnBot = hasContent && !compactTitle && hasLeftPart;
+        const withAnimation = Boolean(isMobile && hasLeftPart && sticky);
+        const showContentOnBot =
+            hasContent && hasLeftPart && (mainAlign === 'left' || withAnimation);
+        const showContentOnTop = hasContent && !showContentOnBot;
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
         const showStaticContentOnBot = !withAnimation && showContentOnBot;
         const showAnimatedContentOnTop =
@@ -153,8 +152,6 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 const height = hasContent ? ADDONS_HEIGHT : ADDONS_HEIGHT / 2;
 
                 textOpacity = Math.max(0, 1 - scrollTop / height);
-            } else if (compactTitle) {
-                textOpacity = 0;
             }
 
             return (
@@ -185,7 +182,6 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                         styles[extraAlign || textAlign],
                         {
                             [styles.trim]: trim,
-                            [styles.withCompactTitle]: isMobile && compactTitle && hasContent,
                         },
                     )}
                     aria-hidden={hidden}
@@ -266,7 +262,9 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
 
                     {showStaticContentOnTop &&
                         renderContent({
-                            // extraClassName: styles.showStaticContentOnTop,
+                            ...(mainAlign !== 'left' && {
+                                extraClassName: styles.showStaticContentOnTop,
+                            }),
                             style: {
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
