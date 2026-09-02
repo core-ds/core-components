@@ -166,6 +166,7 @@ jobs:
             version: ${{ github.ref }}
             directory: ${{ github.event.pull_request.number }}
             pull-request-number: ${{ github.event.pull_request.number }}
+            deploy-repository: ${{ case(github.event_name == 'pull_request', 'core-ds/deploy-core-components', github.repository) }}
 
     screenshot-test:
         needs: demo
