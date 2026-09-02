@@ -25,6 +25,34 @@ import {
 import { PureCell } from '@alfalab/core-components/pure-cell';
 ```
 
+## Типы
+
+Типы свойств компонента и его атомарных частей доступны из корневого экспорта:
+
+```tsx
+import type {
+    PureCellProps,
+    PureCellMainProps,
+    PureCellGraphicsProps,
+    PureCellContentProps,
+    PureCellTextProps,
+    PureCellAmountProps,
+    PureCellAmountTitleProps,
+    PureCellAddonProps,
+    PureCellFooterProps,
+    PureCellExtraSubtitleProps,
+    PureCellFooterButtonProps,
+    PureCellCommentProps,
+    PureCellCategoryProps,
+} from '@alfalab/core-components/pure-cell';
+```
+
+При использовании отдельного пакета типы доступны из его корневого экспорта:
+
+```tsx
+import type { PureCellTextProps } from '@alfalab/core-components-pure-cell';
+```
+
 ## Использование dataTestId
 
 В компоненте используются модификаторы для `dataTestId`.
