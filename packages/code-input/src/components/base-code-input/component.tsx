@@ -256,31 +256,35 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         );
 
         useEffect(() => {
-            let ac: AbortController | null = null;
-            const unMountReason = 'component unMount';
+            let mounted = true;
 
             if ('OTPCredential' in window && navigator?.credentials?.get) {
-                ac = new AbortController();
                 const options: CredentialRequestOtpOptions = {
                     otp: { transport: ['sms'] },
-                    signal: ac.signal,
                 };
 
                 navigator.credentials
                     .get(options)
                     .then((res: CredentialOtp | null) => {
-                        if (res?.code) handleChange(res.code, 0, true);
+                            if (mounted && res?.code) handleChange(res.code, 0, true);
                     })
-                    .catch((err) => {
-                        if (err !== unMountReason) {
-                            // eslint-disable-next-line no-console
-                            console.error(err);
-                        }
-                    });
+                    .catch(() => {
+                            /*
+                             * Игнорируем отклонение: браузер сам решает,
+                             * когда завершить OTP-запрос (таймаут/отмена).
+                             */
+                    })
+                    
             }
 
             return () => {
-                if (ac) ac.abort(unMountReason);
+                /*
+                 * Не абортим Web OTP-запрос при unmount: преждевременный abort
+                 * на незавершённой интеракции ломает Mojo-контракт и вызывает
+                 * «bad Mojo message» → смерть render-процесса (в Яндекс Браузере).
+                 * Вместо этого просто не применяем результат после unmount.
+                 */
+                mounted = false;
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
