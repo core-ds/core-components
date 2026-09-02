@@ -1,378 +1,16 @@
-## НЕ центрированный main
-
-[//]: # '```jsx live mobileWidth={560} mobileOnly'
-[//]: # 'render(() => {'
-[//]: # '    const [open, setOpen] = React.useState(false);'
-[//]: # '    const [compact, setCompact] = React.useState(true);'
-[//]: # "    const [preset, setPreset] = React.useState('1');"
-[//]: #
-[//]: # '    const headerProps = {'
-[//]: # '        sticky: true,'
-[//]: # '        hasCloser: false,'
-[//]: # '        hasBackButton: false,'
-[//]: # "        mainAlign: 'absolute',"
-[//]: # "        titleSize: compact ? 'compact' : 'default',"
-[//]: # '        title: ('
-[//]: # "            <Typography.Title view='small' font='system'>"
-[//]: # '                Заголовок'
-[//]: # '            </Typography.Title>'
-[//]: # '        ),'
-[//]: # '    };'
-[//]: #
-[//]: # "    if (preset === '1') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '2') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '3') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '4') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ['
-[//]: # "            <ButtonMobile key='one' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # "            <ButtonMobile key='two' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # '        ];'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '5') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '6') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '7') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '8') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ['
-[//]: # "            <ButtonMobile key='one' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # "            <ButtonMobile key='two' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # '        ];'
-[//]: # '    }'
-[//]: #
-[//]: # "    // if (preset === '9') { by default }"
-[//]: #
-[//]: # "    if (preset === '10') {"
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '11') {"
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '12') {"
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ['
-[//]: # "            <ButtonMobile key='one' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # "            <ButtonMobile key='two' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # '        ];'
-[//]: # '    }'
-[//]: #
-[//]: # '    return ('
-[//]: # '        <React.Fragment>'
-[//]: # '            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>'
-[//]: # '            <Gap size={20} />'
-[//]: # '            <Switch'
-[//]: # "                label='Compact'"
-[//]: # '                checked={compact}'
-[//]: # '                onChange={() => setCompact((prev) => !prev)}'
-[//]: # '            />'
-[//]: # '            <Gap size={20} />'
-[//]: # '            <SelectMobile'
-[//]: # '                block={true}'
-[//]: # '                options={['
-[//]: # "                    { key: '1', content: '1' },"
-[//]: # "                    { key: '2', content: '2' },"
-[//]: # "                    { key: '3', content: '3' },"
-[//]: # "                    { key: '4', content: '4' },"
-[//]: # "                    { key: '5', content: '5' },"
-[//]: # "                    { key: '6', content: '6' },"
-[//]: # "                    { key: '7', content: '7' },"
-[//]: # "                    { key: '8', content: '8' },"
-[//]: # "                    { key: '9', content: '9' },"
-[//]: # "                    { key: '10', content: '10' },"
-[//]: # "                    { key: '11', content: '11' },"
-[//]: # "                    { key: '12', content: '12' },"
-[//]: # '                ]}'
-[//]: # '                selected={preset}'
-[//]: # '                onChange={({ selected }) => setPreset(selected.key)}'
-[//]: # '                Option={BaseOption}'
-[//]: # '            />'
-[//]: # '            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>'
-[//]: # '                <UniversalModalMobile.Header {...headerProps} />'
-[//]: # '                <UniversalModal.Content>'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто'
-[//]: # '                        пользуется банковским счётом для бизнеса, крупных денежных переводов или'
-[//]: # '                        личных расчётов. Ограничения интернет-банка, блокировка карт добросовестных'
-[//]: # '                        компаний могут произойти из-за неправильно оформленных документов, ошибок в'
-[//]: # '                        платёжке или попыток снизить налоги.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Клиенты воспринимают ограничения как атаку со стороны банка, но чаще всего'
-[//]: # '                        сами допускают ошибки или нарушения, которых можно избежать. Банки не'
-[//]: # '                        преследуют цели доставить неудобства клиентам — они обязаны соблюдать'
-[//]: # '                        законодательство и следовать инструкциям и рекомендациям ЦБ, а в противном'
-[//]: # '                        случае рискуют лишиться лицензии.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Обналичивание — сомнительные операции, когда юрлицо или предприниматель'
-[//]: # '                        снимает со счёта более 80% от оборота или переводит деньги на счета физлиц,'
-[//]: # '                        которые затем снимают в наличной форме.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Вывод капитала за границу — это переводы нерезидентам по договорам об'
-[//]: # '                        импорте работ/услуг и результатов интеллектуальной деятельности, по которым'
-[//]: # '                        проведение расчётов осуществляется без одновременной уплаты НДС; по сделкам'
-[//]: # '                        купли-продажи ценных бумаг, а также товаров, которые не пересекают границу'
-[//]: # '                        России.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Транзитные операции — операции, в процессе которых деньги поступают на счёт'
-[//]: # '                        компании от других резидентов и списываются в короткие сроки. При этом, как'
-[//]: # '                        правило, в этих случаях по счёту нет начислений зарплат, уплаты налогов, и'
-[//]: # '                        они не соответствуют заявленному компанией виду деятельности.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Запрашивать могут любые документы и устанавливать разные сроки их'
-[//]: # '                        предоставления — это зависит от службы контроля конкретного банка. Обычно'
-[//]: # '                        банки запрашивают чеки, счета или договора с контрагентами. В некоторых'
-[//]: # '                        случаях бывает достаточно устных объяснений. Для проверки информации и'
-[//]: # '                        пересмотра уровня риска банк может пригласить клиента в банк для устного'
-[//]: # '                        разъяснения или выехать по месту ведения бизнеса клиента.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                </UniversalModal.Content>'
-[//]: # '            </UniversalModalMobile>'
-[//]: # '        </React.Fragment>'
-[//]: # '    );'
-[//]: # '});'
-[//]: # '```'
-
-## Центрированный main
-
-[//]: # '```jsx live mobileWidth={560} mobileOnly'
-[//]: # 'render(() => {'
-[//]: # '    const [open, setOpen] = React.useState(false);'
-[//]: # '    const [compact, setCompact] = React.useState(true);'
-[//]: # "    const [preset, setPreset] = React.useState('1');"
-[//]: #
-[//]: # '    const headerProps = {'
-[//]: # '        sticky: true,'
-[//]: # '        hasCloser: false,'
-[//]: # '        hasBackButton: false,'
-[//]: # "        mainAlign: 'relative',"
-[//]: # "        titleSize: compact ? 'compact' : 'default',"
-[//]: # '        title: ('
-[//]: # "            <Typography.Title view='small' font='system'>"
-[//]: # '                Заголовок'
-[//]: # '            </Typography.Title>'
-[//]: # '        ),'
-[//]: # '    };'
-[//]: #
-[//]: # "    if (preset === '1') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '2') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '3') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.hasBackButton = true;'
-[//]: # '        headerProps.leftAddons = ['
-[//]: # "            <ButtonMobile key='one' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # "            <ButtonMobile key='two' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # '        ];'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '4') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.leftAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '5') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '6') {"
-[//]: # '        headerProps.hasCloser = true;'
-[//]: # '        headerProps.leftAddons = ['
-[//]: # "            <ButtonMobile key='one' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # "            <ButtonMobile key='two' leftAddons={<DiamondsMIcon />} size={48} view='secondary' />,"
-[//]: # '        ];'
-[//]: # '    }'
-[//]: #
-[//]: # "    if (preset === '7') {"
-[//]: # '        headerProps.rightAddons = ('
-[//]: # "            <ButtonMobile leftAddons={<DiamondsMIcon />} size={48} view='secondary' />"
-[//]: # '        );'
-[//]: # '    }'
-[//]: #
-[//]: # '    return ('
-[//]: # '        <React.Fragment>'
-[//]: # '            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>'
-[//]: # '            <Gap size={20} />'
-[//]: # '            <Switch'
-[//]: # "                label='Compact'"
-[//]: # '                checked={compact}'
-[//]: # '                onChange={() => setCompact((prev) => !prev)}'
-[//]: # '            />'
-[//]: # '            <Gap size={20} />'
-[//]: # '            <SelectMobile'
-[//]: # '                block={true}'
-[//]: # '                options={['
-[//]: # "                    { key: '1', content: '1' },"
-[//]: # "                    { key: '2', content: '2' },"
-[//]: # "                    { key: '3', content: '3' },"
-[//]: # "                    { key: '4', content: '4' },"
-[//]: # "                    { key: '5', content: '5' },"
-[//]: # "                    { key: '6', content: '6' },"
-[//]: # "                    { key: '7', content: '7' },"
-[//]: # '                ]}'
-[//]: # '                selected={preset}'
-[//]: # '                onChange={({ selected }) => setPreset(selected.key)}'
-[//]: # '                Option={BaseOption}'
-[//]: # '            />'
-[//]: # '            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>'
-[//]: # '                <UniversalModalMobile.Header {...headerProps} />'
-[//]: # '                <UniversalModal.Content>'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто'
-[//]: # '                        пользуется банковским счётом для бизнеса, крупных денежных переводов или'
-[//]: # '                        личных расчётов. Ограничения интернет-банка, блокировка карт добросовестных'
-[//]: # '                        компаний могут произойти из-за неправильно оформленных документов, ошибок в'
-[//]: # '                        платёжке или попыток снизить налоги.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Клиенты воспринимают ограничения как атаку со стороны банка, но чаще всего'
-[//]: # '                        сами допускают ошибки или нарушения, которых можно избежать. Банки не'
-[//]: # '                        преследуют цели доставить неудобства клиентам — они обязаны соблюдать'
-[//]: # '                        законодательство и следовать инструкциям и рекомендациям ЦБ, а в противном'
-[//]: # '                        случае рискуют лишиться лицензии.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Обналичивание — сомнительные операции, когда юрлицо или предприниматель'
-[//]: # '                        снимает со счёта более 80% от оборота или переводит деньги на счета физлиц,'
-[//]: # '                        которые затем снимают в наличной форме.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Вывод капитала за границу — это переводы нерезидентам по договорам об'
-[//]: # '                        импорте работ/услуг и результатов интеллектуальной деятельности, по которым'
-[//]: # '                        проведение расчётов осуществляется без одновременной уплаты НДС; по сделкам'
-[//]: # '                        купли-продажи ценных бумаг, а также товаров, которые не пересекают границу'
-[//]: # '                        России.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Транзитные операции — операции, в процессе которых деньги поступают на счёт'
-[//]: # '                        компании от других резидентов и списываются в короткие сроки. При этом, как'
-[//]: # '                        правило, в этих случаях по счёту нет начислений зарплат, уплаты налогов, и'
-[//]: # '                        они не соответствуют заявленному компанией виду деятельности.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                    <br />'
-[//]: # "                    <Typography.Text tag='p'>"
-[//]: # '                        Запрашивать могут любые документы и устанавливать разные сроки их'
-[//]: # '                        предоставления — это зависит от службы контроля конкретного банка. Обычно'
-[//]: # '                        банки запрашивают чеки, счета или договора с контрагентами. В некоторых'
-[//]: # '                        случаях бывает достаточно устных объяснений. Для проверки информации и'
-[//]: # '                        пересмотра уровня риска банк может пригласить клиента в банк для устного'
-[//]: # '                        разъяснения или выехать по месту ведения бизнеса клиента.'
-[//]: # '                    </Typography.Text>'
-[//]: # '                </UniversalModal.Content>'
-[//]: # '            </UniversalModalMobile>'
-[//]: # '        </React.Fragment>'
-[//]: # '    );'
-[//]: # '});'
-[//]: # '```'
-
 ## Пресеты шапки
 
 ```jsx live mobileWidth={560} mobileOnly
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [compact, setCompact] = React.useState(false);
+    const [sticky, setSticky] = React.useState(false);
     const [preset, setPreset] = React.useState('1');
 
     const headerProps = {
-        sticky: true,
+        sticky,
         hasCloser: false,
         hasBackButton: false,
         mainAlign: 'left',
-        titleSize: compact ? 'compact' : 'default',
         title: 'Title',
     };
 
@@ -425,22 +63,46 @@ render(() => {
         headerProps.subtitle = 'Subtitle';
     }
 
-    // relative
-
     if (preset === '11') {
         headerProps.mainAlign = 'relative';
         headerProps.hasCloser = true;
+    }
+
+    if (preset === '12') {
+        headerProps.mainAlign = 'relative';
+        headerProps.hasCloser = true;
+        headerProps.subtitle = 'Subtitle';
+    }
+
+    if (preset === '13') {
+        headerProps.mainAlign = 'relative';
+        headerProps.hasBackButton = true;
+    }
+
+    if (preset === '14') {
+        headerProps.mainAlign = 'relative';
+        headerProps.hasBackButton = true;
+        headerProps.subtitle = 'Subtitle';
+    }
+
+    if (preset === '15') {
+        headerProps.mainAlign = 'relative';
+        headerProps.hasBackButton = true;
+        headerProps.hasCloser = true;
+    }
+
+    if (preset === '16') {
+        headerProps.mainAlign = 'relative';
+        headerProps.hasBackButton = true;
+        headerProps.hasCloser = true;
+        headerProps.subtitle = 'Subtitle';
     }
 
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
             <Gap size={20} />
-            <Switch
-                label='Compact'
-                checked={compact}
-                onChange={() => setCompact((prev) => !prev)}
-            />
+            <Switch label='Sticky' checked={sticky} onChange={() => setSticky((prev) => !prev)} />
             <Gap size={20} />
             <SelectMobile
                 block={true}
@@ -456,13 +118,18 @@ render(() => {
                     { key: '9', content: '9' },
                     { key: '10', content: '10' },
                     { key: '11', content: '11' },
+                    { key: '12', content: '12' },
+                    { key: '13', content: '13' },
+                    { key: '14', content: '14' },
+                    { key: '15', content: '15' },
+                    { key: '16', content: '16' },
                 ]}
                 selected={preset}
                 onChange={({ selected }) => setPreset(selected.key)}
                 Option={BaseOption}
             />
             <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
-                <UniversalModalMobile.Header {...headerProps} />
+                <UniversalModalMobile.Header {...headerProps} onBack={() => setOpen(false)} />
                 <UniversalModal.Content>
                     <Typography.Text tag='p'>
                         115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто
