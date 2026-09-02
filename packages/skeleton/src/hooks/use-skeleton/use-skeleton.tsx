@@ -23,7 +23,7 @@ type SkeletonProps = {
 const getFallbackSkeletonParams = (skeletonProps?: TextSkeletonProps): TextSkeletonParams => ({
     height: 16,
     padding: '4px 0',
-    rows: skeletonProps?.rows ?? 1,
+    rows: skeletonProps?.rows || 1,
 });
 
 export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeletonProps) {
