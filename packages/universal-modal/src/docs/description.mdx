@@ -10,7 +10,7 @@
 [//]: # '        sticky: true,'
 [//]: # '        hasCloser: false,'
 [//]: # '        hasBackButton: false,'
-[//]: # "        mainAlign: 'center',"
+[//]: # "        mainAlign: 'absolute',"
 [//]: # "        titleSize: compact ? 'compact' : 'default',"
 [//]: # '        title: ('
 [//]: # "            <Typography.Title view='small' font='system'>"
@@ -211,7 +211,7 @@
 [//]: # '        sticky: true,'
 [//]: # '        hasCloser: false,'
 [//]: # '        hasBackButton: false,'
-[//]: # "        mainAlign: 'left',"
+[//]: # "        mainAlign: 'relative',"
 [//]: # "        titleSize: compact ? 'compact' : 'default',"
 [//]: # '        title: ('
 [//]: # "            <Typography.Title view='small' font='system'>"
@@ -419,6 +419,19 @@ render(() => {
         headerProps.hasBackButton = true;
     }
 
+    if (preset === '10') {
+        headerProps.hasCloser = true;
+        headerProps.hasBackButton = true;
+        headerProps.subtitle = 'Subtitle';
+    }
+
+    // relative
+
+    if (preset === '11') {
+        headerProps.mainAlign = 'relative';
+        headerProps.hasCloser = true;
+    }
+
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
@@ -441,6 +454,8 @@ render(() => {
                     { key: '7', content: '7' },
                     { key: '8', content: '8' },
                     { key: '9', content: '9' },
+                    { key: '10', content: '10' },
+                    { key: '11', content: '11' },
                 ]}
                 selected={preset}
                 onChange={({ selected }) => setPreset(selected.key)}

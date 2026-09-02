@@ -209,7 +209,11 @@ export const mobile: Story = {
         const header = boolean('header', false);
         const headerTitle = text('header.title', 'Заголовок');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
-        const headerMainAlign = select('header.mainAlign', ['left', 'center'], 'left');
+        const headerMainAlign = select(
+            'header.mainAlign',
+            ['left', 'relative', 'absolute'],
+            'left',
+        );
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select(
@@ -226,8 +230,6 @@ export const mobile: Story = {
         const headerBigLeftAddons = headerLeftAddons && boolean('header.bigLeftAddons', false);
         const headerRightAddons = boolean('header.rightAddons', false);
         const headerBigRightAddons = headerRightAddons && boolean('header.bigRightAddons', false);
-        const headerTextAlign =
-            header && select('header.textAlign', ['default', 'center'], 'default');
 
         const shouldRenderHeader = header && Boolean(headerTitle);
 
@@ -290,7 +292,6 @@ export const mobile: Story = {
                                     </Fragment>
                                 )
                             }
-                            {...(headerTextAlign === 'center' && { textAlign: 'center' })}
                         />
                     )}
                     <UniversalModalMobile.Content>

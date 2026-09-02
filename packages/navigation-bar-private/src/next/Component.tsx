@@ -35,7 +35,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             bottomAddons,
             bottomAddonsClassName,
             children,
-            mainAlign = 'left',
+            mainAlign = 'relative',
             trim = true,
             title,
             titleSize = 'default',
@@ -58,10 +58,11 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             titleClassName,
             titleRef,
             colors = 'default',
-            textAlign = mainAlign === 'center' ? 'center' : 'left',
         },
         ref,
     ) => {
+        const textAlign = mainAlign === 'left' ? 'left' : 'center';
+
         const [scrollTop, setScrollTop] = useState(0);
         const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
         const [mainLineMargin, setMainLineMargin] = useState<{
@@ -177,20 +178,22 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 <div
                     style={{ ...style, visibility: hidden ? 'hidden' : 'visible' }}
                     ref={wrapperRef}
-                    className={cn(styles.content, extraClassName, contentClassName, {
-                        [styles.trim]: trim,
-                        [styles.withCompactTitle]: isMobile && compactTitle && hasContent,
-                    })}
+                    className={cn(
+                        styles.content,
+                        extraClassName,
+                        contentClassName,
+                        styles[extraAlign || textAlign],
+                        {
+                            [styles.trim]: trim,
+                            [styles.withCompactTitle]: isMobile && compactTitle && hasContent,
+                        },
+                    )}
                     aria-hidden={hidden}
                 >
                     {children && <div className={styles.children}>{children}</div>}
                     {title && (
                         <div
-                            className={cn(
-                                styles.title,
-                                styles[extraAlign || textAlign],
-                                titleClassName,
-                            )}
+                            className={cn(styles.title, titleClassName)}
                             data-test-id={hidden ? undefined : getDataTestId(dataTestId, 'title')}
                             ref={titleRef}
                         >
@@ -263,6 +266,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
 
                     {showStaticContentOnTop &&
                         renderContent({
+                            // extraClassName: styles.showStaticContentOnTop,
                             style: {
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
@@ -277,6 +281,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
                             },
+                            extraAlign: 'center',
                         })}
 
                     {hasRightPart && (

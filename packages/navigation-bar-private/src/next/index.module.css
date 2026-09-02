@@ -63,19 +63,15 @@
     &.contentOnBotMobile.contentOnBotMobile {
         padding-top: var(--gap-12);
     }
+
+    &.showStaticContentOnTop {
+        @mixin headline-system-mobile_xsmall;
+    }
 }
 
 .title {
     & .titleTextContent {
         word-break: break-word;
-    }
-
-    &.left {
-        text-align: left;
-    }
-
-    &.center {
-        text-align: center;
     }
 }
 
@@ -111,6 +107,14 @@
 
 .closer {
     margin-left: auto;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
 }
 
 .trim {
