@@ -71,7 +71,6 @@ jobs:
     deploy:
         needs: [build-demo, params, variants]
         strategy:
-            max-parallel: 1
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
         uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
