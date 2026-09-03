@@ -236,7 +236,7 @@ export const FileUploadItemV1: React.FC<FileUploadItemProps> = ({
                     <div className={styles.meta}>
                         {uploadDate && <span key={uploadDate}>{uploadDate}</span>}
 
-                        {size !== undefined && size !== '' && (
+                        {size && (
                             <span key={size} className={styles.size}>
                                 {humanFileSize(size)}
                             </span>
