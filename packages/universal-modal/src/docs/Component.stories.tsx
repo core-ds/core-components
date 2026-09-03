@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { object, boolean, select, text } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
@@ -8,6 +8,7 @@ import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalMobile } from '../mobile';
 import { UniversalModal } from '../responsive';
+import DiamondsMIcon from '@alfalab/icons-glyph/DiamondsMIcon';
 
 const meta: Meta<typeof UniversalModal> = {
     title: 'Components/UniversalModal',
@@ -204,10 +205,15 @@ export const mobile: Story = {
     render: () => {
         const [isOpen, setOpen] = useState(false);
 
+        const open = boolean('open', false);
         const header = boolean('header', false);
         const headerTitle = text('header.title', 'Заголовок');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
-        const headerAlign = select('header.align', ['left', 'center'], 'left');
+        const headerMainAlign = select(
+            'header.mainAlign',
+            ['left', 'relative', 'absolute'],
+            'left',
+        );
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select(
@@ -215,12 +221,15 @@ export const mobile: Story = {
             ['start', 'center', 'space-between', 'column'],
             'start',
         );
-        const open = boolean('open', false);
         const appearance = select('appearance', ['bottom', 'right'], 'bottom');
         const hasCloser = boolean('header.hasCloser', false);
         const hasBackButton = boolean('header.hasBackButton', false);
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
+        const headerLeftAddons = boolean('header.leftAddons', false);
+        const headerBigLeftAddons = headerLeftAddons && boolean('header.bigLeftAddons', false);
+        const headerRightAddons = boolean('header.rightAddons', false);
+        const headerBigRightAddons = headerRightAddons && boolean('header.bigRightAddons', false);
 
         const shouldRenderHeader = header && Boolean(headerTitle);
 
@@ -238,15 +247,49 @@ export const mobile: Story = {
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
-                            {...(titleSize === 'compact' && {
-                                subtitle: text('header.subtitle', ''),
-                            })}
+                            subtitle={text('header.subtitle', '')}
                             titleSize={titleSize}
-                            align={headerAlign}
+                            mainAlign={headerMainAlign}
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
                             trim={trim}
                             bottomAddons={bottomAddons}
+                            leftAddons={
+                                headerLeftAddons && (
+                                    <Fragment>
+                                        <ButtonMobile
+                                            leftAddons={<DiamondsMIcon />}
+                                            size={48}
+                                            view='secondary'
+                                        />
+                                        {headerBigLeftAddons && (
+                                            <ButtonMobile
+                                                leftAddons={<DiamondsMIcon />}
+                                                size={48}
+                                                view='secondary'
+                                            />
+                                        )}
+                                    </Fragment>
+                                )
+                            }
+                            rightAddons={
+                                headerRightAddons && (
+                                    <Fragment>
+                                        <ButtonMobile
+                                            leftAddons={<DiamondsMIcon />}
+                                            size={48}
+                                            view='secondary'
+                                        />
+                                        {headerBigRightAddons && (
+                                            <ButtonMobile
+                                                leftAddons={<DiamondsMIcon />}
+                                                size={48}
+                                                view='secondary'
+                                            />
+                                        )}
+                                    </Fragment>
+                                )
+                            }
                         />
                     )}
                     <UniversalModalMobile.Content>
