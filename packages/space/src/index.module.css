@@ -32,6 +32,19 @@
     display: none;
 }
 
+/*
+ * React-индекс не учитывает компоненты, которые возвращают null. Поэтому находим последний
+ * непустой item по фактическому DOM и убираем у него отступ. !important необходим, чтобы
+ * переопределить inline-margin, заданный в Item для режима без CSS gaps.
+ */
+.vertical > .spaceItem:not(:empty):not(:has(~ .spaceItem:not(:empty))) {
+    margin-bottom: 0 !important;
+}
+
+.horizontal > .spaceItem:not(:empty):not(:has(~ .spaceItem:not(:empty))) {
+    margin-right: 0 !important;
+}
+
 .wrap {
     flex-wrap: wrap;
 }

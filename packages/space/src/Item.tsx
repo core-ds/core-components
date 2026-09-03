@@ -36,12 +36,14 @@ const Item = (props: ItemProps) => {
     if (!useCssGaps) {
         if (direction === 'vertical') {
             if (index < length - 1) {
-                style = { marginBottom: horizontalSize / (divider ? 2 : 1) };
+                style = { marginBottom: verticalSize / (divider ? 2 : 1) };
             }
         } else {
             style = {
                 ...(index < length - 1 && { marginRight: horizontalSize / (divider ? 2 : 1) }),
-                ...(wrap && { paddingBottom: verticalSize }),
+                ...(wrap && {
+                    paddingBottom: verticalSize,
+                }),
             };
         }
     }
