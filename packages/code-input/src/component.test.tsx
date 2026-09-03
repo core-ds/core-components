@@ -127,6 +127,48 @@ describe('CodeInput', () => {
         });
     });
 
+    describe('Web OTP tests', () => {
+        const originalCredentialsGet = navigator.credentials?.get;
+
+        beforeEach(() => {
+            // jsdom не реализует Web OTP: подкладываем заглушку, чтобы
+            // условие 'OTPCredential' in window && navigator.credentials.get
+            // было истинным и OTP-ветка выполнилась.
+            Object.defineProperty(window, 'OTPCredential', {
+                configurable: true,
+                value: function OTPCredential() {},
+            });
+            Object.defineProperty(navigator, 'credentials', {
+                configurable: true,
+                value: { get: jest.fn(() => new Promise(() => {})) },
+            });
+        });
+
+        afterEach(() => {
+            Reflect.deleteProperty(window, 'OTPCredential');
+            Object.defineProperty(navigator, 'credentials', {
+                configurable: true,
+                value: originalCredentialsGet,
+            });
+            jest.restoreAllMocks();
+        });
+
+        it('should not call credentials.get twice and should not abort on unmount', () => {
+            const abortSpy = jest.spyOn(AbortController.prototype, 'abort');
+
+            const { unmount } = render(<CodeInput />);
+
+            expect(window.navigator.credentials.get).toHaveBeenCalledTimes(1);
+            expect(window.navigator.credentials.get).toHaveBeenCalledWith(
+                expect.objectContaining({ otp: { transport: ['sms'] } }),
+            );
+
+            unmount();
+
+            expect(abortSpy).not.toHaveBeenCalled();
+        });
+    });
+
     describe('Interactions tests', () => {
         it('onChange should be called on user typing', async () => {
             const onChange = jest.fn();
