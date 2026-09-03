@@ -11,12 +11,8 @@ import cn from 'classnames';
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import {
-    type BaseCodeInputProps,
-    type CredentialOtp,
-    type CredentialRequestOtpOptions,
-    type CustomInputRef,
-} from '../../typings';
+import { type BaseCodeInputProps, type CustomInputRef } from '../../typings';
+import { subscribeWebOtp } from '../../web-otp';
 import { Input, type InputProps } from '../input';
 
 import { parseInputIdx, syncSelection } from './utils';
@@ -253,32 +249,20 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         useEffect(() => {
             let mounted = true;
 
-            if ('OTPCredential' in window && navigator?.credentials?.get) {
-                const options: CredentialRequestOtpOptions = {
-                    otp: { transport: ['sms'] },
-                };
-
-                navigator.credentials.get(options).then(
-                    (res: CredentialOtp | null) => {
-                        if (mounted && res?.code) handleChange(res.code, 0, true);
-                    },
-                    () => {
-                        /*
-                         * Игнорируем отклонение: браузер сам решает,
-                         * когда завершить OTP-запрос (таймаут/отмена).
-                         */
-                    },
-                );
-            }
+            /*
+             * Единый Web OTP-запрос (singleton-овнер). Овнер не абортит запрос
+             * при unmount: преждевременный abort на незавершённой OTP-интеракции
+             * ломает Mojo-контракт (bad Mojo message) и роняет render-процесс.
+             * Отписка лишь удаляет подписчика; код, полученный позже, к
+             * размонтированному компоненту не применяется.
+             */
+            const unsubscribe = subscribeWebOtp((code) => {
+                if (mounted && code) handleChange(code, 0, true);
+            });
 
             return () => {
-                /*
-                 * Не абортим Web OTP-запрос при unmount: преждевременный abort
-                 * на незавершённой интеракции ломает Mojo-контракт и вызывает
-                 * «bad Mojo message» → смерть render-процесса (в Яндекс Браузере).
-                 * Вместо этого просто не применяем результат после unmount.
-                 */
                 mounted = false;
+                unsubscribe();
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
