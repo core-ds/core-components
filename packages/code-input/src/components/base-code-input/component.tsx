@@ -258,18 +258,17 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     otp: { transport: ['sms'] },
                 };
 
-                navigator.credentials
-                    .get(options)
-                    .then((res: CredentialOtp | null) => {
-                            if (mounted && res?.code) handleChange(res.code, 0, true);
-                    })
-                    .catch(() => {
-                            /*
-                             * Игнорируем отклонение: браузер сам решает,
-                             * когда завершить OTP-запрос (таймаут/отмена).
-                             */
-                    })
-                    
+                navigator.credentials.get(options).then(
+                    (res: CredentialOtp | null) => {
+                        if (mounted && res?.code) handleChange(res.code, 0, true);
+                    },
+                    () => {
+                        /*
+                         * Игнорируем отклонение: браузер сам решает,
+                         * когда завершить OTP-запрос (таймаут/отмена).
+                         */
+                    },
+                );
             }
 
             return () => {
