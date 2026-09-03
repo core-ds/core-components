@@ -40,6 +40,7 @@ jobs:
         outputs:
             published: ${{ steps.changesets.outputs.published }}
             has-changesets: ${{ steps.changesets.outputs.hasChangesets }}
+            published-packages: ${{ steps.changesets.outputs.publishedPackages }}
         steps:
             - name: Generate app token
               id: generate-token
@@ -189,3 +190,52 @@ jobs:
 
                       ${{ steps.prepare-comment.outputs.result }}
                   reactions: rocket
+
+    notification:
+        needs: release
+        if: ${{ fromJson(needs.release.outputs.published) }}
+        runs-on: ubuntu-latest
+        continue-on-error: true
+        steps:
+            - name: Create bot JWT
+              id: jwt
+              uses: core-ds/create-express-messenger-bot-jwt@v1
+              with:
+                  express-server-url: ${{ secrets.EXPRESS_SERVER_URL }}
+                  bot-id: ${{ secrets.EXPRESS_BOT_ID }}
+                  secret-key: ${{ secrets.EXPRESS_BOT_SECRET_KEY }}
+
+            - name: Send message
+              uses: actions/github-script@v9
+              env:
+                  PUBLISHED_PACKAGES: ${{ needs.release.outputs.published-packages }}
+                  EXPRESS_SERVER_URL: ${{ secrets.EXPRESS_SERVER_URL }}
+                  EXPRESS_BOT_TOKEN: ${{ steps.jwt.outputs.token }}
+                  EXPRESS_CHAT_ID: ${{ secrets.EXPRESS_CHAT_ID }}
+              with:
+                  script: |
+                      const publishedPackages = JSON.parse(process.env.PUBLISHED_PACKAGES);
+                      const rootPkg = publishedPackages.find((pkg) => pkg.name === '@alfalab/core-components');
+
+                      if (rootPkg) {
+                          const spec = `${rootPkg.name}@${rootPkg.version}`;
+
+                          await fetch(`${process.env.EXPRESS_SERVER_URL}/api/v4/botx/notifications/direct`, {
+                              method: 'POST',
+                              headers: {
+                                  'Content-Type': 'application/json',
+                                  Authorization: `Bearer ${process.env.EXPRESS_BOT_TOKEN}`,
+                              },
+                              body: JSON.stringify({
+                                  group_chat_id: process.env.EXPRESS_CHAT_ID,
+                                  notification: {
+                                      status: 'ok',
+                                      body: `
+                                          Опубликована новая версия [\`${spec}\`](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/releases/tag/${encodeURIComponent(spec)})
+                                      `.trim(),
+                                  },
+                              }),
+                          });
+                      } else {
+                          core.notice('Root package was not found in published packages');
+                      }
