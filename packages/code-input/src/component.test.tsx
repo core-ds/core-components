@@ -130,6 +130,15 @@ describe('CodeInput', () => {
     describe('Web OTP tests', () => {
         const originalCredentialsGet = navigator.credentials?.get;
 
+        let resolveGet: ((res: { code: string }) => void) | undefined;
+
+        const mockGet = jest.fn(
+            () =>
+                new Promise((resolve) => {
+                    resolveGet = resolve;
+                }),
+        );
+
         beforeEach(() => {
             // jsdom не реализует Web OTP: подкладываем заглушку, чтобы
             // условие 'OTPCredential' in window && navigator.credentials.get
@@ -140,7 +149,7 @@ describe('CodeInput', () => {
             });
             Object.defineProperty(navigator, 'credentials', {
                 configurable: true,
-                value: { get: jest.fn(() => new Promise(() => {})) },
+                value: { get: mockGet },
             });
         });
 
@@ -158,14 +167,39 @@ describe('CodeInput', () => {
 
             const { unmount } = render(<CodeInput />);
 
-            expect(window.navigator.credentials.get).toHaveBeenCalledTimes(1);
-            expect(window.navigator.credentials.get).toHaveBeenCalledWith(
+            expect(mockGet).toHaveBeenCalledTimes(1);
+            expect(mockGet).toHaveBeenCalledWith(
                 expect.objectContaining({ otp: { transport: ['sms'] } }),
             );
 
             unmount();
 
             expect(abortSpy).not.toHaveBeenCalled();
+        });
+
+        it('should run single Web OTP request for multiple code-inputs', async () => {
+            const { container, unmount } = render(
+                <>
+                    <CodeInput />
+                    <CodeInput />
+                </>,
+            );
+
+            // Один общий Web OTP-запрос на оба инстанса.
+            expect(mockGet).toHaveBeenCalledTimes(1);
+
+            act(() => {
+                resolveGet?.({ code: '1234' });
+            });
+
+            await waitFor(() => {
+                const filledInputs = Array.from(container.querySelectorAll('input')).filter(
+                    (input) => input.value !== '',
+                );
+                expect(filledInputs.length).toBeGreaterThan(0);
+            });
+
+            unmount();
         });
     });
 
