@@ -40,6 +40,16 @@ export interface TabsProps
     containerClassName?: string;
 
     /**
+     * Дополнительный класс для контейнера кнопок прокрутки
+     */
+    scrollControlsContainerClassName?: string;
+
+    /**
+     * Дополнительный класс для кнопок прокрутки
+     */
+    scrollControlsButtonClassName?: string;
+
+    /**
      * Id активного таба
      */
     selectedId?: SelectedId;
@@ -254,6 +264,8 @@ export interface TabListProps
         TabsProps,
         | 'className'
         | 'containerClassName'
+        | 'scrollControlsContainerClassName'
+        | 'scrollControlsButtonClassName'
         | 'size'
         | 'defaultMatchMediaValue'
         | 'selectedId'
