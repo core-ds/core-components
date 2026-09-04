@@ -1,7 +1,6 @@
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import { CodeInputDesktop as CodeInput } from './desktop';
 
@@ -140,16 +139,13 @@ describe('CodeInput', () => {
     });
 
     describe('Web OTP tests', () => {
-        const originalCredentialsGet = navigator.credentials?.get;
+        const originalCredentials = Object.getOwnPropertyDescriptor(navigator, 'credentials');
 
         let resolveGet: ((res: { code: string }) => void) | undefined;
 
-        const mockGet = jest.fn(
-            () =>
-                new Promise((resolve) => {
-                    resolveGet = resolve;
-                }),
-        );
+        let rejectGet: ((reason?: unknown) => void) | undefined;
+
+        let mockGet: jest.Mock;
 
         beforeEach(() => {
             // jsdom не реализует Web OTP: подкладываем заглушку, чтобы
@@ -159,6 +155,19 @@ describe('CodeInput', () => {
                 configurable: true,
                 value: function OTPCredential() {},
             });
+
+            // Каждый тест владеет своим mock и своими резолвером/режектором:
+            // счётчик вызовов и оба резолвера зануляются до старта нового теста.
+            resolveGet = undefined;
+            rejectGet = undefined;
+            mockGet = jest.fn(
+                () =>
+                    new Promise((resolve, reject) => {
+                        resolveGet = resolve;
+                        rejectGet = reject;
+                    }),
+            );
+
             Object.defineProperty(navigator, 'credentials', {
                 configurable: true,
                 value: { get: mockGet },
@@ -166,11 +175,22 @@ describe('CodeInput', () => {
         });
 
         afterEach(() => {
+            // Не оставляем висящий неразрешённый запрос: доводим его до конца,
+            // иначе хвосты промисов перетекают в следующий тест.
+            if (resolveGet || rejectGet) {
+                act(() => {
+                    rejectGet?.('teardown');
+                });
+                resolveGet = undefined;
+                rejectGet = undefined;
+            }
+
             Reflect.deleteProperty(window, 'OTPCredential');
-            Object.defineProperty(navigator, 'credentials', {
-                configurable: true,
-                value: originalCredentialsGet,
-            });
+            if (originalCredentials) {
+                Object.defineProperty(navigator, 'credentials', originalCredentials);
+            } else {
+                Reflect.deleteProperty(navigator, 'credentials');
+            }
             jest.restoreAllMocks();
         });
 
@@ -212,6 +232,28 @@ describe('CodeInput', () => {
             });
 
             unmount();
+        });
+
+        it('should ignore a late code after unmount', async () => {
+            const onChange = jest.fn();
+            const onComplete = jest.fn();
+
+            const { unmount } = render(<CodeInput onChange={onChange} onComplete={onComplete} />);
+
+            expect(mockGet).toHaveBeenCalledTimes(1);
+
+            unmount();
+
+            // Запрос разрешается уже после размонтирования: код должен быть
+            // отброшен, onChange/onComplete не вызываются.
+            act(() => {
+                resolveGet?.({ code: '1234' });
+            });
+
+            await waitFor(() => {
+                expect(onChange).not.toHaveBeenCalled();
+                expect(onComplete).not.toHaveBeenCalled();
+            });
         });
     });
 
