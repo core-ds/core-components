@@ -1,5 +1,17 @@
 # @alfalab/core-components-skeleton
 
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#1964](https://github.com/core-ds/core-components/pull/1964)
+
+##### Skeleton
+
+- Скелетон текста рендерится на SSR по fallback-параметрам, без ожидания layout-effect.
+
 ## 7.0.4
 
 ### Patch Changes
