@@ -10,5 +10,8 @@ export const TabBarIslandTrailingIconButton: FC<TabBarIslandTrailingIconButtonPr
     className,
     ...restProps
 }) => (
-    <TabBarIslandEntry {...restProps} role='button' className={cn(styles.component, className)} />
+    <div className={styles.component}>
+        <div className={styles.underlay} />
+        <TabBarIslandEntry {...restProps} role='button' className={cn(styles.button, className)} />
+    </div>
 );
