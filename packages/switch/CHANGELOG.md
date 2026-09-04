@@ -1,5 +1,13 @@
 # @alfalab/core-components-switch
 
+## 6.2.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.5
+
 ## 6.2.0
 
 ### Minor Changes

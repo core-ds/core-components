@@ -1,5 +1,14 @@
 # @alfalab/core-components-pure-cell
 
+## 6.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.11
+- @alfalab/core-components-comment@4.0.11
+
 ## 6.0.13
 
 ### Patch Changes

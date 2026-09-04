@@ -1,5 +1,87 @@
 # @alfalab/core-components
 
+## 50.29.1
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2331](https://github.com/core-ds/core-components/pull/2331)
+
+##### UniversalModal
+
+- Механизм ограничения ширины и высоты переведён с инлайн-вычисления по вьюпорту на статически сгенерированные CSS-классы
+- Оптимизирован расчёт высоты скроллбара
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2342](https://github.com/core-ds/core-components/pull/2342)
+
+##### FileUploadItem
+
+- Исправлено отображение размера пустого файла
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#1964](https://github.com/core-ds/core-components/pull/1964)
+
+##### Skeleton
+
+- Скелетон текста рендерится на SSR по fallback-параметрам, без ожидания layout-effect.
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2330](https://github.com/core-ds/core-components/pull/2330)
+
+##### PopupSheet
+
+- Добавлен safe-area для `PopupSheet`. Контент и кнопки не перекрываются системной областью свайпа.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.2.5
+- @alfalab/core-components-file-upload-item@8.2.1
+- @alfalab/core-components-skeleton@7.0.5
+- @alfalab/core-components-popup-sheet@3.0.16
+- @alfalab/core-components-calendar-with-skeleton@7.0.17
+- @alfalab/core-components-segmented-control@3.1.6
+- @alfalab/core-components-select@19.2.6
+- @alfalab/core-components-switch@6.2.1
+- @alfalab/core-components-tabs@10.0.26
+- @alfalab/core-components-typography@6.0.11
+- @alfalab/core-components-custom-picker-button@4.1.18
+- @alfalab/core-components-input-autocomplete@14.0.24
+- @alfalab/core-components-international-phone-input@4.0.24
+- @alfalab/core-components-intl-phone-input@11.0.24
+- @alfalab/core-components-picker-button@13.1.2
+- @alfalab/core-components-select-with-tags@10.1.19
+- @alfalab/core-components-table@4.0.25
+- @alfalab/core-components-accordion@3.0.11
+- @alfalab/core-components-calendar@9.1.13
+- @alfalab/core-components-chart@5.0.11
+- @alfalab/core-components-circular-progress-bar@5.0.11
+- @alfalab/core-components-comment@4.0.11
+- @alfalab/core-components-confirmation@15.2.1
+- @alfalab/core-components-gallery@7.4.1
+- @alfalab/core-components-list@5.0.12
+- @alfalab/core-components-list-header@5.0.11
+- @alfalab/core-components-markdown@3.0.16
+- @alfalab/core-components-navigation-bar@3.0.13
+- @alfalab/core-components-navigation-bar-private@2.0.14
+- @alfalab/core-components-product-cover@3.2.6
+- @alfalab/core-components-pure-cell@6.0.14
+- @alfalab/core-components-stepped-progress-bar@4.0.11
+- @alfalab/core-components-tab-bar@4.0.12
+- @alfalab/core-components-calendar-input@12.0.19
+- @alfalab/core-components-calendar-range@9.1.5
+- @alfalab/core-components-date-range-input@5.0.19
+- @alfalab/core-components-date-time-input@6.0.19
+- @alfalab/core-components-universal-date-input@4.0.19
+- @alfalab/core-components-bottom-sheet@8.1.13
+- @alfalab/core-components-modal@11.0.16
+- @alfalab/core-components-side-panel@7.1.1
+- @alfalab/core-components-tooltip@9.0.19
+
 ## 50.29.0
 
 ### Minor Changes
