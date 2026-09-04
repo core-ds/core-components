@@ -59,11 +59,7 @@ async function startOtpRequest(): Promise<void> {
 
         if (typeof code === 'string') {
             subscribers.forEach((subscriber) => {
-                try {
-                    subscriber(code);
-                } catch {
-                    // Игнорируем ошибки отдельных подписчиков.
-                }
+                subscriber(code);
             });
         }
     } catch {
