@@ -1,10 +1,26 @@
 @import '@alfalab/core-components-tab-bar-island/src/vars.css';
 
 .component {
-    border-radius: var(--tab-bar-island-border-radius);
-    background: var(--tab-bar-island-background);
-    box-shadow: var(--tab-bar-island-box-shadow);
     padding: var(--gap-4);
     margin-left: var(--gap-8);
+    position: relative;
+}
+
+.underlay,
+.underlay:before {
+    position: absolute;
+    inset: 0;
+}
+
+.underlay {
+    @mixin tar-bar-island-underlay;
+
+    &:before {
+        content: '';
+        @mixin tar-bar-island-border;
+    }
+}
+
+.button {
     max-width: calc(var(--tab-bar-island-tab-max-size) - 2 * var(--gap-4));
 }

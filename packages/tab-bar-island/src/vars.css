@@ -10,4 +10,28 @@
     --tab-bar-island-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
     --tab-bar-island-tab-color: var(--color-light-text-secondary);
     --tab-bar-island-tab-active-color: var(--color-light-accent-secondary);
+    --tab-bar-island-tab-tracker-backround-color: var(--color-light-neutral-translucent-200);
+    --tab-bar-island-opacity: 0.56;
+    --tab-bar-island-backdrop-filter: blur(5px);
+}
+
+@define-mixin tar-bar-island-underlay {
+    border-radius: var(--tab-bar-island-border-radius);
+    box-shadow: var(--tab-bar-island-box-shadow);
+    backdrop-filter: var(--tab-bar-island-backdrop-filter);
+    opacity: var(--tab-bar-island-opacity);
+}
+
+@define-mixin tar-bar-island-border {
+    border: double 1px transparent;
+    border-radius: var(--tab-bar-island-border-radius);
+    background-image:
+        linear-gradient(var(--tab-bar-island-background), var(--tab-bar-island-background)),
+        linear-gradient(
+            95deg,
+            transparent 0%,
+            var(--color-light-neutral-translucent-700-inverted) 100%
+        );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
