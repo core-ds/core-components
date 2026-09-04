@@ -12,6 +12,8 @@
  * render-процесс в Chromium/Яндекс Браузере. Вместо этого просто убираем
  * подписчика из списка: полученный код и так не будет применён к нему.
  */
+import { noop } from '@alfalab/core-components-shared';
+
 import { type CredentialOtp, type CredentialRequestOtpOptions } from './typings';
 
 type OtpSubscriber = (code: string) => void;
@@ -27,7 +29,7 @@ export function subscribeWebOtp(onCode: OtpSubscriber): () => void {
     const isOtpSupported = 'OTPCredential' in window && Boolean(navigator?.credentials?.get);
 
     if (!isOtpSupported) {
-        return () => undefined;
+        return noop;
     }
 
     subscribers.add(onCode);
