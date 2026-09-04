@@ -8,9 +8,12 @@
 }
 
 .underlay {
-    border-radius: var(--tab-bar-island-border-radius);
-    background: var(--tab-bar-island-background);
-    box-shadow: var(--tab-bar-island-box-shadow);
+    @mixin tar-bar-island-underlay;
+
+    &:before {
+        content: '';
+        @mixin tar-bar-island-border;
+    }
 }
 
 .wrapper {
@@ -25,7 +28,8 @@
 }
 
 .track,
-.underlay {
+.underlay,
+.underlay:before {
     position: absolute;
     inset: 0;
 }
@@ -54,7 +58,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: var(--color-light-neutral-translucent-200);
+    background: var(--tab-bar-island-tab-tracker-backround-color);
     will-change: width, height, border-radius;
 }
 
