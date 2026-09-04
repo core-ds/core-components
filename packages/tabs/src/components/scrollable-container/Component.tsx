@@ -24,9 +24,9 @@ export type ScrollableContainerProps = {
     containerClassName?: string;
 
     /**
-     * Дополнительный класс кнопок прокрутки
+     * Дополнительный класс для контейнера кнопок прокрутки
      */
-    scrollControlsClassName?: string;
+    scrollControlsContainerClassName?: string;
 
     /**
      * Дополнительный класс для кнопок прокрутки
@@ -76,7 +76,7 @@ const isOverflown = (
 export const ScrollableContainer = ({
     containerWrapperClassName,
     containerClassName,
-    scrollControlsClassName,
+    scrollControlsContainerClassName,
     scrollControlsButtonClassName,
     children,
     activeChild,
@@ -150,7 +150,7 @@ export const ScrollableContainer = ({
             </div>
             {overflown && platform === 'desktop' ? (
                 <ScrollControls
-                    className={scrollControlsClassName}
+                    className={scrollControlsContainerClassName}
                     buttonClassName={scrollControlsButtonClassName}
                     ref={controlsRef}
                     containerRef={containerRef}
