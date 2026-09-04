@@ -8,12 +8,7 @@ import {
     useState,
 } from 'react';
 
-import {
-    fnUtils,
-    getDataTestId,
-    getElementWindow,
-    useIsMounted,
-} from '@alfalab/core-components-shared';
+import { getDataTestId, getElementWindow, noop } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_SEPARATOR } from './consts';
@@ -225,8 +220,9 @@ export function useVirtualVisibleOptions({
 
             const win = getElementWindow(list);
 
-            nextHeight += ['::before', '::after']
-                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+            nextHeight += [...(list.parentNode?.children ?? [])]
+                .filter((el) => el.getAttribute('data-options-list-padding'))
+                .map((el) => parseFloat(win.getComputedStyle(el).paddingTop) || 0)
                 .reduce((a, b) => a + b);
 
             setHeight(nextHeight);
@@ -244,8 +240,6 @@ export function useVisibleOptions({
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
-    const [, runIfMounted] = useIsMounted();
-    const [measured, setMeasured] = useState(false);
     const [height, setHeight] = useState<number | undefined>();
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -300,23 +294,18 @@ export function useVisibleOptions({
 
             const win = getElementWindow(list);
 
-            measuredHeight += ['::before', '::after']
-                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+            measuredHeight += [...(list.parentNode?.children ?? [])]
+                .filter((el) => el.getAttribute('data-options-list-padding'))
+                .map((el) => parseFloat(win.getComputedStyle(el).paddingTop) || 0)
                 .reduce((a, b) => a + b);
 
             setHeight(measuredHeight);
-
-            setMeasured(true);
-
-            return () => {
-                runIfMounted(() => setMeasured(false));
-            };
         }
 
-        return fnUtils.noop;
-    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, runIfMounted]);
+        return noop;
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions]);
 
-    return [measured, height] as const;
+    return [false, height] as const;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {

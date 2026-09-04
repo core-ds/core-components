@@ -1,5 +1,116 @@
 # @alfalab/core-components
 
+## 50.29.0
+
+### Minor Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2323](https://github.com/core-ds/core-components/pull/2323)
+
+##### Gallery
+
+- Добавлена возможность передать дополнительную кнопку в шапку галереи
+
+### Patch Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2338](https://github.com/core-ds/core-components/pull/2338)
+
+##### Carousel
+
+- Исправлена анимация удаления элемента карусели
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-gallery@7.4.0
+- @alfalab/core-components-carousel@1.1.4
+
+## 50.28.0
+
+### Minor Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2307](https://github.com/core-ds/core-components/pull/2307)
+
+##### Checkbox
+
+- Добавлен проп `compact` для компактного текста подписи (`paragraph_primary_small`, 14/20)
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2325](https://github.com/core-ds/core-components/pull/2325)
+
+##### Tag
+
+- Для `size={48}` исправлен `min-width`: 64px → 72px
+- В `IndicatorTag` добавлен размер 56 (геометрия 56×56)
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2307](https://github.com/core-ds/core-components/pull/2307)
+
+##### Switch
+
+- Добавлен проп `size` (`20 | 24`, по умолчанию `24`):
+    - `20` — компактный размер (32×20)
+- Добавлен проп `compact` для компактного текста подписи (`paragraph_primary_small`, 14/20)
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2307](https://github.com/core-ds/core-components/pull/2307)
+
+##### Radio
+
+- Добавлен проп `controlPosition` (`start` | `end`) — положение радиокнопки относительно контента
+- Добавлен проп `compact` для компактного текста подписи (`paragraph_primary_small`, 14/20)
+
+### Patch Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2329](https://github.com/core-ds/core-components/pull/2329)
+
+##### PickerButton, Select
+
+- Исправлен перенос текста опции
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2295](https://github.com/core-ds/core-components/pull/2295)
+
+##### SegmentedControl
+
+- Исправлено отображение выбранного сегмента после выхода из состояния скелетона
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2336](https://github.com/core-ds/core-components/pull/2336)
+
+##### Select
+
+- Исправлена высота `OptionsList` при изменении размера содержимого
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-checkbox@6.3.0
+- @alfalab/core-components-tag@10.3.0
+- @alfalab/core-components-picker-button@13.1.1
+- @alfalab/core-components-select@19.2.5
+- @alfalab/core-components-switch@6.2.0
+- @alfalab/core-components-segmented-control@3.1.5
+- @alfalab/core-components-radio@6.1.0
+- @alfalab/core-components-pagination@4.0.9
+- @alfalab/core-components-select-with-tags@10.1.18
+- @alfalab/core-components-tabs@10.0.25
+- @alfalab/core-components-custom-picker-button@4.1.17
+- @alfalab/core-components-input-autocomplete@14.0.23
+- @alfalab/core-components-international-phone-input@4.0.23
+- @alfalab/core-components-intl-phone-input@11.0.23
+- @alfalab/core-components-table@4.0.24
+
 ## 50.27.0
 
 ### Minor Changes

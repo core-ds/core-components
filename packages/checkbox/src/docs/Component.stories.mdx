@@ -27,7 +27,8 @@ import Changelog from '../../CHANGELOG.md?raw';
         const block = boolean('block', false);
         const addons = text('addons');
         const align = select('align', ['start', 'center']);
-        const position = select('position', ['before', 'after'], 'before');
+        const controlPosition = select('controlPosition', ['start', 'end'], 'start');
+        const compact = boolean('compact', false);
 
         return (
             <div
@@ -51,7 +52,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                     block={block}
                     addons={addons}
                     align={align}
-                    position={position}
+                    controlPosition={controlPosition}
                     onChange={handleChange}
                     checked={checked || checkedKnob}
                     label={label}
@@ -59,10 +60,12 @@ import Changelog from '../../CHANGELOG.md?raw';
                     hint={hint}
                     error={error}
                     colors={colors}
+                    compact={compact}
                 />
             </div>
         );
     })}
+
 </Story>
 
 {/* Docs */}

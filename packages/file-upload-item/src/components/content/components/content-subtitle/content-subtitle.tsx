@@ -56,7 +56,7 @@ export const ContentSubtitle = () => {
     if (showMeta) {
         return (
             <div>
-                {size && (
+                {size !== undefined && size !== '' && (
                     <TypographyText className={styles.size} view='primary-small' color='secondary'>
                         {humanFileSize(size)}
                     </TypographyText>

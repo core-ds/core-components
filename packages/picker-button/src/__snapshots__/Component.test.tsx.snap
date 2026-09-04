@@ -412,6 +412,9 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             class=""
                           >
                             <div
+                              data-options-list-padding="top"
+                            />
+                            <div
                               class=""
                             >
                               <div
@@ -745,6 +748,9 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
+                            <div
+                              data-options-list-padding="bottom"
+                            />
                           </div>
                         </div>
                       </div>
@@ -925,6 +931,9 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                           <div
                             class=""
                           >
+                            <div
+                              data-options-list-padding="top"
+                            />
                             <div
                               class=""
                             >
@@ -1259,6 +1268,9 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
+                            <div
+                              data-options-list-padding="bottom"
+                            />
                           </div>
                         </div>
                       </div>
