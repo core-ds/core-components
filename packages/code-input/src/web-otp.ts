@@ -57,24 +57,22 @@ async function startOtpRequest(): Promise<void> {
         const otp: CredentialOtp | null = await navigator.credentials.get(options);
         const code = otp?.code;
 
-        if (typeof code !== 'string') {
-            return;
+        if (typeof code === 'string') {
+            subscribers.forEach((subscriber) => {
+                try {
+                    subscriber(code);
+                } catch {
+                    // Игнорируем ошибки отдельных подписчиков.
+                }
+            });
         }
-
-        subscribers.forEach((subscriber) => {
-            try {
-                subscriber(code);
-            } catch {
-                // Игнорируем ошибки отдельных подписчиков.
-            }
-        });
     } catch {
         // Отклонение запроса (таймаут/отмена браузером) — игнорируем.
-    } finally {
-        /*
-         * Запрос завершён: позволяем переиспользовать объект
-         * для последующей подписки (новый цикл SMS).
-         */
-        requestStarted = false;
     }
+
+    /*
+     * Запрос завершён: позволяем переиспользовать объект
+     * для последующей подписки (новый цикл SMS).
+     */
+    requestStarted = false;
 }
