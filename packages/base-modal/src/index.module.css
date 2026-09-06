@@ -40,6 +40,14 @@ body:global(.is-locked) {
     flex-direction: column;
     flex: 1;
 
+    /*
+       Фикс для Safari 26.1:
+       Заменяем height: 100% на auto, чтобы контент не растягивался на весь экран.
+    */
+    @supports (background: -webkit-named-image(apple-pay-logo-black)) {
+        height: auto;
+    }
+
     &.hasFooter {
         @media (display-mode: standalone) {
             padding-bottom: unset;
