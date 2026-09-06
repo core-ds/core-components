@@ -30,6 +30,11 @@ on:
                 type: string
                 required: false
 
+concurrency:
+    group: 'deploy-demo-${{ inputs.deploy-repository }}'
+    cancel-in-progress: false
+    queue: max
+
 defaults:
     run:
         shell: bash
