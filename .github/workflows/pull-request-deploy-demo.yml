@@ -33,7 +33,6 @@ jobs:
                       const data = JSON.parse(content);
 
                       core.setOutput('number', data.number);
-                      core.setOutput('repository', data.head.repo.full_name);
                       core.setOutput('sha', data.head.sha);
 
     deploy:
@@ -44,5 +43,5 @@ jobs:
         with:
             version: ${{ needs.pull-request.outputs.sha }}
             directory: ${{ needs.pull-request.outputs.number }}
-            deploy-repository: ${{ needs.pull-request.outputs.repository }}
+            deploy-repository: 'core-ds/deploy-core-components'
             pull-request-number: ${{ needs.pull-request.outputs.number }}
