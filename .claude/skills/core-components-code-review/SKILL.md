@@ -1,10 +1,10 @@
 ---
-name: review
+name: core-components-code-review
 description: Review a Pull Request or diff in the @alfalab/core-components UI library — correctness bugs, public API/breaking changes, accessibility, keyboard/focus/pointer interaction, component states, visual/layout regressions, SSR/browser compatibility, performance, and test coverage. Use when asked to review a PR, review changes to a component under packages/*, or check a diff before merge.
 license: MIT
 ---
 
-# Review Skill
+# Core Components Code Review Skill
 
 ## Назначение
 
