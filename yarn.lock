@@ -223,6 +223,7 @@ __metadata:
     "@alfalab/core-components-navigation-bar-private": "npm:^2.0.13"
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/core-components-types": "npm:^2.0.1"
+    "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-div-100vh: "npm:^0.7.0"
     react-merge-refs: "npm:^1.1.0"

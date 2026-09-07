@@ -26,7 +26,7 @@
 
 .satProbe {
     position: fixed;
-    padding-top: env(safe-area-inset-top, 0px);
+    padding-top: env(safe-area-inset-top, 0);
     visibility: hidden;
     pointer-events: none;
 }
