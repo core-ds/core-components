@@ -32,6 +32,38 @@ description: Public API compatibility and breaking-change checklist for core-com
 - **Major changeset обязан содержать инструкцию миграции** — не просто "breaking change в Button", а конкретное "используйте `view='outlined'` вместо `view='tertiary'`". Changeset без миграционной инструкции при breaking change — сам по себе finding (P2: авторам будущих апдейтов будет сложнее мигрировать).
 - Breaking change **без changeset вообще**, либо с changeset неверного типа (например, `patch` при фактическом removal) — P1: это будет означать, что потребители не получат корректный major-бамп версии и словят breaking change как обычный minor/patch апдейт.
 
+## Формат оформления changeset-файла
+
+Помимо корректности bump-типа (см. выше), проверяй и оформление самого файла `.changeset/*.md`.
+
+### Синтаксис
+
+```markdown
+---
+'@alfalab/core-components-<name>': major|minor|patch
+---
+
+- Текст изменения
+```
+
+- Имя пакета — в одинарных кавычках, полное npm-имя (`@alfalab/core-components-<name>`), не короткое имя папки в `packages/*`.
+- **Рутовый пакет `@alfalab/core-components` в frontmatter указывать не нужно** — по актуальному соглашению проекта его не добавляют явно. Он в любом случае получает bump автоматически. Явное добавление root вместе с компонентным пакетом — устаревший паттерн, к текущим PR это требование не относится и как finding не отмечается.
+- Описание изменений — маркированный список (`-`), на русском языке.
+
+### Несколько изменений/пакетов в одном PR
+
+- Если PR затрагивает несколько **не связанных друг с другом** пакетов/компонентов — предпочтительнее оформить отдельный changeset-файл на каждый пакет, без заголовков внутри.
+- Если несколько пакетов меняются вместе как одна логически связанная доработка и удобнее описать это одним файлом — внутри файла каждый компонент отбивается заголовком `##### ComponentName` (человекочитаемое имя компонента, а не npm-имя пакета), под которым идёт список изменений именно этого компонента. Если несколько компонентов получили одно и то же изменение — заголовок может перечислять их через запятую (`##### FirstComponent, SecondComponent`).
+- Если PR содержит много разноплановых изменений (не только разные пакеты, но и разные, слабо связанные доработки) — лучше разбить их на несколько отдельных changeset-файлов, чем описывать всё одним большим списком в одном файле.
+
+### Пакеты вне версионирования
+
+Пакеты из `ignore` в `.changeset/config.json` (`@alfalab/core-components-env`, `@alfalab/core-components-screenshot-utils`, `@alfalab/core-components-test-utils`, `@alfalab/core-components-tsconfig-node24-backport`) не версионируются — changeset для изменений в них не нужен вообще.
+
+### Новый компонент
+
+Для PR, добавляющего совершенно новый компонент, есть отдельное правило: bump — `major`, версия в `package.json` нового пакета — `0.0.0`, а в тексте changeset обязательно должна быть фраза "новый компонент `${name}`". Отсутствие любого из трёх условий (bump не `major`, версия не `0.0.0`, нет обязательной фразы) — finding.
+
 ## Мягкий deprecation ≠ breaking removal
 
 Проект различает два разных действия, и путать их — источник ложных findings:
@@ -56,15 +88,12 @@ description: Public API compatibility and breaking-change checklist for core-com
 ```markdown
 ---
 '@alfalab/core-components-button': major
-'@alfalab/core-components': major
 ---
-
-##### Button
 
 - Удален `view='tertiary'` у компонента `Button`, используйте `view='outlined'`.
 ```
 
-Это эталон: сужение union-типа → `major` bump на пакет и на корневой `@alfalab/core-components` → миграционная инструкция прямо в changeset.
+Это эталон: сужение union-типа → `major` bump → миграционная инструкция прямо в changeset.
 
 ### Мягкий deprecation (patch) — `fix(shared): getColorVar is deprecated` (`c92eb6932`)
 
@@ -90,3 +119,6 @@ description: Public API compatibility and breaking-change checklist for core-com
 | PR меняет `packages/*/src` без changeset вообще | **P1**, если меняет поведение/API; **P2**, если только внутренний рефакторинг без внешнего эффекта |
 | `@deprecated` в JSDoc без изменения поведения, есть `patch` changeset | не finding |
 | Аддитивный prop/экспорт с `minor` changeset | не finding |
+| Новый компонент добавлен без выполнения спецправила (bump не `major` и/или версия не `0.0.0` и/или нет фразы "новый компонент `${name}`") | **P2** |
+| Нарушено оформление (нет `#####`-заголовков при нескольких логически связанных компонентах в одном файле, либо заголовок стоит там, где он не нужен) | **P3** |
+| Changeset создан для пакета из `ignore`-списка `.changeset/config.json` | **P3** (избыточно, не блокирует) |
