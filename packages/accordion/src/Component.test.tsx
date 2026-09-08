@@ -97,9 +97,9 @@ describe('Accordion', () => {
         });
 
         it('should set "expanded" prop', () => {
-            const { container, debug } = renderComponent({ expanded: true });
+            const { container } = renderComponent({ expanded: true });
 
-            const expandedClassName = 'expandedBody';
+            const expandedClassName = 'expanded';
             const body = container.querySelector(`.${expandedClassName}`);
 
             expect(body).toHaveClass(expandedClassName);
