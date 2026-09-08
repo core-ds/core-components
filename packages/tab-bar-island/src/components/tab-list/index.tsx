@@ -1,5 +1,6 @@
 import React, { type FC, useMemo, useState } from 'react';
 
+import { Underlay } from '@alfalab/core-components-tab-bar-island/components/underlay';
 import { usePillAnimation } from '@alfalab/core-components-tab-bar-island/hooks/use-pill-animation';
 import { type TabBarIslandTabListProps } from '@alfalab/core-components-tab-bar-island/types';
 
@@ -40,7 +41,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
 
     return (
         <div role='tablist' className={styles.list} ref={listRef}>
-            <div className={styles.underlay} ref={underlayRef} />
+            <Underlay className={styles.underlay} ref={underlayRef} />
             <div
                 className={styles.wrapper}
                 ref={wrapperRef}
