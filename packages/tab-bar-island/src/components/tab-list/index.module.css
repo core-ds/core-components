@@ -7,15 +7,6 @@
     position: relative;
 }
 
-.underlay {
-    @mixin tar-bar-island-underlay;
-
-    &:before {
-        content: '';
-        @mixin tar-bar-island-border;
-    }
-}
-
 .wrapper {
     display: flex;
     max-width: 100%;
@@ -28,8 +19,7 @@
 }
 
 .track,
-.underlay,
-.underlay:before {
+.underlay {
     position: absolute;
     inset: 0;
 }
