@@ -417,6 +417,23 @@ select[name] {
     width: 100%;
 }
 
+/*
+ * Storybook docs theme hardcodes textColor (#0B1F35) and even-row bg (#f7fafc).
+ * Neither follows dark mode — remap via design tokens.
+ */
+.sbdocs.sbdocs-content :where(h1, h2, h3, h4, h5, h6, li, p, td, th) {
+    color: var(--color-light-text-primary);
+}
+
+.sbdocs.sbdocs-content table tr:nth-of-type(2n) {
+    background-color: var(--color-light-neutral-translucent-100);
+}
+
+.sbdocs.sbdocs-content table td,
+.sbdocs.sbdocs-content table th {
+    border-color: var(--color-light-neutral-300);
+}
+
 div.github-doc {
     display: none;
 }

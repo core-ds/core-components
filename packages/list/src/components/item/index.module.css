@@ -1,7 +1,7 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 :root {
-    --list-marker-color: var(--color-light-text-primary);
+    --list-marker-color: currentColor;
     --list-item-margin: var(--gap-12);
 }
 
