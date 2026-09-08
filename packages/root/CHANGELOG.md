@@ -1,5 +1,22 @@
 # @alfalab/core-components
 
+## 50.29.2
+
+### Patch Changes
+
+<sup><time>08.09.2026</time></sup>
+
+#### [#2344](https://github.com/core-ds/core-components/pull/2344)
+
+##### CodeInput
+
+- Исправлено аварийное закрытие вкладки браузера при размонтировании компонента во время ожидания SMS-кода (воспроизводилось в Яндекс Браузере)
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-code-input@5.1.2
+- @alfalab/core-components-confirmation@15.2.2
+
 ## 50.29.1
 
 ### Patch Changes

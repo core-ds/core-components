@@ -1,5 +1,13 @@
 # @alfalab/core-components-confirmation
 
+## 15.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-code-input@5.1.2
+
 ## 15.2.1
 
 ### Patch Changes
