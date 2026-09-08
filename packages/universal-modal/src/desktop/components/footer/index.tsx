@@ -10,12 +10,7 @@ import layoutStyles from './layout.module.css';
 
 const FOOTER_MEDIUM_BREAKPOINT = 800;
 
-export interface FooterDesktopProps extends FooterProps {
-    /**
-     * Размер (только для desktop версии компонента)
-     */
-    size?: 's' | 500;
-}
+export type FooterDesktopProps = FooterProps;
 
 export const FooterDesktop = forwardRef<HTMLDivElement, FooterDesktopProps>((props, ref) => {
     const { className, sticky, layout = 'start', ...restProps } = props;
