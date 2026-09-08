@@ -58,6 +58,7 @@
         "packages/global-store",
         "packages/grid",
         "packages/hatching-progress-bar",
+        "packages/headless-collapse",
         "packages/icon-button",
         "packages/icon-view",
         "packages/indicator",
