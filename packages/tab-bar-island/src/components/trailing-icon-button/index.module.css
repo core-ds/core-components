@@ -6,19 +6,9 @@
     position: relative;
 }
 
-.underlay,
-.underlay:before {
+.underlay {
     position: absolute;
     inset: 0;
-}
-
-.underlay {
-    @mixin tar-bar-island-underlay;
-
-    &:before {
-        content: '';
-        @mixin tar-bar-island-border;
-    }
 }
 
 .button {
