@@ -1,7 +1,6 @@
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import { CodeInputDesktop as CodeInput } from './desktop';
 
@@ -136,6 +135,125 @@ describe('CodeInput', () => {
             const { getByTestId } = render(<CodeInput className={className} dataTestId={testId} />);
 
             expect(getByTestId(testId)).toHaveClass(className);
+        });
+    });
+
+    describe('Web OTP tests', () => {
+        const originalCredentials = Object.getOwnPropertyDescriptor(navigator, 'credentials');
+
+        let resolveGet: ((res: { code: string }) => void) | undefined;
+
+        let rejectGet: ((reason?: unknown) => void) | undefined;
+
+        let mockGet: jest.Mock;
+
+        beforeEach(() => {
+            // jsdom не реализует Web OTP: подкладываем заглушку, чтобы
+            // условие 'OTPCredential' in window && navigator.credentials.get
+            // было истинным и OTP-ветка выполнилась.
+            Object.defineProperty(window, 'OTPCredential', {
+                configurable: true,
+                value: function OTPCredential() {},
+            });
+
+            // Каждый тест владеет своим mock и своими резолвером/режектором:
+            // счётчик вызовов и оба резолвера зануляются до старта нового теста.
+            resolveGet = undefined;
+            rejectGet = undefined;
+            mockGet = jest.fn(
+                () =>
+                    new Promise((resolve, reject) => {
+                        resolveGet = resolve;
+                        rejectGet = reject;
+                    }),
+            );
+
+            Object.defineProperty(navigator, 'credentials', {
+                configurable: true,
+                value: { get: mockGet },
+            });
+        });
+
+        afterEach(() => {
+            // Не оставляем висящий неразрешённый запрос: доводим его до конца,
+            // иначе хвосты промисов перетекают в следующий тест.
+            if (resolveGet || rejectGet) {
+                act(() => {
+                    rejectGet?.('teardown');
+                });
+                resolveGet = undefined;
+                rejectGet = undefined;
+            }
+
+            Reflect.deleteProperty(window, 'OTPCredential');
+            if (originalCredentials) {
+                Object.defineProperty(navigator, 'credentials', originalCredentials);
+            } else {
+                Reflect.deleteProperty(navigator, 'credentials');
+            }
+            jest.restoreAllMocks();
+        });
+
+        it('should not call credentials.get twice and should not abort on unmount', () => {
+            const abortSpy = jest.spyOn(AbortController.prototype, 'abort');
+
+            const { unmount } = render(<CodeInput />);
+
+            expect(mockGet).toHaveBeenCalledTimes(1);
+            expect(mockGet).toHaveBeenCalledWith(
+                expect.objectContaining({ otp: { transport: ['sms'] } }),
+            );
+
+            unmount();
+
+            expect(abortSpy).not.toHaveBeenCalled();
+        });
+
+        it('should run single Web OTP request for multiple code-inputs', async () => {
+            const { container, unmount } = render(
+                <>
+                    <CodeInput />
+                    <CodeInput />
+                </>,
+            );
+
+            // Один общий Web OTP-запрос на оба инстанса.
+            expect(mockGet).toHaveBeenCalledTimes(1);
+
+            act(() => {
+                resolveGet?.({ code: '1234' });
+            });
+
+            await waitFor(() => {
+                const filledInputs = Array.from(container.querySelectorAll('input')).filter(
+                    (input) => input.value !== '',
+                );
+                expect(filledInputs.length).toBeGreaterThan(0);
+            });
+
+            unmount();
+        });
+
+        it('should ignore a late code after unmount', async () => {
+            const onChange = jest.fn();
+            const onComplete = jest.fn();
+
+            const { unmount } = render(<CodeInput onChange={onChange} onComplete={onComplete} />);
+
+            expect(mockGet).toHaveBeenCalledTimes(1);
+
+            unmount();
+
+            // Запрос разрешается уже после размонтирования: код должен быть
+            // отброшен, onChange/onComplete не вызываются.
+            act(() => {
+                resolveGet?.({ code: '1234' });
+            });
+
+            await waitFor(() => {
+                expect(onChange).not.toHaveBeenCalled();
+                expect(onComplete).not.toHaveBeenCalled();
+            });
         });
     });
 

@@ -6,6 +6,7 @@ import {
     openBrowserPage,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -437,6 +438,30 @@ describe('SelectDesktop | screenshots addons', () => {
 
     ['default', 'site'].forEach((theme) => testCase(theme));
 });
+
+describe(
+    'SelectDesktop optionsListWidth',
+    screenshotTesting({
+        cases: generateTestCases({
+            packageName: 'select',
+            componentName: 'SelectDesktop',
+            knobs: {
+                options: JSON.stringify([
+                    { key: '1', content: 'Neptunium Neptunium Neptunium Neptunium Neptunium' },
+                    { key: '2', content: 'Plutonium' },
+                    { key: '3', content: 'Americium' },
+                    { key: '4', content: 'Curium' },
+                    { key: '5', content: 'Berkelium' },
+                    { key: '6', content: 'Californium' },
+                ]),
+                label: 'Элемент',
+                placeholder: 'Выберите элемент',
+                open: true,
+                optionsListWidth: ['field', 'content'],
+            },
+        }),
+    }),
+);
 
 describe('SelectMobile | screenshots addons', () => {
     const testCase = (theme: string) =>

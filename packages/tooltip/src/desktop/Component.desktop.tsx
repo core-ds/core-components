@@ -11,7 +11,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Popover } from '@alfalab/core-components-popover';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 
 import { type TooltipDesktopProps } from '../types';
 
@@ -48,7 +48,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     onOpen,
     getPortalContainer,
     view = 'tooltip',
-    targetRef = null,
+    targetRef: targetRefFromProps = null,
     fallbackPlacements,
     preventOverflow = true,
     availableHeight = false,
@@ -59,7 +59,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     withTransition = true,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
-    const [target, setTarget] = useState<HTMLElement | null>(null);
+    const [targetRef, target] = useRefAsState<HTMLElement>(null);
 
     const contentRef = useRef<HTMLDivElement | null>(null);
     const timer = useRef(0);
@@ -219,7 +219,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
 
     return (
         <Fragment>
-            <TargetTag ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
+            <TargetTag ref={mergeRefs([targetRefFromProps, targetRef])} {...getTargetProps()}>
                 {children.props.disabled && <div className={styles.overlap} />}
                 {children}
             </TargetTag>

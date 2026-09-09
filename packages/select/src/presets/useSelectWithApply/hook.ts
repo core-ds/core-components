@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import reactFastCompare from 'react-fast-compare';
 
 import { SELECT_ALL_KEY } from '../../consts';
@@ -90,6 +90,8 @@ export type UseSelectWithApplyProps = {
 
 const selectAllOption = { key: SELECT_ALL_KEY, content: 'Выбрать все' };
 
+const isSelectable = (option: OptionShape) => !option.disabled;
+
 export function useSelectWithApply({
     options,
     selected,
@@ -141,9 +143,27 @@ export function useSelectWithApply({
             ),
         [options, selected, showSearch, filterGroup, filterFn, accessor, search, groupAccessor],
     );
-    const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
+
+    const selectableOptions = useMemo(() => flatOptions.filter(isSelectable), [flatOptions]);
+
+    const [selectedDraft, setSelectedDraftState] = useState<OptionShape[]>(() =>
+        selectedOptions.filter(isSelectable),
+    );
+
+    const setSelectedDraft = useCallback((items: OptionShape[]) => {
+        setSelectedDraftState(items.filter(isSelectable));
+    }, []);
 
     const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
+
+    const selectedKeys = useMemo(() => selectedDraft.map(({ key }) => key), [selectedDraft]);
+
+    const allSelectableSelected = useMemo(
+        () =>
+            selectableOptions.length > 0 &&
+            selectableOptions.every(({ key }) => selectedKeys.includes(key)),
+        [selectableOptions, selectedKeys],
+    );
 
     const handleApply = () => {
         onChange({
@@ -165,21 +185,27 @@ export function useSelectWithApply({
     };
 
     const handleToggleAll = () => {
-        const optionsToSet = flatOptions.length === selectedDraft.length ? [] : flatOptions;
+        const optionsToSet = allSelectableSelected ? [] : selectableOptions;
 
         onSelectAllClick(optionsToSet);
         setSelectedDraft(optionsToSet);
     };
 
-    const selectedKeys = useMemo(() => selectedDraft.map(({ key }) => key), [selectedDraft]);
-
     const handleChange: Required<BaseSelectProps>['onChange'] = ({ initiator, ...restArgs }) => {
         if (!initiator) {
+            const selectedMultiple = (restArgs.selectedMultiple ?? []).filter(isSelectable);
+
             onChange({
                 initiator: null,
                 ...restArgs,
+                selected: selectedMultiple[0] ?? null,
+                selectedMultiple,
             });
 
+            return;
+        }
+
+        if (!isSelectable(initiator)) {
             return;
         }
 
@@ -187,12 +213,10 @@ export function useSelectWithApply({
             selectedDraft.some(
                 (selectedDraftOption) => selectedDraftOption.key === initiator.key,
             ) ||
-            (initiator.key === SELECT_ALL_KEY &&
-                (selectedDraft.length === flatOptions.length ||
-                    flatOptions.every(({ key }) => selectedKeys.includes(key))));
+            (initiator.key === SELECT_ALL_KEY && allSelectableSelected);
 
         if (initiator.key === SELECT_ALL_KEY) {
-            setSelectedDraft(initiatorSelected ? [] : flatOptions);
+            setSelectedDraft(initiatorSelected ? [] : selectableOptions);
         } else {
             setSelectedDraft(
                 initiatorSelected
@@ -210,7 +234,7 @@ export function useSelectWithApply({
             setSelectedDraft(selectedOptions);
         }
         selectedOptionsRef.current = selectedOptions;
-    }, [selectedOptions]);
+    }, [selectedOptions, setSelectedDraft]);
 
     const memoizedOptions = useMemo(
         () =>
@@ -234,10 +258,8 @@ export function useSelectWithApply({
             showHeaderWithSelectAll,
             headerProps: {
                 ...(optionsListProps as AnyObject)?.headerProps,
-                indeterminate: selectedDraft.length > 0,
-                checked:
-                    selectedDraft.length === flatOptions.length ||
-                    flatOptions.every(({ key }) => selectedKeys.includes(key)),
+                indeterminate: selectedDraft.length > 0 && !allSelectableSelected,
+                checked: allSelectableSelected,
                 onChange: handleToggleAll,
                 checkmarkPosition,
             },

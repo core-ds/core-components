@@ -162,6 +162,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         }}
                         contentNodeProps={{ className: contentNodeClassName }}
                     >
+                        <div data-options-list-padding='top' />
                         <div className={listNodeClassName} ref={listRef}>
                             {options.map((option) =>
                                 isGroup(option)
@@ -169,6 +170,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                                     : renderOption(option, counter()),
                             )}
                         </div>
+                        <div data-options-list-padding='bottom' />
                     </ScrollbarPrivate>
                 )}
 

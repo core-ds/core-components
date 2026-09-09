@@ -87,9 +87,11 @@
 }
 
 .content {
-    overflow: hidden;
     flex: 1;
-    text-overflow: ellipsis;
+}
+
+.textNoWrap {
+    white-space: nowrap;
 }
 
 .textContent {

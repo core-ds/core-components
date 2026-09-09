@@ -47,17 +47,27 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             (option: OptionShape, index: number) => {
                 const optionProps = defaultGetOptionProps(option, index);
 
-                const selected =
-                    option.key === SELECT_ALL_KEY
-                        ? selectedDraft.length === flatOptions.length - 1
-                        : selectedDraft.some(({ key }) => key === option.key);
+                if (option.key === SELECT_ALL_KEY) {
+                    const selectable = flatOptions.filter(
+                        ({ key, disabled }) => key !== SELECT_ALL_KEY && !disabled,
+                    );
+
+                    return {
+                        ...optionProps,
+                        selected:
+                            selectable.length > 0 &&
+                            selectable.every(({ key }) =>
+                                selectedDraft.some((draft) => draft.key === key),
+                            ),
+                    };
+                }
 
                 return {
                     ...optionProps,
-                    selected,
+                    selected: selectedDraft.some(({ key }) => key === option.key),
                 };
             },
-            [defaultGetOptionProps, flatOptions.length, selectedDraft],
+            [defaultGetOptionProps, flatOptions, selectedDraft],
         );
 
         const handleApply = useCallback(() => {

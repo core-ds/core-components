@@ -444,3 +444,108 @@ describe('Modal | content gap', () => {
         },
     })();
 });
+
+describe('Modal | scrollbar top gap', () => {
+    return screenshotTesting({
+        cases: [
+            [
+                'default',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                    },
+                }),
+            ],
+            [
+                'header | sticky=false',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'header.title': 'Заголовок',
+                        'header.sticky': false,
+                    },
+                }),
+            ],
+            [
+                'header | sticky=true',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'header.title': 'Заголовок',
+                        'header.sticky': true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        evaluate: async (page) => {
+            await page.waitForTimeout(500);
+
+            await page.$eval(
+                'div[role="dialog"] div[class*=scrollableNode]',
+                (el, value) => {
+                    el.scrollTop = value;
+                },
+                1,
+            );
+
+            await page.waitForTimeout(500);
+        },
+    })();
+});
+
+describe('Modal | scrollbar bottom gap', () => {
+    return screenshotTesting({
+        cases: [
+            [
+                'default',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                    },
+                }),
+            ],
+            [
+                'footer | sticky=true',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        evaluate: async (page) => {
+            await page.waitForTimeout(500);
+            await page.$eval('button[class*=showMoreButton]', (el) => {
+                el.scrollIntoView();
+            });
+            await page.waitForTimeout(500);
+        },
+    })();
+});

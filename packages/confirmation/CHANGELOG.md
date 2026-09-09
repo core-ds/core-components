@@ -1,5 +1,33 @@
 # @alfalab/core-components-confirmation
 
+## 15.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-code-input@5.1.2
+
+## 15.2.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.11
+
+## 15.2.0
+
+### Minor Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2271](https://github.com/core-ds/core-components/pull/2271)
+
+##### Confirmation
+
+- Добавлены CSS-переменные в `vars.css` для настройки отступов и размеров на всех экранах компонента для desktop и mobile версий (`INITIAL`, `HINT`, `TEMP_BLOCK`, `TEMP_BLOCK_OVER`, `FATAL_ERROR`)
+
 ## 15.1.1
 
 ### Patch Changes

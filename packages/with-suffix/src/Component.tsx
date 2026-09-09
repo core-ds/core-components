@@ -12,6 +12,7 @@ import cn from 'classnames';
 
 import { type InputProps } from '@alfalab/core-components-input';
 import { Portal } from '@alfalab/core-components-portal';
+import { useRefAsState } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 
@@ -49,7 +50,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
         ) => {
             const uncontrolled = value === undefined;
 
-            const [inputNode, setInputNode] = useState<HTMLInputElement | null>(null);
+            const [inputNodeRef, inputNode] = useRefAsState<HTMLInputElement>(null);
 
             const [stateValue, setStateValue] = useState(defaultValue || '');
 
@@ -92,7 +93,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
             return (
                 <Fragment>
                     <Input
-                        ref={mergeRefs([ref, setInputNode])}
+                        ref={mergeRefs([ref, inputNodeRef])}
                         value={visibleValue}
                         disabled={disabled}
                         readOnly={readOnly}

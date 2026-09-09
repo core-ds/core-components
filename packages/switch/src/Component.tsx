@@ -28,7 +28,7 @@ type Align = 'start' | 'center';
 
 export type SwitchProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'hint' | 'onChange' | 'disabled' | 'enterKeyHint'
+    'type' | 'hint' | 'onChange' | 'disabled' | 'enterKeyHint' | 'size'
 > & {
     /**
      * Управление состоянием вкл/выкл компонента
@@ -46,7 +46,26 @@ export type SwitchProps = Omit<
     hint?: ReactNode;
 
     /**
+     * Размер компонента
+     * @default 24
+     */
+    size?: 20 | 24;
+
+    /**
+     * Компактный текст подписи . Только для `size=20`
+     * @default false
+     */
+    compact?: boolean;
+
+    /**
+     * Положение переключателя относительно контента
+     * @default start
+     */
+    controlPosition?: 'start' | 'end';
+
+    /**
      * Переключатель будет отрисован справа от контента
+     * @deprecated Используйте prop controlPosition`
      */
     reversed?: boolean;
 
@@ -112,6 +131,7 @@ export type SwitchProps = Omit<
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
     (
         {
+            controlPosition,
             reversed = false,
             checked = false,
             align = 'start',
@@ -128,6 +148,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             dataTestId,
             colors = 'default',
             showSkeleton = false,
+            size = 24,
+            compact = false,
             'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
@@ -144,21 +166,23 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         };
 
         const errorMessage = typeof error === 'boolean' ? '' : error;
+        const isControlAtEnd = (controlPosition ?? (reversed ? 'end' : 'start')) === 'end';
 
         const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
 
         return (
             <label
-                className={cn(styles.component, styles[align], className, {
+                className={cn(styles.component, styles[align], styles[`size-${size}`], className, {
                     [styles.disabled]: disabled,
                     [colorStyles[colors].disabled]: disabled,
 
                     [styles.checked]: checked,
                     [colorStyles[colors].checked]: checked,
 
-                    [styles.reversed]: reversed,
+                    [styles.reversed]: isControlAtEnd,
                     [styles.focused]: focused,
                     [styles.block]: block,
+                    [styles.compact]: compact && size === 20,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >

@@ -86,7 +86,14 @@ server.registerTool(
             return toText(`Component "${component}" not found.`);
         }
 
-        return toText({ displayName: data.displayName, props: data.props });
+        const { subComponents } = data;
+        const hasSubComponents = subComponents && Object.keys(subComponents).length > 0;
+
+        return toText({
+            displayName: data.displayName,
+            props: data.props,
+            ...(hasSubComponents ? { subComponents } : {}),
+        });
     },
 );
 

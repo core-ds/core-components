@@ -70,6 +70,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                 Field={SelectField}
                 OptionsList={renderOptionsList}
                 preventFlip={preventFlip}
+                popoverProps={{ offset: [-12, 0] }}
             />
         </div>
     );

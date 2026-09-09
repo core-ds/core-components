@@ -107,16 +107,12 @@
     padding-right: var(--select-options-list-right-padding);
     padding-left: var(--select-options-list-left-padding);
     &:first-child {
-        .list:before {
-            content: '';
-            display: block;
+        [data-options-list-padding='top'] {
             padding-top: var(--select-options-list-top-padding);
         }
     }
     &:last-child {
-        .list:after {
-            content: '';
-            display: block;
+        [data-options-list-padding='bottom'] {
             padding-top: var(--select-options-list-bottom-padding);
         }
     }

@@ -1,5 +1,25 @@
 @import '../../vars.css';
 
-.header.header {
-    margin-bottom: var(--gap-24);
+.header {
+    && {
+        margin-bottom: var(--confirmation-header-margin-bottom);
+        font-family: var(--confirmation-header-font-family);
+        font-size: var(--confirmation-header-font-size);
+        font-weight: var(--confirmation-header-font-weight);
+        line-height: var(--confirmation-header-line-height);
+        letter-spacing: var(--confirmation-header-letter-spacing);
+        color: var(--confirmation-header-color);
+    }
+}
+
+.headerMobile {
+    && {
+        margin-bottom: var(--confirmation-header-margin-bottom-mobile);
+        font-family: var(--confirmation-header-font-family-mobile);
+        font-size: var(--confirmation-header-font-size-mobile);
+        font-weight: var(--confirmation-header-font-weight-mobile);
+        line-height: var(--confirmation-header-line-height-mobile);
+        letter-spacing: var(--confirmation-header-line-letter-spacing-mobile);
+        color: var(--confirmation-header-color-mobile);
+    }
 }

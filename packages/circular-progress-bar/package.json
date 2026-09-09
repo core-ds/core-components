@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-circular-progress-bar",
-    "version": "5.0.10",
+    "version": "5.0.11",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-shared": "^2.2.3",
-        "@alfalab/core-components-typography": "^6.0.10",
+        "@alfalab/core-components-typography": "^6.0.11",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

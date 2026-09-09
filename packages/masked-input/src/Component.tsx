@@ -11,6 +11,7 @@ import cn from 'classnames';
 import { createTextMaskInputElement, type TextMaskInputElement } from 'text-mask-core';
 
 import { Input, type InputProps } from '@alfalab/core-components-input';
+import { useRefAsState } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 
@@ -67,7 +68,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         },
         ref,
     ) => {
-        const [inputNode, setInputNode] = useState<HTMLInputElement | null>(null);
+        const [inputNodeRef, inputNode] = useRefAsState<HTMLInputElement>(null);
         const textMask = useRef<TextMaskInputElement | null>(null);
 
         const [inputValue, setInputValue] = useState(value || defaultValue || '');
@@ -142,7 +143,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                 value={inputValue}
                 onChange={handleInputChange}
                 onClear={handleClear}
-                ref={mergeRefs([ref, setInputNode])}
+                ref={mergeRefs([ref, inputNodeRef])}
             />
         );
     },

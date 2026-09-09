@@ -11,12 +11,8 @@ import cn from 'classnames';
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import {
-    type BaseCodeInputProps,
-    type CredentialOtp,
-    type CredentialRequestOtpOptions,
-    type CustomInputRef,
-} from '../../typings';
+import { type BaseCodeInputProps, type CustomInputRef } from '../../typings';
+import { subscribeWebOtp } from '../../web-otp';
 import { Input, type InputProps } from '../input';
 
 import { parseInputIdx, syncSelection } from './utils';
@@ -251,31 +247,22 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         }, [focus, values]);
 
         useEffect(() => {
-            let ac: AbortController | null = null;
-            const unMountReason = 'component unMount';
+            let mounted = true;
 
-            if ('OTPCredential' in window && navigator?.credentials?.get) {
-                ac = new AbortController();
-                const options: CredentialRequestOtpOptions = {
-                    otp: { transport: ['sms'] },
-                    signal: ac.signal,
-                };
-
-                navigator.credentials
-                    .get(options)
-                    .then((res: CredentialOtp | null) => {
-                        if (res?.code) handleChange(res.code, 0, true);
-                    })
-                    .catch((err) => {
-                        if (err !== unMountReason) {
-                            // eslint-disable-next-line no-console
-                            console.error(err);
-                        }
-                    });
-            }
+            /*
+             * Единый Web OTP-запрос (singleton-овнер). Овнер не абортит запрос
+             * при unmount: преждевременный abort на незавершённой OTP-интеракции
+             * ломает Mojo-контракт (bad Mojo message) и роняет render-процесс.
+             * Отписка лишь удаляет подписчика; код, полученный позже, к
+             * размонтированному компоненту не применяется.
+             */
+            const unsubscribe = subscribeWebOtp((code) => {
+                if (mounted && code) handleChange(code, 0, true);
+            });
 
             return () => {
-                if (ac) ac.abort(unMountReason);
+                mounted = false;
+                unsubscribe();
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);

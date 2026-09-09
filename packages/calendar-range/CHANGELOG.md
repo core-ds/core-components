@@ -1,5 +1,35 @@
 # @alfalab/core-components-calendar-range
 
+## 9.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.13
+- @alfalab/core-components-calendar-input@12.0.19
+- @alfalab/core-components-universal-date-input@4.0.19
+
+## 9.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.12
+- @alfalab/core-components-calendar-input@12.0.18
+- @alfalab/core-components-universal-date-input@4.0.18
+
+## 9.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-date-input@6.0.13
+- @alfalab/core-components-universal-date-input@4.0.17
+- @alfalab/core-components-calendar-input@12.0.17
+
 ## 9.1.2
 
 ### Patch Changes

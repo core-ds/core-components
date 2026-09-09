@@ -32,6 +32,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     innerProps,
     dataTestId,
     styles,
+    optionsListWidth = 'content',
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
@@ -62,6 +63,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
             <div
                 className={cn(styles.content, {
                     [styles.textContent]: !isValidElement(content),
+                    [styles.textNoWrap]: !mobile && optionsListWidth === 'content',
                 })}
             >
                 {content}

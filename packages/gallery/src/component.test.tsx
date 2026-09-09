@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
+import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import { Gallery, TestIds } from '.';
 
 const mockMatchMedia = (matches: boolean, query: string) => {
@@ -181,6 +182,58 @@ describe('Gallery desktop', () => {
 
             await waitFor(() => expect(modal).not.toBeInTheDocument());
         });
+
+        it('should close only by downward swipe', () => {
+            const onClose = jest.fn();
+
+            render(<Gallery open={true} images={images} onClose={onClose} />);
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 300 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchEnd(document);
+
+            expect(onClose).not.toHaveBeenCalled();
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 0, clientY: 300 }],
+            });
+
+            expect(onClose).toHaveBeenCalledTimes(1);
+        });
+
+        it('should reset swipe offset after close', () => {
+            const { baseElement, rerender } = render(
+                <Gallery open={true} images={images} onClose={() => null} />,
+            );
+
+            const container = baseElement.querySelector('[data-content-area="true"]');
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 0, clientY: 100 }],
+            });
+
+            expect(container).toHaveStyle({ transform: 'translateY(100px)' });
+
+            rerender(<Gallery open={false} images={images} onClose={() => null} />);
+
+            expect(container).toHaveStyle({ transform: 'translateY(0px)' });
+
+            rerender(<Gallery open={true} images={images} onClose={() => null} />);
+
+            expect(baseElement.querySelector('[data-content-area="true"]')).toHaveStyle({
+                transform: 'translateY(0px)',
+            });
+        });
     });
 
     describe('Fullscreen tests', () => {
@@ -248,6 +301,31 @@ describe('Gallery desktop', () => {
     });
 
     describe('Header tests', () => {
+        it('should handle custom button click and show its tooltip', async () => {
+            const handleCustomButtonClick = jest.fn();
+            const customButtonText = 'Показать сообщение';
+            const { getByTestId, getByText } = render(
+                <Gallery
+                    open={true}
+                    images={images}
+                    onClose={() => null}
+                    customButton={{
+                        text: customButtonText,
+                        icon: BubbleArrowRightMIcon,
+                        onClick: handleCustomButtonClick,
+                    }}
+                />,
+            );
+
+            const customButton = getByTestId(TestIds.CUSTOM_BUTTON);
+
+            fireEvent.click(customButton);
+            fireEvent.mouseOver(customButton);
+
+            expect(handleCustomButtonClick).toHaveBeenCalledTimes(1);
+            await waitFor(() => expect(getByText(customButtonText)).toBeInTheDocument());
+        });
+
         // broken in swiper@12
         xit('should display active image name and active index', () => {
             const initialSlide = 1;
@@ -314,6 +392,26 @@ describe('Gallery desktop', () => {
             fireEvent.click(previewButtons[2]);
 
             await waitForActiveImage(getByTestId, 2);
+        });
+
+        it('should stop dragging after mouseup outside navigation bar', () => {
+            const { getByTestId } = render(
+                <Gallery open={true} images={images} onClose={() => null} />,
+            );
+
+            const navigationBar = getByTestId(TestIds.NAVIGATION_BAR);
+
+            navigationBar.scrollLeft = 100;
+
+            fireEvent.mouseDown(navigationBar, { button: 0, clientX: 200 });
+            fireEvent.mouseMove(document, { clientX: 150 });
+
+            expect(navigationBar.scrollLeft).toBe(150);
+
+            fireEvent.mouseUp(document);
+            fireEvent.mouseMove(document, { clientX: 100 });
+
+            expect(navigationBar.scrollLeft).toBe(150);
         });
     });
 

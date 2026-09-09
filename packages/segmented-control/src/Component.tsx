@@ -137,6 +137,14 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     useLayoutEffect(() => {
         setSelectedBoxStylesRef.current = setSelectedBoxStyles;
+
+        if (skeleton?.visible) {
+            isInitialLayoutRef.current = true;
+            setSkipTransition(true);
+
+            return;
+        }
+
         setSelectedBoxStyles();
 
         if (isInitialLayoutRef.current) {
@@ -146,10 +154,10 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                 setSkipTransition(false);
             });
         }
-    }, [setSelectedBoxStyles]);
+    }, [setSelectedBoxStyles, skeleton?.visible]);
 
     useEffect(() => {
-        if (!wrapperRef.current) return undefined;
+        if (skeleton?.visible || !wrapperRef.current) return undefined;
 
         const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
@@ -158,7 +166,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         observer.observe(wrapperRef.current);
 
         return () => observer.disconnect();
-    }, []);
+    }, [skeleton?.visible]);
 
     if (skeleton?.visible) {
         return (

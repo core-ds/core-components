@@ -8,6 +8,7 @@ import {
 } from '@alfalab/core-components-input-autocomplete/desktop';
 import { type SelectProps } from '@alfalab/core-components-select';
 import { type OptionShape } from '@alfalab/core-components-select/shared';
+import { useRefAsState } from '@alfalab/core-components-shared';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 import { type Country, getCountries, getCountriesHash } from '@alfalab/utils';
 
@@ -136,7 +137,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         );
 
         const inputRef = useRef<HTMLInputElement>(null);
-        const [inputWrapperRef, setInputWrapperRef] = useState<HTMLDivElement | null>(null);
+        const [inputWrapperRef, inputWrapper] = useRefAsState<HTMLDivElement>(null);
 
         const [caretPos, setCaretPos] = useState<number>();
 
@@ -530,7 +531,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     ...inputProps,
                     onClear: handleClear,
                     ref: inputRef,
-                    wrapperRef: setInputWrapperRef,
+                    wrapperRef: inputWrapperRef,
                     type: 'tel',
                     colors,
                     className: cn(className, styles[`size-${size}`]),
@@ -554,7 +555,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                                 selected={countryIso2}
                                 countries={countries}
                                 onChange={handleSelectChange}
-                                fieldWidth={inputWrapperRef?.getBoundingClientRect().width ?? null}
+                                fieldWidth={inputWrapper?.getBoundingClientRect().width ?? null}
                                 preventFlip={preventFlip}
                             />
                         )

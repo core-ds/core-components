@@ -19,6 +19,7 @@ export const Header: FC = () => {
         onClose,
         mutedVideo,
         setMutedVideo,
+        customButton,
     } = useContext(GalleryContext);
 
     const currentImage = getCurrentImage();
@@ -95,6 +96,10 @@ export const Header: FC = () => {
                         download={currentImage?.name}
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
                     />
+                )}
+
+                {customButton && (
+                    <Buttons.CustomButton {...customButton} dataTestId={TestIds.CUSTOM_BUTTON} />
                 )}
 
                 <Buttons.Exit onClick={onClose} dataTestId={TestIds.CLOSE_BUTTON} />

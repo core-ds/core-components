@@ -64,6 +64,12 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     size?: 20 | 24;
 
     /**
+     * Компактный текст подписи Только для `size=20`
+     * @default false
+     */
+    compact?: boolean;
+
+    /**
      * Доп. класс чекбокса
      */
     boxClassName?: string;
@@ -129,8 +135,15 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     error?: ReactNode | boolean;
 
     /**
+     * Положение чекбокса относительно контента
+     * @default start
+     */
+    controlPosition?: 'start' | 'end';
+
+    /**
      * Позиция чекбокса относительно контента
      * @default 'before'
+     * @deprecated Используйте prop `controlPosition`
      */
     position?: 'before' | 'after';
 
@@ -175,6 +188,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             hintClassName,
             errorClassName,
             addonsClassName,
+            controlPosition = 'start',
             position = 'before',
             align = 'start',
             addons,
@@ -190,6 +204,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             error,
             inputRef,
             colors = 'default',
+            compact = false,
             'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
@@ -208,6 +223,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         const errorMessage = typeof error === 'boolean' ? '' : error;
 
         const colorStyle = colorStyles[colors];
+        const isControlAtEnd =
+            (controlPosition ?? (position === 'after' ? 'end' : 'start')) === 'end';
 
         const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
 
@@ -241,7 +258,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         [colorStyle.indeterminate]: indeterminate,
                         [styles.focused]: focused,
                         [styles.block]: block,
-                        [styles['position-after']]: position === 'after',
+                        [styles['position-after']]: isControlAtEnd,
+                        [styles.compact]: compact && size === 20,
                     },
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
@@ -260,7 +278,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     />
                 )}
 
-                {position === 'before' && renderCheckmark()}
+                {!isControlAtEnd && renderCheckmark()}
 
                 {(label || hint || errorMessage) && (
                     <span className={cn(styles.content, contentClassName)}>
@@ -294,7 +312,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     </span>
                 )}
 
-                {position === 'after' && renderCheckmark()}
+                {isControlAtEnd && renderCheckmark()}
 
                 {addons && (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions

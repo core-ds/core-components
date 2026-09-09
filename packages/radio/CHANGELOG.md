@@ -1,5 +1,18 @@
 # @alfalab/core-components-radio
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2307](https://github.com/core-ds/core-components/pull/2307)
+
+##### Radio
+
+- Добавлен проп `controlPosition` (`start` | `end`) — положение радиокнопки относительно контента
+- Добавлен проп `compact` для компактного текста подписи (`paragraph_primary_small`, 14/20)
+
 ## 6.0.7
 
 ### Patch Changes

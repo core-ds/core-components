@@ -1,5 +1,18 @@
 # @alfalab/core-components-tag
 
+## 10.3.0
+
+### Minor Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2325](https://github.com/core-ds/core-components/pull/2325)
+
+##### Tag
+
+- Для `size={48}` исправлен `min-width`: 64px → 72px
+- В `IndicatorTag` добавлен размер 56 (геометрия 56×56)
+
 ## 10.2.1
 
 ### Patch Changes

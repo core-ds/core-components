@@ -53,6 +53,18 @@ export type RadioProps = Omit<
     size?: 20 | 24;
 
     /**
+     * Компактный текст подписи. Только для `size=20`
+     * @default false
+     */
+    compact?: boolean;
+
+    /**
+     * Положение радиокнопки относительно контента
+     * @default start
+     */
+    controlPosition?: 'start' | 'end';
+
+    /**
      * Управление состоянием отмечен/не отмечен
      */
     checked?: boolean;
@@ -144,6 +156,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             block,
             labelProps,
             colors = 'default',
+            compact = false,
+            controlPosition = 'start',
             'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
@@ -154,6 +168,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         const [focused] = useFocus(labelRef, 'keyboard');
 
         const colorStyle = colorStyles[colors];
+        const isControlAtEnd = controlPosition === 'end';
 
         const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
 
@@ -180,6 +195,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                         [colorStyle.checked]: checked,
                         [styles.focused]: focused,
                         [styles.block]: block,
+                        [styles.compact]: compact && size === 20,
+                        [styles.reversed]: isControlAtEnd,
                     },
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}

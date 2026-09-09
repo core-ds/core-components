@@ -182,6 +182,18 @@ describe('FileUploadItem', () => {
             expect(element).toBeInTheDocument();
         });
 
+        it('should set size for empty file', () => {
+            render(
+                <FileUploadItem title='title' subtitle='subtitle' uploadStatus='SUCCESS' size={0}>
+                    <FileUploadItem.Content />
+                </FileUploadItem>,
+            );
+
+            const element = screen.getByText('0 Б');
+
+            expect(element).toBeInTheDocument();
+        });
+
         it('should set deleted file', () => {
             render(
                 <FileUploadItem

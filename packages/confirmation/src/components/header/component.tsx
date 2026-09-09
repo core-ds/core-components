@@ -1,4 +1,5 @@
 import React, { type FC, type ReactNode } from 'react';
+import cn from 'classnames';
 
 import { TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
 
@@ -29,7 +30,7 @@ export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) =
         <Tag
             font='system'
             view='small'
-            className={styles.header}
+            className={cn(mobile ? styles.headerMobile : styles.header)}
             tag={titleTag}
             color='primary'
             defaultMargins={false}

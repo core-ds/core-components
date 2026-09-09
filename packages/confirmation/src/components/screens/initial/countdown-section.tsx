@@ -81,7 +81,9 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         <Fragment>
             {texts.countdown}
             {'\u00A0'}
-            <time className={styles.timeCounter}>{formatMsAsMinutes(timeLeft)}</time>
+            <time className={cn(styles.timeCounter, { [styles.timeCounterMobile]: mobile })}>
+                {formatMsAsMinutes(timeLeft)}
+            </time>
         </Fragment>,
     );
 };
