@@ -1770,6 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-skeleton@workspace:packages/skeleton"
   dependencies:
+    "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
