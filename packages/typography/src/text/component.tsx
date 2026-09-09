@@ -1,4 +1,4 @@
-import React, { forwardRef, type HTMLAttributes } from 'react';
+import React, { type ComponentProps, forwardRef, Fragment, type HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -119,39 +119,44 @@ export const Text = forwardRef<TextElementType, TextProps>(
         ref,
     ) => {
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
-
-        const skeleton = renderSkeleton({
-            wrapperClassName: cn({
-                [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
-            }),
-            dataTestId,
-        });
-
-        if (skeleton) {
-            return skeleton;
-        }
+        const Root = showSkeleton ? 'div' : Fragment;
+        const rootProps: ComponentProps<typeof Root> = showSkeleton
+            ? { className: styles.root }
+            : {};
 
         return (
-            <Component
-                className={cn(
-                    {
-                        [styles.paragraph]: Component === 'p' && !defaultMargins,
-                        [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
-                        [styles.monospace]: monospaceNumbers,
-                        [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                        [styles.transparent]: showSkeleton,
-                    },
-                    className,
-                    color && colors[color],
-                    styles[view],
-                    weight && styles[weight],
+            <Root {...rootProps}>
+                <Component
+                    className={cn(
+                        {
+                            [styles.paragraph]: Component === 'p' && !defaultMargins,
+                            [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
+                            [styles.monospace]: monospaceNumbers,
+                            [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                            [styles.transparent]: showSkeleton,
+                        },
+                        className,
+                        color && colors[color],
+                        styles[view],
+                        weight && styles[weight],
+                    )}
+                    data-test-id={dataTestId}
+                    ref={mergeRefs([ref, textRef])}
+                    {...restProps}
+                >
+                    {children}
+                </Component>
+                {showSkeleton && (
+                    <div className={styles.skeleton}>
+                        {renderSkeleton({
+                            wrapperClassName: cn({
+                                [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
+                            }),
+                            dataTestId,
+                        })}
+                    </div>
                 )}
-                data-test-id={dataTestId}
-                ref={mergeRefs([ref, textRef])}
-                {...restProps}
-            >
-                {children}
-            </Component>
+            </Root>
         );
     },
 );
