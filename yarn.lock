@@ -835,7 +835,6 @@ __metadata:
   dependencies:
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@types/react-transition-group": "npm:^4.4.12"
-    classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
   peerDependencies:
