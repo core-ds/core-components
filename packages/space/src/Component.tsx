@@ -100,7 +100,11 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         [size],
     );
 
-    const childNodes = Children.toArray(children);
+    /*
+     * Children.toArray сохраняет пустую строку как отдельного ребёнка,
+     * хотя она не создаёт видимого содержимого в DOM.
+     */
+    const childNodes = Children.toArray(children).filter((child) => child !== '');
 
     if (childNodes.length === 0) {
         return null;

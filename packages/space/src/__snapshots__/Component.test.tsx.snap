@@ -115,13 +115,9 @@ exports[`Space Display tests should display with children like boolean or string
       >
         <div
           class="spaceItem"
-          style="margin-bottom: 16px;"
         >
           0
         </div>
-        <div
-          class="spaceItem"
-        />
       </div>
     </div>
   </body>,
@@ -131,13 +127,9 @@ exports[`Space Display tests should display with children like boolean or string
     >
       <div
         class="spaceItem"
-        style="margin-bottom: 16px;"
       >
         0
       </div>
-      <div
-        class="spaceItem"
-      />
     </div>
   </div>,
   "debug": [Function],
