@@ -13,11 +13,7 @@ type TriggerHapticParams = {
 };
 
 /** Запускает haptic feedback. */
-export const triggerHaptic = ({
-    input,
-    options,
-    debug = false,
-}: TriggerHapticParams): void => {
+export const triggerHaptic = ({ input, options, debug = false }: TriggerHapticParams): void => {
     const vibrations = clampVibrations(normalizeInput(input));
 
     if (!vibrations?.length) {
