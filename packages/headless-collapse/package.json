@@ -15,7 +15,6 @@
     "dependencies": {
         "@alfalab/core-components-shared": "^2.2.3",
         "@types/react-transition-group": "^4.4.12",
-        "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
