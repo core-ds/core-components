@@ -101,7 +101,7 @@ export const PrimaryTabList = ({
             containerWrapperClassName={wrapperClassName}
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
-            scrollControlsContainerClassName={cn(
+            scrollControlsClassName={cn(
                 textStyle && styles.scrollControls,
                 scrollControlsContainerClassName,
             )}
