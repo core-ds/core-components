@@ -1,43 +1,31 @@
-import React, {
-    forwardRef,
-    Fragment,
-    type InputHTMLAttributes,
-    type MouseEvent,
-    useRef,
-} from 'react';
-import mergeRefs from 'react-merge-refs';
+import React, { forwardRef, Fragment } from 'react';
 
-import { useHaptic } from '../../hooks/use-haptic';
-import { type HapticBaseProps } from '../../typings';
+import { useHapticAdapter } from '../../hooks/use-haptic-adapter';
+import { type HapticInputProps } from '../../typings';
 import { HapticFallback } from '../haptic-fallback';
 
-import styles from './index.module.css';
-
-type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
-
-/**
- * Компонент адаптер для поддержки haptic feedback `<input/>` элемента.
- *
- * @description
- *
- */
+/** Компонент адаптер для поддержки haptic feedback `<input/>` элемента. */
 export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
-    ({ 'data-haptic-preset': preset, onClick, ...restProps }, ref) => {
-        const { trigger, fallback } = useHaptic({ preset });
-        const innerRef = useRef<HTMLInputElement>(null);
-
-        const handleClick = (event: MouseEvent<HTMLInputElement>) => {
-            onClick?.(event);
-
-            if (event.defaultPrevented || preset === false) {
-                return;
-            }
-
-            trigger();
-        };
+    ({ 'data-haptic-preset': preset, dataTestId, onClick, ...restProps }, ref) => {
+        const {
+            ref: mergedRef,
+            fallback,
+            handleClick,
+            tap,
+        } = useHapticAdapter({
+            preset,
+            disabled: restProps.disabled,
+            onClick,
+            ref,
+        });
 
         const input = (
-            <input {...restProps} ref={mergeRefs([innerRef, ref])} onClick={handleClick} />
+            <input
+                {...restProps}
+                ref={mergedRef}
+                {...(dataTestId && { 'data-test-id': dataTestId })}
+                onClick={handleClick}
+            />
         );
 
         if (!fallback) {
@@ -47,10 +35,7 @@ export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
         return (
             <Fragment>
                 {input}
-                <HapticFallback
-                    className={styles.overlayLabelInline}
-                    onTap={() => innerRef.current?.click()}
-                />
+                <HapticFallback placement='origin' dataTestId={dataTestId} onTap={tap} />
             </Fragment>
         );
     },

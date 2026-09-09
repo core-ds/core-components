@@ -1,3 +1,9 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.wrapper {
+    position: relative;
+}
+
 .overlayLabel {
     position: absolute;
     inset: 0;
@@ -7,4 +13,21 @@
     overflow: hidden;
     cursor: inherit;
     -webkit-tap-highlight-color: transparent;
+}
+
+.overlayLabelOrigin {
+    position: relative;
+    inset: auto;
+    width: 0;
+    height: 0;
+    overflow: visible;
+}
+
+.overlayLabelOrigin:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 51px;
+    height: 31px;
+    content: '';
 }

@@ -6,13 +6,13 @@ export type CoreConfigContextValue = {
     getPortalContainer?: () => Element | null | undefined;
     haptics?: {
         /**
-         * Включает haptic feedback для компонентов без локального `data-haptic-preset`.
+         * Глобальный флаг haptic. `false` перекрывает локальный пресет.
          * @default true
          */
         enabled?: boolean;
 
         /**
-         * Звуковой fallback вместо вибрации — для проверки паттернов на десктопе.
+         * Диагностика haptic feedback в `console.info` — для проверки паттернов на устройствах.
          * @default false
          */
         debug?: boolean;

@@ -1,39 +1,32 @@
-import React, { type ButtonHTMLAttributes, forwardRef, type MouseEvent } from 'react';
+import React, { forwardRef } from 'react';
 
-import { useHaptic } from '../../hooks/use-haptic';
-import { type HapticBaseProps } from '../../typings';
+import { useHapticAdapter } from '../../hooks/use-haptic-adapter';
+import { type HapticButtonProps } from '../../typings';
 import { HapticFallback } from '../haptic-fallback';
 
-import styles from './index.module.css';
+import styles from '../haptic-fallback/index.module.css';
 
-type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
-    type?: 'button' | 'submit';
-} & HapticBaseProps;
-
-/**
- * Компонент адаптер для поддержки haptic feedback `<button/>` элемента.
- *
- * @description
- *
- */
+/** Компонент адаптер для поддержки haptic feedback `<button/>` элемента. */
 export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
-    ({ 'data-haptic-preset': preset, onClick, type = 'button', className, ...restProps }, ref) => {
-        const { trigger, fallback } = useHaptic({ preset });
-
-        const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-            onClick?.(event);
-
-            if (event.defaultPrevented || preset === false) return;
-
-            trigger();
-        };
+    ({ 'data-haptic-preset': preset, dataTestId, onClick, ...restProps }, ref) => {
+        const {
+            ref: mergedRef,
+            fallback,
+            handleClick,
+            tap,
+        } = useHapticAdapter({
+            preset,
+            disabled: restProps.disabled,
+            onClick,
+            ref,
+        });
 
         const button = (
+            // eslint-disable-next-line react/button-has-type
             <button
                 {...restProps}
-                ref={ref}
-                className={className}
-                type={type === 'submit' ? 'submit' : 'button'}
+                ref={mergedRef}
+                {...(dataTestId && { 'data-test-id': dataTestId })}
                 onClick={handleClick}
             />
         );
@@ -45,9 +38,7 @@ export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
         return (
             <span className={styles.wrapper}>
                 {button}
-                <HapticFallback
-                    onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLButtonElement>)}
-                />
+                <HapticFallback dataTestId={dataTestId} onTap={tap} />
             </span>
         );
     },

@@ -1,17 +1,10 @@
 const PREFIX = '[haptics]';
 
-// todo: refactor log events before deploy prod...
-export type HapticLogEvent =
-    | 'trigger'
-    | 'vibrate'
-    | 'ios:tick'
-    | 'cancel'
-    | 'overlay:mount'
-    | 'overlay:tap';
+export type HapticLogEvent = 'trigger' | 'vibrate' | 'ios:tick' | 'cancel';
 
 /**
  * Диагностика для проверки на реальных устройствах.
- * Включается через `CoreConfig.haptics.debug`.
+ * Включается через `CoreConfig.haptics.debug` или параметр `debug` хука.
  */
 export const hapticLog = (
     debug: boolean,

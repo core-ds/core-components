@@ -1,12 +1,23 @@
-import { type HapticInput, type Options } from '../typings';
+import { type HapticTriggerInput, type HapticTriggerOptions } from '../typings';
 
 import { DEFAULT_INTENSITY } from './constants';
-import { ensureDOM, isIosFallback, isSupported } from './helpers';
+import { getHapticEnvironment } from './environment';
+import { triggerIosSwitchTick } from './helpers';
 import { hapticLog } from './logger';
 import { clamp, clampVibrations, normalizeInput, toVibratePattern } from './vibration';
 
+type TriggerHapticParams = {
+    input: HapticTriggerInput;
+    options?: HapticTriggerOptions;
+    debug?: boolean;
+};
+
 /** Запускает haptic feedback. */
-export const triggerHaptic = (input: HapticInput, options?: Options, debug = false): void => {
+export const triggerHaptic = ({
+    input,
+    options,
+    debug = false,
+}: TriggerHapticParams): void => {
     const vibrations = clampVibrations(normalizeInput(input));
 
     if (!vibrations?.length) {
@@ -19,7 +30,9 @@ export const triggerHaptic = (input: HapticInput, options?: Options, debug = fal
 
     hapticLog(debug, 'trigger', { input, vibrations, intensity });
 
-    if (isSupported) {
+    const { vibration, iosFallback } = getHapticEnvironment();
+
+    if (vibration) {
         const pattern = toVibratePattern(vibrations, intensity);
         const accepted = navigator.vibrate(pattern);
 
@@ -28,23 +41,18 @@ export const triggerHaptic = (input: HapticInput, options?: Options, debug = fal
         return;
     }
 
-    /* iOS без Vibration API — haptic только через нативный `<input type="checkbox" switch>`. */
-    if (isIosFallback) {
-        const tick = ensureDOM();
+    if (iosFallback) {
+        const tick = triggerIosSwitchTick();
 
         if (tick) {
-            const checkedBefore = tick.input.checked;
-
-            // programmatic single tick
-            tick.label.click();
-            hapticLog(debug, 'ios:tick', { ticked: checkedBefore !== tick.input.checked });
+            hapticLog(debug, 'ios:tick', { ticked: tick.toggled });
         }
     }
 };
 
 /** Отменяет haptic feedback. */
 export const cancelHaptic = (debug = false): void => {
-    if (!isSupported) return;
+    if (!getHapticEnvironment().vibration) return;
 
     navigator.vibrate(0);
 

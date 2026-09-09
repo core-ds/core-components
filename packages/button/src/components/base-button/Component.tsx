@@ -75,8 +75,9 @@ export const BaseButton = forwardRef<
 
         const iconOnly = !children;
 
-        const isNativeButton = Component === 'button';
-        const isNativeAnchor = Component === 'a';
+        const withHaptic = dataHapticPreset !== undefined;
+        const isHapticButton = withHaptic && Component === 'button';
+        const isHapticAnchor = withHaptic && Component === 'a';
 
         const sizeStyle = `size-${size}`;
 
@@ -191,14 +192,14 @@ export const BaseButton = forwardRef<
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
-            const LinkComponent = isNativeAnchor ? HapticA : Component;
+            const LinkComponent = isHapticAnchor ? HapticA : Component;
 
             // Для совместимости с react-router-dom, меняем href на to
             const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
 
             return (
                 <LinkComponent
-                    {...(isNativeAnchor && {
+                    {...(isHapticAnchor && {
                         'data-haptic-preset': dataHapticPreset,
                     })}
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
@@ -214,11 +215,11 @@ export const BaseButton = forwardRef<
             );
         }
 
-        const ButtonComponent = isNativeButton ? HapticButton : Component;
+        const ButtonComponent = isHapticButton ? HapticButton : Component;
 
         return (
             <ButtonComponent
-                {...(isNativeButton && {
+                {...(isHapticButton && {
                     'data-haptic-preset': dataHapticPreset,
                 })}
                 {...componentProps}

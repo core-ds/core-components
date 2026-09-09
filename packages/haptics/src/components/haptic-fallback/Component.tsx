@@ -1,7 +1,7 @@
-import React, { forwardRef, type MouseEvent } from 'react';
+import React, { type FC, type MouseEvent, useEffect } from 'react';
 import cn from 'classnames';
 
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ensureDOM, TICK_ID } from '../../utils';
 
@@ -14,40 +14,48 @@ export interface HapticFallbackProps {
     onTap: (event: MouseEvent<HTMLLabelElement>) => void;
 
     /**
-     * Класс для стилизации.
+     * Позиция overlay относительно элемента.
+     *
+     * @description
+     * `cover` растягивает overlay на родителя, `origin` ставит tap-зону у начала контрола.
+     * @default cover
      */
-    className?: string;
+    placement?: 'cover' | 'origin';
+
+    /**
+     * Идентификатор родительского адаптера; overlay получает модификатор `-fallback`.
+     */
+    dataTestId?: string;
 }
 
-// ! todo: нашел возможность избавиться от этой обертки 
+/** Компонент overlay для поддержки haptic feedback на iOS без Vibration API. */
+export const HapticFallback: FC<HapticFallbackProps> = ({
+    onTap,
+    placement = 'cover',
+    dataTestId,
+}) => {
+    useEffect(() => {
+        ensureDOM();
+    }, []);
 
-/**
- * Невидимый overlay, связанный с общим нативным Safari switch.
- */
-export const HapticFallback = forwardRef<HTMLLabelElement, HapticFallbackProps>(
-    ({ onTap, className }, ref) => {
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            // overlay для отрисовки tick на iOS
-            ensureDOM();
-        }, []);
+    const handleClick = (event: MouseEvent<HTMLLabelElement>) => {
+        event.stopPropagation();
 
-        const handleClick = (e: MouseEvent<HTMLLabelElement>) => {
-            e.stopPropagation();
+        onTap(event);
+    };
 
-            onTap(e);
-        };
-
-        return (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
-            <label
-                ref={ref}
-                htmlFor={TICK_ID}
-                className={cn(className, styles.overlayLabel)}
-                aria-hidden={true}
-                onClick={handleClick}
-            />
-        );
-    },
-);
+    return (
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label
+            htmlFor={TICK_ID}
+            className={cn(styles.overlayLabel, {
+                [styles.overlayLabelOrigin]: placement === 'origin',
+            })}
+            aria-hidden={true}
+            data-test-id={getDataTestId(dataTestId, 'fallback')}
+            onClick={handleClick}
+        />
+    );
+};
 
 HapticFallback.displayName = 'HapticFallback';

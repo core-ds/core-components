@@ -1,34 +1,33 @@
-import React, { type AnchorHTMLAttributes, forwardRef, type MouseEvent } from 'react';
+import React, { forwardRef } from 'react';
 
-import { useHaptic } from '../../hooks/use-haptic';
-import { type HapticBaseProps } from '../../typings';
+import { useHapticAdapter } from '../../hooks/use-haptic-adapter';
+import { type HapticAProps } from '../../typings';
 import { HapticFallback } from '../haptic-fallback';
 
-import styles from './index.module.css';
+import styles from '../haptic-fallback/index.module.css';
 
-type HapticAProps = AnchorHTMLAttributes<HTMLAnchorElement> & HapticBaseProps;
-
-/**
- * Компонент адаптер для поддержки haptic feedback `<a/>` элемента.
- *
- * @description
- *
- */
+/** Компонент адаптер для поддержки haptic feedback `<a/>` элемента. */
 export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
-    ({ 'data-haptic-preset': preset, onClick, className, ...restProps }, ref) => {
-        const { trigger, fallback } = useHaptic({ preset });
-
-        const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-            onClick?.(event);
-
-            if (event.defaultPrevented || preset === false) return;
-
-            trigger();
-        };
+    ({ 'data-haptic-preset': preset, dataTestId, onClick, ...restProps }, ref) => {
+        const {
+            ref: mergedRef,
+            fallback,
+            handleClick,
+            tap,
+        } = useHapticAdapter({
+            preset,
+            onClick,
+            ref,
+        });
 
         const anchor = (
             /* eslint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-            <a {...restProps} ref={ref} className={className} onClick={handleClick} />
+            <a
+                {...restProps}
+                ref={mergedRef}
+                {...(dataTestId && { 'data-test-id': dataTestId })}
+                onClick={handleClick}
+            />
         );
 
         if (!fallback) {
@@ -38,9 +37,7 @@ export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
         return (
             <span className={styles.wrapper}>
                 {anchor}
-                <HapticFallback
-                    onTap={(event) => onClick?.(event as unknown as MouseEvent<HTMLAnchorElement>)}
-                />
+                <HapticFallback dataTestId={dataTestId} onTap={tap} />
             </span>
         );
     },

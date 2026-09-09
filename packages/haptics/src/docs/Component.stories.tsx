@@ -3,9 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import { CoreConfigContext } from '@alfalab/core-components-config';
-import { HapticButton, useHaptic } from '@alfalab/core-components-haptics';
-
-import type { HapticPreset } from '../typings';
+import { defaultPatterns, HapticButton, type HapticPreset } from '@alfalab/core-components-haptics';
 
 const meta: Meta<typeof HapticButton> = {
     title: 'Components/Haptic',
@@ -15,24 +13,14 @@ const meta: Meta<typeof HapticButton> = {
 
 type Story = StoryObj<typeof HapticButton>;
 
-const PRESETS = [
-    'success',
-    'warning',
-    'error',
-    'light',
-    'medium',
-    'heavy',
-    'soft',
-    'rigid',
-    'selection',
-] as const;
+const PRESETS = Object.keys(defaultPatterns) as HapticPreset[];
 
 export const haptic: Story = {
     name: 'Haptic',
     render: () => {
         const enabled = boolean('enabled', true);
         const debug = boolean('debug', false);
-        const selectedPreset = select('data-haptic-preset', PRESETS, 'selection') as HapticPreset;
+        const selectedPreset = select<HapticPreset>('data-haptic-preset', PRESETS, 'selection');
 
         return (
             <CoreConfigContext.Provider

@@ -1,3 +1,11 @@
+import {
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    type InputHTMLAttributes,
+} from 'react';
+
+import { type defaultPatterns } from './patterns';
+
 export interface Vibration {
     /**
      * Длительность фазы в миллисекундах.
@@ -15,74 +23,95 @@ export interface Vibration {
     delay?: number;
 }
 
-export type HapticPattern = Vibration[];
-
 export interface HapticPatternPreset {
+    /**
+     * Паттерн в виде массива фаз вибрации.
+     */
     pattern: Vibration[];
 }
 
-export type HapticInput = number | string | number[] | HapticPattern | HapticPatternPreset;
+export type HapticPreset = keyof typeof defaultPatterns;
 
-export interface Options {
+export type HapticTriggerInput =
+    | number
+    | number[]
+    | HapticPreset
+    | Vibration[]
+    | HapticPatternPreset;
+
+export interface HapticTriggerOptions {
     /**
-     * Сила вибрации по умолчанию.
+     * Сила вибрации по умолчанию для фаз без `intensity`.
      *
      * @default 0.5
      */
     intensity?: number;
 }
 
-export type HapticPreset =
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'medium'
-    | 'heavy'
-    | 'soft'
-    | 'rigid'
-    | 'selection'
-    | 'nudge'
-    | 'buzz';
-
-export type HapticPresetValue = HapticPreset | (Partial<Vibration> & { repeat?: number });
-
-export type HapticComponentValue = HapticPresetValue | false;
-
-export type HapticBaseProps = {
-    'data-haptic-preset'?: HapticComponentValue;
-};
-
-export interface HapticTriggerConfig {
-    enabled?: boolean;
-
+/**
+ * Кастомный пресет — одна фаза вибрации с повтором.
+ */
+export interface HapticVibrationPreset extends Vibration {
     /**
-     * Payload, который будет передан напрямую в `triggerHaptic`.
-     */
-    input?: HapticInput;
-
-    /**
-     * Паттерн в виде массива фаз вибрации.
-     */
-    pattern?: HapticPattern;
-
-    /**
-     * Опции, которые будут переданы напрямую в `triggerHaptic`.
-     */
-    options?: Options;
-}
-
-export interface HapticConfig extends HapticTriggerConfig, Partial<Vibration> {
-    enabled?: boolean;
-
-    /**
-     * Haptic-пресет, кастомный vibration-конфиг или `false` для отключения.
-     */
-    'data-haptic-preset'?: HapticComponentValue;
-
-    /**
-     * Повтор всего паттерна
+     * Количество повторов фазы.
      * @default 1
      */
     repeat?: number;
+}
+
+export type HapticPresetProp = HapticPreset | HapticVibrationPreset | false;
+
+export interface HapticBaseProps {
+    /**
+     * Haptic-пресет, кастомный vibration-конфиг или `false` для отключения.
+     */
+    'data-haptic-preset'?: HapticPresetProp;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для overlay iOS-fallback используется модификатор `-fallback`.
+     */
+    dataTestId?: string;
+}
+
+export interface HapticAProps extends AnchorHTMLAttributes<HTMLAnchorElement>, HapticBaseProps {}
+
+export interface HapticButtonProps
+    extends ButtonHTMLAttributes<HTMLButtonElement>,
+        HapticBaseProps {}
+
+export interface HapticInputProps extends InputHTMLAttributes<HTMLInputElement>, HapticBaseProps {}
+
+export interface UseHapticParams {
+    /**
+     * Локальный пресет или `false` для отключения этого экземпляра хука.
+     */
+    preset?: HapticPresetProp;
+
+    /**
+     * Включает диагностические сообщения в `console.info`.
+     */
+    debug?: boolean;
+}
+
+export interface UseHapticResponse {
+    /**
+     * Запускает haptic feedback.
+     */
+    trigger: (input?: HapticTriggerInput, options?: HapticTriggerOptions) => void;
+
+    /**
+     * Отменяет haptic feedback.
+     */
+    cancel: () => void;
+
+    /**
+     * Разрешён ли haptic глобальной и локальной политикой.
+     */
+    enabled: boolean;
+
+    /**
+     * Доступен ли haptic feedback через Vibration API или iOS switch.
+     */
+    isSupported: boolean;
 }

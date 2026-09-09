@@ -1,29 +1,30 @@
 import { defaultPatterns } from '../patterns';
 import {
-    type HapticComponentValue,
-    type HapticInput,
-    type HapticPattern,
+    type HapticPatternPreset,
+    type HapticPresetProp,
+    type HapticTriggerInput,
     type Vibration,
 } from '../typings';
 
-import { CYCLE, DEFAULT_REPEAT, MAX_PHASE_MS } from './constants';
+import { CYCLE, DEFAULT_REPEAT, MAX_PHASE_MS, MAX_REPEAT, REPEAT_GAP_MS } from './constants';
 
 export const clamp = (value: number): number => Math.max(0, Math.min(1, value));
 
 /** Преобразует component preset в формат запуска haptic feedback. */
-export const hapticPreset = (preset?: HapticComponentValue): HapticInput | undefined => {
+export const hapticPreset = (preset?: HapticPresetProp): HapticTriggerInput | undefined => {
     if (preset === undefined || preset === false || typeof preset === 'string') {
         return preset || undefined;
     }
 
     const { repeat = DEFAULT_REPEAT, ...vibration } = preset;
 
-    // ! todo: fix bug iOs local tap
     const count = Number.isFinite(repeat)
-        ? Math.max(DEFAULT_REPEAT, Math.floor(repeat))
+        ? Math.min(MAX_REPEAT, Math.max(DEFAULT_REPEAT, Math.floor(repeat)))
         : DEFAULT_REPEAT;
 
-    return Array.from({ length: count }, () => vibration) as HapticPattern;
+    return Array.from({ length: count }, (_, index) =>
+        index === 0 ? vibration : { ...vibration, delay: vibration.delay ?? REPEAT_GAP_MS },
+    );
 };
 
 /** Обрезает `duration` каждой фазы до {@link MAX_PHASE_MS}. */
@@ -52,14 +53,14 @@ export const clampVibrations = (vibrations: Vibration[] | null): Vibration[] | n
     return clamped;
 };
 
-/** Приводит `HapticInput` к массиву фаз вибрации. */
-export const normalizeInput = (input: HapticInput): Vibration[] | null => {
+/** Приводит `HapticTriggerInput` к массиву фаз вибрации. */
+export const normalizeInput = (input: HapticTriggerInput): Vibration[] | null => {
     if (typeof input === 'number') {
         return [{ duration: input }];
     }
 
     if (typeof input === 'string') {
-        const preset = defaultPatterns[input as keyof typeof defaultPatterns];
+        const preset: HapticPatternPreset | undefined = defaultPatterns[input];
 
         if (!preset) {
             return null;

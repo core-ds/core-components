@@ -1,51 +1,59 @@
-import { isIOS } from '@alfalab/core-components-shared';
-
 import { TICK_ID, VISUALLY_HIDDEN } from './constants';
 
-/** Поддерживает ли окружение нативную вибрацию. */
-export const isSupported =
-    typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
-
-/**
- * Возвращает `true`, если устройство на iOS и нет `navigator.vibrate`.
- */
-export const isIosFallback = !isSupported && isIOS();
-
-type EnsureDOMProps = {
+type IosTickDOM = {
     label: HTMLLabelElement;
     input: HTMLInputElement;
 };
 
+let cache: IosTickDOM | null = null;
+
+const applyHidden = (element: HTMLElement): void => {
+    element.setAttribute('aria-hidden', 'true');
+    Object.assign(element.style, VISUALLY_HIDDEN);
+};
+
 /**
- * Монтирует в `document.body` скрытый `input[type=checkbox][switch]`с id {@link TICK_ID} и `label`,
- * чтобы WebKit мог воспроизвести системный tick `label.click()`.
+ * Возвращает общий скрытый `input[type=checkbox][switch]` с `label`, создавая их при необходимости.
+ * На нём WebKit воспроизводит системный tick при клике по `label`.
  */
-export const ensureDOM = (): EnsureDOMProps | null => {
+export const ensureDOM = (): IosTickDOM | null => {
     if (typeof document === 'undefined' || !document.body) return null;
 
-    // ! todo: add getElementById for input and label (memoize)
+    if (cache && document.body.contains(cache.label)) return cache;
+
     const input = document.createElement('input');
 
-    Object.assign(input, {
-        type: 'checkbox',
-        switch: true,
-        tabIndex: -1,
-        id: TICK_ID,
-        ariaHidden: 'true',
-    });
-    Object.assign(input.style, VISUALLY_HIDDEN);
+    input.type = 'checkbox';
+    input.id = TICK_ID;
+    input.tabIndex = -1;
+    input.setAttribute('switch', '');
+    applyHidden(input);
 
-    // ! todo: fix bug iOs local tap
     const label = document.createElement('label');
 
-    Object.assign(label, {
-        htmlFor: TICK_ID,
-        ariaHidden: 'true',
-    });
-    Object.assign(label.style, VISUALLY_HIDDEN);
+    label.htmlFor = TICK_ID;
+    applyHidden(label);
     label.appendChild(input);
 
     document.body.appendChild(label);
 
-    return { label, input };
+    cache = { label, input };
+
+    return cache;
+};
+
+/**
+ * Программный одиночный tick через клик по `label` общего switch.
+ * Возвращает `null`, если DOM недоступен.
+ */
+export const triggerIosSwitchTick = (): { toggled: boolean } | null => {
+    const tick = ensureDOM();
+
+    if (!tick) return null;
+
+    const checkedBefore = tick.input.checked;
+
+    tick.label.click();
+
+    return { toggled: checkedBefore !== tick.input.checked };
 };

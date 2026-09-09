@@ -1,7 +1,12 @@
 export { HapticA, HapticButton, HapticInput } from './components';
-export { useHaptic, type UseHapticResponse } from './hooks/use-haptic';
-
-
-
+export { useHaptic } from './hooks/use-haptic';
 export { defaultPatterns } from './patterns';
-export type { HapticConfig } from './typings';
+export type {
+    HapticAProps,
+    HapticButtonProps,
+    HapticInputProps,
+    HapticPresetProp,
+    HapticTriggerInput,
+    HapticTriggerOptions,
+    UseHapticResponse,
+} from './typings';

@@ -1,6 +1,7 @@
 export { TICK_ID } from './constants';
+export { getHapticEnvironment, useHapticEnvironment } from './environment';
 export { triggerHaptic, cancelHaptic } from './haptic';
-export { isSupported, isIosFallback, ensureDOM } from './helpers';
+export { ensureDOM, triggerIosSwitchTick } from './helpers';
 export * from './logger';
 export {
     clamp,
