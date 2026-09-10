@@ -3,7 +3,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
-import { noop, useRefAsState } from '@alfalab/core-components-shared';
+import { noop } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -58,7 +58,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     ) => {
         const scrollbarRef = useRef<ComponentRef<typeof ScrollbarPrivate>>(null);
         const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
-        const [listRef, listNode] = useRefAsState<HTMLDivElement>(null);
+        const listRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const [, maxHeight] = useVisibleOptions({
             visibleOptions,
@@ -128,25 +128,22 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         };
 
         useEffect(() => {
-            if (listNode) {
-                let timer = -1;
+            const listNode = listRef.current;
 
+            if (open && listNode) {
                 const ro = new ResizeObserver(() => {
-                    timer = requestAnimationFrame(() => {
-                        scrollbarRef.current?.recalculate();
-                    });
+                    requestAnimationFrame(() => scrollbarRef.current?.recalculate());
                 });
 
                 ro.observe(listNode);
 
                 return () => {
                     ro.disconnect();
-                    cancelAnimationFrame(timer);
                 };
             }
 
             return noop;
-        }, [listNode]);
+        }, [open]);
 
         if (options.length === 0 && !emptyPlaceholder && !header && !footer) {
             return null;
