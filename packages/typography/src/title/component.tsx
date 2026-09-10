@@ -1,4 +1,4 @@
-import React, { forwardRef, type HTMLAttributes } from 'react';
+import React, { type ComponentProps, forwardRef, Fragment, type HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -112,38 +112,43 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
         ref,
     ) => {
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
-
-        const skeleton = renderSkeleton({
-            wrapperClassName: cn(defaultMargins && styles[`margins-${view}`]),
-            dataTestId,
-        });
-
-        if (skeleton) {
-            return skeleton;
-        }
+        const Root = showSkeleton ? 'div' : Fragment;
+        const rootProps: ComponentProps<typeof Root> = showSkeleton
+            ? { className: commonStyles.root, 'aria-busy': true }
+            : {};
 
         return (
-            <Component
-                className={cn(
-                    commonStyles.component,
-                    styles.component,
-                    className,
-                    styles[`${weight === 'regular' ? 'regular-' : ''}${view}`],
-                    defaultMargins && styles[`margins-${view}`],
-                    color && colors[color],
-                    {
-                        [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
-                        [commonStyles.transparent]: showSkeleton,
-                        [styles.font]:
-                            (isObject(font) && !font.systemCompat) || !(font === 'system'),
-                    },
+            <Root {...rootProps}>
+                <Component
+                    className={cn(
+                        commonStyles.component,
+                        styles.component,
+                        className,
+                        styles[`${weight === 'regular' ? 'regular-' : ''}${view}`],
+                        defaultMargins && styles[`margins-${view}`],
+                        color && colors[color],
+                        {
+                            [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
+                            [commonStyles.transparent]: showSkeleton,
+                            [styles.font]:
+                                (isObject(font) && !font.systemCompat) || !(font === 'system'),
+                        },
+                    )}
+                    data-test-id={dataTestId}
+                    ref={mergeRefs([ref, textRef])}
+                    {...restProps}
+                >
+                    {children}
+                </Component>
+                {showSkeleton && (
+                    <div className={commonStyles.skeleton}>
+                        {renderSkeleton({
+                            wrapperClassName: cn(defaultMargins && styles[`margins-${view}`]),
+                            dataTestId,
+                        })}
+                    </div>
                 )}
-                data-test-id={dataTestId}
-                ref={mergeRefs([ref, textRef])}
-                {...restProps}
-            >
-                {children}
-            </Component>
+            </Root>
         );
     },
 );
