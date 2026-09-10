@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components/pagination': patch
+'@alfalab/core-components-pagination': patch
 ---
 
-- Состояние disabled для выбранной страницы заменено на проверку в обработчике onClick.
+- Состояние `disabled` для выбранной страницы заменено на проверку в обработчике onClick.
