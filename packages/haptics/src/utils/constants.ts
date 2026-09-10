@@ -29,3 +29,12 @@ export const MAX_REPEAT = 10;
 
 /** Пауза между повторами кастомного пресета, мс. */
 export const REPEAT_GAP_MS = 40;
+
+/** Минимальный интервал между debug-щелчками при `intensity = 1`, мс. */
+export const AUDIO_TOGGLE_MIN_MS = 16;
+
+/** Прирост интервала между debug-щелчками при `intensity = 0`, мс. */
+export const AUDIO_TOGGLE_MAX_MS = 184;
+
+/** Длительность одного debug-щелчка, с. */
+export const AUDIO_CLICK_DURATION_S = 0.004;

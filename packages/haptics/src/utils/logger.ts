@@ -1,6 +1,6 @@
 const PREFIX = '[haptics]';
 
-export type HapticLogEvent = 'trigger' | 'vibrate' | 'ios:tick' | 'cancel';
+export type HapticLogEvent = 'trigger' | 'vibrate' | 'ios:tick' | 'audio' | 'cancel';
 
 /**
  * Диагностика для проверки на реальных устройствах.

@@ -89,7 +89,9 @@ export interface UseHapticParams {
     preset?: HapticPresetProp;
 
     /**
-     * Включает диагностические сообщения в `console.info`.
+     * Диагностика haptic feedback.
+     * @description
+     *  Добавляет `console.info` и звуковой отклик при взаимодействии с элементом Haptic.
      */
     debug?: boolean;
 }

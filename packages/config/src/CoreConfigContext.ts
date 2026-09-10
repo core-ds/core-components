@@ -12,7 +12,10 @@ export type CoreConfigContextValue = {
         enabled?: boolean;
 
         /**
-         * Диагностика haptic feedback в `console.info` — для проверки паттернов на устройствах.
+         * Диагностика haptic feedback.
+         * @description
+         *  Добавляет `console.info` и звуковой отклик при взаимодействии с элементом Haptic.
+         *
          * @default false
          */
         debug?: boolean;

@@ -29,7 +29,9 @@ render(() => {
     ];
 
     return (
-        <>
+        <CoreConfigContext.Provider
+            value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+        >
             {presets.map((group) => (
                 <div key='notification'>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
@@ -54,7 +56,7 @@ render(() => {
                     </div>
                 </div>
             ))}
-        </>
+        </CoreConfigContext.Provider>
     );
 });
 ```
@@ -96,7 +98,9 @@ render(() => {
     ];
 
     return (
-        <>
+        <CoreConfigContext.Provider
+            value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+        >
             {presets.map((group) => (
                 <div key='notification'>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
@@ -121,7 +125,7 @@ render(() => {
                     </div>
                 </div>
             ))}
-        </>
+        </CoreConfigContext.Provider>
     );
 });
 ```
@@ -142,7 +146,9 @@ render(() => {
     ];
 
     return (
-        <>
+        <CoreConfigContext.Provider
+            value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+        >
             {presets.map((group) => (
                 <div key='notification'>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
@@ -159,7 +165,7 @@ render(() => {
                     </div>
                 </div>
             ))}
-        </>
+        </CoreConfigContext.Provider>
     );
 });
 ```
@@ -169,18 +175,22 @@ render(() => {
 Управляя параметрами [delay], [intensity], [duration] — можно получить нужный вид вибрации, если ни один из пресетов не подходит.
 
 ```jsx live mobileHeight={96} mobileOnly
-<Space direction='horizontal' size={12} align='center'>
-    <Button
-        view='secondary'
-        data-haptic-preset={{
-            duration: 12,
-            intensity: 0.4,
-            repeat: 2,
-        }}
-    >
-        Custom
-    </Button>
-</Space>
+<CoreConfigContext.Provider
+    value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+>
+    <Space direction='horizontal' size={12} align='center'>
+        <Button
+            view='secondary'
+            data-haptic-preset={{
+                duration: 12,
+                intensity: 0.4,
+                repeat: 2,
+            }}
+        >
+            Custom
+        </Button>
+    </Space>
+</CoreConfigContext.Provider>
 ```
 
 ## Дефолтные вибрации
@@ -213,11 +223,13 @@ render(() => {
                     <Checkbox
                         checked={checkboxFirst}
                         label='Чекбокс 1'
+                        data-haptic-preset='selection'
                         onChange={(_, { checked }) => setCheckboxFirst(checked)}
                     />
                     <Checkbox
                         checked={checkboxSecond}
                         label='Чекбокс 2'
+                        data-haptic-preset='selection'
                         onChange={(_, { checked }) => setCheckboxSecond(checked)}
                     />
                 </div>
@@ -230,12 +242,14 @@ render(() => {
                         checked={radio === 'first'}
                         label='Радио 1'
                         name='haptic-radio'
+                        data-haptic-preset='selection'
                         onChange={() => setRadio('first')}
                     />
                     <Radio
                         checked={radio === 'second'}
                         label='Радио 2'
                         name='haptic-radio'
+                        data-haptic-preset='selection'
                         onChange={() => setRadio('second')}
                     />
                 </div>
@@ -243,6 +257,7 @@ render(() => {
                 <Switch
                     checked={switchChecked}
                     label='Свитч'
+                    data-haptic-preset='selection'
                     onChange={(_, { checked }) => setSwitchChecked(checked)}
                 />
 
@@ -263,6 +278,7 @@ render(() => {
                     max={10}
                     step={1}
                     value={numberValue}
+                    data-haptic-preset='selection'
                     onChange={(_, { value }) => setNumberValue(value)}
                 />
 

@@ -1,5 +1,6 @@
 import { type HapticTriggerInput, type HapticTriggerOptions } from '../typings';
 
+import { cancelHapticAudio, playHapticPattern } from './audio';
 import { DEFAULT_INTENSITY } from './constants';
 import { getHapticEnvironment } from './environment';
 import { triggerIosSwitchTick } from './helpers';
@@ -26,7 +27,12 @@ export const triggerHaptic = ({ input, options, debug = false }: TriggerHapticPa
 
     hapticLog(debug, 'trigger', { input, vibrations, intensity });
 
-    const { vibration, iosFallback } = getHapticEnvironment();
+    const { vibration, iosFallback, finePointer } = getHapticEnvironment();
+
+    if (debug && finePointer) {
+        playHapticPattern(vibrations, intensity);
+        hapticLog(debug, 'audio', { vibrations, intensity });
+    }
 
     if (vibration) {
         const pattern = toVibratePattern(vibrations, intensity);
@@ -48,6 +54,8 @@ export const triggerHaptic = ({ input, options, debug = false }: TriggerHapticPa
 
 /** Отменяет haptic feedback. */
 export const cancelHaptic = (debug = false): void => {
+    cancelHapticAudio();
+
     if (!getHapticEnvironment().vibration) return;
 
     navigator.vibrate(0);
