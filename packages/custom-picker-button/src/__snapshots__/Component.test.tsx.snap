@@ -238,28 +238,31 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               style="max-height: 0;"
             >
               <div
-                class="simplebar-wrapper"
+                class="wrapper"
               >
                 <div
-                  class="simplebar-height-auto-observer-wrapper"
+                  class="heightAutoObserverWrapper"
                 >
                   <div
-                    class="simplebar-height-auto-observer"
+                    class="heightAutoObserver"
                   />
                 </div>
                 <div
-                  class="simplebar-mask"
+                  class="mask"
                 >
                   <div
-                    class="simplebar-offset"
+                    class="offset"
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="simplebar-content-wrapper scrollable"
+                      aria-label="scrollable content"
+                      class="contentWrapper scrollable"
+                      role="region"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="-1"
                     >
                       <div
-                        class="simplebar-content content"
+                        class="content content"
                       >
                         <div
                           data-options-list-padding="top"
@@ -606,25 +609,27 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                   </div>
                 </div>
                 <div
-                  class="simplebar-placeholder"
+                  class="placeholder"
                   style="width: 0px; height: 0px;"
                 />
               </div>
               <div
-                class="simplebar-track simplebar-horizontal"
+                class="track horizontal"
+                data-scrollbar-track="x"
                 style="visibility: hidden;"
               >
                 <div
-                  class="simplebar-scrollbar"
+                  class="scrollbar scrollbar"
                   style="width: 0px; display: none;"
                 />
               </div>
               <div
-                class="simplebar-track simplebar-vertical"
+                class="track vertical"
+                data-scrollbar-track="y"
                 style="visibility: hidden;"
               >
                 <div
-                  class="simplebar-scrollbar"
+                  class="scrollbar scrollbar"
                   style="height: 0px; display: none;"
                 />
               </div>
@@ -716,28 +721,31 @@ exports[`Snapshots tests should display opened correctly 4`] = `
               style="max-height: 0;"
             >
               <div
-                class="simplebar-wrapper"
+                class="wrapper"
               >
                 <div
-                  class="simplebar-height-auto-observer-wrapper"
+                  class="heightAutoObserverWrapper"
                 >
                   <div
-                    class="simplebar-height-auto-observer"
+                    class="heightAutoObserver"
                   />
                 </div>
                 <div
-                  class="simplebar-mask"
+                  class="mask"
                 >
                   <div
-                    class="simplebar-offset"
+                    class="offset"
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="simplebar-content-wrapper scrollable"
+                      aria-label="scrollable content"
+                      class="contentWrapper scrollable"
+                      role="region"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="-1"
                     >
                       <div
-                        class="simplebar-content content"
+                        class="content content"
                       >
                         <div
                           data-options-list-padding="top"
@@ -1084,25 +1092,27 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                   </div>
                 </div>
                 <div
-                  class="simplebar-placeholder"
+                  class="placeholder"
                   style="width: 0px; height: 0px;"
                 />
               </div>
               <div
-                class="simplebar-track simplebar-horizontal"
+                class="track horizontal"
+                data-scrollbar-track="x"
                 style="visibility: hidden;"
               >
                 <div
-                  class="simplebar-scrollbar"
+                  class="scrollbar scrollbar"
                   style="width: 0px; display: none;"
                 />
               </div>
               <div
-                class="simplebar-track simplebar-vertical"
+                class="track vertical"
+                data-scrollbar-track="y"
                 style="visibility: hidden;"
               >
                 <div
-                  class="simplebar-scrollbar"
+                  class="scrollbar scrollbar"
                   style="height: 0px; display: none;"
                 />
               </div>
@@ -1194,28 +1204,31 @@ exports[`Snapshots tests should display opened correctly 6`] = `
               style="max-height: 0;"
             >
               <div
-                class="simplebar-wrapper"
+                class="wrapper"
               >
                 <div
-                  class="simplebar-height-auto-observer-wrapper"
+                  class="heightAutoObserverWrapper"
                 >
                   <div
-                    class="simplebar-height-auto-observer"
+                    class="heightAutoObserver"
                   />
                 </div>
                 <div
-                  class="simplebar-mask"
+                  class="mask"
                 >
                   <div
-                    class="simplebar-offset"
+                    class="offset"
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="simplebar-content-wrapper scrollable"
+                      aria-label="scrollable content"
+                      class="contentWrapper scrollable"
+                      role="region"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="-1"
                     >
                       <div
-                        class="simplebar-content content"
+                        class="content content"
                       >
                         <div
                           data-options-list-padding="top"
@@ -1562,25 +1575,27 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                   </div>
                 </div>
                 <div
-                  class="simplebar-placeholder"
+                  class="placeholder"
                   style="width: 0px; height: 0px;"
                 />
               </div>
               <div
-                class="simplebar-track simplebar-horizontal"
+                class="track horizontal"
+                data-scrollbar-track="x"
                 style="visibility: hidden;"
               >
                 <div
-                  class="simplebar-scrollbar"
+                  class="scrollbar scrollbar"
                   style="width: 0px; display: none;"
                 />
               </div>
               <div
-                class="simplebar-track simplebar-vertical"
+                class="track vertical"
+                data-scrollbar-track="y"
                 style="visibility: hidden;"
               >
                 <div
-                  class="simplebar-scrollbar"
+                  class="scrollbar scrollbar"
                   style="height: 0px; display: none;"
                 />
               </div>

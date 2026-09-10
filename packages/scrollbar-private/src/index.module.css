@@ -1,24 +1,21 @@
-@import './vars.css';
-
-/* TODO use classNames prop & camelCase classNames */
+@import '@alfalab/core-components-scrollbar-private/src/vars.css';
 
 .component {
-    &[data-simplebar] {
-        position: relative;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
-    }
-    :global(.simplebar-wrapper) {
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    .wrapper {
         overflow: hidden;
         width: inherit;
         height: inherit;
         max-width: inherit;
         max-height: inherit;
     }
-    :global(.simplebar-mask) {
+    .mask {
         direction: inherit;
         position: absolute;
         overflow: hidden;
@@ -32,7 +29,7 @@
         height: auto !important;
         z-index: 0;
     }
-    :global(.simplebar-offset) {
+    .offset {
         direction: inherit !important;
         box-sizing: inherit !important;
         resize: none !important;
@@ -45,7 +42,7 @@
         margin: 0;
         -webkit-overflow-scrolling: touch;
     }
-    :global(.simplebar-content-wrapper) {
+    .contentWrapper {
         direction: inherit;
         box-sizing: border-box !important;
         position: relative;
@@ -58,24 +55,26 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
-    :global(.simplebar-content-wrapper)::-webkit-scrollbar,
-    :global(.simplebar-hide-scrollbar)::-webkit-scrollbar {
-        display: none;
-        width: 0;
-        height: 0;
+    .contentWrapper,
+    .hideScrollbar {
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
     }
-    :global(.simplebar-content):after,
-    :global(.simplebar-content):before {
+    .content:after,
+    .content:before {
         content: ' ';
         display: table;
     }
-    :global(.simplebar-placeholder) {
+    .placeholder {
         max-height: 100%;
         max-width: 100%;
         width: 100%;
         pointer-events: none;
     }
-    :global(.simplebar-height-auto-observer-wrapper) {
+    .heightAutoObserverWrapper {
         box-sizing: inherit !important;
         height: 100%;
         width: 100%;
@@ -92,7 +91,7 @@
         flex-shrink: 0;
         flex-basis: 0;
     }
-    :global(.simplebar-height-auto-observer) {
+    .heightAutoObserver {
         box-sizing: inherit;
         display: block;
         opacity: 0;
@@ -107,7 +106,7 @@
         pointer-events: none;
         z-index: -1;
     }
-    :global(.simplebar-track) {
+    .track {
         z-index: 1;
         position: absolute;
         right: 0;
@@ -115,7 +114,7 @@
         pointer-events: none;
         overflow: hidden;
     }
-    &[data-simplebar]:global(.simplebar-dragging) {
+    &:global(.simplebar-dragging) {
         pointer-events: none;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -124,7 +123,7 @@
         -ms-user-select: none;
         user-select: none;
     }
-    &[data-simplebar]:global(.simplebar-dragging) :global(.simplebar-content) {
+    &:global(.simplebar-dragging) .content {
         pointer-events: none;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -133,14 +132,14 @@
         -ms-user-select: none;
         user-select: none;
     }
-    &[data-simplebar]:global(.simplebar-dragging) :global(.simplebar-track) {
+    &:global(.simplebar-dragging) .track {
         pointer-events: all;
     }
-    :global(.simplebar-scrollbar) {
+    .scrollbar {
         position: absolute;
         min-height: 10px;
     }
-    :global(.simplebar-scrollbar):before {
+    .scrollbar:before {
         position: absolute;
         content: '';
         border-radius: var(--scrollbar-thumb-border-radius);
@@ -148,44 +147,41 @@
         right: 0;
         opacity: 0;
     }
-    :global(.simplebar-scrollbar):global(.simplebar-visible):before {
+    .scrollbar:global(.simplebar-visible):before {
         opacity: 1;
         transition-delay: 0s;
         transition-duration: 0s;
     }
-    :global(.simplebar-track):global(.simplebar-vertical) {
+    .track.vertical {
         top: 0;
         width: var(--scrollbar-rail-size);
     }
-    &:global(.simplebar-dragging)
-        :global(.simplebar-track):global(.simplebar-vertical)
-        :global(.simplebar-scrollbar),
-    :global(.simplebar-track):global(.simplebar-vertical):global(.simplebar-hover)
-        :global(.simplebar-scrollbar) {
+    &:global(.simplebar-dragging) .track.vertical .scrollbar,
+    .track.vertical.hover .scrollbar {
         width: var(--scrollbar-hover-size);
     }
-    :global(.simplebar-track):global(.simplebar-vertical) :global(.simplebar-scrollbar) {
+    .track.vertical .scrollbar {
         width: var(--scrollbar-thumb-size);
         right: var(--scrollbar-thumb-margin);
         transition: width 0.1s linear;
     }
-    :global(.simplebar-track):global(.simplebar-vertical) :global(.simplebar-scrollbar):before {
+    .track.vertical .scrollbar:before {
         top: var(--scrollbar-thumb-side-outer-offset);
         bottom: var(--scrollbar-thumb-side-outer-offset);
     }
     /* stylelint-disable-next-line no-duplicate-selectors */
-    :global(.simplebar-scrollbar):before {
+    .scrollbar:before {
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
         transition: opacity 0.2s var(--scrollbar-hime-timeout) linear;
     }
-    :global(.simplebar-track):global(.simplebar-horizontal) {
+    .track.horizontal {
         left: 0;
         height: var(--scrollbar-rail-size);
     }
-    :global(.simplebar-track):global(.simplebar-horizontal) :global(.simplebar-scrollbar) {
+    .track.horizontal .scrollbar {
         right: auto;
         left: 0;
         height: var(--scrollbar-thumb-size);
@@ -195,24 +191,19 @@
         width: auto;
         transition: height 0.1s linear;
     }
-    :global(.simplebar-track):global(.simplebar-horizontal) :global(.simplebar-scrollbar):before {
+    .track.horizontal .scrollbar:before {
         right: var(--scrollbar-thumb-side-outer-offset);
         left: var(--scrollbar-thumb-side-outer-offset);
     }
-    &:global(.simplebar-dragging)
-        :global(.simplebar-track):global(.simplebar-horizontal)
-        :global(.simplebar-scrollbar),
-    :global(.simplebar-track):global(.simplebar-horizontal):global(.simplebar-hover)
-        :global(.simplebar-scrollbar) {
+    &:global(.simplebar-dragging) .track.horizontal .scrollbar,
+    .track.horizontal.hover .scrollbar {
         height: var(--scrollbar-hover-size);
     }
-    &[data-simplebar-direction='rtl'] :global(.simplebar-track):global(.simplebar-vertical) {
+    &[data-simplebar-direction='rtl'] .track.vertical {
         right: auto;
         left: 0;
     }
-    &[data-simplebar-direction='rtl']
-        :global(.simplebar-track):global(.simplebar-vertical)
-        :global(.simplebar-scrollbar) {
+    &[data-simplebar-direction='rtl'] .track.vertical .scrollbar {
         left: var(--scrollbar-thumb-margin);
     }
     :global(.simplebar-dummy-scrollbar-size) {

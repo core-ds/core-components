@@ -1,8 +1,9 @@
-import React, { forwardRef, useRef, useState } from 'react';
+import React, { type ComponentRef, forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
+import { noop, useRefAsState } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -55,8 +56,9 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         },
         ref,
     ) => {
+        const scrollbarRef = useRef<ComponentRef<typeof ScrollbarPrivate>>(null);
         const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
-        const listRef = useRef<HTMLDivElement>(null);
+        const [listRef, listNode] = useRefAsState<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const [, maxHeight] = useVisibleOptions({
             visibleOptions,
@@ -125,6 +127,27 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             );
         };
 
+        useEffect(() => {
+            if (listNode) {
+                let timer = -1;
+
+                const ro = new ResizeObserver(() => {
+                    timer = requestAnimationFrame(() => {
+                        scrollbarRef.current?.recalculate();
+                    });
+                });
+
+                ro.observe(listNode);
+
+                return () => {
+                    ro.disconnect();
+                    cancelAnimationFrame(timer);
+                };
+            }
+
+            return noop;
+        }, [listNode]);
+
         if (options.length === 0 && !emptyPlaceholder && !header && !footer) {
             return null;
         }
@@ -149,6 +172,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
                 {!noOptions && (
                     <ScrollbarPrivate
+                        ref={scrollbarRef}
                         native={nativeScrollbar}
                         className={scrollbarClassName}
                         style={{ maxHeight }}

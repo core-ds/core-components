@@ -118,7 +118,7 @@
     }
 }
 
-:global(.simplebar-track):global(.simplebar-vertical) {
+[data-scrollbar-track='y'] {
     .scrollbar:first-child & {
         top: var(--select-options-list-scrollbar-gap);
     }
