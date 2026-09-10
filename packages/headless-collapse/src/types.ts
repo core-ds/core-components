@@ -7,6 +7,6 @@ export interface HeadlessCollapseProps<T extends HTMLElement>
     extends Pick<TransitionProps, 'children'> {
     in?: boolean;
     nodeRef: RefObject<T>;
-    getDimensionValue?: (node: T, dimention: Dimention) => void;
+    getDimensionValue?: (node: T, dimention: Dimention) => number;
     dimension?: Dimention;
 }
