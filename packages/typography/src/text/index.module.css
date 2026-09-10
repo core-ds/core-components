@@ -74,12 +74,3 @@
 .monospace {
     font-variant-numeric: tabular-nums;
 }
-
-.root {
-    position: relative;
-}
-
-.skeleton {
-    position: absolute;
-    inset: 0;
-}
