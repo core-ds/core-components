@@ -224,9 +224,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               class=""
                             >
                               <div
-                                data-options-list-padding="top"
-                              />
-                              <div
                                 class=""
                               >
                                 <div
@@ -296,9 +293,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                   </div>
                                 </div>
                               </div>
-                              <div
-                                data-options-list-padding="bottom"
-                              />
                             </div>
                           </div>
                           <div
