@@ -1,9 +1,8 @@
-import React, { type ComponentRef, forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
-import { noop } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -56,7 +55,6 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         },
         ref,
     ) => {
-        const scrollbarRef = useRef<ComponentRef<typeof ScrollbarPrivate>>(null);
         const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
         const listRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
@@ -127,24 +125,6 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             );
         };
 
-        useEffect(() => {
-            const listNode = listRef.current;
-
-            if (open && listNode) {
-                const ro = new ResizeObserver(() => {
-                    requestAnimationFrame(() => scrollbarRef.current?.recalculate());
-                });
-
-                ro.observe(listNode);
-
-                return () => {
-                    ro.disconnect();
-                };
-            }
-
-            return noop;
-        }, [open]);
-
         if (options.length === 0 && !emptyPlaceholder && !header && !footer) {
             return null;
         }
@@ -169,7 +149,6 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
                 {!noOptions && (
                     <ScrollbarPrivate
-                        ref={scrollbarRef}
                         native={nativeScrollbar}
                         className={scrollbarClassName}
                         style={{ maxHeight }}
