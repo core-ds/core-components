@@ -1,5 +1,58 @@
 # @alfalab/core-components
 
+## 50.30.0
+
+### Minor Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2352](https://github.com/core-ds/core-components/pull/2352)
+
+##### Tabs
+
+- Добавлены `scrollControlsContainerClassName` и `scrollControlsButtonClassName` для стилизации контейнера и кнопок прокрутки табов.
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2356](https://github.com/core-ds/core-components/pull/2356)
+
+##### Select
+
+- Исправлена высота `OptionsList` при изменении размера содержимого
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2353](https://github.com/core-ds/core-components/pull/2353)
+
+##### Pagination
+
+- Состояние `disabled` для выбранной страницы заменено на проверку в обработчике onClick.
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2337](https://github.com/core-ds/core-components/pull/2337)
+
+##### CodeInput
+
+- Исправлен скачок вьюпорта при повторном фокусе на ячейке ввода
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+- @alfalab/core-components-pagination@4.0.10
+- @alfalab/core-components-tabs@10.1.0
+- @alfalab/core-components-code-input@5.1.3
+- @alfalab/core-components-custom-picker-button@4.1.19
+- @alfalab/core-components-input-autocomplete@14.0.25
+- @alfalab/core-components-international-phone-input@4.0.25
+- @alfalab/core-components-intl-phone-input@11.0.25
+- @alfalab/core-components-picker-button@13.1.3
+- @alfalab/core-components-select-with-tags@10.1.20
+- @alfalab/core-components-table@4.0.26
+- @alfalab/core-components-confirmation@15.2.3
+
 ## 50.29.2
 
 ### Patch Changes

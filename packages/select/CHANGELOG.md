@@ -1,5 +1,17 @@
 # @alfalab/core-components-select
 
+## 19.2.7
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2356](https://github.com/core-ds/core-components/pull/2356)
+
+##### Select
+
+- Исправлена высота `OptionsList` при изменении размера содержимого
+
 ## 19.2.6
 
 ### Patch Changes
