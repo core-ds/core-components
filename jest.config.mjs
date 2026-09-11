@@ -79,6 +79,10 @@ const config = {
     projects: [
         {
             ...initialProjectOptions,
+            setupFilesAfterEnv: [
+                ...(initialProjectOptions.setupFilesAfterEnv ?? []),
+                '<rootDir>/tools/jest/setup-jsdom.ts',
+            ],
             displayName: 'jsdom',
             testEnvironment: 'jsdom',
             testMatch: [

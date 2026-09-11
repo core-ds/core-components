@@ -89,6 +89,7 @@
 
         .content {
             flex-grow: 1;
+            align-self: flex-start; /* overrides default stretch behavior */
         }
 
         .list {
@@ -107,18 +108,22 @@
     padding-right: var(--select-options-list-right-padding);
     padding-left: var(--select-options-list-left-padding);
     &:first-child {
-        [data-options-list-padding='top'] {
+        .list:before {
+            content: '';
+            display: block;
             padding-top: var(--select-options-list-top-padding);
         }
     }
     &:last-child {
-        [data-options-list-padding='bottom'] {
+        .list:after {
+            content: '';
+            display: block;
             padding-top: var(--select-options-list-bottom-padding);
         }
     }
 }
 
-:global(.simplebar-track):global(.simplebar-vertical) {
+[data-scrollbar-track='y'] {
     .scrollbar:first-child & {
         top: var(--select-options-list-scrollbar-gap);
     }
