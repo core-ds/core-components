@@ -20,6 +20,7 @@ import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
 import { fnUtils, getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
@@ -145,10 +146,24 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             magneticAreasProp,
         );
 
+        const satProbeRef = useRef<HTMLDivElement>(null);
+        const [safeAreaInsetTop, setSafeAreaInsetTop] = useState(0);
+
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            const measure = () => setSafeAreaInsetTop(satProbeRef.current?.offsetHeight ?? 0);
+
+            measure();
+            window.addEventListener('resize', measure);
+
+            return () => window.removeEventListener('resize', measure);
+        }, [open]);
+
+        const resolvedHeaderOffset = headerOffset + safeAreaInsetTop;
+
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
                 return magneticAreasProp.map((area) =>
-                    convertPercentToNumber(area, fullHeight, headerOffset),
+                    convertPercentToNumber(area, fullHeight, resolvedHeaderOffset),
                 );
             }
             let iOSViewHeight = 0;
@@ -163,8 +178,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
             const viewHeight = isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
-            return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
+            return [0, viewHeight - resolvedHeaderOffset];
+        }, [
+            fullHeight,
+            resolvedHeaderOffset,
+            magneticAreasProp,
+            virtualKeyboard,
+            adjustContainerHeight,
+        ]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
@@ -581,14 +602,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         useEffect(() => {
             if (!sheetRef.current) return;
 
-            const maxOffset = fullHeight - headerOffset;
+            const maxOffset = fullHeight - resolvedHeaderOffset;
 
             const offset = open ? sheetOffset : maxOffset;
 
             const percent = (offset / maxOffset) * 100;
 
             onOffsetChange?.(offset, percent);
-        }, [fullHeight, headerOffset, onOffsetChange, open, sheetOffset]);
+        }, [fullHeight, resolvedHeaderOffset, onOffsetChange, open, sheetOffset]);
 
         useImperativeHandle(bottomSheetInstanceRef, () => ({
             scrollToArea,
@@ -686,6 +707,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     })}
                     onTransitionEnd={setSheetHeight}
                 >
+                    <div ref={satProbeRef} className={styles.satProbe} aria-hidden={true} />
                     {outerAddons && (
                         <div
                             className={cn(styles.outerClassName, outerClassName)}

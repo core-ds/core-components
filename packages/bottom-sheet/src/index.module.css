@@ -24,6 +24,13 @@
     transition: border-radius 0.3s ease;
 }
 
+.satProbe {
+    position: fixed;
+    padding-top: var(--sat);
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .outerClassName {
     pointer-events: all;
 }
