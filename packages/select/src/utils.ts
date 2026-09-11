@@ -8,7 +8,12 @@ import {
     useState,
 } from 'react';
 
-import { getDataTestId, getElementWindow, noop } from '@alfalab/core-components-shared';
+import {
+    fnUtils,
+    getDataTestId,
+    getElementWindow,
+    useIsMounted,
+} from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_SEPARATOR } from './consts';
@@ -220,9 +225,8 @@ export function useVirtualVisibleOptions({
 
             const win = getElementWindow(list);
 
-            nextHeight += [...(list.parentNode?.children ?? [])]
-                .filter((el) => el.getAttribute('data-options-list-padding'))
-                .map((el) => parseFloat(win.getComputedStyle(el).paddingTop) || 0)
+            nextHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
                 .reduce((a, b) => a + b);
 
             setHeight(nextHeight);
@@ -240,6 +244,8 @@ export function useVisibleOptions({
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
+    const [, runIfMounted] = useIsMounted();
+    const [measured, setMeasured] = useState(false);
     const [height, setHeight] = useState<number | undefined>();
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -294,18 +300,23 @@ export function useVisibleOptions({
 
             const win = getElementWindow(list);
 
-            measuredHeight += [...(list.parentNode?.children ?? [])]
-                .filter((el) => el.getAttribute('data-options-list-padding'))
-                .map((el) => parseFloat(win.getComputedStyle(el).paddingTop) || 0)
+            measuredHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
                 .reduce((a, b) => a + b);
 
             setHeight(measuredHeight);
+
+            setMeasured(true);
+
+            return () => {
+                runIfMounted(() => setMeasured(false));
+            };
         }
 
-        return noop;
-    }, [actualOptionsCount, listRef, open, options, size, visibleOptions]);
+        return fnUtils.noop;
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, runIfMounted]);
 
-    return [false, height] as const;
+    return [measured, height] as const;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {
