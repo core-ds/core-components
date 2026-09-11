@@ -7,12 +7,6 @@
     position: relative;
 }
 
-.underlay {
-    border-radius: var(--tab-bar-island-border-radius);
-    background: var(--tab-bar-island-background);
-    box-shadow: var(--tab-bar-island-box-shadow);
-}
-
 .wrapper {
     display: flex;
     max-width: 100%;
@@ -54,7 +48,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: var(--color-light-neutral-translucent-200);
+    background: var(--tab-bar-island-tab-tracker-backround-color);
     will-change: width, height, border-radius;
 }
 

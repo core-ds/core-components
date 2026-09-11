@@ -1,9 +1,9 @@
 ## Icon
 
-```jsx live mobileOnly mobileHeight={100}
+```jsx live
 render(() => {
     return (
-        <div style={{ margin: '0 -20px -20px' }}>
+        <div style={{ padding: '20px', background: 'url("./images/test.png")' }}>
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
@@ -21,7 +21,7 @@ render(() => {
 
 ## Image
 
-```jsx live mobileOnly mobileHeight={100}
+```jsx live
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -30,7 +30,7 @@ const IconComponent = ({ style, children, ...restProps }) => (
 
 render(() => {
     return (
-        <div style={{ margin: '10px -20px -20px' }}>
+        <div style={{ padding: '20px', background: 'url("./images/test.png")' }}>
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
@@ -66,7 +66,7 @@ render(() => {
 
 ## Full Image
 
-```jsx live mobileOnly mobileHeight={100}
+```jsx live
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -75,7 +75,7 @@ const IconComponent = ({ style, children, ...restProps }) => (
 
 render(() => {
     return (
-        <div style={{ margin: '0 -20px -20px' }}>
+        <div style={{ padding: '20px', background: 'url("./images/test.png")' }}>
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },

@@ -1,0 +1,71 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.component {
+    background: var(--tab-bar-island-background);
+    border-radius: var(--tab-bar-island-border-radius);
+    box-shadow: var(--tab-bar-island-box-shadow);
+    backdrop-filter: var(--tab-bar-island-backdrop-filter);
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: var(--tab-bar-island-border-width);
+        right: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
+        left: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
+        background: linear-gradient(
+            95deg,
+            var(--tab-bar-island-border-color-from),
+            var(--tab-bar-island-border-color-to)
+        );
+    }
+}
+
+.border {
+    width: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
+    overflow: hidden;
+
+    &,
+    &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        width: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
+    }
+
+    &[data-position='start'] {
+        left: 0;
+
+        &:before {
+            left: 0;
+            border: var(--tab-bar-island-border-width) solid var(--tab-bar-island-border-color-from);
+            border-top-left-radius: var(--tab-bar-island-border-radius);
+            border-bottom-left-radius: var(--tab-bar-island-border-radius);
+        }
+    }
+
+    &[data-position='end'] {
+        right: 0;
+
+        &:before {
+            right: 0;
+            border: var(--tab-bar-island-border-width) solid var(--tab-bar-island-border-color-to);
+            border-top-right-radius: var(--tab-bar-island-border-radius);
+            border-bottom-right-radius: var(--tab-bar-island-border-radius);
+        }
+    }
+}
