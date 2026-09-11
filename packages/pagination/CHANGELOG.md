@@ -1,5 +1,17 @@
 # @alfalab/core-components-pagination
 
+## 4.0.10
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2353](https://github.com/core-ds/core-components/pull/2353)
+
+##### Pagination
+
+- Состояние `disabled` для выбранной страницы заменено на проверку в обработчике onClick.
+
 ## 4.0.9
 
 ### Patch Changes
