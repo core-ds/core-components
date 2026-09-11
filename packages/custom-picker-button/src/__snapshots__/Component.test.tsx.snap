@@ -265,9 +265,6 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                         class="content content"
                       >
                         <div
-                          data-options-list-padding="top"
-                        />
-                        <div
                           class="list"
                         >
                           <div
@@ -601,9 +598,6 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             </div>
                           </div>
                         </div>
-                        <div
-                          data-options-list-padding="bottom"
-                        />
                       </div>
                     </div>
                   </div>
@@ -747,9 +741,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       <div
                         class="content content"
                       >
-                        <div
-                          data-options-list-padding="top"
-                        />
                         <div
                           class="list"
                         >
@@ -1084,9 +1075,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             </div>
                           </div>
                         </div>
-                        <div
-                          data-options-list-padding="bottom"
-                        />
                       </div>
                     </div>
                   </div>
@@ -1230,9 +1218,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       <div
                         class="content content"
                       >
-                        <div
-                          data-options-list-padding="top"
-                        />
                         <div
                           class="list"
                         >
@@ -1567,9 +1552,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             </div>
                           </div>
                         </div>
-                        <div
-                          data-options-list-padding="bottom"
-                        />
                       </div>
                     </div>
                   </div>
