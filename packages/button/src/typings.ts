@@ -5,6 +5,8 @@ import {
     type ReactNode,
 } from 'react';
 
+import { type HapticPresetProp } from '@alfalab/core-components-haptics';
+
 export type StyleColors = {
     default: {
         [key: string]: string;
@@ -113,6 +115,11 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг для клика по кнопке.
+     */
+    'data-haptic-preset'?: HapticPresetProp;
 
     /**
      * Дополнительный класс для label

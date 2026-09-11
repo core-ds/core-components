@@ -11,6 +11,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { HapticInput, type HapticPresetProp } from '@alfalab/core-components-haptics';
 import { dom } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -129,6 +130,11 @@ export type RadioProps = Omit<
      * @default default
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг для выбора radio.
+     */
+    'data-haptic-preset'?: HapticPresetProp;
 };
 
 export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
@@ -152,6 +158,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             colors = 'default',
             compact = false,
             controlPosition = 'start',
+            'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
         ref,
@@ -162,6 +169,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
 
         const colorStyle = colorStyles[colors];
         const isControlAtEnd = controlPosition === 'end';
+
+        const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
@@ -192,13 +201,14 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                 )}
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
             >
-                <input
+                <InputComponent
                     type='radio'
                     onChange={handleChange}
                     data-test-id={dataTestId}
                     disabled={disabled}
                     checked={checked}
                     name={name}
+                    data-haptic-preset={dataHapticPreset}
                     {...restProps}
                 />
                 <span className={cn(styles.circle, colorStyle.circle, circleClassName)} />

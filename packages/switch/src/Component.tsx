@@ -8,6 +8,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { HapticInput, type HapticPresetProp } from '@alfalab/core-components-haptics';
 import { dom } from '@alfalab/core-components-shared';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useFocus } from '@alfalab/hooks';
@@ -120,6 +121,11 @@ export type SwitchProps = Omit<
      * @default false
      */
     showSkeleton?: boolean;
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг для переключения switch.
+     */
+    'data-haptic-preset'?: HapticPresetProp;
 };
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
@@ -144,6 +150,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             showSkeleton = false,
             size = 24,
             compact = false,
+            'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
         ref,
@@ -161,6 +168,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         const errorMessage = typeof error === 'boolean' ? '' : error;
         const isControlAtEnd = (controlPosition ?? (reversed ? 'end' : 'start')) === 'end';
 
+        const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
+
         return (
             <label
                 className={cn(styles.component, styles[align], styles[`size-${size}`], className, {
@@ -177,7 +186,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
-                <input
+                <InputComponent
                     type='checkbox'
                     onChange={handleChange}
                     disabled={disabled}
@@ -185,6 +194,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     name={name}
                     value={value}
                     data-test-id={dataTestId}
+                    data-haptic-preset={dataHapticPreset}
                     {...restProps}
                 />
 

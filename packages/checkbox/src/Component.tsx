@@ -12,6 +12,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { HapticInput, type HapticPresetProp } from '@alfalab/core-components-haptics';
 import { dom, getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -167,6 +168,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * @default default
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг для переключения чекбокса.
+     */
+    'data-haptic-preset'?: HapticPresetProp;
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -199,6 +205,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             inputRef,
             colors = 'default',
             compact = false,
+            'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
         ref,
@@ -218,6 +225,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         const colorStyle = colorStyles[colors];
         const isControlAtEnd =
             (controlPosition ?? (position === 'after' ? 'end' : 'start')) === 'end';
+
+        const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
 
         const renderCheckmark = () => (
             <span className={cn(styles.box, colorStyle.box, boxClassName)}>
@@ -256,7 +265,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
             >
                 {!hiddenInput && (
-                    <input
+                    <InputComponent
+                        data-haptic-preset={dataHapticPreset}
                         type='checkbox'
                         onChange={handleChange}
                         name={name}
