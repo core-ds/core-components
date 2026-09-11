@@ -1,6 +1,6 @@
 {
-    "name": "@alfalab/core-components-accordion",
-    "version": "3.0.11",
+    "name": "@alfalab/core-components-headless-collapse",
+    "version": "0.0.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,11 +13,9 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-headless-collapse": "^0.0.0",
-        "@alfalab/core-components-typography": "^6.0.11",
-        "@alfalab/hooks": "^1.17.0",
-        "@alfalab/icons-glyph": "^2.260.0",
-        "classnames": "^2.5.1",
+        "@alfalab/core-components-shared": "^2.2.3",
+        "@types/react-transition-group": "^4.4.12",
+        "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {

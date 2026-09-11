@@ -7,10 +7,10 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
+            "@alfalab/core-components-headless-collapse": ["./src"],
+            "@alfalab/core-components-headless-collapse/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"],
-            "@alfalab/core-components-skeleton": ["./src"],
-            "@alfalab/core-components-skeleton/*": ["./src/*"]
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [{ "path": "../shared/tsconfig.build.json" }]
