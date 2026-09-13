@@ -48,7 +48,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: var(--tab-bar-island-tab-tracker-backround-color);
+    background: var(--tab-bar-island-tab-tracker-background-color);
     will-change: width, height, border-radius;
 }
 
