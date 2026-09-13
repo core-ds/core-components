@@ -231,7 +231,7 @@ jobs:
                                   notification: {
                                       status: 'ok',
                                       body: `
-                                          Опубликована новая версия [\`${spec}\`](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/releases/tag/${encodeURIComponent(spec)})
+                                          Опубликована новая версия [${spec}](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/releases/tag/${encodeURIComponent(spec)})
                                       `.trim(),
                                   },
                               }),
