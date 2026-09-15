@@ -13,7 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
-import { type HapticPresetProp } from '@alfalab/core-components-haptics';
+import { type HapticPresetProp } from '@alfalab/core-components-config';
 import { type InputProps } from '@alfalab/core-components-input';
 import { fnUtils, isIOS } from '@alfalab/core-components-shared';
 

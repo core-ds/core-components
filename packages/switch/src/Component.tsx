@@ -1,5 +1,6 @@
 import React, {
     type ChangeEvent,
+    type ElementType,
     forwardRef,
     type InputHTMLAttributes,
     type ReactNode,
@@ -8,7 +9,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { HapticInput, type HapticPresetProp } from '@alfalab/core-components-haptics';
+import { type HapticPresetProp, useCoreConfig } from '@alfalab/core-components-config';
 import { dom } from '@alfalab/core-components-shared';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useFocus } from '@alfalab/hooks';
@@ -123,7 +124,12 @@ export type SwitchProps = Omit<
     showSkeleton?: boolean;
 
     /**
-     * Haptic-пресет или кастомный vibration-конфиг для переключения switch.
+     * Кастомный компонент вместо нативного `input`.
+     */
+    as?: ElementType;
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг для клика по кнопке.
      */
     'data-haptic-preset'?: HapticPresetProp;
 };
@@ -150,6 +156,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             showSkeleton = false,
             size = 24,
             compact = false,
+            as,
             'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
@@ -158,6 +165,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         const labelRef = useRef<HTMLLabelElement>(null);
 
         const [focused] = useFocus(labelRef, 'keyboard');
+
+        const { as: configAs } = useCoreConfig();
 
         const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
@@ -168,7 +177,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         const errorMessage = typeof error === 'boolean' ? '' : error;
         const isControlAtEnd = (controlPosition ?? (reversed ? 'end' : 'start')) === 'end';
 
-        const InputComponent = dataHapticPreset === undefined ? 'input' : HapticInput;
+        const InputComponent = as ?? configAs?.input ?? 'input';
 
         return (
             <label
@@ -187,6 +196,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 ref={mergeRefs([labelRef, ref])}
             >
                 <InputComponent
+                    data-haptic-preset={dataHapticPreset}
                     type='checkbox'
                     onChange={handleChange}
                     disabled={disabled}
@@ -194,7 +204,6 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     name={name}
                     value={value}
                     data-test-id={dataTestId}
-                    data-haptic-preset={dataHapticPreset}
                     {...restProps}
                 />
 

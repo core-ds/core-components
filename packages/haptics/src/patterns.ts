@@ -1,4 +1,4 @@
-import { type HapticPatternPreset } from './typings';
+import { type HapticPatternPreset, type HapticPreset } from './typings';
 
 export const defaultPatterns = {
     /** Двойной отклик с нарастанием — паттерн "Успех". */
@@ -59,4 +59,4 @@ export const defaultPatterns = {
     buzz: {
         pattern: [{ duration: 1000, intensity: 1 }],
     },
-} as const satisfies Record<string, HapticPatternPreset>;
+} as const satisfies Record<HapticPreset, HapticPatternPreset>;

@@ -7,8 +7,8 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
-            "@alfalab/core-components-haptics": ["../haptics/src"],
-            "@alfalab/core-components-haptics/*": ["../haptics/src/*"],
+            "@alfalab/core-components-config": ["../config/src"],
+            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-radio": ["./src"],
             "@alfalab/core-components-radio/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
@@ -16,7 +16,7 @@
         }
     },
     "references": [
-        { "path": "../haptics/tsconfig.build.json" },
+        { "path": "../config/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" }
     ]
 }

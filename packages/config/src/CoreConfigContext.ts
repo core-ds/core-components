@@ -1,9 +1,25 @@
-import { createContext, useContext } from 'react';
+import { createContext, type ElementType, useContext } from 'react';
 
 export type CoreConfigContextValue = {
     breakpoint: number;
     client: 'desktop' | 'mobile';
     getPortalContainer?: () => Element | null | undefined;
+    as?: {
+        /**
+         * Кастомный компонент вместо нативного `<button>`.
+         */
+        button?: ElementType;
+
+        /**
+         * Кастомный компонент вместо нативного `<a>`.
+         */
+        a?: ElementType;
+
+        /**
+         * Кастомный компонент вместо нативного `<input>`.
+         */
+        input?: ElementType;
+    };
     haptics?: {
         /**
          * Глобальный флаг haptic. `false` перекрывает локальный пресет.

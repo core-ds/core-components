@@ -4,24 +4,14 @@ import {
     type InputHTMLAttributes,
 } from 'react';
 
-import { type defaultPatterns } from './patterns';
+import {
+    type HapticPreset,
+    type HapticPresetProp,
+    type HapticVibrationPreset,
+    type Vibration,
+} from '@alfalab/core-components-config';
 
-export interface Vibration {
-    /**
-     * Длительность фазы в миллисекундах.
-     */
-    duration: number;
-
-    /**
-     * Сила вибрации от 0 до 1.
-     */
-    intensity?: number;
-
-    /**
-     * Пауза перед фазой в миллисекундах.
-     */
-    delay?: number;
-}
+export type { HapticPreset, HapticPresetProp, HapticVibrationPreset, Vibration };
 
 export interface HapticPatternPreset {
     /**
@@ -29,8 +19,6 @@ export interface HapticPatternPreset {
      */
     pattern: Vibration[];
 }
-
-export type HapticPreset = keyof typeof defaultPatterns;
 
 export type HapticTriggerInput =
     | number
@@ -48,22 +36,10 @@ export interface HapticTriggerOptions {
     intensity?: number;
 }
 
-/**
- * Кастомный пресет — одна фаза вибрации с повтором.
- */
-export interface HapticVibrationPreset extends Vibration {
-    /**
-     * Количество повторов фазы.
-     * @default 1
-     */
-    repeat?: number;
-}
-
-export type HapticPresetProp = HapticPreset | HapticVibrationPreset | false;
-
 export interface HapticBaseProps {
     /**
      * Haptic-пресет, кастомный vibration-конфиг или `false` для отключения.
+     * @default selection
      */
     'data-haptic-preset'?: HapticPresetProp;
 

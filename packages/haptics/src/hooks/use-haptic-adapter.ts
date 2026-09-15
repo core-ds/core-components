@@ -21,7 +21,7 @@ type UseHapticAdapterParams<E extends HTMLElement> = {
  * На iOS без Vibration API отдаёт `fallback`, чтобы тап ушёл в overlay и воспроизвёл системный tick.
  */
 export const useHapticAdapter = <E extends HTMLElement>({
-    preset,
+    preset = 'selection',
     disabled,
     onClick,
     ref,
@@ -30,7 +30,7 @@ export const useHapticAdapter = <E extends HTMLElement>({
     const { iosFallback } = useHapticEnvironment();
     const innerRef = useRef<E>(null);
 
-    const fallback = enabled && preset !== undefined && !disabled && iosFallback;
+    const fallback = enabled && !disabled && iosFallback;
 
     const handleClick = (event: MouseEvent<E>) => {
         onClick?.(event);

@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { type HapticPresetProp } from '@alfalab/core-components-haptics';
+import { type HapticPresetProp } from '@alfalab/core-components-config';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { type InputProps } from '@alfalab/core-components-input';
 import { getDataTestId } from '@alfalab/core-components-shared';

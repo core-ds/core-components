@@ -240,7 +240,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-button@workspace:packages/button"
   dependencies:
-    "@alfalab/core-components-haptics": "npm:^0.0.1"
+    "@alfalab/core-components-config": "npm:^1.1.0"
     "@alfalab/core-components-mq": "npm:^6.0.7"
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/core-components-spinner": "npm:^6.0.7"
@@ -409,7 +409,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
   dependencies:
-    "@alfalab/core-components-haptics": "npm:^0.0.1"
+    "@alfalab/core-components-config": "npm:^1.1.0"
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -1195,7 +1195,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-number-input@workspace:packages/number-input"
   dependencies:
-    "@alfalab/core-components-haptics": "npm:^0.0.1"
+    "@alfalab/core-components-config": "npm:^1.1.0"
     "@alfalab/core-components-icon-button": "npm:^8.0.10"
     "@alfalab/core-components-input": "npm:^17.2.0"
     "@alfalab/core-components-mq": "npm:^6.0.7"
@@ -1503,7 +1503,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-radio@workspace:packages/radio"
   dependencies:
-    "@alfalab/core-components-haptics": "npm:^0.0.1"
+    "@alfalab/core-components-config": "npm:^1.1.0"
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -1936,7 +1936,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-switch@workspace:packages/switch"
   dependencies:
-    "@alfalab/core-components-haptics": "npm:^0.0.1"
+    "@alfalab/core-components-config": "npm:^1.1.0"
     "@alfalab/core-components-shared": "npm:^2.2.3"
     "@alfalab/core-components-skeleton": "npm:^7.0.5"
     "@alfalab/hooks": "npm:^1.17.0"

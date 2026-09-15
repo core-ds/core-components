@@ -30,7 +30,12 @@ render(() => {
 
     return (
         <CoreConfigContext.Provider
-            value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+            value={{
+                breakpoint: 1024,
+                client: 'mobile',
+                as: { button: HapticButton },
+                haptics: { debug: true },
+            }}
         >
             {presets.map((group) => (
                 <div key='notification'>
@@ -99,7 +104,12 @@ render(() => {
 
     return (
         <CoreConfigContext.Provider
-            value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+            value={{
+                breakpoint: 1024,
+                client: 'mobile',
+                as: { button: HapticButton },
+                haptics: { debug: true },
+            }}
         >
             {presets.map((group) => (
                 <div key='notification'>
@@ -147,7 +157,12 @@ render(() => {
 
     return (
         <CoreConfigContext.Provider
-            value={{ breakpoint: 1024, client: 'mobile', haptics: { debug: true } }}
+            value={{
+                breakpoint: 1024,
+                client: 'mobile',
+                as: { button: HapticButton },
+                haptics: { debug: true },
+            }}
         >
             {presets.map((group) => (
                 <div key='notification'>
@@ -180,6 +195,7 @@ render(() => {
 >
     <Space direction='horizontal' size={12} align='center'>
         <Button
+            as={HapticButton}
             view='secondary'
             data-haptic-preset={{
                 duration: 12,
@@ -195,7 +211,7 @@ render(() => {
 
 ## Дефолтные вибрации
 
-В некоторые компоненты зашиты аналогичные iOS паттерны вибрации.
+Button, IconButton, Checkbox, Radio и Switch читают обёртку из `CoreConfigContext.as` и по умолчанию используют пресет `selection` — отдельный `data-haptic-preset` не нужен. Компоненты поверх них (NumberInput, кнопка очистки Input, дни и месяцы Calendar) получают вибрацию автоматически. Slider построен на div-ручке без нативного элемента — вибрация в нём не подключена.
 
 ```jsx live mobileHeight={658}
 render(() => {
@@ -212,6 +228,7 @@ render(() => {
             value={{
                 breakpoint: 1024,
                 client: 'mobile',
+                as: { button: HapticButton, input: HapticInput },
                 haptics: { enabled: true, debug: true },
             }}
         >
@@ -223,13 +240,11 @@ render(() => {
                     <Checkbox
                         checked={checkboxFirst}
                         label='Чекбокс 1'
-                        data-haptic-preset='selection'
                         onChange={(_, { checked }) => setCheckboxFirst(checked)}
                     />
                     <Checkbox
                         checked={checkboxSecond}
                         label='Чекбокс 2'
-                        data-haptic-preset='selection'
                         onChange={(_, { checked }) => setCheckboxSecond(checked)}
                     />
                 </div>
@@ -242,14 +257,12 @@ render(() => {
                         checked={radio === 'first'}
                         label='Радио 1'
                         name='haptic-radio'
-                        data-haptic-preset='selection'
                         onChange={() => setRadio('first')}
                     />
                     <Radio
                         checked={radio === 'second'}
                         label='Радио 2'
                         name='haptic-radio'
-                        data-haptic-preset='selection'
                         onChange={() => setRadio('second')}
                     />
                 </div>
@@ -257,7 +270,6 @@ render(() => {
                 <Switch
                     checked={switchChecked}
                     label='Свитч'
-                    data-haptic-preset='selection'
                     onChange={(_, { checked }) => setSwitchChecked(checked)}
                 />
 
@@ -278,7 +290,6 @@ render(() => {
                     max={10}
                     step={1}
                     value={numberValue}
-                    data-haptic-preset='selection'
                     onChange={(_, { value }) => setNumberValue(value)}
                 />
 

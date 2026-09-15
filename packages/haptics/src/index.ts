@@ -5,6 +5,7 @@ export type {
     HapticAProps,
     HapticButtonProps,
     HapticInputProps,
+    HapticPreset,
     HapticPresetProp,
     HapticTriggerInput,
     HapticTriggerOptions,

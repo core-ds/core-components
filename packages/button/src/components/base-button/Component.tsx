@@ -10,7 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { HapticA, HapticButton } from '@alfalab/core-components-haptics';
+import { useCoreConfig } from '@alfalab/core-components-config';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
@@ -51,6 +51,7 @@ export const BaseButton = forwardRef<
             nowrap = false,
             colors = 'default',
             Component = href ? 'a' : 'button',
+            as,
             'data-haptic-preset': dataHapticPreset,
             onClick,
             styles = {},
@@ -75,9 +76,11 @@ export const BaseButton = forwardRef<
 
         const iconOnly = !children;
 
-        const withHaptic = dataHapticPreset !== undefined;
-        const isHapticButton = withHaptic && Component === 'button';
-        const isHapticAnchor = withHaptic && Component === 'a';
+        const { as: configAs } = useCoreConfig();
+
+        const nativeTag = href ? 'a' : 'button';
+
+        const AsComponent = as ?? (Component === nativeTag ? configAs?.[nativeTag] : undefined);
 
         const sizeStyle = `size-${size}`;
 
@@ -192,16 +195,16 @@ export const BaseButton = forwardRef<
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
-            const LinkComponent = isHapticAnchor ? HapticA : Component;
+            const LinkComponent = AsComponent ?? Component;
 
-            // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+            // Для совместимости с react-router-dom, меняем href на to; `as` получает href как нативный тег
+            const hrefProps = {
+                [AsComponent || typeof Component === 'string' ? 'href' : 'to']: href,
+            };
 
             return (
                 <LinkComponent
-                    {...(isHapticAnchor && {
-                        'data-haptic-preset': dataHapticPreset,
-                    })}
+                    data-haptic-preset={dataHapticPreset}
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
@@ -215,13 +218,11 @@ export const BaseButton = forwardRef<
             );
         }
 
-        const ButtonComponent = isHapticButton ? HapticButton : Component;
+        const ButtonComponent = AsComponent ?? Component;
 
         return (
             <ButtonComponent
-                {...(isHapticButton && {
-                    'data-haptic-preset': dataHapticPreset,
-                })}
+                data-haptic-preset={dataHapticPreset}
                 {...componentProps}
                 {...restButtonProps}
                 onClick={handleClick}

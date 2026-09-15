@@ -5,7 +5,7 @@ import {
     type ReactNode,
 } from 'react';
 
-import { type HapticPresetProp } from '@alfalab/core-components-haptics';
+import { type HapticPresetProp } from '@alfalab/core-components-config';
 
 export type StyleColors = {
     default: {
@@ -81,6 +81,11 @@ type ComponentProps = {
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     Component?: ElementType;
+
+    /**
+     * Кастомный компонент вместо нативного `button`/`a`.
+     */
+    as?: ElementType;
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
