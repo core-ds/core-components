@@ -4,7 +4,10 @@ import lottie, {
     type AnimationConfigWithPath,
 } from 'lottie-web/build/player/lottie_light';
 
-import { type LottieAnimationItem, LottieDataState } from '@alfalab/core-components-lottie/types';
+import {
+    type LottieAnimationItem,
+    type LottieDataState,
+} from '@alfalab/core-components-lottie/types';
 import { hasOwnProperty, noop, useRefAsState } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
@@ -28,11 +31,11 @@ function checkOptions(
 
 export function useLottie<T extends Element>(
     props: UseLottieProps,
-): [ref: Ref<T>, animation: LottieAnimationItem | null, dataState: LottieDataState] {
+): [ref: Ref<T>, animation: LottieAnimationItem | null, dataState: LottieDataState | null] {
     const [elementRef, element] = useRefAsState<T>(null);
     const [animation, setAnimation] = useState<LottieAnimationItem | null>(null);
     const [options, setOptions] = useState<LottieParams>(props);
-    const [dataState, setDataState] = useState(LottieDataState.INITIAL);
+    const [dataState, setDataState] = useState<LottieDataState | null>(null);
     const path = hasOwnProperty(props, 'path') ? props.path : undefined;
     const animationData: unknown = hasOwnProperty(props, 'animationData')
         ? props.animationData
@@ -53,13 +56,13 @@ export function useLottie<T extends Element>(
             const animationItem: LottieAnimationItem = lottie.loadAnimation(options);
 
             setAnimation(animationItem);
-            setDataState(animationItem.isLoaded ? LottieDataState.OK : LottieDataState.LOADING);
+            setDataState(animationItem.isLoaded ? 'ok' : 'loading');
 
             return () => {
                 animationItem.destroy();
                 // eslint-disable-next-line no-underscore-dangle
                 animationItem._cbs = [];
-                setDataState(LottieDataState.INITIAL);
+                setDataState(null);
                 setAnimation(null);
             };
         }
@@ -70,10 +73,10 @@ export function useLottie<T extends Element>(
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const subscriptions = [
             animation?.addEventListener('DOMLoaded', () => {
-                setDataState(LottieDataState.OK);
+                setDataState('ok');
             }),
             animation?.addEventListener('data_failed', () => {
-                setDataState(LottieDataState.ERROR);
+                setDataState('error');
             }),
         ];
 

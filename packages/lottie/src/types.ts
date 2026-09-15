@@ -7,12 +7,7 @@ import {
     type AnimationItem,
 } from 'lottie-web/build/player/lottie_light';
 
-export enum LottieDataState {
-    OK,
-    ERROR,
-    LOADING,
-    INITIAL,
-}
+export type LottieDataState = 'ok' | 'error' | 'loading';
 
 export interface LottieProps {
     /**
@@ -68,7 +63,7 @@ export interface LottieProps {
     /**
      * Плейсхолдер анимации
      */
-    placeholder?: (dataState: LottieDataState.LOADING | LottieDataState.ERROR) => ReactNode;
+    placeholder?: (dataState: Extract<LottieDataState, 'loading' | 'error'>) => ReactNode;
     /**
      * Режим масштабирования анимации
      * @default fill
@@ -88,14 +83,6 @@ export interface LottieProps {
 }
 
 export type { AnimationDirection };
-
-export interface LottieEvents {
-    started: () => void;
-    ended: () => void;
-    stopped: () => void;
-    resumed: () => void;
-    frame: (data: { currentFrame: number }) => void;
-}
 
 export interface AnimationData {
     /**

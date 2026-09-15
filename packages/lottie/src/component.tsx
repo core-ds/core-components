@@ -1,7 +1,7 @@
 import React, { type FC, Fragment, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { LottieDataState, type LottieProps } from '@alfalab/core-components-lottie/types';
+import { type LottieProps } from '@alfalab/core-components-lottie/types';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { useLottie } from './react-lottie';
@@ -70,7 +70,7 @@ export const Lottie: FC<LottieProps> = ({
 
     // setup start/end frame
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        if (animation && dataState === LottieDataState.OK) {
+        if (animation && dataState === 'ok') {
             const { animationData } = animation;
             const inPoint = Math.ceil(animationData!.ip);
             const outPoint = Math.floor(animationData!.op);
@@ -84,7 +84,7 @@ export const Lottie: FC<LottieProps> = ({
     // handle play
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (iteration < maxIterations) {
-            if (animation && dataState === LottieDataState.OK) {
+            if (animation && dataState === 'ok') {
                 if (play && animation.isPaused) {
                     const { playDirection, currentFrame, totalFrames } = animation;
                     const isForward = playDirection === 1;
@@ -144,11 +144,10 @@ export const Lottie: FC<LottieProps> = ({
                 ref={containerRef}
                 style={size}
                 className={cn(styles.container, className, {
-                    [styles.show]: dataState === LottieDataState.OK,
+                    [styles.show]: dataState === 'ok',
                 })}
             />
-            {(dataState === LottieDataState.LOADING || dataState === LottieDataState.ERROR) &&
-                placeholder?.(dataState)}
+            {(dataState === 'loading' || dataState === 'error') && placeholder?.(dataState)}
         </Fragment>
     );
 };
