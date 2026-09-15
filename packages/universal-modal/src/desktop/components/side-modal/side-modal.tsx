@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, type MutableRefObject, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -55,7 +55,8 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             ref={ref}
             componentRef={componentRef}
             contentElementRef={contentRef}
-            scrollHandler='content'
+            scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
+            scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
             wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
