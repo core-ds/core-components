@@ -1,0 +1,19 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='AccountSelect'
+    children='Поле с выпадающим списком для выбора счёта или карты.'
+/>
+
+<Tabs
+    description={<Description />}
+    
+    development={<Development />}
+/>
