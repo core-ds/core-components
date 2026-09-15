@@ -9,15 +9,15 @@
     --slider-input-m-border-bottom-radius: var(--border-radius-8);
     --slider-input-l-border-bottom-radius: var(--border-radius-8);
     --slider-input-xl-border-bottom-radius: var(--border-radius-12);
-    --slider-input-progress-margin-horizontal: var(--gap-12);
-    --slider-input-xl-progress-margin-horizontal: var(--gap-16);
+    --slider-input-progress-margin-horizontal: 0;
+    --slider-input-xl-progress-margin-horizontal: 0;
     --slider-input-progress-border-radius: var(--border-radius-4);
     --slider-input-progress-bg-color: var(--color-light-neutral-700);
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
-    --slider-input-origin-width: calc(100% - 16px);
-    --slider-input-origin-right: var(--gap-8);
-    --slider-input-edge-value-margin: -50%;
-    --slider-input-pips-margin: var(--gap-6) var(--gap-6) 0;
+    --slider-input-origin-width: 100%;
+    --slider-input-origin-right: var(--gap-0);
+    --slider-input-edge-value-margin: 2px;
+    --slider-input-pips-margin: var(--gap-6) 0 0;
 }
 
 .component {
@@ -58,8 +58,8 @@
     }
 
     & :global(.noUi-origin) {
-        width: calc(100% - var(--gap-12));
-        right: var(--gap-6);
+        width: var(--slider-input-origin-width);
+        right: var(--slider-input-origin-right);
     }
 
     & :global(.noUi-pips) {
