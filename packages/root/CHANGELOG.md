@@ -1,5 +1,29 @@
 # @alfalab/core-components
 
+## 50.30.1
+
+### Patch Changes
+
+<sup><time>15.09.2026</time></sup>
+
+#### [#2362](https://github.com/core-ds/core-components/pull/2362)
+
+##### Select
+
+- Исправлен цвет `ellipsis` текста
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.8
+- @alfalab/core-components-custom-picker-button@4.1.20
+- @alfalab/core-components-input-autocomplete@14.0.26
+- @alfalab/core-components-international-phone-input@4.0.26
+- @alfalab/core-components-intl-phone-input@11.0.26
+- @alfalab/core-components-picker-button@13.1.4
+- @alfalab/core-components-select-with-tags@10.1.21
+- @alfalab/core-components-table@4.0.27
+- @alfalab/core-components-tabs@10.1.1
+
 ## 50.30.0
 
 ### Minor Changes
