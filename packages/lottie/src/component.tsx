@@ -72,12 +72,10 @@ export const Lottie: FC<LottieProps> = ({
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (animation && dataState === LottieDataState.OK) {
             const { animationData } = animation;
-            const firstFrame = Math.round(animationData!.ip);
-            const totalFrames = Math.floor(animationData!.op - animationData!.ip);
-            const start =
-                typeof startFrame === 'number' ? Math.max(startFrame, firstFrame) : firstFrame;
-            const end =
-                typeof endFrame === 'number' ? Math.min(endFrame, totalFrames) : totalFrames;
+            const inPoint = Math.ceil(animationData!.ip);
+            const outPoint = Math.floor(animationData!.op);
+            const start = typeof startFrame === 'number' ? Math.max(startFrame, inPoint) : inPoint;
+            const end = typeof endFrame === 'number' ? Math.min(endFrame, outPoint) : outPoint;
 
             animation.setSegment(start, end);
         }
