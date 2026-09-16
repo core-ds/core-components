@@ -1,6 +1,7 @@
 import { forwardRef, type ReactNode, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import { isClient } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { usePortalContainer } from './hooks/usePortalContainer';
@@ -26,7 +27,7 @@ export const Portal = forwardRef<Element | null | undefined, PortalProps>((props
     const portalContainer = usePortalContainer();
     const { getPortalContainer = portalContainer, immediateMount = false, children } = props;
     const [mountNode, setMountNode] = useState<Element | null | undefined>(
-        immediateMount ? getPortalContainer : null,
+        isClient() && immediateMount ? getPortalContainer : null,
     );
 
     useLayoutEffect_SAFE_FOR_SSR(() => {

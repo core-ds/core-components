@@ -1,4 +1,3 @@
-@import './navigation-bar/click.css';
 @import './amount/click.css';
 @import './checkbox-group/click.css';
 @import './tabs/click.css';
@@ -10,15 +9,12 @@
 @import './progress-bar/click.css';
 @import './pure-cell/click.css';
 @import './icon-view/click.css';
-@import './side-panel/click.css';
 @import './radio-group/click.css';
-@import './form-control/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(-180deg);
 
-    @mixin navigation-bar-click;
     @mixin select-click;
     @mixin progress-bar-click;
     @mixin pure-cell-click;
@@ -30,7 +26,5 @@
     @mixin list-click;
     @mixin dropzone-click;
     @mixin icon-view-click;
-    @mixin side-panel-click;
     @mixin radio-group-click;
-    @mixin form-control-click;
 }

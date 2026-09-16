@@ -149,6 +149,15 @@
     }
 }
 
+.size-16 {
+    width: 16px;
+    height: 16px;
+
+    & .labelWrapper {
+        max-width: 16px;
+    }
+}
+
 .backgroundCircle,
 .progressCircle {
     width: 100%;

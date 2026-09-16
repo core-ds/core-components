@@ -1,9 +1,11 @@
-import React, { useContext, ContextType, useEffect } from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import React, { useContext, ContextType, useEffect, useRef, useState } from 'react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { BaseModal } from '@alfalab/core-components-base-modal';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
 import { ModalContext } from './Context';
+import userEvent from '@testing-library/user-event';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -360,63 +362,6 @@ describe('UniversalModal', () => {
         });
     });
 
-    describe('desktop content gap tests', () => {
-        const dti = 'modal-dti';
-        const testIds = getUniversalModalTestIds(dti);
-
-        it.each(['withHeader', 'withFooter'])('should not have class %s', (className) => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).not.toHaveClass(className);
-        });
-
-        it.each(['withHeader', 'withFooter'])('should have class %s', (className) => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass(className);
-        });
-
-        it('should render with header gap', () => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass('withHeader');
-        });
-
-        it('should render with footer gap', () => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass('withFooter');
-        });
-    });
-
     describe('desktop highlight tests', () => {
         const dti = 'modal-dti';
         const testIds = getUniversalModalTestIds(dti);
@@ -508,6 +453,392 @@ describe('UniversalModal', () => {
             const footer = screen.queryByTestId(testIds.footer);
 
             expect(footer).toHaveClass('middle');
+        });
+    });
+
+    describe('desktop backdrop tests', () => {
+        const testId = 'backdrop-test-id';
+
+        describe('center modal', () => {
+            it('should render backdrop by default', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=true', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        overlay={true}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=false', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        overlay={false}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+
+        describe('side modal', () => {
+            it('should render backdrop by default', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=true', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        overlay={true}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=false', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        overlay={false}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+    });
+
+    describe('desktop scroll lock tests', () => {
+        let savedBodyStyle: CSSStyleDeclaration;
+
+        beforeAll(() => {
+            savedBodyStyle = document.body.style;
+        });
+
+        beforeEach(() => {
+            // eslint-disable-next-line
+            // @ts-ignore
+            document.body.setAttribute('style', savedBodyStyle);
+        });
+
+        describe('side modal', () => {
+            it('should not lock scroll when overlay=false', () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='start' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(
+                    <UniversalModalDesktop open={true} horizontalAlign='start' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+            });
+
+            it('should lock scroll via legacy mechanism by default (overlay=true)', async () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='start' />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<UniversalModalDesktop open={true} horizontalAlign='start' />);
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<UniversalModalDesktop open={false} horizontalAlign='start' />);
+
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
+            });
+        });
+
+        describe('center modal', () => {
+            it('should not lock scroll when overlay=false', () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='center' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(
+                    <UniversalModalDesktop open={true} horizontalAlign='center' overlay={false} />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+            });
+
+            it('should lock scroll via legacy mechanism by default (overlay=true)', async () => {
+                const { rerender } = render(
+                    <UniversalModalDesktop open={false} horizontalAlign='center' />,
+                );
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<UniversalModalDesktop open={true} horizontalAlign='center' />);
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<UniversalModalDesktop open={false} horizontalAlign='center' />);
+
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
+            });
+        });
+
+        describe('coordination with other modals', () => {
+            const TestCase = ({
+                sideOpen,
+                otherOpen,
+            }: {
+                sideOpen: boolean;
+                otherOpen: boolean;
+            }) => (
+                <React.Fragment>
+                    <UniversalModalDesktop open={sideOpen} horizontalAlign='start' />
+                    <BaseModal open={otherOpen}>
+                        <div>Other modal</div>
+                    </BaseModal>
+                </React.Fragment>
+            );
+
+            it('should not block wheel scroll inside the other (top) modal while the sidebar is open underneath', () => {
+                render(<TestCase sideOpen={true} otherOpen={true} />);
+
+                const content = screen.getByText('Other modal');
+
+                const wheelEvent = new WheelEvent('wheel', {
+                    bubbles: true,
+                    cancelable: true,
+                    deltaY: 10,
+                });
+
+                content.dispatchEvent(wheelEvent);
+
+                expect(wheelEvent.defaultPrevented).toBe(false);
+            });
+
+            it('should keep background scroll locked while the sidebar is open, even after the other modal closes', async () => {
+                const { rerender } = render(<TestCase sideOpen={false} otherOpen={false} />);
+
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<TestCase sideOpen={true} otherOpen={true} />);
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<TestCase sideOpen={true} otherOpen={false} />);
+
+                await waitFor(() => {
+                    expect(screen.queryByText('Other modal')).not.toBeInTheDocument();
+                });
+
+                expect(document.body.style.overflow).toBe('hidden');
+
+                rerender(<TestCase sideOpen={false} otherOpen={false} />);
+
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
+            });
+        });
+    });
+
+    describe('disableRestoreFocus', () => {
+        describe('desktop', () => {
+            it('should restore focus to the previously focused element after closing by default', async () => {
+                const dti = 'modal-dti';
+
+                const TestComponent = () => {
+                    const [open, setOpen] = useState(false);
+
+                    return (
+                        <>
+                            <button data-test-id='trigger' onClick={() => setOpen(true)}>
+                                Open
+                            </button>
+                            <UniversalModalDesktop open={open} onClose={() => setOpen(false)}>
+                                <UniversalModalDesktop.Header
+                                    title='Title'
+                                    dataTestId={dti}
+                                    hasCloser={true}
+                                />
+                            </UniversalModalDesktop>
+                        </>
+                    );
+                };
+
+                render(<TestComponent />);
+
+                const trigger = screen.getByTestId('trigger');
+
+                await userEvent.click(trigger);
+
+                const closer = screen.getByTestId(getUniversalModalTestIds(dti).closer);
+
+                await userEvent.click(closer);
+
+                expect(trigger).toHaveFocus();
+            });
+
+            it('should not restore focus when disableRestoreFocus=true', async () => {
+                const dti = 'modal-dti';
+
+                const TestComponent = () => {
+                    const [open, setOpen] = React.useState(false);
+
+                    return (
+                        <>
+                            <button data-test-id='trigger' onClick={() => setOpen(true)}>
+                                Open
+                            </button>
+                            <UniversalModalDesktop
+                                open={open}
+                                disableRestoreFocus={true}
+                                onClose={() => setOpen(false)}
+                            >
+                                <UniversalModalDesktop.Header
+                                    title='Title'
+                                    dataTestId={dti}
+                                    hasCloser={true}
+                                />
+                            </UniversalModalDesktop>
+                        </>
+                    );
+                };
+
+                render(<TestComponent />);
+
+                const trigger = screen.getByTestId('trigger');
+
+                await userEvent.click(trigger);
+
+                const closer = screen.getByTestId(getUniversalModalTestIds(dti).closer);
+
+                await userEvent.click(closer);
+
+                expect(trigger).not.toHaveFocus();
+            });
+        });
+    });
+
+    describe('portal container tests', () => {
+        const textContent = 'Text content';
+        const customPortalContainer = 'custom-portal-container';
+
+        describe('desktop', () => {
+            it('should render default container', () => {
+                render(<UniversalModalDesktop open={true}>{textContent}</UniversalModalDesktop>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalDesktop container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalDesktop>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+        });
+
+        describe('mobile', () => {
+            it('should render default container', () => {
+                render(<UniversalModalMobile open={true}>{textContent}</UniversalModalMobile>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalMobile container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalMobile>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
         });
     });
 });

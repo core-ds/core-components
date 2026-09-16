@@ -1,5 +1,197 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+
+## 10.1.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.6
+- @alfalab/core-components-bottom-sheet@8.1.13
+
+## 10.1.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.3.0
+- @alfalab/core-components-select@19.2.5
+
+## 10.1.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+- @alfalab/core-components-select@19.2.4
+
+## 10.1.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+- @alfalab/core-components-select@19.2.3
+
+## 10.1.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.12
+- @alfalab/core-components-form-control@14.0.9
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-select@19.2.2
+- @alfalab/core-components-tag@10.2.1
+
+## 10.1.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+
+## 10.1.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.2.0
+
+## 10.1.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.0
+- @alfalab/core-components-bottom-sheet@8.1.11
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-form-control@14.0.8
+- @alfalab/core-components-input@17.1.9
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-tag@10.1.1
+
+## 10.1.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.8
+- @alfalab/core-components-select@19.1.10
+- @alfalab/core-components-bottom-sheet@8.1.10
+
+## 10.1.10
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.1.0
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-select@19.1.9
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-bottom-sheet@8.1.9
+- @alfalab/core-components-form-control@14.0.7
+
+## 10.1.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.8
+- @alfalab/core-components-bottom-sheet@8.1.8
+
+## 10.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.7
+- @alfalab/core-components-form-control@14.0.6
+- @alfalab/core-components-input@17.1.6
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+- @alfalab/core-components-select@19.1.7
+- @alfalab/core-components-tag@10.0.4
+
+## 10.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.6
+- @alfalab/core-components-input@17.1.5
+- @alfalab/core-components-bottom-sheet@8.1.6
+
+## 10.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.5
+- @alfalab/core-components-bottom-sheet@8.1.5
+- @alfalab/core-components-form-control@14.0.5
+- @alfalab/core-components-input@17.1.4
+
+## 10.1.5
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2181](https://github.com/core-ds/core-components/pull/2181)
+
+##### SelectWithTags
+
+- Исправлено отображение поиска в мобильной версии при `showSearch={true}` без явной передачи пропа `Search`
+
+## 10.1.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@8.1.4
+    - @alfalab/core-components-select@19.1.4
+
+## 10.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.3
+    - @alfalab/core-components-bottom-sheet@8.1.3
+
 ## 10.1.2
 
 ### Patch Changes
@@ -1900,8 +2092,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.3...@alfalab/core-components-select-with-tags@5.7.4) (2022-08-17)
 

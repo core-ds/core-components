@@ -740,7 +740,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     contentClassName,
                                     {
                                         [styles.noHeader]: hideHeader || emptyHeader,
-                                        [styles.noFooter]: !actionButton,
+                                        [styles.noFooter]: actionButton === null,
                                     },
                                 )}
                                 data-test-id={getDataTestId(dataTestId, 'content')}

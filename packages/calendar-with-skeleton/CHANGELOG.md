@@ -1,5 +1,102 @@
 # @alfalab/core-components-calendar-with-skeleton
 
+## 7.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.5
+- @alfalab/core-components-calendar@9.1.13
+
+## 7.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.12
+
+## 7.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.11
+
+## 7.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.10
+
+## 7.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.9
+
+## 7.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.8
+- @alfalab/core-components-skeleton@7.0.4
+
+## 7.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.7
+
+## 7.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.6
+
+## 7.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.5
+
+## 7.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.4
+
+## 7.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.1.3
+
+## 7.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-skeleton@7.0.3
+    - @alfalab/core-components-calendar@9.1.2
+
 ## 7.0.5
 
 ### Patch Changes
@@ -1259,8 +1356,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.5.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.5.2...@alfalab/core-components-calendar-with-skeleton@4.5.3) (2022-08-17)
 

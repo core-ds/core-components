@@ -145,6 +145,13 @@ describe('ProgressBar', () => {
             expect(container.firstElementChild).toHaveClass('size-80');
         });
 
+        it('should use size 16', () => {
+            const { container } = render(<CircularProgressBar value={20} size={16} />);
+
+            expect(container.firstElementChild).toHaveClass('size-16');
+            expect(container.querySelector('.progressCircle')).toHaveAttribute('stroke-width', '2');
+        });
+
         it('should set `className` class to root', () => {
             const className = 'test-class';
             const { container } = render(<CircularProgressBar value={20} className={className} />);

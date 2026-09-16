@@ -4,6 +4,10 @@
             "@alfalab/core-components": {
                 "exclude": ["@alfalab/core-components"]
             },
+            "@alfalab/core-components-mcp": {
+                "exclude": ["**"],
+                "template": "templates/tsconfig.build-mcp.json"
+            },
             "storybook": {
                 "include": [
                     "@alfalab/core-components-button",
@@ -60,6 +64,10 @@
                 "dependencies": false,
                 "devDependencies": false,
                 "peerDependencies": false
+            },
+            "@alfalab/core-components-mcp": {
+                "exclude": ["**"],
+                "template": "templates/tsconfig.mcp.json"
             },
             "@alfalab/core-components-screenshot-utils": {
                 "storybook": true,

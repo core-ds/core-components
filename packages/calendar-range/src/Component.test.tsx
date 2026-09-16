@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, fireEvent, act, screen } from '@testing-library/react';
+import { render, waitFor, fireEvent, act, screen, queryAllByRole } from '@testing-library/react';
 import {
     setMonth,
     startOfMonth,
@@ -14,6 +14,7 @@ import { formatDate } from '../../calendar-input/src/utils';
 
 import { CalendarRange } from './index';
 import { getCalendarRangeTestIds } from './utils';
+import userEvent from '@testing-library/user-event';
 
 jest.useFakeTimers();
 
@@ -448,13 +449,43 @@ describe('CalendarRange', () => {
                 />,
             );
 
-            fireEvent.change(getByTestId(dtiTo), { target: { value: dateTo } });
+            fireEvent.input(getByTestId(dtiTo), { target: { value: dateTo } });
 
-            expect(onChange).toHaveBeenCalledWith({
-                dateFrom: new Date('2023.05.05').getTime(),
-                dateTo: new Date('2023.05.04').getTime(),
-                valueFrom: dateFrom,
-                valueTo: dateTo,
+            await waitFor(() => {
+                expect(onChange).toHaveBeenCalledWith({
+                    dateFrom: new Date('2023.05.05').getTime(),
+                    dateTo: new Date('2023.05.04').getTime(),
+                    valueFrom: dateFrom,
+                    valueTo: dateTo,
+                });
+            });
+        });
+
+        it('should swap dates and call onChange with swapped values when autoSwap is enabled', async () => {
+            const dateFrom = '05.05.2023';
+            const dateTo = '04.05.2023';
+            const onChange = jest.fn();
+            const onInputToChange = jest.fn();
+            const dtiTo = 'input_to';
+            const { getByTestId } = render(
+                <CalendarRange
+                    onChange={onChange}
+                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    valueFrom={dateFrom}
+                    returnInvalidDates={true}
+                    autoSwap={true}
+                />,
+            );
+
+            fireEvent.input(getByTestId(dtiTo), { target: { value: dateTo } });
+
+            await waitFor(() => {
+                expect(onChange).toHaveBeenCalledWith({
+                    dateFrom: new Date('2023.05.04').getTime(),
+                    dateTo: new Date('2023.05.05').getTime(),
+                    valueFrom: '04.05.2023',
+                    valueTo: '05.05.2023',
+                });
             });
         });
 
@@ -493,14 +524,18 @@ describe('CalendarRange', () => {
             const cb = jest.fn();
             render(<CalendarRange onError={cb} valueFrom='10.10.2021' valueTo='10.10.2022' />);
 
-            expect(cb).toHaveBeenCalledWith(false);
+            await waitFor(() => {
+                expect(cb).toHaveBeenCalledWith(false);
+            });
         });
 
         it('should call onError callback with "true" arg', async () => {
             const cb = jest.fn();
             render(<CalendarRange onError={cb} valueFrom='10.10.2022' valueTo='10.10.2021' />);
 
-            expect(cb).toHaveBeenCalledWith(true);
+            await waitFor(() => {
+                expect(cb).toHaveBeenCalledWith(true);
+            });
         });
 
         it('should not call onChange on mount (popover)', () => {
@@ -517,29 +552,47 @@ describe('CalendarRange', () => {
             expect(onChange).not.toHaveBeenCalled();
         });
 
-        it('should call onInputChange (static)', () => {
+        it('should call onInputChange (static)', async () => {
             const dtiFrom = 'input_from';
             const dtiTo = 'input_to';
             const onInputFromChange = jest.fn();
             const onInputToChange = jest.fn();
+
             const { getByTestId } = render(
                 <CalendarRange
-                    inputFromProps={{ onInputChange: onInputFromChange, dataTestId: dtiFrom }}
-                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    inputFromProps={{
+                        onInputChange: onInputFromChange,
+                        dataTestId: dtiFrom,
+                    }}
+                    inputToProps={{
+                        onInputChange: onInputToChange,
+                        dataTestId: dtiTo,
+                    }}
                     calendarPosition='static'
                 />,
             );
 
-            fireEvent.change(getByTestId(dtiFrom), { target: { value: '10.10.2021' } });
-            fireEvent.change(getByTestId(dtiTo), { target: { value: '10.10.2022' } });
+            const inputFromElement = getByTestId(dtiFrom);
+            const inputToElement = getByTestId(dtiTo);
 
-            expect(onInputFromChange).toHaveBeenCalledWith(expect.any(Object), {
-                date: new Date('2021-10-10'),
-                value: '10.10.2021',
+            fireEvent.input(inputFromElement, { target: { value: '10.10.2021' } });
+            fireEvent.blur(inputFromElement);
+
+            fireEvent.input(inputToElement, { target: { value: '10.10.2022' } });
+            fireEvent.blur(inputToElement);
+
+            await waitFor(() => {
+                expect(onInputFromChange).toHaveBeenCalledWith(expect.any(Object), {
+                    date: new Date('2021-10-10'),
+                    value: '10.10.2021',
+                });
             });
-            expect(onInputToChange).toHaveBeenCalledWith(expect.any(Object), {
-                date: new Date('2022-10-10'),
-                value: '10.10.2022',
+
+            await waitFor(() => {
+                expect(onInputToChange).toHaveBeenCalledWith(expect.any(Object), {
+                    date: new Date('2022-10-10'),
+                    value: '10.10.2022',
+                });
             });
         });
 

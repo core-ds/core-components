@@ -1,5 +1,65 @@
 # @alfalab/core-components-pagination
 
+## 4.0.10
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2353](https://github.com/core-ds/core-components/pull/2353)
+
+##### Pagination
+
+- Состояние `disabled` для выбранной страницы заменено на проверку в обработчике onClick.
+
+## 4.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.3.0
+
+## 4.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.2.1
+
+## 4.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.2.0
+
+## 4.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.1.1
+
+## 4.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.1.0
+
+## 4.0.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.0.4
+
 ## 4.0.3
 
 ### Patch Changes
@@ -578,8 +638,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pagination@1.4.1...@alfalab/core-components-pagination@1.4.2) (2022-08-17)
 

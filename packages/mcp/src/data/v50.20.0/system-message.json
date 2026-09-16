@@ -1,0 +1,101 @@
+{
+"packageName": "system-message",
+"displayName": "SystemMessage",
+"description": "",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"fullHeight": {
+"defaultValue": null,
+"description": "Растянуть контент на всю доступную высоту.",
+"name": "fullHeight",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactNode"
+}
+},
+"padding": {
+"defaultValue": null,
+"description": "Отступы.",
+"name": "padding",
+"required": false,
+"type": {
+"name": "PaddingType | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент может использоваться как индикатор состояния системы или конкретного интерфейсного элемента,\nдля уведомления пользователя об ошибках и вывода других сообщений системы, адресованных пользователю.",
+"desktop": "const IS_MOBILE = document.body.clientWidth < 450;\nconst SETTINGS_KEY = {\nsubtitle: 'subtitle',\ncaption: 'caption',\nprimary: 'primary',\nsecondary: 'secondary',\nbutton_columns: 'button_columns',\ngraphic_icon: 'graphic_icon',\ngraphic_img: 'graphic_img',\ngraphic_none: 'graphic_none',\n};\n\nconst SETTINGS_MAP = {\n[SETTINGS_KEY.subtitle]: 'Subtitle',\n[SETTINGS_KEY.caption]: 'Caption',\n[SETTINGS_KEY.primary]: 'Button primary',\n[SETTINGS_KEY.secondary]: 'Button secondary',\n...(IS_MOBILE ? { [SETTINGS_KEY.button_columns]: 'Buttons vertical layout' } : null),\n};\n\nconst SELECT_OPTIONS = [\n{\nkey: SETTINGS_KEY.graphic_icon,\ncontent: 'IconView',\n},\n{\nkey: SETTINGS_KEY.graphic_img,\ncontent: 'Img',\n},\n{\nkey: SETTINGS_KEY.graphic_none,\ncontent: 'None',\n},\n];\n\nconst sizeButton = IS_MOBILE ? 56 : 48;\n\nrender(() => {\nconst [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);\nconst [settings, setSettings] = React.useState(() =>\nObject.keys(SETTINGS_MAP).reduce((res, name) => ({ ...res, [name]: true }), {}),\n);\n\nconst handleSettingsChange = (_, { name, checked }) => {\nsetSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst renderGraphic = () => {\nif (graphic === SETTINGS_KEY.graphic_icon) {\nreturn (\n<SystemMessage.Graphic>\n<SuperEllipse size={80} backgroundColor='var(--color-light-neutral-translucent-100)'>\n<MobilePhoneBubbleLineMIcon color='var(--color-light-neutral-translucent-1300)' />\n</SuperEllipse>\n</SystemMessage.Graphic>\n);\n}\n\nif (graphic === SETTINGS_KEY.graphic_img) {\nreturn (\n<SystemMessage.Graphic>\n<img\nsrc='./images/system-message_graphic.png'\nalt='system message graphic'\nwidth='100%'\n/>\n</SystemMessage.Graphic>\n);\n}\n\nreturn null;\n};\n\nreturn (\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection: 'column',\njustifyContent: 'space-between',\nminHeight: IS_MOBILE ? 730 : undefined,\n}}\n>\n<div style={{ maxWidth: 440 }}>\n<SystemMessage dataTestId='system-message'>\n{renderGraphic()}\n\n<SystemMessage.Title>Подтвердите подключение кодом из смс</SystemMessage.Title>\n\n{settings[SETTINGS_KEY.subtitle] && (\n<SystemMessage.Subtitle>\nПроверили вашу заявку — всё в порядке. Осталось подтвердить подключение\n</SystemMessage.Subtitle>\n)}\n\n{settings[SETTINGS_KEY.caption] && (\n<SystemMessage.Caption>\nДля этого нажмите на кнопочку ниже\n</SystemMessage.Caption>\n)}\n\n{(settings[SETTINGS_KEY.primary] || settings[SETTINGS_KEY.secondary]) && (\n<SystemMessage.Controls\ndirection={settings[SETTINGS_KEY.button_columns] ? 'column' : 'row'}\n>\n{settings[SETTINGS_KEY.primary] && (\n<Button size={sizeButton} view='primary'>\nПолучить код\n</Button>\n)}\n\n{settings[SETTINGS_KEY.secondary] && (\n<Button size={sizeButton}>Отмена</Button>\n)}\n</SystemMessage.Controls>\n)}\n</SystemMessage>\n</div>\n\n<div>\n<Gap size={16} />\n\n<Divider />\n\n<Gap size={16} />\n\n<div style={{ maxWidth: 320 }}>\n<Select\nblock={true}\nlabel='Graphic'\noptions={SELECT_OPTIONS}\nselected={graphic}\nonChange={({ selected }) => setGraphic(selected.key)}\nOption={BaseOption}\n/>\n</div>\n\n<Gap size={16} />\n\n<CheckboxGroup onChange={handleSettingsChange}>\n{Object.keys(SETTINGS_MAP).map((name) => (\n<Switch\nkey={name}\nlabel={SETTINGS_MAP[name]}\nname={name}\nchecked={settings[name]}\n/>\n))}\n</CheckboxGroup>\n</div>\n</div>\n);\n});"
+},
+{
+"title": "Использование в модалках",
+"description": "При использовании в модалках футер и хедер не фиксируются. В мобильных модалках контентная часть растягивается на всю доступную высоту.",
+"desktop": "const IS_MOBILE = document.body.clientWidth < 450;\nconst SETTINGS_KEY = {\nsubtitle: 'subtitle',\ncaption: 'caption',\nprimary: 'primary',\nsecondary: 'secondary',\nbutton_columns: 'button_columns',\ngraphic_icon: 'graphic_icon',\ngraphic_img: 'graphic_img',\ngraphic_none: 'graphic_none',\n};\n\nconst SETTINGS_MAP = {\n[SETTINGS_KEY.subtitle]: 'Subtitle',\n[SETTINGS_KEY.caption]: 'Caption',\n[SETTINGS_KEY.primary]: 'Button primary',\n[SETTINGS_KEY.secondary]: 'Button secondary',\n...(IS_MOBILE ? { [SETTINGS_KEY.button_columns]: 'Buttons vertical layout' } : null),\n};\n\nconst SELECT_OPTIONS = [\n{\nkey: SETTINGS_KEY.graphic_icon,\ncontent: 'IconView',\n},\n{\nkey: SETTINGS_KEY.graphic_img,\ncontent: 'Img',\n},\n{\nkey: SETTINGS_KEY.graphic_none,\ncontent: 'None',\n},\n];\n\nconst sizeButton = IS_MOBILE ? 56 : 48;\n\nrender(() => {\nconst [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);\nconst [open, setOpen] = React.useState(false);\nconst [settings, setSettings] = React.useState(() =>\nObject.keys(SETTINGS_MAP).reduce((res, name) => ({ ...res, [name]: true }), {}),\n);\n\nconst handleSettingsChange = (_, { name, checked }) => {\nsetSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst renderGraphic = () => {\nif (graphic === SETTINGS_KEY.graphic_icon) {\nreturn (\n<SystemMessage.Graphic>\n<SuperEllipse size={80} backgroundColor='var(--color-light-neutral-translucent-100)'>\n<MobilePhoneBubbleLineMIcon color='var(--color-light-neutral-translucent-1300)' />\n</SuperEllipse>\n</SystemMessage.Graphic>\n);\n}\n\nif (graphic === SETTINGS_KEY.graphic_img) {\nreturn (\n<SystemMessage.Graphic>\n<img\nsrc='./images/system-message_graphic.png'\nalt='system message graphic'\nwidth='100%'\n/>\n</SystemMessage.Graphic>\n);\n}\n\nreturn null;\n};\n\nreturn (\n<>\n<Modal open={open} onClose={() => setOpen(false)}>\n<Modal.Header hasCloser={true} />\n<Modal.Content flex={true}>\n<SystemMessage\nfullHeight={true}\npadding={IS_MOBILE ? 0 : { right: 24, left: 24, bottom: 24 }}\n>\n{renderGraphic()}\n\n<SystemMessage.Title>\nПодтвердите подключение кодом из смс\n</SystemMessage.Title>\n\n{settings[SETTINGS_KEY.subtitle] && (\n<SystemMessage.Subtitle>\nПроверили вашу заявку — всё в порядке. Осталось подтвердить\nподключение\n</SystemMessage.Subtitle>\n)}\n\n{settings[SETTINGS_KEY.caption] && (\n<SystemMessage.Caption>\nДля этого нажмите на кнопочку ниже\n</SystemMessage.Caption>\n)}\n\n{(settings[SETTINGS_KEY.primary] || settings[SETTINGS_KEY.secondary]) && (\n<SystemMessage.Controls\ndirection={settings[SETTINGS_KEY.button_columns] ? 'column' : 'row'}\n>\n{settings[SETTINGS_KEY.primary] && (\n<Button size={sizeButton} view='primary'>\nПолучить код\n</Button>\n)}\n\n{settings[SETTINGS_KEY.secondary] && (\n<Button size={sizeButton} onClick={() => setOpen(false)}>\nОтмена\n</Button>\n)}\n</SystemMessage.Controls>\n)}\n</SystemMessage>\n</Modal.Content>\n</Modal>\n\n<Button onClick={() => setOpen(true)}>Открыть модалку</Button>\n\n<Gap size={16} />\n\n<div style={{ maxWidth: 320 }}>\n<Select\nblock={true}\nlabel='Graphic'\noptions={SELECT_OPTIONS}\nselected={graphic}\nonChange={({ selected }) => setGraphic(selected.key)}\nOption={BaseOption}\n/>\n</div>\n\n<Gap size={16} />\n\n<CheckboxGroup onChange={handleSettingsChange}>\n{Object.keys(SETTINGS_MAP).map((name) => (\n<Switch\nkey={name}\nlabel={SETTINGS_MAP[name]}\nname={name}\nchecked={settings[name]}\n/>\n))}\n</CheckboxGroup>\n</>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.8.0",
+"description": "#### [#1918](https://github.com/core-ds/core-components/pull/1918)\n\n- Исправлена специфичность компонента, путем оптимизации вложенности элементов"
+}
+]
+}

@@ -1,5 +1,29 @@
 # @alfalab/core-components-icon-view
 
+## 5.0.4
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+## 5.0.3
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2202](https://github.com/core-ds/core-components/pull/2202)
+
+##### IconView
+
+- Исправлено обрезание SVG-форм в Safari при масштабировании страницы.
+
 ## 5.0.2
 
 ### Patch Changes
@@ -478,8 +502,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-view@1.4.0...@alfalab/core-components-icon-view@1.4.1) (2022-08-17)
 

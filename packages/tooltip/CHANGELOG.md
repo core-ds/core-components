@@ -1,5 +1,133 @@
 # @alfalab/core-components-tooltip
 
+## 9.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.13
+
+## 9.0.18
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
+## 9.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-bottom-sheet@8.1.12
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+
+## 9.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-bottom-sheet@8.1.11
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+
+## 9.0.15
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2251](https://github.com/core-ds/core-components/pull/2251)
+
+##### Tooltip
+
+- Исправлен контраст кнопки в мобильной версии Tooltip при `colors="inverted"`: проп `colors` теперь передаётся в `BottomSheet` и `ButtonMobile`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-bottom-sheet@8.1.10
+
+## 9.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-bottom-sheet@8.1.9
+
+## 9.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.8
+
+## 9.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-bottom-sheet@8.1.7
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+
+## 9.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+- @alfalab/core-components-bottom-sheet@8.1.6
+
+## 9.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.5
+
+## 9.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@8.1.4
+
+## 9.0.8
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@8.1.3
+
 ## 9.0.7
 
 ### Patch Changes
@@ -1472,8 +1600,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.7.3...@alfalab/core-components-tooltip@5.7.4) (2022-08-17)
 

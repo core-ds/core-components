@@ -20,3 +20,7 @@
 .iconDocumentColored {
     fill: var(--color-light-neutral-translucent-1300);
 }
+
+.iconArchiveColored {
+    fill: var(--color-light-status-attention);
+}

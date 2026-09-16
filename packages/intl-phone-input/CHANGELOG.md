@@ -1,5 +1,163 @@
 # @alfalab/core-components-intl-phone-input
 
+## 11.0.25
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+- @alfalab/core-components-input-autocomplete@14.0.25
+
+## 11.0.24
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.6
+- @alfalab/core-components-input-autocomplete@14.0.24
+
+## 11.0.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.5
+- @alfalab/core-components-input-autocomplete@14.0.23
+
+## 11.0.22
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.4
+- @alfalab/core-components-input-autocomplete@14.0.22
+
+## 11.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.3
+- @alfalab/core-components-input-autocomplete@14.0.21
+
+## 11.0.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input-autocomplete@14.0.20
+- @alfalab/core-components-select@19.2.2
+
+## 11.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+- @alfalab/core-components-input-autocomplete@14.0.19
+
+## 11.0.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.0
+- @alfalab/core-components-input-autocomplete@14.0.18
+
+## 11.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.10
+- @alfalab/core-components-input-autocomplete@14.0.17
+
+## 11.0.16
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input-autocomplete@14.0.16
+- @alfalab/core-components-select@19.1.9
+
+## 11.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.8
+- @alfalab/core-components-input-autocomplete@14.0.15
+
+## 11.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input-autocomplete@14.0.14
+- @alfalab/core-components-select@19.1.7
+
+## 11.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.6
+- @alfalab/core-components-input-autocomplete@14.0.13
+
+## 11.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.5
+- @alfalab/core-components-input-autocomplete@14.0.12
+
+## 11.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.4
+    - @alfalab/core-components-input-autocomplete@14.0.11
+
+## 11.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.3
+    - @alfalab/core-components-input-autocomplete@14.0.10
+
 ## 11.0.9
 
 ### Patch Changes
@@ -1704,7 +1862,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1886,8 +2044,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [6.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.7.3...@alfalab/core-components-intl-phone-input@6.7.4) (2022-08-17)
 

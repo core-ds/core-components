@@ -4,7 +4,6 @@
 @import './select/corp.css';
 @import './tag/corp.css';
 @import './universal-date-input/corp.css';
-@import './calendar/corp.css';
 @import './plate/corp.css';
 
 @define-mixin theme-corp {
@@ -14,6 +13,5 @@
     @mixin select-corp;
     @mixin tag-corp;
     @mixin universal-date-input-corp;
-    @mixin calendar-corp;
     @mixin plate-corp;
 }

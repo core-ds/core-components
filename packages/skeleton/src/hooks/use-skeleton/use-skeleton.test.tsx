@@ -22,6 +22,10 @@ Object.defineProperty(window, 'getComputedStyle', {
 });
 
 describe('useSkeleton tests', () => {
+    it('should not throw when rows is NaN', () => {
+        expect(() => render(<Skeleton rows={Number('undefined')} />)).not.toThrow();
+    });
+
     it('should set `wrapperClassName`', () => {
         const wrapperClassName = 'wrapperClassName';
         const { container } = render(<Skeleton wrapperClassName={wrapperClassName} rows={10} />);

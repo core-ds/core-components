@@ -48,8 +48,15 @@ export type BaseFilterTagProps = {
 
     /**
      * Показывать крестик для очистки выбора
+     * @default true
      */
     showClear?: boolean;
+
+    /**
+     * Показывать шеврон в выбранном состоянии
+     * @default true
+     */
+    showArrow?: boolean;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -66,7 +73,7 @@ export type BaseFilterTagProps = {
     /**
      * Стиль тега
      */
-    view?: 'outlined' | 'filled';
+    view?: 'outlined' | 'filled' | 'muted';
 
     /**
      * Набор цветов для компонента

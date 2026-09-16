@@ -1,5 +1,121 @@
 # @alfalab/core-components-side-panel
 
+## 7.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2319](https://github.com/core-ds/core-components/pull/2319)
+
+##### SidePanel
+
+- Добавлен проброс `ref` на корневой элемент `SidePanel.Header`
+
+## 7.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-navigation-bar-private@2.0.13
+- @alfalab/core-components-drawer@7.0.10
+
+## 7.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-navigation-bar-private@2.0.12
+- @alfalab/core-components-drawer@7.0.9
+
+## 7.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.11
+
+## 7.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.10
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-drawer@7.0.8
+- @alfalab/core-components-base-modal@7.1.6
+
+## 7.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.9
+
+## 7.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-navigation-bar-private@2.0.8
+- @alfalab/core-components-drawer@7.0.7
+
+## 7.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.7
+
+## 7.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+- @alfalab/core-components-drawer@7.0.6
+
+## 7.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.3
+    - @alfalab/core-components-drawer@7.0.5
+
+## 7.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.6
+
 ## 7.0.5
 
 ### Patch Changes
@@ -1537,8 +1653,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.2.1...@alfalab/core-components-side-panel@1.2.2) (2022-08-17)
 

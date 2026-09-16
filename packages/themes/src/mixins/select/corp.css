@@ -1,3 +1,8 @@
 @define-mixin select-corp {
     --select-option-list-footer-button-gap: var(--gap-8);
+    --select-options-list-top-padding: var(--gap-6);
+    --select-options-list-right-padding: var(--gap-6);
+    --select-options-list-bottom-padding: var(--gap-6);
+    --select-options-list-left-padding: var(--gap-6);
+    --select-option-border-radius: var(--border-radius-10);
 }

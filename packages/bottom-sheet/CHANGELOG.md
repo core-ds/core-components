@@ -1,5 +1,124 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
+## 8.1.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-navigation-bar-private@2.0.13
+
+## 8.1.11
+
+### Patch Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### BottomSheet
+
+- Исправлена работа горизонтального скролла контента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-navigation-bar-private@2.0.12
+
+## 8.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.11
+
+## 8.1.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.10
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-base-modal@7.1.6
+
+## 8.1.8
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2226](https://github.com/core-ds/core-components/pull/2226)
+
+##### BottomSheet
+
+- Исправлены пути импорта css переменных
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.9
+
+## 8.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-navigation-bar-private@2.0.8
+
+## 8.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.7
+
+## 8.1.5
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### BottomSheet
+
+- Изменение внутренних отступов компонента
+- Исправлен нижний отступ контентой части, когда он складывался с оступом футера
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
+## 8.1.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.3
+
+## 8.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.6
+
 ## 8.1.2
 
 ### Patch Changes
@@ -1616,8 +1735,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.9.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.9.0...@alfalab/core-components-bottom-sheet@4.9.1) (2022-08-17)
 

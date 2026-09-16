@@ -1,0 +1,375 @@
+{
+"packageName": "popup-sheet",
+"displayName": "PopupSheet",
+"description": "Используется для отображения контента в модальном слое.",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"Backdrop": {
+"defaultValue": null,
+"description": "Компонент бэкдропа",
+"name": "Backdrop",
+"required": false,
+"type": {
+"name": "ComponentType<BackdropProps> | undefined"
+}
+},
+"backdropProps": {
+"defaultValue": null,
+"description": "Свойства для Бэкдропа",
+"name": "backdropProps",
+"required": false,
+"type": {
+"name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
+}
+},
+"container": {
+"defaultValue": null,
+"description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
+"name": "container",
+"required": false,
+"type": {
+"name": "(() => Element | null | undefined) | undefined"
+}
+},
+"disableAutoFocus": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает автоматический перевод фокуса на модалку при открытии",
+"name": "disableAutoFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableFocusLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает ловушку фокуса",
+"name": "disableFocusLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableRestoreFocus": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки",
+"name": "disableRestoreFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableEscapeKeyDown": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при нажатии Escape",
+"name": "disableEscapeKeyDown",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBackdropClick": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при клике на бэкдроп",
+"name": "disableBackdropClick",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBlockingScroll": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
+"name": "disableBlockingScroll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управляет блокировкой скролла/overscroll фона при открытой модалке.",
+"name": "scrollLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"keepMounted": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Содержимое модалки всегда в DOM",
+"name": "keepMounted",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"wrapperProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на dialog wrapper",
+"name": "wrapperProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"contentProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на обертку контента",
+"name": "contentProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"componentDivProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на компонентную обертку контента",
+"name": "componentDivProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"wrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки (Modal)",
+"name": "wrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"scrollHandler": {
+"defaultValue": null,
+"description": "Обработчик скролла контента",
+"name": "scrollHandler",
+"required": false,
+"type": {
+"name": "\"content\" | MutableRefObject<HTMLDivElement | null> | \"wrapper\" | undefined"
+}
+},
+"transitionProps": {
+"defaultValue": null,
+"description": "Пропсы для анимации (CSSTransition)",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<CSSTransitionProps> | undefined"
+}
+},
+"usePortal": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Рендерить ли в контейнер через портал.",
+"name": "usePortal",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onBackdropClick": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на бэкдроп",
+"name": "onBackdropClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<Element, MouseEvent>) => void) | undefined"
+}
+},
+"onEscapeKeyDown": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе",
+"name": "onEscapeKeyDown",
+"required": false,
+"type": {
+"name": "((event: KeyboardEvent<Element>) => void) | undefined"
+}
+},
+"onMount": {
+"defaultValue": null,
+"description": "Обработчик события onEntered компонента Transition",
+"name": "onMount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onUnmount": {
+"defaultValue": null,
+"description": "Обработчик события onExited компонента Transition",
+"name": "onUnmount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"zIndex": {
+"defaultValue": null,
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"componentRef": {
+"defaultValue": null,
+"description": "Реф, который должен быть установлен компонентной области",
+"name": "componentRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"contentElementRef": {
+"defaultValue": null,
+"description": "Реф контентной области",
+"name": "contentElementRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"iOSLock": {
+"defaultValue": null,
+"description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS.\n@deprecated Используйте `scrollLock={true}`.",
+"name": "iOSLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onWheel": {
+"defaultValue": null,
+"description": "Хэндлер события прокрутки колесиком",
+"name": "onWheel",
+"required": false,
+"type": {
+"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
+}
+},
+"hasCloser": {
+"defaultValue": null,
+"description": "Наличие кнопки закрытия",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"swipeable": {
+"defaultValue": null,
+"description": "Будет ли свайпаться шторка",
+"name": "swipeable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"padding": {
+"defaultValue": {
+"value": 32
+},
+"description": "Отступы",
+"name": "padding",
+"required": false,
+"type": {
+"name": "PaddingType | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | \"swipe\" | undefined) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля кнопки закрытия используется модификатор -closer",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerProps": {
+"defaultValue": {
+"value": "{}"
+},
+"description": "Дополнительные пропсы для компонента Closer.",
+"name": "closerProps",
+"required": false,
+"type": {
+"name": "Omit<CloserProps, \"onClose\" | \"view\"> | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент состоит из кастомизируемого слота и контрола для управления закрытием. Скролл внутри компонента не предусмотрен.\nКомпонент не имеет десктопной версии.",
+"desktop": "const SETTINGS = [\n{ label: 'Крестик', name: 'hasCloser' },\n{ label: 'Закрытие свайпом', name: 'swipeable' },\n{ label: 'Кастомный контент', name: 'customContent' },\n];\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst [settings, setSettings] = React.useState(() =>\nSETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\n);\n\nconst handleSettingsChange = (_, { name, checked }) => {\nsetSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nreturn (\n<div>\n<ButtonMobile type='button' size={48} onClick={() => setOpen(true)} block={true}>\nПоказать шторку\n</ButtonMobile>\n\n<Gap size={16} />\n\n<CheckboxGroup onChange={handleSettingsChange}>\n{SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={settings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<PopupSheet\nhasCloser={settings.hasCloser}\nswipeable={settings.swipeable}\nopen={open}\nonClose={() => setOpen(false)}\npadding={0}\n>\n{settings.customContent ? (\n<SystemMessageMobile padding={32}>\n<SystemMessageMobile.Graphic padding={{ bottom: 24 }}>\n<SuperEllipse size={80}>\n<MobilePhoneBubbleLineMIcon color='var(--color-light-neutral-translucent-1300)' />\n</SuperEllipse>\n</SystemMessageMobile.Graphic>\n\n<SystemMessageMobile.Title>\nПодтвердите подключение кодом из смс\n</SystemMessageMobile.Title>\n\n<SystemMessageMobile.Subtitle>\n{`Проверили вашу заявку — всё в порядке. Осталось подтвердить подключение`}\n</SystemMessageMobile.Subtitle>\n\n<SystemMessageMobile.Controls>\n<ButtonMobile size={56} view='secondary' onClick={() => setOpen(false)}>\nПолучить код\n</ButtonMobile>\n</SystemMessageMobile.Controls>\n</SystemMessageMobile>\n) : (\n<div\nstyle={{\ndisplay: 'flex',\nalignItems: 'center',\njustifyContent: 'center',\nheight: 200,\ncolor: 'rgba(55, 120, 251, 1)',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\n}}\n>\n<Typography.Text view='caps' weight='bold'>\nCustom\n</Typography.Text>\n</div>\n)}\n</PopupSheet>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.3.0",
+"description": "#### [#1831](https://github.com/core-ds/core-components/pull/1831)\n\n- Исправлена проблема со специфичностью в компоненте `PopupSheet`. Увеличена специфичность селектора `.component` для корректного применения стилей позиционирования."
+}
+]
+}

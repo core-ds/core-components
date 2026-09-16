@@ -2,11 +2,11 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { type BaseTagProps } from './components/base-tag';
 import { TagDesktop } from './desktop';
 import { TagMobile } from './mobile';
+import { type BaseTagProps } from './typings';
 
-export type TagProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'> & {
+export interface TagProps extends Omit<BaseTagProps, 'styles' | 'colorStylesMap'> {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -23,7 +23,7 @@ export type TagProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'> & {
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
     (

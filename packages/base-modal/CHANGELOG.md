@@ -1,5 +1,65 @@
 # @alfalab/core-components-base-modal
 
+## 7.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-portal@5.0.4
+
+## 7.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-portal@5.0.3
+
+## 7.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-portal@5.0.2
+- @alfalab/core-components-shared@2.2.1
+
+## 7.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
+## 7.1.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2200](https://github.com/core-ds/core-components/pull/2200)
+
+##### UniversalModal ,BaseModal
+
+- Исправлена обработка явного `scrollLock={false}` в `BaseModal`: legacy-блокировка скролла применяется только когда `scrollLock` не передан.
+- В `UniversalModal` блокировка скролла теперь управляется через `scrollLock={overlay}` вместо deprecated `disableBlockingScroll`.
+
+## 7.1.3
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### BaseModal
+
+- Исправлен проброс пропсов для backdrop
+
 ## 7.1.2
 
 ### Patch Changes
@@ -704,8 +764,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.3.0...@alfalab/core-components-base-modal@4.3.1) (2022-08-17)
 

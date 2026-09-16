@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import { humanFileSize } from '@alfalab/core-components-shared';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { MAX_PROGRESS_BAR_VALUE } from '../../../../const/progress-bar';
-import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../../context/file-upload-item-context';
 import {
     isErrorStatus,
     isSuccessStatus,
@@ -18,23 +18,24 @@ import { ContentError } from '../content-error';
 import styles from './content-subtitle.module.css';
 
 export const ContentSubtitle = () => {
-    const { uploadStatus, subtitle, uploadDate, size, truncate, showRestore, error, progressBar } =
-        useContext(FileUploadItemContext);
+    const {
+        uploadStatus,
+        subtitle,
+        subtitleColor,
+        uploadDate,
+        size,
+        truncate,
+        showRestore,
+        error,
+        progressBar,
+    } = useFileUploadItemContext();
 
     const shouldShownError = isErrorStatus(uploadStatus) || isError(error);
     const showMeta =
         !showRestore && (isSuccessStatus(uploadStatus) || isUploadedStatus(uploadStatus));
 
     // валидация progressBar (не должен превышать 100 и быть меньше 0)
-    const validateProgressBarValue = (progressValue: number | undefined) => {
-        if (progressValue === undefined) {
-            return 0;
-        }
-
-        return Math.min(Math.max(progressValue, 0), MAX_PROGRESS_BAR_VALUE);
-    };
-
-    const validProgressBar = validateProgressBarValue(progressBar);
+    const validProgressBar = Math.min(Math.max(progressBar ?? 0, 0), MAX_PROGRESS_BAR_VALUE);
 
     // uploading status
     if (isUploadingStatus(uploadStatus)) {
@@ -55,7 +56,7 @@ export const ContentSubtitle = () => {
     if (showMeta) {
         return (
             <div>
-                {size && (
+                {size !== undefined && size !== '' && (
                     <TypographyText className={styles.size} view='primary-small' color='secondary'>
                         {humanFileSize(size)}
                     </TypographyText>
@@ -84,7 +85,7 @@ export const ContentSubtitle = () => {
                 [styles.truncate]: truncate,
             })}
             view='primary-small'
-            color='secondary'
+            color={subtitleColor}
         >
             {subtitle}
         </TypographyText>

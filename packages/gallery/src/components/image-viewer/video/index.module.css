@@ -2,15 +2,32 @@
 
 .videoWrapper {
     display: flex;
+    align-items: center;
     justify-content: center;
     height: 100%;
     width: auto;
+    max-width: 100%;
     position: relative;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.mobileWrapper {
+    width: 100%;
+}
+
+.videoWrapper.loading {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: var(--color-static-neutral-translucent-100-inverted);
+    border-radius: var(--border-radius-24);
+    align-items: center;
 }
 
 .video {
     max-width: 100%;
     max-height: 100%;
+    object-fit: contain;
     border-radius: var(--border-radius-24);
 }
 

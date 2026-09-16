@@ -78,14 +78,14 @@ jobs:
               id: repository
               uses: core-ds/core-components/.github/actions/parse-repository@master
               with:
-                  repository: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.repo.full_name, github.repository) }}
+                  repository: ${{ case(github.event_name == 'pull_request', 'core-ds/deploy-core-components', github.repository) }}
 
             - name: Generate app token
               id: generate-token
               if: ${{ github.repository == 'core-ds/core-components' }}
               uses: actions/create-github-app-token@v3
               with:
-                  app-id: ${{ vars.APP_ID }}
+                  client-id: ${{ vars.APP_ID }}
                   private-key: ${{ secrets.APP_PRIVATE_KEY }}
                   owner: ${{ steps.repository.outputs.owner }}
                   repositories: ${{ steps.repository.outputs.repo }}

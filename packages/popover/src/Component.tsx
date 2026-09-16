@@ -23,7 +23,7 @@ import cn from 'classnames';
 import maxSize from 'popper-max-size-modifier';
 
 import { Portal } from '@alfalab/core-components-portal';
-import { isFn } from '@alfalab/core-components-shared';
+import { isFn, noop, useRefAsState } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -163,6 +163,12 @@ export type PopoverProps = {
      * @default 24
      */
     arrowToEdgeMinDistance?: number;
+
+    /**
+     * Свойство по которому устанавливается ширина от родительского элемента
+     * @default width
+     */
+    widthProp?: 'width' | 'minWidth';
 };
 
 const DEFAULT_TRANSITION: PopoverProps['transition'] = {
@@ -232,12 +238,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             availableHeight = false,
             scrollableContentClassName,
             arrowToEdgeMinDistance = 24,
+            widthProp = 'width',
         },
         ref,
     ) => {
-        const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
-        const [popperElement, setPopperElement] = useState<RefElement>(null);
-        const [arrowElement, setArrowElement] = useState<RefElement>(null);
+        const [popperElementRef, popperElement] = useRefAsState<RefElement>(null);
+        const [arrowElementRef, arrowElement] = useRefAsState<RefElement>(null);
         const [maxSizeOptions, setMaxSizeOptions] = useState<
             Partial<ModifierOptions<typeof maxSize>>
         >(() => ({}));
@@ -294,7 +300,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             attributes,
             update: updatePopper,
             state,
-        } = usePopper(referenceElement, popperElement, {
+        } = usePopper(anchorElement, popperElement, {
             placement: position,
             modifiers: popperModifiers,
         });
@@ -312,10 +318,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 setMaxSizeOptions({ boundary: nextBoundry });
             }
         });
-
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            setReferenceElement(anchorElement);
-        }, [anchorElement]);
 
         useEffect(() => {
             if (updatePopper) {
@@ -345,15 +347,15 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 };
             }
 
-            return () => ({});
+            return noop;
         }, [anchorElement, useAnchorWidth]);
 
         const renderContent = (computedZIndex: number) => (
             <div
-                ref={mergeRefs([ref, popperRef, setPopperElement])}
+                ref={mergeRefs([ref, popperRef, popperElementRef])}
                 style={{
                     zIndex: computedZIndex,
-                    width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
+                    [widthProp]: useAnchorWidth ? anchorElement?.offsetWidth : undefined,
                     ...popperStyles.popper,
                     ...(popperStyles.popper?.transform ? null : { visibility: 'hidden' }),
                 }}
@@ -378,7 +380,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
                     {withArrow && (
                         <div
-                            ref={setArrowElement}
+                            ref={mergeRefs([arrowElementRef])}
                             style={popperStyles.arrow}
                             className={cn(styles.arrow, arrowClassName)}
                         />

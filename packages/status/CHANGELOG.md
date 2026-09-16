@@ -1,5 +1,17 @@
 # @alfalab/core-components-status
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2272](https://github.com/core-ds/core-components/pull/2272)
+
+##### Status
+
+- Добавлена возможность прокидывать правый аддон через проп `rightAddons`
+
 ## 5.0.2
 
 ### Patch Changes
@@ -263,8 +275,6 @@
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [2.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-status@2.4.0...@alfalab/core-components-status@2.4.1) (2022-08-17)
 

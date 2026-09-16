@@ -23,6 +23,9 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
           </textarea>
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48 rightAddonsClassName size-48"
+      />
     </div>
   </div>
 </div>
@@ -51,6 +54,9 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
           </textarea>
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48 rightAddonsClassName size-48"
+      />
     </div>
     <span
       class="sub hint"
@@ -84,6 +90,9 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
           </textarea>
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48 rightAddonsClassName size-48"
+      />
     </div>
   </div>
 </div>
@@ -112,6 +121,9 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
           </textarea>
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48 rightAddonsClassName size-48"
+      />
     </div>
     <span
       class="sub hint"

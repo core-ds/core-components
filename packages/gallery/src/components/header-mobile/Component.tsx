@@ -17,6 +17,7 @@ export const HeaderMobile = () => {
         getCurrentImage,
         getCurrentImageMeta,
         hideNavigation,
+        customButton,
     } = useContext(GalleryContext);
 
     const currentImage = getCurrentImage();
@@ -100,6 +101,9 @@ export const HeaderMobile = () => {
                 {description}
             </TypographyText>
             <div className={styles.rightButtons}>
+                {customButton && (
+                    <Buttons.CustomButton {...customButton} dataTestId={TestIds.CUSTOM_BUTTON} />
+                )}
                 {showDownloadButton && (
                     <Buttons.Download
                         href={currentImage?.src}

@@ -1,5 +1,83 @@
 # @alfalab/core-components-code-input
 
+## 5.1.3
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2337](https://github.com/core-ds/core-components/pull/2337)
+
+##### CodeInput
+
+- Исправлен скачок вьюпорта при повторном фокусе на ячейке ввода
+
+## 5.1.2
+
+### Patch Changes
+
+<sup><time>08.09.2026</time></sup>
+
+#### [#2344](https://github.com/core-ds/core-components/pull/2344)
+
+##### CodeInput
+
+- Исправлено аварийное закрытие вкладки браузера при размонтировании компонента во время ожидания SMS-кода (воспроизводилось в Яндекс Браузере)
+
+## 5.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.7
+
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#1900](https://github.com/core-ds/core-components/pull/1900)
+
+##### CodeInput, Confirmation
+
+- Добавлен проп `strictFocus` для включения последовательного ввода:
+    - при клике на ячейку правее первой пустой — фокус остается на первой
+    - фокус разрешается только на уже заполненные ячейки и первую пустую ячейку
+
+- Добавлено поведение автоматического фокуса на первый инпут при клике на любое пустое поле
+
+- Улучшена доступность компонента, добавлены `aria-label`.
+
+##### Confirmation
+
+- Добавлена поддержка пропа `strictFocus` для использования в `CodeInput`
+
+## 5.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.6
+
+## 5.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.5
+
+## 5.0.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.4
+
 ## 5.0.3
 
 ### Patch Changes
@@ -573,8 +651,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.5.0...@alfalab/core-components-code-input@1.5.1) (2022-08-17)
 

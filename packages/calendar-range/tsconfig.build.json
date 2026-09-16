@@ -16,13 +16,16 @@
             "@alfalab/core-components-date-input": ["../date-input/src"],
             "@alfalab/core-components-date-input/*": ["../date-input/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-universal-date-input": ["../universal-date-input/src"],
+            "@alfalab/core-components-universal-date-input/*": ["../universal-date-input/src/*"]
         }
     },
     "references": [
         { "path": "../calendar/tsconfig.build.json" },
         { "path": "../calendar-input/tsconfig.build.json" },
         { "path": "../date-input/tsconfig.build.json" },
-        { "path": "../shared/tsconfig.build.json" }
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../universal-date-input/tsconfig.build.json" }
     ]
 }

@@ -48,7 +48,7 @@
         }
 
         &.mobile {
-            padding: var(--gap-16) var(--gap-20) var(--gap-16) var(--gap-16);
+            padding: var(--gap-16) var(--gap-20);
         }
     }
 }
@@ -72,4 +72,8 @@
 
 .content {
     flex: 1;
+}
+
+.textNoWrap {
+    white-space: nowrap;
 }

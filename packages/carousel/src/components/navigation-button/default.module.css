@@ -1,0 +1,28 @@
+@import '../../vars.css';
+
+.component {
+    color: var(--carousel-button-color);
+
+    .icon {
+        border: 1px solid var(--carousel-button-border-color);
+        background-color: var(--caruosel-button-background-color);
+    }
+
+    &:not([disabled]) {
+        @mixin hover {
+            color: var(--carousel-button-hover-color);
+        }
+
+        &:active {
+            color: var(--carousel-button-active-color);
+
+            .icon {
+                background-color: var(--caruosel-button-active-background-color);
+            }
+        }
+    }
+
+    &[disabled] {
+        color: var(--carousel-button-disabled-color);
+    }
+}

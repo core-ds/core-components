@@ -1,0 +1,363 @@
+{
+"packageName": "phone-input",
+"displayName": "PhoneInput",
+"description": "Используется для ввода мобильного номера в заданном формате.",
+"props": {
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Начальное значение поля",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик поля ввода",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement>, payload: { value: string; }) => void) | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика по полю",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onMouseDown": {
+"defaultValue": null,
+"description": "Обработчик MouseDown по полю",
+"name": "onMouseDown",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onMouseUp": {
+"defaultValue": null,
+"description": "Обработчик MouseUp по полю",
+"name": "onMouseUp",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение иконки успеха",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"wrapperRef": {
+"defaultValue": null,
+"description": "Ref для обертки input",
+"name": "wrapperRef",
+"required": false,
+"type": {
+"name": "Ref<HTMLDivElement> | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"rightAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот под инпутом",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"inputClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс инпута",
+"name": "inputClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"focusedClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен при фокусе",
+"name": "focusedClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"filledClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен, если в поле есть значение",
+"name": "filledClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disableUserInput": {
+"defaultValue": null,
+"description": "Запрещает ввод с клавиатуры",
+"name": "disableUserInput",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"mobile\" | \"desktop\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": null,
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"keepCharPositions": {
+"defaultValue": null,
+"description": "Управляет поведением компонента при удалении символов",
+"name": "keepCharPositions",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"clearableCountryCode": {
+"defaultValue": {
+"value": true
+},
+"description": "",
+"name": "clearableCountryCode",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "",
+"desktop": "<div style={{ width: isMobile() ? '100%' : 320 }}>\n<PhoneInput\nplaceholder='+7 000 000 00 00'\nlabel='Телефонный номер'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nblock={true}\n/>\n</div>"
+}
+],
+"changelog": []
+}

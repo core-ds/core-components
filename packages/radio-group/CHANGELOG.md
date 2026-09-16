@@ -1,5 +1,61 @@
 # @alfalab/core-components-radio-group
 
+## 6.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+
+## 6.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-mq@6.0.6
+
+## 6.0.6
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+
+## 6.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-mq@6.0.4
+
+## 6.0.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### RadioGroup
+
+- Удалены боковые отступы в мобильном компоненте для `label`, `hint`
+
 ## 6.0.3
 
 ### Patch Changes
@@ -486,8 +542,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [2.7.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-radio-group@2.7.0...@alfalab/core-components-radio-group@2.7.1) (2022-08-17)
 

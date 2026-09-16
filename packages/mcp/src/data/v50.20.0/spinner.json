@@ -1,0 +1,116 @@
+{
+"packageName": "spinner",
+"displayName": "Spinner",
+"description": "",
+"props": {
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Палитра, в контексте которой используется спиннер",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"visible": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управление видимостью компонента",
+"name": "visible",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Идентификатор компонента в DOM",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"style": {
+"defaultValue": null,
+"description": "Дополнительные инлайн стили для cпиннера",
+"name": "style",
+"required": false,
+"type": {
+"name": "CSSProperties | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер спиннера (кольца)",
+"name": "size",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"lineWidth": {
+"defaultValue": null,
+"description": "Толщина линии спинера (кольца)",
+"name": "lineWidth",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"preset": {
+"defaultValue": null,
+"description": "Преднастроенный вариант",
+"name": "preset",
+"required": true,
+"type": {
+"name": "16 | 24 | 48"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "У компонента есть стандартные размеры: 16, 24 и 48px.",
+"desktop": "const PRESETS = [16, 24, 48];\n\nrender(\n<Container>\n<Row align='middle'>\n{PRESETS.map((preset) => (\n<div key={preset} style={{ marginRight: 20 }}>\n<Spinner visible={true} preset={preset} />\n</div>\n))}\n</Row>\n</Container>,\n);"
+},
+{
+"title": "Кастомизация",
+"description": "Спиннеру можно задать кастомную высоту, цвет, толщину линии и отступы внутри контейнера.",
+"desktop": "render(\n<Container>\n<Row align='middle'>\n<div style={{ marginRight: 20 }}>\n<Spinner visible={true} size={28} lineWidth={4} style={{ padding: \"var(--gap-2)\", color: \"var(--color-light-decorative-text-red)\" }} />\n</div>\n<div style={{ marginRight: 20 }}>\n<Spinner visible={true} size={24} lineWidth={2} style={{ padding: \"var(--gap-4)\", color: \"var(--color-light-decorative-text-blue)\" }} />\n</div>\n</Row>\n</Container>,\n);"
+},
+{
+"title": "Использование в других компонентах",
+"description": "Часто используется в [Button](?path=/docs/button--docs).",
+"desktop": "<Container>\n<div style={{marginBottom: 20}}>\n<Button view=\"primary\" loading={true} size={56}>\nLabel\n</Button>\n</div>\n<div>\n<Button leftAddons={<Spinner visible={true} preset={24} />} size={56}>\nДела делаются\n</Button>\n</div>\n</Container>",
+"mobile": "<Container>\n<Button view=\"primary\" block={true} loading={true} size={56}>\nLabel\n</Button>\n<br/>\n<Button block={true} leftAddons={<Spinner visible={true} preset={24} />} size={56}>\nДела делаются\n</Button>\n</Container>"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+}
+]
+}

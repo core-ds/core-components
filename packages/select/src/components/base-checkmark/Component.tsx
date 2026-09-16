@@ -15,37 +15,21 @@ export const BaseCheckmark: FC<CheckmarkProps> = ({
     multiple,
     align = 'center',
     position = 'before',
-    content,
-}) => {
-    const renderCheckmarkIcon = () => (
-        <CheckmarkMIcon
-            className={cn(styles.singleIcon, styles[position], {
-                [styles.selected]: selected,
-            })}
-        />
-    );
-
-    return multiple ? (
+}) =>
+    multiple ? (
         <Checkbox
-            block={true}
             checked={selected}
             disabled={disabled}
-            contentClassName={cn({ [styles.positionAfter]: position === 'after' })}
-            className={cn(styles.checkmark, styles[align], className, {
+            className={cn(styles.checkmark, styles[position], styles[align], className, {
                 [styles.selected]: selected,
             })}
             size={24}
-            position={position}
-            label={content}
             hiddenInput={true}
         />
     ) : (
-        <div className={cn(styles.container, styles[align], className)}>
-            {position === 'before' && renderCheckmarkIcon()}
-
-            <div className={styles.content}>{content}</div>
-
-            {position === 'after' && renderCheckmarkIcon()}
-        </div>
+        <CheckmarkMIcon
+            className={cn(styles.singleIcon, styles[position], styles[align], className, {
+                [styles.selected]: selected,
+            })}
+        />
     );
-};

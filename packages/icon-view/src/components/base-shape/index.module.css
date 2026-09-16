@@ -14,7 +14,9 @@
 
 .component {
     position: relative;
-    overflow: hidden;
+
+    /* Hack from https://stackoverflow.com/questions/39155167 */
+    overflow: visible;
     width: 100%;
     height: 100%;
     color: var(--icon-view-color);

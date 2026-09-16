@@ -8,7 +8,7 @@ import {
     useState,
 } from 'react';
 
-import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
+import { getDataTestId, getElementWindow, noop } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_SEPARATOR } from './consts';
@@ -131,11 +131,6 @@ type useVisibleOptionsArgs = {
     listRef: RefObject<HTMLElement>;
 
     /**
-     * Реф на контейнер, которому нужно установить высоту
-     */
-    styleTargetRef?: RefObject<HTMLElement>;
-
-    /**
      * Флаг открытия меню
      */
     open?: boolean;
@@ -165,21 +160,21 @@ type useVisibleOptionsArgs = {
 export function useVirtualVisibleOptions({
     visibleOptions,
     listRef,
-    styleTargetRef = listRef,
     open,
     invalidate,
     options,
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
-    useEffect(() => {
+    const [height, setHeight] = useState<number>();
+
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
 
         const list = listRef.current;
-        const styleTarget = styleTargetRef.current;
 
-        if (open && list && styleTarget && visibleOptions > 0) {
+        if (open && list && visibleOptions > 0) {
             const childCount = list.children.length;
             const optionsNodes = ([] as HTMLElement[]).slice.call(
                 list.children,
@@ -187,7 +182,7 @@ export function useVirtualVisibleOptions({
                 visibleOptions + 1,
             );
 
-            let height = optionsNodes
+            let nextHeight = optionsNodes
                 .slice(0, visibleOptions)
                 .reduce((acc, child) => acc + measureOptionHeight(child), 0);
 
@@ -197,7 +192,7 @@ export function useVirtualVisibleOptions({
                 );
 
                 // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
-                height += Math.round(
+                nextHeight += Math.round(
                     childCount - visibleOptions === 1
                         ? lastVisibleOptionHeight
                         : lastVisibleOptionHeight / 2,
@@ -212,29 +207,28 @@ export function useVirtualVisibleOptions({
                     0,
                 );
 
-                height =
+                nextHeight =
                     Math.min(
                         actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
                         visibleOptions,
                     ) * size;
 
                 if (visibleOptions < actualCount) {
-                    height += size / 2;
+                    nextHeight += size / 2;
                 }
             }
 
-            styleTarget.style.height = `${height}px`;
+            const win = getElementWindow(list);
+
+            nextHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+                .reduce((a, b) => a + b);
+
+            setHeight(nextHeight);
         }
-    }, [
-        actualOptionsCount,
-        listRef,
-        open,
-        options,
-        size,
-        styleTargetRef,
-        visibleOptions,
-        invalidate,
-    ]);
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, invalidate]);
+
+    return height;
 }
 
 export function useVisibleOptions({
@@ -245,8 +239,6 @@ export function useVisibleOptions({
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
-    const [, runIfMounted] = useIsMounted();
-    const [measured, setMeasured] = useState(false);
     const [height, setHeight] = useState<number | undefined>();
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -299,19 +291,19 @@ export function useVisibleOptions({
                 }
             }
 
+            const win = getElementWindow(list);
+
+            measuredHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+                .reduce((a, b) => a + b);
+
             setHeight(measuredHeight);
-
-            setMeasured(true);
-
-            return () => {
-                runIfMounted(() => setMeasured(false));
-            };
         }
 
-        return fnUtils.noop;
-    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, runIfMounted]);
+        return noop;
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions]);
 
-    return [measured, height] as const;
+    return [false, height] as const;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {
@@ -341,15 +333,6 @@ export function usePrevious<T>(value: T) {
 
     return ref.current;
 }
-
-// TODO: перенести
-export const lastIndexOf = <T>(array: T[], predicate: (item: T) => boolean) => {
-    for (let i = array.length - 1; i >= 0; i--) {
-        if (predicate(array[i])) return i;
-    }
-
-    return -1;
-};
 
 export function getSelectTestIds(dataTestId: string) {
     return {

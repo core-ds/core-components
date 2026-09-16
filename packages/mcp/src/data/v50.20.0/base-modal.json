@@ -1,0 +1,367 @@
+{
+"packageName": "base-modal",
+"displayName": "BaseModal",
+"description": "Используется для построения модальных сущностей.",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"Backdrop": {
+"defaultValue": {
+"value": "({\n    className,\n    open = false,\n    invisible = false,\n    timeout = 200,\n    children,\n    onClose,\n    dataTestId,\n    transitionClassNames = styles,\n    transparent = false,\n    ...restProps\n}) => {\n    const nodeRef = useRef(null);\n\n    return (\n        <CSSTransition\n            timeout={timeout}\n            unmountOnExit={true}\n            classNames={transitionClassNames}\n            in={!invisible && open}\n            appear={true}\n            {...restProps}\n            nodeRef={nodeRef}\n        >\n            <div\n                ref={nodeRef}\n                aria-hidden={true}\n                onClick={onClose}\n                data-test-id={dataTestId}\n                className={cn(styles.backdrop, className, {\n                    [styles.transparent]: transparent,\n                })}\n            >\n                {children}\n            </div>\n        </CSSTransition>\n    );\n}"
+},
+"description": "Компонент бэкдропа",
+"name": "Backdrop",
+"required": false,
+"type": {
+"name": "ComponentType<BackdropProps> | undefined"
+}
+},
+"backdropProps": {
+"defaultValue": {
+"value": "{}"
+},
+"description": "Свойства для Бэкдропа",
+"name": "backdropProps",
+"required": false,
+"type": {
+"name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
+}
+},
+"container": {
+"defaultValue": null,
+"description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
+"name": "container",
+"required": false,
+"type": {
+"name": "(() => Element | null | undefined) | undefined"
+}
+},
+"disableAutoFocus": {
+"defaultValue": {
+"value": false
+},
+"description": "Отключает автоматический перевод фокуса на модалку при открытии",
+"name": "disableAutoFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableFocusLock": {
+"defaultValue": {
+"value": false
+},
+"description": "Отключает ловушку фокуса",
+"name": "disableFocusLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableRestoreFocus": {
+"defaultValue": {
+"value": false
+},
+"description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки",
+"name": "disableRestoreFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableEscapeKeyDown": {
+"defaultValue": {
+"value": false
+},
+"description": "Отключает вызов `callback` при нажатии Escape",
+"name": "disableEscapeKeyDown",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBackdropClick": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при клике на бэкдроп",
+"name": "disableBackdropClick",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBlockingScroll": {
+"defaultValue": {
+"value": false
+},
+"description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
+"name": "disableBlockingScroll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управляет блокировкой скролла/overscroll фона при открытой модалке.",
+"name": "scrollLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"keepMounted": {
+"defaultValue": {
+"value": false
+},
+"description": "Содержимое модалки всегда в DOM",
+"name": "keepMounted",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"wrapperProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на dialog wrapper",
+"name": "wrapperProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"contentProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на обертку контента",
+"name": "contentProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"componentDivProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на компонентную обертку контента",
+"name": "componentDivProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"wrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки (Modal)",
+"name": "wrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"scrollHandler": {
+"defaultValue": {
+"value": "wrapper"
+},
+"description": "Обработчик скролла контента",
+"name": "scrollHandler",
+"required": false,
+"type": {
+"name": "\"wrapper\" | \"content\" | MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"transitionProps": {
+"defaultValue": {
+"value": "{}"
+},
+"description": "Пропсы для анимации (CSSTransition)",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<CSSTransitionProps> | undefined"
+}
+},
+"usePortal": {
+"defaultValue": {
+"value": true
+},
+"description": "Рендерить ли в контейнер через портал.",
+"name": "usePortal",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onBackdropClick": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на бэкдроп",
+"name": "onBackdropClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<Element, MouseEvent>) => void) | undefined"
+}
+},
+"onEscapeKeyDown": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе",
+"name": "onEscapeKeyDown",
+"required": false,
+"type": {
+"name": "((event: KeyboardEvent<Element>) => void) | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | undefined) => void) | undefined"
+}
+},
+"onMount": {
+"defaultValue": null,
+"description": "Обработчик события onEntered компонента Transition",
+"name": "onMount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onUnmount": {
+"defaultValue": null,
+"description": "Обработчик события onExited компонента Transition",
+"name": "onUnmount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"zIndex": {
+"defaultValue": {
+"value": 100
+},
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"componentRef": {
+"defaultValue": {
+"value": null
+},
+"description": "Реф, который должен быть установлен компонентной области",
+"name": "componentRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"contentElementRef": {
+"defaultValue": {
+"value": null
+},
+"description": "Реф контентной области",
+"name": "contentElementRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"iOSLock": {
+"defaultValue": {
+"value": false
+},
+"description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS.\n@deprecated Используйте `scrollLock={true}`.",
+"name": "iOSLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onWheel": {
+"defaultValue": null,
+"description": "Хэндлер события прокрутки колесиком",
+"name": "onWheel",
+"required": false,
+"type": {
+"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst [open, setOpen] = React.useState(false);\nconst handleModalOpen = () => setOpen(!open);\n\nreturn (\n<>\n<Button\nsize={56}\nonClick={handleModalOpen}\nblock={isMobile()}\nbreakpoint={BREAKPOINT}\n>\nПоказать BaseModal\n</Button>\n\n<BaseModal open={open} onClose={handleModalOpen}>\n<div style={{ padding: '100px' }}>BaseModal</div>\n</BaseModal>\n</>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.12.2",
+"description": "#### [#2200](https://github.com/core-ds/core-components/pull/2200)\n\n- Исправлена обработка явного `scrollLock={false}` в `BaseModal`: legacy-блокировка скролла применяется только когда `scrollLock` не передан.\n- В `UniversalModal` блокировка скролла теперь управляется через `scrollLock={overlay}` вместо deprecated `disableBlockingScroll`."
+},
+{
+"version": "50.11.0",
+"description": "#### [#2159](https://github.com/core-ds/core-components/pull/2159)\n\n- Исправлен проброс пропсов для backdrop"
+},
+{
+"version": "50.3.0",
+"description": "#### [#2067](https://github.com/core-ds/core-components/pull/2067)\n\n- Расширено публичное api для методов `setHeaderHighlighted` и `setFooterHighlighted`"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1635](https://github.com/core-ds/core-components/pull/1635)\n\n- Удалён matches полифил для поддержки работы focusLock в ie 11"
+},
+{
+"version": "49.12.0",
+"description": "#### [#1983](https://github.com/core-ds/core-components/pull/1983)\n\n- Добавили блокировку фонового скролла через `react-remove-scroll` для `BaseModal` (и компонентов на его базе).\n- Добавили проп `scrollLock?: boolean` для управления блокировкой скролла (по умолчанию выключен).\n- Пропсы `disableBlockingScroll` и `iOSLock` помечены как deprecated (оставлены для обратной совместимости)."
+}
+]
+}

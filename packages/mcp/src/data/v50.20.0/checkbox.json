@@ -1,0 +1,238 @@
+{
+"packageName": "checkbox",
+"displayName": "Checkbox",
+"description": "",
+"props": {
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик переключения чекбокса",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Текст подписи к чекбоксу",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки снизу",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": 20
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "20 | 24 | undefined"
+}
+},
+"boxClassName": {
+"defaultValue": null,
+"description": "Доп. класс чекбокса",
+"name": "boxClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Доп. класс контента",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Доп. класс лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hintClassName": {
+"defaultValue": null,
+"description": "Доп. класс подсказки",
+"name": "hintClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"errorClassName": {
+"defaultValue": null,
+"description": "Доп. класс ошибки",
+"name": "errorClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Доп. класс дополнительного слота",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"align": {
+"defaultValue": {
+"value": "start"
+},
+"description": "Выравнивание",
+"name": "align",
+"required": false,
+"type": {
+"name": "Align | undefined"
+}
+},
+"addons": {
+"defaultValue": null,
+"description": "Дополнительный слот",
+"name": "addons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивать ли компонент на всю ширину",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"indeterminate": {
+"defaultValue": {
+"value": false
+},
+"description": "Управление неопределенным состоянием чекбокса",
+"name": "indeterminate",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"position": {
+"defaultValue": {
+"value": "before"
+},
+"description": "Позиция чекбокса относительно контента",
+"name": "position",
+"required": false,
+"type": {
+"name": "\"before\" | \"after\" | undefined"
+}
+},
+"hiddenInput": {
+"defaultValue": {
+"value": false
+},
+"description": "Флаг для скрытия нативного инпута.",
+"name": "hiddenInput",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"inputRef": {
+"defaultValue": null,
+"description": "Реф на инпут",
+"name": "inputRef",
+"required": false,
+"type": {
+"name": "RefObject<HTMLInputElement> | undefined"
+}
+},
+"labelProps": {
+"defaultValue": null,
+"description": "Пропсы для label",
+"name": "labelProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры",
+"description": "Компонент поддерживате два размера, 24 и 20 px",
+"desktop": "render(() => {\nconst [checked, setChecked] = React.useState({\ncheckbox_24: true,\ncheckbox_20: true,\n});\n\nconst [switchChecked, setSwitchChecked] = React.useState(true);\nconst [error, setError] = React.useState(false);\nconst [disabled, setDisabled] = React.useState(false);\n\nconst handleChange = (name) => (event) => {\nsetChecked((prevState) => ({\n...prevState,\n[name]: event.target.checked,\n}));\n};\n\nreturn (\n<React.Fragment>\n<div\nstyle={{\nwidth: document.body.clientWidth < 450 ? '100%' : 320,\nminHeight: '108px',\n}}\n>\n<div style={{ minHeight: '46px' }}>\n<Checkbox\nblock={true}\nsize={24}\nonChange={handleChange('checkbox_24')}\nchecked={checked.checkbox_24}\ndisabled={disabled}\nlabel='Согласен с условиями'\n{...(switchChecked && { hint: 'И внимательно их прочитал' })}\n{...(error && { error: 'Error message' })}\n/>\n</div>\n<Gap size={20} />\n<div style={{ marginLeft: '8px' }}>\n<Checkbox\nblock={true}\nsize={20}\nonChange={handleChange('checkbox_20')}\nchecked={checked.checkbox_20}\ndisabled={disabled}\nlabel='Согласен с условиями'\n{...(switchChecked && { hint: 'И внимательно их прочитал' })}\n{...(error && { error: 'Error message' })}\n/>\n</div>\n</div>\n<Gap size={20} />\n<Divider />\n<Gap size={20} />\n<Switch\nblock={true}\nchecked={switchChecked}\nlabel='Подпись под лейблом'\nonChange={() => setSwitchChecked((prevState) => !prevState)}\n/>\n<Gap size={20} />\n\n<Button view='secondary' size={32} onClick={() => setError((prevState) => !prevState)}>\nОшибка\n</Button>\n<span style={{ marginLeft: '8px' }}>\n<Button\nview='secondary'\nsize='32'\nonClick={() => setDisabled((prevState) => !prevState)}\n>\nЗаблокирован\n</Button>\n</span>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Состояния",
+"description": "Чекбокс может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть неопределённым.\nЕсли чекбокс заблокирован, используется состояние «недоступен».",
+"desktop": "render(() => {\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Checkbox size={24} label='Неопределён' indeterminate={true} block={true} />\n<Gap size={20} />\n<Checkbox size={24} label='Выбран' checked={true} block={true} />\n<Gap size={20} />\n<Checkbox\nsize={24}\nlabel='Выбран и недоступен'\ndisabled={true}\nchecked={true}\nblock={true}\n/>\n<Gap size={20} />\n<Checkbox size={24} label='По умолчанию' checked={false} block={true} />\n<Gap size={20} />\n<Checkbox\nsize={24}\nlabel='По умолчанию и недоступен'\nchecked={false}\ndisabled={true}\nblock={true}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.7.0",
+"description": "#### [#2119](https://github.com/core-ds/core-components/pull/2119)\n\n- Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2071](https://github.com/core-ds/core-components/pull/2071)\n\n- Добавлен prop `position` для управления положением чекбокса относительно контента ('before' | 'after'), теперь компонент сам контролирует порядок DOM-узлов (label/checkbox)."
+},
+{
+"version": "50.0.0",
+"description": "#### [#1645](https://github.com/core-ds/core-components/pull/1645)\n\n- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20 и 24` соответственно)"
+}
+]
+}

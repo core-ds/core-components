@@ -280,7 +280,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             disableBlockingScroll = false,
-            scrollLock = false,
+            scrollLock,
             keepMounted = false,
             className,
             contentClassName,
@@ -505,7 +505,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                  * При scrollLock={true} блокировка обрабатывается через react-remove-scroll,
                  * старая логика нужна только для обратной совместимости (deprecated пропсы)
                  */
-                const shouldUseLegacyScrollLock = !scrollLock && !disableBlockingScroll;
+                const shouldUseLegacyScrollLock =
+                    scrollLock === undefined && !disableBlockingScroll;
 
                 if (shouldUseLegacyScrollLock) {
                     const el = getContainer();
@@ -585,6 +586,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ],
         );
 
+        const {
+            className: backdropClassName,
+            shouldRender: backdropShouldRender = true,
+            ...restBackdropProps
+        } = backdropProps;
+
         const renderContent = () => (
             <Stack value={zIndex}>
                 {(computedZIndex) => (
@@ -598,10 +605,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 removeScrollBar={false}
                             >
                                 <React.Fragment>
-                                    {Backdrop && (
+                                    {backdropShouldRender && Backdrop && (
                                         <Backdrop
-                                            {...backdropProps}
-                                            className={cn(backdropProps.className, styles.backdrop)}
+                                            {...restBackdropProps}
+                                            className={cn(backdropClassName, styles.backdrop)}
                                             open={open}
                                             style={{
                                                 zIndex: computedZIndex,

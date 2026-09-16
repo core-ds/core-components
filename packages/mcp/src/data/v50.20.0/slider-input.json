@@ -1,0 +1,584 @@
+{
+"packageName": "slider-input",
+"displayName": "SliderInput",
+"description": "Используется для указания значения из заданного диапазона.",
+"props": {
+"size": {
+"defaultValue": {
+"value": 48
+},
+"description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно",
+"name": "size",
+"required": false,
+"type": {
+"name": "48 | 56 | 64 | 72 | undefined"
+}
+},
+"min": {
+"defaultValue": {
+"value": 0
+},
+"description": "Мин. допустимое число",
+"name": "min",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"max": {
+"defaultValue": {
+"value": 100
+},
+"description": "Макс. допустимое число",
+"name": "max",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"steps": {
+"defaultValue": {
+"value": "[]"
+},
+"description": "Массив подписей к слайдеру",
+"name": "steps",
+"required": false,
+"type": {
+"name": "ReactNode[] | undefined"
+}
+},
+"step": {
+"defaultValue": {
+"value": 1
+},
+"description": "Шаг (должен нацело делить отрезок между мин и макс)",
+"name": "step",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"pips": {
+"defaultValue": null,
+"description": "Отображение подписей\nhttps://refreshless.com/nouislider/pips/",
+"name": "pips",
+"required": false,
+"type": {
+"name": "Pips | undefined"
+}
+},
+"range": {
+"defaultValue": null,
+"description": "Настройка шагов\nhttps://refreshless.com/nouislider/pips/#section-range",
+"name": "range",
+"required": false,
+"type": {
+"name": "RangeOptions | undefined"
+}
+},
+"value": {
+"defaultValue": {
+"value": ""
+},
+"description": "Значение инпута",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | number | undefined"
+}
+},
+"sliderValue": {
+"defaultValue": {
+"value": null
+},
+"description": "Значение слайдера",
+"name": "sliderValue",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"info": {
+"defaultValue": null,
+"description": "Дополнительная информация в правой части поля",
+"name": "info",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"Input": {
+"defaultValue": {
+"value": "forwardRef<HTMLInputElement, InputProps>(\n    (\n        {\n            breakpoint,\n            client,\n            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',\n            ...restProps\n        },\n        ref,\n    ) => {\n        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);\n\n        const Component = isDesktop ? InputDesktop : InputMobile;\n\n        return <Component ref={ref} {...restProps} />;\n    },\n)"
+},
+"description": "Компонент поля ввода",
+"name": "Input",
+"required": false,
+"type": {
+"name": "ComponentType<Omit<InputProps, \"value\" | \"defaultValue\" | \"onChange\">> | undefined"
+}
+},
+"customInputProps": {
+"defaultValue": {
+"value": "{}"
+},
+"description": "Кастомные пропсы для поля ввода",
+"name": "customInputProps",
+"required": false,
+"type": {
+"name": "Record<string, unknown> | undefined"
+}
+},
+"inputClassName": {
+"defaultValue": null,
+"description": "Класс для инпута",
+"name": "inputClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"sliderClassName": {
+"defaultValue": null,
+"description": "Класс для слайдера",
+"name": "sliderClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"stepsClassName": {
+"defaultValue": null,
+"description": "Класс для шагов",
+"name": "stepsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения значения через слайдер или поле ввода",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "OnChangeType | undefined"
+}
+},
+"onInputChange": {
+"defaultValue": null,
+"description": "Обработчик ввода",
+"name": "onInputChange",
+"required": false,
+"type": {
+"name": "OnInputChangeType | undefined"
+}
+},
+"onSliderChange": {
+"defaultValue": null,
+"description": "Обработчик изменения слайдера",
+"name": "onSliderChange",
+"required": false,
+"type": {
+"name": "((payload: { value: number; }) => void) | undefined"
+}
+},
+"onSliderStart": {
+"defaultValue": null,
+"description": "Обработчик начала перетаскивания ползунка",
+"name": "onSliderStart",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onSliderEnd": {
+"defaultValue": null,
+"description": "Обработчик окончания перетаскивания ползунка",
+"name": "onSliderEnd",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"dots": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Включение/отключение отображения точек на слайдере",
+"name": "dots",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dotsSlider": {
+"defaultValue": {
+"value": "'step'"
+},
+"description": "Тип отображения точек на слайдере: 'step' - по шагу, 'custom' - произвольные",
+"name": "dotsSlider",
+"required": false,
+"type": {
+"name": "\"step\" | \"custom\" | undefined"
+}
+},
+"customDots": {
+"defaultValue": null,
+"description": "Массив значений для произвольного размещения точек",
+"name": "customDots",
+"required": false,
+"type": {
+"name": "number[] | undefined"
+}
+},
+"showPipsDots": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Показывать точки для pips-значений вместе с customDots в режиме dotsSlider='custom'",
+"name": "showPipsDots",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"pipsLabel": {
+"defaultValue": {
+"value": "'all'"
+},
+"description": "Отображение подписи под точками:\n- all: подпись для всех точек\n- pipsOnly: подпись только для pips-значений\n- customPipsOnly: подпись только для customDots\n- none: подписи отключены",
+"name": "pipsLabel",
+"required": false,
+"type": {
+"name": "PipsLabelMode | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bold": {
+"defaultValue": {
+"value": true
+},
+"description": "Жирность текста",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Начальное значение поля",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика по полю",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onMouseDown": {
+"defaultValue": null,
+"description": "Обработчик MouseDown по полю",
+"name": "onMouseDown",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onMouseUp": {
+"defaultValue": null,
+"description": "Обработчик MouseUp по полю",
+"name": "onMouseUp",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение иконки успеха",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"wrapperRef": {
+"defaultValue": null,
+"description": "Ref для обертки input",
+"name": "wrapperRef",
+"required": false,
+"type": {
+"name": "Ref<HTMLDivElement> | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"rightAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"focusedClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен при фокусе",
+"name": "focusedClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"filledClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен, если в поле есть значение",
+"name": "filledClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"disableUserInput": {
+"defaultValue": null,
+"description": "Запрещает ввод с клавиатуры",
+"name": "disableUserInput",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": null,
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Стандартный вид компонента",
+"description": "Можно настроить количество сегментов и шаг внутри сегмента.",
+"desktop": "const min = 1;\n\nrender(() => {\nconst [value1, setValue1] = React.useState(3);\nconst [value2, setValue2] = React.useState(5);\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<SliderInput\nvalue={value1}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\npips={{\nmode: 'values',\nvalues: [min, 10 / 2, 10],\n}}\nmin={min}\nmax={10}\nstep={1}\nblock={true}\nonChange={(_, { value }) => setValue1(value)}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={24} />\n<SliderInput\nvalue={value2}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\npips={{\nmode: 'values',\nvalues: [min, 10, 100],\n}}\nmin={min}\nmax={100}\nrange={{\nmin: min,\n'50%': [10, 5],\nmax: 100,\n}}\nstep={1}\nblock={true}\nonChange={(_, { value }) => setValue2(value)}\nbreakpoint={BREAKPOINT}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Состояния",
+"description": "В состоянии ошибки шкала заменяется на сообщение об ошибке, а в задисейбленном состоянии может превращаться в подпись.",
+"desktop": "const formatAmountSimple = (() => {\nconst formatter = new Intl.NumberFormat('ru-RU', {\nstyle: 'currency',\ncurrency: 'RUB',\n});\n\nreturn (value) => (value ? formatter.format(value).slice(0, -5) : '');\n})();\n\nconst min = 100000;\nconst max = 300000;\nconst pips = {\nmode: 'values',\nvalues: [min, max - min, max],\nformat: {\nto: (value) => formatAmountSimple(value),\n},\n};\n\nrender(() => {\nconst [value, setValue] = React.useState(150000);\nconst [props, setProps] = React.useState({});\n\nreturn (\n<div style={{ width: '100%' }}>\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<SliderInput\nvalue={formatAmountSimple(value)}\nsliderValue={value}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\npips={pips}\nmin={min}\nmax={max}\nstep={1000}\nblock={true}\nonChange={(_, { value }) => setValue(value)}\nbreakpoint={BREAKPOINT}\n{...props}\n/>\n</div>\n<Gap size={24} />\n\n<Space direction='horizontal' wrap={true}>\n<Button onClick={() => setProps({})} size={32} view='secondary'>\nПо умолчанию\n</Button>\n<Button onClick={() => setProps({ error: 'Error' })} size={32} view='secondary'>\nОшибка\n</Button>\n<Button\nonClick={() => setProps({ disabled: true, hint: 'Hint' })}\nsize={32}\nview='secondary'\n>\nЗаблокирован\n</Button>\n</Space>\n</div>\n);\n});"
+},
+{
+"title": "Amount",
+"description": "Используйте Amount для деления введенных значений на разряды.",
+"desktop": "const min = 50000;\nconst max = 10000000;\nconst step = 1000;\nconst range = {\nmin: [min],\n'25%': [100000, 10000],\n'75%': [1000000, 100000],\nmax: [max],\n};\nconst pips = {\nmode: 'values',\nvalues: [min, max],\nformat: {\nto: (value) => {\nif (value < 1000000) return `${value / 1000} тыс`;\nreturn `${value / 1000000} млн`;\n},\n},\n};\n\nrender(() => {\nconst [value, setValue] = React.useState(120000);\n\nconst handleInputChange = (event, { value }) => {\nsetValue(value !== '' ? (value / 100).toString() : '');\n};\n\nconst handleSliderChange = ({ value }) => {\nsetValue(value);\n};\n\nconst handleBlur = () => {\nif (value !== '') {\nsetValue(Math.max(min, Math.min(max, parseFloat(value.toString()))));\n}\n};\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<SliderInput\nblock={true}\nvalue={value !== '' ? value * 100 : ''}\nsliderValue={value}\nonInputChange={handleInputChange}\nonSliderChange={handleSliderChange}\nonBlur={handleBlur}\nmin={min}\nmax={max}\nrange={range}\npips={pips}\nstep={step}\nlabel='Первоначальный взнос'\nInput={AmountInput}\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.13.0",
+"description": "#### [#2219](https://github.com/core-ds/core-components/pull/2219)\n\n- Исправлен регресс выравниваний крайних подписей (`min`/`max`) под слайдером."
+},
+{
+"version": "50.12.0",
+"description": "#### [#1770](https://github.com/core-ds/core-components/pull/1770)\n\n- `SliderInput` теперь поддерживает отображение точек, кастомные точки и раздельное управление точками и подписями pips через API вложенного `Slider`."
+},
+{
+"version": "50.0.0",
+"description": "#### [#1855](https://github.com/core-ds/core-components/pull/1855)\n\n- Удален пропс `lockLimit`, который был добавлен в `core-components@48.0`<br/>\n  Данный пропс использовался для установки значений в пределах указанных min/max границ при `blur` событии.\n  Было обнаружено, что значения в компоненте могут вести себя непредсказуемо если одновременно использовать onBlur, lockLimit, а также при мутации передаваемого value.<br/>\n  Чтобы реализовать установку значения по границам - используйте обработчик `onBlur`."
+},
+{
+"version": "49.8.0",
+"description": "#### [#1929](https://github.com/core-ds/core-components/pull/1929)\n\n- Добавлен проп `bold` для управления жирностью текста\n\n#### [#1933](https://github.com/core-ds/core-components/pull/1933)\n\n- Исправлено переопределние пропсов Input с помощью customInputProps"
+},
+{
+"version": "49.7.0",
+"description": "#### [#1907](https://github.com/core-ds/core-components/pull/1907)\n\n- Исправлена типизация компонента `Input` для `SliderInput`"
+},
+{
+"version": "49.2.0",
+"description": "#### [#1842](https://github.com/core-ds/core-components/pull/1842)\n\n- Исправлена специфичность слайдера\n\n- Обновлены зависимости\n    - @alfalab/core-components-markdown@2.1.0\n    - @alfalab/core-components-universal-modal@2.0.2\n    - @alfalab/core-components-popup-sheet@2.0.2\n    - @alfalab/core-components-themes@14.1.1\n    - @alfalab/core-components-slider-input@10.0.2"
+}
+]
+}

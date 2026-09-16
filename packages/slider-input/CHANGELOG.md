@@ -1,5 +1,96 @@
 # @alfalab/core-components-slider-input
 
+## 11.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+
+## 11.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.10
+
+## 11.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.9
+
+## 11.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.8
+
+## 11.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.7
+
+## 11.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.6
+
+## 11.1.2
+
+### Patch Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2219](https://github.com/core-ds/core-components/pull/2219)
+
+##### Slider ,SliderInput
+
+- Исправлен регресс выравниваний крайних подписей (`min`/`max`) под слайдером.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider@6.1.1
+- @alfalab/core-components-input@17.1.5
+
+## 11.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.4
+
+## 11.1.0
+
+### Minor Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### SliderInput
+
+- `SliderInput` теперь поддерживает отображение точек, кастомные точки и раздельное управление точками и подписями pips через API вложенного `Slider`.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider@6.1.0
+
 ## 11.0.5
 
 ### Patch Changes
@@ -1033,7 +1124,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1161,8 +1252,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@5.1.1...@alfalab/core-components-slider-input@5.1.2) (2022-08-17)
 

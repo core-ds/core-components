@@ -1,5 +1,135 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.2.1
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2342](https://github.com/core-ds/core-components/pull/2342)
+
+##### FileUploadItem
+
+- Исправлено отображение размера пустого файла
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.11
+
+## 8.2.0
+
+### Minor Changes
+
+<sup><time>07.08.2026</time></sup>
+
+#### [#2302](https://github.com/core-ds/core-components/pull/2302)
+
+##### FileUploadItem
+
+- Добавлен проп `subtitleColor` (Typography Color) для цвета подзаголовка
+
+## 8.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-icon-button@8.0.10
+
+## 8.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-icon-button@8.0.9
+
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2220](https://github.com/core-ds/core-components/pull/2220)
+
+##### FileUploadItem
+
+- Добавлен тип иконки "архив". Будет отображаться при загрузке расширения `zip`, `rar`, `7z`. Если пользуетесь менее популярными форматами, сообщите в команду поддержки для добавления.
+- Добавлен проп `reupload`. Позволяет отображать кнопку повторной загрузки.
+- Внесены исправления в работу внутреннего контекста.
+- Мелкие внутренние улучшения и оптимизации компонента (невидимые изменения, повышают стабильность и производительность).
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-icon-button@8.0.8
+
+## 8.0.10
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-view@5.0.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-icon-button@8.0.7
+
+## 8.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+
+## 8.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-typography@6.0.5
+- @alfalab/core-components-icon-button@8.0.6
+
+## 8.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.5
+
+## 8.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-view@5.0.3
+
+## 8.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.4
+
 ## 8.0.4
 
 ### Patch Changes
@@ -1152,8 +1282,6 @@ Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [3.9.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.9.1...@alfalab/core-components-file-upload-item@3.9.2) (2022-08-17)
 

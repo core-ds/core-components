@@ -15,9 +15,16 @@
 }
 
 .typographyThemeMobile.typographyThemeMobile {
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
     color: var(--color-light-text-secondary);
 }
 
 .button.button {
-    margin-top: var(--gap-32);
+    margin-top: var(--confirmation-temp-block-over-button-margin-top);
+}
+
+.button.buttonMobile {
+    margin-top: var(--confirmation-temp-block-over-button-margin-top-mobile);
 }

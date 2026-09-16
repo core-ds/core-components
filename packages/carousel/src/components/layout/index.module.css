@@ -1,0 +1,28 @@
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &.navigationHover {
+        .navigation {
+            transition: opacity var(--carousel-animation-duration) ease-in;
+            opacity: 0;
+        }
+
+        @mixin hover {
+            .navigation {
+                opacity: 1;
+            }
+        }
+    }
+
+    .pagination {
+        margin: var(--gap-8) auto;
+    }
+}
+
+.wrapper {
+    position: relative;
+}

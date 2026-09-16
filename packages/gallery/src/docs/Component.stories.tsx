@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, number } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { Gallery } from '@alfalab/core-components-gallery';
+import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -21,6 +22,8 @@ export const gallery: Story = {
     render: () => {
         const [openMultiple, setOpenMultiple] = React.useState(false);
         const [open, setOpen] = React.useState(false);
+
+        const timeout = number('timeout video button', 2);
 
         const images = [
             {
@@ -77,6 +80,11 @@ export const gallery: Story = {
                 </div>
                 <Gallery
                     open={openMultiple}
+                    customButton={{
+                        text: 'Показать сообщение',
+                        icon: BubbleArrowRightMIcon,
+                        onClick: () => {},
+                    }}
                     onClose={() => {
                         setOpenMultiple(false);
                     }}
@@ -101,9 +109,9 @@ export const gallery: Story = {
                             name: 'Alfa promo.m3u8',
                             src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
                             bottomButton: {
-                                text: 'Кнопка с задержкой 2 секунды',
+                                text: `Кнопка с задержкой ${timeout} сек`,
                                 onClick: () => {},
-                                timeout: 2,
+                                timeout,
                             },
                         },
                         {

@@ -7,3 +7,7 @@ function preventDefault(e: React.UIEvent) {
 export const dom = {
     preventDefault,
 };
+
+export function getElementWindow(element: Element): typeof window {
+    return element.ownerDocument.defaultView!;
+}

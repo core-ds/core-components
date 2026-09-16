@@ -10,8 +10,13 @@
             "@alfalab/core-components-code-input": ["./src"],
             "@alfalab/core-components-code-input/*": ["./src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"]
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
-    "references": [{ "path": "../mq/tsconfig.build.json" }]
+    "references": [
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
+    ]
 }

@@ -17,6 +17,14 @@ const meta: Meta<typeof ProductCover.Single> = {
 
 type Story = StoryObj<typeof ProductCover>;
 
+const STATE_TYPES = [
+    'darkening',
+    'lightening',
+    'static-darkening',
+    'static-lightening',
+    false,
+] as const;
+
 export const product_cover_single: Story = {
     name: 'ProductCover.Single',
     render: () => {
@@ -33,7 +41,7 @@ export const product_cover_single: Story = {
 
         return (
             <ProductCover.Single
-                baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
+                baseUrl={text('baseUrl', process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL)}
                 layers={text('layers', 'BACKGROUND,LOGO,PAYMENT_SYSTEM')}
                 cardId={text('cardId', 'RM')}
                 icon={Icon}
@@ -47,6 +55,7 @@ export const product_cover_single: Story = {
                 borderColor={text('borderColor', undefined)}
                 backgroundColor={text('backgroundColor', undefined)}
                 textColor={textColor}
+                stateType={select('stateType', STATE_TYPES, false)}
             />
         );
     },
@@ -67,13 +76,13 @@ export const product_cover_stack: Story = {
             cardNumber: 1234000000001234,
             cardholderName: 'Cardholder Name',
             shadow: shadow,
-            baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+            baseUrl: process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
             textColor,
         };
         const secondCard = {
-            baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+            baseUrl: process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
             textColor,

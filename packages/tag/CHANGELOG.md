@@ -1,5 +1,84 @@
 # @alfalab/core-components-tag
 
+## 10.3.0
+
+### Minor Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2325](https://github.com/core-ds/core-components/pull/2325)
+
+##### Tag
+
+- Для `size={48}` исправлен `min-width`: 64px → 72px
+- В `IndicatorTag` добавлен размер 56 (геометрия 56×56)
+
+## 10.2.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+
+## 10.2.0
+
+### Minor Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2256](https://github.com/core-ds/core-components/pull/2256)
+
+##### Tag
+
+- Добавлены props `showClear` и `onClear` для сброса выбранного состояния
+- Изменены отступы в компоненте
+- Добавлен вариант `view='muted'`
+- В `IndicatorTag` добавлен размер 48, prop `view` (`filled` | `muted`) и обновлены стили SVG-формы
+
+## 10.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.6
+
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2122](https://github.com/core-ds/core-components/pull/2122)
+
+##### Tag
+
+- Добавлен компонент `IndicatorTag` для тега с числовым индикатором
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.5
+
+## 10.0.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.4
+
 ## 10.0.3
 
 ### Patch Changes
@@ -546,8 +625,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tag@4.4.0...@alfalab/core-components-tag@4.4.1) (2022-08-17)
 

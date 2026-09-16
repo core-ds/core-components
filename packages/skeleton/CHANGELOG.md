@@ -1,5 +1,41 @@
 # @alfalab/core-components-skeleton
 
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#1964](https://github.com/core-ds/core-components/pull/1964)
+
+##### Skeleton
+
+- Скелетон текста рендерится на SSR по fallback-параметрам, без ожидания layout-effect.
+
+## 7.0.4
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+## 7.0.3
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2121](https://github.com/core-ds/core-components/pull/2121)
+
+##### Skeleton
+
+- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше
+
 ## 7.0.2
 
 ### Patch Changes
@@ -235,8 +271,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [3.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-skeleton@3.3.0...@alfalab/core-components-skeleton@3.3.1) (2022-08-17)
 

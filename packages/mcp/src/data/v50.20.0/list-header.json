@@ -1,0 +1,62 @@
+{
+"packageName": "list-header",
+"displayName": "ListHeader",
+"description": "Используется для разделения ячеек списка по смысловым группам.",
+"props": {
+"title": {
+"defaultValue": null,
+"description": "Заголовок",
+"name": "title",
+"required": true,
+"type": {
+"name": "string"
+}
+},
+"description": {
+"defaultValue": null,
+"description": "Дополнительное описание",
+"name": "description",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"filled": {
+"defaultValue": {
+"value": true
+},
+"description": "Наличие фоновой подложки",
+"name": "filled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент с серой подложкой используется для «бесконечных списков». Например, для истории операций или списка писем.",
+"desktop": "<div>\n<ListHeader title='Сегодня' />\n<div>\nВ Санкт-Петербурге ожидаются дожди, ливни с грозой, градом и шквалистым ветром до 20 м/с.\n</div>\n<ListHeader title='23 мая' description='среда' />\n<div>Ясно, без осадков.</div>\n</div>"
+}
+],
+"changelog": []
+}

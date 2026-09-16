@@ -1,5 +1,160 @@
 # @alfalab/core-components-amount-input
 
+## 9.3.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-with-suffix@6.0.14
+
+## 9.3.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+- @alfalab/core-components-number-input@4.0.13
+- @alfalab/core-components-with-suffix@6.0.13
+
+## 9.3.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-number-input@4.0.12
+- @alfalab/core-components-with-suffix@6.0.12
+
+## 9.3.0
+
+### Minor Changes
+
+<sup><time>17.07.2026</time></sup>
+
+#### [#2276](https://github.com/core-ds/core-components/pull/2276)
+
+##### AmountInput
+
+- Добавлен проп `zeroValue` `(false /* @default */ | true)` для обновленной логики работы с нулем `0`:
+    - при фокусе нуль заменяется пустым значением
+    - при потере фокуса пустое значение заменяется нулем
+- Внутренние улучшения работы компонента
+
+## 9.2.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-input@17.1.9
+- @alfalab/core-components-number-input@4.0.11
+- @alfalab/core-components-with-suffix@6.0.11
+
+## 9.2.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.8
+- @alfalab/core-components-number-input@4.0.10
+- @alfalab/core-components-with-suffix@6.0.10
+
+## 9.2.6
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2234](https://github.com/core-ds/core-components/pull/2234)
+
+##### AmountInput
+
+- Возвращена возможность добавить обработчик `onKeyDown`
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-with-suffix@6.0.9
+- @alfalab/core-components-number-input@4.0.9
+
+## 9.2.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-input@17.1.6
+- @alfalab/core-components-number-input@4.0.8
+- @alfalab/core-components-with-suffix@6.0.8
+
+## 9.2.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.5
+- @alfalab/core-components-number-input@4.0.7
+- @alfalab/core-components-with-suffix@6.0.7
+
+## 9.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.4
+- @alfalab/core-components-number-input@4.0.6
+- @alfalab/core-components-with-suffix@6.0.6
+
+## 9.2.2
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2192](https://github.com/core-ds/core-components/pull/2192)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2196](https://github.com/core-ds/core-components/pull/2196)
+
+##### AmountInput
+
+- Улучшена работа анимации при отклонении ввода
+
+## 9.2.1
+
+### Patch Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#2184](https://github.com/core-ds/core-components/pull/2184)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения при `blur`
+
 ## 9.2.0
 
 ### Minor Changes
@@ -1190,7 +1345,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1317,8 +1472,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [5.7.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount-input@5.7.1...@alfalab/core-components-amount-input@5.7.2) (2022-08-17)
 

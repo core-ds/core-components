@@ -75,11 +75,8 @@ async function main(args) {
         '-Ap',
         ...BUILD_IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
         ...args,
-        'exec',
-        'rollup',
-        '-c',
-        path.resolve(cwd(), 'tools/rollup/rollup.config.mjs'),
-        '--silent',
+        'run',
+        'build',
     ]);
 
     await $('yarn', [

@@ -1,0 +1,51 @@
+{
+"packageName": "comment",
+"displayName": "Comment",
+"description": "Используется для отображаения комментариев.",
+"props": {
+"rowLimit": {
+"defaultValue": null,
+"description": "Количество строк",
+"name": "rowLimit",
+"required": false,
+"type": {
+"name": "2 | 5 | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Сss класс для стилизации общей обёртки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "<div style={{ width: 290 }}>\n<Comment>Короткий комментарий</Comment>\n<Gap size={16} />\n<Comment>Длинный комментарий без ограничения по количеству строк</Comment>\n<Gap size={16} />\n<Comment rowLimit={2}>Длинный комментарий с ограничением по количеству строк</Comment>\n</div>"
+}
+],
+"changelog": []
+}

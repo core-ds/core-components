@@ -1,0 +1,197 @@
+{
+"packageName": "sortable-list",
+"displayName": "SortableList",
+"description": "",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс на контейнер",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"itemClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс на элемент списка",
+"name": "itemClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"itemContentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс на обертку контента у элемента списка",
+"name": "itemContentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"portalProps": {
+"defaultValue": null,
+"description": "Пропсы портала, в котором отображается draggable элемент",
+"name": "portalProps",
+"required": false,
+"type": {
+"name": "PortalProps | undefined"
+}
+},
+"dragOverlayProps": {
+"defaultValue": null,
+"description": "Пропсы DragOverlay элемента",
+"name": "dragOverlayProps",
+"required": false,
+"type": {
+"name": "{ className?: string | undefined; style?: CSSProperties | undefined; zIndex?: number | undefined; } | undefined"
+}
+},
+"controlPadding": {
+"defaultValue": null,
+"description": "Отступ контрола от края",
+"name": "controlPadding",
+"required": false,
+"type": {
+"name": "PaddingSize | undefined"
+}
+},
+"controlPosition": {
+"defaultValue": {
+"value": "right"
+},
+"description": "Позиция контрола",
+"name": "controlPosition",
+"required": false,
+"type": {
+"name": "ControlPosition | undefined"
+}
+},
+"renderItem": {
+"defaultValue": null,
+"description": "Рендер-функция элемента",
+"name": "renderItem",
+"required": true,
+"type": {
+"name": "(item: { id: UniqueIdentifier; disabled?: boolean | undefined; }) => Element"
+}
+},
+"items": {
+"defaultValue": null,
+"description": "Список сортируемых идентификаторов",
+"name": "items",
+"required": true,
+"type": {
+"name": "Items"
+}
+},
+"padding": {
+"defaultValue": null,
+"description": "Отступы.",
+"name": "padding",
+"required": false,
+"type": {
+"name": "PaddingSize | PaddingObj | undefined"
+}
+},
+"borderRadius": {
+"defaultValue": null,
+"description": "BorderRadius элементов списка",
+"name": "borderRadius",
+"required": false,
+"type": {
+"name": "BorderRadius | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "primary"
+},
+"description": "Вид",
+"name": "view",
+"required": false,
+"type": {
+"name": "View | undefined"
+}
+},
+"activatorNode": {
+"defaultValue": {
+"value": "cell"
+},
+"description": "Активатор события перетаскивания. Либо элемент целиком, либо только контрол",
+"name": "activatorNode",
+"required": false,
+"type": {
+"name": "ActivatorNode | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -container, для ячейки -item_${id}",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"announcements": {
+"defaultValue": {
+"value": "{\n    onDragStart({ active }: DragStartEvent) {\n        return `Выбран элемент ${active.id}.`;\n    },\n    onDragOver({ active, over }: DragOverEvent) {\n        if (over) {\n            return `Выбранный элемент ${active.id} находится над элементом ${over.id}.`;\n        }\n\n        return `Выбранный элемент ${active.id} находится за пределами droppable зоны.`;\n    },\n    onDragEnd({ active, over }: DragEndEvent) {\n        if (over) {\n            return `Выбранный элемент ${active.id} был перемещен на место ${over.id}`;\n        }\n\n        return `Выбранный элемент ${active.id} не был перемещен.`;\n    },\n    onDragCancel() {\n        return 'Перемещение было отменено';\n    },\n}"
+},
+"description": "Тексты объявления для screen reader",
+"name": "announcements",
+"required": false,
+"type": {
+"name": "Announcements | undefined"
+}
+},
+"screenReaderInstructions": {
+"defaultValue": {
+"value": "'Чтобы выбрать перетаскиваемый элемент, нажмите пробел.\\n' +\n    'При перетаскивании используйте клавиши со стрелками для перемещения элемента.\\n' +\n    'Снова нажмите пробел, чтобы переместить элемент в его новое положение или нажмите escape для отмены.'"
+},
+"description": "Инструкция для screen reader",
+"name": "screenReaderInstructions",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onDragStart": {
+"defaultValue": null,
+"description": "Коллбэк, вызываемый при начале процесса перетаскивания",
+"name": "onDragStart",
+"required": false,
+"type": {
+"name": "((event: DragStartEvent) => void) | undefined"
+}
+},
+"onDragEnd": {
+"defaultValue": null,
+"description": "Коллбэк, вызываемый по окончании перетаскивания",
+"name": "onDragEnd",
+"required": false,
+"type": {
+"name": "((event: DragEndEvent, items: Items) => void) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Анатомия",
+"description": "Ячейка состоит из кастомизируемого слота и контрола. У ячейки можно настроить фон, скругление и отступ от контрола.",
+"desktop": "render(() => {\nconst renderItem = () => {\nreturn (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nheight: 48,\nboxSizing: 'border-box',\n}}\n/>\n);\n};\n\nreturn (\n<div style={{ maxWidth: 340 }}>\n<SortableList items={[{ id: 0, disabled: true }]} renderItem={renderItem} />\n</div>\n);\n});"
+},
+{
+"title": "Примеры",
+"description": "Для враппера можно настроить внутренние отступы и фон.",
+"desktop": "render(() => {\nconst [items, setItems] = React.useState(() =>\n[1, 2, 3, 4, 5, 6].map((item) => ({ id: item })),\n);\n\nconst renderItem = (item) => {\nreturn (\n<GenericWrapper alignItems='center' padding={{ top: 12, bottom: 12, left: 16 }}>\n<GenericWrapper>\n<SuperEllipse size={48}>\n<DiamondsMIcon />\n</SuperEllipse>\n</GenericWrapper>\n<Gap size={16} direction='horizontal' />\n<GenericWrapper>\n<GenericWrapper column>\n<Typography.Text view='component-primary'>{`Элемент списка ${item.id}`}</Typography.Text>\n<Gap size={4} />\n<Typography.Text view='primary-small' color='secondary'>\nПеретащи меня\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n</GenericWrapper>\n);\n};\n\nreturn (\n<div style={{ maxWidth: 350 }}>\n<SortableList\nitems={items}\nonDragEnd={(_, newIds) => setItems(newIds)}\npadding={8}\nborderRadius={8}\ncontrolPadding={12}\nrenderItem={renderItem}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.12.2",
+"description": "#### [#2207](https://github.com/core-ds/core-components/pull/2207)\n\n- Исправлено вертикальное выравнивание drag иконки"
+}
+]
+}

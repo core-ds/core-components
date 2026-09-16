@@ -11,12 +11,15 @@
             "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-portal": ["../portal/src"],
             "@alfalab/core-components-portal/*": ["../portal/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-with-suffix": ["./src"],
             "@alfalab/core-components-with-suffix/*": ["./src/*"]
         }
     },
     "references": [
         { "path": "../input/tsconfig.build.json" },
-        { "path": "../portal/tsconfig.build.json" }
+        { "path": "../portal/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
     ]
 }

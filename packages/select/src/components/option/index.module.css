@@ -37,6 +37,10 @@
     }
 }
 
+.size-40 {
+    min-height: var(--size-xs-height);
+}
+
 .size-48 {
     min-height: var(--size-s-height);
 }
@@ -83,9 +87,11 @@
 }
 
 .content {
-    overflow: hidden;
     flex: 1;
-    text-overflow: ellipsis;
+}
+
+.textNoWrap {
+    white-space: nowrap;
 }
 
 .textContent {

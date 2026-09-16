@@ -1,23 +1,21 @@
 import React, {
-    createRef,
+    type ChangeEvent,
     type FocusEventHandler,
     forwardRef,
-    type RefObject,
     useEffect,
     useImperativeHandle,
-    useMemo,
     useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
 
-import {
-    type BaseCodeInputProps,
-    type CredentialOtp,
-    type CredentialRequestOtpOptions,
-    type CustomInputRef,
-} from '../../typings';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+
+import { type BaseCodeInputProps, type CustomInputRef } from '../../typings';
+import { subscribeWebOtp } from '../../web-otp';
 import { Input, type InputProps } from '../input';
+
+import { parseInputIdx, syncSelection } from './utils';
 
 import styles from './index.module.css';
 
@@ -39,42 +37,39 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onChange,
             onComplete,
             stylesInput = {},
+            strictFocus = false,
         },
         ref,
     ) => {
-        const inputRefs = useMemo(
-            () =>
-                Array(fields)
-                    .fill({})
-                    .map(() => createRef<HTMLInputElement>()),
-            [fields],
-        );
-
+        const inputRef = useRef<HTMLDivElement>(null);
+        const nextFocusIndexRef = useRef<number | null>(null);
+        const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
         const [values, setValues] = useState(initialValues.split(''));
 
-        const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
-
-        const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
-            inputRef?.current?.focus();
-        };
+        const getInputs = () =>
+            inputRef.current?.querySelectorAll<HTMLInputElement>('input[data-code-input-index]');
 
         const focus = (index = 0) => {
-            focusOnInput(inputRefs[index]);
+            const input = getInputs()?.[index];
+
+            if (input) {
+                input.focus({ preventScroll: true });
+            }
         };
 
         const blur = () => {
-            const input = document.activeElement;
+            const input = document.activeElement as HTMLInputElement;
 
-            if (input?.tagName === 'INPUT') {
-                (input as HTMLInputElement).blur();
+            if (inputRef.current?.contains(input)) {
+                input.blur();
             }
         };
 
         const unselect = () => {
-            const input = document.activeElement;
+            const input = document.activeElement as HTMLInputElement;
 
-            if (input?.tagName === 'INPUT') {
-                (input as HTMLInputElement).setSelectionRange(0, 0);
+            if (inputRef.current?.contains(input)) {
+                input.setSelectionRange(0, 0);
             }
         };
 
@@ -85,11 +80,9 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         useImperativeHandle(ref, () => ({ focus, blur, reset, unselect }));
 
         const triggerChange = (argumentValues: string[]) => {
-            const newValue = (argumentValues || values).join('');
+            const newValue = argumentValues.join('');
 
-            if (onChange) {
-                onChange(newValue);
-            }
+            onChange?.(newValue);
 
             if (onComplete && newValue.length >= fields) {
                 onComplete(newValue);
@@ -103,44 +96,30 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 return;
             }
 
-            let nextRef;
-
             const newValues = [...values];
 
-            if (newValue.length > 1) {
-                let nextIndex = newValue.length + index - 1;
+            newValue.split('').forEach((item, i) => {
+                const cursor = index + i;
 
-                if (nextIndex >= fields) {
-                    nextIndex = fields - 1;
+                if (cursor < fields) {
+                    newValues[cursor] = item;
                 }
-
-                nextRef = inputRefs[nextIndex];
-
-                newValue.split('').forEach((item, i) => {
-                    const cursor = index + i;
-
-                    if (cursor < fields) {
-                        newValues[cursor] = item;
-                    }
-                });
-            } else {
-                nextRef = inputRefs[index + 1];
-
-                newValues[index] = newValue;
-            }
+            });
 
             setValues(newValues);
 
-            if (nextRef?.current) {
-                nextRef.current.focus();
+            const nextIndex = Math.min(index + newValue.length, fields - 1);
 
-                nextRef.current.select();
+            if (nextIndex !== index) {
+                nextFocusIndexRef.current = nextIndex;
             }
 
             triggerChange(newValues);
         };
 
-        const handleChangeFromEvent: InputProps['onChange'] = (event, { index }) => {
+        const handleChangeFromEvent: InputProps['onChange'] = (
+            event: ChangeEvent<HTMLInputElement>,
+        ) => {
             const {
                 target: {
                     value,
@@ -148,68 +127,62 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 },
             } = event;
 
-            handleChange(value, index, valid);
+            const index = parseInputIdx(event.currentTarget);
+
+            if (index !== null) {
+                handleChange(value, index, valid);
+            }
         };
 
-        const handleKeyDown: InputProps['onKeyDown'] = (event, { index }) => {
+        const handleKeyDown: InputProps['onKeyDown'] = (event) => {
+            const index = parseInputIdx(event.currentTarget);
+
+            if (index === null) return;
+
             const prevIndex = index - 1;
             const nextIndex = index + 1;
-
-            const prevRef = inputRefs[prevIndex];
-            const nextRef = inputRefs[nextIndex];
-            const curtRef = inputRefs[index];
 
             const newValues = [...values];
 
             switch (event.key) {
-                case 'Backspace':
+                case 'Backspace': {
                     event.preventDefault();
 
-                    if (values[index]) {
-                        newValues[index] = '';
-                    } else if (prevRef) {
-                        newValues[prevIndex] = '';
+                    const targetIndex = newValues[index] ? index : Math.max(prevIndex, 0);
 
-                        focusOnInput(prevRef);
-                    }
-
+                    newValues[targetIndex] = '';
                     setValues(newValues);
 
                     triggerChange(newValues);
 
+                    focus(targetIndex);
+                    unselect();
+
                     break;
+                }
                 case 'Delete':
                     event.preventDefault();
 
                     newValues[index] = '';
 
-                    if (!values[nextIndex]) {
-                        focusOnInput(curtRef);
-                    }
-
-                    if (nextRef) {
-                        focusOnInput(nextRef);
-                    }
-
                     setValues(newValues);
 
                     triggerChange(newValues);
 
+                    unselect();
                     break;
                 case 'ArrowLeft':
                     event.preventDefault();
 
-                    if (prevRef) {
-                        focusOnInput(prevRef);
+                    if (prevIndex >= 0) {
+                        focus(prevIndex);
                     }
 
                     break;
                 case 'ArrowRight':
                     event.preventDefault();
 
-                    if (nextRef) {
-                        focusOnInput(nextRef);
-                    }
+                    focus(nextIndex);
 
                     break;
                 case 'ArrowUp':
@@ -221,16 +194,25 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             }
         };
 
-        const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
-            event.persist();
-            const target = event.target as HTMLInputElement;
+        const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
+            const index = parseInputIdx(e.currentTarget);
 
-            /**
-             * В сафари выделение корректно работает только с асинхронным вызовом
-             */
-            requestAnimationFrame(() => {
-                target?.select();
+            if (index === null || index >= fields) return;
+
+            const inputs = getInputs();
+
+            const target = Array.from(inputs ?? []).find((input, inputIndex) => {
+                const isPrev = inputIndex < index;
+                const canFocusEmpty = strictFocus || inputIndex === 0;
+
+                return isPrev && !input.value && canFocusEmpty;
             });
+
+            target?.focus({ preventScroll: true });
+
+            if (e.currentTarget.value) {
+                syncSelection(e.currentTarget);
+            }
         };
 
         const handleErrorAnimationEnd = () => {
@@ -238,7 +220,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 if (clearCodeOnError) {
                     focus();
                     /** Очищаем только в случае, если код не изменился */
-                    setValues((prevState) => (values === prevState ? [] : prevState));
+                    setValues((prevState: string[]) => (values === prevState ? [] : prevState));
                 }
 
                 onErrorAnimationEnd?.();
@@ -255,47 +237,48 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             [error],
         );
 
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (nextFocusIndexRef.current === null) return;
+
+            const nextIndex = nextFocusIndexRef.current;
+
+            nextFocusIndexRef.current = null;
+            focus(nextIndex);
+        }, [focus, values]);
+
         useEffect(() => {
-            let ac: AbortController | null = null;
-            const unMountReason = 'component unMount';
+            let mounted = true;
 
-            if ('OTPCredential' in window && navigator?.credentials?.get) {
-                ac = new AbortController();
-                const options: CredentialRequestOtpOptions = {
-                    otp: { transport: ['sms'] },
-                    signal: ac.signal,
-                };
-
-                navigator.credentials
-                    .get(options)
-                    .then((res: CredentialOtp | null) => {
-                        if (res?.code) handleChange(res.code, 0, true);
-                    })
-                    .catch((err) => {
-                        if (err !== unMountReason) {
-                            // eslint-disable-next-line no-console
-                            console.error(err);
-                        }
-                    });
-            }
+            /*
+             * Единый Web OTP-запрос (singleton-овнер). Овнер не абортит запрос
+             * при unmount: преждевременный abort на незавершённой OTP-интеракции
+             * ломает Mojo-контракт (bad Mojo message) и роняет render-процесс.
+             * Отписка лишь удаляет подписчика; код, полученный позже, к
+             * размонтированному компоненту не применяется.
+             */
+            const unsubscribe = subscribeWebOtp((code) => {
+                if (mounted && code) handleChange(code, 0, true);
+            });
 
             return () => {
-                if (ac) ac.abort(unMountReason);
+                mounted = false;
+                unsubscribe();
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
         return (
             <div
+                ref={inputRef}
                 className={cn(styles.component, className)}
                 data-test-id={dataTestId}
                 onAnimationEnd={handleErrorAnimationEnd}
+                role='group'
+                aria-label='Код подтверждения'
             >
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
-                    {/* eslint-disable react/no-array-index-key */}
-                    {new Array(fields).fill('').map((_, index) => (
+                    {Array.from({ length: fields }, (_, index) => (
                         <Input
-                            ref={inputRefs[index]}
                             key={index.toString()}
                             index={index}
                             value={values[index]}
@@ -306,6 +289,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                             onKeyDown={handleKeyDown}
                             stylesInput={stylesInput}
                             compact={fields > 6}
+                            aria-label={`Код ${index + 1} из ${fields}`}
                         />
                     ))}
                 </div>

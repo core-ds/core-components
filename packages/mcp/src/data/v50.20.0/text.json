@@ -1,0 +1,133 @@
+{
+"packageName": "text",
+"displayName": "Text",
+"description": "Используется для отображения и форматирования текстового контента. Компонент поддерживает все доступные дизайнерам стили текста, но не поддерживает адаптивность.",
+"props": {
+"tag": {
+"defaultValue": {
+"value": "span"
+},
+"description": "HTML тег",
+"name": "tag",
+"required": false,
+"type": {
+"name": "\"span\" | \"p\" | \"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "paragraph-primary-medium"
+},
+"description": "Cтиль типографики",
+"name": "view",
+"required": false,
+"type": {
+"name": "TypographyType | undefined"
+}
+},
+"align": {
+"defaultValue": {
+"value": "left"
+},
+"description": "Выравнивание текста",
+"name": "align",
+"required": false,
+"type": {
+"name": "\"left\" | \"center\" | \"right\" | undefined"
+}
+},
+"color": {
+"defaultValue": null,
+"description": "Цвет текста",
+"name": "color",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"textBackgroundColor": {
+"defaultValue": null,
+"description": "Цвет фона",
+"name": "textBackgroundColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"rowLimit": {
+"defaultValue": null,
+"description": "Количество строк",
+"name": "rowLimit",
+"required": false,
+"type": {
+"name": "1 | 2 | 3 | undefined"
+}
+},
+"monospaceNumbers": {
+"defaultValue": {
+"value": false
+},
+"description": "Делает цифры моноширинными",
+"name": "monospaceNumbers",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Стили текста",
+"description": "Компоненту можно задать необходимый стиль текста.",
+"desktop": "<div>\n<TextComponent view='headline-system-small'>Headline-system-small</TextComponent>\n<Gap size={16} />\n<TextComponent view='paragraph-primary-medium'>Paragraph-primary-medium</TextComponent>\n</div>"
+},
+{
+"title": "Цвет текста и фона",
+"description": "Тексту и фону под ним можно здать необходимый цвет.",
+"desktop": "<TextComponent\ncolor='var(--color-light-text-positive)'\ntextBackgroundColor='var(--color-light-status-muted-attention)'\n>\nПример с покраской фона\n</TextComponent>"
+},
+{
+"title": "Отсечение текста",
+"description": "Можно настроить отсечение текста при переполнении одной, двух или трёх строк.",
+"desktop": "<div style={{ width: isMobile() ? 320 : 430 }}>\n<TextComponent rowLimit={1}>\nЯ взял со стола, как теперь помню, червонного туза и бросил кверху: дыхание у всех\nостановилось;\n</TextComponent>\n</div>"
+},
+{
+"title": "Выравнивание",
+"description": "",
+"desktop": "<div style={{ width: isMobile() ? 320 : 200 }}>\n<TextComponent tag='div' align='center'>\nПо центру\n</TextComponent>\n<Gap size={12} />\n<TextComponent tag='div' align='left'>\nПо левому краю\n</TextComponent>\n<Gap size={12} />\n<TextComponent tag='div' align='right'>\nПо правому краю\n</TextComponent>\n</div>"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n- Добавлены недостающие текстовые стили `'accent-tagline'`, `'action-tagline'` и `'paragraph-tagline'`"
+}
+]
+}

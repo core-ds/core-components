@@ -14,6 +14,7 @@ import styles from './index.module.css';
 
 type ScrollControlsProps = {
     className?: string;
+    buttonClassName?: string;
     view: Exclude<TabsProps['view'], undefined>;
     size: TabsProps['size'];
     containerRef: RefObject<HTMLDivElement>;
@@ -21,7 +22,7 @@ type ScrollControlsProps = {
 };
 
 export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
-    ({ containerRef, view, size: sizeProp, className, showSkeleton }, ref) => {
+    ({ containerRef, view, size: sizeProp, className, buttonClassName, showSkeleton }, ref) => {
         const container = containerRef.current;
         const [disabledState, updateDisabledState] = useState(() => getDisabledState(container));
 
@@ -50,7 +51,7 @@ export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
         const handleScrollRight = () => scrollIntoLastTab(container);
 
         const commonButtonProps = {
-            className: styles.button,
+            className: cn(styles.button, buttonClassName),
             size: getSize(),
             view: 'secondary',
         } as const;

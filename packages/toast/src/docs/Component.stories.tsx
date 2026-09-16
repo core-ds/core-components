@@ -5,6 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 import { Toast } from '@alfalab/core-components-toast';
 import { ToastMobile } from '@alfalab/core-components-toast/mobile';
 import { ToastDesktop } from '@alfalab/core-components-toast/desktop';
+import { useRefAsState } from '@alfalab/core-components-shared';
 
 const meta: Meta<typeof Toast> = {
     title: 'Components/Toast',
@@ -33,10 +34,7 @@ export const toast: Story = {
         ] as const;
         const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
         const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
-        const [buttonElement, setButtonElement] = React.useState<HTMLButtonElement | null>(null);
-        const handleButtonRef = (node: HTMLButtonElement) => {
-            setButtonElement(node);
-        };
+        const [buttonElementRef, buttonElement] = useRefAsState<HTMLButtonElement>(null);
         const containerRef = React.useRef(null);
         const isMobile = document.body.clientWidth < 450;
         const closeWithClickOutside = boolean('closeWithClickOutside', true);
@@ -133,7 +131,7 @@ export const toast: Story = {
                         closeWithClickOutside={closeWithClickOutside}
                     />
                     <Button
-                        ref={handleButtonRef}
+                        ref={buttonElementRef}
                         onClick={() => {
                             setAnchorToastOpen(true);
                         }}

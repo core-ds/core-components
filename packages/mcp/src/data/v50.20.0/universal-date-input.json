@@ -1,0 +1,522 @@
+{
+"packageName": "universal-date-input",
+"displayName": "UniversalDateInput",
+"description": "Используется для указания даты и времени.",
+"props": {
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"type": {
+"defaultValue": null,
+"description": "Атрибут type",
+"name": "type",
+"required": false,
+"type": {
+"name": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\" | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика по полю",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onMouseDown": {
+"defaultValue": null,
+"description": "Обработчик MouseDown по полю",
+"name": "onMouseDown",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onMouseUp": {
+"defaultValue": null,
+"description": "Обработчик MouseUp по полю",
+"name": "onMouseUp",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение иконки успеха",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"rightAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот под инпутом",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"inputClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс инпута",
+"name": "inputClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"focusedClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен при фокусе",
+"name": "focusedClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"filledClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен, если в поле есть значение",
+"name": "filledClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, календаря -calendar, поповера -popover",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disableUserInput": {
+"defaultValue": null,
+"description": "Запрещает ввод с клавиатуры",
+"name": "disableUserInput",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"autoCorrection": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Автоматическое исправление ввода",
+"name": "autoCorrection",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"correctionRef": {
+"defaultValue": null,
+"description": "Реф для программного вызова эффекта коррекции (например, мигания поля).\nИспользуется для синхронизации коррекции между полями \"от\" и \"до\".",
+"name": "correctionRef",
+"required": false,
+"type": {
+"name": "RefObject<{ handleCorrection: () => void; }> | undefined"
+}
+},
+"minDate": {
+"defaultValue": null,
+"description": "Минимальная дата, доступная для выбора (timestamp)",
+"name": "minDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"maxDate": {
+"defaultValue": null,
+"description": "Максимальная дата, доступная для выбора (timestamp)",
+"name": "maxDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "Вид компонента",
+"name": "view",
+"required": true,
+"type": {
+"name": "\"date\" | \"date-time\" | \"date-range\" | \"time\""
+}
+},
+"picker": {
+"defaultValue": null,
+"description": "Открыть календарь при клике",
+"name": "picker",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onInputChange": {
+"defaultValue": null,
+"description": "Обработчик изменения значения в инпуте",
+"name": "onInputChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement> | null, payload: { value: string; }) => void) | undefined"
+}
+},
+"Calendar": {
+"defaultValue": null,
+"description": "Компонент календаря",
+"name": "Calendar",
+"required": false,
+"type": {
+"name": "ForwardRefExoticComponent<CalendarDesktopProps & { title?: string | undefined; open: boolean; onClose?: (() => void) | undefined; allowSelectionFromEmptyRange?: boolean | undefined; ... 5 more ...; resetButtonContent?: string | undefined; } & ... 5 more ... & RefAttributes<...>> | undefined"
+}
+},
+"calendarProps": {
+"defaultValue": null,
+"description": "Пропсы календаря",
+"name": "calendarProps",
+"required": false,
+"type": {
+"name": "Omit<ResponsiveCalendarProps, \"open\" | \"minDate\" | \"maxDate\" | \"onClose\"> | undefined"
+}
+},
+"popoverProps": {
+"defaultValue": null,
+"description": "Пропсы поповера",
+"name": "popoverProps",
+"required": false,
+"type": {
+"name": "PopoverProps | undefined"
+}
+},
+"onCalendarOpen": {
+"defaultValue": null,
+"description": "Обработчик открытия календаря\n@deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange }",
+"name": "onCalendarOpen",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onCalendarClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия календаря\n@deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange }",
+"name": "onCalendarClose",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"calendarOpen": {
+"defaultValue": null,
+"description": "Флаг, открыт ли календарь",
+"name": "calendarOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onCalendarOpenChange": {
+"defaultValue": null,
+"description": "Обработчик изменения открытия календаря",
+"name": "onCalendarOpenChange",
+"required": false,
+"type": {
+"name": "((open: boolean) => void) | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Дата\nДиапазон дат\nВремя",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | number | Date | { dateFrom: number | Date | null; dateTo: number | Date | null; } | null | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Дата по умолчанию\nДиапазон дат по умолчанию\nВремя по умолчанию",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "string | number | Date | { dateFrom: number | Date; dateTo: number | Date; } | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения значения",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((date: Date | null, value: string) => void) | ((range: { dateFrom: Date | null; dateTo: Date | null; }, value: string) => void) | ((value: string) => void) | undefined"
+}
+},
+"wrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс обертки",
+"name": "wrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"rangeBehavior": {
+"defaultValue": {
+"value": "clarification"
+},
+"description": "Тип выбора границ в календаре",
+"name": "rangeBehavior",
+"required": false,
+"type": {
+"name": "\"clarification\" | \"reset\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Дата",
+"description": "Поле ввода с маской. Для ввода значений без клавиатуры можно использовать календарь.\nПри необходимости ввод с клавиатуры можно запретить.\nЕсли предполагаемая дата находится недалеко от текущей, рекомендуется использовать календарь со слайдером месяцев,\nв других случаях, лучше подойдёт календарь с выбором года и месяца.",
+"desktop": "render(() => {\nconst [radioSelected, setRadioSelected] = React.useState('none');\nconst [disableUserInput, setDisableUserInput] = React.useState(false);\nconst [date, setDate] = React.useState(null);\n\nconst handleChange = (date) => setDate(date);\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>\n<UniversalDateInput\nbreakpoint={BREAKPOINT}\nblock={true}\nview='date'\nlabel='Дата'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nvalue={date}\nonChange={handleChange}\ndisableUserInput={disableUserInput}\npicker={radioSelected !== 'none'}\nCalendar={Calendar}\ncalendarProps={{\nselectorView: radioSelected,\n}}\nclear={true}\nonClear={(e) => {\ne.stopPropagation();\nsetDate(null);\n}}\n/>\n\n<Gap size={24} />\n\n<RadioGroup\nlabel='Календарь'\ndirection='vertical'\nonChange={(_, { value }) => setRadioSelected(value)}\nvalue={radioSelected}\n>\n<Radio label='Без календаря' value='none' />\n<Radio label='Со слайдером месяцев' value='month-only' />\n<Radio label='С выбором года и месяца' value='full' />\n</RadioGroup>\n\n<Gap size={24} />\n\n<Switch\nblock={true}\nchecked={disableUserInput}\nlabel='Запретить ввод с клавиатуры'\nonChange={() => setDisableUserInput(!disableUserInput)}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Диапазон дат",
+"description": "Поле ввода с маской. Для ввода без клавиатуры можно использовать календарь. При необходимости ввод с клавиатуры можно запретить.",
+"desktop": "const initialState = {\ndateFrom: null,\ndateTo: null,\n};\n\nrender(() => {\nconst [radioSelected, setRadioSelected] = React.useState('none');\nconst [disableUserInput, setDisableUserInput] = React.useState(false);\nconst [range, setRange] = React.useState(initialState);\n\nconst handleChange = (newRange) => setRange(newRange);\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>\n<UniversalDateInput\nbreakpoint={BREAKPOINT}\nblock={true}\nview='date-range'\nlabel='Диапазон дат'\nlabelView={isMobile() ? 'outer' : 'inner'}\nvalue={range}\nsize={isMobile() ? 48 : 56}\ndisableUserInput={disableUserInput}\npicker={radioSelected !== 'none'}\nrangeBehavior={radioSelected}\nonChange={handleChange}\nCalendar={Calendar}\ncalendarProps={{\nselectorView: 'month-only',\n}}\nclear={true}\nonClear={(e) => {\ne.stopPropagation();\nsetRange(initialState);\n}}\n/>\n\n<Gap size={24} />\n\n<RadioGroup\nlabel='Календарь'\ndirection='vertical'\nonChange={(_, { value }) => setRadioSelected(value)}\nvalue={radioSelected}\n>\n<Radio label='Без календаря' value='none' />\n<Radio label='С механикой уточнения границ' value='clarification' />\n<Radio label='С механикой сброса границ' value='reset' />\n</RadioGroup>\n\n<Gap size={24} />\n\n<Switch\nblock={true}\nchecked={disableUserInput}\nlabel='Запретить ввод с клавиатуры'\nonChange={() => setDisableUserInput(!disableUserInput)}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Дата и время",
+"description": "",
+"desktop": "render(() => {\nconst [picker, setPicker] = React.useState(false);\nconst [date, setDate] = React.useState();\n\nconst handleChange = (date) => setDate(date);\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>\n<UniversalDateInput\nbreakpoint={BREAKPOINT}\nblock={true}\nview='date-time'\nlabel='Дата и время'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nvalue={date}\nonChange={handleChange}\npicker={picker}\nCalendar={Calendar}\ncalendarProps={{\nselectorView: 'month-only',\n}}\nclear={true}\nonClear={(e) => {\ne.stopPropagation();\nsetDate(null);\n}}\n/>\n\n<Gap size={24} />\n\n<Switch\nblock={true}\nchecked={picker}\nlabel='Календарь для ввода даты'\nonChange={() => setPicker(!picker)}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Время",
+"description": "Поле ввода с маской.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState('');\n\nconst handleChange = (time) => setValue(time);\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<UniversalDateInput\nvalue={value}\nonChange={handleChange}\nview='time'\nlabel='Время'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nblock={true}\nclear={true}\nonClear={(e) => {\ne.stopPropagation();\nsetValue('');\n}}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Месяц",
+"description": "Поле ввода с маской.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState('');\n\nconst handleChange = (month) => setValue(month);\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<UniversalDateInput\nvalue={value}\nonChange={handleChange}\nview='month'\nlabel='Месяц'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nblock={true}\nclear={true}\nonClear={(e) => {\ne.stopPropagation();\nsetValue('');\n}}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1947](https://github.com/core-ds/core-components/pull/1947)\n\n- Изменены значения border-radius во всех темах на 16px кроме site."
+}
+]
+}

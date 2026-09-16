@@ -1,0 +1,357 @@
+{
+"packageName": "drawer",
+"displayName": "Drawer",
+"description": "Используется для десктопных модальных сущностей, появляющихся слева или справа.",
+"props": {
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | undefined) => void) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"Backdrop": {
+"defaultValue": null,
+"description": "Компонент бэкдропа",
+"name": "Backdrop",
+"required": false,
+"type": {
+"name": "ComponentType<BackdropProps> | undefined"
+}
+},
+"backdropProps": {
+"defaultValue": null,
+"description": "Свойства для Бэкдропа",
+"name": "backdropProps",
+"required": false,
+"type": {
+"name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
+}
+},
+"disableAutoFocus": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает автоматический перевод фокуса на модалку при открытии",
+"name": "disableAutoFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableFocusLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает ловушку фокуса",
+"name": "disableFocusLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableRestoreFocus": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки",
+"name": "disableRestoreFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableEscapeKeyDown": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при нажатии Escape",
+"name": "disableEscapeKeyDown",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBackdropClick": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при клике на бэкдроп",
+"name": "disableBackdropClick",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBlockingScroll": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
+"name": "disableBlockingScroll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управляет блокировкой скролла/overscroll фона при открытой модалке.",
+"name": "scrollLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"keepMounted": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Содержимое модалки всегда в DOM",
+"name": "keepMounted",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"wrapperProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на dialog wrapper",
+"name": "wrapperProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"contentProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на обертку контента",
+"name": "contentProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"componentDivProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на компонентную обертку контента",
+"name": "componentDivProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"wrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки (Modal)",
+"name": "wrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"scrollHandler": {
+"defaultValue": null,
+"description": "Обработчик скролла контента",
+"name": "scrollHandler",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\" | undefined"
+}
+},
+"transitionProps": {
+"defaultValue": null,
+"description": "Пропсы для анимации (CSSTransition)",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<CSSTransitionProps> | undefined"
+}
+},
+"usePortal": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Рендерить ли в контейнер через портал.",
+"name": "usePortal",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onBackdropClick": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на бэкдроп",
+"name": "onBackdropClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<Element, MouseEvent>) => void) | undefined"
+}
+},
+"onEscapeKeyDown": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе",
+"name": "onEscapeKeyDown",
+"required": false,
+"type": {
+"name": "((event: KeyboardEvent<Element>) => void) | undefined"
+}
+},
+"onMount": {
+"defaultValue": null,
+"description": "Обработчик события onEntered компонента Transition",
+"name": "onMount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onUnmount": {
+"defaultValue": null,
+"description": "Обработчик события onExited компонента Transition",
+"name": "onUnmount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"zIndex": {
+"defaultValue": null,
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"componentRef": {
+"defaultValue": null,
+"description": "Реф, который должен быть установлен компонентной области",
+"name": "componentRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"contentElementRef": {
+"defaultValue": null,
+"description": "Реф контентной области",
+"name": "contentElementRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"iOSLock": {
+"defaultValue": null,
+"description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS.\n@deprecated Используйте `scrollLock={true}`.",
+"name": "iOSLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onWheel": {
+"defaultValue": null,
+"description": "Хэндлер события прокрутки колесиком",
+"name": "onWheel",
+"required": false,
+"type": {
+"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
+}
+},
+"placement": {
+"defaultValue": {
+"value": "right"
+},
+"description": "Край экрана, с которого может появиться Drawer.",
+"name": "placement",
+"required": false,
+"type": {
+"name": "\"left\" | \"right\" | undefined"
+}
+},
+"nativeScrollbar": {
+"defaultValue": {
+"value": true
+},
+"description": "Нужно ли использовать нативный скроллбар",
+"name": "nativeScrollbar",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"contentTransitionProps": {
+"defaultValue": null,
+"description": "Пропсы для анимации контента (CSSTransition)",
+"name": "contentTransitionProps",
+"required": false,
+"type": {
+"name": "Partial<TransitionProps> | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "const Header = () => {\nconst { setHasHeader } = React.useContext(DrawerContext);\nReact.useEffect(() => setHasHeader(true), [setHasHeader]);\n\nconst commonStyles = {\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nborderRadius: '8px',\nheight: '48px',\n};\n\nconst addonsStyles = {\n...commonStyles,\nwidth: '48px',\n};\n\nconst innerAddonsStyles = {\n...addonsStyles,\nbackgroundColor: 'rgba(207, 112, 255, 0.1)',\n};\n\nconst bottomAddonsStyles = {\n...commonStyles,\nwidth: '100%',\n};\n\nconst wrapperStyles = {\ndisplay: 'flex',\njustifyContent: 'center',\n};\n\nconst titleStyles = {\n...commonStyles,\nflexGrow: 1,\n};\n\nreturn (\n<div style={{ margin: 'var(--modal-s-header-paddings)' }}>\n<div style={wrapperStyles}>\n<div style={innerAddonsStyles} />\n<div style={addonsStyles} />\n<div style={titleStyles} />\n<div style={addonsStyles} />\n<div style={innerAddonsStyles} />\n</div>\n<div style={bottomAddonsStyles} />\n</div>\n);\n};\n\nfunction Content() {\nconst { contentRef } = React.useContext(DrawerContext);\nconst styleContent = {\nheight: '100%',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nmargin: '0 40px',\n};\n\nreturn <div style={styleContent} ref={contentRef}></div>;\n}\n\nfunction Footer() {\nconst { setHasFooter } = React.useContext(DrawerContext);\nReact.useEffect(() => setHasFooter(true), [setHasFooter]);\n\nconst styleFooter = {\nminHeight: '48px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nmargin: 'var(--modal-s-footer-paddings)',\n};\nreturn <div style={styleFooter}></div>;\n}\n\nrender(() => {\nconst [modalAnatomy, setModalAnatomy] = React.useState(false);\nconst handleModalAnatomy = () => setModalAnatomy(!modalAnatomy);\n\nreturn (\n<Container>\n<Button type='button' size={48} onClick={handleModalAnatomy}>\nПоказать анатомию\n</Button>\n<Drawer open={modalAnatomy} onClose={handleModalAnatomy}>\n<Header />\n<Content />\n<Footer />\n</Drawer>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправлена ошибка `findDOMNode`"
+}
+]
+}

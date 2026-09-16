@@ -12,8 +12,8 @@ exports[`ProductCover Snapshots tests should match snapshots 1`] = `
     <img
       class="cardImage"
       height="164"
-      src="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=264"
-      srcset="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=528 2x"
+      src="https://example.com/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=264"
+      srcset="https://example.com/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=528 2x"
       width="264"
     />
     <div

@@ -13,6 +13,8 @@
             "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-portal": ["./src"],
             "@alfalab/core-components-portal/*": ["./src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-space": ["../space/src"],
             "@alfalab/core-components-space/*": ["../space/src/*"]
         }
@@ -20,6 +22,7 @@
     "references": [
         { "path": "../button/tsconfig.build.json" },
         { "path": "../config/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
         { "path": "../space/tsconfig.build.json" }
     ]
 }

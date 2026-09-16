@@ -22,10 +22,11 @@ export const PageIndicatorStep: React.FC<PageIndicatorStepProps> = ({
     size = 4,
     gap = 4,
     colors = 'default',
+    className,
 }) => (
-    <ol className={styles.pageIndicator} style={{ height: size, gap }}>
+    <div className={cn(styles.pageIndicator, className)} style={{ height: size, gap }}>
         {Array.from({ length: count }, (_, index) => (
-            <li
+            <div
                 key={index}
                 style={{ height: size, borderRadius: size / 2 }}
                 className={cn(styles.element, colorsStyle[colors].element, {
@@ -33,5 +34,5 @@ export const PageIndicatorStep: React.FC<PageIndicatorStepProps> = ({
                 })}
             />
         ))}
-    </ol>
+    </div>
 );

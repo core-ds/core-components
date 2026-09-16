@@ -1,5 +1,188 @@
 # @alfalab/core-components-tabs
 
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2352](https://github.com/core-ds/core-components/pull/2352)
+
+##### Tabs
+
+- Добавлены `scrollControlsContainerClassName` и `scrollControlsButtonClassName` для стилизации контейнера и кнопок прокрутки табов.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.3
+
+## 10.0.26
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.5
+- @alfalab/core-components-picker-button@13.1.2
+
+## 10.0.25
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.3.0
+- @alfalab/core-components-picker-button@13.1.1
+
+## 10.0.24
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.0
+
+## 10.0.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.22
+
+## 10.0.22
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.21
+
+## 10.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.20
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-tag@10.2.1
+- @alfalab/core-components-icon-button@8.0.10
+
+## 10.0.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.19
+
+## 10.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.2.0
+
+## 10.0.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-picker-button@13.0.18
+- @alfalab/core-components-icon-button@8.0.9
+- @alfalab/core-components-tag@10.1.1
+
+## 10.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.8
+- @alfalab/core-components-picker-button@13.0.17
+
+## 10.0.16
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.1.0
+- @alfalab/core-components-keyboard-focusable@6.0.2
+- @alfalab/core-components-skeleton@7.0.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-picker-button@13.0.16
+- @alfalab/core-components-icon-button@8.0.7
+
+## 10.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.15
+
+## 10.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-icon-button@8.0.6
+- @alfalab/core-components-picker-button@13.0.14
+- @alfalab/core-components-tag@10.0.4
+
+## 10.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.13
+- @alfalab/core-components-icon-button@8.0.5
+
+## 10.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.0.12
+
+## 10.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-picker-button@13.0.11
+
+## 10.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-skeleton@7.0.3
+    - @alfalab/core-components-picker-button@13.0.10
+
 ## 10.0.9
 
 ### Patch Changes
@@ -1994,8 +2177,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [6.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.6.0...@alfalab/core-components-tabs@6.6.1) (2022-08-17)
 

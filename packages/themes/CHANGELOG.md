@@ -1,5 +1,85 @@
 # @alfalab/core-components-themes
 
+## 15.2.1
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2286](https://github.com/core-ds/core-components/pull/2286)
+
+##### Themes
+
+- Исправлен фон шкалы слайдера: в состоянии "ошибка" красная нижняя граница заменена на валидное значение токена.
+
+## 15.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Themes
+
+- Добавлена темизация компонента `Select` в теме `corp`
+
+## 15.1.0
+
+### Minor Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2219](https://github.com/core-ds/core-components/pull/2219)
+
+##### Themes
+
+- Добавлены дополнительные токены темы
+
+## 15.0.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Themes
+
+- Удалена темизаця `click` для компонента `SidePanel`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### Themes
+
+- Из темизации `FormControl` для `click` и `site` удалена переменная `--form-control-mobile-sub-paddings`, которая переопределяла отступы для `outer label`, `hint`, `error`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+- Из темизации `CheckboxGroup` для `click` и `site` удалена переменная `--checkbox-group-mobile-sub-padding-left`, которая переопределяла боковой отступ для `label` и `hint`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+- Из темизации `RadioGroup` для `click` и `site` удалена переменная `--radio-group-mobile-sub-padding-left`, которая переопределяла боковой отступ для `label` и `hint`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2190](https://github.com/core-ds/core-components/pull/2190)
+
+##### Themes
+
+- Удалена темизация `corp` для календаря в связи с отсутствием различий
+
+## 15.0.3
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2089](https://github.com/core-ds/core-components/pull/2089)
+
+##### Themes
+
+- Темизация click удалена из navigation-bar и теперь соответствует default
+
 ## 15.0.2
 
 ### Patch Changes
@@ -766,11 +846,11 @@
 
 ### [#346](https://github.com/core-ds/core-components/pull/346)
 
-- В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компоненте Select иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ## 9.5.2
 
@@ -854,11 +934,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+- Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.ru data: 'self'`
 
 - chore(screenshot-utils): change cdn
 
@@ -1004,7 +1084,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 

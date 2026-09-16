@@ -1,5 +1,201 @@
 # @alfalab/core-components-gallery
 
+## 7.4.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.11
+- @alfalab/core-components-tooltip@9.0.19
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2323](https://github.com/core-ds/core-components/pull/2323)
+
+##### Gallery
+
+- Добавлена возможность передать дополнительную кнопку в шапку галереи
+
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#1762](https://github.com/core-ds/core-components/pull/1762)
+
+##### Gallery
+
+- Добавлена поддержка скачивания видео для мобильных браузеров.
+- Расширены возможности управления видео в галерее. Заменен цвет для плейсхолдеров и заглушек, что улучшает видимость на темном фоне галереи.
+- Исправлены отступы у навигации.
+- При свайпе до закрытия, галерея следует за свайпом
+
+## 7.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tooltip@9.0.18
+
+## 7.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-spinner@6.0.7
+- @alfalab/core-components-tooltip@9.0.17
+- @alfalab/core-components-typography@6.0.10
+- @alfalab/core-components-icon-button@8.0.10
+
+## 7.2.1
+
+### Patch Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2268](https://github.com/core-ds/core-components/pull/2268)
+
+##### Gallery
+
+- Исправлено отображение стрелок навигации и контейнера одиночного изображения
+
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2259](https://github.com/core-ds/core-components/pull/2259)
+
+##### Gallery
+
+- Исправлены паддинги у swiper
+- Переработано отображение в full screen режиме
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-spinner@6.0.6
+- @alfalab/core-components-tooltip@9.0.16
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-icon-button@8.0.9
+
+## 7.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-tooltip@9.0.15
+- @alfalab/core-components-icon-button@8.0.8
+
+## 7.1.9
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2246](https://github.com/core-ds/core-components/pull/2246)
+
+##### Gallery
+
+Исправлены веса селектров после обновление `swiper`
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-view@5.0.4
+- @alfalab/core-components-spinner@6.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-tooltip@9.0.14
+- @alfalab/core-components-icon-button@8.0.7
+- @alfalab/core-components-base-modal@7.1.6
+
+## 7.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+- @alfalab/core-components-tooltip@9.0.13
+
+## 7.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-spinner@6.0.4
+- @alfalab/core-components-tooltip@9.0.12
+- @alfalab/core-components-typography@6.0.5
+- @alfalab/core-components-icon-button@8.0.6
+
+## 7.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+- @alfalab/core-components-icon-button@8.0.5
+- @alfalab/core-components-tooltip@9.0.11
+
+## 7.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+- @alfalab/core-components-icon-view@5.0.3
+- @alfalab/core-components-tooltip@9.0.10
+
+## 7.1.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.3
+    - @alfalab/core-components-tooltip@9.0.9
+
+## 7.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.4
+    - @alfalab/core-components-tooltip@9.0.8
+
 ## 7.1.2
 
 ### Patch Changes
@@ -1608,7 +1804,7 @@ GALLERY_EVENTS экспортируется из `@alfalab/core-components-galle
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ## 5.0.14
 
@@ -1710,8 +1906,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [4.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@4.1.3...@alfalab/core-components-gallery@4.1.4) (2022-08-17)
 
 ### Bug Fixes
@@ -1740,11 +1934,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
-- Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+- Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.ru data: 'self'`
 
 - chore(screenshot-utils): change cdn
 
@@ -1912,7 +2106,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 

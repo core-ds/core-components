@@ -86,13 +86,13 @@ describe('Attributes tests', () => {
 });
 
 describe('Render tests', () => {
-    test('should unmount without errors', () => {
+    it('should unmount without errors', () => {
         const { unmount } = render(<FilterTag>FilterTag</FilterTag>);
 
         expect(unmount).not.toThrow();
     });
 
-    test('should contain children', () => {
+    it('should contain children', () => {
         const text = 'filter Tag text';
 
         const { container, getByText } = render(<FilterTag>{text}</FilterTag>);
@@ -100,7 +100,7 @@ describe('Render tests', () => {
         expect(container.firstElementChild).toContainElement(getByText(text));
     });
 
-    test('should render leftAddons', () => {
+    it('should render leftAddons', () => {
         const leftAddonsTestId = 'leftAddonsTestId';
 
         render(<FilterTag leftAddons={<div data-test-id={leftAddonsTestId}>left addons</div>} />);
@@ -110,7 +110,7 @@ describe('Render tests', () => {
         expect(addon).toBeInTheDocument();
     });
 
-    test('should render leftAddons content', () => {
+    it('should render leftAddons content', () => {
         const leftAddonsTestId = 'leftAddonsTestId';
         const content = 'left addons';
 
@@ -120,10 +120,72 @@ describe('Render tests', () => {
 
         expect(addon).toHaveTextContent(content);
     });
+
+    it('should render chevron when unchecked', () => {
+        const { container, getAllByRole } = render(<FilterTag>FilterTag</FilterTag>);
+
+        expect(container.querySelector('.chevron')).toBeInTheDocument();
+        expect(getAllByRole('button')).toHaveLength(1);
+    });
+
+    it('should render chevron and clear when checked', () => {
+        const { container, getAllByRole } = render(<FilterTag checked={true}>FilterTag</FilterTag>);
+
+        expect(container.querySelector('.chevron')).toBeInTheDocument();
+        expect(container.querySelector('.clear')).toBeInTheDocument();
+        expect(getAllByRole('button')).toHaveLength(2);
+        expect(container.querySelector('.valueButton')).toHaveClass('withChevronAndClear');
+        expect(container.firstChild).toHaveClass('withSplitControls');
+    });
+
+    it('should render chevron only when checked and showClear=false', () => {
+        const { container } = render(
+            <FilterTag checked={true} showClear={false}>
+                FilterTag
+            </FilterTag>,
+        );
+
+        expect(container.querySelector('.chevron')).toBeInTheDocument();
+        expect(container.querySelector('.clear')).not.toBeInTheDocument();
+    });
+
+    it('should render clear only when checked and showArrow=false', () => {
+        const { container, getAllByRole } = render(
+            <FilterTag checked={true} showArrow={false}>
+                FilterTag
+            </FilterTag>,
+        );
+
+        expect(container.querySelector('.chevron')).not.toBeInTheDocument();
+        expect(container.querySelector('.clear')).toBeInTheDocument();
+        expect(container.firstChild).toHaveClass('withClearOnly');
+        expect(getAllByRole('button')).toHaveLength(2);
+        expect(container.querySelector('.valueButton')).not.toHaveClass('withClearOnly');
+        expect(container.querySelector('.valueButton')).not.toHaveClass('withChevronAndClear');
+        expect(container.firstChild).not.toHaveClass('withSplitControls');
+    });
+
+    it('should not render chevron or clear when checked and both hidden', () => {
+        const { container, getAllByRole } = render(
+            <FilterTag checked={true} showClear={false} showArrow={false}>
+                FilterTag
+            </FilterTag>,
+        );
+
+        expect(container.querySelector('.chevron')).not.toBeInTheDocument();
+        expect(container.querySelector('.clear')).not.toBeInTheDocument();
+        expect(getAllByRole('button')).toHaveLength(1);
+    });
+
+    it('should not render clear when showClear=false and unchecked', () => {
+        const { container } = render(<FilterTag showClear={false}>FilterTag</FilterTag>);
+
+        expect(container.querySelector('.clear')).not.toBeInTheDocument();
+    });
 });
 
 describe('Interaction tests', () => {
-    test('should call `onClick` prop, if filterTag not disabled', () => {
+    it('should call `onClick` prop, if filterTag not disabled', () => {
         const cb = jest.fn();
         const text = 'Press me!';
         const { getByText } = render(<FilterTag onClick={cb}>{text}</FilterTag>);
@@ -137,7 +199,7 @@ describe('Interaction tests', () => {
         expect(cb).toHaveBeenCalledTimes(1);
     });
 
-    test('should call `onClear` prop, if filterTag checked and not disabled', () => {
+    it('should call `onClear` prop, if filterTag checked and not disabled', () => {
         const cb = jest.fn();
         const text = 'Press me!';
         const { getAllByRole } = render(
@@ -155,7 +217,7 @@ describe('Interaction tests', () => {
         expect(cb).toHaveBeenCalledTimes(1);
     });
 
-    test('should not call `onClick` prop, if tag is disabled', () => {
+    it('should not call `onClick` prop, if tag is disabled', () => {
         const cb = jest.fn();
         const text = 'Press me!';
 
@@ -171,7 +233,7 @@ describe('Interaction tests', () => {
         expect(cb).toHaveBeenCalledTimes(0);
     });
 
-    test('should not call `onClick` prop, if tag is disabled and checked', () => {
+    it('should not call `onClick` prop, if tag is disabled and checked', () => {
         const cb = jest.fn();
         const text = 'Press me!';
         const { getByText } = render(
@@ -185,5 +247,84 @@ describe('Interaction tests', () => {
         }
 
         expect(cb).toHaveBeenCalledTimes(0);
+    });
+
+    it('should not call onClear when showClear=false', () => {
+        const onClear = jest.fn();
+        const text = 'Press me!';
+
+        const { getAllByRole, getByText } = render(
+            <FilterTag checked={true} showClear={false} onClear={onClear}>
+                {text}
+            </FilterTag>,
+        );
+
+        expect(getAllByRole('button')).toHaveLength(1);
+
+        fireEvent.click(getByText(text));
+
+        expect(onClear).not.toHaveBeenCalled();
+    });
+
+    it('should call onClear when showArrow=false', () => {
+        const onClear = jest.fn();
+        const text = 'Press me!';
+
+        const { getAllByRole } = render(
+            <FilterTag checked={true} showArrow={false} onClear={onClear}>
+                {text}
+            </FilterTag>,
+        );
+
+        fireEvent.click(getAllByRole('button')[1]);
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not call onClick when clear clicked', () => {
+        const onClick = jest.fn();
+        const onClear = jest.fn();
+        const text = 'Press me!';
+
+        const { getAllByRole } = render(
+            <FilterTag checked={true} onClick={onClick} onClear={onClear}>
+                {text}
+            </FilterTag>,
+        );
+
+        fireEvent.click(getAllByRole('button')[1]);
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+        expect(onClick).not.toHaveBeenCalled();
+    });
+
+    it('should call onClear on Enter keydown', () => {
+        const onClear = jest.fn();
+        const text = 'Press me!';
+
+        const { getAllByRole } = render(
+            <FilterTag checked={true} onClear={onClear}>
+                {text}
+            </FilterTag>,
+        );
+
+        fireEvent.keyDown(getAllByRole('button')[1], { key: 'Enter' });
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not call onClear on other keys', () => {
+        const onClear = jest.fn();
+        const text = 'Press me!';
+
+        const { getAllByRole } = render(
+            <FilterTag checked={true} onClear={onClear}>
+                {text}
+            </FilterTag>,
+        );
+
+        fireEvent.keyDown(getAllByRole('button')[1], { key: 'Space' });
+
+        expect(onClear).not.toHaveBeenCalled();
     });
 });

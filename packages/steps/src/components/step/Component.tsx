@@ -99,6 +99,8 @@ export const Step: FC<StepProps> = ({
 
     const [focused] = useFocus(stepRef, 'keyboard');
 
+    const isFullWidth = fullWidth && isVerticalAlign;
+
     const handleButtonClick = () => {
         if (!disabled && interactive && onClick) {
             onClick(stepNumber);
@@ -188,7 +190,7 @@ export const Step: FC<StepProps> = ({
                 [styles.focused]: focused,
                 [styles.vertical]: isVerticalAlign,
                 [styles.interactive]: interactive,
-                [styles.fullWidth]: fullWidth && isVerticalAlign,
+                [styles.fullWidth]: isFullWidth,
                 [styles.horizontal]: !isVerticalAlign,
             })}
             onClick={handleButtonClick}
@@ -214,13 +216,14 @@ export const Step: FC<StepProps> = ({
             <div
                 className={cn(styles.textWrapper, styles[`gap-${minSpaceBetweenSteps}`], {
                     [styles.vertical]: isVerticalAlign,
+                    [styles.fullWidth]: isFullWidth,
                 })}
             >
                 {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
                 <div
                     className={cn(styles.text, {
                         [styles.interactive]: interactive,
-                        [styles.fullWidth]: fullWidth && isVerticalAlign,
+                        [styles.fullWidth]: isFullWidth,
                     })}
                     onClick={handleTextClick}
                 >

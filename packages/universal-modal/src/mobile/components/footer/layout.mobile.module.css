@@ -1,0 +1,29 @@
+@import '../../../vars.css';
+
+.column {
+    flex-direction: column;
+}
+
+.start {
+    justify-content: flex-start;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+
+    & > * {
+        flex: 1;
+    }
+}
+
+.start,
+.center,
+.space-between,
+.column {
+    display: flex;
+    gap: var(--gap-8);
+}

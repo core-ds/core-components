@@ -5,6 +5,8 @@ import {
     type ReactNode,
 } from 'react';
 
+import { type Color } from '@alfalab/core-components-typography';
+
 import { type FileUploadItemStatus } from './status';
 
 export interface FileUploadItemProps {
@@ -27,6 +29,12 @@ export interface FileUploadItemProps {
      * Подзаголовок файла
      */
     subtitle?: string;
+
+    /**
+     * Цвет подзаголовка (Typography Color)
+     * @default secondary
+     */
+    subtitleColor?: Color;
 
     /**
      * Размер файла
@@ -58,6 +66,16 @@ export interface FileUploadItemProps {
      * Отображение кнопки восстановления
      */
     showRestore?: boolean;
+
+    /**
+     * Отображает кнопку повторной загрузки.
+     * Принимает `true` или объект с обработчиком клика.
+     */
+    reupload?:
+        | boolean
+        | {
+              onClick?: (id: string) => void;
+          };
 
     /**
      * Статус загрузки файла

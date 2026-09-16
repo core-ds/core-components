@@ -26,7 +26,7 @@ import {
     type OptionProps,
     type OptionShape,
     OptionsList as DefaultOptionsList,
-    Search,
+    Search as DefaultSearch,
 } from '@alfalab/core-components-select/shared';
 
 import { type SelectWithTagsProps } from '../../types';
@@ -67,6 +67,8 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
             dataTestId,
             open: openProp,
             searchProps,
+            showSearch,
+            Search = DefaultSearch,
             ...restProps
         },
         ref,
@@ -80,7 +82,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         const frozenValue = useRef<Array<string | OptionShape>>([]);
 
         const selected = selectedProp || selectedTags;
-        const isAutocomplete = autocomplete || Boolean(match);
+        const isAutocomplete = showSearch || autocomplete || Boolean(match);
 
         const resetValue = () => {
             if (value) {

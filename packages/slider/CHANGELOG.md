@@ -1,5 +1,30 @@
 # @alfalab/core-components-slider
 
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2219](https://github.com/core-ds/core-components/pull/2219)
+
+##### Slider ,SliderInput
+
+- Исправлен регресс выравниваний крайних подписей (`min`/`max`) под слайдером.
+
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### Slider
+
+- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).
+- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`).
+
 ## 6.0.2
 
 ### Patch Changes
@@ -291,8 +316,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [3.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@3.1.1...@alfalab/core-components-slider@3.1.2) (2022-08-17)
 

@@ -1,5 +1,49 @@
 # @alfalab/core-components-scrollbar
 
+## 5.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
+## 5.0.5
+
+### Patch Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Scrollbar
+
+- Css переменные вынесены в отдельный файл `vars.css`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+
+## 5.0.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+
+## 5.0.3
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2229](https://github.com/core-ds/core-components/pull/2229)
+
+##### Scrollbar
+
+- Работа с зависимостями
+
 ## 5.0.2
 
 ### Patch Changes
@@ -264,8 +308,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [1.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-scrollbar@1.2.0...@alfalab/core-components-scrollbar@1.2.1) (2022-08-17)
 

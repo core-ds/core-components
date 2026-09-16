@@ -1,5 +1,123 @@
 # @alfalab/core-components-calendar-input
 
+## 12.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.13
+
+## 12.0.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.12
+- @alfalab/core-components-popover@8.1.2
+
+## 12.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-date-input@6.0.13
+
+## 12.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.11
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-date-input@6.0.12
+
+## 12.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-calendar@9.1.10
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-date-input@6.0.11
+
+## 12.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.9
+- @alfalab/core-components-date-input@6.0.10
+
+## 12.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.8
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-date-input@6.0.9
+
+## 12.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.7
+
+## 12.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.6
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+- @alfalab/core-components-date-input@6.0.8
+
+## 12.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.5
+- @alfalab/core-components-date-input@6.0.7
+
+## 12.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.4
+- @alfalab/core-components-date-input@6.0.6
+
+## 12.0.8
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.1.3
+
+## 12.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.1.2
+
 ## 12.0.6
 
 ### Patch Changes
@@ -1467,7 +1585,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1604,8 +1722,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [6.6.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-input@6.6.2...@alfalab/core-components-calendar-input@6.6.3) (2022-08-17)
 

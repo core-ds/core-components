@@ -1,0 +1,260 @@
+{
+"packageName": "tabs",
+"displayName": "Tabs",
+"description": "Используется для переключения контекстов страницы или блока.",
+"props": {
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик переключения табов",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Компоненты табов",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactElement<TabProps, string | JSXElementConstructor<any>>[]"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"style": {
+"defaultValue": null,
+"description": "Дополнительные инлайн стили для враппера",
+"name": "style",
+"required": false,
+"type": {
+"name": "CSSProperties | undefined"
+}
+},
+"containerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс контейнера",
+"name": "containerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"selectedId": {
+"defaultValue": null,
+"description": "Id активного таба",
+"name": "selectedId",
+"required": false,
+"type": {
+"name": "SelectedId | undefined"
+}
+},
+"keepMounted": {
+"defaultValue": null,
+"description": "Рендерить неактивные табы",
+"name": "keepMounted",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "primary"
+},
+"description": "Внешний вид заголовков табов",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"primary\" | \"secondary\" | undefined"
+}
+},
+"textStyle": {
+"defaultValue": null,
+"description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах.",
+"name": "textStyle",
+"required": false,
+"type": {
+"name": "\"accent-primary-large\" | \"accent-primary-medium\" | \"accent-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"headline-large\" | ... 12 more ... | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Высота заголовков табов",
+"name": "size",
+"required": false,
+"type": {
+"name": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | undefined"
+}
+},
+"mobile": {
+"defaultValue": null,
+"description": "Мобильный вид",
+"name": "mobile",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollable": {
+"defaultValue": {
+"value": false
+},
+"description": "Рендерить заголовки табов в контейнере со скроллом",
+"name": "scrollable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fullWidthScroll": {
+"defaultValue": null,
+"description": "При скроле табы будут уходить в край экрана",
+"name": "fullWidthScroll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"mobile\" | \"desktop\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"tagShape": {
+"defaultValue": null,
+"description": "Форма тега (для view secondary только)",
+"name": "tagShape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"tagView": {
+"defaultValue": null,
+"description": "Стиль тега (для view secondary только)",
+"name": "tagView",
+"required": false,
+"type": {
+"name": "\"outlined\" | \"filled\" | \"transparent\" | undefined"
+}
+},
+"showSkeleton": {
+"defaultValue": null,
+"description": "Показать скелетон",
+"name": "showSkeleton",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"skeletonProps": {
+"defaultValue": null,
+"description": "Доп. пропсы для скелетона",
+"name": "skeletonProps",
+"required": false,
+"type": {
+"name": "Omit<SkeletonProps, \"visible\"> | undefined"
+}
+},
+"titleProps": {
+"defaultValue": null,
+"description": "Доп. пропсы для заголовка таба",
+"name": "titleProps",
+"required": false,
+"type": {
+"name": "TitleProps | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "TabsPrimary",
+"description": "Для переключения контента всей страницы рекомендуется использовать основной вид табов.\nДля TabsPrimary рекомендуется использовать только размер из примера ниже.\n\nЕсли табов больше, чем может отобразиться на экране, можно воспользоваться одной из двух опций: горизонтальный\nскролл или скрытие табов в кнопку ещё.\n\nНа вид табов влияет переданный стиль текста.",
+"desktop": "const TABS = [\n{ title: 'Aurum', id: 'tab-1' },\n{ title: 'Bercelium', id: 'tab-2' },\n{ title: 'Curium', id: 'tab-3' },\n{ title: 'Neptunium', id: 'tab-4' },\n{ title: 'Plutonuim', id: 'tab-5' },\n{ title: 'Rubidium', id: 'tab-6' },\n{ title: 'Californium', id: 'tab-7' },\n{ title: 'Hydrogenium', id: 'tab-8' },\n{ title: 'Helium', id: 'tab-9' },\n{ title: 'Lithium', id: 'tab-10' },\n{ title: 'Beryllium', id: 'tab-11' },\n{ title: 'Borum', id: 'tab-12' },\n{ title: 'Carboneum', id: 'tab-13' },\n{ title: 'Nitrogenium', id: 'tab-14' },\n{ title: 'Oxygenium', id: 'tab-15' },\n];\n\nrender(() => {\nconst [selectedId, setSelectedId] = React.useState(TABS[0].id);\n\nconst [count, setCount] = React.useState('3');\nconst [overflowType, setOverflowType] = React.useState('scrollable');\nconst [textStyle, setTextStyle] = React.useState('paragraph-primary-large');\n\nconst handleChange = (event, { selectedId }) => {\nsetSelectedId(selectedId);\n};\n\nconst TabsComponent = overflowType === 'collapsible' ? TabsCollapsible : TabsDesktop;\n\nreturn (\n<>\n<TabsComponent\nselectedId={selectedId}\nonChange={handleChange}\nscrollable={overflowType === 'scrollable'}\ntextStyle={textStyle}\n>\n{TABS.slice(0, Number(count)).map((item) => (\n<Tab title={item.title} id={item.id} key={item.id} />\n))}\n</TabsComponent>\n<br />\n<Typography.Text view='primary-medium' color='secondary'>\nВыбран таб: {TABS.find((tab) => tab.id === selectedId).title}\n</Typography.Text>\n\n<Gap size={20} />\n\n<Space size={24}>\n<RadioGroup\ndirection='vertical'\nlabel='Количество табов'\nvalue={count}\nonChange={(e) => {\nsetCount(e.target.value);\nsetSelectedId(TABS[0].id);\n}}\n>\n<Radio label='3' value='3' />\n<Radio label='15' value='15' />\n</RadioGroup>\n\n<RadioGroup\ndirection='vertical'\nlabel='Обработка переполнения'\nvalue={overflowType}\nonChange={(e) => setOverflowType(e.target.value)}\n>\n<Radio label='Scrollable' value='scrollable' />\n<Radio label='Collapsible' value='collapsible' />\n</RadioGroup>\n\n<RadioGroup\ndirection='vertical'\nlabel='Стиль текста табов'\nvalue={textStyle}\nonChange={(e) => setTextStyle(e.target.value)}\n>\n<Radio label='Paragraph primary large' value='paragraph-primary-large' />\n<Radio label='Headline small' value='headline-small' />\n</RadioGroup>\n</Space>\n</>\n);\n});",
+"mobile": "const TABS = [\n{ title: 'Aurum', id: 'tab-1' },\n{ title: 'Bercelium', id: 'tab-2' },\n{ title: 'Curium', id: 'tab-3' },\n{ title: 'Neptunium', id: 'tab-4' },\n{ title: 'Plutonuim', id: 'tab-5' },\n{ title: 'Rubidium', id: 'tab-6' },\n{ title: 'Californium', id: 'tab-7' },\n{ title: 'Hydrogenium', id: 'tab-8' },\n{ title: 'Helium', id: 'tab-9' },\n{ title: 'Lithium', id: 'tab-10' },\n{ title: 'Beryllium', id: 'tab-11' },\n{ title: 'Borum', id: 'tab-12' },\n{ title: 'Carboneum', id: 'tab-13' },\n{ title: 'Nitrogenium', id: 'tab-14' },\n{ title: 'Oxygenium', id: 'tab-15' },\n];\n\nrender(() => {\nconst [selectedId, setSelectedId] = React.useState(TABS[0].id);\nconst [textStyle, setTextStyle] = React.useState('paragraph-primary-large');\n\nconst [count, setCount] = React.useState('3');\n\nconst handleChange = (event, { selectedId }) => {\nsetSelectedId(selectedId);\n};\n\nreturn (\n<>\n<TabsMobile\nselectedId={selectedId}\nonChange={handleChange}\nscrollable={true}\nfullWidthScroll={true}\ntextStyle={textStyle}\n>\n{TABS.slice(0, Number(count)).map((item) => (\n<Tab title={item.title} id={item.id} key={item.id} />\n))}\n</TabsMobile>\n<br />\n<Typography.Text view='primary-medium' color='secondary'>\nВыбран таб: {TABS.find((tab) => tab.id === selectedId).title}\n</Typography.Text>\n\n<Gap size={20} />\n\n<Space size={24}>\n<RadioGroup\ndirection='vertical'\nlabel='Количество табов'\nvalue={count}\nonChange={(e) => {\nsetCount(e.target.value);\nsetSelectedId(TABS[0].id);\n}}\n>\n<Radio label='3' value='3' />\n<Radio label='15' value='15' />\n</RadioGroup>\n\n<RadioGroup\ndirection='vertical'\nlabel='Стиль текста табов'\nvalue={textStyle}\nonChange={(e) => setTextStyle(e.target.value)}\n>\n<Radio label='Paragraph primary large' value='paragraph-primary-large' />\n<Radio label='Headline medium' value='headline-medium' />\n</RadioGroup>\n</Space>\n</>\n);\n});"
+},
+{
+"title": "TabsSecondary",
+"description": "Для переключения контента внутри блока рекомендуется использовать второстепенный вид табов.\nДля десктопа рекомендуется использовать S и XS размер табов и XXS размер для мобильной версии интерфейса.",
+"desktop": "const TABS = [\n{ title: 'Aurum', id: 'tab-1' },\n{ title: 'Bercelium', id: 'tab-2' },\n{ title: 'Curium', id: 'tab-3' },\n{ title: 'Neptunium', id: 'tab-4' },\n{ title: 'Plutonuim', id: 'tab-5' },\n{ title: 'Rubidium', id: 'tab-6' },\n{ title: 'Californium', id: 'tab-7' },\n{ title: 'Hydrogenium', id: 'tab-8' },\n{ title: 'Helium', id: 'tab-9' },\n{ title: 'Lithium', id: 'tab-10' },\n{ title: 'Beryllium', id: 'tab-11' },\n{ title: 'Borum', id: 'tab-12' },\n{ title: 'Carboneum', id: 'tab-13' },\n{ title: 'Nitrogenium', id: 'tab-14' },\n{ title: 'Oxygenium', id: 'tab-15' },\n];\n\nconst IS_MOBILE = document.body.clientWidth < 450;\n\nrender(() => {\nconst [selectedId, setSelectedId] = React.useState(TABS[0].id);\n\nconst [count, setCount] = React.useState('3');\nconst [size, setSize] = React.useState(IS_MOBILE ? 'xs' : 's');\nconst [shape, setShape] = React.useState('rounded');\nconst [tagView, setTagView] = React.useState('filled');\n\nconst handleChange = (event, { selectedId }) => {\nsetSelectedId(selectedId);\n};\n\nreturn (\n<>\n<Tabs\nbreakpoint={450}\nselectedId={selectedId}\nonChange={handleChange}\nview='secondary'\nsize={size}\nscrollable={true}\ntagShape={shape}\ntagView={tagView}\nfullWidthScroll={IS_MOBILE}\n>\n{TABS.slice(0, Number(count)).map((item) => (\n<Tab title={item.title} id={item.id} key={item.id} />\n))}\n</Tabs>\n<br />\n<Typography.Text view='primary-medium' color='secondary'>\nВыбран таб: {TABS.find((tab) => tab.id === selectedId).title}\n</Typography.Text>\n\n<Gap size={20} />\n\n<Space size={24}>\n<RadioGroup\ndirection='vertical'\nlabel='Количество табов'\nvalue={count}\nonChange={(e) => {\nsetCount(e.target.value);\nsetSelectedId(TABS[0].id);\n}}\n>\n<Radio label='3' value='3' />\n<Radio label='15' value='15' />\n</RadioGroup>\n\n<RadioGroup\ndirection='vertical'\nlabel='Размер'\nvalue={size}\nonChange={(e) => setSize(e.target.value)}\n>\n{!IS_MOBILE && <Radio label='S' value='s' />}\n<Radio label='XS' value='xs' />\n<Radio label='XXS' value='xxs' />\n</RadioGroup>\n\n<RadioGroup\ndirection='vertical'\nlabel='Форма табов'\nvalue={shape}\nonChange={(e) => setShape(e.target.value)}\n>\n<Radio label='Rounded' value='rounded' />\n<Radio label='Rectangular' value='rectangular' />\n</RadioGroup>\n\n<RadioGroup\ndirection='vertical'\nlabel='Стиль табов'\nvalue={tagView}\nonChange={(e) => setTagView(e.target.value)}\n>\n<Radio label='Transparent' value='transparent' />\n<Radio label='Filled' value='filled' />\n</RadioGroup>\n</Space>\n</>\n);\n});"
+},
+{
+"title": "Анатомия",
+"description": "С помощью слота `RightAddons` можно кастомизировать таб. Например, добавить иконку.",
+"desktop": "render(() => {\nconst [selectedId, setSelectedId] = React.useState('tab-1');\nconst [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');\n\nconst handleChange = (event, { selectedId }) => setSelectedId(selectedId);\nconst handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);\n\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '24px',\nwidth: '24px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nreturn (\n<>\n<TabsDesktop size='xs' selectedId={selectedId} onChange={handleChange}>\n<Tab title='Aurum' id='tab-1' rightAddons={addon} />\n<Tab title='Bercelium' id='tab-2' rightAddons={addon} />\n<Tab title='Curium' id='tab-3' rightAddons={addon} />\n<Tab title='Neptunium' id='tab-4' rightAddons={addon} />\n</TabsDesktop>\n<div style={{ marginTop: 20 }}>\n<TabsDesktop\nselectedId={selectedSecondaryId}\nonChange={handleSecondaryChange}\nview='secondary'\ntagShape='rounded'\ntagView='filled'\nsize='xs'\n>\n<Tab title='Aurum' id='tab-1' rightAddons={addon} />\n<Tab title='Bercelium' id='tab-2' rightAddons={addon} />\n<Tab title='Curium' id='tab-3' rightAddons={addon} />\n<Tab title='Neptunium' id='tab-4' rightAddons={addon} />\n</TabsDesktop>\n</div>\n</>\n);\n});",
+"mobile": "render(() => {\nconst [selectedId, setSelectedId] = React.useState('tab-1');\nconst [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');\n\nconst handleChange = (event, { selectedId }) => setSelectedId(selectedId);\nconst handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);\n\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '24px',\nwidth: '24px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nreturn (\n<>\n<TabsMobile size='xs' selectedId={selectedId} onChange={handleChange}>\n<Tab title='Aurum' id='tab-1' rightAddons={addon} />\n<Tab title='Bercelium' id='tab-2' rightAddons={addon} />\n<Tab title='Curium' id='tab-3' rightAddons={addon} />\n<Tab title='Neptunium' id='tab-4' rightAddons={addon} />\n</TabsMobile>\n<div style={{ marginTop: 20 }}>\n<TabsMobile\nselectedId={selectedSecondaryId}\nonChange={handleSecondaryChange}\nview='secondary'\ntagShape='rounded'\ntagView='filled'\nsize='xs'\n>\n<Tab title='Aurum' id='tab-1' rightAddons={addon} />\n<Tab title='Bercelium' id='tab-2' rightAddons={addon} />\n<Tab title='Curium' id='tab-3' rightAddons={addon} />\n<Tab title='Neptunium' id='tab-4' rightAddons={addon} />\n</TabsMobile>\n</div>\n</>\n);\n});"
+},
+{
+"title": "Состояния",
+"description": "Таб может находиться в активном и неактивном состоянии.\n\nВзаимодействие может быть ограничено с помощью свойства `disabled`.\nДопускается ограничивать взаимодействие только с неактивными табами.",
+"desktop": "render(() => {\nconst [selectedId, setSelectedId] = React.useState('tab-1');\nconst [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');\nconst [showSkeleton, setShowSkeleton] = React.useState(false);\n\nconst handleChange = (event, { selectedId }) => setSelectedId(selectedId);\nconst handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);\n\nreturn (\n<Space size={20}>\n<TabsDesktop\nsize='xs'\nselectedId={selectedId}\nonChange={handleChange}\nshowSkeleton={showSkeleton}\n>\n<Tab title='Aurum' id='tab-1' />\n<Tab title='Bercelium' id='tab-2' disabled={true} />\n<Tab title='Curium' id='tab-3' />\n<Tab title='Neptunium' id='tab-4' />\n<Tab title='Plutonuim' id='tab-5' />\n<Tab title='Rubidium' id='tab-6' />\n<Tab title='Californium' id='tab-7' />\n</TabsDesktop>\n<TabsDesktop\nselectedId={selectedSecondaryId}\nonChange={handleSecondaryChange}\nview='secondary'\ntagShape='rounded'\ntagView='filled'\nsize='xs'\nshowSkeleton={showSkeleton}\n>\n<Tab title='Aurum' id='tab-1' />\n<Tab title='Bercelium' id='tab-2' disabled={true} />\n<Tab title='Curium' id='tab-3' />\n<Tab title='Neptunium' id='tab-4' />\n<Tab title='Plutonuim' id='tab-5' />\n<Tab title='Rubidium' id='tab-6' />\n<Tab title='Californium' id='tab-7' />\n</TabsDesktop>\n<Switch\nchecked={showSkeleton}\nlabel='Скелетонизация контента'\nonChange={() => setShowSkeleton((p) => !p)}\n/>\n</Space>\n);\n});",
+"mobile": "render(() => {\nconst [selectedId, setSelectedId] = React.useState('tab-1');\nconst [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');\nconst [showSkeleton, setShowSkeleton] = React.useState(false);\n\nconst handleChange = (event, { selectedId }) => setSelectedId(selectedId);\nconst handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);\n\nreturn (\n<Space size={20}>\n<TabsMobile\nsize='xs'\nselectedId={selectedId}\nonChange={handleChange}\nshowSkeleton={showSkeleton}\n>\n<Tab title='Aurum' id='tab-1' />\n<Tab title='Bercelium' id='tab-2' disabled={true} />\n<Tab title='Curium' id='tab-3' />\n<Tab title='Neptunium' id='tab-4' />\n<Tab title='Plutonuim' id='tab-5' />\n<Tab title='Rubidium' id='tab-6' />\n<Tab title='Californium' id='tab-7' />\n</TabsMobile>\n<TabsMobile\nselectedId={selectedSecondaryId}\nonChange={handleSecondaryChange}\nview='secondary'\ntagShape='rounded'\ntagView='filled'\nsize='xs'\nshowSkeleton={showSkeleton}\n>\n<Tab title='Aurum' id='tab-1' />\n<Tab title='Bercelium' id='tab-2' disabled={true} />\n<Tab title='Curium' id='tab-3' />\n<Tab title='Neptunium' id='tab-4' />\n<Tab title='Plutonuim' id='tab-5' />\n<Tab title='Rubidium' id='tab-6' />\n<Tab title='Californium' id='tab-7' />\n</TabsMobile>\n<Switch\nchecked={showSkeleton}\nlabel='Скелетонизация контента'\nonChange={() => setShowSkeleton((p) => !p)}\n/>\n</Space>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.0.0",
+"description": "#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n- Уточнена типизация пропа `textStyle`"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1930](https://github.com/core-ds/core-components/pull/1930)\n\n- Исправлен проброс параметров в DOM для компонента Tab\n\n#### [#1922](https://github.com/core-ds/core-components/pull/1922)\n\n- В компоненте `Tabs` изменено отображение индикатора выбранного таба"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1884](https://github.com/core-ds/core-components/pull/1884)\n\n- Добавлена возможность прокидывать aria- и data- атрибуты в titles компонента Tabs"
+},
+{
+"version": "49.3.0",
+"description": "#### [#1813](https://github.com/core-ds/core-components/pull/1813)\n\n- Добавлена возможность прокидывать restProps на root для компонентов RadioGroup, Space, Tab и Tabs"
+}
+]
+}

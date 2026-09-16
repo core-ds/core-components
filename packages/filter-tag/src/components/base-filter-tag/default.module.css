@@ -1,3 +1,4 @@
+@import '@alfalab/core-components-vars/src/index.css';
 @import '@alfalab/core-components-tag/src/vars.css';
 @import '../../vars.css';
 
@@ -6,19 +7,127 @@
         background-color: var(--tag-outlined-background-color-disabled);
     }
 
-    &.checked {
+    &.withClearOnly.muted.checked {
+        &:not(.disabled) {
+            background-color: var(--tag-muted-background-color-checked);
+
+            & .clear {
+                color: var(--filter-tag-inverted-clear-color);
+            }
+        }
+
+        @media (hover: hover) {
+            &:not(.disabled):hover {
+                background-color: var(--tag-muted-background-color-checked-hover);
+            }
+
+            &:not(.disabled):hover .clear {
+                color: var(--filter-tag-inverted-clear-color-hover);
+            }
+        }
+
+        &:not(.disabled):active {
+            background-color: var(--tag-muted-background-color-checked-active);
+
+            & .clear {
+                color: var(--filter-tag-inverted-clear-color-active);
+            }
+        }
+    }
+
+    &.withClearOnly.checked:not(.muted) {
         &:not(.disabled) {
             background-color: var(--tag-background-color-checked);
+
+            & .clear {
+                color: var(--filter-tag-clear-color);
+            }
         }
 
         @media (hover: hover) {
             &:not(.disabled):hover {
                 background-color: var(--tag-background-color-checked-hover);
             }
+
+            &:not(.disabled):hover .clear {
+                color: var(--filter-tag-clear-color-hover);
+            }
         }
 
         &:not(.disabled):active {
             background-color: var(--tag-background-color-checked-active);
+
+            & .clear {
+                color: var(--filter-tag-clear-color-active);
+            }
+        }
+    }
+
+    &.withClearOnly {
+        transition: background-color 0.2s ease;
+
+        & .valueButton,
+        & .valueButton.checked,
+        & .valueButton.muted.checked,
+        & .clear {
+            background-color: transparent;
+            transition:
+                color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        & .valueButton:not(:disabled):hover,
+        & .valueButton:not(:disabled):active,
+        & .valueButton.checked:not(.muted):not(:disabled):hover,
+        & .valueButton.checked:not(.muted):not(:disabled):active,
+        & .valueButton.muted.checked:not(:disabled):hover,
+        & .valueButton.muted.checked:not(:disabled):active {
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+
+    &.withSplitControls {
+        & .valueButton.muted.checked + .clear {
+            color: var(--filter-tag-inverted-clear-color);
+            background-color: var(--tag-muted-background-color-checked);
+
+            &:before {
+                background-color: var(--filter-tag-inverted-clear-before-background-color);
+            }
+
+            @media (hover: hover) {
+                &:hover {
+                    color: var(--filter-tag-inverted-clear-color-hover);
+                    background-color: var(--tag-muted-background-color-checked-hover);
+                }
+            }
+
+            &:active {
+                color: var(--filter-tag-inverted-clear-color-active);
+                background-color: var(--tag-muted-background-color-checked-active);
+            }
+        }
+
+        & .valueButton.checked:not(.muted) + .clear {
+            color: var(--filter-tag-clear-color);
+            background-color: var(--tag-background-color-checked);
+
+            &:before {
+                background-color: var(--filter-tag-clear-before-background-color);
+            }
+
+            @media (hover: hover) {
+                &:hover {
+                    color: var(--filter-tag-clear-color-hover);
+                    background-color: var(--tag-background-color-checked-hover);
+                }
+            }
+
+            &:active {
+                color: var(--filter-tag-clear-color-active);
+                background-color: var(--tag-background-color-checked-active);
+            }
         }
     }
 }
@@ -33,7 +142,7 @@
     border: var(--tag-border-width) solid var(--tag-border-color);
 
     &:disabled {
-        & > .chevron {
+        & .chevron {
             color: var(--filter-tag-chevron-disabled-color);
         }
     }
@@ -74,13 +183,45 @@
         }
     }
 
-    &.checked {
+    &.muted {
+        color: var(--tag-text-color);
+        border-color: var(--tag-muted-border-color);
+
+        &:disabled {
+            color: var(--tag-text-color-disabled);
+        }
+
+        &.checked {
+            color: var(--tag-text-color);
+            border-color: var(--tag-muted-border-color);
+            background-color: var(--tag-muted-background-color-checked);
+
+            &:disabled {
+                color: var(--tag-text-color-disabled);
+                background-color: var(--tag-muted-background-color-checked-disabled);
+            }
+
+            @media (hover: hover) {
+                &:hover:not(:disabled) {
+                    background-color: var(--tag-muted-background-color-checked-hover);
+                }
+            }
+
+            &:active:not(:disabled) {
+                background-color: var(--tag-muted-background-color-checked-active);
+            }
+        }
+    }
+
+    &.checked:not(.muted) {
         color: var(--tag-text-color-checked);
         background-color: var(--tag-background-color-checked);
         border-color: var(--tag-border-color-checked);
 
-        & > .chevron {
-            color: var(--filter-tag-inverted-chevron-color);
+        &:not(:disabled) {
+            & .chevron {
+                color: var(--filter-tag-inverted-chevron-color);
+            }
         }
 
         @media (hover: hover) {
@@ -93,16 +234,6 @@
             background-color: var(--tag-background-color-checked-active);
         }
 
-        @media (hover: hover) {
-            &:not(:disabled):hover + .clear:before {
-                background-color: var(--filter-tag-separator-background-color-hover);
-            }
-        }
-
-        &:not(:disabled):active + .clear:before {
-            background-color: var(--filter-tag-separator-background-color-active);
-        }
-
         &:disabled {
             color: var(--tag-text-color-checked-disabled);
             background-color: var(--tag-background-color-checked-disabled);
@@ -111,36 +242,5 @@
                 color: var(--filter-tag-chevron-disabled-color);
             }
         }
-    }
-}
-
-.clear {
-    color: var(--filter-tag-clear-color);
-    background-color: var(--tag-background-color-checked);
-
-    &:before {
-        background-color: var(--filter-tag-clear-before-background-color);
-    }
-
-    @media (hover: hover) {
-        &:hover:before {
-            background-color: var(--filter-tag-separator-background-color-hover);
-        }
-    }
-
-    &:active:before {
-        background-color: var(--filter-tag-separator-background-color-active);
-    }
-
-    @media (hover: hover) {
-        &:hover {
-            color: var(--filter-tag-clear-color-hover);
-            background-color: var(--tag-background-color-checked-hover);
-        }
-    }
-
-    &:active {
-        color: var(--filter-tag-clear-color-active);
-        background-color: var(--tag-background-color-checked-active);
     }
 }

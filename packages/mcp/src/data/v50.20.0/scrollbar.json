@@ -1,0 +1,186 @@
+{
+"packageName": "scrollbar",
+"displayName": "Scrollbar",
+"description": "Используется для управления контентм с помощью полосы прокрутки.",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Оборачиваемый элемент.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс на корневой элемент.",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"horizontalAutoStretch": {
+"defaultValue": {
+"value": false
+},
+"description": "Растягивать контент по горизонтали по ширине содержимого.",
+"name": "horizontalAutoStretch",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"widthPropName": {
+"defaultValue": {
+"value": "minWidth"
+},
+"description": "Название css свойства, которое устанавливается на контейнер при horizontalAutoStretch.",
+"name": "widthPropName",
+"required": false,
+"type": {
+"name": "\"minWidth\" | \"width\" | \"maxWidth\" | undefined"
+}
+},
+"autoHide": {
+"defaultValue": {
+"value": true
+},
+"description": "Включает автоскрытие ползунка.",
+"name": "autoHide",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"autoHideTimeout": {
+"defaultValue": {
+"value": 1000
+},
+"description": "Время в мс, определяющее задержку до исчезновения полосы прокрутки (при включенной опции autoHide).",
+"name": "autoHideTimeout",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"forceVisible": {
+"defaultValue": {
+"value": false
+},
+"description": "Принудительное отображение полосы прокрутки.",
+"name": "forceVisible",
+"required": false,
+"type": {
+"name": "boolean | \"x\" | \"y\" | undefined"
+}
+},
+"clickOnTrack": {
+"defaultValue": {
+"value": true
+},
+"description": "Управление поведением клика по треку.\nЕсли true, то будет выполняться прокрутка к месту клика.",
+"name": "clickOnTrack",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollableNodeProps": {
+"defaultValue": {
+"value": "{ ref: null }"
+},
+"description": "HTML-aтрибуты на прокручиваемый узел.",
+"name": "scrollableNodeProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"contentNodeProps": {
+"defaultValue": {
+"value": "{ ref: null }"
+},
+"description": "HTML-aтрибуты на узел с контентом.",
+"name": "contentNodeProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"maskProps": {
+"defaultValue": null,
+"description": "HTML-aтрибуты маски.",
+"name": "maskProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"verticalBarClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс контейнера вертикальной полосы прокрутки",
+"name": "verticalBarClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"horizontalBarClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс контейнера горизонтальной полосы прокрутки",
+"name": "horizontalBarClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onContentScroll": {
+"defaultValue": null,
+"description": "Обработчик изменения скролла",
+"name": "onContentScroll",
+"required": false,
+"type": {
+"name": "((e: Event) => void) | undefined"
+}
+},
+"verticalBarRef": {
+"defaultValue": null,
+"description": "Ref для вертикальной полосы прокрутки",
+"name": "verticalBarRef",
+"required": false,
+"type": {
+"name": "RefObject<HTMLDivElement> | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst getChildStyle = (bgColor) => ({\nheight: 80,\ntextAlign: 'center',\nlineHeight: '80px',\nfontSize: 40,\nfontWeight: 700,\ncolor: 'var(--color-light-text-tertiary)',\nbackground: `var(${bgColor})`,\n});\nreturn (\n<div style={{ height: 240, margin: 'var(--gap-20-neg)' }}>\n<Scrollbar style={{ height: '100%' }} autoHide={false}>\n{new Array(51).fill(null).map((_, idx) => {\nconst style = getChildStyle(\nidx % 2 === 0 ? '--color-light-neutral-200' : '--color-light-base-bg-secondary',\n);\nreturn (\n<div key={idx} style={style}>\n{idx + 1}\n</div>\n);\n})}\n</Scrollbar>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.20.0",
+"description": "#### [#2257](https://github.com/core-ds/core-components/pull/2257)\n\n- Css переменные вынесены в отдельный файл `vars.css`"
+},
+{
+"version": "50.15.0",
+"description": "#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n- Работа с зависимостями"
+}
+]
+}

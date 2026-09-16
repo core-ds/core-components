@@ -142,6 +142,7 @@
     --color-dark-neutral-translucent-700-inverted-press: rgba(1, 1, 12, 0.63);
     --color-dark-neutral-translucent-700-press: rgba(243, 245, 254, 0.75);
     --color-dark-overlay-default: rgba(0, 0, 0, 0.7);
+    --color-dark-overlay-lighten-strong: rgba(18, 18, 19, 0.88);
     --color-dark-status-attention: #fda136;
     --color-dark-status-attention-hover: #fdb24d;
     --color-dark-status-attention-inverted: #fa9313;
@@ -258,7 +259,7 @@
     --color-dark-text-tertiary-inverted-hover: rgba(4, 4, 21, 0.47);
     --color-dark-text-tertiary-inverted-press: rgba(4, 4, 19, 0.55);
     --color-dark-text-tertiary-press: rgba(238, 238, 251, 0.55);
-    --color-dark-transparent-default: rgba(255, 255, 255, 0);
+    --color-dark-transparent-default: rgba(0, 0, 0, 0);
     --color-dark-transparent-default-hover: rgba(214, 214, 229, 0.07);
     --color-dark-transparent-default-inverted-hover: rgba(38, 55, 88, 0.06);
     --color-dark-transparent-default-inverted-press: rgba(30, 43, 68, 0.08);
@@ -406,6 +407,7 @@
     --color-light-neutral-translucent-700-inverted-press: rgba(243, 245, 254, 0.75);
     --color-light-neutral-translucent-700-press: rgba(1, 1, 12, 0.63);
     --color-light-overlay-default: rgba(0, 0, 0, 0.6);
+    --color-light-overlay-lighten-strong: rgba(255, 255, 255, 0.88);
     --color-light-status-attention: #fa9313;
     --color-light-status-attention-hover: #f18d0b;
     --color-light-status-attention-inverted: #fda136;
@@ -720,6 +722,12 @@
     --color-static-text-tertiary-inverted-press: rgba(238, 238, 251, 0.55);
     --color-static-text-tertiary-light: rgba(233, 233, 250, 0.37);
     --color-static-text-tertiary-press: rgba(4, 4, 19, 0.55);
+    --color-static-transparent-default: rgba(255, 255, 255, 0);
+    --color-static-transparent-default-hover: rgba(38, 55, 88, 0.06);
+    --color-static-transparent-default-inverted: rgba(0, 0, 0, 0);
+    --color-static-transparent-default-inverted-hover: rgba(214, 214, 229, 0.07);
+    --color-static-transparent-default-inverted-press: rgba(225, 225, 248, 0.09);
+    --color-static-transparent-default-press: rgba(30, 43, 68, 0.08);
     --color-dark-bg-accent: #ef3124; /* deprecated */
     --color-dark-bg-attention-muted: #36291f; /* deprecated */
     --color-dark-bg-component: rgba(255, 255, 255, 0.1); /* deprecated */

@@ -12,6 +12,7 @@ import {
 
 describe('humanFileSize', () => {
     const cases = [
+        [0, '0 Б'],
         [1, '1 Б'],
         [10, '10 Б'],
         [100, '100 Б'],

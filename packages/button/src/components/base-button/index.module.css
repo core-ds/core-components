@@ -35,7 +35,7 @@
 }
 
 .hint {
-    @mixin paragraph_primary_small;
+    @mixin paragraph_component_secondary;
 
     display: block;
 }

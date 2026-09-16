@@ -12,3 +12,7 @@
     position: relative;
     flex: 1 0 auto;
 }
+
+.visuallyHidden {
+    @mixin visually-hidden;
+}

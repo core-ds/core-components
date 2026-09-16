@@ -1,5 +1,75 @@
 # @alfalab/core-components-plate
 
+## 9.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-icon-button@8.0.10
+
+## 9.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-icon-button@8.0.9
+
+## 9.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-icon-button@8.0.8
+
+## 9.0.7
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-icon-button@8.0.7
+
+## 9.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-icon-button@8.0.6
+
+## 9.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+- @alfalab/core-components-icon-button@8.0.5
+
 ## 9.0.4
 
 ### Patch Changes
@@ -953,7 +1023,7 @@
 
 ### [#340](https://github.com/core-ds/core-components/pull/340)
 
-- В компоненте Plate иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компоненте Plate иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -1020,8 +1090,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 # [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@5.1.1...@alfalab/core-components-plate@5.2.0) (2022-08-17)
 
 ### Bug Fixes
@@ -1046,11 +1114,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
-- Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+- Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.ru data: 'self'`
 
 - chore(screenshot-utils): change cdn
 
@@ -1120,7 +1188,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 

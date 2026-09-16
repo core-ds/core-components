@@ -1,2 +1,3 @@
-@import 'side-modal.module.css';
+@import './side-modal.module.css';
+@import '../../styles/common.module.css';
 @import '../../styles/margins.module.css';

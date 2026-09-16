@@ -1,4 +1,4 @@
-import React, { forwardRef, type ReactNode } from 'react';
+import React, { forwardRef, type ReactNode, useState } from 'react';
 import cn from 'classnames';
 
 import { Gap } from '@alfalab/core-components-gap';
@@ -7,10 +7,11 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';
 import { type PassCodeProps } from './typings';
+import { getAnnouncementText } from './utils';
 
 import styles from './index.module.css';
 
-export type BasePassCodeProps = {
+export interface BasePassCodeProps {
     /**
      * Код
      */
@@ -80,7 +81,7 @@ export type BasePassCodeProps = {
      * Отключает ввод и удаление кода
      */
     disabled?: boolean;
-};
+}
 
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
     (
@@ -101,6 +102,17 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
         ref,
     ) => {
         const passwordLen = codeLength || maxCodeLength;
+        const [liveMessage, setLiveMessage] = useState({
+            id: 0,
+            text: '',
+        });
+
+        const updateLiveMessage = (currentLength: number) => {
+            setLiveMessage((prevLiveMessage) => ({
+                id: prevLiveMessage.id + 1,
+                text: getAnnouncementText(currentLength, passwordLen),
+            }));
+        };
 
         const handleChange = (digit: number) => {
             if (disabled) {
@@ -110,6 +122,7 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             const newValue = value.concat(digit.toString());
 
             if (newValue.length <= passwordLen) {
+                updateLiveMessage(newValue.length);
                 onChange?.(newValue);
             }
         };
@@ -120,7 +133,10 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             }
 
             if (value.length > 0) {
-                onChange?.(value?.slice(0, -1));
+                const newValue = value.slice(0, -1);
+
+                updateLiveMessage(newValue.length);
+                onChange?.(newValue);
             }
         };
 
@@ -152,6 +168,15 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
                     onClear={handleClear}
                     showClear={Boolean(value)}
                 />
+
+                <div
+                    role='status'
+                    aria-live='polite'
+                    aria-atomic='true'
+                    className={styles.visuallyHidden}
+                >
+                    <span key={liveMessage.id}>{liveMessage.text}</span>
+                </div>
             </div>
         );
     },

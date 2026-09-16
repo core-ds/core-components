@@ -1,4 +1,4 @@
-@import '../../../vars.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     border-radius: var(--border-radius-24);
@@ -11,10 +11,6 @@
     */
     will-change: transform, opacity;
     backface-visibility: hidden;
-
-    &.overlayHidden {
-        box-shadow: var(--shadow-m);
-    }
 }
 
 .wrapperJustifyStart {

@@ -1,5 +1,243 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.5
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2331](https://github.com/core-ds/core-components/pull/2331)
+
+##### UniversalModal
+
+- Механизм ограничения ширины и высоты переведён с инлайн-вычисления по вьюпорту на статически сгенерированные CSS-классы
+- Оптимизирован расчёт высоты скроллбара
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
+## 3.2.4
+
+### Patch Changes
+
+<sup><time>06.08.2026</time></sup>
+
+#### [#2308](https://github.com/core-ds/core-components/pull/2308)
+
+##### UniversalModal
+
+- Исправлена несогласованность блокировки скролла при одновременном использовании разных модальных сущностей (например `UniversalModal` и `Modal`)
+
+## 3.2.3
+
+### Patch Changes
+
+<sup><time>04.08.2026</time></sup>
+
+#### [#2301](https://github.com/core-ds/core-components/pull/2301)
+
+##### UniversalModal
+
+- Механизм `height="hugContent"` + `margin.top`/`margin.bottom` переведён с CSS custom properties на статически сгенерированные классы
+
+## 3.2.2
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2292](https://github.com/core-ds/core-components/pull/2292)
+
+##### UniversalModal
+
+- Исправлена регрессия в `UniversalModal` (desktop): для `height="hugContent"` без переданного пропа `margin` не применялось ограничение `max-height`, из-за чего модалка растягивалась по высоте контента и не появлялся внутренний скролл вместо ограничения по высоте вьюпорта
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-base-modal@7.1.8
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-navigation-bar-private@2.0.13
+- @alfalab/core-components-scrollbar@5.0.6
+
+## 3.2.1
+
+### Patch Changes
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2283](https://github.com/core-ds/core-components/pull/2283)
+
+##### UniversalModal
+
+- Открыта типизация пропа `disableAutoFocus` для desktop/mobile компонента
+
+<sup><time>27.07.2026</time></sup>
+
+#### [#2281](https://github.com/core-ds/core-components/pull/2281)
+
+##### UniversalModal
+
+- Добавлена поддержка пропа `onMount` для desktop/mobile компонентов.
+
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#2265](https://github.com/core-ds/core-components/pull/2265)
+
+##### UniversalModal
+
+- Открыта типизация пропа `disableRestoreFocus` для desktop компонента
+
+## 3.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-scrollbar@5.0.5
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-navigation-bar-private@2.0.12
+
+## 3.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.11
+
+## 3.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.10
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-base-modal@7.1.6
+- @alfalab/core-components-scrollbar@5.0.4
+
+## 3.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-scrollbar@5.0.3
+- @alfalab/core-components-navigation-bar-private@2.0.9
+
+## 3.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-navigation-bar-private@2.0.8
+
+## 3.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.7
+
+## 3.1.2
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### UniversalModal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### UniversalModal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+- Удалена темизация `click`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2205](https://github.com/core-ds/core-components/pull/2205)
+
+##### UniversalModal
+
+- Расчёт `max-height` для режима `hugContent` перенесён из inline-стилей в CSS
+- Исправлено определение нижнего и верхнего отступов для подкомпонента `Content`. Предыдущая реализация приводила к визуальным артефактам при открытии в режиме `hugContent`
+- Удалён проп `size` из `ContentDesktopProps`, который не использовался в коде
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2200](https://github.com/core-ds/core-components/pull/2200)
+
+##### UniversalModal ,BaseModal
+
+- Исправлена обработка явного `scrollLock={false}` в `BaseModal`: legacy-блокировка скролла применяется только когда `scrollLock` не передан.
+- В `UniversalModal` блокировка скролла теперь управляется через `scrollLock={overlay}` вместо deprecated `disableBlockingScroll`.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
+## 3.1.1
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2195](https://github.com/core-ds/core-components/pull/2195)
+
+##### UniversalModal
+
+- Открыта типизация пропа `container` для desktop/mobile компонента. Данный проп позволяет менять рендер контейнер компонента.
+- Открыта типизация пропа `backdropProps` для mobile компонента. Данный проп позволяет задавать анимацию для backdrop слоя компонента.
+
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### UniversalModal
+
+- Добавлена механика доступа к странице при открытом модальном окне и скрытом оверлее (страницу можно скроллить и взаимодействовать с элементами)
+- При скрытом оверлее по прежнему можно управлять блокировкой фокуса на компоненте или делать его доступным для всего контента (`disableFocusLock`)
+- Скролл при скрытом оверлее всегда в разблокированном состоянии. Если ваш кейс требует блокировку скролла при скрытом оверлее - сообщите команде поддержки
+- Пропсы для backdrop не будут работать при скрытом оверлее, так как для этого кейса backdrop не рендерится на странице
+- Улучшена логика скролла внутри компонента, когда событе скролла происходит по оверлею
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.3
+
+## 3.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.6
+
 ## 3.0.6
 
 ### Patch Changes

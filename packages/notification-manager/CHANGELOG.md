@@ -1,5 +1,71 @@
 # @alfalab/core-components-notification-manager
 
+## 7.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-notification@9.0.11
+- @alfalab/core-components-portal@5.0.4
+
+## 7.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-notification@9.0.10
+- @alfalab/core-components-portal@5.0.3
+
+## 7.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-notification@9.0.9
+
+## 7.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-portal@5.0.2
+- @alfalab/core-components-notification@9.0.8
+
+## 7.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-notification@9.0.7
+
+## 7.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-notification@9.0.6
+
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2152](https://github.com/core-ds/core-components/pull/2152)
+
+##### NotificationManager
+
+- Исправили некорректное отображение нескольких Notification внутри NotificationManager: уведомления больше не застревают за пределами экрана и корректно отображаются при одновременном показе.
+
+- Обновлены зависимости
+    - @alfalab/core-components-notification@9.0.5
+
 ## 7.0.4
 
 ### Patch Changes
@@ -906,8 +972,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.3.1...@alfalab/core-components-notification-manager@4.3.2) (2022-08-17)
 

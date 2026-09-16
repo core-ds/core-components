@@ -1,5 +1,103 @@
 # @alfalab/core-components-toast
 
+## 8.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
+## 8.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-popover@8.1.1
+- @alfalab/core-components-portal@5.0.4
+- @alfalab/core-components-toast-plate@9.1.6
+
+## 8.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-portal@5.0.3
+- @alfalab/core-components-toast-plate@9.1.5
+
+## 8.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-toast-plate@9.1.4
+
+## 8.0.9
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-portal@5.0.2
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-toast-plate@9.1.3
+
+## 8.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+- @alfalab/core-components-toast-plate@9.1.2
+
+## 8.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-toast-plate@9.1.1
+
+## 8.0.6
+
+### Patch Changes
+
+<sup><time>13.05.2026</time></sup>
+
+#### [#2211](https://github.com/core-ds/core-components/pull/2211)
+
+##### Toast
+
+- Исправлено позиционирование компонента
+
+## 8.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-toast-plate@9.1.0
+
 ## 8.0.4
 
 ### Patch Changes
@@ -1005,8 +1103,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [3.7.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-toast@3.7.1...@alfalab/core-components-toast@3.7.2) (2022-08-17)
 

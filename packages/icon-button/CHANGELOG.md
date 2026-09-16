@@ -1,5 +1,57 @@
 # @alfalab/core-components-icon-button
 
+## 8.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.2
+- @alfalab/core-components-mq@6.0.7
+
+## 8.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+
+## 8.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+
+## 8.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-mq@6.0.5
+
+## 8.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+
+## 8.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+
 ## 8.0.4
 
 ### Patch Changes
@@ -783,8 +835,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-button@4.3.1...@alfalab/core-components-icon-button@4.3.2) (2022-08-17)
 

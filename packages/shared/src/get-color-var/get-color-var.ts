@@ -26,6 +26,8 @@ const isHexColor = (color: string): color is HexColor => /^#[a-z\d]+$/i.test(col
  * Примеры результатов:
  * - figma переменная: var(--color-light-bg-secondary)
  * - HEX: #444fff
+ *
+ * @deprecated Используйте getColorVar из ds-helpers
  */
 export const getColorVar = ({
     color,

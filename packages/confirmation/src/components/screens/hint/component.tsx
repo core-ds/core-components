@@ -41,6 +41,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 className={cn(styles.text, {
                     [styles.typographyTheme]: !mobile,
                     [styles.typographyThemeMobile]: mobile,
+                    [styles.textMobile]: mobile,
                 })}
             >
                 {texts.hintDescription}
@@ -51,20 +52,30 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     [styles.phonesWrapMobile]: mobile,
                 })}
             >
-                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                <div
+                    className={cn(styles.phoneWrap, {
+                        [styles.phoneContentMobile]: mobile,
+                        [styles.phoneWrapMobile]: mobile,
+                    })}
+                >
                     <Link
                         href={getPhoneHref(internationalPhone)}
                         underline={false}
-                        className={cn(styles.phoneLink, { [styles.typographyThemeMobile]: mobile })}
+                        className={cn(styles.phoneLink, {
+                            [styles.phoneLinkMobile]: mobile,
+                            [styles.typographyThemeMobile]: mobile,
+                        })}
                     >
                         {internationalPhone}
                     </Link>
                     <TypographyText
                         view='primary-medium'
                         color='primary'
-                        className={cn(styles.text, {
+                        className={cn(styles.text, styles.phoneDescription, {
                             [styles.typographyTheme]: !mobile,
                             [styles.typographyThemeMobile]: mobile,
+                            [styles.phoneDescriptionMobile]: mobile,
+                            [styles.textMobile]: mobile,
                         })}
                     >
                         {mobile
@@ -73,20 +84,30 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     </TypographyText>
                 </div>
 
-                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                <div
+                    className={cn(styles.phoneWrap, {
+                        [styles.phoneContentMobile]: mobile,
+                        [styles.phoneWrapMobile]: mobile,
+                    })}
+                >
                     <Link
                         href={getPhoneHref(domesticPhone)}
                         underline={false}
-                        className={cn(styles.phoneLink, { [styles.typographyThemeMobile]: mobile })}
+                        className={cn(styles.phoneLink, {
+                            [styles.phoneLinkMobile]: mobile,
+                            [styles.typographyThemeMobile]: mobile,
+                        })}
                     >
                         {domesticPhone}
                     </Link>
                     <TypographyText
                         view='primary-medium'
                         color='primary'
-                        className={cn(styles.text, {
+                        className={cn(styles.text, styles.phoneDescription, {
                             [styles.typographyTheme]: !mobile,
                             [styles.typographyThemeMobile]: mobile,
+                            [styles.phoneDescriptionMobile]: mobile,
+                            [styles.textMobile]: mobile,
                         })}
                     >
                         {mobile
@@ -102,6 +123,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 className={cn(styles.text, {
                     [styles.typographyTheme]: !mobile,
                     [styles.typographyThemeMobile]: mobile,
+                    [styles.textMobile]: mobile,
                 })}
             >
                 {texts.hintNotification}
@@ -110,7 +132,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={handleReturnButtonClick}
-                className={styles.hintButton}
+                className={cn(styles.hintButton, { [styles.hintButtonMobile]: mobile })}
                 breakpoint={breakpoint}
                 client={client}
             >

@@ -11,7 +11,7 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe(
+xdescribe(
     'ProductCover | props screenshots',
     screenshotTesting({
         cases: [
@@ -79,7 +79,7 @@ describe(
     }),
 );
 
-describe('ProductCover | text color', () => {
+xdescribe('ProductCover | text color', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [

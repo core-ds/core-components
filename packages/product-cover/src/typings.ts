@@ -29,7 +29,6 @@ export type SingleCommonProps = {
 
     /**
      * Базовый URL сервиса с изображениями
-     * (например: https://online.alfabank.ru/cards-images/cards/)
      */
     baseUrl?: string;
 
@@ -134,6 +133,13 @@ export type SingleCommonProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Задает различные эффекты при наведении на компонент (затемнение, осветление)
+     *
+     * @default false
+     */
+    stateType?: 'darkening' | 'lightening' | 'static-darkening' | 'static-lightening' | false;
 };
 
 // eslint-disable-next-line no-restricted-syntax

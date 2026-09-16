@@ -1,5 +1,65 @@
 # @alfalab/core-components-checkbox
 
+## 6.3.0
+
+### Minor Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2307](https://github.com/core-ds/core-components/pull/2307)
+
+##### Checkbox
+
+- Добавлен проп `compact` для компактного текста подписи (`paragraph_primary_small`, 14/20)
+
+## 6.2.4
+
+### Patch Changes
+
+<sup><time>31.07.2026</time></sup>
+
+#### [#2291](https://github.com/core-ds/core-components/pull/2291)
+
+##### Checkbox
+
+- Исправлен отступ между текстом и чекбоксом при `position="after"`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+
+## 6.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+
+## 6.2.2
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+
+## 6.2.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
 ## 6.2.0
 
 ### Minor Changes
@@ -565,8 +625,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [2.9.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.9.0...@alfalab/core-components-checkbox@2.9.1) (2022-08-17)
 

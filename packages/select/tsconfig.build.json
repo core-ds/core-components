@@ -25,8 +25,8 @@
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-popover": ["../popover/src"],
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
-            "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
-            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
+            "@alfalab/core-components-scrollbar-private": ["../scrollbar-private/src"],
+            "@alfalab/core-components-scrollbar-private/*": ["../scrollbar-private/src/*"],
             "@alfalab/core-components-select": ["./src"],
             "@alfalab/core-components-select/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
@@ -45,7 +45,7 @@
         { "path": "../modal/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../popover/tsconfig.build.json" },
-        { "path": "../scrollbar/tsconfig.build.json" },
+        { "path": "../scrollbar-private/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../skeleton/tsconfig.build.json" }
     ]

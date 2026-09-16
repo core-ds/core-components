@@ -3,9 +3,103 @@
 :root {
     /* text */
     --confirmation-text-color: var(--color-light-text-primary);
+    --confirmation-text-font-size: 16px;
+    --confirmation-text-font-weight: 400;
+    --confirmation-text-line-height: 24px;
+    --confirmation-text-letter-spacing: normal;
+    --confirmation-text-font-size-mobile: 16px;
+    --confirmation-text-line-height-mobile: 24px;
+    --confirmation-text-letter-spacing-mobile: normal;
+    --confirmation-countdown-height: auto;
 
     @define-mixin _confirmation-text {
-        @mixin paragraph_primary_medium;
+        font-size: var(--confirmation-text-font-size);
+        line-height: var(--confirmation-text-line-height);
+        letter-spacing: var(--confirmation-text-letter-spacing);
+        font-weight: var(--confirmation-text-font-weight);
+        font-family: var(--font-family-system);
         color: var(--confirmation-text-color);
     }
+
+    /* === Desktop === */
+
+    /* HEADER */
+    --confirmation-header-font-family: var(--font-family-system);
+    --confirmation-header-font-size: 22px;
+    --confirmation-header-font-weight: 700;
+    --confirmation-header-line-height: 26px;
+    --confirmation-header-letter-spacing: normal;
+    --confirmation-header-color: var(--color-light-text-primary);
+
+    /* INITIAL */
+    --confirmation-header-margin-bottom: var(--gap-24);
+    --confirmation-phone-margin-bottom: var(--gap-32);
+    --confirmation-phone-label-color: var(--color-light-text-primary);
+    --confirmation-phone-number-color: var(--color-light-text-primary);
+    --confirmation-input-margin-bottom: var(--gap-12);
+    --confirmation-input-min-height: 80px;
+    --confirmation-code-button-margin-bottom: var(--gap-16);
+    --confirmation-code-button-top: var(--gap-4-neg);
+    --confirmation-countdown-loader-margin-bottom: var(--gap-24);
+    --confirmation-countdown-margin-bottom: var(--gap-24);
+
+    /* HINT */
+    --confirmation-hint-text-color: var(--color-light-text-primary);
+    --confirmation-hint-phone-description-color: var(--color-light-text-primary);
+    --confirmation-hint-text-margin-bottom: var(--gap-24);
+    --confirmation-hint-phones-margin-bottom: var(--gap-24);
+    --confirmation-hint-phone-item-margin-bottom: var(--gap-8);
+    --confirmation-hint-button-margin-top: var(--gap-32);
+
+    /* TEMP_BLOCK */
+    --confirmation-temp-block-description-color: var(--color-light-text-primary);
+    --confirmation-temp-block-description-margin-bottom: var(--gap-8);
+
+    /* TEMP_BLOCK_OVER */
+    --confirmation-temp-block-over-button-margin-top: var(--gap-32);
+
+    /* FATAL_ERROR */
+    --confirmation-fatal-error-description-color: var(--color-light-text-primary);
+    --confirmation-fatal-error-button-margin-top: var(--gap-32);
+
+    /* === Mobile === */
+
+    /* HEADER */
+    --confirmation-header-font-family-mobile: var(--font-family-system);
+    --confirmation-header-font-size-mobile: 20px;
+    --confirmation-header-font-weight-mobile: 600;
+    --confirmation-header-line-height-mobile: 28px;
+    --confirmation-header-line-letter-spacing-mobile: normal;
+    --confirmation-header-color-mobile: var(--color-light-text-primary);
+
+    /* INITIAL */
+    --confirmation-header-margin-bottom-mobile: var(--gap-24);
+    --confirmation-phone-margin-bottom-mobile: var(--gap-32);
+    --confirmation-phone-label-color-mobile: var(--color-light-text-primary);
+    --confirmation-phone-number-color-mobile: var(--color-light-text-primary);
+    --confirmation-input-margin-bottom-mobile: var(--gap-12);
+    --confirmation-input-min-height-mobile: 80px;
+    --confirmation-code-button-margin-bottom-mobile: var(--gap-0);
+    --confirmation-code-button-top-mobile: var(--gap-4-neg);
+    --confirmation-countdown-loader-margin-bottom-mobile: var(--gap-16);
+    --confirmation-countdown-margin-bottom-mobile: var(--gap-20);
+
+    /* HINT */
+    --confirmation-hint-text-color-mobile: var(--color-light-text-secondary);
+    --confirmation-hint-phone-description-color-mobile: var(--color-light-text-secondary);
+    --confirmation-hint-text-margin-bottom-mobile: var(--gap-24);
+    --confirmation-hint-phones-margin-bottom-mobile: var(--gap-24);
+    --confirmation-hint-phone-item-margin-bottom-mobile: var(--gap-8);
+    --confirmation-hint-button-margin-top-mobile: var(--gap-32);
+
+    /* TEMP_BLOCK */
+    --confirmation-temp-block-description-color-mobile: var(--color-light-text-secondary);
+    --confirmation-temp-block-description-margin-bottom-mobile: var(--gap-8);
+
+    /* TEMP_BLOCK_OVER */
+    --confirmation-temp-block-over-button-margin-top-mobile: var(--gap-32);
+
+    /* FATAL_ERROR */
+    --confirmation-fatal-error-description-color-mobile: var(--color-light-text-secondary);
+    --confirmation-fatal-error-button-margin-top-mobile: var(--gap-32);
 }

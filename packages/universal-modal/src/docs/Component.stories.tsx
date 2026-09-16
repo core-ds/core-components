@@ -7,7 +7,7 @@ import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalMobile } from '../mobile';
-import { UniversalModal } from '../Component.responsive';
+import { UniversalModal } from '../responsive';
 
 const meta: Meta<typeof UniversalModal> = {
     title: 'Components/UniversalModal',
@@ -58,10 +58,15 @@ export const modal: Story = {
         const [isOpen, setOpen] = useState(false);
 
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
-        const width = text('width', '500');
-        const _height = text('height', '500');
+
+        // Ширина может быть Number и String
+        const _width = text('width', '500');
+        const width = isNaN(parseInt(_width)) ? _width : Number(_width);
+
         // Высота может быть Number и String
+        const _height = text('height', '500');
         const height = isNaN(parseInt(_height)) ? _height : Number(_height);
+
         const overlay = boolean('overlay', true);
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
@@ -74,7 +79,8 @@ export const modal: Story = {
             'start',
         );
         const bigTitle = boolean('bigTitle', false);
-        const margin = object('margin', {});
+        const withMargin = boolean('withMargin', true);
+        const margin = withMargin ? object('margin', {}) : undefined;
         const open = boolean('open', false);
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
@@ -131,10 +137,15 @@ export const side_panel: Story = {
 
         const horizontalAlign = select('horizontalAlign', ['start', 'end'], 'start');
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
-        const width = text('width', '500');
-        const _height = text('height', '500');
+
+        // Ширина может быть Number и String
+        const _width = text('width', '500');
+        const width = isNaN(parseInt(_width)) ? _width : Number(_width);
+
         // Высота может быть Number и String
+        const _height = text('height', '500');
         const height = isNaN(parseInt(_height)) ? _height : Number(_height);
+
         const overlay = boolean('overlay', true);
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
@@ -147,7 +158,8 @@ export const side_panel: Story = {
             'start',
         );
         const bigTitle = boolean('bigTitle', false);
-        const margin = object('margin', {});
+        const withMargin = boolean('withMargin', true);
+        const margin = withMargin ? object('margin', {}) : undefined;
         const open = boolean('open', false);
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
@@ -202,9 +214,8 @@ export const mobile: Story = {
     render: () => {
         const [isOpen, setOpen] = useState(false);
 
-        const header = boolean('header', true);
-        const headerTitle = text('header.title', '');
-        const headerSubtitle = text('header.subtitle', '');
+        const header = boolean('header', false);
+        const headerTitle = text('header.title', 'Заголовок');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
@@ -221,6 +232,8 @@ export const mobile: Story = {
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
 
+        const shouldRenderHeader = header && Boolean(headerTitle);
+
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
                 <Button type='button' size={40} onClick={() => setOpen(true)}>
@@ -231,11 +244,13 @@ export const mobile: Story = {
                     appearance={appearance}
                     onClose={() => setOpen(false)}
                 >
-                    {header && (
+                    {shouldRenderHeader && (
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
-                            subtitle={headerSubtitle}
+                            {...(titleSize === 'compact' && {
+                                subtitle: text('header.subtitle', ''),
+                            })}
                             titleSize={titleSize}
                             align={headerAlign}
                             hasCloser={hasCloser}

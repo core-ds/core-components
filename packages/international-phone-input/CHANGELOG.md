@@ -1,5 +1,171 @@
 # @alfalab/core-components-international-phone-input
 
+## 4.0.25
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+- @alfalab/core-components-input-autocomplete@14.0.25
+
+## 4.0.24
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.6
+- @alfalab/core-components-input-autocomplete@14.0.24
+
+## 4.0.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.5
+- @alfalab/core-components-input-autocomplete@14.0.23
+
+## 4.0.22
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.4
+- @alfalab/core-components-input-autocomplete@14.0.22
+
+## 4.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+- @alfalab/core-components-select@19.2.3
+- @alfalab/core-components-input-autocomplete@14.0.21
+
+## 4.0.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.3
+- @alfalab/core-components-input@17.1.10
+- @alfalab/core-components-input-autocomplete@14.0.20
+- @alfalab/core-components-mq@6.0.7
+- @alfalab/core-components-select@19.2.2
+
+## 4.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.1
+- @alfalab/core-components-input-autocomplete@14.0.19
+
+## 4.0.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-select@19.2.0
+- @alfalab/core-components-input@17.1.9
+- @alfalab/core-components-input-autocomplete@14.0.18
+- @alfalab/core-components-mq@6.0.6
+
+## 4.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.8
+- @alfalab/core-components-select@19.1.10
+- @alfalab/core-components-input-autocomplete@14.0.17
+
+## 4.0.16
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input-autocomplete@14.0.16
+- @alfalab/core-components-select@19.1.9
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-mq@6.0.5
+
+## 4.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.8
+- @alfalab/core-components-input-autocomplete@14.0.15
+
+## 4.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-input@17.1.6
+- @alfalab/core-components-input-autocomplete@14.0.14
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-select@19.1.7
+
+## 4.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.6
+- @alfalab/core-components-input-autocomplete@14.0.13
+- @alfalab/core-components-input@17.1.5
+
+## 4.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.5
+- @alfalab/core-components-input-autocomplete@14.0.12
+- @alfalab/core-components-input@17.1.4
+
+## 4.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.4
+    - @alfalab/core-components-input-autocomplete@14.0.11
+
+## 4.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.3
+    - @alfalab/core-components-input-autocomplete@14.0.10
+
 ## 4.0.9
 
 ### Patch Changes
