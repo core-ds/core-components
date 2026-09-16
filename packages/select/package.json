@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "19.2.7",
+    "version": "19.2.8",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -45,5 +45,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.2.1",
-    "varsVersion": "11.2.1"
+    "varsVersion": "11.3.0"
 }

@@ -1,5 +1,17 @@
 # @alfalab/core-components-select
 
+## 19.2.8
+
+### Patch Changes
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2362](https://github.com/core-ds/core-components/pull/2362)
+
+##### Select
+
+- Исправлен цвет `ellipsis` текста
+
 ## 19.2.7
 
 ### Patch Changes
