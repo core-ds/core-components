@@ -114,7 +114,7 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
         const Root = showSkeleton ? 'div' : Fragment;
         const rootProps: ComponentProps<typeof Root> = showSkeleton
-            ? { className: commonStyles.root, 'aria-busy': true }
+            ? { className: commonStyles.root }
             : {};
 
         return (
