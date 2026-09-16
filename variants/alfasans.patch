@@ -1,7 +1,7 @@
-From f1722878265a56cc1311390d00d5e81240257538 Mon Sep 17 00:00:00 2001
+From 1199eb8d3a60d5a6c1b11d8ef1dfb5ba65009a06 Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Fri, 7 Aug 2026 17:03:11 +0300
-Subject: [PATCH] fix: alfasans
+Date: Wed, 16 Sep 2026 15:29:18 +0300
+Subject: [PATCH] feat: updated alfasans
 
 ---
  packages/confirmation/src/vars.css            |  14 +-
@@ -9,13 +9,13 @@ Subject: [PATCH] fix: alfasans
  .../typography/src/title/index.module.css     |   8 -
  packages/typography/src/title/utils.test.ts   |  12 -
  packages/typography/src/title/utils.ts        |  14 -
- packages/vars/src/typography.css              | 282 ++++++++++--------
- 6 files changed, 174 insertions(+), 167 deletions(-)
+ packages/vars/src/typography.css              | 297 +++++++++++-------
+ 6 files changed, 189 insertions(+), 167 deletions(-)
  delete mode 100644 packages/typography/src/title/utils.test.ts
  delete mode 100644 packages/typography/src/title/utils.ts
 
 diff --git a/packages/confirmation/src/vars.css b/packages/confirmation/src/vars.css
-index fcb23e721d..576713dae9 100644
+index a063c57d3a..19d00b0a6f 100644
 --- a/packages/confirmation/src/vars.css
 +++ b/packages/confirmation/src/vars.css
 @@ -6,10 +6,10 @@
@@ -177,7 +177,7 @@ index 5961dc3577..0000000000
 -    return 'semibold';
 -}
 diff --git a/packages/vars/src/typography.css b/packages/vars/src/typography.css
-index f1eaec5c52..1aa4a7ba48 100644
+index f1eaec5c52..231d465363 100644
 --- a/packages/vars/src/typography.css
 +++ b/packages/vars/src/typography.css
 @@ -6,63 +6,71 @@
@@ -640,7 +640,7 @@ index f1eaec5c52..1aa4a7ba48 100644
  }
 
  @define-mixin paragraph_tagline {
-@@ -369,216 +402,229 @@
+@@ -369,216 +402,244 @@
      font-weight: 400;
      letter-spacing: 1.25px;
      text-transform: uppercase;
@@ -836,6 +836,21 @@ index f1eaec5c52..1aa4a7ba48 100644
 -    font-family: var(--font-family-system);
 +    letter-spacing: -0.24px;
 +    font-family: var(--font-family-alfasans);
++}
++
++@define-mixin superapp_headline_24_32_bold {
++    font-size: 24px;
++    line-height: 32px;
++    font-weight: 700;
++    font-family: var(--font-family-alfasans);
++}
++
++@define-mixin superapp_headline_44_52_bold {
++    font-size: 44px;
++    line-height: 52px;
++    font-weight: 700;
++    letter-spacing: -0.32px;
++    font-family: var(--font-family-alfasans);
  }
 
  @define-mixin accent_component {
@@ -920,5 +935,5 @@ index f1eaec5c52..1aa4a7ba48 100644
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
 --
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 
