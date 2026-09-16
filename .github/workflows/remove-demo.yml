@@ -22,8 +22,9 @@ on:
                 default: false
 
 concurrency:
-    group: ${{ format('Remove demo {0}', case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory)) }}
+    group: ${{ format('{0}-{1}', vars.DEMO_DEPLOY_QUEUE, case(github.event_name == 'pull_request', vars.PULL_REQUEST_DEMO_DEPLOY_REPOSITORY, github.repository)) }}
     cancel-in-progress: false
+    queue: max
 
 defaults:
     run:
@@ -78,7 +79,7 @@ jobs:
               id: repository
               uses: core-ds/core-components/.github/actions/parse-repository@master
               with:
-                  repository: ${{ case(github.event_name == 'pull_request', 'core-ds/deploy-core-components', github.repository) }}
+                  repository: ${{ case(github.event_name == 'pull_request', vars.PULL_REQUEST_DEMO_DEPLOY_REPOSITORY, github.repository) }}
 
             - name: Generate app token
               id: generate-token
