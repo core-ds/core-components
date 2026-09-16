@@ -42,8 +42,8 @@
     box-sizing: border-box;
     min-height: 48px;
 
-    &.withBothAddons,
-    &.showStaticContentOnTop {
+    &.withBothAddons.withBothAddons,
+    &.showStaticContentOnTop.showStaticContentOnTop {
         @mixin headline-system-mobile_xsmall;
         align-self: center;
         padding-top: var(--gap-8);
