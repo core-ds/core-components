@@ -21,5 +21,5 @@
 .collapsing {
     height: 0;
     overflow: hidden;
-    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1.25);
+    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1);
 }
