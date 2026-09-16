@@ -31,7 +31,7 @@ on:
                 required: false
 
 concurrency:
-    group: ${{ github.workflow }}
+    group: ${{ github.workflow }}-${{ inputs.deploy-repository }}
     cancel-in-progress: false
     queue: max
 
