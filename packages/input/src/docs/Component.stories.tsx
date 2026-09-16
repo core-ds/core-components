@@ -7,6 +7,9 @@ import { Input } from '@alfalab/core-components-input';
 import { InputMobile } from '@alfalab/core-components-input/mobile';
 import { InputDesktop } from '@alfalab/core-components-input/desktop';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
+import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
+import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 
 const meta: Meta<typeof Input> = {
     title: 'Components/Input',
@@ -47,7 +50,7 @@ export const input: Story = {
                     )}
                     value={text('value', '')}
                     block={boolean('block', false)}
-                    clear={boolean('clear', false)}
+                    clear={select('clear', ['auto', 'always', true, undefined], 'auto')}
                     size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
@@ -99,7 +102,7 @@ export const input_mobile: Story = {
                     )}
                     value={text('value', '')}
                     block={boolean('block', false)}
-                    clear={boolean('clear', false)}
+                    clear={select('clear', ['auto', 'always', true, undefined], 'auto')}
                     size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
@@ -127,6 +130,26 @@ export const input_desktop: Story = {
 
         const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
+        const rightAddons = boolean('rightAddons', false);
+        const multipleRightAddons = rightAddons && boolean('multipleRightAddons', false);
+
+        const renderRightAddons = () => {
+            if (multipleRightAddons) {
+                return (
+                    <>
+                        <StatusBadge size={size === 40 ? 16 : 24} view='neutral-information' />
+                        {size === 40 ? <ChevronDownSIcon /> : <ChevronDownMIcon />}
+                    </>
+                );
+            }
+
+            if (rightAddons) {
+                return <IconComponent />;
+            }
+
+            return undefined;
+        };
+
         return (
             <div
                 style={{
@@ -150,7 +173,7 @@ export const input_desktop: Story = {
                     )}
                     value={text('value', '')}
                     block={boolean('block', false)}
-                    clear={boolean('clear', false)}
+                    clear={select('clear', ['auto', 'always', true, undefined], 'auto')}
                     size={size}
                     colors={colors}
                     disabled={boolean('disabled', false)}
@@ -160,7 +183,7 @@ export const input_desktop: Story = {
                     hint={text('hint', '')}
                     error={text('error', '')}
                     success={boolean('success', false)}
-                    rightAddons={boolean('rightAddons', false) && <IconComponent />}
+                    rightAddons={renderRightAddons()}
                     leftAddons={boolean('leftAddons', false) && <IconComponent />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                     readOnly={boolean('readOnly', false)}

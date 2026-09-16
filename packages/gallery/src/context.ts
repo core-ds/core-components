@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import type SwiperCore from 'swiper';
 
-import { type GalleryImage, type ImageMeta } from './types';
+import { type GalleryCustomButton, type GalleryImage, type ImageMeta } from './types';
 
 export type GalleryContext = {
     view: 'desktop' | 'mobile';
@@ -28,6 +28,7 @@ export type GalleryContext = {
     setCurrentSlideIndex?: (index: number) => void;
     getCurrentImage: () => GalleryImage | undefined;
     getCurrentImageMeta: () => ImageMeta | undefined;
+    customButton?: GalleryCustomButton;
 };
 
 const mockFn = () => undefined;

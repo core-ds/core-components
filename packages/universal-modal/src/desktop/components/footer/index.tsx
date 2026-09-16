@@ -3,11 +3,12 @@ import cn from 'classnames';
 
 import { BaseFooter, type FooterProps } from '../../../components/base-footer';
 import { ModalContext } from '../../../Context';
-import { FOOTER_MEDIUM_BREAKPOINT } from '../../constants';
 import { UniversalModalContext } from '../../context';
 
 import styles from './desktop.module.css';
 import layoutStyles from './layout.module.css';
+
+const FOOTER_MEDIUM_BREAKPOINT = 800;
 
 export interface FooterDesktopProps extends FooterProps {
     /**

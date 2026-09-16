@@ -1,5 +1,22 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.5
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2331](https://github.com/core-ds/core-components/pull/2331)
+
+##### UniversalModal
+
+- Механизм ограничения ширины и высоты переведён с инлайн-вычисления по вьюпорту на статически сгенерированные CSS-классы
+- Оптимизирован расчёт высоты скроллбара
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
 ## 3.2.4
 
 ### Patch Changes

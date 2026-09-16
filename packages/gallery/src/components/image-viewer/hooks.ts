@@ -42,9 +42,10 @@ export const useHandleImageViewer = () => {
 
             const isPlaceholder = Boolean(eventTarget.closest(`.${styles.placeholder}`));
 
-            const isImg = eventTarget.tagName === 'IMG';
+            const isContentArea = Boolean(eventTarget.closest('[data-content-area]'));
 
-            if (!isImg && !isPlaceholder && !isArrow && !isMobile) {
+            // Закрываем галерею только при клике вне элементов контента и только на desktop
+            if (!isPlaceholder && !isArrow && !isContentArea && !isMobile) {
                 onClose();
             }
         },

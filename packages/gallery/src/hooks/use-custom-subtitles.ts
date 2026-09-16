@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import { GalleryContext } from '../context';
 
-const SUBTITLES_ANIMATION_SPEED = 0.5;
+const SUBTITLES_FADE_DURATION_SECONDS = 0.5;
 
 export const useCustomSubtitles = () => {
     const { getCurrentImageMeta } = useContext(GalleryContext);
@@ -15,14 +15,25 @@ export const useCustomSubtitles = () => {
     const player = meta?.player?.current;
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (!player) {
-                return;
-            }
+        if (!player) {
+            return undefined;
+        }
 
-            const textTrack = [...(Array.from(player.textTracks) || [])].find(
-                (track) => track.kind === 'subtitles',
-            );
+        const { textTracks } = player;
+
+        let textTrack: TextTrack | undefined;
+        let hideTimeoutId: ReturnType<typeof setTimeout> | undefined;
+
+        const clearHideTimeout = () => {
+            if (hideTimeoutId !== undefined) {
+                clearTimeout(hideTimeoutId);
+                hideTimeoutId = undefined;
+            }
+        };
+
+        const syncSubtitles = () => {
+            clearHideTimeout();
+
             const activeCue = textTrack?.activeCues?.[0] as VTTCue | undefined;
 
             if (!activeCue?.text) {
@@ -31,16 +42,65 @@ export const useCustomSubtitles = () => {
                 return;
             }
 
-            const isVisible =
-                player?.currentTime >= activeCue.startTime &&
-                player?.currentTime <= activeCue.endTime - SUBTITLES_ANIMATION_SPEED;
+            const fadeStartTime = activeCue.endTime - SUBTITLES_FADE_DURATION_SECONDS;
+            const isVisible = player.currentTime <= fadeStartTime;
 
             setCurrentSub(activeCue.text);
             setShowSub(isVisible);
-        });
+
+            if (!isVisible || player.paused || player.playbackRate <= 0) {
+                return;
+            }
+
+            const timeUntilFadeMs =
+                ((fadeStartTime - player.currentTime) / player.playbackRate) * 1000;
+
+            hideTimeoutId = setTimeout(() => {
+                setShowSub(false);
+            }, timeUntilFadeMs);
+        };
+
+        const connectTextTrack = () => {
+            const nextTextTrack = Array.from(textTracks).find(
+                (track) => track.kind === 'subtitles',
+            );
+
+            if (nextTextTrack === textTrack) {
+                syncSubtitles();
+
+                return;
+            }
+
+            textTrack?.removeEventListener('cuechange', syncSubtitles);
+            textTrack = nextTextTrack;
+            textTrack?.addEventListener('cuechange', syncSubtitles);
+            syncSubtitles();
+        };
+
+        player.addEventListener('play', syncSubtitles);
+        player.addEventListener('playing', syncSubtitles);
+        player.addEventListener('pause', clearHideTimeout);
+        player.addEventListener('waiting', clearHideTimeout);
+        player.addEventListener('seeking', clearHideTimeout);
+        player.addEventListener('seeked', syncSubtitles);
+        player.addEventListener('ratechange', syncSubtitles);
+        textTracks.addEventListener('addtrack', connectTextTrack);
+        textTracks.addEventListener('change', connectTextTrack);
+
+        connectTextTrack();
 
         return () => {
-            clearInterval(intervalId);
+            clearHideTimeout();
+            textTrack?.removeEventListener('cuechange', syncSubtitles);
+            player.removeEventListener('play', syncSubtitles);
+            player.removeEventListener('playing', syncSubtitles);
+            player.removeEventListener('pause', clearHideTimeout);
+            player.removeEventListener('waiting', clearHideTimeout);
+            player.removeEventListener('seeking', clearHideTimeout);
+            player.removeEventListener('seeked', syncSubtitles);
+            player.removeEventListener('ratechange', syncSubtitles);
+            textTracks.removeEventListener('addtrack', connectTextTrack);
+            textTracks.removeEventListener('change', connectTextTrack);
         };
     }, [player]);
 

@@ -1,19 +1,5 @@
 # ROADMAP
 
-## Проработать генерацию пропсов
-
-Сейчас пропсы берутся из компонента, который находится в entry point пакета. Необходимо брать пропсы всех подкомпонентов, так как это тоже API, и агент должен о них знать.
-
-```jsx
-<ArgsTabs
-    components={{
-        'UniversalModal.Header': UniversalModal.Header,
-        'UniversalModal.Content': UniversalModal.Content,
-        'UniversalModal.Footer': UniversalModal.Footer,
-    }}
-/>
-```
-
 ## Синхронизация версий
 
 Цель: MCP-сервер должен отдавать данные для той версии библиотеки, которая установлена в проекте пользователя.

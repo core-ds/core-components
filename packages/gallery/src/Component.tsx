@@ -11,7 +11,7 @@ import { Subtitles } from './components/subtitles';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
-import { type GalleryImage, type ImageMeta } from './types';
+import { type GalleryCustomButton, type GalleryImage, type ImageMeta } from './types';
 
 import styles from './index.module.css';
 
@@ -57,6 +57,11 @@ export type GalleryProps = {
      * Дополнительный класс для попапа
      */
     popupClassName?: string;
+
+    /**
+     * Дополнительная кнопка в шапке галереи
+     */
+    customButton?: GalleryCustomButton;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -75,6 +80,7 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    customButton,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -88,6 +94,7 @@ export const Gallery: FC<GalleryProps> = ({
     const [mutedVideo, setMutedVideo] = useState<boolean>(DEFAULT_MUTED_VIDEO);
     const [playingVideo, setPlayingVideo] = useState<boolean>(DEFAULT_PLAYING_VIDEO);
     const [hideNavigation, setHideNavigation] = useState<boolean>(DEFAULT_HIDE_NAVIGATION);
+    const [swipeY, setSwipeY] = useState<number>(0);
 
     const isDesktop = useIsDesktop();
 
@@ -201,6 +208,12 @@ export const Gallery: FC<GalleryProps> = ({
     }, [uncontrolled, currentSlideIndex, swiper]);
 
     useEffect(() => {
+        if (!open) {
+            setSwipeY(0);
+        }
+    }, [open]);
+
+    useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
 
         return () => {
@@ -209,14 +222,24 @@ export const Gallery: FC<GalleryProps> = ({
     }, [handleKeyDown]);
 
     useEffect(() => {
-        let startY: number;
+        if (!open) {
+            return undefined;
+        }
+
+        let startX = 0;
+        let startY = 0;
+        let lockedDirection: 'horizontal' | 'vertical' | null = null;
+        const directionLockThreshold = 10;
+
         const abortController = new AbortController();
         const { signal } = abortController;
 
         document.addEventListener(
             'touchstart',
             (e) => {
+                startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
+                lockedDirection = null;
             },
             { signal },
         );
@@ -224,13 +247,49 @@ export const Gallery: FC<GalleryProps> = ({
         document.addEventListener(
             'touchmove',
             (e) => {
-                const endY = e.changedTouches[0].clientY;
-                const deltaY = startY - endY;
+                const currentX = e.touches[0].clientX;
+                const currentY = e.touches[0].clientY;
+                const deltaX = currentX - startX;
+                const deltaY = currentY - startY;
 
-                // Если свайп вниз, закрываем галерею
-                if (deltaY < SWIPE_THRESHOLD) {
+                if (!lockedDirection) {
+                    const absX = Math.abs(deltaX);
+                    const absY = Math.abs(deltaY);
+
+                    if (absX > absY && absX > directionLockThreshold) {
+                        lockedDirection = 'horizontal';
+                    } else if (absY > absX && absY > directionLockThreshold) {
+                        lockedDirection = 'vertical';
+                    } else {
+                        return;
+                    }
+                }
+
+                if (lockedDirection === 'horizontal') {
+                    return;
+                }
+
+                if (deltaY <= 0) {
+                    setSwipeY(0);
+
+                    return;
+                }
+
+                setSwipeY(deltaY);
+
+                if (deltaY > SWIPE_THRESHOLD) {
+                    setSwipeY(0);
                     onClose();
                 }
+            },
+            { signal },
+        );
+
+        document.addEventListener(
+            'touchend',
+            () => {
+                lockedDirection = null;
+                setSwipeY(0);
             },
             { signal },
         );
@@ -238,7 +297,7 @@ export const Gallery: FC<GalleryProps> = ({
         return () => {
             abortController.abort();
         };
-    }, [onClose]);
+    }, [onClose, open]);
 
     const singleSlide = images.length === 1;
 
@@ -270,6 +329,7 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        customButton,
     };
 
     return (
@@ -282,6 +342,10 @@ export const Gallery: FC<GalleryProps> = ({
                 onUnmount={onUnmount}
             >
                 <div
+                    data-content-area={true}
+                    style={{
+                        transform: `translateY(${swipeY}px)`,
+                    }}
                     className={cn(styles.container, {
                         [styles.mobile]: !isDesktop,
                     })}

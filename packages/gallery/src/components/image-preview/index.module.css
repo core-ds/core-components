@@ -59,7 +59,7 @@
     background-color: var(--color-static-neutral-100-inverted);
 
     & .active {
-        background-color: var(--color-static-neutral-300-inverted);
+        background-color: var(--color-static-neutral-translucent-100-inverted);
     }
 }
 
@@ -67,7 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-static-neutral-300-inverted);
+    background-color: var(--color-static-neutral-translucent-100-inverted);
     opacity: 0.3;
 
     &.active {

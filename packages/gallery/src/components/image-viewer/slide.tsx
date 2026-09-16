@@ -53,7 +53,7 @@ const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, isVideoVie
     );
 
     return (
-        <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
+        <div className={cn(styles.slide, { [styles.slideLoading]: loading && !isVideoView })}>
             {broken ? <div className={styles.placeholder}>{content}</div> : content}
             <Spinner className={styles.spinner} preset={48} visible={loading} />
         </div>
@@ -135,6 +135,7 @@ export const Slide: FC<SlideProps> = ({
                 onLoad={(event) => handleLoad(event, index)}
                 onError={() => handleLoadError(index)}
                 style={imageStyle}
+                data-content-area='true'
                 data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
             />
         </SlideInner>

@@ -25,6 +25,7 @@ import { getDataTestId, isClient } from '@alfalab/core-components-shared';
 
 import {
     type AnyObject,
+    type OptionProps,
     type OptionShape,
     type OptionsListController,
     type OptionsListProps,
@@ -462,7 +463,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             [flatOptions, setSelectedItems],
         );
 
-        const getOptionProps = (option: OptionShape, index: number) => ({
+        const getOptionProps = (option: OptionShape, index: number): OptionProps => ({
             ...(optionProps as object),
             mobile: view === 'mobile',
             className: cn(optionClassName, {
@@ -490,6 +491,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             highlighted: index === highlightedIndex,
             selected: selectedItems.some(({ key }) => key === option.key),
             dataTestId: getDataTestId(dataTestId, 'option'),
+            optionsListWidth,
         });
 
         useEffect(() => {

@@ -89,6 +89,7 @@
 
         .content {
             flex-grow: 1;
+            align-self: flex-start; /* overrides default stretch behavior */
         }
 
         .list {

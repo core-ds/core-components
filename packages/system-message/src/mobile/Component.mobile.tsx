@@ -7,7 +7,6 @@ import { Graphic } from '../components/graphic';
 import { Subtitle } from '../components/subtitle';
 import { Title } from '../components/title';
 import { type SystemMessageMobileProps } from '../types';
-import { createCompound } from '../utils';
 
 const SystemMessageMobileComponent: React.FC<SystemMessageMobileProps> = ({
     children,
@@ -18,7 +17,13 @@ const SystemMessageMobileComponent: React.FC<SystemMessageMobileProps> = ({
     </SystemMessage>
 );
 
-export const SystemMessageMobile = createCompound(SystemMessageMobileComponent);
+export const SystemMessageMobile = Object.assign(SystemMessageMobileComponent, {
+    Graphic,
+    Title,
+    Subtitle,
+    Caption,
+    Controls,
+});
 
 export {
     SystemMessageMobileComponent as SystemMessageComponentMobile,

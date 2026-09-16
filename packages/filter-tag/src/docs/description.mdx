@@ -653,67 +653,98 @@ render(() => {
 });
 ```
 
-## Состояния
+## Состояния и стили
 
-Взаимодействие с тегом можно ограничить с помощью свойства [disabled]. Блокировать теги с выбранным значением не рекомендуется.
+У тега есть две опции, отвечающие за внешний вид. Взаимодействие с ним можно ограничить с помощью свойства `disabled`. Блокировать теги с выбранным значением не рекомендуется.
 
 ```jsx live
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
+    const [shape, setShape] = React.useState('rectangular');
+    const [view, setView] = React.useState('filled');
+
+    const tagProps = {
+        size: 40,
+        shape,
+        view,
+        disabled,
+    };
 
     const checkedContent = <span>Label: Value</span>;
 
+    const tagBackdropStyle = {
+        display: 'inline-flex',
+        padding: 20,
+        alignItems: 'flex-start',
+        gap: 8,
+        borderRadius: 20,
+        border: '1px solid var(--color-light-neutral-300)',
+        background:
+            view === 'muted'
+                ? 'var(--color-light-base-bg-secondary)'
+                : 'var(--color-light-base-bg-primary)',
+    };
+
     return (
         <Container>
-            <Row align='middle'>
-                <FilterTagDesktop
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={false}
-                    showClear={false}
-                    disabled={disabled}
-                >
+            <div style={tagBackdropStyle}>
+                <FilterTagDesktop {...tagProps} checked={false} showClear={false}>
                     <span>Label</span>
                 </FilterTagDesktop>
-                <Gap size={12} direction='horizontal' />
-                <FilterTagDesktop
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={true}
-                    showClear={false}
-                    disabled={disabled}
-                >
+
+                <FilterTagDesktop {...tagProps} checked={true} showClear={false}>
                     {checkedContent}
                 </FilterTagDesktop>
 
-                <Gap size={12} direction='horizontal' />
-
-                <FilterTagDesktop
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={true}
-                    showArrow={false}
-                    disabled={disabled}
-                >
+                <FilterTagDesktop {...tagProps} checked={true} showArrow={false}>
                     {checkedContent}
                 </FilterTagDesktop>
 
-                <Gap size={12} direction='horizontal' />
-
-                <FilterTagDesktop
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={true}
-                    disabled={disabled}
-                >
+                <FilterTagDesktop {...tagProps} checked={true}>
                     {checkedContent}
                 </FilterTagDesktop>
-            </Row>
+            </div>
+
             <Gap size={24} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={24} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Shape'
+                name='filter-tag-states-shape'
+                onChange={(_, p) => setShape(p.value)}
+                value={shape}
+            >
+                <Radio label='Rectangular' value='rectangular' />
+                <Radio label='Rounded' value='rounded' />
+            </RadioGroup>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='View'
+                name='filter-tag-states-view'
+                onChange={(_, p) => setView(p.value)}
+                value={view}
+            >
+                <Radio label='Filled' value='filled' />
+                <Radio label='Muted' value='muted' />
+            </RadioGroup>
+
+            <Gap size={32} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={20} />
+
             <Switch
                 label='Заблокированное состояние'
                 checked={disabled}
@@ -725,64 +756,86 @@ render(() => {
 //MOBILE
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
+    const [shape, setShape] = React.useState('rectangular');
+    const [view, setView] = React.useState('filled');
+
+    const tagProps = {
+        size: 40,
+        shape,
+        view,
+        disabled,
+    };
 
     const checkedContent = <span>Label: Value</span>;
 
+    const tagBackdropStyle = {
+        display: 'inline-flex',
+        flexDirection: 'column',
+        padding: 20,
+        alignItems: 'flex-start',
+        gap: 24,
+        borderRadius: 20,
+        border: '1px solid var(--color-light-neutral-300)',
+        background:
+            view === 'muted'
+                ? 'var(--color-light-base-bg-secondary)'
+                : 'var(--color-light-base-bg-primary)',
+    };
+
     return (
         <Container>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    gap: 24,
-                }}
-            >
-                <FilterTagMobile
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={false}
-                    showClear={false}
-                    disabled={disabled}
-                >
+            <div style={tagBackdropStyle}>
+                <FilterTagMobile {...tagProps} checked={false} showClear={false}>
                     <span>Label</span>
                 </FilterTagMobile>
 
-                <FilterTagMobile
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={true}
-                    showClear={false}
-                    disabled={disabled}
-                >
+                <FilterTagMobile {...tagProps} checked={true} showClear={false}>
                     {checkedContent}
                 </FilterTagMobile>
 
-                <FilterTagMobile
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={true}
-                    showArrow={false}
-                    disabled={disabled}
-                >
+                <FilterTagMobile {...tagProps} checked={true} showArrow={false}>
                     {checkedContent}
                 </FilterTagMobile>
 
-                <FilterTagMobile
-                    size={40}
-                    view='filled'
-                    shape='rectangular'
-                    checked={true}
-                    disabled={disabled}
-                >
+                <FilterTagMobile {...tagProps} checked={true}>
                     {checkedContent}
                 </FilterTagMobile>
             </div>
 
-            <Gap size={24} />
+            <Gap size={20} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Shape'
+                name='filter-tag-states-shape-mobile'
+                onChange={(_, p) => setShape(p.value)}
+                value={shape}
+            >
+                <Radio label='Rectangular' value='rectangular' />
+                <Radio label='Rounded' value='rounded' />
+            </RadioGroup>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='View'
+                name='filter-tag-states-view-mobile'
+                onChange={(_, p) => setView(p.value)}
+                value={view}
+            >
+                <Radio label='Filled' value='filled' />
+                <Radio label='Muted' value='muted' />
+            </RadioGroup>
+
+            <Gap size={32} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={20} />
+
             <Switch
                 label='Заблокированное состояние'
                 checked={disabled}
@@ -823,10 +876,3 @@ render(() => (
     </Container>
 ));
 ```
-
-## Стиль
-
-Компонент наследует опции компонента [Tag](?path=/docs/tag--docs), отвечающие за внешний вид:
-
-- shape (форма) — овальные или прямоугольные.
-- view (стиль) — залитые или бордерные.

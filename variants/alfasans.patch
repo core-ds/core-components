@@ -1,18 +1,72 @@
-From ddba5738614fd8f9eb3fbe6b74e6240365724e8d Mon Sep 17 00:00:00 2001
+From f1722878265a56cc1311390d00d5e81240257538 Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Tue, 9 Jun 2026 11:51:02 +0300
-Subject: [PATCH] fix: only system alfasans
+Date: Fri, 7 Aug 2026 17:03:11 +0300
+Subject: [PATCH] fix: alfasans
 
 ---
+ packages/confirmation/src/vars.css            |  14 +-
  packages/typography/src/title/component.tsx   |  11 +-
  .../typography/src/title/index.module.css     |   8 -
  packages/typography/src/title/utils.test.ts   |  12 -
  packages/typography/src/title/utils.ts        |  14 -
  packages/vars/src/typography.css              | 282 ++++++++++--------
- 5 files changed, 167 insertions(+), 160 deletions(-)
+ 6 files changed, 174 insertions(+), 167 deletions(-)
  delete mode 100644 packages/typography/src/title/utils.test.ts
  delete mode 100644 packages/typography/src/title/utils.ts
 
+diff --git a/packages/confirmation/src/vars.css b/packages/confirmation/src/vars.css
+index fcb23e721d..576713dae9 100644
+--- a/packages/confirmation/src/vars.css
++++ b/packages/confirmation/src/vars.css
+@@ -6,10 +6,10 @@
+     --confirmation-text-font-size: 16px;
+     --confirmation-text-font-weight: 400;
+     --confirmation-text-line-height: 24px;
+-    --confirmation-text-letter-spacing: normal;
++    --confirmation-text-letter-spacing: -0.24px;
+     --confirmation-text-font-size-mobile: 16px;
+     --confirmation-text-line-height-mobile: 24px;
+-    --confirmation-text-letter-spacing-mobile: normal;
++    --confirmation-text-letter-spacing-mobile: -0.24px;
+     --confirmation-countdown-height: auto;
+
+     @define-mixin _confirmation-text {
+@@ -17,18 +17,18 @@
+         line-height: var(--confirmation-text-line-height);
+         letter-spacing: var(--confirmation-text-letter-spacing);
+         font-weight: var(--confirmation-text-font-weight);
+-        font-family: var(--font-family-system);
++        font-family: var(--font-family-alfasans);
+         color: var(--confirmation-text-color);
+     }
+
+     /* === Desktop === */
+
+     /* HEADER */
+-    --confirmation-header-font-family: var(--font-family-system);
++    --confirmation-header-font-family: var(--font-family-alfasans);
+     --confirmation-header-font-size: 22px;
+     --confirmation-header-font-weight: 700;
+     --confirmation-header-line-height: 26px;
+-    --confirmation-header-letter-spacing: normal;
++    --confirmation-header-letter-spacing: 0.2px;
+     --confirmation-header-color: var(--color-light-text-primary);
+
+     /* INITIAL */
+@@ -65,11 +65,11 @@
+     /* === Mobile === */
+
+     /* HEADER */
+-    --confirmation-header-font-family-mobile: var(--font-family-system);
++    --confirmation-header-font-family-mobile: var(--font-family-alfasans);
+     --confirmation-header-font-size-mobile: 20px;
+     --confirmation-header-font-weight-mobile: 600;
+     --confirmation-header-line-height-mobile: 28px;
+-    --confirmation-header-line-letter-spacing-mobile: normal;
++    --confirmation-header-line-letter-spacing-mobile: -0.15px;
+     --confirmation-header-color-mobile: var(--color-light-text-primary);
+
+     /* INITIAL */
 diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
 index 8f1ff6ac59..420012c85b 100644
 --- a/packages/typography/src/title/component.tsx

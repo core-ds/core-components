@@ -9,6 +9,7 @@ import { extractComponentDescription } from './extract-component-description.mjs
 import { generateDemo } from './generate-demo.mjs';
 import { generateDoc } from './generate-doc.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
+import { getCompoundSubComponents } from './get-compound-sub-components.mjs';
 import { parseChangelog } from './parse-changelog.mjs';
 
 const { dirname } = import.meta;
@@ -60,7 +61,25 @@ function main() {
 
         console.log('[+]', file);
 
-        acc.push({ file, sourceName, componentName });
+        acc.push({ file, sourceName, componentName, packageName: folderName });
+
+        const subComponents = getCompoundSubComponents(declaration);
+
+        Object.entries(subComponents).forEach(([key, sub]) => {
+            acc.push({
+                file: sub.file,
+                sourceName: sub.sourceName,
+                componentName: `${componentName}.${key}`,
+                /**
+                 * Подкомпонент может физически жить в другом пакете (например
+                 * PureCell.Comment переиспользует @alfalab/core-components-comment) —
+                 * packageName нужен именно родительский, а не выведенный из пути файла
+                 * подкомпонента, иначе запись потеряется мимо своего родителя в docsMap
+                 */
+                packageName: folderName,
+                subKey: key,
+            });
+        });
 
         return acc;
     }, []);
@@ -72,7 +91,7 @@ function main() {
     const versionDir = createIndexDir();
 
     docs.forEach((doc) => {
-        const { packageName, displayName, props, filePath } = doc;
+        const { packageName, displayName, props, subComponents, filePath } = doc;
 
         const srcDir = getSrcDir(filePath);
 
@@ -92,6 +111,7 @@ function main() {
                     displayName,
                     description,
                     props,
+                    subComponents,
                     demos,
                     changelog,
                 },

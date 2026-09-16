@@ -18,6 +18,8 @@
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-select": ["../select/src"],
             "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
             "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
@@ -28,6 +30,7 @@
         { "path": "../popover/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../select/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

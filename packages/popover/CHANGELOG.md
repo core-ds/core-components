@@ -1,5 +1,17 @@
 # @alfalab/core-components-popover
 
+## 8.1.2
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
 ## 8.1.1
 
 ### Patch Changes

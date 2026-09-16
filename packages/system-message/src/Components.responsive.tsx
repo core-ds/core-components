@@ -9,7 +9,6 @@ import { Subtitle } from './components/subtitle';
 import { Title } from './components/title';
 import { SystemMessage } from './Component';
 import { type SystemMessageResponsiveProps } from './types';
-import { createCompound } from './utils';
 
 const SystemMessageResponsiveComponent: FC<SystemMessageResponsiveProps> = ({
     breakpoint,
@@ -27,7 +26,13 @@ const SystemMessageResponsiveComponent: FC<SystemMessageResponsiveProps> = ({
     );
 };
 
-export const SystemMessageResponsive = createCompound(SystemMessageResponsiveComponent);
+export const SystemMessageResponsive = Object.assign(SystemMessageResponsiveComponent, {
+    Graphic,
+    Title,
+    Subtitle,
+    Caption,
+    Controls,
+});
 
 export {
     SystemMessageResponsiveComponent as SystemMessageComponent,

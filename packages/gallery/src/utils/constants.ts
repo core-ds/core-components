@@ -9,4 +9,5 @@ export const TestIds = {
     NAVIGATION_BAR: 'navigation-bar',
     MUTE_BUTTON: 'mute-button',
     UNMUTE_BUTTON: 'unmute-button',
+    CUSTOM_BUTTON: 'custom-button',
 };

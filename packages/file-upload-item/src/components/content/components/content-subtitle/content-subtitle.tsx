@@ -18,8 +18,17 @@ import { ContentError } from '../content-error';
 import styles from './content-subtitle.module.css';
 
 export const ContentSubtitle = () => {
-    const { uploadStatus, subtitle, uploadDate, size, truncate, showRestore, error, progressBar } =
-        useFileUploadItemContext();
+    const {
+        uploadStatus,
+        subtitle,
+        subtitleColor,
+        uploadDate,
+        size,
+        truncate,
+        showRestore,
+        error,
+        progressBar,
+    } = useFileUploadItemContext();
 
     const shouldShownError = isErrorStatus(uploadStatus) || isError(error);
     const showMeta =
@@ -47,7 +56,7 @@ export const ContentSubtitle = () => {
     if (showMeta) {
         return (
             <div>
-                {size && (
+                {size !== undefined && size !== '' && (
                     <TypographyText className={styles.size} view='primary-small' color='secondary'>
                         {humanFileSize(size)}
                     </TypographyText>
@@ -76,7 +85,7 @@ export const ContentSubtitle = () => {
                 [styles.truncate]: truncate,
             })}
             view='primary-small'
-            color='secondary'
+            color={subtitleColor}
         >
             {subtitle}
         </TypographyText>

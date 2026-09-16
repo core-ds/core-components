@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { FormControl } from '@alfalab/core-components-form-control';
 import { LockIcon } from '@alfalab/core-components-input/shared';
 import { useIsDesktop } from '@alfalab/core-components-mq';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
@@ -74,7 +74,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
-        const [textareaNode, setTextareaNode] = useState<HTMLTextAreaElement | null>(null);
+        const [textareaNodeRef, textareaNode] = useRefAsState<HTMLTextAreaElement>(null);
         const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
@@ -180,7 +180,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange: handleTextareaChange,
             value: uncontrolled ? stateValue : value,
             rows,
-            ref: mergeRefs([ref, setTextareaNode]),
+            ref: mergeRefs([ref, textareaNodeRef]),
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
         };
