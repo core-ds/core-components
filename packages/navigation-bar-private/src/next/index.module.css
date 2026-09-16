@@ -44,10 +44,11 @@
 
     &.withBothAddons,
     &.showStaticContentOnTop {
-        @mixin action_component;
+        @mixin headline-system-mobile_xsmall;
         align-self: center;
-        padding-top: var(--gap-4);
-        padding-bottom: var(--gap-4);
+        padding-top: var(--gap-8);
+        padding-bottom: var(--gap-8);
+        min-height: 48px;
 
         & > .children,
         & > .title .titleTextContent {
