@@ -217,7 +217,7 @@ export const mobile: Story = {
 
         const open = boolean('open', false);
         const header = boolean('header', false);
-        const headerTitle = text('header.title', 'Заголовок');
+        const headerTitle = text('header.title', '');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerMainAlign = select(
             'header.mainAlign',
@@ -241,8 +241,6 @@ export const mobile: Story = {
         const headerRightAddons = boolean('header.rightAddons', false);
         const headerBigRightAddons = headerRightAddons && boolean('header.bigRightAddons', false);
 
-        const shouldRenderHeader = header && Boolean(headerTitle);
-
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
                 <Button type='button' size={40} onClick={() => setOpen(true)}>
@@ -253,7 +251,7 @@ export const mobile: Story = {
                     appearance={appearance}
                     onClose={() => setOpen(false)}
                 >
-                    {shouldRenderHeader && (
+                    {header && (
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
