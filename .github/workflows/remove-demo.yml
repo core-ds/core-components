@@ -22,8 +22,9 @@ on:
                 default: false
 
 concurrency:
-    group: ${{ format('dispatch-deploy-demo-{0}', case(github.event_name == 'pull_request', vars.PULL_REQUEST_DEMO_DEPLOY_REPOSITORY, github.repository)) }}
+    group: ${{ format('{0}-{1}', vars.DEMO_DEPLOY_QUEUE, case(github.event_name == 'pull_request', vars.PULL_REQUEST_DEMO_DEPLOY_REPOSITORY, github.repository)) }}
     cancel-in-progress: false
+    queue: max
 
 defaults:
     run:
