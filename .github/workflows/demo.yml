@@ -35,7 +35,7 @@ on:
                 type: string
 
 concurrency:
-    group: ${{ format('{0}-{1}', github.workflow, case(inputs.version == '', github.ref, inputs.version)) }}
+    group: ${{ format('demo-{0}', case(inputs.version == '', github.sha, inputs.version)) }}
     cancel-in-progress: true
 
 defaults:
