@@ -1,10 +1,10 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 .header {
-    padding: var(--gap-8) var(--gap-4);
+    padding: var(--gap-4) var(--gap-12) var(--gap-8);
 
     & .content {
-        padding: 0 var(--gap-12);
+        padding: 9px var(--gap-12) var(--gap-8);
         min-height: 40px;
         justify-content: center;
     }

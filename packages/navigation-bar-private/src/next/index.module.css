@@ -69,6 +69,10 @@
     & .titleTextContent {
         word-break: break-word;
     }
+
+    &:not(:last-child) {
+        margin-bottom: var(--gap-2);
+    }
 }
 
 .subtitle {
