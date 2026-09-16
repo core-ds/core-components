@@ -144,7 +144,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
                         'header.hasCloser': true,
@@ -161,7 +160,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
                         'header.hasCloser': true,
@@ -180,7 +178,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
                         'header.hasCloser': true,
@@ -198,7 +195,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
                         'header.hasCloser': true,
@@ -218,7 +214,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasCloser': true,
@@ -234,7 +229,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasCloser': true,
@@ -252,7 +246,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasCloser': true,
@@ -269,7 +262,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasCloser': true,
@@ -288,7 +280,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
@@ -304,7 +295,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
@@ -322,7 +312,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.hasBackButton': true,
@@ -339,7 +328,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                     },
@@ -354,7 +342,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -371,7 +358,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.rightAddons': true,
@@ -387,7 +373,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'absolute',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -405,7 +390,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -424,7 +408,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.rightAddons': true,
@@ -442,7 +425,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.rightAddons': true,
@@ -461,7 +443,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -479,7 +460,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -497,7 +477,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.rightAddons': true,
@@ -514,7 +493,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -531,7 +509,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -549,7 +526,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -566,7 +542,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.rightAddons': true,
@@ -583,7 +558,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.rightAddons': true,
@@ -599,7 +573,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,
@@ -615,7 +588,6 @@ describe('Mobile | addons position', () => {
                     knobs: {
                         open: true,
                         header: true,
-                        titleSize: 'compact',
                         'header.mainAlign': 'relative',
                         'header.title': 'Заголовок',
                         'header.leftAddons': true,

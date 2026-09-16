@@ -218,7 +218,6 @@ export const mobile: Story = {
         const open = boolean('open', false);
         const header = boolean('header', false);
         const headerTitle = text('header.title', '');
-        const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerMainAlign = select(
             'header.mainAlign',
             ['left', 'relative', 'absolute'],
@@ -256,7 +255,6 @@ export const mobile: Story = {
                             sticky={stickyHeader}
                             title={headerTitle}
                             subtitle={text('header.subtitle', '')}
-                            titleSize={titleSize}
                             mainAlign={headerMainAlign}
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}

@@ -1,6 +1,9 @@
 import { type NavigationBarPrivateProps } from '../types';
 
-export type NavigationBarPrivateNextProps = Omit<NavigationBarPrivateProps, 'align'> & {
+export type NavigationBarPrivateNextProps = Omit<
+    NavigationBarPrivateProps,
+    'align' | 'titleSize'
+> & {
     /**
      * Режим формулы компенсации отступов главной строки шапки
      * (см. `getUniversalModalTitleMargin`). Также определяет визуальное
