@@ -218,11 +218,7 @@ export const mobile: Story = {
         const open = boolean('open', false);
         const header = boolean('header', false);
         const headerTitle = text('header.title', '');
-        const headerMode = select(
-            'header.headerMode',
-            ['left', 'relative', 'absolute'],
-            'left',
-        );
+        const headerMode = select('header.headerMode', ['left', 'relative', 'absolute'], 'left');
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select(
