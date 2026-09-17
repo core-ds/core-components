@@ -12,6 +12,27 @@
         background-position: center;
         background-size: cover;
     }
+
+    padding: var(--gap-4) var(--gap-12) var(--gap-8);
+
+    & .closeButtonWrapperClassName {
+        & .closeButtonClassName {
+            color: var(--color-light-neutral-translucent-1300);
+        }
+    }
+
+    & .backButtonClassName {
+        margin: unset;
+
+        & .backButtonIconClassName {
+            width: 40px;
+            height: 40px;
+
+            & svg > path {
+                fill: var(--color-light-neutral-translucent-1300);
+            }
+        }
+    }
 }
 
 .mainLine {
@@ -40,7 +61,8 @@
     flex-grow: 1;
     align-self: baseline;
     box-sizing: border-box;
-    min-height: 48px;
+    min-height: 40px;
+    padding: 9px var(--gap-12) var(--gap-8);
 
     &.withBothAddons.withBothAddons,
     &.showStaticContentOnTop.showStaticContentOnTop {
@@ -103,6 +125,8 @@
 }
 
 .bottomAddons {
+    @mixin headline-system-mobile_small;
+    padding: var(--gap-6) var(--gap-16);
     pointer-events: all;
 }
 

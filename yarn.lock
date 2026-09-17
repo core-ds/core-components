@@ -1111,6 +1111,7 @@ __metadata:
     "@alfalab/core-components-typography": "npm:^6.0.11"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph-26": "npm:^1.26.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -2219,7 +2220,7 @@ __metadata:
     "@alfalab/core-components-navigation-bar-private": "npm:^2.0.14"
     "@alfalab/core-components-scrollbar": "npm:^5.0.6"
     "@alfalab/core-components-shared": "npm:^2.2.3"
-    "@alfalab/icons-glyph-26": "npm:^1.1.0"
+    "@alfalab/icons-glyph-26": "npm:1.26.0"
     "@types/react-transition-group": "npm:^4.4.12"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -2410,6 +2411,16 @@ __metadata:
   peerDependencies:
     react: ">=16.14.0 || >= 17.0.2 || >= 18.0.0"
   checksum: 10c0/205e5ec9c2b839993a3b35e188ea14af0ae8645c7fc415e9c99eebd9de7ec4a15312da457b59458fab79e50676b0759b0c35ecfb8c50eb7bc2eb3f14f5ccd6ca
+  languageName: node
+  linkType: hard
+
+"@alfalab/icons-glyph-26@npm:1.26.0, @alfalab/icons-glyph-26@npm:^1.26.0":
+  version: 1.26.0
+  resolution: "@alfalab/icons-glyph-26@npm:1.26.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/64e020e509dd41a880ba8122a0f31c71776e3973a4a6e4cf3bcec2c547c27d4dfc82a5324d3fe011621ea5c23f5e0310c86cbe36f8b0454a245bfb047bc48dfb
   languageName: node
   linkType: hard
 

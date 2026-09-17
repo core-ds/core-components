@@ -5,6 +5,7 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { ChevronLeftLine24Icon } from '@alfalab/icons-glyph-26/ChevronLeftLine24Icon';
 
 import { BackArrowAddon } from '../components/back-arrow-addon';
 import { Closer } from '../components/closer';
@@ -158,11 +159,16 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 <div className={cn(styles.addon, backButtonClassName)}>
                     <BackArrowAddon
                         data-test-id={getDataTestId(dataTestId, 'back-button')}
+                        text={null}
                         {...backButtonProps}
+                        className={cn(styles.backButtonClassName, backButtonProps?.className)}
                         colors={colors}
                         textOpacity={textOpacity}
                         view={view}
                         onClick={onBack}
+                        icon={ChevronLeftLine24Icon}
+                        size={40}
+                        iconWrapperClassName={styles.backButtonIconClassName}
                     />
                 </div>
             );
@@ -217,6 +223,9 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                     dataTestId={getDataTestId(dataTestId, 'closer')}
                     onClose={onClose}
                     {...closerProps}
+                    className={cn(styles.closeButtonWrapperClassName, closerProps.className)}
+                    size={40}
+                    buttonClassName={styles.closeButtonClassName}
                 />
             </div>
         );
