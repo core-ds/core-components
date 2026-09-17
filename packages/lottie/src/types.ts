@@ -11,8 +11,12 @@ export type LottieDataState = 'ok' | 'error' | 'loading';
 
 export interface LottieProps {
     /**
-     * Воспроизведение анимации
+     * Воспроизведение анимации по-умолчанию
      * @default true
+     */
+    defaultPlay?: boolean;
+    /**
+     * Воспроизведение анимации
      */
     play?: boolean;
     /**

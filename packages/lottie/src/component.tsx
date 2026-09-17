@@ -9,7 +9,8 @@ import { useLottie } from './react-lottie';
 import styles from './index.module.css';
 
 export const Lottie: FC<LottieProps> = ({
-    play = true,
+    defaultPlay = true,
+    play: playFromProps,
     onPlayChange,
     speed = 1,
     startFrame,
@@ -26,6 +27,8 @@ export const Lottie: FC<LottieProps> = ({
     className,
     onComplete,
 }) => {
+    const [play, setPlay] = useState(playFromProps ?? defaultPlay);
+    const playControlled = typeof playFromProps === 'boolean';
     const maxIterations = Math.max(
         Math.max(iterations, 0) === 0 ? Number.POSITIVE_INFINITY : iterations,
         1,
@@ -43,6 +46,16 @@ export const Lottie: FC<LottieProps> = ({
     const onIterationChangeRef = useRef(onIterationChange);
     const onCompleteRef = useRef(onComplete);
     const [iteration, setIteration] = useState(0);
+
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        if (playControlled && play !== playFromProps) {
+            setPlay(playFromProps);
+
+            if (playFromProps && iteration >= maxIterations) {
+                setIteration(0);
+            }
+        }
+    }, [playControlled, play, playFromProps, iteration, maxIterations]);
 
     // refs
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -111,11 +124,15 @@ export const Lottie: FC<LottieProps> = ({
                 }
             }
         } else {
-            setIteration(0);
-            onPlayChangeRef.current?.(false);
+            const nextPlay = false;
+
+            onPlayChangeRef.current?.(nextPlay);
+            if (!playControlled) {
+                setPlay(nextPlay);
+            }
             onCompleteRef?.current?.();
         }
-    }, [animation, dataState, maxIterations, play, iteration]);
+    }, [animation, dataState, maxIterations, play, iteration, playControlled]);
 
     // handle complete
     useLayoutEffect_SAFE_FOR_SSR(
