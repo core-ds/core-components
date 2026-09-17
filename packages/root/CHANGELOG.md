@@ -1,5 +1,54 @@
 # @alfalab/core-components
 
+## 50.31.0
+
+### Minor Changes
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2368](https://github.com/core-ds/core-components/pull/2368)
+
+##### Vars
+
+- Добавлены новые палитры:
+    - `colors-superapp.css`
+    - `colors-superapp-dark.css`
+
+- Добавлены новые стили типографики `Alfa Interface Sans` (доступны в `alfasans`-варианте пакета):
+    - `superapp_headline_24_32_bold`
+    - `superapp_headline_44_52_bold`
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2369](https://github.com/core-ds/core-components/pull/2369)
+
+##### Vars
+
+- Добавлен набор теней superapp `shadows-superapp.css` из ui-primitives: `--shadow-default` и `--shadow-promo`
+
+### Patch Changes
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2362](https://github.com/core-ds/core-components/pull/2362)
+
+##### Select
+
+- Исправлен цвет `ellipsis` текста
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-vars@11.3.0
+- @alfalab/core-components-select@19.2.8
+- @alfalab/core-components-custom-picker-button@4.1.20
+- @alfalab/core-components-input-autocomplete@14.0.26
+- @alfalab/core-components-international-phone-input@4.0.26
+- @alfalab/core-components-intl-phone-input@11.0.26
+- @alfalab/core-components-picker-button@13.1.4
+- @alfalab/core-components-select-with-tags@10.1.21
+- @alfalab/core-components-table@4.0.27
+- @alfalab/core-components-tabs@10.1.1
+
 ## 50.30.0
 
 ### Minor Changes

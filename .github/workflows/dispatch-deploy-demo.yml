@@ -18,9 +18,8 @@ on:
                 default: default
             artifact-name:
                 description: Artifact name
-                required: false
+                required: true
                 type: string
-                default: build
             deploy-repository:
                 description: Repository
                 required: false
@@ -31,7 +30,7 @@ on:
                 required: false
 
 concurrency:
-    group: ${{ github.workflow }}-${{ inputs.deploy-repository }}
+    group: ${{ format('{0}-{1}', vars.DEMO_DEPLOY_QUEUE, case(inputs.deploy-repository == '', github.repository, inputs.deploy-repository)) }}
     cancel-in-progress: false
     queue: max
 

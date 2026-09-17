@@ -43,5 +43,5 @@ jobs:
         with:
             version: ${{ needs.pull-request.outputs.sha }}
             directory: ${{ needs.pull-request.outputs.number }}
-            deploy-repository: 'core-ds/deploy-core-components'
+            deploy-repository: ${{ vars.PULL_REQUEST_DEMO_DEPLOY_REPOSITORY }}
             pull-request-number: ${{ needs.pull-request.outputs.number }}

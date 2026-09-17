@@ -35,7 +35,7 @@ on:
                 type: string
 
 concurrency:
-    group: ${{ format('Demo {0}', case(inputs.version == '', github.ref, inputs.version)) }}
+    group: ${{ format('demo-{0}', case(inputs.version == '', github.sha, inputs.version)) }}
     cancel-in-progress: true
 
 defaults:
@@ -45,7 +45,6 @@ defaults:
 jobs:
     params:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
-        secrets: inherit
         with:
             version: ${{ case(github.event_name == 'workflow_dispatch' && inputs.version == '', github.ref, inputs.version) }}
             directory: ${{ inputs.directory }}
