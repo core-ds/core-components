@@ -3,6 +3,4 @@
 '@alfalab/core-components-lottie': major
 ---
 
-##### Lottie
-
-- Добавлен компонент `Lottie`
+- Добавлен новый компонент `Lottie`
