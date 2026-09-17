@@ -15,9 +15,9 @@ export type NavigationBarPrivateNextProps = Omit<
      * - `absolute` — математическое центрирование строки целиком, аддоны
      *   не учитываются;
      * - `left` — заглушка без какой-либо компенсации отступов (аналог
-     *   `align='left'` в старом `NavigationBarPrivate`), текст заголовка
-     *   всегда выровнен по левому краю.
+     *   `align='left'` в старом `NavigationBarPrivate` (не next)), текст
+     *   заголовка всегда выровнен по левому краю.
      * @default relative
      */
-    mainAlign?: 'left' | 'relative' | 'absolute';
+    headerMode?: 'left' | 'relative' | 'absolute';
 };

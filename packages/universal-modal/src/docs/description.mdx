@@ -10,7 +10,7 @@ render(() => {
         sticky,
         hasCloser: false,
         hasBackButton: false,
-        mainAlign: 'left',
+        headerMode: 'left',
         title: 'Title',
     };
 
@@ -64,35 +64,35 @@ render(() => {
     }
 
     if (preset === '11') {
-        headerProps.mainAlign = 'relative';
+        headerProps.headerMode = 'relative';
         headerProps.hasCloser = true;
     }
 
     if (preset === '12') {
-        headerProps.mainAlign = 'relative';
+        headerProps.headerMode = 'relative';
         headerProps.hasCloser = true;
         headerProps.subtitle = 'Subtitle';
     }
 
     if (preset === '13') {
-        headerProps.mainAlign = 'relative';
+        headerProps.headerMode = 'relative';
         headerProps.hasBackButton = true;
     }
 
     if (preset === '14') {
-        headerProps.mainAlign = 'relative';
+        headerProps.headerMode = 'relative';
         headerProps.hasBackButton = true;
         headerProps.subtitle = 'Subtitle';
     }
 
     if (preset === '15') {
-        headerProps.mainAlign = 'relative';
+        headerProps.headerMode = 'relative';
         headerProps.hasBackButton = true;
         headerProps.hasCloser = true;
     }
 
     if (preset === '16') {
-        headerProps.mainAlign = 'relative';
+        headerProps.headerMode = 'relative';
         headerProps.hasBackButton = true;
         headerProps.hasCloser = true;
         headerProps.subtitle = 'Subtitle';

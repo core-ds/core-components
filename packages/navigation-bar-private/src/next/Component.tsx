@@ -36,7 +36,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             bottomAddons,
             bottomAddonsClassName,
             children,
-            mainAlign = 'relative',
+            headerMode = 'relative',
             trim = true,
             title,
             subtitle,
@@ -61,7 +61,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         },
         ref,
     ) => {
-        const textAlign = mainAlign === 'left' ? 'left' : 'center';
+        const textAlign = headerMode === 'left' ? 'left' : 'center';
 
         const [scrollTop, setScrollTop] = useState(0);
         const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
@@ -82,7 +82,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const hasContent = Boolean(title || children);
         const withAnimation = Boolean(isMobile && hasLeftPart && sticky);
         const showContentOnBot =
-            hasContent && hasLeftPart && (mainAlign === 'left' || withAnimation);
+            hasContent && hasLeftPart && (headerMode === 'left' || withAnimation);
         const showContentOnTop = hasContent && !showContentOnBot;
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
         const showStaticContentOnBot = !withAnimation && showContentOnBot;
@@ -94,7 +94,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         useLayoutEffect_SAFE_FOR_SSR(() => {
             const { contentMargin, mainLineMargin: nextMainLineMargin } =
                 getUniversalModalTitleMargin({
-                    mainAlign,
+                    headerMode,
                     hasBackButton: Boolean(hasBackButton),
                     hasCloser: Boolean(hasCloser),
                     hasLeftAddons: Boolean(leftAddons),
@@ -117,7 +117,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 return isStateChanged ? next : prev;
             });
         }, [
-            mainAlign,
+            headerMode,
             showStaticContentOnTop,
             showAnimatedContentOnTop,
             leftAddons,
@@ -271,7 +271,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
 
                     {showStaticContentOnTop &&
                         renderContent({
-                            ...(mainAlign !== 'left' && {
+                            ...(headerMode !== 'left' && {
                                 extraClassName: styles.showStaticContentOnTop,
                             }),
                             style: {

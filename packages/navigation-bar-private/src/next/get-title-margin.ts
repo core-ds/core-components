@@ -1,5 +1,5 @@
 export type TitleMarginParams = {
-    mainAlign: 'left' | 'relative' | 'absolute';
+    headerMode: 'left' | 'relative' | 'absolute';
     hasBackButton: boolean;
     hasCloser: boolean;
     hasLeftAddons: boolean;
@@ -25,14 +25,14 @@ const CONTROL_WIDTH = 48;
  * - `mainLineMargin` — фиксированный отступ 48px у всей строки шапки
  *   целиком, для случаев, где одной компенсации заголовка недостаточно.
  *
- * ## Заглушка (`mainAlign === 'left'`)
+ * ## Заглушка (`headerMode === 'left'`)
  *
  * Не производит никаких вычислений — всегда возвращает нулевой
  * `contentMargin` и пустой `mainLineMargin`, независимо от наличия
  * back/closer/addons. Аналог поведения `align='left'` в старом
- * `NavigationBarPrivate`.
+ * `NavigationBarPrivate` (не next).
  *
- * ## Абсолютное центрирование (`mainAlign === 'absolute'`)
+ * ## Абсолютное центрирование (`headerMode === 'absolute'`)
  *
  * `contentMargin` не меняется. Асимметрию поправляет только сдвиг всей
  * строки — если есть только "назад" ИЛИ только closer (не оба и не ни
@@ -46,14 +46,14 @@ const CONTROL_WIDTH = 48;
  * |  –   |   ✓    | `left: 48`           |
  * |  –   |   –    | —                    |
  *
- * ## Относительное центрирование (`mainAlign === 'relative'`)
+ * ## Относительное центрирование (`headerMode === 'relative'`)
  *
  * Базовый расчёт: `contentMargin = |rightAddonsWidth - leftAddonsWidth|`,
  * добавляется с более лёгкой стороны. Плюс два частных случая:
  *
  * 1. **Один control-элемент, аддоны с обеих сторон.** contentMargin не
  *    нужен (аддоны уже уравновешивают друг друга), лишний control
- *    компенсируется сдвигом всей строки на 48px — как в `mainAlign='absolute'`.
+ *    компенсируется сдвигом всей строки на 48px — как в `headerMode='absolute'`.
  *
  * 2. **Один control-элемент, аддон только на противоположной стороне.**
  *    К базовой разнице доплюсовывается `CONTROL_WIDTH` (реальная фиксированная
@@ -89,7 +89,7 @@ const CONTROL_WIDTH = 48;
  */
 // eslint-disable-next-line complexity
 export const getUniversalModalTitleMargin = ({
-    mainAlign,
+    headerMode,
     hasBackButton,
     hasCloser,
     hasLeftAddons,
@@ -97,14 +97,14 @@ export const getUniversalModalTitleMargin = ({
     leftAddonsWidth,
     rightAddonsWidth,
 }: TitleMarginParams): TitleMarginResult => {
-    if (mainAlign === 'left') {
+    if (headerMode === 'left') {
         return { contentMargin: { left: 0, right: 0 }, mainLineMargin: {} };
     }
 
     const hasOnlyBackButton = hasBackButton && !hasCloser;
     const hasOnlyCloser = hasCloser && !hasBackButton;
 
-    if (mainAlign === 'absolute') {
+    if (headerMode === 'absolute') {
         return {
             contentMargin: { left: 0, right: 0 },
             mainLineMargin: {
