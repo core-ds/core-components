@@ -41,7 +41,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
 
     const { bottomAddons, closerIcon } = restProps;
 
-    const { headerHighlighted, hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
+    const { hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
         title,
         children,
         bottomAddons,
@@ -56,7 +56,6 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
             sticky={sticky}
             title={title}
             className={cn(styles.header, className, {
-                [styles.highlighted]: sticky && headerHighlighted && hasContent,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
             })}
