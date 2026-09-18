@@ -38,7 +38,7 @@ const enableIosFallback = () => {
 const dataTestId = 'test-id';
 const fallbackTestId = `${dataTestId}-fallback`;
 
-type AdapterProps = HapticBaseProps & {
+type Props = HapticBaseProps & {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClick?: (event: any) => void;
     disabled?: boolean;
@@ -48,24 +48,24 @@ type AdapterProps = HapticBaseProps & {
     [attribute: string]: unknown;
 };
 
-type AdapterCase = {
+type Case = {
     name: string;
-    Component: ComponentType<AdapterProps>;
+    Component: ComponentType<Props>;
     tagName: 'BUTTON' | 'A' | 'INPUT';
     /** Нативные атрибуты для проверки проброса. */
     nativeProps: Record<string, string>;
     /** Базовые пропсы для снапшота. */
-    baseProps: AdapterProps;
+    baseProps: Props;
     /** Учитывает ли адаптер `disabled` при решении о fallback. */
     supportsDisabled: boolean;
     /** Оборачивает ли элемент и overlay в `span.wrapper`. */
     wrapped: boolean;
 };
 
-const adapters: AdapterCase[] = [
+const adapters: Case[] = [
     {
         name: 'HapticButton',
-        Component: HapticButton as ComponentType<AdapterProps>,
+        Component: HapticButton as ComponentType<Props>,
         tagName: 'BUTTON',
         nativeProps: { type: 'submit', name: 'action' },
         baseProps: { children: 'Кнопка' },
@@ -74,7 +74,7 @@ const adapters: AdapterCase[] = [
     },
     {
         name: 'HapticA',
-        Component: HapticA as ComponentType<AdapterProps>,
+        Component: HapticA as ComponentType<Props>,
         tagName: 'A',
         nativeProps: { href: 'https://example.com', target: '_blank', rel: 'noopener' },
         baseProps: { href: 'https://example.com', children: 'Ссылка' },
@@ -83,7 +83,7 @@ const adapters: AdapterCase[] = [
     },
     {
         name: 'HapticInput',
-        Component: HapticInput as ComponentType<AdapterProps>,
+        Component: HapticInput as ComponentType<Props>,
         tagName: 'INPUT',
         nativeProps: { type: 'checkbox', name: 'agree' },
         baseProps: { type: 'checkbox' },

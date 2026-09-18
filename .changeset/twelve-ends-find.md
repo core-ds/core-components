@@ -4,4 +4,4 @@
 '@alfalab/core-components': minor
 ---
 
-- Добавлена базовая инфраструктура `haptic feedback`.
+- Добавлены новые компоненты `HapticButton`, `HapticA` и `HapticInput`.

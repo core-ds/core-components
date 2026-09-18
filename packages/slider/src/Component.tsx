@@ -1,6 +1,8 @@
-import React, { type FC, useEffect, useMemo, useRef } from 'react';
+import React, { type FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 import noUiSlider, { type API } from 'nouislider';
+
+import { useHaptic } from '@alfalab/core-components-haptics';
 
 import { useSliderMarkers } from './hooks';
 import { type SliderProps } from './types';
@@ -37,12 +39,16 @@ export const Slider: FC<SliderProps> = ({
     onEnd,
     dataTestId,
     snap = false,
+    'data-haptic-preset': dataHapticPreset,
 }) => {
     const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
+    const lastHapticValue = useRef(`${value}:${valueTo ?? ''}`);
+
     const hasValueTo = valueTo !== undefined;
     const { values } = pips || {};
     const hasCustomDotsSlider = dotsSlider === 'custom';
+    const { trigger } = useHaptic({ preset: dataHapticPreset ?? 'selection' });
 
     const shouldHidePipsDots = hasCustomDotsSlider && !showPipsDots;
     const shouldCreatePipsConfig = pips || customDots?.length;
@@ -61,6 +67,20 @@ export const Slider: FC<SliderProps> = ({
         return createPipsConfig(configParams);
     }, [values, pips, dotsSlider, customDots, pipsLabel]);
 
+    const handleChange = useCallback(
+        (payload: { value: number; valueTo?: number }) => {
+            const key = `${payload.value}:${payload.valueTo ?? ''}`;
+
+            if (!disabled && key !== lastHapticValue.current) {
+                lastHapticValue.current = key;
+                trigger();
+            }
+
+            onChange?.(payload);
+        },
+        [disabled, onChange, trigger],
+    );
+
     const { updateMarkersState, createSlideHandler } = useSliderMarkers({
         sliderRef,
         hasValueTo,
@@ -68,7 +88,7 @@ export const Slider: FC<SliderProps> = ({
         valueTo,
         min,
         max,
-        onChange,
+        onChange: handleChange,
     });
 
     useEffect(() => {
@@ -133,6 +153,8 @@ export const Slider: FC<SliderProps> = ({
 
         // Пропускаем обновление, если происходит взаимодействие со слайдером
         if (slider && busyRef.current === false) {
+            lastHapticValue.current = `${value}:${valueTo ?? ''}`;
+
             if (valueTo) {
                 slider.set([value, valueTo], false);
             } else {

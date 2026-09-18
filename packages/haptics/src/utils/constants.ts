@@ -22,6 +22,7 @@ export const MAX_PHASE_MS = 1000;
 /** Сила вибрации по умолчанию. */
 export const DEFAULT_INTENSITY = 0.5;
 
+/** Количество повторов кастомного пресета по умолчанию. */
 export const DEFAULT_REPEAT = 1;
 
 /** Предел количества повторов кастомного пресета. */
