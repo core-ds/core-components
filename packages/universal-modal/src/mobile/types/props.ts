@@ -24,5 +24,6 @@ export interface UniversalModalMobileProps
                 | 'container'
                 | 'disableAutoFocus'
                 | 'zIndex'
+                | 'scrollLock'
             >
         > {}

@@ -955,9 +955,7 @@ describe('UniversalModal', () => {
                     expect(modal.className).toEqual(
                         expect.stringContaining(customWrapperClassName),
                     );
-                    expect(modal.className).toEqual(
-                        expect.stringContaining('baseModalContainer'),
-                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
                 });
 
                 it('should keep internal classes when wrapperClassName is not passed', () => {
@@ -971,9 +969,7 @@ describe('UniversalModal', () => {
 
                     const modal = screen.getByTestId(testIds.modal);
 
-                    expect(modal.className).toEqual(
-                        expect.stringContaining('baseModalContainer'),
-                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
                     expect(modal.className).not.toEqual(
                         expect.stringContaining(customWrapperClassName),
                     );
@@ -996,9 +992,7 @@ describe('UniversalModal', () => {
                     expect(modal.className).toEqual(
                         expect.stringContaining(customWrapperClassName),
                     );
-                    expect(modal.className).toEqual(
-                        expect.stringContaining('baseModalContainer'),
-                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
                 });
 
                 it('should keep internal classes when wrapperClassName is not passed', () => {
@@ -1012,9 +1006,7 @@ describe('UniversalModal', () => {
 
                     const modal = screen.getByTestId(testIds.modal);
 
-                    expect(modal.className).toEqual(
-                        expect.stringContaining('baseModalContainer'),
-                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
                     expect(modal.className).not.toEqual(
                         expect.stringContaining(customWrapperClassName),
                     );
@@ -1037,21 +1029,21 @@ describe('UniversalModal', () => {
                     expect(modal.className).toEqual(
                         expect.stringContaining(customWrapperClassName),
                     );
-                    expect(modal.className).toEqual(
-                        expect.stringContaining('baseModalContainer'),
-                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
                 });
 
                 it('should keep internal classes when wrapperClassName is not passed', () => {
                     render(
-                        <UniversalModalDesktop dataTestId={dti} open={true} horizontalAlign='end' />,
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='end'
+                        />,
                     );
 
                     const modal = screen.getByTestId(testIds.modal);
 
-                    expect(modal.className).toEqual(
-                        expect.stringContaining('baseModalContainer'),
-                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
                     expect(modal.className).not.toEqual(
                         expect.stringContaining(customWrapperClassName),
                     );
@@ -1083,6 +1075,56 @@ describe('UniversalModal', () => {
                     expect.stringContaining(customWrapperClassName),
                 );
             });
+        });
+    });
+
+    describe('mobile scrollLock prop tests', () => {
+        let savedBodyStyle: CSSStyleDeclaration;
+
+        beforeAll(() => {
+            savedBodyStyle = document.body.style;
+        });
+
+        beforeEach(() => {
+            // eslint-disable-next-line
+            // @ts-ignore
+            document.body.setAttribute('style', savedBodyStyle);
+        });
+
+        it('should use legacy overflow lock when scrollLock prop is not passed', async () => {
+            const { rerender } = render(<UniversalModalMobile open={false} />);
+
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<UniversalModalMobile open={true} />);
+
+            expect(document.body.style.overflow).toBe('hidden');
+
+            rerender(<UniversalModalMobile open={false} />);
+
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
+
+        it('should bypass legacy overflow lock when scrollLock prop is true (delegated to react-remove-scroll)', () => {
+            const { rerender } = render(<UniversalModalMobile open={false} scrollLock={true} />);
+
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<UniversalModalMobile open={true} scrollLock={true} />);
+
+            expect(document.body.style.overflow).toBe('');
+        });
+
+        it('should bypass legacy overflow lock when scrollLock prop is false (scroll lock disabled)', () => {
+            const { rerender } = render(<UniversalModalMobile open={false} scrollLock={false} />);
+
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<UniversalModalMobile open={true} scrollLock={false} />);
+
+            expect(document.body.style.overflow).toBe('');
         });
     });
 });
