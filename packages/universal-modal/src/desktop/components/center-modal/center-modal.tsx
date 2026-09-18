@@ -36,6 +36,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
+        wrapperClassName,
         ...restProps
     } = props;
 
@@ -63,7 +64,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
             scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(styles.baseModalContainer, {
+            wrapperClassName={cn(styles.baseModalContainer, wrapperClassName, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',

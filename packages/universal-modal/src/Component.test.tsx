@@ -1125,4 +1125,290 @@ describe('UniversalModal', () => {
             });
         });
     });
+
+    describe('zIndex tests', () => {
+        const dti = 'modal-dti';
+        const testIds = getUniversalModalTestIds(dti);
+        const customZIndex = 1234;
+        // Значение по умолчанию из stackingOrder.MODAL в @alfalab/core-components-stack-context,
+        const defaultZIndex = 100;
+
+        describe('desktop', () => {
+            it('should apply default zIndex (BaseModal stackingOrder.MODAL) to the wrapper when zIndex is not passed', () => {
+                render(<UniversalModalDesktop dataTestId={dti} open={true} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(defaultZIndex));
+            });
+
+            it('should apply custom zIndex to the wrapper', () => {
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true} zIndex={customZIndex} />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+
+            it('should apply custom zIndex when rendered as CenterModal (horizontalAlign="center")', () => {
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        horizontalAlign='center'
+                        zIndex={customZIndex}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+
+            it('should apply custom zIndex when rendered as SideModal (horizontalAlign="start")', () => {
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        horizontalAlign='start'
+                        zIndex={customZIndex}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+
+            it('should apply custom zIndex when rendered as SideModal (horizontalAlign="end")', () => {
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        horizontalAlign='end'
+                        zIndex={customZIndex}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+        });
+
+        describe('mobile', () => {
+            it('should apply default zIndex (BaseModal stackingOrder.MODAL) to the wrapper when zIndex is not passed', () => {
+                render(<UniversalModalMobile dataTestId={dti} open={true} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(defaultZIndex));
+            });
+
+            it('should apply custom zIndex to the wrapper', () => {
+                render(<UniversalModalMobile dataTestId={dti} open={true} zIndex={customZIndex} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+        });
+    });
+
+    describe('wrapperClassName tests', () => {
+        const dti = 'modal-dti';
+        const testIds = getUniversalModalTestIds(dti);
+        const customWrapperClassName = 'custom-wrapper-class';
+
+        describe('desktop', () => {
+            describe('CenterModal (horizontalAlign="center")', () => {
+                it('should apply custom wrapperClassName together with internal classes', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='center'
+                            wrapperClassName={customWrapperClassName}
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
+                });
+
+                it('should keep internal classes when wrapperClassName is not passed', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='center'
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
+                    expect(modal.className).not.toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                });
+            });
+
+            describe('SideModal (horizontalAlign="start")', () => {
+                it('should apply custom wrapperClassName together with internal classes', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='start'
+                            wrapperClassName={customWrapperClassName}
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
+                });
+
+                it('should keep internal classes when wrapperClassName is not passed', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='start'
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
+                    expect(modal.className).not.toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                });
+            });
+
+            describe('SideModal (horizontalAlign="end")', () => {
+                it('should apply custom wrapperClassName together with internal classes', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='end'
+                            wrapperClassName={customWrapperClassName}
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
+                });
+
+                it('should keep internal classes when wrapperClassName is not passed', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='end'
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(expect.stringContaining('baseModalContainer'));
+                    expect(modal.className).not.toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                });
+            });
+        });
+
+        describe('mobile', () => {
+            it('should apply custom wrapperClassName to the wrapper', () => {
+                render(
+                    <UniversalModalMobile
+                        dataTestId={dti}
+                        open={true}
+                        wrapperClassName={customWrapperClassName}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.className).toEqual(expect.stringContaining(customWrapperClassName));
+            });
+
+            it('should not have custom wrapperClassName when it is not passed', () => {
+                render(<UniversalModalMobile dataTestId={dti} open={true} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.className).not.toEqual(
+                    expect.stringContaining(customWrapperClassName),
+                );
+            });
+        });
+    });
+
+    describe('mobile scrollLock prop tests', () => {
+        let savedBodyStyle: CSSStyleDeclaration;
+
+        beforeAll(() => {
+            savedBodyStyle = document.body.style;
+        });
+
+        beforeEach(() => {
+            // eslint-disable-next-line
+            // @ts-ignore
+            document.body.setAttribute('style', savedBodyStyle);
+        });
+
+        it('should use legacy overflow lock when scrollLock prop is not passed', async () => {
+            const { rerender } = render(<UniversalModalMobile open={false} />);
+
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<UniversalModalMobile open={true} />);
+
+            expect(document.body.style.overflow).toBe('hidden');
+
+            rerender(<UniversalModalMobile open={false} />);
+
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
+
+        it('should bypass legacy overflow lock when scrollLock prop is true (delegated to react-remove-scroll)', () => {
+            const { rerender } = render(<UniversalModalMobile open={false} scrollLock={true} />);
+
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<UniversalModalMobile open={true} scrollLock={true} />);
+
+            expect(document.body.style.overflow).toBe('');
+        });
+
+        it('should bypass legacy overflow lock when scrollLock prop is false (scroll lock disabled)', () => {
+            const { rerender } = render(<UniversalModalMobile open={false} scrollLock={false} />);
+
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<UniversalModalMobile open={true} scrollLock={false} />);
+
+            expect(document.body.style.overflow).toBe('');
+        });
+    });
 });

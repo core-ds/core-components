@@ -30,6 +30,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
+        wrapperClassName,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
@@ -58,7 +59,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
             scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
+            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, wrapperClassName, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
