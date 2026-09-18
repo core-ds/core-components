@@ -932,4 +932,157 @@ describe('UniversalModal', () => {
             });
         });
     });
+
+    describe('wrapperClassName tests', () => {
+        const dti = 'modal-dti';
+        const testIds = getUniversalModalTestIds(dti);
+        const customWrapperClassName = 'custom-wrapper-class';
+
+        describe('desktop', () => {
+            describe('CenterModal (horizontalAlign="center")', () => {
+                it('should apply custom wrapperClassName together with internal classes', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='center'
+                            wrapperClassName={customWrapperClassName}
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                    expect(modal.className).toEqual(
+                        expect.stringContaining('baseModalContainer'),
+                    );
+                });
+
+                it('should keep internal classes when wrapperClassName is not passed', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='center'
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining('baseModalContainer'),
+                    );
+                    expect(modal.className).not.toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                });
+            });
+
+            describe('SideModal (horizontalAlign="start")', () => {
+                it('should apply custom wrapperClassName together with internal classes', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='start'
+                            wrapperClassName={customWrapperClassName}
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                    expect(modal.className).toEqual(
+                        expect.stringContaining('baseModalContainer'),
+                    );
+                });
+
+                it('should keep internal classes when wrapperClassName is not passed', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='start'
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining('baseModalContainer'),
+                    );
+                    expect(modal.className).not.toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                });
+            });
+
+            describe('SideModal (horizontalAlign="end")', () => {
+                it('should apply custom wrapperClassName together with internal classes', () => {
+                    render(
+                        <UniversalModalDesktop
+                            dataTestId={dti}
+                            open={true}
+                            horizontalAlign='end'
+                            wrapperClassName={customWrapperClassName}
+                        />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                    expect(modal.className).toEqual(
+                        expect.stringContaining('baseModalContainer'),
+                    );
+                });
+
+                it('should keep internal classes when wrapperClassName is not passed', () => {
+                    render(
+                        <UniversalModalDesktop dataTestId={dti} open={true} horizontalAlign='end' />,
+                    );
+
+                    const modal = screen.getByTestId(testIds.modal);
+
+                    expect(modal.className).toEqual(
+                        expect.stringContaining('baseModalContainer'),
+                    );
+                    expect(modal.className).not.toEqual(
+                        expect.stringContaining(customWrapperClassName),
+                    );
+                });
+            });
+        });
+
+        describe('mobile', () => {
+            it('should apply custom wrapperClassName to the wrapper', () => {
+                render(
+                    <UniversalModalMobile
+                        dataTestId={dti}
+                        open={true}
+                        wrapperClassName={customWrapperClassName}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.className).toEqual(expect.stringContaining(customWrapperClassName));
+            });
+
+            it('should not have custom wrapperClassName when it is not passed', () => {
+                render(<UniversalModalMobile dataTestId={dti} open={true} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.className).not.toEqual(
+                    expect.stringContaining(customWrapperClassName),
+                );
+            });
+        });
+    });
 });
