@@ -1,0 +1,1 @@
+export { HapticA } from './Component';
