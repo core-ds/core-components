@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-side-panel",
-    "version": "7.1.1",
+    "version": "7.1.2",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -13,8 +13,8 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^7.1.8",
-        "@alfalab/core-components-drawer": "^7.0.10",
+        "@alfalab/core-components-base-modal": "^7.2.0",
+        "@alfalab/core-components-drawer": "^7.0.11",
         "@alfalab/core-components-mq": "^6.0.7",
         "@alfalab/core-components-navigation-bar-private": "^2.0.14",
         "@alfalab/core-components-shared": "^2.2.3",
