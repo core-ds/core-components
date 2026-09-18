@@ -337,6 +337,10 @@ exports[`Snapshots tests should display opened correctly 4`] = `
               class="wrapper"
             >
               <div
+                aria-hidden="true"
+                class="satProbe"
+              />
+              <div
                 class="component component sheet"
                 style="height: unset; max-height: 744px;"
               >
@@ -850,6 +854,10 @@ exports[`Snapshots tests should display opened correctly 6`] = `
             <div
               class="wrapper"
             >
+              <div
+                aria-hidden="true"
+                class="satProbe"
+              />
               <div
                 class="component component sheet"
                 style="height: unset; max-height: 744px;"
