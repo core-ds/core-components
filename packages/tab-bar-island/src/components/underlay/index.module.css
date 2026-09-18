@@ -19,19 +19,20 @@
         content: '';
         display: block;
         position: absolute;
-        height: var(--tab-bar-island-border-width);
+        border-top: var(--tab-bar-island-border-width) solid transparent;
         right: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
         left: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
-        background: linear-gradient(
-            95deg,
-            var(--tab-bar-island-border-color-from),
-            var(--tab-bar-island-border-color-to)
-        );
+        border-image: radial-gradient(
+                var(--tab-bar-island-border-color-from),
+                var(--tab-bar-island-border-color-to) 75%
+            )
+            1;
+        border-radius: unset;
     }
 }
 
 .border {
-    width: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
+    width: min(calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width)), 50%);
     overflow: hidden;
 
     &,
@@ -52,7 +53,7 @@
 
         &:before {
             left: 0;
-            border: var(--tab-bar-island-border-width) solid var(--tab-bar-island-border-color-from);
+            border: var(--tab-bar-island-border-width) solid var(--tab-bar-island-border-color-to);
             border-top-left-radius: var(--tab-bar-island-border-radius);
             border-bottom-left-radius: var(--tab-bar-island-border-radius);
         }

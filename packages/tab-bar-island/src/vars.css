@@ -1,4 +1,5 @@
 @import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/colors-monochrome.css';
 
 :root {
     --tab-bar-island-tab-icon-size: 24px;
@@ -6,13 +7,13 @@
     --tab-bar-island-tab-default-size: 92px;
     --tab-bar-island-tab-max-size: 120px;
     --tab-bar-island-border-radius: 40px;
-    --tab-bar-island-background: rgba(255, 255, 255, 0.56);
+    --tab-bar-island-background: var(--color-light-monochrome-white-56);
     --tab-bar-island-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
     --tab-bar-island-tab-color: var(--color-light-text-secondary);
     --tab-bar-island-tab-active-color: var(--color-light-accent-secondary);
-    --tab-bar-island-tab-tracker-background-color: var(--color-light-neutral-translucent-200);
+    --tab-bar-island-tab-tracker-background-color: var(--color-light-neutral-translucent-100);
     --tab-bar-island-backdrop-filter: blur(5px);
     --tab-bar-island-border-width: 1px;
-    --tab-bar-island-border-color-from: transparent;
-    --tab-bar-island-border-color-to: var(--color-light-neutral-translucent-700-inverted);
+    --tab-bar-island-border-color-from: var(--color-static-monochrome-white-10);
+    --tab-bar-island-border-color-to: var(--color-static-monochrome-white-48);
 }
