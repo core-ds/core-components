@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, type MutableRefObject, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -61,7 +61,8 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             dataTestId={dataTestId}
             ref={ref}
             componentRef={componentRef}
-            scrollHandler='content'
+            scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
+            scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
             wrapperClassName={cn(styles.baseModalContainer, wrapperClassName, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',

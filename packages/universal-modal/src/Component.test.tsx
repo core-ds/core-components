@@ -1,5 +1,5 @@
 import React, { useContext, ContextType, useEffect, useRef, useState } from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
@@ -214,204 +214,488 @@ describe('UniversalModal', () => {
         });
     });
 
-    describe('desktop context tests', () => {
-        const dti = 'modal-dti';
+    describe('context tests', () => {
+        // jsdom не считает реальный layout, поэтому геометрию скролла задаём вручную
+        const mockScrollGeometry = (
+            node: HTMLDivElement,
+            geometry: { scrollHeight: number; clientHeight: number; scrollTop?: number },
+        ) => {
+            const { scrollHeight, clientHeight, scrollTop = 0 } = geometry;
 
-        it.each([
-            { field: 'hasHeader', expected: false },
-            { field: 'hasFooter', expected: false },
-        ])('context.$field should be $expected', ({ field, expected }) => {
-            let contextValues: ContextType<typeof ModalContext>;
-            type Key = keyof typeof contextValues;
+            Object.defineProperty(node, 'scrollHeight', {
+                value: scrollHeight,
+                configurable: true,
+            });
+            Object.defineProperty(node, 'clientHeight', {
+                value: clientHeight,
+                configurable: true,
+            });
+            Object.defineProperty(node, 'offsetHeight', {
+                value: clientHeight,
+                configurable: true,
+            });
+            Object.defineProperty(node, 'scrollTop', {
+                value: scrollTop,
+                configurable: true,
+                writable: true,
+            });
+        };
 
-            const Child = () => {
-                contextValues = useContext(ModalContext);
-                return <div>Child</div>;
-            };
+        describe('hasHeader / hasFooter', () => {
+            const dti = 'modal-dti';
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti}>
+            it.each([
+                { field: 'hasHeader', expected: false },
+                { field: 'hasFooter', expected: false },
+            ])('context.$field should be $expected', ({ field, expected }) => {
+                let contextValues: ContextType<typeof ModalContext>;
+                type Key = keyof typeof contextValues;
+
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
+                        <UniversalModalDesktop.Content dataTestId={dti}>
+                            <Child />
+                        </UniversalModalDesktop.Content>
+                    </UniversalModalDesktop>,
+                );
+
+                expect(contextValues![field as Key]).toBe(expected);
+            });
+
+            it.each([
+                { field: 'hasHeader', expected: true },
+                { field: 'hasFooter', expected: false },
+            ])('context.$field should be $expected', ({ field, expected }) => {
+                let contextValues: ContextType<typeof ModalContext>;
+                type Key = keyof typeof contextValues;
+
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
+                        <UniversalModalDesktop.Header dataTestId={dti} />
+                        <UniversalModalDesktop.Content dataTestId={dti}>
+                            <Child />
+                        </UniversalModalDesktop.Content>
+                    </UniversalModalDesktop>,
+                );
+
+                expect(contextValues![field as Key]).toBe(expected);
+            });
+
+            it.each([
+                { field: 'hasHeader', expected: false },
+                { field: 'hasFooter', expected: true },
+            ])('context.$field should be $expected', ({ field, expected }) => {
+                let contextValues: ContextType<typeof ModalContext>;
+                type Key = keyof typeof contextValues;
+
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
+                        <UniversalModalDesktop.Content dataTestId={dti}>
+                            <Child />
+                        </UniversalModalDesktop.Content>
+                        <UniversalModalDesktop.Footer dataTestId={dti} />
+                    </UniversalModalDesktop>,
+                );
+
+                expect(contextValues![field as Key]).toBe(expected);
+            });
+
+            it.each([
+                { field: 'hasHeader', expected: true },
+                { field: 'hasFooter', expected: true },
+            ])('context.$field should be $expected', ({ field, expected }) => {
+                let contextValues: ContextType<typeof ModalContext>;
+                type Key = keyof typeof contextValues;
+
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
+                        <UniversalModalDesktop.Header dataTestId={dti} />
+                        <UniversalModalDesktop.Content dataTestId={dti}>
+                            <Child />
+                        </UniversalModalDesktop.Content>
+                        <UniversalModalDesktop.Footer dataTestId={dti} />
+                    </UniversalModalDesktop>,
+                );
+
+                expect(contextValues![field as Key]).toBe(expected);
+            });
+        });
+
+        describe('headerHighlighted / footerHighlighted (context setters)', () => {
+            const dti = 'modal-dti';
+            const testIds = getUniversalModalTestIds(dti);
+
+            it.each([
+                { field: 'headerHighlighted', expected: false },
+                { field: 'footerHighlighted', expected: false },
+            ])('context.$field should be $expected', ({ field, expected }) => {
+                let contextValues: ContextType<typeof ModalContext>;
+                type Key = keyof typeof contextValues;
+
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
                         <Child />
-                    </UniversalModalDesktop.Content>
-                </UniversalModalDesktop>,
-            );
+                    </UniversalModalDesktop>,
+                );
 
-            expect(contextValues![field as Key]).toBe(expected);
-        });
+                expect(contextValues![field as Key]).toBe(expected);
+            });
 
-        it.each([
-            { field: 'hasHeader', expected: true },
-            { field: 'hasFooter', expected: false },
-        ])('context.$field should be $expected', ({ field, expected }) => {
-            let contextValues: ContextType<typeof ModalContext>;
-            type Key = keyof typeof contextValues;
+            it.each([
+                { field: 'headerHighlighted', expected: true },
+                { field: 'footerHighlighted', expected: true },
+            ])('context.$field should be $expected', ({ field, expected }) => {
+                let contextValues: ContextType<typeof ModalContext>;
+                type Key = keyof typeof contextValues;
 
-            const Child = () => {
-                contextValues = useContext(ModalContext);
-                return <div>Child</div>;
-            };
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti}>
+                    useEffect(() => {
+                        contextValues.setHeaderHighlighted(true);
+                        contextValues.setFooterHighlighted(true);
+                    }, []);
+
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
                         <Child />
-                    </UniversalModalDesktop.Content>
-                </UniversalModalDesktop>,
-            );
+                    </UniversalModalDesktop>,
+                );
 
-            expect(contextValues![field as Key]).toBe(expected);
+                expect(contextValues![field as Key]).toBe(expected);
+            });
+
+            it('should highlight header', () => {
+                const Child = () => {
+                    const { setHeaderHighlighted } = useContext(ModalContext);
+
+                    useEffect(() => {
+                        setHeaderHighlighted(true);
+                    }, []);
+
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
+                        <UniversalModalDesktop.Header dataTestId={dti} sticky={true}>
+                            <Child />
+                        </UniversalModalDesktop.Header>
+                    </UniversalModalDesktop>,
+                );
+
+                const header = screen.queryByTestId(testIds.header);
+
+                expect(header).toHaveClass('highlighted');
+            });
+
+            it('should highlight footer', () => {
+                const Child = () => {
+                    const { setFooterHighlighted } = useContext(ModalContext);
+
+                    useEffect(() => {
+                        setFooterHighlighted(true);
+                    }, []);
+
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true}>
+                        <UniversalModalDesktop.Footer dataTestId={dti} sticky={true}>
+                            <Child />
+                        </UniversalModalDesktop.Footer>
+                    </UniversalModalDesktop>,
+                );
+
+                const footer = screen.queryByTestId(testIds.footer);
+
+                expect(footer).toHaveClass('highlighted');
+            });
         });
 
-        it.each([
-            { field: 'hasHeader', expected: false },
-            { field: 'hasFooter', expected: true },
-        ])('context.$field should be $expected', ({ field, expected }) => {
-            let contextValues: ContextType<typeof ModalContext>;
-            type Key = keyof typeof contextValues;
+        // hasScroll обновляется через ResizeObserver, поэтому мокаем его и вызываем колбэк вручную
+        describe('hasScroll', () => {
+            const dti = 'modal-dti';
 
-            const Child = () => {
-                contextValues = useContext(ModalContext);
-                return <div>Child</div>;
+            let originalResizeObserver: typeof ResizeObserver;
+            let resizeCallbacks: ResizeObserverCallback[];
+
+            beforeEach(() => {
+                originalResizeObserver = global.ResizeObserver;
+                resizeCallbacks = [];
+
+                global.ResizeObserver = jest.fn().mockImplementation((callback) => {
+                    resizeCallbacks.push(callback);
+
+                    return {
+                        observe: jest.fn(),
+                        unobserve: jest.fn(),
+                        disconnect: jest.fn(),
+                    };
+                }) as unknown as typeof ResizeObserver;
+
+                jest.useFakeTimers();
+            });
+
+            afterEach(() => {
+                global.ResizeObserver = originalResizeObserver;
+                jest.useRealTimers();
+            });
+
+            const triggerResizeObservers = () => {
+                act(() => {
+                    resizeCallbacks.forEach((callback) =>
+                        callback([] as unknown as ResizeObserverEntry[], {} as ResizeObserver),
+                    );
+                });
             };
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti}>
-                        <Child />
-                    </UniversalModalDesktop.Content>
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
+            const renderScrollableModal = () => {
+                const scrollableContainerRef = React.createRef<HTMLDivElement>();
+                let contextValues: ContextType<typeof ModalContext>;
 
-            expect(contextValues![field as Key]).toBe(expected);
+                const Child = () => {
+                    contextValues = useContext(ModalContext);
+                    return <div>Child</div>;
+                };
+
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        scrollableContainerRef={scrollableContainerRef}
+                    >
+                        <UniversalModalDesktop.Content dataTestId={dti}>
+                            <Child />
+                        </UniversalModalDesktop.Content>
+                    </UniversalModalDesktop>,
+                );
+
+                // ждём завершения анимации открытия модалки
+                act(() => {
+                    jest.advanceTimersByTime(250);
+                });
+
+                return { scrollableContainerRef, getContext: () => contextValues };
+            };
+
+            it('should be true when content overflows the scrollable container', () => {
+                const { scrollableContainerRef, getContext } = renderScrollableModal();
+
+                mockScrollGeometry(scrollableContainerRef.current!, {
+                    scrollHeight: 1000,
+                    clientHeight: 400,
+                });
+
+                triggerResizeObservers();
+
+                expect(getContext().hasScroll).toBe(true);
+            });
+
+            it('should be false when content fits the scrollable container', () => {
+                const { scrollableContainerRef, getContext } = renderScrollableModal();
+
+                mockScrollGeometry(scrollableContainerRef.current!, {
+                    scrollHeight: 400,
+                    clientHeight: 400,
+                });
+
+                triggerResizeObservers();
+
+                expect(getContext().hasScroll).toBe(false);
+            });
         });
 
-        it.each([
-            { field: 'hasHeader', expected: true },
-            { field: 'hasFooter', expected: true },
-        ])('context.$field should be $expected', ({ field, expected }) => {
-            let contextValues: ContextType<typeof ModalContext>;
-            type Key = keyof typeof contextValues;
+        // проверяем итоговый CSS-класс, а не сам факт вызова сеттера контекста
+        describe('header/footer highlight on real scroll', () => {
+            const dti = 'modal-dti';
+            const testIds = getUniversalModalTestIds(dti);
 
-            const Child = () => {
-                contextValues = useContext(ModalContext);
-                return <div>Child</div>;
+            beforeEach(() => {
+                jest.useFakeTimers();
+            });
+
+            afterEach(() => {
+                jest.useRealTimers();
+            });
+
+            const renderScrollableModal = () => {
+                const scrollableContainerRef = React.createRef<HTMLDivElement>();
+
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        scrollableContainerRef={scrollableContainerRef}
+                    >
+                        <UniversalModalDesktop.Header dataTestId={dti} sticky={true}>
+                            Header
+                        </UniversalModalDesktop.Header>
+                        <UniversalModalDesktop.Content dataTestId={dti}>
+                            Content
+                        </UniversalModalDesktop.Content>
+                        <UniversalModalDesktop.Footer dataTestId={dti} sticky={true}>
+                            Footer
+                        </UniversalModalDesktop.Footer>
+                    </UniversalModalDesktop>,
+                );
+
+                act(() => {
+                    jest.advanceTimersByTime(250);
+                });
+
+                return scrollableContainerRef;
             };
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti}>
-                        <Child />
-                    </UniversalModalDesktop.Content>
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
+            const scrollTo = (node: HTMLDivElement, scrollTop: number) => {
+                mockScrollGeometry(node, { scrollHeight: 1000, clientHeight: 400, scrollTop });
 
-            expect(contextValues![field as Key]).toBe(expected);
+                act(() => {
+                    fireEvent.scroll(node);
+                });
+            };
+
+            it('should not highlight header, but should highlight footer at the top', () => {
+                const scrollableContainerRef = renderScrollableModal();
+
+                scrollTo(scrollableContainerRef.current!, 0);
+
+                expect(screen.queryByTestId(testIds.header)).not.toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).toHaveClass('highlighted');
+            });
+
+            it('should highlight both header and footer in the middle', () => {
+                const scrollableContainerRef = renderScrollableModal();
+
+                scrollTo(scrollableContainerRef.current!, 300);
+
+                expect(screen.queryByTestId(testIds.header)).toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).toHaveClass('highlighted');
+            });
+
+            it('should highlight header, but not footer at the bottom', () => {
+                const scrollableContainerRef = renderScrollableModal();
+
+                // контент долистан до конца
+                scrollTo(scrollableContainerRef.current!, 600);
+
+                expect(screen.queryByTestId(testIds.header)).toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).not.toHaveClass('highlighted');
+            });
         });
 
-        it.each([
-            { field: 'headerHighlighted', expected: false },
-            { field: 'footerHighlighted', expected: false },
-        ])('context.$field should be $expected', ({ field, expected }) => {
-            let contextValues: ContextType<typeof ModalContext>;
-            type Key = keyof typeof contextValues;
+        // проверяем дефолт scrollContainerFillsViewport=true: модалка занимает весь экран и не занимает
+        describe('header/footer highlight on real scroll (mobile, scrollContainerFillsViewport default)', () => {
+            const dti = 'modal-dti';
+            const testIds = getUniversalModalTestIds(dti);
 
-            const Child = () => {
-                contextValues = useContext(ModalContext);
-                return <div>Child</div>;
+            let originalInnerHeight: number;
+
+            beforeEach(() => {
+                jest.useFakeTimers();
+                originalInnerHeight = window.innerHeight;
+                Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true });
+            });
+
+            afterEach(() => {
+                jest.useRealTimers();
+                Object.defineProperty(window, 'innerHeight', {
+                    value: originalInnerHeight,
+                    configurable: true,
+                });
+            });
+
+            const renderScrollableModal = (rect: { top: number; bottom: number }) => {
+                render(
+                    <UniversalModalMobile dataTestId={dti} open={true}>
+                        <UniversalModalMobile.Header dataTestId={dti} sticky={true}>
+                            Header
+                        </UniversalModalMobile.Header>
+                        <UniversalModalMobile.Content dataTestId={dti}>
+                            Content
+                        </UniversalModalMobile.Content>
+                        <UniversalModalMobile.Footer dataTestId={dti} sticky={true}>
+                            Footer
+                        </UniversalModalMobile.Footer>
+                    </UniversalModalMobile>,
+                );
+
+                act(() => {
+                    jest.advanceTimersByTime(250);
+                });
+
+                const componentNode = screen
+                    .getByTestId(testIds.modal)
+                    .querySelector<HTMLDivElement>('.component')!;
+
+                componentNode.getBoundingClientRect = () =>
+                    ({ top: rect.top, bottom: rect.bottom }) as DOMRect;
+
+                return componentNode;
             };
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <Child />
-                </UniversalModalDesktop>,
-            );
+            const scrollTo = (node: HTMLDivElement, scrollTop: number) => {
+                mockScrollGeometry(node, { scrollHeight: 1000, clientHeight: 400, scrollTop });
 
-            expect(contextValues![field as Key]).toBe(expected);
-        });
-
-        it.each([
-            { field: 'headerHighlighted', expected: true },
-            { field: 'footerHighlighted', expected: true },
-        ])('context.$field should be $expected', ({ field, expected }) => {
-            let contextValues: ContextType<typeof ModalContext>;
-            type Key = keyof typeof contextValues;
-
-            const Child = () => {
-                contextValues = useContext(ModalContext);
-
-                useEffect(() => {
-                    contextValues.setHeaderHighlighted(true);
-                    contextValues.setFooterHighlighted(true);
-                }, []);
-
-                return <div>Child</div>;
+                act(() => {
+                    fireEvent.scroll(node);
+                });
             };
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <Child />
-                </UniversalModalDesktop>,
-            );
+            it('should follow scroll position when the box touches viewport edges (realistic mobile)', () => {
+                const componentNode = renderScrollableModal({ top: 0, bottom: 800 });
 
-            expect(contextValues![field as Key]).toBe(expected);
-        });
-    });
+                scrollTo(componentNode, 0);
+                expect(screen.queryByTestId(testIds.header)).not.toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).toHaveClass('highlighted');
 
-    describe('desktop highlight tests', () => {
-        const dti = 'modal-dti';
-        const testIds = getUniversalModalTestIds(dti);
+                scrollTo(componentNode, 300);
+                expect(screen.queryByTestId(testIds.header)).toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).toHaveClass('highlighted');
 
-        it('should highlight header', () => {
-            const Child = () => {
-                const { setHeaderHighlighted } = useContext(ModalContext);
+                scrollTo(componentNode, 600);
+                expect(screen.queryByTestId(testIds.header)).toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).not.toHaveClass('highlighted');
+            });
 
-                useEffect(() => {
-                    setHeaderHighlighted(true);
-                }, []);
+            it('should stay off when the box does NOT touch viewport edges, even if scrolled', () => {
+                const componentNode = renderScrollableModal({ top: 100, bottom: 400 });
 
-                return <div>Child</div>;
-            };
+                // та же позиция скролла, что в прошлом тесте подсвечивала и хедер, и футер
+                scrollTo(componentNode, 300);
 
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} sticky={true}>
-                        <Child />
-                    </UniversalModalDesktop.Header>
-                </UniversalModalDesktop>,
-            );
-
-            const header = screen.queryByTestId(testIds.header);
-
-            expect(header).toHaveClass('highlighted');
-        });
-
-        it('should highlight footer', () => {
-            const Child = () => {
-                const { setFooterHighlighted } = useContext(ModalContext);
-
-                useEffect(() => {
-                    setFooterHighlighted(true);
-                }, []);
-
-                return <div>Child</div>;
-            };
-
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Footer dataTestId={dti} sticky={true}>
-                        <Child />
-                    </UniversalModalDesktop.Footer>
-                </UniversalModalDesktop>,
-            );
-
-            const footer = screen.queryByTestId(testIds.footer);
-
-            expect(footer).toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.header)).not.toHaveClass('highlighted');
+                expect(screen.queryByTestId(testIds.footer)).not.toHaveClass('highlighted');
+            });
         });
     });
 

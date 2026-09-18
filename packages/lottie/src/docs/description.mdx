@@ -1,0 +1,27 @@
+## Lottie
+
+```jsx live
+render(() => {
+    const [play, setPlay] = React.useState(true);
+    const { direction, onIterationChange } = useBounce(1);
+    const handleTooglePlay = () => {
+        setPlay((p) => !p);
+    };
+
+    return (
+        <div>
+            <Button onClick={handleTooglePlay}>{play ? 'Pause' : 'Play'}</Button>
+            <Lottie
+                onPlayChange={setPlay}
+                play={play}
+                direction={direction}
+                speed={1}
+                iterations={4}
+                src='./lottie/twitter-heart.json'
+                size={{ width: 400, height: 400 }}
+                onIterationChange={onIterationChange}
+            />
+        </div>
+    );
+});
+```
