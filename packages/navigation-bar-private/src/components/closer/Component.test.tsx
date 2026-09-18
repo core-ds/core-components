@@ -43,4 +43,11 @@ describe('Closer', () => {
         fireEvent.click(button);
         expect(handleClose).toHaveBeenCalledWith(expect.any(Object), 'closerClick');
     });
+
+    it('should set custom class', () => {
+        const { getByRole } = renderComponent({ buttonClassName: 'custom-close' });
+        const button = getByRole('button');
+
+        expect(button).toHaveClass('custom-close');
+    });
 });

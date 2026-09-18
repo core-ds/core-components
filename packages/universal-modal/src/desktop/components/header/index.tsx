@@ -15,13 +15,23 @@ import desktopStyles from './desktop.module.css';
 export interface HeaderDesktopProps
     extends Omit<
         NavigationBarPrivateProps,
-        'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
+        'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle' | 'closerProps' | 'backButtonProps'
     > {
     /**
      * Заголовок в шапке крупного размера
      * @default false
      */
     bigTitle?: boolean;
+
+    closerProps?: Omit<
+        NonNullable<NavigationBarPrivateProps['closerProps']>,
+        'size' | 'buttonClassName'
+    >;
+
+    backButtonProps?: Omit<
+        NonNullable<NavigationBarPrivateProps['backButtonProps']>,
+        'icon' | 'size' | 'iconWrapperClassName'
+    >;
 }
 
 export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {
