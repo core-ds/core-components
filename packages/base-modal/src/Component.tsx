@@ -155,6 +155,14 @@ export type BaseModalProps = {
     scrollHandler?: 'wrapper' | 'content' | MutableRefObject<HTMLDivElement | null>;
 
     /**
+     * Скролл-контейнер занимает весь вьюпорт.
+     * Если `false`, highlight для header/footer при скролле зависит только от позиции скролла,
+     * без проверки того, где модалка находится на экране.
+     * @default true
+     */
+    scrollContainerFillsViewport?: boolean;
+
+    /**
      * Пропсы для анимации (CSSTransition)
      */
     transitionProps?: Partial<CSSTransitionProps>;
@@ -271,6 +279,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             container,
             children,
             scrollHandler = 'wrapper',
+            scrollContainerFillsViewport = true,
             Backdrop = DefaultBackdrop,
             backdropProps = {},
             transitionProps = {},
@@ -363,20 +372,26 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             if (!scrollableNodeRef.current || !componentNodeRef.current) return;
 
             if (hasHeader) {
+                const touchesViewportTop =
+                    !scrollContainerFillsViewport ||
+                    componentNodeRef.current.getBoundingClientRect().top - headerOffset <= 1;
+
                 setHeaderHighlighted(
-                    !isScrolledToTop(scrollableNodeRef.current) &&
-                        componentNodeRef.current.getBoundingClientRect().top - headerOffset <= 1,
+                    !isScrolledToTop(scrollableNodeRef.current) && touchesViewportTop,
                 );
             }
 
             if (hasFooter) {
+                const touchesViewportBottom =
+                    !scrollContainerFillsViewport ||
+                    componentNodeRef.current.getBoundingClientRect().bottom >=
+                        window.innerHeight - 1;
+
                 setFooterHighlighted(
-                    !isScrolledToBottom(scrollableNodeRef.current) &&
-                        componentNodeRef.current.getBoundingClientRect().bottom >=
-                            window.innerHeight - 1,
+                    !isScrolledToBottom(scrollableNodeRef.current) && touchesViewportBottom,
                 );
             }
-        }, [hasFooter, hasHeader, headerOffset]);
+        }, [hasFooter, hasHeader, headerOffset, scrollContainerFillsViewport]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
