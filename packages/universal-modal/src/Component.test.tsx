@@ -841,4 +841,95 @@ describe('UniversalModal', () => {
             });
         });
     });
+
+    describe('zIndex tests', () => {
+        const dti = 'modal-dti';
+        const testIds = getUniversalModalTestIds(dti);
+        const customZIndex = 1234;
+        // Значение по умолчанию из stackingOrder.MODAL в @alfalab/core-components-stack-context,
+        const defaultZIndex = 100;
+
+        describe('desktop', () => {
+            it('should apply default zIndex (BaseModal stackingOrder.MODAL) to the wrapper when zIndex is not passed', () => {
+                render(<UniversalModalDesktop dataTestId={dti} open={true} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(defaultZIndex));
+            });
+
+            it('should apply custom zIndex to the wrapper', () => {
+                render(
+                    <UniversalModalDesktop dataTestId={dti} open={true} zIndex={customZIndex} />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+
+            it('should apply custom zIndex when rendered as CenterModal (horizontalAlign="center")', () => {
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        horizontalAlign='center'
+                        zIndex={customZIndex}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+
+            it('should apply custom zIndex when rendered as SideModal (horizontalAlign="start")', () => {
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        horizontalAlign='start'
+                        zIndex={customZIndex}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+
+            it('should apply custom zIndex when rendered as SideModal (horizontalAlign="end")', () => {
+                render(
+                    <UniversalModalDesktop
+                        dataTestId={dti}
+                        open={true}
+                        horizontalAlign='end'
+                        zIndex={customZIndex}
+                    />,
+                );
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+        });
+
+        describe('mobile', () => {
+            it('should apply default zIndex (BaseModal stackingOrder.MODAL) to the wrapper when zIndex is not passed', () => {
+                render(<UniversalModalMobile dataTestId={dti} open={true} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(defaultZIndex));
+            });
+
+            it('should apply custom zIndex to the wrapper', () => {
+                render(<UniversalModalMobile dataTestId={dti} open={true} zIndex={customZIndex} />);
+
+                const modal = screen.getByTestId(testIds.modal);
+
+                expect(modal.style.zIndex).toBe(String(customZIndex));
+            });
+        });
+    });
 });
