@@ -1,3 +1,12 @@
 .transparent {
-    opacity: 0;
+    visibility: hidden;
+}
+
+.skeleton {
+    position: absolute;
+    inset: 0;
+}
+
+.root {
+    position: relative;
 }
