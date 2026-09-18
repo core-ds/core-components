@@ -22,5 +22,6 @@
         { "path": "../config/tsconfig.build.json" },
         { "path": "../haptics/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }    ]
+        { "path": "../test-utils/tsconfig.build.json" }
+    ]
 }

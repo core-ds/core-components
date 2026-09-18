@@ -1802,6 +1802,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-slider@workspace:packages/slider"
   dependencies:
+    "@alfalab/core-components-config": "npm:^1.1.0"
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     classnames: "npm:^2.5.1"
     nouislider: "npm:^15.6.0"
     tslib: "npm:^2.4.0"
