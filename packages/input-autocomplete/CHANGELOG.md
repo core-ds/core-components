@@ -1,5 +1,13 @@
 # @alfalab/core-components-input-autocomplete
 
+## 14.0.27
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.9
+
 ## 14.0.26
 
 ### Patch Changes

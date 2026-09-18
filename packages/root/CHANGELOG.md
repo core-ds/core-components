@@ -1,5 +1,67 @@
 # @alfalab/core-components
 
+## 50.33.0
+
+### Minor Changes
+
+<sup><time>18.09.2026</time></sup>
+
+#### [#2350](https://github.com/core-ds/core-components/pull/2350)
+
+##### BaseModal
+
+- Добавлен проп `scrollContainerFillsViewport` (по умолчанию `true`) — если scroll-контейнер (`scrollHandler`) не совпадает с внешней областью модалки и не заполняет вьюпорт, позволяет отключить сверку позиции модалки с границами экрана при расчёте подсветки хедера/футера.
+
+### Patch Changes
+
+<sup><time>18.09.2026</time></sup>
+
+#### [#2372](https://github.com/core-ds/core-components/pull/2372)
+
+##### UniversalModal
+
+- В публичные типы `UniversalModalDesktop` и `UniversalModalMobile` добавлен проп `zIndex`
+- Исправлен проп `wrapperClassName` в `UniversalModalDesktop`: переданный класс не применялся к DOM
+- В публичные типы `UniversalModalMobile` добавлен проп `scrollLock`
+
+<sup><time>18.09.2026</time></sup>
+
+#### [#2350](https://github.com/core-ds/core-components/pull/2350)
+
+##### UniversalModal
+
+- Desktop-версия модалки больше не считает подсветку хедера/футера при скролле собственным обработчиком — теперь это делает `base-modal`. Внешнее поведение не изменилось.
+- Исправлено некорректное состояние `hasScroll` в контексте модалки на desktop — теперь считается по реальному scroll-контейнеру.
+- Удалён неиспользуемый проп `size` из десктоп-версии футера. Он остался как артефакт от промежуточных реализаций и не влиял на работу компонента.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.2.6
+- @alfalab/core-components-base-modal@7.2.0
+- @alfalab/core-components-bottom-sheet@8.1.14
+- @alfalab/core-components-drawer@7.0.11
+- @alfalab/core-components-gallery@7.4.2
+- @alfalab/core-components-modal@11.0.17
+- @alfalab/core-components-popup-sheet@3.0.17
+- @alfalab/core-components-select@19.2.9
+- @alfalab/core-components-side-panel@7.1.2
+- @alfalab/core-components-select-with-tags@10.1.22
+- @alfalab/core-components-tooltip@9.0.20
+- @alfalab/core-components-calendar@9.1.14
+- @alfalab/core-components-custom-picker-button@4.1.21
+- @alfalab/core-components-input-autocomplete@14.0.27
+- @alfalab/core-components-international-phone-input@4.0.27
+- @alfalab/core-components-intl-phone-input@11.0.27
+- @alfalab/core-components-picker-button@13.1.5
+- @alfalab/core-components-table@4.0.28
+- @alfalab/core-components-calendar-input@12.0.20
+- @alfalab/core-components-calendar-range@9.1.6
+- @alfalab/core-components-calendar-with-skeleton@7.0.18
+- @alfalab/core-components-date-range-input@5.0.20
+- @alfalab/core-components-date-time-input@6.0.20
+- @alfalab/core-components-universal-date-input@4.0.20
+- @alfalab/core-components-tabs@10.1.2
+
 ## 50.32.0
 
 ### Minor Changes
