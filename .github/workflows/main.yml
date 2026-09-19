@@ -261,6 +261,8 @@ jobs:
 
             - name: Setup CI
               uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: Search
               run: yarn non-existent-css-vars
