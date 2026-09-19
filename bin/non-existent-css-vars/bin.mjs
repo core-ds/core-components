@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { cwd, exit } from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { $ } from '../../tools/execa.mjs';
@@ -21,12 +20,13 @@ async function main() {
             ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
             '--',
             'node',
-            path.join(cwd(), 'bin/non-existent-css-vars.mjs'),
+            path.join(process.cwd(), 'bin/non-existent-css-vars.mjs'),
+            'src/**/*.css',
         ],
         { preferLocal: true, stdio: 'inherit', reject: false },
     );
 
-    exit(result.exitCode);
+    process.exit(result.exitCode);
 }
 
 await main();

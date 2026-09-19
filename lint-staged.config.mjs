@@ -1,13 +1,20 @@
 // @ts-check
 
 /* eslint-disable import/no-extraneous-dependencies */
-import { exec } from '@actions/exec';
+import { toPlatformPath } from '@actions/core';
+import path from 'node:path';
+import slash from 'slash';
 import { convertPathToPattern } from 'tinyglobby';
 
 import { ESLINT_IGNORED_PACKAGES } from './tools/eslint.cjs';
 import { getPackages } from './tools/monorepo.cjs';
 
 const { packages } = getPackages();
+
+const nonExistentVarsBin = path.resolve(
+    import.meta.dirname,
+    toPlatformPath('bin/non-existent-css-vars.mjs'),
+);
 
 /**
  * @type {import('lint-staged').Configuration}
@@ -22,23 +29,10 @@ const config = {
     ...packages
         .filter(({ packageJson }) => !ESLINT_IGNORED_PACKAGES.includes(packageJson.name))
         .reduce(
-            (packagesConfig, { relativeDir, packageJson }) => ({
+            (packagesConfig, { dir, relativeDir, packageJson }) => ({
                 ...packagesConfig,
-                [`./${convertPathToPattern(relativeDir)}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: {
-                    title: `eslint in ${relativeDir}`,
-                    task: async () => {
-                        await exec('yarn', [
-                            'workspace',
-                            packageJson.name,
-                            'exec',
-                            'eslint',
-                            'src',
-                            '--fix',
-                            '--max-warnings',
-                            '0',
-                        ]);
-                    },
-                },
+                [`./${convertPathToPattern(relativeDir)}/**/*.css`]: `yarn workspace ${packageJson.name} exec node ${slash(path.relative(dir, nonExistentVarsBin))}`,
+                [`./${convertPathToPattern(relativeDir)}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: `yarn workspace ${packageJson.name} exec eslint --fix --max-warnings 0`,
             }),
             {},
         ),
