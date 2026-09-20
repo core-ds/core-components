@@ -243,7 +243,8 @@ module.exports = {
 
                 if (
                     resource.request === '@alfalab/core-components/package.json' ||
-                    resource.request === '@alfalab/core-components-vars/src/index.css'
+                    resource.request === '@alfalab/core-components-vars/src/index.css' ||
+                    resource.request === '@alfalab/core-components-vars/src/shadows-superapp.css'
                 ) {
                     return;
                 }

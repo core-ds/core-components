@@ -65,4 +65,6 @@ export const SHADOW = [
     'shadow-m-hard-up',
     'shadow-l-hard-up',
     'shadow-xl-hard-up',
+    'superapp-shadow-default',
+    'superapp-shadow-promo',
 ];

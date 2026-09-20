@@ -9,6 +9,7 @@ import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
 import guidelinesStyles from '!css-loader!!postcss-loader!./public/guidelines.css';
 import './blocks/code-editor/github-light-theme.css';
 import '@alfalab/core-components-vars/src/index.css';
+import '@alfalab/core-components-vars/src/shadows-superapp.css';
 
 import alfaTheme from './theme';
 import scope from './scope';

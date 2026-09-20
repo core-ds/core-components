@@ -90,6 +90,15 @@
     }
 }
 
+/* Тени из набора superapp, переменные объявлены в vars/src/shadows-superapp.css */
+.superapp-shadow-default {
+    box-shadow: var(--shadow-default);
+}
+
+.superapp-shadow-promo {
+    box-shadow: var(--shadow-promo);
+}
+
 @each $borderColor in accent, key, key-inverted, link, primary, primary-inverted, secondary,
     secondary-inverted, tertiary, tertiary-inverted, underline, underline-inverted,
     graphic-attention, graphic-link, graphic-negative, graphic-positive,
