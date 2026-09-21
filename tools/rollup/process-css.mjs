@@ -6,7 +6,6 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { cwd } from 'node:process';
 import postcss from 'postcss';
-import postcssCustomProperties from 'postcss-custom-properties';
 import postcssImport from 'postcss-import';
 import postcssModules from 'postcss-modules';
 import { createFilter } from 'rollup-pluginutils';
@@ -30,7 +29,6 @@ const varsEntryPoints = globSync('src/*index.css', {
  * @typedef Options
  * @property {boolean} [modules]
  * @property {boolean} [noCommonVars]
- * @property {boolean} [preserveVars]
  */
 
 /**
@@ -44,7 +42,6 @@ export function processCss(options = {}) {
     const config = {
         modules: options.modules ?? true,
         noCommonVars: options.noCommonVars ?? false,
-        preserveVars: options.preserveVars ?? true,
     };
 
     const name = 'process-css';
@@ -131,10 +128,6 @@ async function processPostcss(filePath, config) {
                   })
                 : plugin,
         );
-    }
-
-    if (config.preserveVars === false) {
-        plugins.push(postcssCustomProperties({ preserve: false }));
     }
 
     if (config.modules) {
