@@ -8,6 +8,7 @@ import { convertPathToPattern } from 'tinyglobby';
 
 import { ESLINT_IGNORED_PACKAGES } from './tools/eslint.cjs';
 import { getPackages } from './tools/monorepo.cjs';
+import { NON_EXISTENT_CSS_VARS_IGNORED_PACKAGES } from './tools/non-existent-css-vars.mjs';
 
 const { packages } = getPackages();
 
@@ -29,10 +30,20 @@ const config = {
     ...packages
         .filter(({ packageJson }) => !ESLINT_IGNORED_PACKAGES.includes(packageJson.name))
         .reduce(
+            (packagesConfig, { relativeDir, packageJson }) => ({
+                ...packagesConfig,
+                [`./${convertPathToPattern(relativeDir)}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: `yarn workspace ${packageJson.name} exec eslint --fix --max-warnings 0`,
+            }),
+            {},
+        ),
+    ...packages
+        .filter(
+            ({ packageJson }) => !NON_EXISTENT_CSS_VARS_IGNORED_PACKAGES.includes(packageJson.name),
+        )
+        .reduce(
             (packagesConfig, { dir, relativeDir, packageJson }) => ({
                 ...packagesConfig,
                 [`./${convertPathToPattern(relativeDir)}/**/*.css`]: `yarn workspace ${packageJson.name} exec node ${slash(path.relative(dir, nonExistentVarsBin))}`,
-                [`./${convertPathToPattern(relativeDir)}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: `yarn workspace ${packageJson.name} exec eslint --fix --max-warnings 0`,
             }),
             {},
         ),
