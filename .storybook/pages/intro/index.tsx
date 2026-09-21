@@ -24,7 +24,7 @@ function shuffle<T>(array: T[]) {
     return copy;
 }
 
-const MAINTAINERS = shuffle(['dHIM24', 'Oladii', 'SiebenSieben', 'hextion', 'fulcanellee']);
+const MAINTAINERS = shuffle(['Oladii', 'SiebenSieben', 'hextion', 'fulcanellee']);
 const MAINTAINERS_COUNT = MAINTAINERS.length;
 const PHOTO_SIZE = 40;
 const PHOTO_OFFSET = 9;
