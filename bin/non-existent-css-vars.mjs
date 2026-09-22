@@ -40,7 +40,7 @@ async function main(patterns, ignore = []) {
             for await (const file of files) {
                 const content = await fs.readFile(file, { encoding: 'utf8' });
                 const { css } = await preset.process(content, { from: file });
-                const match = css.match(/(?<=var\(\s*)[^\s]+(?=\s*\))/g);
+                const match = css.match(/(?<=var\(\s*)\S+(?=\s*\))/g);
 
                 if (match) {
                     /**
