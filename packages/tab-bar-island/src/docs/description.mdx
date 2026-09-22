@@ -1,9 +1,15 @@
 ## Icon
 
-```jsx live
+```jsx live mobileOnly mobileHeight={100}
 render(() => {
     return (
-        <div style={{ padding: '20px', background: 'url("./images/test.png")' }}>
+        <div
+            style={{
+                padding: 10,
+                margin: isMobile() ? '0 -20px -20px' : undefined,
+                background: 'url("./images/test.png")',
+            }}
+        >
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
@@ -21,7 +27,7 @@ render(() => {
 
 ## Image
 
-```jsx live
+```jsx live mobileOnly mobileHeight={100}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -30,7 +36,13 @@ const IconComponent = ({ style, children, ...restProps }) => (
 
 render(() => {
     return (
-        <div style={{ padding: '20px', background: 'url("./images/test.png")' }}>
+        <div
+            style={{
+                padding: 10,
+                margin: isMobile() ? '0 -20px -20px' : undefined,
+                background: 'url("./images/test.png")',
+            }}
+        >
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
@@ -66,7 +78,7 @@ render(() => {
 
 ## Full Image
 
-```jsx live
+```jsx live mobileOnly mobileHeight={100}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -75,7 +87,13 @@ const IconComponent = ({ style, children, ...restProps }) => (
 
 render(() => {
     return (
-        <div style={{ padding: '20px', background: 'url("./images/test.png")' }}>
+        <div
+            style={{
+                padding: 10,
+                margin: isMobile() ? '0 -20px -20px' : undefined,
+                background: 'url("./images/test.png")',
+            }}
+        >
             <TabBarIsland
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
