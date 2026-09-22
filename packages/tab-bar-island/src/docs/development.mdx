@@ -21,6 +21,14 @@ import styles from '!!raw-loader!../vars.css';
 import { TabBarIsland } from '@alfalab/core-components-tab-bar-island';
 ```
 
+## dark.css
+
+`TabBarIsland` использует кастомный маппинг цветовых токенов `light/dark`. Поэтому для корректной работы `dark.css` из `themes` необходимо дополнительно подключить:
+
+```css
+@import '@alfalab/core-components-tab-bar-island/dark.css';
+```
+
 ## Свойства
 
 <ArgsTabs
