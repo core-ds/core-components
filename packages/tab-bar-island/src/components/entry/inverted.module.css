@@ -1,0 +1,5 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.entry {
+    color: var(--tab-bar-island-inverted-tab-color);
+}

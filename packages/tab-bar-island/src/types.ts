@@ -97,6 +97,11 @@ export interface TabBarIslandProps {
      * Дополнительный класс
      */
     className?: string;
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 }
 
 export interface TabBarIslandTrailingIconButtonProps
@@ -112,4 +117,8 @@ export interface TabBarIslandEntryContentProps
     label?: ReactNode;
     indicator?: boolean | number;
     children?: ReactNode;
+}
+
+export interface TabBarIslandUnderlayContextValue {
+    colors?: 'default' | 'inverted';
 }

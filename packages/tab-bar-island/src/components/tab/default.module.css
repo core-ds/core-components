@@ -1,0 +1,7 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.tab {
+    &.active {
+        color: var(--tab-bar-island-tab-active-color);
+    }
+}

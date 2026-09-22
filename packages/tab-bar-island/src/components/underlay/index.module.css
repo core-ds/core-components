@@ -1,7 +1,6 @@
 @import '@alfalab/core-components-tab-bar-island/src/vars.css';
 
 .component {
-    background: var(--tab-bar-island-background);
     border-radius: var(--tab-bar-island-border-radius);
     box-shadow: var(--tab-bar-island-box-shadow);
     backdrop-filter: var(--tab-bar-island-backdrop-filter);
@@ -22,11 +21,6 @@
         border-top: var(--tab-bar-island-border-width) solid transparent;
         right: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
         left: calc(var(--tab-bar-island-border-radius) - var(--tab-bar-island-border-width));
-        border-image: radial-gradient(
-                var(--tab-bar-island-border-color-from),
-                var(--tab-bar-island-border-color-to) 75%
-            )
-            1;
         border-radius: unset;
     }
 }
@@ -53,7 +47,8 @@
 
         &:before {
             left: 0;
-            border: var(--tab-bar-island-border-width) solid var(--tab-bar-island-border-color-to);
+            border-width: var(--tab-bar-island-border-width);
+            border-style: solid;
             border-top-left-radius: var(--tab-bar-island-border-radius);
             border-bottom-left-radius: var(--tab-bar-island-border-radius);
         }
@@ -64,7 +59,8 @@
 
         &:before {
             right: 0;
-            border: var(--tab-bar-island-border-width) solid var(--tab-bar-island-border-color-to);
+            border-width: var(--tab-bar-island-border-width);
+            border-style: solid;
             border-top-right-radius: var(--tab-bar-island-border-radius);
             border-bottom-right-radius: var(--tab-bar-island-border-radius);
         }
