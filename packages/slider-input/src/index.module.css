@@ -16,8 +16,8 @@
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
     --slider-input-origin-width: calc(100% - 16px);
     --slider-input-origin-right: var(--gap-8);
-    --slider-input-edge-value-margin: -50%;
-    --slider-input-pips-margin: var(--gap-6) var(--gap-6) 0;
+    --slider-input-edge-value-margin: 2px;
+    --slider-input-pips-margin: var(--gap-6) 0 0;
 }
 
 .component {
