@@ -1,4 +1,4 @@
-export * from '@alfalab/core-components-tab-bar-island/component';
+export { TabBarIsland } from '@alfalab/core-components-tab-bar-island/component';
 export type {
     TabBarIslandTabKey as TabKey,
     TabBarIslandProps,
