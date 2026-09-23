@@ -121,7 +121,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
         const Root = showSkeleton ? 'div' : Fragment;
         const rootProps: ComponentProps<typeof Root> = showSkeleton
-            ? { className: styles.root }
+            ? { className: cn(styles.root, className) }
             : {};
 
         return (
@@ -135,7 +135,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
                             [styles[`rowLimit${rowLimit}`]]: rowLimit,
                             [styles.transparent]: showSkeleton,
                         },
-                        className,
+                        !showSkeleton && className,
                         color && colors[color],
                         styles[view],
                         weight && styles[weight],

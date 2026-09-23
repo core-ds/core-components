@@ -114,7 +114,7 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
         const Root = showSkeleton ? 'div' : Fragment;
         const rootProps: ComponentProps<typeof Root> = showSkeleton
-            ? { className: commonStyles.root }
+            ? { className: cn(commonStyles.root, className) }
             : {};
 
         return (
@@ -123,7 +123,7 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
                     className={cn(
                         commonStyles.component,
                         styles.component,
-                        className,
+                        !showSkeleton && className,
                         styles[`${weight === 'regular' ? 'regular-' : ''}${view}`],
                         defaultMargins && styles[`margins-${view}`],
                         color && colors[color],
