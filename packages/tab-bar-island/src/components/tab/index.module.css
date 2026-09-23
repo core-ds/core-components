@@ -8,7 +8,6 @@
 
     &.active {
         z-index: 1;
-        color: var(--tab-bar-island-tab-active-color);
     }
 
     &:first-child:nth-last-child(2),

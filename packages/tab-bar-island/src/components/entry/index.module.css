@@ -5,7 +5,6 @@
 
     min-width: var(--tab-bar-island-tab-min-size);
     cursor: pointer;
-    color: var(--tab-bar-island-tab-color);
     user-select: none;
     outline: none;
     display: flex;

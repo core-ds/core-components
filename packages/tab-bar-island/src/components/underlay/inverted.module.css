@@ -1,0 +1,23 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.component {
+    background: var(--tab-bar-island-inverted-background);
+
+    &:before,
+    &:after {
+        border-image: radial-gradient(
+                var(--tab-bar-island-inverted-border-color-from),
+                var(--tab-bar-island-inverted-border-color-to) 75%
+            )
+            1;
+    }
+}
+
+.border {
+    &[data-position='start'],
+    &[data-position='end'] {
+        &:before {
+            border-color: var(--tab-bar-island-inverted-border-color-to);
+        }
+    }
+}
