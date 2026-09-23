@@ -72,5 +72,8 @@
 
 .content {
     flex: 1;
+}
+
+.textNoWrap {
     white-space: nowrap;
 }

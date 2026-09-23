@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, type MutableRefObject, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -7,17 +7,20 @@ import { isMacOS, isSafari } from '@alfalab/core-components-shared';
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getHeightStyle } from '../../utils/get-height-style';
-import { getHugContentStyles } from '../../utils/get-hug-content-styles';
+import { getHeightCapStyles } from '../../utils/get-height-cap-styles';
+import { getHeightValue } from '../../utils/get-height-value';
 import { getMarginStyles } from '../../utils/get-margin-styles';
-import { getWidthStyle } from '../../utils/get-width-style';
+import { getWidthCapStyles } from '../../utils/get-width-cap-styles';
 import { ModalContent } from '../modal-content/modal-content';
 
 import styles from './index.module.css';
 import safariTransitions from './transitions/safari-transitions.module.css';
 import transitions from './transitions/transitions.module.css';
 
-// в safari некорректно отрабатывает transform:scale (???), поэтому применяем немного другую анимацию
+/*
+ * в safari position:sticky некорректно синхронизируется с transform:scale на предке —
+ * sticky-футер "доезжает" при анимации, поэтому применяем немного другую анимацию
+ */
 const transitionProps = isMacOS() && isSafari() ? safariTransitions : transitions;
 
 export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
@@ -33,6 +36,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
+        wrapperClassName,
         ...restProps
     } = props;
 
@@ -57,18 +61,23 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             dataTestId={dataTestId}
             ref={ref}
             componentRef={componentRef}
-            scrollHandler='content'
+            scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
+            scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(styles.baseModalContainer, {
+            wrapperClassName={cn(styles.baseModalContainer, wrapperClassName, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
                 [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin }),
-                ...getHugContentStyles({ styles, margin, height }),
-            })}
+            className={cn(
+                styles.component,
+                className,
+                styles.baseModalComponent,
+                getMarginStyles({ styles, margin }),
+                getHeightCapStyles({ styles, margin }),
+                getWidthCapStyles({ styles, margin }),
+            )}
             transitionProps={{
                 classNames: transitionProps,
                 ...(isFullSizeModal && fullSizeModalContentTransitions),
@@ -81,8 +90,8 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             }}
             componentDivProps={{
                 style: {
-                    width: getWidthStyle(width, margin),
-                    ...getHeightStyle(height, margin),
+                    width: width === 'fullWidth' ? '100%' : width,
+                    height: getHeightValue(height),
                 },
             }}
             onWheel={handleWheel}

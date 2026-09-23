@@ -1,5 +1,57 @@
 # @alfalab/core-components-tabs
 
+## 10.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.5
+
+## 10.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.4
+
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2352](https://github.com/core-ds/core-components/pull/2352)
+
+##### Tabs
+
+- Добавлены `scrollControlsContainerClassName` и `scrollControlsButtonClassName` для стилизации контейнера и кнопок прокрутки табов.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.3
+
+## 10.0.26
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.5
+- @alfalab/core-components-picker-button@13.1.2
+
+## 10.0.25
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.3.0
+- @alfalab/core-components-picker-button@13.1.1
+
 ## 10.0.24
 
 ### Patch Changes

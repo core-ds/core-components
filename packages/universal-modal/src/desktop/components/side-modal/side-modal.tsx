@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, type MutableRefObject, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -6,10 +6,10 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
-import { getHeightStyle } from '../../utils/get-height-style';
-import { getHugContentStyles } from '../../utils/get-hug-content-styles';
+import { getHeightCapStyles } from '../../utils/get-height-cap-styles';
+import { getHeightValue } from '../../utils/get-height-value';
 import { getMarginStyles } from '../../utils/get-margin-styles';
-import { getWidthStyle } from '../../utils/get-width-style';
+import { getWidthCapStyles } from '../../utils/get-width-cap-styles';
 import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
@@ -30,6 +30,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
+        wrapperClassName,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
@@ -55,19 +56,24 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             ref={ref}
             componentRef={componentRef}
             contentElementRef={contentRef}
-            scrollHandler='content'
+            scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
+            scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
+            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, wrapperClassName, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
                 [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin }),
-                ...getHugContentStyles({ styles, margin, height }),
-            })}
+            className={cn(
+                styles.component,
+                className,
+                styles.baseModalComponent,
+                getMarginStyles({ styles, margin }),
+                getHeightCapStyles({ styles, margin }),
+                getWidthCapStyles({ styles, margin }),
+            )}
             contentClassName={styles.content}
             transitionProps={{
                 ...getDefaultTransitionProps({
@@ -84,8 +90,8 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             }}
             componentDivProps={{
                 style: {
-                    width: getWidthStyle(width, margin),
-                    ...getHeightStyle(height, margin),
+                    width: width === 'fullWidth' ? '100%' : width,
+                    height: getHeightValue(height),
                 },
             }}
             onWheel={handleWheel}

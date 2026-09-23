@@ -12,7 +12,12 @@ import { useGalleryNavigation } from './hooks/use-gallery-navigation';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
-import { type GalleryImage, type GalleryPaginationConfig, type ImageMeta } from './types';
+import {
+    type GalleryCustomButton,
+    type GalleryImage,
+    type GalleryPaginationConfig,
+    type ImageMeta,
+} from './types';
 
 import styles from './index.module.css';
 
@@ -62,6 +67,11 @@ export type GalleryProps = {
     popupClassName?: string;
 
     /**
+     * Дополнительная кнопка в шапке галереи
+     */
+    customButton?: GalleryCustomButton;
+
+    /**
      * Настройки пагинации галереи
      */
     paginationConfig?: GalleryPaginationConfig;
@@ -83,6 +93,7 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    customButton,
     paginationConfig,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
@@ -237,14 +248,18 @@ export const Gallery: FC<GalleryProps> = ({
                 const currentY = e.touches[0].clientY;
                 const deltaX = currentX - startX;
                 const deltaY = currentY - startY;
+                const absX = Math.abs(deltaX);
+                const absY = Math.abs(deltaY);
 
-                if (!lockedDirection) {
-                    const absX = Math.abs(deltaX);
-                    const absY = Math.abs(deltaY);
-
-                    if (absX > absY && absX > directionLockThreshold) {
-                        lockedDirection = 'horizontal';
-                    } else if (absY > absX && absY > directionLockThreshold) {
+                if (
+                    lockedDirection !== 'horizontal' &&
+                    absX > absY &&
+                    absX > directionLockThreshold
+                ) {
+                    lockedDirection = 'horizontal';
+                    setSwipeY(0);
+                } else if (!lockedDirection) {
+                    if (absY > absX && absY > directionLockThreshold) {
                         lockedDirection = 'vertical';
                     } else {
                         return;
@@ -324,6 +339,7 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        customButton,
     };
 
     return (

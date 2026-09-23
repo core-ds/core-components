@@ -58,10 +58,15 @@ export const modal: Story = {
         const [isOpen, setOpen] = useState(false);
 
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
-        const width = text('width', '500');
-        const _height = text('height', '500');
+
+        // Ширина может быть Number и String
+        const _width = text('width', '500');
+        const width = isNaN(parseInt(_width)) ? _width : Number(_width);
+
         // Высота может быть Number и String
+        const _height = text('height', '500');
         const height = isNaN(parseInt(_height)) ? _height : Number(_height);
+
         const overlay = boolean('overlay', true);
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
@@ -132,10 +137,15 @@ export const side_panel: Story = {
 
         const horizontalAlign = select('horizontalAlign', ['start', 'end'], 'start');
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
-        const width = text('width', '500');
-        const _height = text('height', '500');
+
+        // Ширина может быть Number и String
+        const _width = text('width', '500');
+        const width = isNaN(parseInt(_width)) ? _width : Number(_width);
+
         // Высота может быть Number и String
+        const _height = text('height', '500');
         const height = isNaN(parseInt(_height)) ? _height : Number(_height);
+
         const overlay = boolean('overlay', true);
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');

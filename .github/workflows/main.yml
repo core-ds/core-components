@@ -49,6 +49,13 @@ jobs:
               env:
                   BUILD_CONCURRENCY: 4
 
+            - name: Upload dist
+              uses: actions/upload-artifact@v7
+              with:
+                  retention-days: 1
+                  name: 'dist-${{ matrix.variant }}'
+                  path: packages/*/dist
+
     lint:
         needs: [setup-variant, variants]
         strategy:
@@ -166,6 +173,7 @@ jobs:
             version: ${{ github.ref }}
             directory: ${{ github.event.pull_request.number }}
             pull-request-number: ${{ github.event.pull_request.number }}
+            deploy-repository: ${{ case(github.event_name == 'pull_request', vars.PULL_REQUEST_DEMO_DEPLOY_REPOSITORY, github.repository) }}
 
     screenshot-test:
         needs: demo
@@ -253,14 +261,8 @@ jobs:
 
             - name: Setup CI
               uses: ./.github/actions/ci-setup
-
-            - name: Run build
               env:
-                  BUILD_WITHOUT_CSS_VARS: true
-                  BUILD_CONCURRENCY: 4
-                  BUILD_MODERN_ONLY: true
-              run: |
-                  yarn build
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: Search
               run: yarn non-existent-css-vars
@@ -270,13 +272,8 @@ jobs:
         if: always()
         needs: [lint, build, demo, test, screenshot-test, setup-variant, codemod-test, search-vars]
         env:
-            FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
+            RETURN_CODE: ${{ case(contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled'), 1, 0) }}
         steps:
             - name: Check for failure
               run: |
-                  echo $FAILURE
-                  if [ "$FAILURE" = "false" ]; then
-                    exit 0
-                  else
-                    exit 1
-                  fi
+                  exit $RETURN_CODE

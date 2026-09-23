@@ -43,6 +43,8 @@ const imagesQuantityMapper = {
 
 render(() => {
     const [open, setOpen] = React.useState(false);
+    const [toastOpen, setToastOpen] = React.useState(false);
+    const [toastAnchor, setToastAnchor] = React.useState(null);
     const [imagesQuantity, setImagesQuantity] = React.useState('some');
 
     const onImagesQuantityChange = (_, payload) => {
@@ -51,6 +53,7 @@ render(() => {
 
     return (
         <div style={{ width: 320 }}>
+            <div ref={setToastAnchor} style={{ position: 'fixed', top: 0, left: '50%' }} />
             <Button view='secondary' block={true} onClick={() => setOpen(true)}>
                 Открыть галерею
             </Button>
@@ -60,6 +63,22 @@ render(() => {
                     setOpen(false);
                 }}
                 images={imagesQuantityMapper[imagesQuantity]}
+                customButton={{
+                    text: 'Custom action',
+                    icon: DiamondsMIcon,
+                    onClick: () => setToastOpen(true),
+                }}
+            />
+            <Toast
+                open={toastOpen}
+                title='Custom action'
+                colors='inverted'
+                hasCloser={false}
+                autoCloseDelay={2000}
+                onClose={() => setToastOpen(false)}
+                anchorElement={toastAnchor}
+                position='bottom'
+                offset={[0, 32]}
             />
             <Gap size={24} />
             <RadioGroup

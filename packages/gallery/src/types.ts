@@ -1,5 +1,7 @@
 import { type MouseEvent, type RefObject } from 'react';
 
+import { type IconButtonProps } from '@alfalab/core-components-icon-button';
+
 export type PaginationDirection = 'next' | 'prev';
 
 export type GalleryPaginationConfig = {
@@ -19,6 +21,12 @@ export type GalleryPaginationConfig = {
      * Вызывается при попытке перелистнуть крайний слайд
      */
     onEdgeReached: (direction: PaginationDirection) => void | Promise<void>;
+};
+
+export type GalleryCustomButton = {
+    text: string;
+    icon: IconButtonProps['icon'];
+    onClick: () => void;
 };
 
 export type TBottomButton = {

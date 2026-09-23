@@ -1,5 +1,35 @@
 # @alfalab/core-components-gallery
 
+## 7.4.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+- @alfalab/core-components-tooltip@9.0.20
+
+## 7.4.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.11
+- @alfalab/core-components-tooltip@9.0.19
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2323](https://github.com/core-ds/core-components/pull/2323)
+
+##### Gallery
+
+- Добавлена возможность передать дополнительную кнопку в шапку галереи
+
 ## 7.3.0
 
 ### Minor Changes

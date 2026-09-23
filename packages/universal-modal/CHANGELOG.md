@@ -1,5 +1,50 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.6
+
+### Patch Changes
+
+<sup><time>18.09.2026</time></sup>
+
+#### [#2372](https://github.com/core-ds/core-components/pull/2372)
+
+##### UniversalModal
+
+- В публичные типы `UniversalModalDesktop` и `UniversalModalMobile` добавлен проп `zIndex`
+- Исправлен проп `wrapperClassName` в `UniversalModalDesktop`: переданный класс не применялся к DOM
+- В публичные типы `UniversalModalMobile` добавлен проп `scrollLock`
+
+<sup><time>18.09.2026</time></sup>
+
+#### [#2350](https://github.com/core-ds/core-components/pull/2350)
+
+##### UniversalModal
+
+- Desktop-версия модалки больше не считает подсветку хедера/футера при скролле собственным обработчиком — теперь это делает `base-modal`. Внешнее поведение не изменилось.
+- Исправлено некорректное состояние `hasScroll` в контексте модалки на desktop — теперь считается по реальному scroll-контейнеру.
+- Удалён неиспользуемый проп `size` из десктоп-версии футера. Он остался как артефакт от промежуточных реализаций и не влиял на работу компонента.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+
+## 3.2.5
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2331](https://github.com/core-ds/core-components/pull/2331)
+
+##### UniversalModal
+
+- Механизм ограничения ширины и высоты переведён с инлайн-вычисления по вьюпорту на статически сгенерированные CSS-классы
+- Оптимизирован расчёт высоты скроллбара
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
 ## 3.2.4
 
 ### Patch Changes

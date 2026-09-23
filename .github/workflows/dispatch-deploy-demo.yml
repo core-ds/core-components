@@ -1,7 +1,7 @@
-name: deploy-demo
+name: dispatch-deploy-demo
 
 on:
-    workflow_call:
+    workflow_dispatch:
         inputs:
             run-id:
                 description: Artifact workflow run id
@@ -18,9 +18,8 @@ on:
                 default: default
             artifact-name:
                 description: Artifact name
-                required: false
+                required: true
                 type: string
-                default: build
             deploy-repository:
                 description: Repository
                 required: false
@@ -30,6 +29,11 @@ on:
                 type: string
                 required: false
 
+concurrency:
+    group: ${{ format('{0}-{1}', vars.DEMO_DEPLOY_QUEUE, case(inputs.deploy-repository == '', github.repository, inputs.deploy-repository)) }}
+    cancel-in-progress: false
+    queue: max
+
 defaults:
     run:
         shell: bash
@@ -38,8 +42,6 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         continue-on-error: true
-        # check if vars are available
-        if: ${{ vars.APP_ID != '' }}
         outputs:
             url: 'https://${{ steps.repository.outputs.owner }}.github.io/${{ steps.repository.outputs.repo }}/${{ inputs.directory }}'
         steps:

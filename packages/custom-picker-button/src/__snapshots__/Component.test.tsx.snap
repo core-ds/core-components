@@ -273,7 +273,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -295,7 +295,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -317,7 +317,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -339,7 +339,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -361,7 +361,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -383,7 +383,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -405,7 +405,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -427,7 +427,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -449,7 +449,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -471,7 +471,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -493,7 +493,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -515,7 +515,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -537,7 +537,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -559,7 +559,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -581,7 +581,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -745,7 +745,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -767,7 +767,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -789,7 +789,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -811,7 +811,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -833,7 +833,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -855,7 +855,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -877,7 +877,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -899,7 +899,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -921,7 +921,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -943,7 +943,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -965,7 +965,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -987,7 +987,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1009,7 +1009,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1031,7 +1031,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1053,7 +1053,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1217,7 +1217,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1239,7 +1239,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1261,7 +1261,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1283,7 +1283,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1305,7 +1305,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1327,7 +1327,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1349,7 +1349,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1371,7 +1371,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1393,7 +1393,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1415,7 +1415,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1437,7 +1437,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1459,7 +1459,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1481,7 +1481,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1503,7 +1503,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"
@@ -1525,7 +1525,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="content"
+                              class="content textNoWrap"
                             >
                               <div
                                 class="container"

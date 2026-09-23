@@ -1,5 +1,17 @@
 # @alfalab/core-components-base-modal
 
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>18.09.2026</time></sup>
+
+#### [#2350](https://github.com/core-ds/core-components/pull/2350)
+
+##### BaseModal
+
+- Добавлен проп `scrollContainerFillsViewport` (по умолчанию `true`) — если scroll-контейнер (`scrollHandler`) не совпадает с внешней областью модалки и не заполняет вьюпорт, позволяет отключить сверку позиции модалки с границами экрана при расчёте подсветки хедера/футера.
+
 ## 7.1.8
 
 ### Patch Changes

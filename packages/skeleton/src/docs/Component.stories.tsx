@@ -118,7 +118,9 @@ export const skeleton_text: Story = {
         // дополнительные преобразования нужны для скриншот-тестирования, так как все кнобсы в этом случае приходят в виде строки
         const getRows = () => {
             if (typeof rows === 'string') {
-                return Number(rows);
+                const parsed = Number(rows);
+
+                return Number.isFinite(parsed) ? parsed : undefined;
             }
 
             return rows;

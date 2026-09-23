@@ -15,6 +15,7 @@ import { ShareMIcon } from '@alfalab/icons-glyph/ShareMIcon';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
+import { type GalleryCustomButton } from '../../types';
 import { downloadFile, isVideo } from '../../utils';
 
 import styles from './index.module.css';
@@ -23,6 +24,8 @@ type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
     download?: string | boolean;
 };
+
+type CustomButtonProps = GalleryCustomButton & Props;
 
 export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => {
     const isDesktop = useIsDesktop();
@@ -239,6 +242,27 @@ export const Share: FC<Props> = (props) => {
             trigger='hover'
             position='bottom'
             content='Поделиться'
+            fallbackPlacements={['bottom-end']}
+        >
+            {iconButton}
+        </TooltipDesktop>
+    ) : (
+        iconButton
+    );
+};
+
+export const CustomButton: FC<CustomButtonProps> = ({ text, icon, ...restProps }) => {
+    const isDesktop = useIsDesktop();
+
+    const iconButton = (
+        <IconButton {...restProps} icon={icon} aria-label={text} className={styles.iconButton} />
+    );
+
+    return isDesktop ? (
+        <TooltipDesktop
+            trigger='hover'
+            position='bottom'
+            content={text}
             fallbackPlacements={['bottom-end']}
         >
             {iconButton}

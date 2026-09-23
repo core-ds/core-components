@@ -1,5 +1,73 @@
 # @alfalab/core-components-select
 
+## 19.2.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+- @alfalab/core-components-bottom-sheet@8.1.14
+- @alfalab/core-components-modal@11.0.17
+
+## 19.2.8
+
+### Patch Changes
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2362](https://github.com/core-ds/core-components/pull/2362)
+
+##### Select
+
+- Исправлен цвет `ellipsis` текста
+
+## 19.2.7
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2356](https://github.com/core-ds/core-components/pull/2356)
+
+##### Select
+
+- Исправлена высота `OptionsList` при изменении размера содержимого
+
+## 19.2.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.5
+- @alfalab/core-components-bottom-sheet@8.1.13
+- @alfalab/core-components-modal@11.0.16
+
+## 19.2.5
+
+### Patch Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2329](https://github.com/core-ds/core-components/pull/2329)
+
+##### PickerButton, Select
+
+- Исправлен перенос текста опции
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2336](https://github.com/core-ds/core-components/pull/2336)
+
+##### Select
+
+- Исправлена высота `OptionsList` при изменении размера содержимого
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-checkbox@6.3.0
+
 ## 19.2.4
 
 ### Patch Changes

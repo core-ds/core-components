@@ -131,6 +131,7 @@
         "detect-indent": "^7.0.1",
         "eslint": "^8.57.1",
         "execa": "^9.6.0",
+        "globby": "^16.2.4",
         "handlebars": "^4.7.3",
         "http-server": "^0.12.3",
         "husky": "^4.3.8",
@@ -177,7 +178,7 @@
         "tinyglobby": "^0.2.14",
         "ts-jest": "^29.4.1",
         "typescript": "~5.5.4",
-        "ui-primitives": "^35.56.0",
+        "ui-primitives": "^35.78.0",
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },

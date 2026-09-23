@@ -1,5 +1,50 @@
 # @alfalab/core-components-international-phone-input
 
+## 4.0.27
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.9
+- @alfalab/core-components-input-autocomplete@14.0.27
+
+## 4.0.26
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.8
+- @alfalab/core-components-input-autocomplete@14.0.26
+
+## 4.0.25
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+- @alfalab/core-components-input-autocomplete@14.0.25
+
+## 4.0.24
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.6
+- @alfalab/core-components-input-autocomplete@14.0.24
+
+## 4.0.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.5
+- @alfalab/core-components-input-autocomplete@14.0.23
+
 ## 4.0.22
 
 ### Patch Changes

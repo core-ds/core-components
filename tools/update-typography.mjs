@@ -1,3 +1,4 @@
+import { toPlatformPath } from '@actions/core';
 import fse from 'fs-extra';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -113,19 +114,22 @@ async function main() {
     const vars = packages.find(
         ({ packageJson: { name } }) => name === '@alfalab/core-components-vars',
     );
-    const source = resolveInternal(
+    const sources = (
         process.env.CORE_COMPONENTS_TYPOGRAPHY === 'alfasans'
-            ? 'ui-primitives/styles/typography_web_alfasans.json'
-            : 'ui-primitives/styles/typography_web.json',
-        false,
-    );
-    const data = await fse.readJson(source, { encoding: 'utf8' });
+            ? ['typography_web_alfasans.json', 'typography_web_alfasans_superapp.json'].map(
+                  (fileName) => `ui-primitives/styles/${fileName}`,
+              )
+            : ['ui-primitives/styles/typography_web.json']
+    ).map((p) => resolveInternal(toPlatformPath(p), false));
+    const data = (
+        await Promise.all(sources.map((source) => fse.readJson(source, { encoding: 'utf8' })))
+    ).reduce((a, b) => Object.assign(a, b), {});
     const result = await postcss(generateTypography({ data })).process(postcss.root(), {
         from: undefined,
     });
 
     await fs.writeFile(
-        path.join(vars.dir, 'src/typography.css'),
+        path.join(vars.dir, toPlatformPath('src/typography.css')),
         // FIXME stripping redundant line feeds - `raws.before` doesn't have effect for comments
         result.css.replace(/(\})\n+(\/)/g, '$1 $2'),
         { encoding: 'utf8' },

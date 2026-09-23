@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, number } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { Gallery } from '@alfalab/core-components-gallery';
+import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -244,6 +245,11 @@ export const gallery: Story = {
                 <PaginatedGalleryExample />
                 <Gallery
                     open={openMultiple}
+                    customButton={{
+                        text: 'Показать сообщение',
+                        icon: BubbleArrowRightMIcon,
+                        onClick: () => {},
+                    }}
                     onClose={() => {
                         setOpenMultiple(false);
                     }}

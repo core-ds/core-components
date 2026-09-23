@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { act, fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
+import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import { Gallery, TestIds } from '.';
 
 const mockMatchMedia = (matches: boolean, query: string) => {
@@ -462,6 +463,25 @@ describe('Gallery desktop', () => {
             expect(onClose).toHaveBeenCalledTimes(1);
         });
 
+        it('should not close when a swipe becomes horizontal', () => {
+            const onClose = jest.fn();
+
+            render(<Gallery open={true} images={images} onClose={onClose} />);
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 5, clientY: 11 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 400, clientY: 300 }],
+            });
+            fireEvent.touchEnd(document);
+
+            expect(onClose).not.toHaveBeenCalled();
+        });
+
         it('should reset swipe offset after close', () => {
             const { baseElement, rerender } = render(
                 <Gallery open={true} images={images} onClose={() => null} />,
@@ -555,6 +575,31 @@ describe('Gallery desktop', () => {
     });
 
     describe('Header tests', () => {
+        it('should handle custom button click and show its tooltip', async () => {
+            const handleCustomButtonClick = jest.fn();
+            const customButtonText = 'Показать сообщение';
+            const { getByTestId, getByText } = render(
+                <Gallery
+                    open={true}
+                    images={images}
+                    onClose={() => null}
+                    customButton={{
+                        text: customButtonText,
+                        icon: BubbleArrowRightMIcon,
+                        onClick: handleCustomButtonClick,
+                    }}
+                />,
+            );
+
+            const customButton = getByTestId(TestIds.CUSTOM_BUTTON);
+
+            fireEvent.click(customButton);
+            fireEvent.mouseOver(customButton);
+
+            expect(handleCustomButtonClick).toHaveBeenCalledTimes(1);
+            await waitFor(() => expect(getByText(customButtonText)).toBeInTheDocument());
+        });
+
         // broken in swiper@12
         xit('should display active image name and active index', () => {
             const initialSlide = 1;

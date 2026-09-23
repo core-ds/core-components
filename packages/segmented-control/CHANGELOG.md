@@ -1,5 +1,25 @@
 # @alfalab/core-components-segmented-control
 
+## 3.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.5
+
+## 3.1.5
+
+### Patch Changes
+
+<sup><time>28.08.2026</time></sup>
+
+#### [#2295](https://github.com/core-ds/core-components/pull/2295)
+
+##### SegmentedControl
+
+- Исправлено отображение выбранного сегмента после выхода из состояния скелетона
+
 ## 3.1.4
 
 ### Patch Changes
