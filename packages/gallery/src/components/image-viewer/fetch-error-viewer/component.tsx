@@ -1,50 +1,56 @@
 import React, { type FC, type MouseEventHandler } from 'react';
 
 import { Button } from '@alfalab/core-components-button';
-import { SystemMessage } from '@alfalab/core-components-system-message';
-import { NoImageMIcon } from '@alfalab/icons-glyph/NoImageMIcon';
+import { TypographyText } from '@alfalab/core-components-typography';
+
+import { NoImagePaths } from '../paths';
 
 import styles from './index.module.css';
 
 type Props = {
-    onRetry: () => void;
+    onRetry?: () => void;
 };
 
 export const FetchErrorViewer: FC<Props> = ({ onRetry }) => {
     const handleRetry: MouseEventHandler = (event) => {
         event.stopPropagation();
-        onRetry();
+        onRetry?.();
     };
-    const title = 'Не получилось загрузить';
-    const subtitle = 'Уже знаем, в чём дело, и чиним. \nПопробуйте зайти позже';
 
     return (
         <div className={styles.component} role='alert'>
-            <SystemMessage padding={0}>
-                <SystemMessage.Graphic>
-                    <NoImageMIcon className={styles.icon} aria-hidden={true} />
-                </SystemMessage.Graphic>
+            <svg
+                className={styles.icon}
+                width='80'
+                height='80'
+                viewBox='0 0 80 80'
+                fill='none'
+                aria-hidden={true}
+            >
+                <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d={NoImagePaths.baseImage}
+                    fill='currentColor'
+                />
+                <path d={NoImagePaths.triangleImage} fill='currentColor' />
+            </svg>
 
-                <SystemMessage.Title className={styles.text} tag='h2' padding={{ bottom: 24 }}>
-                    {title}
-                </SystemMessage.Title>
+            <TypographyText view='primary-small' color='static-secondary-light'>
+                Не удалось загрузить
+            </TypographyText>
 
-                <SystemMessage.Subtitle className={styles.text} padding={0}>
-                    {subtitle}
-                </SystemMessage.Subtitle>
-
-                <SystemMessage.Controls padding={{ top: 40 }}>
-                    <Button
-                        className={styles.retryButton}
-                        view='secondary'
-                        colors='inverted'
-                        size={48}
-                        onClick={handleRetry}
-                    >
-                        Попробовать ещё раз
-                    </Button>
-                </SystemMessage.Controls>
-            </SystemMessage>
+            {onRetry && (
+                <Button
+                    className={styles.retryButton}
+                    view='secondary'
+                    colors='inverted'
+                    size={48}
+                    onClick={handleRetry}
+                >
+                    Попробовать ещё раз
+                </Button>
+            )}
         </div>
     );
 };

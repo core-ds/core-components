@@ -7,6 +7,7 @@ import React, {
     useRef,
 } from 'react';
 import cn from 'classnames';
+import type SwiperCore from 'swiper';
 import { A11y, Controller } from 'swiper/modules';
 import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react';
 
@@ -17,7 +18,7 @@ import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHea
 import { GalleryContext } from '../../context';
 import { getImageKey, isVideo, TestIds } from '../../utils';
 
-import { FetchErrorViewer } from './fetch-error-viewer/component';
+import { ImageViewerLayout } from './image-viewer-layout/component';
 import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
@@ -42,6 +43,7 @@ export const ImageViewer: FC = () => {
             enabled: paginationEnabled,
             canSlideNext,
             canSlidePrev,
+            loadingDirection,
             error: paginationError,
             retry: retryPagination,
         },
@@ -55,32 +57,28 @@ export const ImageViewer: FC = () => {
 
     const swiper = getSwiper();
     const currentImage = getCurrentImage();
+    const paginationLoading = Boolean(loadingDirection);
+    const prevDisabled = !canSlidePrev || loadingDirection === 'prev';
+    const nextDisabled = !canSlideNext || loadingDirection === 'next';
 
-    const handleSlideChange = useCallback(() => {
-        setCurrentSlideIndex?.(swiper?.activeIndex ?? initialSlide);
-    }, [setCurrentSlideIndex, swiper, initialSlide]);
-
-    const handlePrevClick = () => {
-        if (canSlidePrev) {
-            slidePrev();
-        }
-    };
-
-    const handleNextClick = () => {
-        if (canSlideNext) {
-            slideNext();
-        }
-    };
+    const handleSlideChange = useCallback(
+        (swiperInstance: SwiperCore) => {
+            if (swiperInstance === swiper) {
+                setCurrentSlideIndex?.(swiperInstance.activeIndex);
+            }
+        },
+        [setCurrentSlideIndex, swiper],
+    );
 
     const handleArrowLeftKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
-            handlePrevClick();
+            slidePrev();
         }
     };
 
     const handleArrowRightKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
-            handleNextClick();
+            slideNext();
         }
     };
 
@@ -167,15 +165,15 @@ export const ImageViewer: FC = () => {
                 <div
                     className={cn(styles.arrow, {
                         [styles.focused]: leftArrowFocused,
-                        [styles.arrowHidden]: !canSlidePrev,
+                        [styles.arrowDisabled]: prevDisabled,
                     })}
-                    onClick={handlePrevClick}
+                    onClick={slidePrev}
                     role='button'
                     onKeyDown={handleArrowLeftKeyDown}
-                    tabIndex={canSlideNext ? 0 : -1}
+                    tabIndex={prevDisabled ? -1 : 0}
                     ref={leftArrowRef}
                     aria-label='Предыдущее изображение'
-                    aria-hidden={!canSlidePrev}
+                    aria-disabled={prevDisabled}
                     data-test-id={TestIds.PREV_SLIDE_BUTTON}
                 >
                     <ChevronBackHeavyMIcon />
@@ -207,11 +205,14 @@ export const ImageViewer: FC = () => {
                     [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
                     [styles.fullScreenFrame]: fullScreen,
                     [styles.hiddenFrame]: fullScreen && !isVideo(currentImage?.src),
+                    [styles.paginationLoading]: paginationLoading,
                 })}
             >
-                {paginationError ? (
-                    <FetchErrorViewer onRetry={retryPagination} />
-                ) : (
+                <ImageViewerLayout
+                    loading={paginationLoading}
+                    error={paginationError}
+                    onRetry={retryPagination}
+                >
                     <Swiper {...swiperProps}>
                         {images.map((image, index) => {
                             const meta = imagesMeta[index];
@@ -248,22 +249,22 @@ export const ImageViewer: FC = () => {
                             );
                         })}
                     </Swiper>
-                )}
+                </ImageViewerLayout>
             </div>
 
             {showControls && (
                 <div
                     className={cn(styles.arrow, {
                         [styles.focused]: rightArrowFocused,
-                        [styles.arrowHidden]: !canSlideNext,
+                        [styles.arrowDisabled]: nextDisabled,
                     })}
-                    onClick={handleNextClick}
+                    onClick={slideNext}
                     role='button'
                     onKeyDown={handleArrowRightKeyDown}
-                    tabIndex={canSlideNext ? 0 : -1}
+                    tabIndex={nextDisabled ? -1 : 0}
                     ref={rightArrowRef}
                     aria-label='Следующее изображение'
-                    aria-hidden={!canSlideNext}
+                    aria-disabled={nextDisabled}
                     data-test-id={TestIds.NEXT_SLIDE_BUTTON}
                 >
                     <ChevronForwardHeavyMIcon />

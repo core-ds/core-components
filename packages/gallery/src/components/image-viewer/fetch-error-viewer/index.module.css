@@ -2,24 +2,22 @@
 
 .component {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
     margin: auto;
+    text-align: center;
 }
 
 .icon {
     width: 80px;
     height: 80px;
+    margin-bottom: var(--gap-4);
     color: var(--color-static-neutral-translucent-700-inverted);
 }
 
-.component .text {
-    color: var(--color-static-text-primary-light);
-    white-space: pre-line;
-}
-
 .retryButton {
-    min-width: 240px;
+    margin-top: var(--gap-16);
     background-color: var(--color-static-neutral-translucent-100-inverted);
     color: var(--color-static-neutral-0);
 }

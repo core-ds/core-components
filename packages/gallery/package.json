@@ -20,7 +20,6 @@
         "@alfalab/core-components-mq": "^6.0.7",
         "@alfalab/core-components-shared": "^2.2.3",
         "@alfalab/core-components-spinner": "^6.0.7",
-        "@alfalab/core-components-system-message": "^4.0.8",
         "@alfalab/core-components-tooltip": "^9.0.20",
         "@alfalab/core-components-typography": "^6.0.11",
         "@alfalab/hooks": "^1.17.0",

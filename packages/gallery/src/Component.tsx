@@ -84,6 +84,19 @@ const DEFAULT_HIDE_NAVIGATION = false;
 
 const Backdrop = () => null;
 
+const getSwiperInitialSlide = (
+    paginationEnabled: boolean,
+    uncontrolled: boolean,
+    initialSlide: number,
+    currentSlideIndex: number,
+) => {
+    if (paginationEnabled || !uncontrolled) {
+        return currentSlideIndex;
+    }
+
+    return initialSlide;
+};
+
 export const Gallery: FC<GalleryProps> = ({
     open,
     images,
@@ -300,6 +313,12 @@ export const Gallery: FC<GalleryProps> = ({
         };
     }, [onClose, open]);
 
+    useEffect(() => {
+        if (pagination.loadingDirection) {
+            setImagesMeta([]);
+        }
+    }, [pagination.loadingDirection]);
+
     const singleSlide = images.length === 1;
     const isSingleSlide = singleSlide && !pagination.enabled;
 
@@ -313,7 +332,7 @@ export const Gallery: FC<GalleryProps> = ({
             enabled: pagination.enabled,
             canSlideNext,
             canSlidePrev,
-            loading: pagination.loading,
+            loadingDirection: pagination.loadingDirection,
             error: pagination.error,
             retry: pagination.retry,
         },
@@ -321,7 +340,12 @@ export const Gallery: FC<GalleryProps> = ({
         images,
         imagesMeta,
         fullScreen,
-        initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
+        initialSlide: getSwiperInitialSlide(
+            pagination.enabled,
+            uncontrolled,
+            initialSlide,
+            currentSlideIndex,
+        ),
         setFullScreen,
         playingVideo,
         setPlayingVideo,
@@ -365,7 +389,9 @@ export const Gallery: FC<GalleryProps> = ({
                     <nav
                         className={cn({
                             [styles.navigationVideo]: isCurrentVideo && !isDesktop,
-                            [styles.hide]: showNavigationBar && hideNavigation && !isDesktop,
+                            [styles.hide]:
+                                (showNavigationBar && hideNavigation && !isDesktop) ||
+                                pagination.loadingDirection,
                             [styles.hideInfo]: !showNavigationBar && hideNavigation && !isDesktop,
                         })}
                     >

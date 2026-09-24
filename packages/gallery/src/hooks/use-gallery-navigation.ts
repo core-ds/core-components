@@ -8,7 +8,7 @@ import {
 
 type PaginationState =
     | { status: 'idle' }
-    | { status: 'loading' }
+    | { status: 'loading'; direction: PaginationDirection }
     | { status: 'error'; direction: PaginationDirection };
 
 const INITIAL_PAGINATION_STATE: PaginationState = { status: 'idle' };
@@ -74,11 +74,10 @@ export const useGalleryNavigation = ({
 
             requestInProgress.current = true;
             pendingDirection.current = direction;
-            setPaginationState({ status: 'loading' });
+            setPaginationState({ status: 'loading', direction });
 
             try {
                 await onEdgeReached(direction);
-                setPaginationState(INITIAL_PAGINATION_STATE);
             } catch {
                 pendingDirection.current = undefined;
                 setPaginationState({ status: 'error', direction });
@@ -162,7 +161,8 @@ export const useGalleryNavigation = ({
         pagination: {
             enabled: hasPagination,
             error: paginationState.status === 'error',
-            loading: paginationState.status === 'loading',
+            loadingDirection:
+                paginationState.status === 'loading' ? paginationState.direction : undefined,
             retry: retryPagination,
         },
     };

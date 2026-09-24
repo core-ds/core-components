@@ -161,10 +161,11 @@ describe('Gallery desktop', () => {
         });
 
         it('should request next page at the edge and show its first image', async () => {
-            const nextPage = [images[1], images[2]];
+            const initialPage = [images[0], images[1]];
+            const nextPage = [images[2], images[3]];
 
             const PaginatedGallery = () => {
-                const [page, setPage] = useState([images[0]]);
+                const [page, setPage] = useState(initialPage);
 
                 return (
                     <Gallery
@@ -182,51 +183,33 @@ describe('Gallery desktop', () => {
                 );
             };
 
-            const { getByTestId } = render(<PaginatedGallery />);
+            const { baseElement, getByTestId } = render(<PaginatedGallery />);
+
+            fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
+            await waitForActiveImage(getByTestId, 1);
+
+            const lastImage = getByTestId(TestIds.ACTIVE_IMAGE);
+
+            Object.defineProperties(lastImage, {
+                naturalWidth: { value: 1000, configurable: true },
+                naturalHeight: { value: 500, configurable: true },
+            });
+            fireEvent.load(lastImage);
 
             fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
 
             await waitFor(() => {
                 expect(getByTestId(TestIds.ACTIVE_IMAGE)).toHaveAttribute('src', nextPage[0].src);
-            });
-        });
-
-        it('should request prev page at the edge and show its last image', async () => {
-            const prevPage = [images[0], images[1]];
-
-            const PaginatedGallery = () => {
-                const [page, setPage] = useState([images[2]]);
-
-                return (
-                    <Gallery
-                        open={true}
-                        images={page}
-                        onClose={() => null}
-                        paginationConfig={{
-                            onEdgeReached: async (direction) => {
-                                if (direction === 'prev') {
-                                    setPage(prevPage);
-                                }
-                            },
-                        }}
-                    />
-                );
-            };
-
-            const { baseElement, getByTestId } = render(<PaginatedGallery />);
-
-            fireEvent.click(getByTestId(TestIds.PREV_SLIDE_BUTTON));
-
-            await waitFor(() => {
-                expect(getByTestId(TestIds.ACTIVE_IMAGE)).toHaveAttribute(
-                    'src',
-                    prevPage[prevPage.length - 1].src,
-                );
                 expect(baseElement.querySelector('.swiper-slide-active img')).toHaveAttribute(
                     'src',
-                    prevPage[prevPage.length - 1].src,
+                    nextPage[0].src,
                 );
             });
+
+            fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
+            await waitForActiveImage(getByTestId, 3);
+
+            expect(getByTestId(TestIds.ACTIVE_IMAGE)).not.toHaveClass('horizontalImageFit');
         });
 
         it('should keep a single video page active after pagination', async () => {
@@ -301,16 +284,28 @@ describe('Gallery desktop', () => {
             const request = new Promise<void>((resolve) => {
                 resolveRequest = resolve;
             });
-            const onEdgeReached = jest.fn(() => request);
+            const onEdgeReached = jest.fn((_direction: 'next' | 'prev') => request);
 
-            const { getByTestId } = render(
-                <Gallery
-                    open={true}
-                    images={[images[0]]}
-                    onClose={() => null}
-                    paginationConfig={{ onEdgeReached }}
-                />,
-            );
+            const PaginatedGallery = () => {
+                const [page, setPage] = useState(images.slice(0, 2));
+
+                const handleEdgeReached = async (direction: 'next' | 'prev') => {
+                    await onEdgeReached(direction);
+                    setPage([images[2]]);
+                };
+
+                return (
+                    <Gallery
+                        open={true}
+                        images={page}
+                        initialSlide={1}
+                        onClose={() => null}
+                        paginationConfig={{ onEdgeReached: handleEdgeReached }}
+                    />
+                );
+            };
+
+            const { baseElement, getByTestId, queryByTestId } = render(<PaginatedGallery />);
 
             const nextSlideButton = getByTestId(TestIds.NEXT_SLIDE_BUTTON);
 
@@ -320,12 +315,19 @@ describe('Gallery desktop', () => {
             await waitFor(() => {
                 expect(onEdgeReached).toHaveBeenCalledTimes(1);
                 expect(onEdgeReached).toHaveBeenCalledWith('next');
+                expect(baseElement.querySelector('.paginationSpinner')).toBeInTheDocument();
+                expect(queryByTestId(TestIds.ACTIVE_IMAGE)).not.toBeInTheDocument();
+                expect(getByTestId(TestIds.NAVIGATION_BAR).closest('nav')).toHaveClass('hide');
+                expect(nextSlideButton).toHaveClass('arrowDisabled');
+                expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).not.toHaveClass('arrowDisabled');
             });
 
             await act(async () => {
                 resolveRequest();
                 await request;
             });
+
+            expect(baseElement.querySelector('.paginationSpinner')).not.toBeInTheDocument();
         });
 
         it('should allow retrying page request after an error', async () => {
@@ -377,7 +379,7 @@ describe('Gallery desktop', () => {
             fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
 
             expect(await findByRole('alert', { hidden: true })).toHaveTextContent(
-                'Не получилось загрузить',
+                'Не удалось загрузить',
             );
             expect(queryByTestId(TestIds.NAVIGATION_BAR)).not.toBeInTheDocument();
 
@@ -389,7 +391,7 @@ describe('Gallery desktop', () => {
             });
         });
 
-        it('should visually hide edge controls when adjacent pages are unavailable', () => {
+        it('should disable edge controls when adjacent pages are unavailable', () => {
             const onEdgeReached = jest.fn();
             const { getByTestId } = render(
                 <Gallery
@@ -404,10 +406,15 @@ describe('Gallery desktop', () => {
                 />,
             );
 
-            expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).toHaveClass('arrowHidden');
-            expect(getByTestId(TestIds.NEXT_SLIDE_BUTTON)).toHaveClass('arrowHidden');
+            expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).toHaveClass('arrowDisabled');
+            expect(getByTestId(TestIds.NEXT_SLIDE_BUTTON)).toHaveClass('arrowDisabled');
             expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).toHaveAttribute('tabindex', '-1');
             expect(getByTestId(TestIds.NEXT_SLIDE_BUTTON)).toHaveAttribute('tabindex', '-1');
+            expect(getByTestId(TestIds.PREV_SLIDE_BUTTON)).toHaveAttribute('aria-disabled', 'true');
+            expect(getByTestId(TestIds.NEXT_SLIDE_BUTTON)).toHaveAttribute('aria-disabled', 'true');
+
+            fireEvent.click(getByTestId(TestIds.PREV_SLIDE_BUTTON));
+            fireEvent.click(getByTestId(TestIds.NEXT_SLIDE_BUTTON));
 
             fireEvent.keyDown(window.document, { key: 'ArrowLeft', code: 'ArrowLeft' });
             fireEvent.keyDown(window.document, { key: 'ArrowRight', code: 'ArrowRight' });
