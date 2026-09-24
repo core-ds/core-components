@@ -1,12 +1,12 @@
 ## Icon
 
-```jsx live mobileOnly mobileHeight={100}
+```jsx live mobileOnly mobileHeight={80}
 render(() => {
     return (
         <div
             style={{
-                padding: 10,
-                margin: isMobile() ? '0 -20px -20px' : undefined,
+                paddingTop: 10,
+                margin: isMobile() ? -20 : undefined,
                 background: 'url("./images/test.png")',
             }}
         >
@@ -38,8 +38,8 @@ render(() => {
     return (
         <div
             style={{
-                padding: 10,
-                margin: isMobile() ? '0 -20px -20px' : undefined,
+                paddingTop: 30,
+                margin: isMobile() ? -20 : undefined,
                 background: 'url("./images/test.png")',
             }}
         >
@@ -78,7 +78,7 @@ render(() => {
 
 ## Full Image
 
-```jsx live mobileOnly mobileHeight={100}
+```jsx live mobileOnly mobileHeight={80}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -89,8 +89,8 @@ render(() => {
     return (
         <div
             style={{
-                padding: 10,
-                margin: isMobile() ? '0 -20px -20px' : undefined,
+                paddingTop: 10,
+                margin: isMobile() ? -20 : undefined,
                 background: 'url("./images/test.png")',
             }}
         >

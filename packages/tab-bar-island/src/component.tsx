@@ -39,7 +39,7 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
     return (
         <div
             className={cn(styles.component, className, {
-                [styles.margin]: items.length >= 4 || (items.length === 3 && trailingAddon),
+                [styles.offset]: items.length >= 4 || (items.length === 3 && trailingAddon),
             })}
         >
             <TabBarIslandTabList

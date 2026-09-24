@@ -13,10 +13,11 @@
     --tab-bar-island-border-width: 1px;
 
     /* default */
-    --tab-bar-island-tab-color: var(--color-light-text-secondary);
-    --tab-bar-island-tab-active-color: var(--color-light-accent-secondary);
+    --tab-bar-island-tab-color: var(--color-static-neutral-translucent-700);
+    --tab-bar-island-tab-active-color: var(--color-static-neutral-1300);
     --tab-bar-island-background: var(--color-static-monochrome-white-56);
     --tab-bar-island-tab-tracker-background-color: var(--color-static-neutral-translucent-200);
     --tab-bar-island-border-color-from: var(--color-static-monochrome-white-10);
     --tab-bar-island-border-color-to: var(--color-static-monochrome-white-48);
+    --tab-bar-island-gradient: linear-gradient(transparent, var(--color-static-neutral-0));
 }
