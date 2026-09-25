@@ -67,6 +67,18 @@ describe('Underlay', () => {
             expect(getByTestId(dataTestId)).toHaveClass(shadow);
         });
 
+        it.each(['superapp-shadow-default', 'superapp-shadow-promo'] as const)(
+            'should set `%s` class if `shadow` prop is `%s`',
+            (shadow) => {
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Underlay shadow={shadow} dataTestId={dataTestId} />,
+                );
+
+                expect(getByTestId(dataTestId)).toHaveClass(shadow);
+            },
+        );
+
         it('should set `border-width-1` class if `borderSize` prop is `1`', () => {
             const borderSize = 1;
             const dataTestId = 'test-id';

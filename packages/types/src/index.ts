@@ -82,7 +82,9 @@ export type ShadowType =
     | 'shadow-s-hard-up'
     | 'shadow-m-hard-up'
     | 'shadow-l-hard-up'
-    | 'shadow-xl-hard-up';
+    | 'shadow-xl-hard-up'
+    | 'superapp-shadow-default'
+    | 'superapp-shadow-promo';
 
 export type GapType = 2 | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 64 | 72 | 96 | 128;
 
