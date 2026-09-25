@@ -5,6 +5,8 @@ import {
     type ReactNode,
 } from 'react';
 
+import { type HapticPresetProp } from '@alfalab/core-components-config';
+
 export type StyleColors = {
     default: {
         [key: string]: string;
@@ -81,6 +83,11 @@ type ComponentProps = {
     Component?: ElementType;
 
     /**
+     * Кастомный компонент вместо нативного `button`/`a`.
+     */
+    as?: ElementType;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для спиннера используется модификатор -loader
      */
@@ -113,6 +120,11 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг для клика по кнопке.
+     */
+    'data-haptic-preset'?: HapticPresetProp;
 
     /**
      * Дополнительный класс для label
