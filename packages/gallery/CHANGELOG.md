@@ -1,5 +1,20 @@
 # @alfalab/core-components-gallery
 
+## 7.4.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-tooltip@9.0.21
+- @alfalab/core-components-base-modal@7.2.1
+- @alfalab/core-components-button@13.2.3
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-spinner@6.0.8
+- @alfalab/core-components-typography@6.0.12
+- @alfalab/core-components-icon-button@8.0.11
+
 ## 7.4.2
 
 ### Patch Changes

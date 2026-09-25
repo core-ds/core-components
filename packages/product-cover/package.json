@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-product-cover",
-    "version": "3.2.6",
+    "version": "3.2.7",
     "description": "ProductCover component",
     "keywords": [],
     "license": "MIT",
@@ -13,9 +13,9 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.2.2",
-        "@alfalab/core-components-shared": "^2.2.3",
-        "@alfalab/core-components-typography": "^6.0.11",
+        "@alfalab/core-components-button": "^13.2.3",
+        "@alfalab/core-components-shared": "^2.2.4",
+        "@alfalab/core-components-typography": "^6.0.12",
         "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "@alfalab/utils": "^1.18.0",
@@ -31,5 +31,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.2.1",
-    "varsVersion": "11.3.0"
+    "varsVersion": "11.4.0"
 }

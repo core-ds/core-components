@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pass-code",
-    "version": "4.0.11",
+    "version": "4.0.12",
     "description": "Pass code",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.2.2",
+        "@alfalab/core-components-button": "^13.2.3",
         "@alfalab/core-components-gap": "^3.0.2",
-        "@alfalab/core-components-mq": "^6.0.7",
-        "@alfalab/core-components-shared": "^2.2.3",
+        "@alfalab/core-components-mq": "^6.0.8",
+        "@alfalab/core-components-shared": "^2.2.4",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
@@ -31,5 +31,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.2.1",
-    "varsVersion": "11.3.0"
+    "varsVersion": "11.4.0"
 }

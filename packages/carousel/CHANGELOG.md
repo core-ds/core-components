@@ -1,5 +1,29 @@
 # @alfalab/core-components-carousel
 
+## 1.1.5
+
+### Patch Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2384](https://github.com/core-ds/core-components/pull/2384)
+
+##### Carousel
+
+- Исправлен вызов события `click` при свайпе
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2382](https://github.com/core-ds/core-components/pull/2382)
+
+##### Carousel
+
+- Исправлено переключение на первый элемент в режиме зацикливания
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+
 ## 1.1.4
 
 ### Patch Changes

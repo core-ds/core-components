@@ -1,5 +1,19 @@
 # @alfalab/core-components-tabs
 
+## 10.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+- @alfalab/core-components-badge@7.0.3
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-picker-button@13.1.6
+- @alfalab/core-components-tag@10.3.1
+- @alfalab/core-components-icon-button@8.0.11
+
 ## 10.1.2
 
 ### Patch Changes
