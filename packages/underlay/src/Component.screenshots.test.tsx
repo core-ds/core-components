@@ -224,6 +224,18 @@ describe(
                     size: { width: 400, height: 60 },
                 }),
             ],
+            [
+                'sprite superapp',
+                createSpriteStorybookUrl({
+                    componentName: 'Underlay',
+                    knobs: {
+                        children: 'Content',
+                        backgroundColor: 'info',
+                        shadow: ['superapp-shadow-default', 'superapp-shadow-promo'],
+                    },
+                    size: { width: 400, height: 60 },
+                }),
+            ],
         ],
         screenshotOpts: {
             fullPage: true,
