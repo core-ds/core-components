@@ -1,0 +1,17 @@
+:root {
+    /* vars */
+    --color-static-monochrome-white-2: rgba(255, 255, 255, 0.02);
+    --color-static-monochrome-white-8: rgba(255, 255, 255, 0.08);
+    --color-static-monochrome-white-10: rgba(255, 255, 255, 0.1);
+
+    /* default */
+    --tab-bar-island-tab-color: var(--color-static-neutral-translucent-700-inverted);
+    --tab-bar-island-tab-active-color: var(--color-static-neutral-1300-inverted);
+    --tab-bar-island-background: var(--color-static-monochrome-white-10);
+    --tab-bar-island-tab-tracker-background-color: var(
+        --color-static-neutral-translucent-100-inverted
+    );
+    --tab-bar-island-border-color-from: var(--color-static-monochrome-white-2);
+    --tab-bar-island-border-color-to: var(--color-static-monochrome-white-8);
+    --tab-bar-island-gradient: linear-gradient(transparent, var(--color-static-neutral-1500));
+}

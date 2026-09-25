@@ -2,11 +2,12 @@
 
 .component {
     display: flex;
-    margin: 0 var(--gap-20) var(--gap-8);
+    padding: 0 var(--gap-20) var(--gap-8);
+    background: var(--tab-bar-island-gradient);
 
     justify-content: center;
 
-    &.margin {
-        margin: 0 var(--gap-12) var(--gap-8);
+    &.offset {
+        padding: 0 var(--gap-12) var(--gap-8);
     }
 }
