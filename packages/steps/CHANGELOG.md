@@ -1,5 +1,14 @@
 # @alfalab/core-components-steps
 
+## 3.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-badge@7.0.3
+- @alfalab/core-components-shared@2.2.4
+
 ## 3.0.9
 
 ### Patch Changes

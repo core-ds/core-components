@@ -1,5 +1,13 @@
 # @alfalab/core-components-chart
 
+## 5.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.12
+
 ## 5.0.11
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @alfalab/core-components-lottie
 
+## 1.0.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+
 ## 1.0.0
 
 ### Major Changes

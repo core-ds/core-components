@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.4.0
+
+### Minor Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2386](https://github.com/core-ds/core-components/pull/2386)
+
+##### Vars
+
+- Добавлена палитра `colors-corp.css` из ui-primitives: 7 корпоративных цветов `--color-static-corp-*` и их прозрачные пары `-transparent` (альфа 0) для градиентов
+
 ## 11.3.0
 
 ### Minor Changes

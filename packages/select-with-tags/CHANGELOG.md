@@ -1,5 +1,19 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.15
+- @alfalab/core-components-select@19.2.10
+- @alfalab/core-components-form-control@14.0.10
+- @alfalab/core-components-input@17.2.1
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-popover@8.1.3
+- @alfalab/core-components-tag@10.3.1
+
 ## 10.1.22
 
 ### Patch Changes
