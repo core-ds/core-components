@@ -234,6 +234,29 @@ describe('PureCell', () => {
         expect(screen.getByTestId('cell-pure')).toHaveClass('both');
     });
 
+    it('should use `horizontalPadding` prop as object', () => {
+        render(
+            <PureCell horizontalPadding={{ left: 20, right: 16 }} dataTestId='cell-pure'>
+                <PureCell.Graphics>
+                    <StarMIcon />
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
+                            Title
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>,
+        );
+
+        const cell = screen.getByTestId('cell-pure');
+
+        expect(cell).toHaveClass('left20');
+        expect(cell).toHaveClass('right16');
+        expect(cell).not.toHaveClass('both');
+    });
+
     it('should render `button` if it has `onClick` prop', () => {
         const cb = jest.fn();
 

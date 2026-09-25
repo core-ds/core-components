@@ -42,11 +42,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['max', 'airy', 'default', 'compact', 'tiny', 'none', undefined],
@@ -294,11 +297,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['max', 'airy', 'default', 'compact', 'tiny', 'none', undefined],
@@ -362,11 +368,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const weight = select('weight', ['bold', 'normal'], 'normal');
         const view = select('view', ['component', 'primary-small'], 'component');
@@ -445,11 +454,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const viewAmount = select(
             'viewAmount',
@@ -528,11 +540,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
 
         const graphicPadding = select(
             'graphicPadding',
@@ -589,11 +604,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         return (
             <PureCell
@@ -641,11 +659,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['airy', 'default', 'compact', 'tiny', 'none', undefined],
@@ -714,11 +735,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-       const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['airy', 'default', 'compact', 'tiny', 'none', undefined],
@@ -776,11 +800,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
@@ -842,11 +869,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const color = select(
             'color',
@@ -912,11 +942,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['airy', 'default', 'compact', 'tiny', 'none', undefined],
@@ -960,11 +993,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['airy', 'default', 'compact', 'tiny', 'none', undefined],
@@ -1081,11 +1117,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const verticalPaddingPrepared = (verticalTopPadding || verticalBottomPadding) ? {top: verticalTopPadding, bottom: verticalBottomPadding } : verticalPadding
 
-        const horizontalPadding = select(
+        const horizontalPaddingSide = select(
             'horizontalPadding',
             ['left', 'right', 'both', 'none'],
             'none',
         );
+        const horizontalLeftPadding = select('horizontalPadding.left', [0, 16, 20, undefined], undefined);
+        const horizontalRightPadding = select('horizontalPadding.right', [0, 16, 20, undefined], undefined);
+        const horizontalPadding = (horizontalLeftPadding !== undefined || horizontalRightPadding !== undefined) ? { left: horizontalLeftPadding, right: horizontalRightPadding } : horizontalPaddingSide;
         const graphicPadding = select(
             'graphicPadding',
             ['airy', 'default', 'compact', 'tiny', 'none', undefined],
