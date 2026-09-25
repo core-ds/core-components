@@ -93,7 +93,7 @@ export interface SliderProps {
      * Размер
      * @description s, m deprecated, используйте вместо них 2, 4 соответственно
      */
-    size?: 's' | 'm' | 2 | 4;
+    size?: 2 | 4;
 
     /**
      * Включение/отключение отображения точек на слайдере
