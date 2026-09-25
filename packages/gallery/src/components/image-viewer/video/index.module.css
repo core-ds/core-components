@@ -19,7 +19,7 @@
 .videoWrapper.loading {
     width: 100%;
     aspect-ratio: 16/9;
-    background-color: var(--color-static-neutral-translucent-100-inverted);
+    background-color: var(--color-static-neutral-0-inverted);
     border-radius: var(--border-radius-24);
     align-items: center;
 }

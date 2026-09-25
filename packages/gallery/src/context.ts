@@ -1,11 +1,24 @@
 import { createContext } from 'react';
 import type SwiperCore from 'swiper';
 
-import { type GalleryCustomButton, type GalleryImage, type ImageMeta } from './types';
+import {
+    type GalleryCustomButton,
+    type GalleryImage,
+    type ImageMeta,
+    type PaginationDirection,
+} from './types';
 
 export type GalleryContext = {
     view: 'desktop' | 'mobile';
     singleSlide: boolean;
+    pagination: {
+        enabled: boolean;
+        canSlideNext: boolean;
+        canSlidePrev: boolean;
+        loadingDirection?: PaginationDirection;
+        error: boolean;
+        retry: () => void;
+    };
     currentSlideIndex: number;
     images: GalleryImage[];
     imagesMeta: ImageMeta[];
@@ -37,6 +50,14 @@ const mockFn = () => undefined;
 export const GalleryContext = createContext<GalleryContext>({
     view: 'desktop',
     singleSlide: false,
+    pagination: {
+        enabled: false,
+        canSlideNext: true,
+        canSlidePrev: true,
+        loadingDirection: undefined,
+        error: false,
+        retry: mockFn,
+    },
     currentSlideIndex: 0,
     images: [],
     imagesMeta: [],

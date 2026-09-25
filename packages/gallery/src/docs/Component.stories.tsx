@@ -38,6 +38,7 @@ export const gallery: Story = {
         ];
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+
         return isPreview ? (
             <div style={previewStyles}>
                 {images.map((image, index) => (
@@ -48,7 +49,7 @@ export const gallery: Story = {
                             height: '190px',
                             backgroundSize: 'cover',
                             backgroundImage: `url(${image.src})`,
-                            marginRight: index !== 2 && '8px',
+                            marginRight: index !== 2 ? '8px' : undefined,
                             borderRadius: '12px',
                         }}
                     />
@@ -78,6 +79,7 @@ export const gallery: Story = {
                         Открыть галерею с одним изображением
                     </Button>
                 </div>
+
                 <Gallery
                     open={openMultiple}
                     customButton={{
