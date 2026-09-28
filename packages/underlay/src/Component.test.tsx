@@ -76,6 +76,15 @@ describe('Underlay', () => {
 
             expect(getByTestId(dataTestId)).toHaveClass(`border-width-${borderSize}`);
         });
+
+        it('should set `justify-between` class on content if `justifyContent` is `between`', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Underlay contentProps={{ justifyContent: 'between' }} dataTestId={dataTestId} />,
+            );
+
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('justify-between');
+        });
     });
 
     describe('Callbacks tests', () => {
