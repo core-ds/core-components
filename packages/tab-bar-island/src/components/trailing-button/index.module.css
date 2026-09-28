@@ -2,6 +2,6 @@
 
 .component {
     margin-left: var(--gap-8);
-    height: 64px;
+    height: 62px;
     flex-shrink: 0;
 }
