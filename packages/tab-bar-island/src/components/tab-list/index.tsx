@@ -3,18 +3,39 @@ import cn from 'classnames';
 
 import { Underlay } from '@alfalab/core-components-tab-bar-island/components/underlay';
 import { usePillAnimation } from '@alfalab/core-components-tab-bar-island/hooks/use-pill-animation';
-import { type TabBarIslandTabListProps } from '@alfalab/core-components-tab-bar-island/types';
+import {
+    type TabBarIslandTabKey,
+    type TabBarIslandTabListProps,
+} from '@alfalab/core-components-tab-bar-island/types';
 
 import styles from './index.module.css';
 
 export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
-    activeKey,
+    activeKey: activeKeyFromProps,
+    defaultActiveKey,
     items = [],
     gap,
     Tab,
     onActiveKeyChange,
     content = 'fit',
 }) => {
+    const [activeKey, setActiveKey] = useState(
+        () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
+    );
+    const isUncontrolled = activeKeyFromProps === undefined;
+
+    if (!isUncontrolled && activeKey !== activeKeyFromProps) {
+        setActiveKey(activeKeyFromProps);
+    }
+
+    const handleActiveKeyChange = (nextActiveKey: TabBarIslandTabKey) => {
+        onActiveKeyChange?.(nextActiveKey);
+
+        if (isUncontrolled) {
+            setActiveKey(nextActiveKey);
+        }
+    };
+
     const activeKeyIndex = useMemo(
         () => (activeKey ? items.findIndex((item) => item.key === activeKey) : -1),
         [activeKey, items],
@@ -58,7 +79,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                         style={{ marginLeft: index > 0 ? gap : undefined }}
                         tab={tab}
                         active={tab.key === activeKey}
-                        onClick={() => onActiveKeyChange?.(tab.key)}
+                        onClick={() => handleActiveKeyChange?.(tab.key)}
                         iconClassName={styles.icon}
                         content={content}
                     />
