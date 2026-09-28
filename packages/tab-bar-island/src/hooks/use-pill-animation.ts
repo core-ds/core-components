@@ -112,7 +112,7 @@ type UsePillAnimationParams = {
      * Класс иконки таба — по нему находим элемент для squash & stretch, не
      * прокидывая ref через пользовательский компонент таба.
      */
-    iconClassName: string;
+    iconClassName?: string | null;
 };
 
 export function usePillAnimation({
@@ -347,12 +347,14 @@ export function usePillAnimation({
         values.x.to(current.targetX, scaledSpring(PILL_SPRING, current.rate));
         startLoop();
 
-        const icon = (
-            wrapperRef.current?.children[activeKeyIndex] as HTMLElement | undefined
-        )?.querySelector<HTMLElement>(`.${iconClassName}`);
+        if (iconClassName) {
+            const icon = (
+                wrapperRef.current?.children[activeKeyIndex] as HTMLElement | undefined
+            )?.querySelector<HTMLElement>(`.${iconClassName}`);
 
-        if (icon) {
-            playKeyframes(icon, ICON_POP, current.rate);
+            if (icon) {
+                playKeyframes(icon, ICON_POP, current.rate);
+            }
         }
     }, [activeKeyIndex, iconClassName, measure, render, snap, startLoop, targetXFor, values]);
 

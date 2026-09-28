@@ -68,6 +68,7 @@ export interface TabBarIslandTabListProps {
     Tab: ComponentType<TabBarIslandTabProps>;
     onActiveKeyChange?: (nextActiveKey: TabBarIslandTabKey) => void;
     content?: 'fill' | 'fit';
+    iconAnimation?: boolean;
 }
 
 export interface TabBarIslandProps {
@@ -100,6 +101,11 @@ export interface TabBarIslandProps {
      * Дополнительный класс
      */
     className?: string;
+    /**
+     * Включена ли анимация иконки при смене активного таба
+     * @default true
+     */
+    iconAnimation?: boolean;
 }
 
 export interface TabBarIslandTrailingIconButtonProps
