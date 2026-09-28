@@ -2,18 +2,27 @@
 
 .icon {
     position: relative;
-    margin: var(--gap-6) var(--gap-10) var(--gap-2);
     height: var(--tab-bar-island-tab-icon-size);
+    margin: auto var(--gap-12);
+
+    @media screen and (min-width: 360px) {
+        margin: var(--gap-8) var(--gap-12) var(--gap-2);
+    }
 }
 
 .label {
-    @mixin action_secondary_small;
+    @mixin tab-bar-island-label;
     position: relative;
-    margin: 0 var(--gap-10) var(--gap-6);
+    margin: 0 var(--gap-12) var(--gap-8);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: calc(100% - var(--gap-10));
+    max-width: calc(100% - 2 * var(--gap-12));
+    display: none;
+
+    @media screen and (min-width: 360px) {
+        display: block;
+    }
 }
 
 .indicator {

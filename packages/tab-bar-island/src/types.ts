@@ -10,7 +10,7 @@ export interface TabBarIslandEntryBaseProps {
     /**
      * Лэйбл
      */
-    label?: ReactNode;
+    label: string;
     /**
      * Заблокировать
      */
@@ -42,7 +42,7 @@ export interface TabBarIslandEntryCustomProps {
 
 export interface TabBarIslandEntryProps
     extends ComponentProps<'div'>,
-        TabBarIslandEntryBaseProps,
+        Partial<TabBarIslandEntryBaseProps>,
         TabBarIslandEntryCustomProps {}
 
 export interface TabBarIslandItem extends TabBarIslandEntryBaseProps {
@@ -57,6 +57,7 @@ export interface TabBarIslandTabProps
         Pick<TabBarIslandEntryCustomProps, 'iconClassName'> {
     active?: boolean;
     tab: TabBarIslandItem;
+    content?: 'fill' | 'fit';
 }
 
 export interface TabBarIslandTabListProps {
@@ -65,6 +66,7 @@ export interface TabBarIslandTabListProps {
     items?: TabBarIslandItem[];
     Tab: ComponentType<TabBarIslandTabProps>;
     onActiveKeyChange?: (nextActiveKey: TabBarIslandTabKey) => void;
+    content?: 'fill' | 'fit';
 }
 
 export interface TabBarIslandProps {
@@ -101,7 +103,7 @@ export interface TabBarIslandProps {
 
 export interface TabBarIslandTrailingIconButtonProps
     extends Pick<ComponentProps<'div'>, 'className' | 'onClick' | 'onKeyDown'>,
-        TabBarIslandEntryBaseProps,
+        Partial<TabBarIslandEntryBaseProps>,
         TabBarIslandEntryCustomProps {}
 
 export type TabBarIslandTrailingButtonProps = ComponentProps<'div'>;

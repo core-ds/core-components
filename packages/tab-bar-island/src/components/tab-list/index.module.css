@@ -5,6 +5,14 @@
     min-width: 0;
     display: inline-flex;
     position: relative;
+
+    &.fill {
+        flex-grow: 1;
+
+        .wrapper {
+            min-width: 100%;
+        }
+    }
 }
 
 .wrapper {
