@@ -121,6 +121,30 @@
     padding-left: var(--gap-16);
 }
 
+.left0 {
+    padding-left: var(--gap-0);
+}
+
+.left16 {
+    padding-left: var(--gap-16);
+}
+
+.left20 {
+    padding-left: var(--gap-20);
+}
+
+.right0 {
+    padding-right: var(--gap-0);
+}
+
+.right16 {
+    padding-right: var(--gap-16);
+}
+
+.right20 {
+    padding-right: var(--gap-20);
+}
+
 .focused {
     @mixin focus-outline;
 }
