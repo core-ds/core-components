@@ -4,6 +4,7 @@
     flex-shrink: 1;
     min-width: 0;
     display: inline-flex;
+    justify-content: flex-start;
     position: relative;
 
     &.fill {
