@@ -18,6 +18,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     Tab,
     onActiveKeyChange,
     content = 'fit',
+    iconAnimation,
 }) => {
     const [activeKey, setActiveKey] = useState(
         () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
@@ -60,7 +61,12 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
         trackerRef,
         handlePointerDown,
         handlePointerUp,
-    } = usePillAnimation({ activeKeyIndex, items, gap, iconClassName: styles.icon });
+    } = usePillAnimation({
+        activeKeyIndex,
+        items,
+        gap,
+        iconClassName: iconAnimation ? styles.icon : null,
+    });
 
     return (
         <div role='tablist' className={cn(styles.list, styles[content])} ref={listRef}>

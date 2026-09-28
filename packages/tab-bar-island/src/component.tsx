@@ -15,6 +15,7 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
     onActiveKeyChange,
     trailingAddon,
     className,
+    iconAnimation = true,
 }) => (
     <div className={cn(styles.component, className)}>
         {items.length > 0 && (
@@ -26,6 +27,7 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
                 gap={gap}
                 onActiveKeyChange={onActiveKeyChange}
                 content={items.length === 2 && trailingAddon ? 'fill' : 'fit'}
+                iconAnimation={iconAnimation}
             />
         )}
         {trailingAddon}
