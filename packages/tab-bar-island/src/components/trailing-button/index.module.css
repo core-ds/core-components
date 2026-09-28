@@ -4,4 +4,8 @@
     margin-left: var(--gap-8);
     height: 62px;
     flex-shrink: 0;
+
+    &:only-child {
+        margin-left: auto;
+    }
 }

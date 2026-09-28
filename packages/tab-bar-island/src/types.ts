@@ -61,6 +61,7 @@ export interface TabBarIslandTabProps
 }
 
 export interface TabBarIslandTabListProps {
+    defaultActiveKey?: TabBarIslandTabKey;
     activeKey?: TabBarIslandTabKey;
     gap: number;
     items?: TabBarIslandItem[];
