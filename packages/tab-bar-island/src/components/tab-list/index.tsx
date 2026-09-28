@@ -1,4 +1,5 @@
 import React, { type FC, useMemo, useState } from 'react';
+import cn from 'classnames';
 
 import { Underlay } from '@alfalab/core-components-tab-bar-island/components/underlay';
 import { usePillAnimation } from '@alfalab/core-components-tab-bar-island/hooks/use-pill-animation';
@@ -12,6 +13,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     gap,
     Tab,
     onActiveKeyChange,
+    content = 'fit',
 }) => {
     const activeKeyIndex = useMemo(
         () => (activeKey ? items.findIndex((item) => item.key === activeKey) : -1),
@@ -40,7 +42,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     } = usePillAnimation({ activeKeyIndex, items, gap, iconClassName: styles.icon });
 
     return (
-        <div role='tablist' className={styles.list} ref={listRef}>
+        <div role='tablist' className={cn(styles.list, styles[content])} ref={listRef}>
             <Underlay className={styles.underlay} ref={underlayRef} />
             <div
                 className={styles.wrapper}
@@ -58,6 +60,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                         active={tab.key === activeKey}
                         onClick={() => onActiveKeyChange?.(tab.key)}
                         iconClassName={styles.icon}
+                        content={content}
                     />
                 ))}
             </div>

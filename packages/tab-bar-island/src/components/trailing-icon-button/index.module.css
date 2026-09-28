@@ -13,5 +13,5 @@
 
 .button {
     position: relative;
-    max-width: calc(var(--tab-bar-island-tab-max-size) - 2 * var(--gap-4));
+    max-width: var(--tab-bar-island-tab-base-size);
 }

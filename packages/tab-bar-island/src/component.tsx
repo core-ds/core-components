@@ -37,17 +37,14 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
     };
 
     return (
-        <div
-            className={cn(styles.component, className, {
-                [styles.offset]: items.length >= 4 || (items.length === 3 && trailingAddon),
-            })}
-        >
+        <div className={cn(styles.component, className)}>
             <TabBarIslandTabList
                 activeKey={activeKey}
                 Tab={TabBarIslandTab}
                 items={items}
                 gap={gap}
                 onActiveKeyChange={handleActiveKeyChange}
+                content={items.length === 2 && trailingAddon ? 'fill' : 'fit'}
             />
             {trailingAddon}
         </div>

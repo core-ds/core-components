@@ -9,13 +9,18 @@ import styles from './index.module.css';
 export const TabBarIslandTab: FC<TabBarIslandTabProps> = ({
     tab: { icon, label, disabled, indicator },
     active,
+    content = 'fit',
     ...restProps
 }) => (
     <TabBarIslandEntry
         {...restProps}
         role='tab'
+        title={label}
         aria-selected={active}
-        className={cn(styles.tab, { [styles.active]: active, [styles.disabled]: disabled })}
+        className={cn(styles.tab, styles[content], {
+            [styles.active]: active,
+            [styles.disabled]: disabled,
+        })}
         icon={icon}
         label={label}
         indicator={indicator}
