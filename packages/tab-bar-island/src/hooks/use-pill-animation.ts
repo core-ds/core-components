@@ -142,7 +142,6 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
     const listRef = useRef<HTMLDivElement>(null);
     const underlayRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
     const frameRef = useRef<HTMLDivElement>(null);
     const trackerRef = useRef<HTMLDivElement>(null);
     const capsuleRef = useRef<Capsule | null>(null);
@@ -526,7 +525,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         if (index < 0 || items[index]?.disabled) {
             return;
         }
-        [underlayRef.current, wrapperRef.current, trackRef.current].forEach((element) => {
+        [underlayRef.current, wrapperRef.current].forEach((element) => {
             if (element) {
                 playKeyframes(element, PANEL_PULSE, 1);
             }
@@ -554,7 +553,6 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         listRef,
         underlayRef,
         wrapperRef,
-        trackRef,
         frameRef,
         trackerRef,
         handlePointerDown,

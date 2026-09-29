@@ -23,18 +23,13 @@
 }
 
 .list,
-.track {
+.underlay {
     padding: var(--gap-4);
 }
 
-.track,
 .underlay {
     position: absolute;
     inset: 0;
-}
-
-.track {
-    pointer-events: none;
 }
 
 /*

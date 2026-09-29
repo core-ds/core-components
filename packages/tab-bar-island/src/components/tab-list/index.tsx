@@ -57,7 +57,6 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
         listRef,
         underlayRef,
         wrapperRef,
-        trackRef,
         frameRef,
         trackerRef,
         handlePointerDown,
@@ -71,8 +70,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
 
     return (
         <div role='tablist' className={cn(styles.list, styles[content])} ref={listRef}>
-            <Underlay className={styles.underlay} ref={underlayRef} />
-            <div className={styles.track} ref={trackRef}>
+            <Underlay className={styles.underlay} ref={underlayRef}>
                 {activeKeyIndex >= 0 && (
                     <div
                         className={styles.frame}
@@ -82,7 +80,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                         <div className={styles.tracker} ref={trackerRef} />
                     </div>
                 )}
-            </div>
+            </Underlay>
             <div
                 className={styles.wrapper}
                 ref={wrapperRef}
