@@ -44,10 +44,18 @@
     &:has(.rounded) {
         border-radius: var(--border-radius-20);
     }
+
+    & .segment {
+        padding: var(--gap-0) var(--gap-16);
+    }
 }
 
 .size-32 {
     height: var(--size-xxs-height);
+
+    & .segment {
+        padding: var(--gap-0) var(--gap-2s);
+    }
 }
 
 .rounded {
