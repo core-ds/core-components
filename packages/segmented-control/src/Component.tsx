@@ -45,7 +45,7 @@ export interface SegmentedControlProps {
      * Размер компонента
      * @default 32
      */
-    size?: 32 | 40;
+    size?: 32 | 40 | 48;
 
     /**
      * Форма компонента
@@ -192,7 +192,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         styles.wrapper,
                         colorStyles[colors].wrapper,
                         styles[shape],
-                        styles[`size-${size}`],
+                        styles[`size${size}`],
                         {
                             [styles.disabled]: disabled,
                         },

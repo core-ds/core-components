@@ -18,7 +18,7 @@ describe(
             componentName: 'SegmentedControl',
             testStory: false,
             knobs: {
-                size: [40, 32],
+                size: [40, 32, 48],
                 shape: ['rounded', 'rectangular'],
                 selectedId: 1,
             },

@@ -35,7 +35,7 @@ export const segmented_control: Story = {
                 }}
             >
                 <SegmentedControl
-                    size={select('size', [40, 32], 40)}
+                    size={select('size', [48, 40, 32], 40)}
                     shape={select('shape', ['rounded', 'rectangular'], 'rectangular')}
                     onChange={handleChange}
                     selectedId={selectedId}
