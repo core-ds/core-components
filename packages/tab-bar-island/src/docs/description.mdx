@@ -1,12 +1,12 @@
 ## Примеры
 
-```jsx live mobileOnly mobileHeight={208}
+```jsx live mobileOnly mobileHeight={214}
 render(() => {
     const [tabCount, setTabCount] = React.useState(2);
 
     return (
         <React.Fragment>
-            <Typography.Text view='component-secondary' color='secondary'>
+            <Typography.Text view='component-secondary' color='secondary' tag='p'>
                 Количество табов
             </Typography.Text>
             <Gap size={12} />
@@ -96,7 +96,7 @@ render(() => {
 
 Трэйлинг используется, как кнопка, для открытия другого экрана/шторки.
 
-```jsx live mobileOnly mobileHeight={373.5}
+```jsx live mobileOnly mobileHeight={372}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -111,10 +111,9 @@ render(() => {
 
     return (
         <React.Fragment>
-            <Typography.Text view='component-secondary' color='secondary'>
+            <Typography.Text view='component-secondary' color='secondary' tag='p'>
                 Количество табов
             </Typography.Text>
-            <Gap size={12} />
             {[0, 2, 3, 4, 5].map((count, index, arr) => (
                 <React.Fragment key={index}>
                     <TagMobile
