@@ -7,8 +7,8 @@ const resolve = require('resolve');
 const { getPackages } = require('./tools/monorepo.cjs');
 const { isSamePath } = require('./tools/path.cjs');
 
-const lottiePkg = getPackages().packages.find(
-    ({ packageJson: { name } }) => name === '@alfalab/core-components-lottie',
+const useLayoutEffectPkgs = getPackages().packages.filter(({ packageJson: { name } }) =>
+    ['@alfalab/core-components-lottie', '@alfalab/core-components-tab-bar-island'].includes(name),
 );
 
 /**
@@ -57,10 +57,11 @@ const config = {
         '@typescript-eslint/default-param-last': 'off',
         'max-lines': 'off',
         'max-params': 'off',
-        'react-hooks/exhaustive-deps':
-            lottiePkg && isSamePath(process.cwd(), lottiePkg.dir)
-                ? ['warn', { additionalHooks: ['useLayoutEffect_SAFE_FOR_SSR'].join('|') }]
-                : 'warn',
+        'react-hooks/exhaustive-deps': useLayoutEffectPkgs.some(({ dir }) =>
+            isSamePath(process.cwd(), dir),
+        )
+            ? ['warn', { additionalHooks: ['useLayoutEffect_SAFE_FOR_SSR'].join('|') }]
+            : 'warn',
     },
 };
 

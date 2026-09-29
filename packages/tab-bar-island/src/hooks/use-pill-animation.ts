@@ -1,11 +1,4 @@
-import {
-    type PointerEvent,
-    useCallback,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import { type PointerEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { spring } from 'motion';
 
 import {
@@ -23,6 +16,7 @@ import {
     type SpringTransition,
 } from '@alfalab/core-components-tab-bar-island/physics';
 import { type TabBarIslandItem } from '@alfalab/core-components-tab-bar-island/types';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 /**
  * Потолок шага кадра. После долгого пропуска кадров (вкладка была в фоне)
@@ -309,7 +303,7 @@ export function usePillAnimation({
     }, [measure, render, settle, stopLoop, targetXFor, values]);
 
     // Перелёт пилюли на новый активный таб.
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const { current } = state;
 
         current.activeIndex = activeKeyIndex;
@@ -358,7 +352,7 @@ export function usePillAnimation({
     }, [activeKeyIndex, iconClassName, measure, render, snap, startLoop, targetXFor, values]);
 
     // Смена состава табов или отступа меняет геометрию — переставляем без анимации.
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         snap();
     }, [gap, items.length, snap]);
 
