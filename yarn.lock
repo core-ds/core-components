@@ -78,7 +78,6 @@ __metadata:
     "@alfalab/core-components-typography": "npm:^6.0.12"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@maskito/core": "npm:^4.0.1"
-    "@maskito/kit": "npm:^4.0.1"
     "@maskito/react": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
