@@ -96,7 +96,7 @@ render(() => {
 
 Трэйлинг используется, как кнопка, для открытия другого экрана/шторки.
 
-```jsx live mobileOnly mobileHeight={409.5}
+```jsx live mobileOnly mobileHeight={373.5}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -104,7 +104,7 @@ const IconComponent = ({ style, children, ...restProps }) => (
 );
 render(() => {
     const [tabCount, setTabCount] = React.useState(2);
-    const [trailing, setTrailing] = React.useState(0);
+    const [trailing, setTrailing] = React.useState(1);
     const handleTrailingChange = (_, payload) => {
         setTrailing(Number(payload.value));
     };
@@ -139,7 +139,6 @@ render(() => {
                 onChange={handleTrailingChange}
                 value={`${trailing}`}
             >
-                <Radio size={24} label='Нет' value='0' />
                 <Radio size={24} label='Иконка + текст' value='1' />
                 <Radio size={24} label='Картинка + текст' value='2' />
                 <Radio size={24} label='Картинка' value='3' />
