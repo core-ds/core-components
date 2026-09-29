@@ -1,120 +1,207 @@
-## Icon
+## Примеры
 
-```jsx live mobileOnly mobileHeight={92}
+```jsx live mobileOnly mobileHeight={208}
 render(() => {
+    const [tabCount, setTabCount] = React.useState(2);
+
     return (
-        <div
-            style={{
-                paddingTop: 10,
-                margin: isMobile() ? -20 : undefined,
-                background: 'url("./images/test.png")',
-            }}
-        >
-            <TabBarIsland
-                items={[
-                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
-                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
-                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
-                ]}
-                trailingAddon={
-                    <TabBarIslandTrailingIconButton icon={<DiamondsMIcon />} label='Поддержка' />
-                }
-            />
-        </div>
+        <React.Fragment>
+            <Typography.Text view='component-secondary' color='secondary'>
+                Количество табов
+            </Typography.Text>
+            <Gap size={12} />
+            {[2, 3, 4, 5].map((count, index, arr) => (
+                <React.Fragment key={index}>
+                    <TagMobile
+                        view='filled'
+                        shape='rectangular'
+                        size={32}
+                        checked={tabCount === count}
+                        onClick={() => {
+                            setTabCount(count);
+                        }}
+                    >
+                        {`${count}`}
+                    </TagMobile>
+                    {index < arr.length - 1 && <Gap size={8} direction='horizontal' />}
+                </React.Fragment>
+            ))}
+            <Gap size={32} />
+            <div
+                style={{
+                    margin: '0 -20px -20px',
+                    paddingTop: 6,
+                    background: 'url("./images/test.png")',
+                }}
+            >
+                <TabBarIsland
+                    key={tabCount}
+                    items={Array.from({ length: tabCount }).map((_, i) => ({
+                        key: i,
+                        icon: <DiamondsMIcon />,
+                        label: 'Label',
+                    }))}
+                />
+            </div>
+        </React.Fragment>
     );
 });
 ```
 
-## Image
+У каждого таба может быть свой индикатор.
 
-```jsx live mobileOnly mobileHeight={112}
+```jsx live mobileOnly mobileHeight={266}
+render(() => {
+    const [indicator, setIndicator] = React.useState(true);
+    const handleIndicatorChange = (_, payload) => {
+        setIndicator(payload.value === 'true' || Number(payload.value));
+    };
+
+    return (
+        <React.Fragment>
+            <RadioGroupMobile
+                label='Индикатор'
+                direction='vertical'
+                name='radioGroup'
+                onChange={handleIndicatorChange}
+                value={`${indicator}`}
+            >
+                <Radio size={24} label='Точка' value='true' />
+                <Radio size={24} label='5 уведомлений' value='5' />
+                <Radio size={24} label='99+ уведомлений' value='100' />
+            </RadioGroupMobile>
+            <Gap size={32} />
+            <div
+                style={{
+                    margin: '0 -20px -20px',
+                    paddingTop: 6,
+                    background: 'url("./images/test.png")',
+                }}
+            >
+                <TabBarIsland
+                    items={Array.from({ length: 2 }).map((_, i) => ({
+                        key: i,
+                        icon: <DiamondsMIcon />,
+                        label: 'Label',
+                        indicator,
+                    }))}
+                />
+            </div>
+        </React.Fragment>
+    );
+});
+```
+
+## Трейлинг
+
+Трэйлинг используется, как кнопка, для открытия другого экрана/шторки.
+
+```jsx live mobileOnly mobileHeight={409.5}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
     </div>
 );
-
 render(() => {
+    const [tabCount, setTabCount] = React.useState(2);
+    const [trailing, setTrailing] = React.useState(0);
+    const handleTrailingChange = (_, payload) => {
+        setTrailing(Number(payload.value));
+    };
+
     return (
-        <div
-            style={{
-                paddingTop: 30,
-                margin: isMobile() ? -20 : undefined,
-                background: 'url("./images/test.png")',
-            }}
-        >
-            <TabBarIsland
-                items={[
-                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
-                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
-                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
-                ]}
-                trailingAddon={
-                    <TabBarIslandTrailingIconButton
-                        Icon={IconComponent}
-                        icon={
-                            <img
-                                style={{
-                                    width: 48,
-                                    height: 56,
-                                    left: '50%',
-                                    bottom: 0,
-                                    position: 'absolute',
-                                    transform: 'translate(-50%, 0)',
-                                    objectFit: 'cover',
-                                    objectPosition: 'top left',
-                                }}
-                                src='./images/test.png'
+        <React.Fragment>
+            <Typography.Text view='component-secondary' color='secondary'>
+                Количество табов
+            </Typography.Text>
+            <Gap size={12} />
+            {[0, 2, 3, 4, 5].map((count, index, arr) => (
+                <React.Fragment key={index}>
+                    <TagMobile
+                        view='filled'
+                        shape='rectangular'
+                        size={32}
+                        checked={tabCount === count}
+                        onClick={() => {
+                            setTabCount(count);
+                        }}
+                    >
+                        {`${count}`}
+                    </TagMobile>
+                    {index < arr.length - 1 && <Gap size={8} direction='horizontal' />}
+                </React.Fragment>
+            ))}
+            <Gap size={24} />
+            <RadioGroupMobile
+                label='Трейлинг-таб'
+                direction='vertical'
+                name='radioGroup'
+                onChange={handleTrailingChange}
+                value={`${trailing}`}
+            >
+                <Radio size={24} label='Нет' value='0' />
+                <Radio size={24} label='Иконка + текст' value='1' />
+                <Radio size={24} label='Картинка + текст' value='2' />
+                <Radio size={24} label='Картинка' value='3' />
+            </RadioGroupMobile>
+            <Gap size={32} />
+            <div
+                style={{
+                    margin: '0 -20px -20px',
+                    paddingTop: 26,
+                    background: 'url("./images/test.png")',
+                }}
+            >
+                <TabBarIsland
+                    key={tabCount}
+                    items={Array.from({ length: tabCount }).map((_, i) => ({
+                        key: i,
+                        icon: <DiamondsMIcon />,
+                        label: 'Label',
+                    }))}
+                    trailingAddon={
+                        trailing === 1 ? (
+                            <TabBarIslandTrailingIconButton
+                                icon={<DiamondsMIcon />}
+                                label='Label'
                             />
-                        }
-                        label='Новый'
-                    />
-                }
-            />
-        </div>
-    );
-});
-```
-
-## Full Image
-
-```jsx live mobileOnly mobileHeight={92}
-const IconComponent = ({ style, children, ...restProps }) => (
-    <div {...restProps} style={{ ...style, width: 48 }}>
-        {children}
-    </div>
-);
-
-render(() => {
-    return (
-        <div
-            style={{
-                paddingTop: 10,
-                margin: isMobile() ? -20 : undefined,
-                background: 'url("./images/test.png")',
-            }}
-        >
-            <TabBarIsland
-                items={[
-                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
-                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
-                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
-                ]}
-                trailingAddon={
-                    <TabBarIslandTrailingButton style={{ width: 62 }}>
-                        <img
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'top left',
-                            }}
-                            src='./images/test.png'
-                        />
-                    </TabBarIslandTrailingButton>
-                }
-            />
-        </div>
+                        ) : trailing === 2 ? (
+                            <TabBarIslandTrailingIconButton
+                                Icon={IconComponent}
+                                icon={
+                                    <img
+                                        style={{
+                                            width: 48,
+                                            height: 56,
+                                            left: '50%',
+                                            bottom: 0,
+                                            position: 'absolute',
+                                            transform: 'translate(-50%, 0)',
+                                            objectFit: 'cover',
+                                            objectPosition: 'top left',
+                                        }}
+                                        src='./images/test.png'
+                                    />
+                                }
+                                label='Label'
+                            />
+                        ) : trailing === 3 ? (
+                            <TabBarIslandTrailingButton style={{ width: 62 }}>
+                                <img
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'top left',
+                                    }}
+                                    src='./images/test.png'
+                                />
+                            </TabBarIslandTrailingButton>
+                        ) : null
+                    }
+                />
+            </div>
+        </React.Fragment>
     );
 });
 ```
