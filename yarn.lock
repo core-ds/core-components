@@ -1966,6 +1966,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-indicator": "npm:^4.0.2"
     "@alfalab/core-components-shared": "npm:^2.3.0"
+    "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     motion: "npm:^13.0.0"
     tslib: "npm:^2.4.0"
