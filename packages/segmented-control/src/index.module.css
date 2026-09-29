@@ -44,14 +44,6 @@
     &:has(.rounded) {
         border-radius: var(--border-radius-20);
     }
-
-    &:has(.rectangular) {
-        border-radius: var(--border-radius-12);
-
-        & .selectedBox {
-            border-radius: var(--border-radius-10);
-        }
-    }
 }
 
 .size-32 {
@@ -63,10 +55,20 @@
 }
 
 .rectangular {
-    border-radius: var(--border-radius-10);
-
-    & .selectedBox {
+    &.size-32 {
         border-radius: var(--border-radius-8);
+
+        & .selectedBox {
+            border-radius: var(--border-radius-6);
+        }
+    }
+
+    &.size-40 {
+        border-radius: var(--border-radius-10);
+
+        & .selectedBox {
+            border-radius: var(--border-radius-8);
+        }
     }
 }
 
