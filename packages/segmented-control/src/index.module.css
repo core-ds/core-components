@@ -37,33 +37,14 @@
     }
 }
 
-.size-40 {
-    height: var(--size-xs-height);
-
-    & .rounded,
-    &:has(.rounded) {
-        border-radius: var(--border-radius-20);
-    }
-
-    & .segment {
-        padding: var(--gap-0) var(--gap-16);
-    }
-}
-
-.size-32 {
-    height: var(--size-xxs-height);
+.size32 {
+    height: 32px;
 
     & .segment {
         padding: var(--gap-0) var(--gap-2s);
     }
-}
 
-.rounded {
-    border-radius: var(--border-radius-16);
-}
-
-.rectangular {
-    &.size-32 {
+    &.rectangular {
         border-radius: var(--border-radius-8);
 
         & .selectedBox {
@@ -71,11 +52,59 @@
         }
     }
 
-    &.size-40 {
+    &.rounded {
+        border-radius: var(--border-radius-16);
+
+        & .selectedBox {
+            border-radius: var(--border-radius-20);
+        }
+    }
+}
+
+.size40 {
+    height: 40px;
+
+    & .segment {
+        padding: var(--gap-0) var(--gap-16);
+    }
+
+    &.rectangular {
         border-radius: var(--border-radius-10);
 
         & .selectedBox {
             border-radius: var(--border-radius-8);
+        }
+    }
+
+    &.rounded {
+        border-radius: var(--border-radius-20);
+
+        & .selectedBox {
+            border-radius: var(--border-radius-20);
+        }
+    }
+}
+
+.size48 {
+    height: 48px;
+
+    & .segment {
+        padding: var(--gap-0) var(--gap-16);
+    }
+
+    &.rectangular {
+        border-radius: var(--border-radius-10);
+
+        & .selectedBox {
+            border-radius: var(--border-radius-8);
+        }
+    }
+
+    &.rounded {
+        border-radius: 22px;
+
+        & .selectedBox {
+            border-radius: var(--border-radius-24);
         }
     }
 }
