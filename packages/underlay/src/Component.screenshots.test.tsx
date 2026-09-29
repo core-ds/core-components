@@ -243,9 +243,10 @@ describe('Underlay | justifyContent=between', () => {
     it('between', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'Underlay',
-            packageName: 'underlay',
-            subComponentName: 'JustifyBetween',
             testStory: false,
+            knobs: {
+                justifyContent_contentProps: 'between',
+            },
         });
 
         const { browser, context, page } = await openBrowserPage(pageUrl);

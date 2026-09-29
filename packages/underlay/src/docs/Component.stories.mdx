@@ -161,34 +161,6 @@ export const ChildElement = ({ children }) => {
 
 </Story>
 
-<Story name='JustifyBetween'>
-    <div style={{ width: 640 }}>
-        <Underlay
-            borderRadius={8}
-            borderSize='1'
-            shadow='shadow-s'
-            backgroundColor='secondary'
-            borderColor='primary'
-            overflow={false}
-            dimensions={{ height: 100, width: 640 }}
-            padding={{ top: 16, right: 16, bottom: 16, left: 16 }}
-            contentProps={{
-                backgroundColor: 'secondary',
-                axis: 'horizontal',
-                alignment: 'center',
-                justifyContent: 'between',
-            }}
-        >
-            <SuperEllipse size='80' backgroundColor='#2FC26E' border={true}>
-                <CheckmarkHeavyMIcon color='#fff' />
-            </SuperEllipse>
-            <SuperEllipse size='80' backgroundColor='#F15045' border={true}>
-                <CrossHeavyMIcon color='#fff' />
-            </SuperEllipse>
-        </Underlay>
-    </div>
-</Story>
-
 {/* Docs */}
 
 <ComponentHeader name='Underlay' children='Подложка под любой вид контента.' />
