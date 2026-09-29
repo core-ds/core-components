@@ -1,0 +1,10 @@
+:root {
+    --color-dark-superapp-component-bg-secondary: #3b3b40;
+    --color-dark-superapp-component-bg-secondary-press: #3f3f45;
+    --color-dark-superapp-surface-bg-primary: #1c1c1e;
+    --color-dark-superapp-surface-bg-secondary: #28282b;
+    --color-light-superapp-component-bg-secondary: #f8f8f8;
+    --color-light-superapp-component-bg-secondary-press: #f2f2f2;
+    --color-light-superapp-surface-bg-primary: #fcfcfc;
+    --color-light-superapp-surface-bg-secondary: #fff;
+}

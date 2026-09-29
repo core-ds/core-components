@@ -1,5 +1,23 @@
 # @alfalab/core-components-pass-code
 
+## 4.0.12
+
+### Patch Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2375](https://github.com/core-ds/core-components/pull/2375)
+
+##### UniversalModal, FilterTag, PassCode
+
+- Рефакторинг, связанный с улучшениями проверок стилей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-button@13.2.3
+- @alfalab/core-components-mq@6.0.8
+
 ## 4.0.11
 
 ### Patch Changes

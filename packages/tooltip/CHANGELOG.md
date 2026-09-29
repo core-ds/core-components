@@ -1,5 +1,49 @@
 # @alfalab/core-components-tooltip
 
+## 9.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.15
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-button@13.2.3
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-popover@8.1.3
+
+## 9.0.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.14
+
+## 9.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.13
+
+## 9.0.18
+
+### Patch Changes
+
+<sup><time>16.08.2026</time></sup>
+
+#### [#2320](https://github.com/core-ds/core-components/pull/2320)
+
+##### IntlPhoneInput, MaskedInput, WithSuffix, Calendar, Textarea, Popover, Tooltip
+
+- Исправление работы `ref`, которое могло вызывать ошибку `Maximum update depth exceeded`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+
 ## 9.0.17
 
 ### Patch Changes

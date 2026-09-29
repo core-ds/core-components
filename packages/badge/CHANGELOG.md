@@ -1,5 +1,13 @@
 # @alfalab/core-components-badge
 
+## 7.0.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+
 ## 7.0.2
 
 ### Patch Changes

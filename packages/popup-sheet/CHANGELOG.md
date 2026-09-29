@@ -1,5 +1,40 @@
 # @alfalab/core-components-popup-sheet
 
+## 3.0.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-base-modal@7.2.1
+- @alfalab/core-components-navigation-bar-private@2.0.15
+
+## 3.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+
+## 3.0.16
+
+### Patch Changes
+
+<sup><time>04.09.2026</time></sup>
+
+#### [#2330](https://github.com/core-ds/core-components/pull/2330)
+
+##### PopupSheet
+
+- Добавлен safe-area для `PopupSheet`. Контент и кнопки не перекрываются системной областью свайпа.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
 ## 3.0.15
 
 ### Patch Changes

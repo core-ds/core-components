@@ -1,5 +1,57 @@
 # @alfalab/core-components-calendar-range
 
+## 9.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-calendar@9.1.15
+- @alfalab/core-components-universal-date-input@4.0.21
+- @alfalab/core-components-calendar-input@12.0.21
+- @alfalab/core-components-date-input@6.0.14
+
+## 9.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.14
+- @alfalab/core-components-calendar-input@12.0.20
+- @alfalab/core-components-universal-date-input@4.0.20
+
+## 9.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.13
+- @alfalab/core-components-calendar-input@12.0.19
+- @alfalab/core-components-universal-date-input@4.0.19
+
+## 9.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.12
+- @alfalab/core-components-calendar-input@12.0.18
+- @alfalab/core-components-universal-date-input@4.0.18
+
+## 9.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-date-input@6.0.13
+- @alfalab/core-components-universal-date-input@4.0.17
+- @alfalab/core-components-calendar-input@12.0.17
+
 ## 9.1.2
 
 ### Patch Changes

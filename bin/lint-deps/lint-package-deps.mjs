@@ -1,9 +1,12 @@
 import depcheck from 'depcheck';
+import fse from 'fs-extra';
 import * as process from 'node:process';
 
 const { detector, parser } = depcheck;
 
 async function main() {
+    const pkg = await fse.readJson('package.json', { encoding: 'utf8' });
+
     /**
      * @type {depcheck.Options}
      */
@@ -17,7 +20,7 @@ async function main() {
             '**/*.test.tsx',
             '**/*.stories.tsx',
         ],
-        ignoreMatches: ['tslib'],
+        ignoreMatches: ['tslib', pkg.name],
         parsers: {
             // the target parsers
             '**/*.js': parser.es6,

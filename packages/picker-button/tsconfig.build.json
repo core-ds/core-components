@@ -16,13 +16,16 @@
             "@alfalab/core-components-popover": ["../popover/src"],
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
             "@alfalab/core-components-select": ["../select/src"],
-            "@alfalab/core-components-select/*": ["../select/src/*"]
+            "@alfalab/core-components-select/*": ["../select/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
     "references": [
         { "path": "../button/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../popover/tsconfig.build.json" },
-        { "path": "../select/tsconfig.build.json" }
+        { "path": "../select/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
     ]
 }

@@ -1,5 +1,14 @@
 # @alfalab/core-components-notification-manager
 
+## 7.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-notification@9.0.12
+- @alfalab/core-components-portal@5.0.5
+
 ## 7.0.11
 
 ### Patch Changes

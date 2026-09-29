@@ -1,4 +1,12 @@
-import React, { type FC, type ReactElement, useCallback, useEffect, useRef } from 'react';
+import React, {
+    type FC,
+    type ReactElement,
+    useCallback,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
@@ -94,6 +102,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
+    const isInitialLayoutRef = useRef(true);
+    const [skipTransition, setSkipTransition] = useState(true);
     const children = defaultChildren.slice(0, MAX_SEGMENTS);
     const isSize40 = size === 40;
 
@@ -125,13 +135,29 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     const setSelectedBoxStylesRef = useRef(setSelectedBoxStyles);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setSelectedBoxStylesRef.current = setSelectedBoxStyles;
+
+        if (skeleton?.visible) {
+            isInitialLayoutRef.current = true;
+            setSkipTransition(true);
+
+            return;
+        }
+
         setSelectedBoxStyles();
-    }, [setSelectedBoxStyles]);
+
+        if (isInitialLayoutRef.current) {
+            isInitialLayoutRef.current = false;
+
+            requestAnimationFrame(() => {
+                setSkipTransition(false);
+            });
+        }
+    }, [setSelectedBoxStyles, skeleton?.visible]);
 
     useEffect(() => {
-        if (!wrapperRef.current) return undefined;
+        if (skeleton?.visible || !wrapperRef.current) return undefined;
 
         const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
@@ -140,7 +166,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         observer.observe(wrapperRef.current);
 
         return () => observer.disconnect();
-    }, []);
+    }, [skeleton?.visible]);
 
     if (skeleton?.visible) {
         return (
@@ -178,6 +204,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                                 styles.selectedBox,
                                 colorStyles[colors].selectedBox,
                                 styles[shape],
+                                {
+                                    [styles.noTransition]: skipTransition,
+                                },
                             )}
                             ref={selectedBoxRef}
                         />

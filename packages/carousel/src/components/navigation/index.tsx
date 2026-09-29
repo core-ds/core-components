@@ -45,8 +45,7 @@ export const CarouselNavigation: FC<CarouselNavigationProps> = ({ className, pos
                 icon={ArrowRightMIcon}
                 disabled={nextIsDisabled}
                 onClick={() => {
-                    const nextActiveIndex =
-                        (loop && activeIndex === count - 1 ? 0 : activeIndex) + 1;
+                    const nextActiveIndex = loop && activeIndex === count - 1 ? 0 : activeIndex + 1;
 
                     onActiveIndexChange(nextActiveIndex);
                 }}

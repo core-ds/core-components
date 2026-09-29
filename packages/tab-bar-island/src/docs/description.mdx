@@ -1,0 +1,120 @@
+## Icon
+
+```jsx live mobileOnly mobileHeight={80}
+render(() => {
+    return (
+        <div
+            style={{
+                paddingTop: 10,
+                margin: isMobile() ? -20 : undefined,
+                background: 'url("./images/test.png")',
+            }}
+        >
+            <TabBarIsland
+                items={[
+                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
+                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
+                ]}
+                trailingAddon={
+                    <TabBarIslandTrailingIconButton icon={<DiamondsMIcon />} label='Поддержка' />
+                }
+            />
+        </div>
+    );
+});
+```
+
+## Image
+
+```jsx live mobileOnly mobileHeight={100}
+const IconComponent = ({ style, children, ...restProps }) => (
+    <div {...restProps} style={{ ...style, width: 48 }}>
+        {children}
+    </div>
+);
+
+render(() => {
+    return (
+        <div
+            style={{
+                paddingTop: 30,
+                margin: isMobile() ? -20 : undefined,
+                background: 'url("./images/test.png")',
+            }}
+        >
+            <TabBarIsland
+                items={[
+                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
+                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
+                ]}
+                trailingAddon={
+                    <TabBarIslandTrailingIconButton
+                        Icon={IconComponent}
+                        icon={
+                            <img
+                                style={{
+                                    width: 48,
+                                    height: 56,
+                                    left: '50%',
+                                    bottom: 0,
+                                    position: 'absolute',
+                                    transform: 'translate(-50%, 0)',
+                                    objectFit: 'cover',
+                                    objectPosition: 'top left',
+                                }}
+                                src='./images/test.png'
+                            />
+                        }
+                        label='Новый'
+                    />
+                }
+            />
+        </div>
+    );
+});
+```
+
+## Full Image
+
+```jsx live mobileOnly mobileHeight={80}
+const IconComponent = ({ style, children, ...restProps }) => (
+    <div {...restProps} style={{ ...style, width: 48 }}>
+        {children}
+    </div>
+);
+
+render(() => {
+    return (
+        <div
+            style={{
+                paddingTop: 10,
+                margin: isMobile() ? -20 : undefined,
+                background: 'url("./images/test.png")',
+            }}
+        >
+            <TabBarIsland
+                items={[
+                    { key: 'money', icon: <DiamondsMIcon />, label: 'Деньги' },
+                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
+                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
+                ]}
+                trailingAddon={
+                    <TabBarIslandTrailingButton style={{ width: 64 }}>
+                        <img
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                objectPosition: 'top left',
+                            }}
+                            src='./images/test.png'
+                        />
+                    </TabBarIslandTrailingButton>
+                }
+            />
+        </div>
+    );
+});
+```

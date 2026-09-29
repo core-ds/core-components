@@ -175,9 +175,7 @@ const modern = () => {
                 outputToFilesystem: false,
                 transformers: transformDeclarations('modern'),
             }),
-            processCss({
-                preserveVars: !(env.BUILD_WITHOUT_CSS_VARS === 'true'),
-            }),
+            processCss(),
             assetsCopyPlugin('dist/modern'),
         ],
     });

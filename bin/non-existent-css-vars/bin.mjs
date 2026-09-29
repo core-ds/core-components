@@ -1,32 +1,27 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { cwd, exit } from 'node:process';
-import { fileURLToPath } from 'node:url';
 
 import { $ } from '../../tools/execa.mjs';
-import { readPackagesFile } from '../../tools/read-packages-file.cjs';
-
-const dirname = path.dirname(fileURLToPath(import.meta.url));
+import { NON_EXISTENT_CSS_VARS_IGNORED_PACKAGES } from '../../tools/non-existent-css-vars.mjs';
 
 async function main() {
-    const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
-
     const result = await $(
         'yarn',
         [
             'workspaces',
             'foreach',
             '-Ap',
-            ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
+            ...NON_EXISTENT_CSS_VARS_IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
             '--',
             'node',
-            path.join(cwd(), 'bin/non-existent-css-vars.mjs'),
+            path.join(process.cwd(), 'bin/non-existent-css-vars.mjs'),
+            'src/**/*.css',
         ],
         { preferLocal: true, stdio: 'inherit', reject: false },
     );
 
-    exit(result.exitCode);
+    process.exit(result.exitCode);
 }
 
 await main();

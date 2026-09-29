@@ -1,5 +1,17 @@
 # @alfalab/core-components-types
 
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2387](https://github.com/core-ds/core-components/pull/2387)
+
+##### Underlay, Types
+
+- Добавлена поддержка теней `superapp-shadow-default` и `superapp-shadow-promo`
+
 ## 2.0.1
 
 ### Patch Changes

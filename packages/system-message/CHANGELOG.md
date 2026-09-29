@@ -1,5 +1,27 @@
 # @alfalab/core-components-system-message
 
+## 4.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+
+## 4.0.8
+
+### Patch Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2322](https://github.com/core-ds/core-components/pull/2322)
+
+##### SystemMessage
+
+- Внутренние изменения не влияющие на работу компонента
+
 ## 4.0.7
 
 ### Patch Changes

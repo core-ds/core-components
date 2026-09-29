@@ -7,7 +7,6 @@ import { Graphic } from '../components/graphic';
 import { Subtitle } from '../components/subtitle';
 import { Title } from '../components/title';
 import { type SystemMessageDesktopProps } from '../types';
-import { createCompound } from '../utils';
 
 const SystemMessageDesktopComponent: React.FC<SystemMessageDesktopProps> = ({
     children,
@@ -18,7 +17,13 @@ const SystemMessageDesktopComponent: React.FC<SystemMessageDesktopProps> = ({
     </SystemMessage>
 );
 
-export const SystemMessageDesktop = createCompound(SystemMessageDesktopComponent);
+export const SystemMessageDesktop = Object.assign(SystemMessageDesktopComponent, {
+    Graphic,
+    Title,
+    Subtitle,
+    Caption,
+    Controls,
+});
 
 export {
     SystemMessageDesktopComponent as SystemMessageComponentDesktop,

@@ -1,0 +1,10 @@
+:root {
+    --color-light-superapp-component-bg-secondary: var(
+        --color-dark-superapp-component-bg-secondary
+    );
+    --color-light-superapp-component-bg-secondary-press: var(
+        --color-dark-superapp-component-bg-secondary-press
+    );
+    --color-light-superapp-surface-bg-primary: var(--color-dark-superapp-surface-bg-primary);
+    --color-light-superapp-surface-bg-secondary: var(--color-dark-superapp-surface-bg-secondary);
+}

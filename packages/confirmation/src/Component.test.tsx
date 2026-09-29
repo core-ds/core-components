@@ -245,7 +245,7 @@ describe('Confirmation', () => {
 
             const { getByText } = render(<ConfirmationDesktop {...baseProps} phone={phone} />);
 
-            expect(getByText(`Отправили на ${phone}`)).toBeInTheDocument();
+            expect(getByText(phone).parentElement).toHaveTextContent(`Отправили на ${phone}`);
         });
 
         it('should render with custom title tag', () => {

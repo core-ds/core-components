@@ -12,19 +12,33 @@
 
 .typographyTheme.typographyTheme {
     @mixin _confirmation-text;
+    color: var(--confirmation-temp-block-description-color);
 }
 
 .typographyThemeMobile.typographyThemeMobile {
-    color: var(--color-light-text-secondary);
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
+    color: var(--confirmation-temp-block-description-color-mobile);
 }
 
 .description.description {
-    margin-bottom: var(--gap-8);
+    margin-bottom: var(--confirmation-temp-block-description-margin-bottom);
+}
+
+.description.descriptionMobile {
+    margin-bottom: var(--confirmation-temp-block-description-margin-bottom-mobile);
 }
 
 .countdownWrap {
     display: flex;
     align-items: center;
+}
+
+.countdownWrapMobile {
+    font-size: var(--confirmation-text-font-size-mobile);
+    line-height: var(--confirmation-text-line-height-mobile);
+    letter-spacing: var(--confirmation-text-letter-spacing-mobile);
 }
 
 .timeCounter {

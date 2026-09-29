@@ -1,5 +1,80 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.15
+- @alfalab/core-components-select@19.2.10
+- @alfalab/core-components-form-control@14.0.10
+- @alfalab/core-components-input@17.2.1
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-popover@8.1.3
+- @alfalab/core-components-tag@10.3.1
+
+## 10.1.22
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.14
+- @alfalab/core-components-select@19.2.9
+
+## 10.1.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.8
+
+## 10.1.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+
+## 10.1.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.6
+- @alfalab/core-components-bottom-sheet@8.1.13
+
+## 10.1.18
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.3.0
+- @alfalab/core-components-select@19.2.5
+
+## 10.1.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.2
+- @alfalab/core-components-select@19.2.4
+
+## 10.1.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.0
+- @alfalab/core-components-select@19.2.3
+
 ## 10.1.15
 
 ### Patch Changes

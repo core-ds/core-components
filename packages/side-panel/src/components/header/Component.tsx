@@ -1,4 +1,4 @@
-import React, { type FC, useContext, useEffect } from 'react';
+import React, { forwardRef, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import {
@@ -17,49 +17,49 @@ import mobileStyles from './mobile.module.css';
 
 export type HeaderProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
-export const Header: FC<HeaderProps> = ({
-    className,
-    children,
-    contentClassName,
-    title,
-    sticky,
-    hasCloser = true,
-    ...restProps
-}) => {
-    const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
-    const { size = 500, view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
+export const Header = forwardRef<HTMLDivElement, HeaderProps>(
+    (
+        { className, children, contentClassName, title, sticky, hasCloser = true, ...restProps },
+        ref,
+    ) => {
+        const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
+        const { size = 500, view = 'desktop', dataTestId } = useContext(ResponsiveContext) || {};
 
-    useEffect(() => {
-        setHasHeader(true);
-    }, [setHasHeader]);
+        useEffect(() => {
+            setHasHeader(true);
+        }, [setHasHeader]);
 
-    const hasContent = Boolean(title || children);
+        const hasContent = Boolean(title || children);
 
-    return (
-        <NavigationBarPrivate
-            dataTestId={getDataTestId(dataTestId, 'header')}
-            {...restProps}
-            scrollableParentRef={componentRef}
-            view={view}
-            sticky={sticky}
-            title={title}
-            hasCloser={hasCloser}
-            onClose={onClose}
-            className={cn(styles.header, className, {
-                [styles.highlighted]: hasContent && sticky && headerHighlighted,
-                [styles.sticky]: sticky,
-                [styles.hasContent]: hasContent,
-                [desktopStyles.sticky]: view === 'desktop' && sticky,
-                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
-                [mobileStyles.sticky]: view === 'mobile' && sticky,
-                [mobileStyles.header]: view === 'mobile',
-            })}
-            contentClassName={cn(contentClassName, {
-                [desktopStyles.content]: view === 'desktop',
-                [mobileStyles.content]: view === 'mobile',
-            })}
-        >
-            {children}
-        </NavigationBarPrivate>
-    );
-};
+        return (
+            <NavigationBarPrivate
+                ref={ref}
+                dataTestId={getDataTestId(dataTestId, 'header')}
+                {...restProps}
+                scrollableParentRef={componentRef}
+                view={view}
+                sticky={sticky}
+                title={title}
+                hasCloser={hasCloser}
+                onClose={onClose}
+                className={cn(styles.header, className, {
+                    [styles.highlighted]: hasContent && sticky && headerHighlighted,
+                    [styles.sticky]: sticky,
+                    [styles.hasContent]: hasContent,
+                    [desktopStyles.sticky]: view === 'desktop' && sticky,
+                    [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
+                    [mobileStyles.sticky]: view === 'mobile' && sticky,
+                    [mobileStyles.header]: view === 'mobile',
+                })}
+                contentClassName={cn(contentClassName, {
+                    [desktopStyles.content]: view === 'desktop',
+                    [mobileStyles.content]: view === 'mobile',
+                })}
+            >
+                {children}
+            </NavigationBarPrivate>
+        );
+    },
+);
+
+Header.displayName = 'Header';

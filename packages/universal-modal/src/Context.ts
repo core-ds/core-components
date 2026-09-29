@@ -1,6 +1,6 @@
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 
 /**
- * @deprecated Некоторые параметры могут не соответствовать реальным состояниям компонента
+ * @deprecated В будущем контекст будет удалён. Обрабатывайте состояния компонента самостоятельно.
  */
 export const ModalContext = BaseModalContext;

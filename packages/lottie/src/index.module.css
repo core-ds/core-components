@@ -1,0 +1,7 @@
+.container {
+    overflow: hidden;
+
+    &:not(.show) {
+        display: none;
+    }
+}

@@ -1,0 +1,13 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.component {
+    display: flex;
+    padding: 0 var(--gap-20) var(--gap-8);
+    background: var(--tab-bar-island-gradient);
+
+    justify-content: center;
+
+    &.offset {
+        padding: 0 var(--gap-12) var(--gap-8);
+    }
+}

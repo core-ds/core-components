@@ -1,4 +1,4 @@
-export const SWIPE_THRESHOLD = -250;
+export const SWIPE_THRESHOLD = 250;
 
 export const PREVIEW_WIDTH_MOBILE = 46;
 export const PREVIEW_HEIGHT_MOBILE = 46;

@@ -22,7 +22,10 @@
 }
 
 .placeholder {
+    display: block;
     color: var(--input-placeholder-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: color 0.2s ease;
     animation: show-placeholder 0.2s ease;
 
@@ -35,7 +38,6 @@
     @mixin paragraph_component;
 
     white-space: nowrap;
-    text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
 

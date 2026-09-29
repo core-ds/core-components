@@ -1,5 +1,73 @@
 # @alfalab/core-components-gallery
 
+## 7.4.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-tooltip@9.0.21
+- @alfalab/core-components-base-modal@7.2.1
+- @alfalab/core-components-button@13.2.3
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-spinner@6.0.8
+- @alfalab/core-components-typography@6.0.12
+- @alfalab/core-components-icon-button@8.0.11
+
+## 7.4.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+- @alfalab/core-components-tooltip@9.0.20
+
+## 7.4.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.11
+- @alfalab/core-components-tooltip@9.0.19
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>31.08.2026</time></sup>
+
+#### [#2323](https://github.com/core-ds/core-components/pull/2323)
+
+##### Gallery
+
+- Добавлена возможность передать дополнительную кнопку в шапку галереи
+
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#1762](https://github.com/core-ds/core-components/pull/1762)
+
+##### Gallery
+
+- Добавлена поддержка скачивания видео для мобильных браузеров.
+- Расширены возможности управления видео в галерее. Заменен цвет для плейсхолдеров и заглушек, что улучшает видимость на темном фоне галереи.
+- Исправлены отступы у навигации.
+- При свайпе до закрытия, галерея следует за свайпом
+
+## 7.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tooltip@9.0.18
+
 ## 7.2.2
 
 ### Patch Changes

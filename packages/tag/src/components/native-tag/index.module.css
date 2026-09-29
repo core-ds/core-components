@@ -122,7 +122,7 @@ button.noContent {
 }
 
 .size-48 {
-    min-width: 64px;
+    min-width: 72px;
     min-height: var(--size-s-height);
     padding: var(--gap-0) var(--gap-12);
 

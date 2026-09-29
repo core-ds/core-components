@@ -65,6 +65,7 @@ export interface UniversalModalDesktopProps
                 | 'container'
                 | 'disableRestoreFocus'
                 | 'disableAutoFocus'
+                | 'zIndex'
             >
         > {
     /**

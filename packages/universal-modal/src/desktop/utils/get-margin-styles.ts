@@ -1,5 +1,3 @@
-import { hasOwnProperty } from '@alfalab/core-components-shared';
-
 import { type UniversalModalDesktopProps } from '../types/props';
 
 interface Params {
@@ -7,19 +5,18 @@ interface Params {
     margin: UniversalModalDesktopProps['margin'];
 }
 
-export const getMarginStyles = (params: Params): Record<string, boolean> => {
+export const getMarginStyles = (params: Params): string[] => {
     const { margin, styles } = params;
 
-    if (!margin) {
-        return {};
-    }
+    const topGap = margin?.top ?? 0;
+    const rightGap = margin?.right ?? 0;
+    const bottomGap = margin?.bottom ?? 0;
+    const leftGap = margin?.left ?? 0;
 
-    return {
-        ...(hasOwnProperty(margin, 'top') && { [styles[`marginTop-${margin.top}`]]: true }),
-        ...(hasOwnProperty(margin, 'right') && { [styles[`marginRight-${margin.right}`]]: true }),
-        ...(hasOwnProperty(margin, 'bottom') && {
-            [styles[`marginBottom-${margin.bottom}`]]: true,
-        }),
-        ...(hasOwnProperty(margin, 'left') && { [styles[`marginLeft-${margin.left}`]]: true }),
-    };
+    return [
+        styles[`marginTop-${topGap}`],
+        styles[`marginRight-${rightGap}`],
+        styles[`marginBottom-${bottomGap}`],
+        styles[`marginLeft-${leftGap}`],
+    ];
 };

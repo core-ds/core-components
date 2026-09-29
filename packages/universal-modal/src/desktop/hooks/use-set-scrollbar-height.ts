@@ -1,6 +1,6 @@
 import { type RefObject, useEffect } from 'react';
 
-import { SCROLLBAR_DEFAULT_GAP } from '../constants';
+const SCROLLBAR_DEFAULT_GAP = 16;
 
 interface Params {
     scrollbarRef: RefObject<HTMLDivElement>;
@@ -9,43 +9,43 @@ interface Params {
     footerElementRef: RefObject<HTMLDivElement>;
 }
 
-/** Устанавливает размер полосы прокрутки в зависимости от наличия хедера и футера */
+/** Устанавливает отсупы для scrollbar в зависимости от высоты хедера и футера */
 export const useSetScrollbarHeight = (params: Params) => {
     const { scrollbarRef, verticalBarRef, headerElementRef, footerElementRef } = params;
 
     useEffect(() => {
-        if (scrollbarRef.current) {
+        const applyScrollbarHeight = () => {
             const verticalBar = verticalBarRef.current;
 
-            if (verticalBar) {
-                const headerHeight = headerElementRef?.current?.offsetHeight || 0;
-                const footerHeight = footerElementRef?.current?.offsetHeight || 0;
-
-                let topGap;
-                let topOffset;
-                let bottomGap;
-
-                if (headerHeight) {
-                    // если есть header уменьшаем размер скролла на величину хедера и добавляем отступ сверху
-                    topGap = headerHeight;
-                    topOffset = headerHeight;
-                } else {
-                    // иначе уменьшаем размер скролла и увеличиваем отступ на величину скругления
-                    topGap = SCROLLBAR_DEFAULT_GAP;
-                    topOffset = SCROLLBAR_DEFAULT_GAP;
-                }
-
-                if (footerHeight) {
-                    // если есть footer уменьшаем размер скролла на величину футера
-                    bottomGap = footerHeight;
-                } else {
-                    // иначе уменьшаем размер на величину скругления
-                    bottomGap = SCROLLBAR_DEFAULT_GAP;
-                }
-
-                verticalBar.style.height = `calc(100% - ${topGap}px - ${bottomGap}px)`;
-                verticalBar.style.top = `${topOffset}px`;
+            if (!scrollbarRef.current || !verticalBar) {
+                return;
             }
+
+            const headerHeight = headerElementRef?.current?.offsetHeight || 0;
+            const footerHeight = footerElementRef?.current?.offsetHeight || 0;
+
+            const topOffset = headerHeight || SCROLLBAR_DEFAULT_GAP;
+            const bottomGap = footerHeight || SCROLLBAR_DEFAULT_GAP;
+
+            verticalBar.style.top = `${topOffset}px`;
+            verticalBar.style.bottom = `${bottomGap}px`;
+        };
+
+        applyScrollbarHeight();
+
+        const resizeObserver = new ResizeObserver(applyScrollbarHeight);
+
+        if (headerElementRef.current) {
+            resizeObserver.observe(headerElementRef.current);
         }
-    });
+
+        if (footerElementRef.current) {
+            resizeObserver.observe(footerElementRef.current);
+        }
+
+        return () => {
+            resizeObserver.disconnect();
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 };

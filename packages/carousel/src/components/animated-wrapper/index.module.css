@@ -2,17 +2,18 @@
 
 .remove {
     animation:
-        var(--carousel-animation-duration) ease-in-out 0s phase1,
-        var(--carousel-animation-duration) ease-in-out var(--carousel-animation-duration) phase2;
+        disappear var(--carousel-animation-duration) ease-in-out 0s forwards,
+        shrink var(--carousel-animation-duration) ease-in-out var(--carousel-animation-duration)
+            forwards;
 }
 
-@keyframes phase1 {
+@keyframes disappear {
     to {
         opacity: 0;
     }
 }
 
-@keyframes phase2 {
+@keyframes shrink {
     to {
         width: 0;
     }

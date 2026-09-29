@@ -97,4 +97,4 @@ export const Item: React.FC<ItemProps> = ({
     );
 };
 
-Item.displayName = 'ListItem';
+Item.displayName = 'Item';

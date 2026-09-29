@@ -1,0 +1,240 @@
+{
+"packageName": "filter-tag",
+"displayName": "FilterTag",
+"description": "Используется чтобы вывести параметры фильтрации и отобразить примененное значение.",
+"props": {
+"checked": {
+"defaultValue": null,
+"description": "Состояние выбора",
+"name": "checked",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Состояние открытия",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Состояние блокировки",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"showClear": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Показывать крестик для очистки выбора",
+"name": "showClear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"showArrow": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Показывать шеврон в выбранном состоянии",
+"name": "showArrow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"block": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"shape": {
+"defaultValue": {
+"value": "rounded"
+},
+"description": "Форма тега",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "Стиль тега",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"outlined\" | \"filled\" | \"muted\" | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"subComponents": {},
+"demos": [
+{
+"title": "Группа фильтров",
+"description": "Обычно фильтры объединяются в группу, в рамках группы рекомендуется использовать один паттерн отображения лейбла и контролов. У выбранного тега может отображаться шеврон, крестик или и то и другое. Лейбл в выбранном состоянии можно скрывать для экономии места. Но если выбрано несколько значений, лейбл нужно оставить.",
+"desktop": "// Одиночный выбор\nconst CustomField = ({\nhideFieldLabel,\nselected,\nsetSelectedItems,\ninnerProps: { ref, ...restInnerProps },\n...restProps\n}) => {\nconst checkedContent = (\n<span>\n{!hideFieldLabel && 'Одиночный выбор:'} {selected && selected.content}\n</span>\n);\n\nconst contentLabel = <span>Одиночный выбор</span>;\n\nreturn (\n<div ref={ref}>\n<FilterTagDesktop\nonClear={() => setSelectedItems([])}\nview='filled'\nchecked={selected}\n{...restInnerProps}\n{...restProps}\n>\n{selected ? checkedContent : contentLabel}\n</FilterTagDesktop>\n</div>\n);\n};\n\n// Множественный выбор\nconst CustomFieldMultiple = ({\nhideFieldLabel,\nselected,\nsetSelectedItems,\nselectedMultiple,\ninnerProps: { ref, ...restInnerProps },\n...restProps\n}) => {\nconst content = selected && selected.content;\n\nconst checkedContent =\nselectedMultiple.length > 1 ? (\n<span>Множественный выбор ({selectedMultiple.length})</span>\n) : (\n<span>\n{!hideFieldLabel && 'Множественный выбор:'} {content}\n</span>\n);\n\nconst contentLabel = <span>Множественный выбор</span>;\n\nreturn (\n<div ref={ref}>\n<FilterTagDesktop\nonClear={() => setSelectedItems([])}\nview='filled'\nchecked={selected}\n{...restInnerProps}\n{...restProps}\n>\n{selected ? checkedContent : contentLabel}\n</FilterTagDesktop>\n</div>\n);\n};\n\nrender(() => {\nconst FIELD_SIZE = 40;\nconst FIELD_SHAPE = 'rectangular';\n\nconst controlMap = {\nchevron: { showArrow: true, showClear: false },\nclear: { showArrow: false, showClear: true },\nboth: { showArrow: true, showClear: true },\n};\n\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'Aurum' },\n{ key: '2', content: 'Bercelium' },\n{ key: '3', content: 'Curium' },\n{ key: '4', content: 'Neptunium' },\n{ key: '5', content: 'Plutonuim' },\n],\n[],\n);\n\nconst [controls, setControls] = React.useState('chevron');\nconst [hideLabel, setHideLabel] = React.useState(false);\nconst { showArrow, showClear } = controlMap[controls];\n\nconst fieldProps = {\nsize: FIELD_SIZE,\nshape: FIELD_SHAPE,\nshowArrow,\nshowClear,\nhideFieldLabel: hideLabel,\n};\n\nconst [selected, setSelected] = React.useState([]);\n\nconst handleChangeSelected = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple);\n};\n\nconst [selectedMultiple, setSelectedMultiple] = React.useState([]);\nconst handleChangeMultiple = ({ selectedMultiple }) => {\nsetSelectedMultiple(selectedMultiple.map((option) => option.key));\n};\n\n// Диапазон значений\nconst [open, setOpen] = React.useState(false);\nconst { selectedFrom, selectedTo, updatePeriod, resetPeriod } = usePeriod();\nconst calendarRef = React.useRef(null);\nconst anchorRef = React.useRef(null);\n\nconst handleOpen = () => {\nsetOpen(true);\n};\n\nconst handleClose = () => {\nsetOpen(false);\n};\n\nconst handleClear = () => {\nhandleClose();\nresetPeriod();\n};\n\nconst handleUpdatePeriod = (date) => {\nupdatePeriod(date);\n\nif (selectedFrom) {\nhandleClose();\n}\n};\n\nconst handleWrapperBlur = (event) => {\nconst target = event.relatedTarget || document.activeElement;\n\nif (\n(anchorRef.current && anchorRef.current.contains(target)) ||\n(calendarRef.current && calendarRef.current.contains(target))\n) {\nreturn;\n}\n\nhandleClose();\n};\n\nconst getDateString = React.useCallback((date) => {\nconst day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();\nconst month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;\nconst year = date.getFullYear();\n\nreturn `${day}.${month}.${year}`;\n}, []);\n\nconst selectedRange = React.useMemo(() => {\nif (selectedFrom && selectedTo) {\nconst selectedFromDate = new Date(selectedFrom);\nconst selectedToDate = new Date(selectedTo);\nreturn `${getDateString(selectedFromDate)} – ${getDateString(selectedToDate)}`;\n}\nreturn '';\n}, [selectedFrom, selectedTo]);\n\nconst checkedContent = (\n<span>\n{!hideLabel && 'Диапазон значений:'} {selectedRange && selectedRange}\n</span>\n);\nconst content = <span>Диапазон значений</span>;\n\nreturn (\n<>\n<style>\n{`\n.filter-tag-options-list-desktop {\nwidth: 200px;\nmin-width: 200px !important;\n}\n.filter-tag-calendar-popover {\nborder-radius: 0;\nborder: none;\nbackground: transparent;\nbox-shadow: none;\n}\n.filter-tag-calendar-panel {\nborder-radius: var(--OptionListCornerRadius, 16px);\nborder: 1px solid var(--neutral-300, #E7E8EB);\nbackground: var(--modal-bg-primary, #FFF);\nbox-shadow:\n0 20px 24px 0 rgba(0, 0, 0, 0.08),\n0 12px 16px 0 rgba(0, 0, 0, 0.04),\n0 4px 8px 0 rgba(0, 0, 0, 0.04),\n0 0 1px 0 rgba(0, 0, 0, 0.04);\noverflow: hidden;\n}\n`}\n</style>\n<SelectDesktop\nallowUnselect={true}\npopoverPosition='bottom-start'\noptions={options}\nField={CustomField}\nonChange={handleChangeSelected}\nselected={selected}\nOption={BaseOption}\nfieldProps={fieldProps}\noptionsListClassName='filter-tag-options-list-desktop'\n/>\n<Gap size={16} />\n<SelectDesktop\nallowUnselect={true}\npopoverPosition='bottom-start'\noptions={options}\nField={CustomFieldMultiple}\nonChange={handleChangeMultiple}\nselected={selectedMultiple}\nmultiple={true}\nfieldProps={fieldProps}\noptionsListClassName='filter-tag-options-list-desktop'\n/>\n<Gap size={16} />\n<div ref={anchorRef} tabIndex={-1} onBlur={handleWrapperBlur}>\n<FilterTagDesktop\nsize={FIELD_SIZE}\nshape={FIELD_SHAPE}\nview='filled'\nshowArrow={showArrow}\nshowClear={showClear}\nonClick={handleOpen}\nonClear={handleClear}\nchecked={Boolean(selectedRange)}\nopen={open}\n>\n{selectedRange ? checkedContent : content}\n</FilterTagDesktop>\n<Popover\nanchorElement={anchorRef.current}\noffset={[0, 4]}\nopen={open}\npreventFlip={true}\nposition='bottom-start'\nwithTransition={false}\npopperClassName='filter-tag-calendar-popover'\n>\n<div\nclassName='filter-tag-calendar-panel'\nonMouseDown={(event) => event.preventDefault()}\n>\n<CalendarDesktop\nref={calendarRef}\nresponsive={true}\nselectedFrom={selectedFrom}\nselectedTo={selectedTo}\nonChange={handleUpdatePeriod}\nselectorView='month-only'\n/>\n</div>\n</Popover>\n</div>\n\n<Gap size={24} />\n\n<RadioGroup\ndirection='vertical'\nlabel='Контролы'\nname='filter-controls'\nonChange={(_, payload) => setControls(payload.value)}\nvalue={controls}\n>\n<Radio label='Шеврон' value='chevron' />\n<Radio label='Крестик' value='clear' />\n<Radio label='Шеврон и крестик' value='both' />\n</RadioGroup>\n\n<Gap size={16} />\n\n<RadioGroup\ndirection='vertical'\nlabel='Лейбл в выбранном состоянии'\nname='filter-label'\nonChange={(_, payload) => setHideLabel(payload.value === 'hide')}\nvalue={hideLabel ? 'hide' : 'show'}\n>\n<Radio label='Показывать' value='show' />\n<Radio label='Скрывать' value='hide' />\n</RadioGroup>\n</>\n);\n});",
+"mobile": "// Одиночный выбор\nconst CustomField = ({\nhideFieldLabel,\nselected,\nsetSelectedItems,\ninnerProps: { ref, ...restInnerProps },\n...restProps\n}) => {\nconst checkedContent = (\n<span>\n{!hideFieldLabel && 'Одиночный выбор:'} {selected && selected.content}\n</span>\n);\n\nconst contentLabel = <span>Одиночный выбор</span>;\n\nreturn (\n<div ref={ref}>\n<FilterTagMobile\nonClear={() => setSelectedItems([])}\nview='filled'\nchecked={selected}\n{...restInnerProps}\n{...restProps}\n>\n{selected ? checkedContent : contentLabel}\n</FilterTagMobile>\n</div>\n);\n};\n\n// Множественный выбор\nconst CustomFieldMultiple = ({\nhideFieldLabel,\nselected,\nsetSelectedItems,\nselectedMultiple,\ninnerProps: { ref, ...restInnerProps },\n...restProps\n}) => {\nconst content = selected && selected.content;\n\nconst checkedContent =\nselectedMultiple.length > 1 ? (\n<span>Множественный выбор ({selectedMultiple.length})</span>\n) : (\n<span>\n{!hideFieldLabel && 'Множественный выбор:'} {content}\n</span>\n);\n\nconst contentLabel = <span>Множественный выбор</span>;\n\nreturn (\n<div ref={ref}>\n<FilterTagMobile\nonClear={() => setSelectedItems([])}\nview='filled'\nchecked={selected}\n{...restInnerProps}\n{...restProps}\n>\n{selected ? checkedContent : contentLabel}\n</FilterTagMobile>\n</div>\n);\n};\n\nrender(() => {\nconst FIELD_SIZE = 40;\nconst FIELD_SHAPE = 'rectangular';\n\nconst controlMap = {\nchevron: { showArrow: true, showClear: false },\nclear: { showArrow: false, showClear: true },\nboth: { showArrow: true, showClear: true },\n};\n\nconst options = [\n{ key: '1', content: 'Aurum' },\n{ key: '2', content: 'Bercelium' },\n{ key: '3', content: 'Curium' },\n{ key: '4', content: 'Neptunium' },\n{ key: '5', content: 'Plutonuim' },\n];\n\nconst [controls, setControls] = React.useState('chevron');\nconst [hideLabel, setHideLabel] = React.useState(false);\nconst { showArrow, showClear } = controlMap[controls];\n\nconst fieldProps = {\nsize: FIELD_SIZE,\nshape: FIELD_SHAPE,\nshowArrow,\nshowClear,\nhideFieldLabel: hideLabel,\n};\n\nconst [selected, setSelected] = React.useState([]);\n\nconst handleChangeSelected = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple);\n};\n\nconst [selectedMultiple, setSelectedMultiple] = React.useState([]);\nconst handleChangeMultiple = ({ selectedMultiple }) => {\nsetSelectedMultiple(selectedMultiple.map((option) => option.key));\n};\n\n// Диапазон значений\nconst [open, setOpen] = React.useState(false);\nconst { selectedFrom, selectedTo, updatePeriod, resetPeriod } = usePeriod();\n\nconst handleOpen = () => {\nsetOpen(true);\n};\n\nconst handleClear = () => {\nsetOpen(false);\nresetPeriod();\n};\n\nconst handleUpdatePeriod = (date) => {\nupdatePeriod(date);\n\nif (selectedFrom) {\nsetOpen(false);\n}\n};\n\nconst getDateString = React.useCallback((date) => {\nconst day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();\nconst month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;\nconst year = date.getFullYear();\n\nreturn `${day}.${month}.${year}`;\n}, []);\n\nconst selectedRange = React.useMemo(() => {\nif (selectedFrom && selectedTo) {\nconst selectedFromDate = new Date(selectedFrom);\nconst selectedToDate = new Date(selectedTo);\nreturn `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;\n}\nreturn '';\n}, [selectedFrom, selectedTo]);\n\nconst checkedContent = (\n<span>\n{!hideLabel && 'Диапазон значений:'} {selectedRange && selectedRange}\n</span>\n);\nconst content = <span>Диапазон значений</span>;\n\nreturn (\n<>\n<style>\n{`\n.filter-tag-calendar-mobile [class*='dayNames'],\n[data-test-id='filter-tag-calendar-mobile'] [class*='dayNames'] {\npadding-left: var(--gap-16);\npadding-right: var(--gap-16);\n}\n.filter-tag-calendar-mobile [class*='virtuoso'],\n[data-test-id='filter-tag-calendar-mobile'] [class*='virtuoso'] {\nmargin-left: var(--gap-16);\nmargin-right: var(--gap-16);\n}\n`}\n</style>\n<SelectMobile\nplaceholder='Одиночный выбор'\nallowUnselect={true}\npopoverPosition='bottom-start'\noptions={options}\nField={CustomField}\nonChange={handleChangeSelected}\nselected={selected}\nfieldProps={fieldProps}\nOption={BaseOption}\noptionProps={{ checkmarkPosition: 'after' }}\n/>\n<Gap size={16} />\n<SelectMobile\nplaceholder='Множественный выбор'\nallowUnselect={true}\npopoverPosition='bottom-start'\noptions={options}\nField={CustomFieldMultiple}\nonChange={handleChangeMultiple}\nselected={selectedMultiple}\nmultiple={true}\nfieldProps={fieldProps}\nOption={BaseOption}\noptionProps={{ checkmarkPosition: 'after' }}\n/>\n<Gap size={16} />\n<CalendarMobile\nclassName='filter-tag-calendar-mobile'\ndataTestId='filter-tag-calendar-mobile'\nopen={open}\nonClose={() => setOpen(false)}\nselectedFrom={selectedFrom}\nselectedTo={selectedTo}\nonChange={handleUpdatePeriod}\nselectorView='month-only'\n/>\n<FilterTagMobile\nsize={FIELD_SIZE}\nshape={FIELD_SHAPE}\nview='filled'\nshowArrow={showArrow}\nshowClear={showClear}\nonClick={handleOpen}\nonClear={handleClear}\nchecked={Boolean(selectedRange)}\nopen={open}\n>\n{selectedRange ? checkedContent : content}\n</FilterTagMobile>\n\n<Gap size={24} />\n\n<RadioGroup\ndirection='vertical'\nlabel='Контролы'\nname='filter-controls-mobile'\nonChange={(_, payload) => setControls(payload.value)}\nvalue={controls}\n>\n<Radio label='Шеврон' value='chevron' />\n<Radio label='Крестик' value='clear' />\n<Radio label='Шеврон и крестик' value='both' />\n</RadioGroup>\n\n<Gap size={16} />\n\n<RadioGroup\ndirection='vertical'\nlabel='Лейбл в выбранном состоянии'\nname='filter-label-mobile'\nonChange={(_, payload) => setHideLabel(payload.value === 'hide')}\nvalue={hideLabel ? 'hide' : 'show'}\n>\n<Radio label='Показывать' value='show' />\n<Radio label='Скрывать' value='hide' />\n</RadioGroup>\n</>\n);\n});"
+},
+{
+"title": "Предзаполненное значение",
+"description": "Компонент может иметь предзаполненное значение, в таком случае, в заполненном состоянии у него не может быть крестика очистки.",
+"desktop": "const CustomField = ({\nlabel,\nselected,\nsetSelectedItems,\ninnerProps: { ref, ...restInnerProps },\n...restProps\n}) => (\n<div ref={ref}>\n<FilterTagDesktop checked={selected} showClear={false} {...restInnerProps} {...restProps}>\n{selected.content}\n</FilterTagDesktop>\n</div>\n);\nrender(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'По возрастанию' },\n{ key: '2', content: 'По убыванию' },\n],\n[],\n);\n\nconst [selected, setSelected] = React.useState([options[0]]);\n\nconst handleChangeSelected = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple);\n};\n\nreturn (\n<>\n<style>\n{`\n.filter-tag-options-list-desktop {\nwidth: 200px;\nmin-width: 200px !important;\n}\n`}\n</style>\n<SelectDesktop\npopoverPosition='bottom-start'\noptions={options}\nField={CustomField}\nonChange={handleChangeSelected}\nselected={selected}\nfieldProps={{ size: 40, shape: 'rectangular' }}\nOption={BaseOption}\noptionsListClassName='filter-tag-options-list-desktop'\n/>\n</>\n);\n});",
+"mobile": "const CustomField = ({\nlabel,\nselected,\nsetSelectedItems,\ninnerProps: { ref, ...restInnerProps },\n...restProps\n}) => (\n<div ref={ref}>\n<FilterTagMobile checked={selected} showClear={false} {...restInnerProps} {...restProps}>\n{selected.content}\n</FilterTagMobile>\n</div>\n);\nrender(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'По возрастанию' },\n{ key: '2', content: 'По убыванию' },\n],\n[],\n);\n\nconst [selected, setSelected] = React.useState([options[0]]);\n\nconst handleChangeSelected = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple);\n};\n\nreturn (\n<>\n<SelectMobile\npopoverPosition='bottom-start'\noptions={options}\nField={CustomField}\nonChange={handleChangeSelected}\nselected={selected}\nfieldProps={{ size: 40, shape: 'rectangular' }}\nOption={BaseOption}\noptionProps={{ checkmarkPosition: 'after' }}\n/>\n</>\n);\n});"
+},
+{
+"title": "Состояния",
+"description": "Взаимодействие с тегом можно ограничить с помощью свойства [disabled]. Блокировать теги с выбранным значением не рекомендуется.",
+"desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nconst checkedContent = <span>Label: Value</span>;\n\nreturn (\n<Container>\n<Row align='middle'>\n<FilterTagDesktop\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={false}\nshowClear={false}\ndisabled={disabled}\n>\n<span>Label</span>\n</FilterTagDesktop>\n<Gap size={12} direction='horizontal' />\n<FilterTagDesktop\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={true}\nshowClear={false}\ndisabled={disabled}\n>\n{checkedContent}\n</FilterTagDesktop>\n\n<Gap size={12} direction='horizontal' />\n\n<FilterTagDesktop\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={true}\nshowArrow={false}\ndisabled={disabled}\n>\n{checkedContent}\n</FilterTagDesktop>\n\n<Gap size={12} direction='horizontal' />\n\n<FilterTagDesktop\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={true}\ndisabled={disabled}\n>\n{checkedContent}\n</FilterTagDesktop>\n</Row>\n<Gap size={24} />\n<Switch\nlabel='Заблокированное состояние'\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\n/>\n</Container>\n);\n});",
+"mobile": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nconst checkedContent = <span>Label: Value</span>;\n\nreturn (\n<Container>\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection: 'column',\nalignItems: 'flex-start',\ngap: 24,\n}}\n>\n<FilterTagMobile\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={false}\nshowClear={false}\ndisabled={disabled}\n>\n<span>Label</span>\n</FilterTagMobile>\n\n<FilterTagMobile\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={true}\nshowClear={false}\ndisabled={disabled}\n>\n{checkedContent}\n</FilterTagMobile>\n\n<FilterTagMobile\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={true}\nshowArrow={false}\ndisabled={disabled}\n>\n{checkedContent}\n</FilterTagMobile>\n\n<FilterTagMobile\nsize={40}\nview='filled'\nshape='rectangular'\nchecked={true}\ndisabled={disabled}\n>\n{checkedContent}\n</FilterTagMobile>\n</div>\n\n<Gap size={24} />\n<Switch\nlabel='Заблокированное состояние'\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Дополнительный слот",
+"description": "С помощью слота leftAddons можно кастомизировать фильтртэг.",
+"desktop": "render(() => (\n<Container>\n<FilterTagDesktop\nsize={40}\nshape='rectangular'\nchecked={true}\nshowArrow={true}\nshowClear={true}\nleftAddons={\n<div\nstyle={{\nwidth: 16,\nheight: 16,\nbackgroundColor: 'var(--color-light-status-muted-alt-info)',\nborder: '1px dashed var(--color-light-status-info)',\nborderRadius: '4px',\n}}\n/>\n}\n>\n<span>Label: Value</span>\n</FilterTagDesktop>\n</Container>\n));"
+}
+],
+"changelog": [
+{
+"version": "50.22.0",
+"description": "#### [#2256](https://github.com/core-ds/core-components/pull/2256)\n\n- Добавлен prop `showArrow` для управления отображением шеврона в выбранном состоянии\n- Изменены отступы в компоненте\n- Шеврон отображается в невыбранном состоянии; крестик и шеврон можно показывать независимо друг от друга\n- Добавлен вариант `view='muted'`"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.8.0",
+"description": "#### [#2137](https://github.com/core-ds/core-components/pull/2137)\n\n- Для шеврона: размеры 32 и 40 — `ChevronDownSIcon`, 48 — `ChevronDownMIcon` (вместо `ChevronDownCompactSIcon`).\n\n- Обновлены зависимости\n    - @alfalab/core-components-amount-input@9.2.0\n    - @alfalab/core-components-gallery@7.1.2\n    - @alfalab/core-components-product-cover@3.1.4\n    - @alfalab/core-components-filter-tag@7.0.4"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1854](https://github.com/core-ds/core-components/pull/1854)\n\n- Удален пропс `variant`, который был объявлен как `deprecated` в `core-components@38.x.x`\n- Удалены буквенные варианты пропса `size`, которые были объявлены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s` на `32, 40, 48` соответственно)"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Обновлены скругления для Tag и FilterTag компонентов в десктопной версии"
+}
+]
+}

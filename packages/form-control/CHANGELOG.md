@@ -1,5 +1,14 @@
 # @alfalab/core-components-form-control
 
+## 14.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+
 ## 14.0.9
 
 ### Patch Changes

@@ -49,6 +49,11 @@
     height: 48px;
 }
 
+.size-56 {
+    width: 56px;
+    height: 56px;
+}
+
 .svg {
     display: block;
     width: 100%;

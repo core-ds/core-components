@@ -1,5 +1,46 @@
 # @alfalab/core-components-side-panel
 
+## 7.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-base-modal@7.2.1
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-navigation-bar-private@2.0.15
+- @alfalab/core-components-drawer@7.0.12
+
+## 7.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+- @alfalab/core-components-drawer@7.0.11
+
+## 7.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.14
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>21.08.2026</time></sup>
+
+#### [#2319](https://github.com/core-ds/core-components/pull/2319)
+
+##### SidePanel
+
+- Добавлен проброс `ref` на корневой элемент `SidePanel.Header`
+
 ## 7.0.15
 
 ### Patch Changes

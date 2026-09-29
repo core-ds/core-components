@@ -1,0 +1,16 @@
+:root {
+    --color-static-corp-grape-soda: #7a63f1;
+    --color-static-corp-grape-soda-transparent: rgba(122, 99, 241, 0);
+    --color-static-corp-grenadine: #ff1418;
+    --color-static-corp-grenadine-transparent: rgba(255, 20, 24, 0);
+    --color-static-corp-hibiscus-tea: #ee004b;
+    --color-static-corp-hibiscus-tea-transparent: rgba(238, 0, 75, 0);
+    --color-static-corp-ruby-wine: #c41400;
+    --color-static-corp-ruby-wine-transparent: rgba(196, 20, 0, 0);
+    --color-static-corp-squid-ink: #000;
+    --color-static-corp-squid-ink-transparent: rgba(0, 0, 0, 0);
+    --color-static-corp-ube-juice: #8c00f2;
+    --color-static-corp-ube-juice-transparent: rgba(140, 0, 242, 0);
+    --color-static-corp-wisteria-ouzo: #a7a7f7;
+    --color-static-corp-wisteria-ouzo-transparent: rgba(167, 167, 247, 0);
+}

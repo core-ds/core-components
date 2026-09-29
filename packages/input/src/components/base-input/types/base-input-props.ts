@@ -40,8 +40,16 @@ export interface BaseInputProps
 
     /**
      * Крестик для очистки поля
+     *
+     * - false или never — не отображается
+     * - auto — отображается только при взаимодействии c input (hover, focus)
+     * - true или always — отображается всегда
+     *
+     * Булевы значения будут удалены в core-components@51
+     *
+     * @default false
      */
-    clear?: boolean;
+    clear?: boolean | 'auto' | 'always' | 'never';
 
     /**
      * Размер компонента

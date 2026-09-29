@@ -53,7 +53,7 @@ export function generateDoc(entries) {
      * создаёт под него отдельный Program, и результат перестаёт зависеть от остальных
      * файлов в списке.
      */
-    entries.forEach(({ file, sourceName, componentName }, index) => {
+    entries.forEach(({ file, sourceName, componentName, packageName, subKey }, index) => {
         const docs = parser.parse([file]);
 
         /**
@@ -74,33 +74,49 @@ export function generateDoc(entries) {
          */
         const doc = resolveDoc(docs, sourceName);
 
-        if (!doc) {
+        if (!doc && !subKey) {
             return;
         }
 
-        const { filePath, props: componentProps } = doc;
-        const [packageName] = filePath.split('packages/')[1].split('/');
+        const props = doc
+            ? Object.fromEntries(
+                  Object.entries(doc.props)
+                      .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
+                      .map(([key, prop]) => {
+                          const { defaultValue, description, name, required, type } = prop;
 
-        const props = Object.fromEntries(
-            Object.entries(componentProps)
-                .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
-                .map(([key, prop]) => {
-                    const { defaultValue, description, name, required, type } = prop;
+                          return [key, { defaultValue, description, name, required, type }];
+                      }),
+              )
+            : {};
 
-                    return [key, { defaultValue, description, name, required, type }];
-                }),
-        );
+        if (!subKey) {
+            docsMap.set(packageName, {
+                /**
+                 * публичное имя компонента (из имени папки пакета), а не sourceName —
+                 * внутреннее имя объявления часто отличается суффиксом Responsive/Component
+                 */
+                displayName: componentName,
+                packageName,
+                props,
+                filePath: doc.filePath,
+                subComponents: {},
+            });
 
-        docsMap.set(packageName, {
-            /**
-             * публичное имя компонента (из имени папки пакета), а не sourceName —
-             * внутреннее имя объявления часто отличается суффиксом Responsive/Component
-             */
-            displayName: componentName,
-            packageName,
+            return;
+        }
+
+        // Записываем подкомпонент (Header/Content/Footer и т. п.) в subComponents родителя
+        const parentDoc = docsMap.get(packageName);
+
+        if (!parentDoc) {
+            return;
+        }
+
+        parentDoc.subComponents[subKey] = {
+            displayName: `${parentDoc.displayName}.${subKey}`,
             props,
-            filePath,
-        });
+        };
     });
 
     process.stdout.write('\n');

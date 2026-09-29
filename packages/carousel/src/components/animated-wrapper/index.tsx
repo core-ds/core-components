@@ -59,7 +59,7 @@ export const AnimatedWrapper = forwardRef<React.ElementRef<'div'>, ComponentProp
                                   child.props?.onAnimationEnd?.(event);
 
                                   // TODO somehow call in useEffect
-                                  if (event.currentTarget.classList.contains(styles.remove)) {
+                                  if (event.animationName === styles.shrink) {
                                       latestChildrenRef.current = latestChildrenRef.current.filter(
                                           (c) => getChildKey(c) !== key,
                                       );

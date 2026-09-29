@@ -763,7 +763,7 @@ export type OptgroupProps = {
     multiple?: boolean;
 };
 
-export type OptionCommonProps = {
+export interface OptionCommonProps extends Pick<OptionsListProps, 'optionsListWidth'> {
     /**
      * Дополнительный класс
      */
@@ -840,7 +840,7 @@ export type OptionCommonProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
-};
+}
 
 export interface OptionProps extends OptionCommonProps, AriaAttributes {
     /**
