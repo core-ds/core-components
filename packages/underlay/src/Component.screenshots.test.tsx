@@ -245,6 +245,7 @@ describe('Underlay | justifyContent=between', () => {
             componentName: 'Underlay',
             testStory: false,
             knobs: {
+                axis_contentProps: 'horizontal',
                 justifyContent_contentProps: 'between',
             },
         });
