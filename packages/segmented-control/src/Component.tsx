@@ -88,6 +88,13 @@ export interface SegmentedControlProps {
      * @default default
      */
     view?: 'default' | 'muted';
+
+    /**
+     * Ширина сегментов: equal — одинаковая, сегменты вместе занимают весь контейнер;
+     * content — по ширине контента
+     * @default equal
+     */
+    segmentWidth?: 'equal' | 'content';
 }
 
 const MAX_SEGMENTS = 5;
@@ -105,6 +112,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     disabled = false,
     skeleton,
     view = 'default',
+    segmentWidth = 'equal',
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -130,13 +138,15 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     const setSelectedBoxStyles = useCallback(() => {
         if (innerRef.current && selectedBoxRef.current) {
-            const segments = Array.from(innerRef.current.children);
-            const { width: parentWidth } = innerRef.current.getBoundingClientRect();
-            const width = parentWidth / segments.length;
-            const offsetLeft = width * selectedSegmentPosition;
+            const segment = innerRef.current.children[selectedSegmentPosition];
+
+            if (!segment) return;
+
+            const { left: parentLeft } = innerRef.current.getBoundingClientRect();
+            const { left, width } = segment.getBoundingClientRect();
 
             selectedBoxRef.current.style.width = `${width}px`;
-            selectedBoxRef.current.style.transform = `translateX(${offsetLeft}px)`;
+            selectedBoxRef.current.style.transform = `translateX(${left - parentLeft}px)`;
         }
     }, [selectedSegmentPosition]);
 
@@ -172,6 +182,10 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
         observer.observe(wrapperRef.current);
 
+        if (innerRef.current) {
+            observer.observe(innerRef.current);
+        }
+
         return () => observer.disconnect();
     }, [skeleton?.visible]);
 
@@ -205,6 +219,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         {
                             [styles.disabled]: disabled,
                             [colorStyles[colors].muted]: isMutedView,
+                            [styles.contentWidth]: segmentWidth === 'content',
                         },
                     )}
                 >

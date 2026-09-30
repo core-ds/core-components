@@ -196,3 +196,55 @@ render(() => {
 })
 ```
 
+
+## Ширина сегментов
+
+По умолчанию (`segmentWidth='equal'`) сегменты одинаковой ширины и вместе занимают весь контейнер. В режиме `segmentWidth='content'` ширина сегментов подстраивается под контент.
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        '1': 1,
+        '2': 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <div style={{ width: 360 }}>
+        <Space fullWidth size={24}>
+            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
+                <Segment id={1} title='Таб' />
+                <Segment id={2} title='Длинный таб' />
+                <Segment id={3} title='Таб 3' />
+            </SegmentedControl>
+            <SegmentedControl segmentWidth='content' selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
+                <Segment id={1} title='Таб' />
+                <Segment id={2} title='Длинный таб' />
+                <Segment id={3} title='Таб 3' />
+            </SegmentedControl>
+        </Space>
+    </div>
+    )
+})
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        '1': 1,
+        '2': 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <Space fullWidth size={24}>
+            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
+                <Segment id={1} title='Таб' />
+                <Segment id={2} title='Длинный таб' />
+                <Segment id={3} title='Таб 3' />
+            </SegmentedControl>
+            <SegmentedControl segmentWidth='content' selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
+                <Segment id={1} title='Таб' />
+                <Segment id={2} title='Длинный таб' />
+                <Segment id={3} title='Таб 3' />
+            </SegmentedControl>
+        </Space>
+    )
+})
+```

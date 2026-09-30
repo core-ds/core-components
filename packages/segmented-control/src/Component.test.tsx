@@ -75,6 +75,29 @@ describe('segmented-control', () => {
         expect(firstElement).toHaveStyle('padding: 20px');
     });
 
+    it('should not apply contentWidth class by default', () => {
+        const dataTestId = 'data-test-id';
+        const { getByTestId } = render(
+            renderComponent({ onChange: () => null, selectedId: 1, dataTestId }),
+        );
+
+        expect(getByTestId(dataTestId).firstElementChild).not.toHaveClass('contentWidth');
+    });
+
+    it('should apply contentWidth class when segmentWidth is content', () => {
+        const dataTestId = 'data-test-id';
+        const { getByTestId } = render(
+            renderComponent({
+                onChange: () => null,
+                selectedId: 1,
+                dataTestId,
+                segmentWidth: 'content',
+            }),
+        );
+
+        expect(getByTestId(dataTestId).firstElementChild).toHaveClass('contentWidth');
+    });
+
     it('should render skeleton when skeleton.visible is true', () => {
         const dataTestId = 'skeleton-test-id';
         render(

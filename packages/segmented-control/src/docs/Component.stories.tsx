@@ -53,6 +53,7 @@ export const segmented_control: Story = {
                     disabled={boolean('disabled', false)}
                     skeleton={{ visible: skeletonVisible }}
                     view={view}
+                    segmentWidth={select('segmentWidth', ['equal', 'content'], 'equal')}
                 >
                     <Segment id={1} title={'Сегмент 1'}>
                         Сегмент 1

@@ -77,6 +77,18 @@ describe('SegmentedControl', () => {
                     },
                 }),
             ],
+            [
+                'segment width content',
+                createStorybookUrl({
+                    componentName: 'SegmentedControl',
+                    testStory: false,
+                    knobs: {
+                        size: 40,
+                        selectedId: 1,
+                        segmentWidth: 'content',
+                    },
+                }),
+            ],
         ],
         viewport: { width: 960, height: 100 },
     })();
