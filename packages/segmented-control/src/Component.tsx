@@ -82,6 +82,12 @@ export interface SegmentedControlProps {
      * Настройки скелетона
      */
     skeleton?: SkeletonProps;
+
+    /**
+     * Вариант отображения
+     * @default default
+     */
+    view?: 'default' | 'muted';
 }
 
 const MAX_SEGMENTS = 5;
@@ -98,6 +104,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     style,
     disabled = false,
     skeleton,
+    view = 'default',
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -183,6 +190,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         );
     }
 
+    const isMutedView = view === 'muted';
+
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         <SegmentedControlContext.Provider value={{ onChange, colors }}>
@@ -195,6 +204,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         styles[`size${size}`],
                         {
                             [styles.disabled]: disabled,
+                            [colorStyles[colors].muted]: isMutedView,
                         },
                     )}
                 >

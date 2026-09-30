@@ -1,7 +1,7 @@
 import {
     setupScreenshotTesting,
     generateTestCases,
-    createPreview,
+    createStorybookUrl,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -47,3 +47,37 @@ describe(
         },
     }),
 );
+
+describe('SegmentedControl', () => {
+    return screenshotTesting({
+        cases: [
+            [
+                'view muted | colors default',
+                createStorybookUrl({
+                    componentName: 'SegmentedControl',
+                    testStory: false,
+                    knobs: {
+                        size: 40,
+                        selectedId: 1,
+                        view: 'muted',
+                        colors: 'default',
+                    },
+                }),
+            ],
+            [
+                'view muted | colors inverted',
+                createStorybookUrl({
+                    componentName: 'SegmentedControl',
+                    testStory: false,
+                    knobs: {
+                        size: 40,
+                        selectedId: 1,
+                        view: 'muted',
+                        colors: 'inverted',
+                    },
+                }),
+            ],
+        ],
+        viewport: { width: 960, height: 100 },
+    })();
+});
