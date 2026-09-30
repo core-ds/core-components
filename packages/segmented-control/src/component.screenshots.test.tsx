@@ -89,6 +89,53 @@ describe('SegmentedControl', () => {
                     },
                 }),
             ],
+            [
+                'segment width content | addons',
+                createStorybookUrl({
+                    componentName: 'SegmentedControl',
+                    testStory: false,
+                    knobs: {
+                        size: 40,
+                        selectedId: 1,
+                        segmentWidth: 'content',
+                        'addons.left': true,
+                        'addons.right': true,
+                    },
+                }),
+            ],
+            ...[32, 40, 48].map(
+                (size) =>
+                    [
+                        `addons | size ${size}`,
+                        createStorybookUrl({
+                            componentName: 'SegmentedControl',
+                            testStory: false,
+                            knobs: {
+                                size,
+                                selectedId: 1,
+                                'addons.left': true,
+                                'addons.right': true,
+                            },
+                        }),
+                    ] as [string, string],
+            ),
+            ...[32, 40, 48].map(
+                (size) =>
+                    [
+                        `addons | addonsOnly`,
+                        createStorybookUrl({
+                            componentName: 'SegmentedControl',
+                            testStory: false,
+                            knobs: {
+                                size,
+                                selectedId: 1,
+                                segmentWidth: 'content',
+                                shape: 'rounded',
+                                addonsOnly: true,
+                            },
+                        }),
+                    ] as [string, string],
+            ),
         ],
         viewport: { width: 960, height: 100 },
     })();

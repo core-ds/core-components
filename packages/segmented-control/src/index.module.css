@@ -47,6 +47,11 @@
     & .segment {
         @mixin paragraph_primary_small;
         padding: var(--gap-0) var(--gap-2s);
+        gap: var(--gap-4);
+
+        &.withAddons {
+            padding: var(--gap-0) var(--gap-4);
+        }
     }
 
     &.rectangular {
@@ -72,6 +77,11 @@
     & .segment {
         @mixin paragraph_primary_small;
         padding: var(--gap-0) var(--gap-16);
+        gap: var(--gap-4);
+
+        &.withAddons {
+            padding: var(--gap-0) var(--gap-6);
+        }
     }
 
     &.rectangular {
@@ -97,6 +107,11 @@
     & .segment {
         @mixin paragraph_primary_medium;
         padding: var(--gap-0) var(--gap-16);
+        gap: var(--gap-6);
+
+        &.withAddons {
+            padding: var(--gap-0) var(--gap-10);
+        }
     }
 
     &.rectangular {

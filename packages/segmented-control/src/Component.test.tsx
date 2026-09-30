@@ -98,6 +98,62 @@ describe('segmented-control', () => {
         expect(getByTestId(dataTestId).firstElementChild).toHaveClass('contentWidth');
     });
 
+    it('should indent title on the side without addon', () => {
+        const { getByTestId } = render(
+            <SegmentedControl onChange={() => null} selectedId={1} size={48}>
+                <Segment
+                    id={1}
+                    dataTestId='left'
+                    title='Label 1'
+                    addons={{ left: { content: <svg /> } }}
+                />
+                <Segment
+                    id={2}
+                    dataTestId='right'
+                    title='Label 2'
+                    addons={{ right: { content: <svg /> } }}
+                />
+                <Segment
+                    id={3}
+                    dataTestId='both'
+                    title='Label 3'
+                    addons={{ left: { content: <svg /> }, right: { content: <svg /> } }}
+                />
+            </SegmentedControl>,
+        );
+
+        const getTitle = (testId: string) => getByTestId(testId).querySelector('.title');
+
+        expect(getTitle('left')).toHaveClass('titleIndentRight48');
+        expect(getTitle('left')).not.toHaveClass('titleIndentLeft48');
+        expect(getTitle('right')).toHaveClass('titleIndentLeft48');
+        expect(getTitle('right')).not.toHaveClass('titleIndentRight48');
+        expect(getTitle('both')).not.toHaveClass('titleIndentLeft48');
+        expect(getTitle('both')).not.toHaveClass('titleIndentRight48');
+    });
+
+    it('should not apply withAddons class when addons object is empty', () => {
+        const { getByTestId } = render(
+            <SegmentedControl onChange={() => null} selectedId={1}>
+                <Segment
+                    id={1}
+                    dataTestId='empty'
+                    title='Label 1'
+                    addons={{ left: undefined, right: undefined }}
+                />
+                <Segment
+                    id={2}
+                    dataTestId='left'
+                    title='Label 2'
+                    addons={{ left: { content: <svg /> } }}
+                />
+            </SegmentedControl>,
+        );
+
+        expect(getByTestId('empty')).not.toHaveClass('withAddons');
+        expect(getByTestId('left')).toHaveClass('withAddons');
+    });
+
     it('should render skeleton when skeleton.visible is true', () => {
         const dataTestId = 'skeleton-test-id';
         render(

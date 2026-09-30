@@ -248,3 +248,155 @@ render(() => {
     )
 })
 ```
+
+## Аддоны
+
+Слева и справа от заголовка сегмента можно разместить дополнительный элемент. Размер слота — 20px для размера 32, 24px для размеров 40 и 48.
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        '1': 1,
+        '2': 1,
+        '3': 1,
+        '4': 1,
+        '5': 1,
+        '6': 1,
+        '7': 1,
+        '8': 1,
+        '9': 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    const diamonds20 = { content: <Diamonds20Icon /> };
+    const diamonds24 = { content: <Diamonds24Icon /> };
+    return (
+        <div style={{ width: 360 }}>
+        <Space fullWidth size={24}>
+            <Space fullWidth size={12}>
+                <Typography.Text view='primary-medium' weight='bold'>Слева, справа и с обеих сторон</Typography.Text>
+                <SegmentedControl size={32} selectedId={selectedId['1']} onChange={(id) => handleChange('1', id)}>
+                    <Segment id={1} title='Таб 1' addons={{ left: diamonds20 }} />
+                    <Segment id={2} title='Таб 2' addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+                <SegmentedControl size={40} selectedId={selectedId['2']} onChange={(id) => handleChange('2', id)}>
+                    <Segment id={1} title='Таб 1' addons={{ right: diamonds24 }} />
+                    <Segment id={2} title='Таб 2' addons={{ right: diamonds24 }} />
+                </SegmentedControl>
+                <SegmentedControl size={48} selectedId={selectedId['3']} onChange={(id) => handleChange('3', id)}>
+                    <Segment id={1} title='Таб 1' addons={{ left: diamonds24, right: diamonds24 }} />
+                    <Segment id={2} title='Таб 2' addons={{ left: diamonds24, right: diamonds24 }} />
+                </SegmentedControl>
+            </Space>
+            <Space fullWidth size={12}>
+                <Typography.Text view='primary-medium' weight='bold'>Ширина по контенту</Typography.Text>
+                <SegmentedControl size={32} segmentWidth='content' selectedId={selectedId['4']} onChange={(id) => handleChange('4', id)}>
+                    <Segment id={1} title='Таб' addons={{ left: diamonds20 }} />
+                    <Segment id={2} title='Длинный таб' addons={{ left: diamonds20 }} />
+                    <Segment id={3} title='Таб 3' />
+                </SegmentedControl>
+                <SegmentedControl size={40} segmentWidth='content' selectedId={selectedId['5']} onChange={(id) => handleChange('5', id)}>
+                    <Segment id={1} title='Таб' addons={{ left: diamonds24 }} />
+                    <Segment id={2} title='Длинный таб' addons={{ left: diamonds24 }} />
+                    <Segment id={3} title='Таб 3' />
+                </SegmentedControl>
+                <SegmentedControl size={48} segmentWidth='content' selectedId={selectedId['6']} onChange={(id) => handleChange('6', id)}>
+                    <Segment id={1} title='Таб' addons={{ left: diamonds24 }} />
+                    <Segment id={2} title='Длинный таб' addons={{ left: diamonds24 }} />
+                    <Segment id={3} title='Таб 3' />
+                </SegmentedControl>
+            </Space>
+            <Space fullWidth size={12}>
+                <Typography.Text view='primary-medium' weight='bold'>Только аддон</Typography.Text>
+                <SegmentedControl size={32} segmentWidth='content' shape='rounded' selectedId={selectedId['7']} onChange={(id) => handleChange('7', id)}>
+                    <Segment id={1} addons={{ left: diamonds20 }} />
+                    <Segment id={2} addons={{ left: diamonds20 }} />
+                    <Segment id={3} addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+                <SegmentedControl size={40} segmentWidth='content' shape='rounded' selectedId={selectedId['8']} onChange={(id) => handleChange('8', id)}>
+                    <Segment id={1} addons={{ left: diamonds24 }} />
+                    <Segment id={2} addons={{ left: diamonds24 }} />
+                    <Segment id={3} addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+                <SegmentedControl size={48} segmentWidth='content' shape='rounded' selectedId={selectedId['9']} onChange={(id) => handleChange('9', id)}>
+                    <Segment id={1} addons={{ left: diamonds24 }} />
+                    <Segment id={2} addons={{ left: diamonds24 }} />
+                    <Segment id={3} addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+            </Space>
+        </Space>
+    </div>
+    )
+})
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        '1': 1,
+        '2': 1,
+        '3': 1,
+        '4': 1,
+        '5': 1,
+        '6': 1,
+        '7': 1,
+        '8': 1,
+        '9': 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    const diamonds20 = { content: <Diamonds20Icon /> };
+    const diamonds24 = { content: <Diamonds24Icon /> };
+    return (
+        <Space fullWidth size={24}>
+            <Space fullWidth size={12}>
+                <Typography.Text view='primary-medium' weight='bold'>Слева, справа и с обеих сторон</Typography.Text>
+                <SegmentedControl size={32} selectedId={selectedId['1']} onChange={(id) => handleChange('1', id)}>
+                    <Segment id={1} title='Таб 1' addons={{ left: diamonds20 }} />
+                    <Segment id={2} title='Таб 2' addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+                <SegmentedControl size={40} selectedId={selectedId['2']} onChange={(id) => handleChange('2', id)}>
+                    <Segment id={1} title='Таб 1' addons={{ right: diamonds24 }} />
+                    <Segment id={2} title='Таб 2' addons={{ right: diamonds24 }} />
+                </SegmentedControl>
+                <SegmentedControl size={48} selectedId={selectedId['3']} onChange={(id) => handleChange('3', id)}>
+                    <Segment id={1} title='Таб 1' addons={{ left: diamonds24, right: diamonds24 }} />
+                    <Segment id={2} title='Таб 2' addons={{ left: diamonds24, right: diamonds24 }} />
+                </SegmentedControl>
+            </Space>
+            <Space fullWidth size={12}>
+                <Typography.Text view='primary-medium' weight='bold'>Ширина по контенту</Typography.Text>
+                <SegmentedControl size={32} segmentWidth='content' selectedId={selectedId['4']} onChange={(id) => handleChange('4', id)}>
+                    <Segment id={1} title='Таб' addons={{ left: diamonds20 }} />
+                    <Segment id={2} title='Длинный таб' addons={{ left: diamonds20 }} />
+                    <Segment id={3} title='Таб 3' />
+                </SegmentedControl>
+                <SegmentedControl size={40} segmentWidth='content' selectedId={selectedId['5']} onChange={(id) => handleChange('5', id)}>
+                    <Segment id={1} title='Таб' addons={{ left: diamonds24 }} />
+                    <Segment id={2} title='Длинный таб' addons={{ left: diamonds24 }} />
+                    <Segment id={3} title='Таб 3' />
+                </SegmentedControl>
+                <SegmentedControl size={48} segmentWidth='content' selectedId={selectedId['6']} onChange={(id) => handleChange('6', id)}>
+                    <Segment id={1} title='Таб' addons={{ left: diamonds24 }} />
+                    <Segment id={2} title='Длинный таб' addons={{ left: diamonds24 }} />
+                    <Segment id={3} title='Таб 3' />
+                </SegmentedControl>
+            </Space>
+            <Space fullWidth size={12}>
+                <Typography.Text view='primary-medium' weight='bold'>Только аддон</Typography.Text>
+                <SegmentedControl size={32} segmentWidth='content' shape='rounded' selectedId={selectedId['7']} onChange={(id) => handleChange('7', id)}>
+                    <Segment id={1} addons={{ left: diamonds20 }} />
+                    <Segment id={2} addons={{ left: diamonds20 }} />
+                    <Segment id={3} addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+                <SegmentedControl size={40} segmentWidth='content' shape='rounded' selectedId={selectedId['8']} onChange={(id) => handleChange('8', id)}>
+                    <Segment id={1} addons={{ left: diamonds24 }} />
+                    <Segment id={2} addons={{ left: diamonds24 }} />
+                    <Segment id={3} addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+                <SegmentedControl size={48} segmentWidth='content' shape='rounded' selectedId={selectedId['9']} onChange={(id) => handleChange('9', id)}>
+                    <Segment id={1} addons={{ left: diamonds24 }} />
+                    <Segment id={2} addons={{ left: diamonds24 }} />
+                    <Segment id={3} addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+            </Space>
+        </Space>
+    )
+})
+```
