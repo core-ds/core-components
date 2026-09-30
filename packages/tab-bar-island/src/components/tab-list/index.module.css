@@ -31,8 +31,8 @@
 /*
  * Перелёт пилюли, деформация формы, пульс панели и squash иконки — пружины и
  * keyframes из motion, см. hooks/use-pill-animation.ts и physics.ts. Здесь
- * задаётся только состояние покоя: во время движения width/height/border-radius
- * трекера и transform фрейма перезаписываются инлайново покадрово.
+ * задаётся состояние покоя. Хук заранее рассчитывает кадры пружины, затем
+ * WAAPI анимирует transform фрейма и трёх частей капсулы.
  */
 .frame {
     min-width: var(--tab-bar-island-tab-min-size);
@@ -49,7 +49,10 @@
     height: 100%;
     width: 100%;
     background: var(--tab-bar-island-tab-tracker-background-color);
-    will-change: width, height, border-radius;
+
+    & > [data-pill-part] {
+        background: var(--tab-bar-island-tab-tracker-background-color);
+    }
 }
 
 .icon {
