@@ -1668,6 +1668,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-segmented-control@workspace:packages/segmented-control"
   dependencies:
+    "@alfalab/core-components-shared": "npm:^2.2.4"
     "@alfalab/core-components-skeleton": "npm:^7.0.5"
     "@alfalab/hooks": "npm:^1.17.0"
     "@juggle/resize-observer": "npm:^3.3.1"

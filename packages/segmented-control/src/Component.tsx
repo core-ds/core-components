@@ -208,7 +208,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <SegmentedControlContext.Provider value={{ onChange, colors }}>
+        <SegmentedControlContext.Provider value={{ onChange, colors, size }}>
             <div ref={wrapperRef} className={className} style={style} data-test-id={dataTestId}>
                 <div
                     className={cn(
@@ -245,6 +245,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                                             [styles.selected]: item.props.id === selectedId,
                                             [colorStyles[colors].selected]:
                                                 item.props.id === selectedId,
+                                            [styles.withAddons]: Boolean(
+                                                item.props.addons?.left || item.props.addons?.right,
+                                            ),
                                         },
                                         item.props.className,
                                     ),

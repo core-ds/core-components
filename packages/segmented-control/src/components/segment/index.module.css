@@ -11,9 +11,7 @@
     background-color: transparent;
     position: relative;
     cursor: pointer;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
 
     &:not(:first-child):before {
         content: '';
@@ -25,6 +23,58 @@
         bottom: var(--gap-8);
         left: var(--gap-0);
     }
+}
+
+.title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    & > * {
+        vertical-align: top;
+    }
+}
+
+.addon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.addonSize32 {
+    width: 20px;
+    height: 20px;
+}
+
+.addonSize40,
+.addonSize48 {
+    width: 24px;
+    height: 24px;
+}
+
+.titleIndentLeft32,
+.titleIndentLeft40 {
+    padding-left: var(--gap-10);
+}
+
+.titleIndentLeft48 {
+    padding-left: var(--gap-6);
+}
+
+.titleIndentRight32,
+.titleIndentRight40 {
+    padding-right: var(--gap-10);
+}
+
+.titleIndentRight48 {
+    padding-right: var(--gap-6);
 }
 
 .focused {
