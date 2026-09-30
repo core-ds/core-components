@@ -18,14 +18,24 @@ export const segmented_control: Story = {
         const handleChange = (id) => setSelectedId(id);
         const colors = select('colors', ['default', 'inverted'], 'default');
         const skeletonVisible = boolean('skeleton.visible', false);
+        const view = select('view', ['default', 'muted'], 'default');
+
+        const getBackgroundColor = () => {
+            if (colors === 'inverted') {
+                return 'var(--color-light-base-bg-primary-inverted)';
+            }
+
+            if (view === 'muted') {
+                return '#EBEAEA';
+            }
+
+            return 'transparent';
+        };
 
         return (
             <div
                 style={{
-                    backgroundColor:
-                        colors === 'inverted'
-                            ? 'var(--color-light-base-bg-primary-inverted)'
-                            : 'transparent',
+                    backgroundColor: getBackgroundColor(),
                     padding: '8px',
                     position: 'absolute',
                     top: 0,
@@ -42,6 +52,7 @@ export const segmented_control: Story = {
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     skeleton={{ visible: skeletonVisible }}
+                    view={view}
                 >
                     <Segment id={1} title={'Сегмент 1'}>
                         Сегмент 1
