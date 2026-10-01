@@ -93,6 +93,21 @@ describe('segment', () => {
         expect(queryByTestId(`${dataTestId}-right-addon`)).not.toBeInTheDocument();
     });
 
+    it('should not render title wrapper when title is null', () => {
+        const dataTestId = 'segment';
+        const { getByTestId } = render(
+            renderComponent({
+                id: 1,
+                title: null,
+                dataTestId,
+                addons: { left: { content: <span /> } },
+            }),
+        );
+
+        expect(getByTestId(dataTestId).querySelector('.title')).toBeNull();
+        expect(getByTestId(`${dataTestId}-left-addon`)).toBeInTheDocument();
+    });
+
     it('render with icon as title', () => {
         const { container } = render(
             renderComponent({ id: 1, title: React.createElement(AScoresCircleMIcon) }),

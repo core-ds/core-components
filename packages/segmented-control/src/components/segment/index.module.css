@@ -48,33 +48,23 @@
     }
 }
 
-.addonSize32 {
-    width: 20px;
-    height: 20px;
-}
+/* prettier-ignore */
+@each $size, $addonSize, $titleIndent in
+    (32, 20px, var(--gap-10)),
+    (40, 24px, var(--gap-10)),
+    (48, 24px, var(--gap-6)) {
+    .addonSize$(size) {
+        width: $addonSize;
+        height: $addonSize;
+    }
 
-.addonSize40,
-.addonSize48 {
-    width: 24px;
-    height: 24px;
-}
+    .titleIndentLeft$(size) {
+        padding-left: $titleIndent;
+    }
 
-.titleIndentLeft32,
-.titleIndentLeft40 {
-    padding-left: var(--gap-10);
-}
-
-.titleIndentLeft48 {
-    padding-left: var(--gap-6);
-}
-
-.titleIndentRight32,
-.titleIndentRight40 {
-    padding-right: var(--gap-10);
-}
-
-.titleIndentRight48 {
-    padding-right: var(--gap-6);
+    .titleIndentRight$(size) {
+        padding-right: $titleIndent;
+    }
 }
 
 .focused {

@@ -140,7 +140,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         if (innerRef.current && selectedBoxRef.current) {
             const segment = innerRef.current.children[selectedSegmentPosition];
 
-            if (!segment) return;
+            if (!segment) {
+                return;
+            }
 
             const { left: parentLeft } = innerRef.current.getBoundingClientRect();
             const { left, width } = segment.getBoundingClientRect();
@@ -204,8 +206,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         );
     }
 
-    const isMutedView = view === 'muted';
-
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         <SegmentedControlContext.Provider value={{ onChange, colors, size }}>
@@ -218,7 +218,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         styles[`size${size}`],
                         {
                             [styles.disabled]: disabled,
-                            [colorStyles[colors].muted]: isMutedView,
+                            [colorStyles[colors].muted]: view === 'muted',
                             [styles.contentWidth]: segmentWidth === 'content',
                         },
                     )}
@@ -245,9 +245,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                                             [styles.selected]: item.props.id === selectedId,
                                             [colorStyles[colors].selected]:
                                                 item.props.id === selectedId,
-                                            [styles.withAddons]: Boolean(
+                                            [styles.withAddons]:
                                                 item.props.addons?.left || item.props.addons?.right,
-                                            ),
                                         },
                                         item.props.className,
                                     ),
