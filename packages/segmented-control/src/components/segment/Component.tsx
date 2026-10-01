@@ -74,13 +74,16 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
 
         const [focused] = useFocus(segmentRef, 'keyboard');
 
-        const hasTitle = title !== undefined && title !== null;
         const addonClassName = cn(styles.addon, styles[`addonSize${size}`]);
+
         const hasLeftAddon = Boolean(addons?.left);
         const hasRightAddon = Boolean(addons?.right);
+
+        const hasSingleAddon = hasLeftAddon !== hasRightAddon;
+
         const titleClassName = cn(styles.title, {
-            [styles[`titleIndentRight${size}`]]: hasLeftAddon && !hasRightAddon,
-            [styles[`titleIndentLeft${size}`]]: hasRightAddon && !hasLeftAddon,
+            [styles[`titleIndentRight${size}`]]: hasSingleAddon && hasLeftAddon,
+            [styles[`titleIndentLeft${size}`]]: hasSingleAddon && hasRightAddon,
         });
 
         const handleClick = () => {
@@ -109,7 +112,7 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
                         {addons.left.content}
                     </span>
                 )}
-                {hasTitle && <span className={titleClassName}>{title}</span>}
+                {Boolean(title) && <span className={titleClassName}>{title}</span>}
                 {addons?.right && (
                     <span
                         className={addonClassName}
