@@ -24,6 +24,7 @@ export const segmented_control: Story = {
         const leftAddon = boolean('addons.left', false);
         const rightAddon = boolean('addons.right', false);
         const addonsOnly = boolean('addonsOnly', false);
+        const iconTitle = boolean('iconTitle', false);
         const size = select('size', [48, 40, 32], 40);
         const addonIcon = size === 32 ? <Diamonds20Icon /> : <Diamonds24Icon />;
         const addons = {
@@ -66,13 +67,13 @@ export const segmented_control: Story = {
                     view={view}
                     segmentWidth={select('segmentWidth', ['equal', 'content'], 'equal')}
                 >
-                    {addonsOnly
+                    {addonsOnly || iconTitle
                         ? [1, 2, 3].map((id) => (
                               <Segment
                                   key={id}
                                   id={id}
-                                  title={null}
-                                  addons={{ left: { content: addonIcon } }}
+                                  title={iconTitle ? addonIcon : null}
+                                  addons={addonsOnly ? { left: { content: addonIcon } } : undefined}
                               />
                           ))
                         : [
