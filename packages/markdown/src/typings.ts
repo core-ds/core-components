@@ -31,7 +31,7 @@ export type BaseMarkdownProps = {
     /**
      * Дополнительные remark-плагины, применяемые после встроенных
      */
-    remarkPlugins?: Options['remarkPlugins'];
+    remarkPlugins?: NonNullable<Options['remarkPlugins']>;
 
     /**
      * Трансформация ссылок неизвестных форматов

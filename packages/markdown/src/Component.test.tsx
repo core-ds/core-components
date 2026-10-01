@@ -73,6 +73,32 @@ describe('Markdown', () => {
         }
     });
 
+    describe('transformLinkUri', () => {
+        it('should replace unsupported link protocols by default', () => {
+            render(<Markdown>[Google](myapp://product/123)</Markdown>);
+
+            const link = screen.getByText('Google').closest('a');
+
+            expect(link).toHaveAttribute('href', 'javascript:void(0)');
+        });
+
+        it('should preserve unsupported link protocols when transformation is disabled', () => {
+            render(<Markdown transformLinkUri={false}>[Google](myapp://product/123)</Markdown>);
+
+            const link = screen.getByText('Google').closest('a');
+
+            expect(link).toHaveAttribute('href', 'myapp://product/123');
+        });
+
+        it('should preserve supported link protocols', () => {
+            render(<Markdown>[Google](https://www.google.com/)</Markdown>);
+
+            const link = screen.getByText('Google').closest('a');
+
+            expect(link).toHaveAttribute('href', 'https://www.google.com/');
+        });
+    });
+
     describe.each([
         { name: 'responsive mobile', Component: Markdown, isDesktop: false },
         { name: 'responsive desktop', Component: Markdown, isDesktop: true },
@@ -83,10 +109,9 @@ describe('Markdown', () => {
             isDesktopViewport = isDesktop;
         });
 
-        it.each<{ name: string; plugins: RemarkPlugins | null | undefined }>([
+        it.each<{ name: string; plugins: RemarkPlugins | undefined }>([
             { name: 'undefined', plugins: undefined },
             { name: 'empty', plugins: [] },
-            { name: 'null', plugins: null },
         ])('should preserve strikethrough when remarkPlugins is $name', ({ plugins }) => {
             render(<Component remarkPlugins={plugins}>{markdownText}</Component>);
 
@@ -147,32 +172,6 @@ describe('Markdown', () => {
             expect(screen.queryByRole('heading')).not.toBeInTheDocument();
             expect(screen.getByText('зачёркнутый').tagName).toBe('DEL');
             expect(plugins).toEqual([headingRemarkPlugin]);
-        });
-    });
-
-    describe('transformLinkUri', () => {
-        it('should replace unsupported link protocols by default', () => {
-            render(<Markdown>[Google](myapp://product/123)</Markdown>);
-
-            const link = screen.getByText('Google').closest('a');
-
-            expect(link).toHaveAttribute('href', 'javascript:void(0)');
-        });
-
-        it('should preserve unsupported link protocols when transformation is disabled', () => {
-            render(<Markdown transformLinkUri={false}>[Google](myapp://product/123)</Markdown>);
-
-            const link = screen.getByText('Google').closest('a');
-
-            expect(link).toHaveAttribute('href', 'myapp://product/123');
-        });
-
-        it('should preserve supported link protocols', () => {
-            render(<Markdown>[Google](https://www.google.com/)</Markdown>);
-
-            const link = screen.getByText('Google').closest('a');
-
-            expect(link).toHaveAttribute('href', 'https://www.google.com/');
         });
     });
 });
