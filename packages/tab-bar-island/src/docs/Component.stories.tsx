@@ -20,10 +20,12 @@ export const button: Story = {
     name: 'TabBarIsland',
     render: () => {
         const iconAnimation = boolean('iconAnimation', true);
+        const showSkeleton = boolean('showSkeleton', false);
 
         return (
             <TabBarIsland
                 iconAnimation={iconAnimation}
+                showSkeleton={showSkeleton}
                 items={[
                     { key: 'money', icon: <DiamondsMIcon />, label: 'Поддержка' },
                     { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },

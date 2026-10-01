@@ -42,8 +42,10 @@ export interface TabBarIslandEntryCustomProps {
 
 export interface TabBarIslandEntryProps
     extends ComponentProps<'div'>,
-        Partial<TabBarIslandEntryBaseProps>,
-        TabBarIslandEntryCustomProps {}
+        Omit<TabBarIslandEntryBaseProps, 'label'>,
+        TabBarIslandEntryCustomProps {
+    label?: ReactNode;
+}
 
 export interface TabBarIslandItem extends TabBarIslandEntryBaseProps {
     /**
@@ -106,6 +108,11 @@ export interface TabBarIslandProps {
      * @default true
      */
     iconAnimation?: boolean;
+
+    /**
+     * Показать скелетон
+     */
+    showSkeleton?: boolean;
 }
 
 export interface TabBarIslandTrailingIconButtonProps
