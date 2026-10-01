@@ -54,7 +54,7 @@ type Params = {
     iconClassName: string;
 };
 
-/** Samples the existing springs once; playback does not depend on JavaScript animation frames. */
+/** Заранее рассчитываем кадры пружин, чтобы проигрывание не зависело от кадровых вызовов JavaScript. */
 function sampleSpring(from: Pose, targetX: number, targetLift: number): Pose[] {
     const x = spring({ keyframes: [from.x, targetX], velocity: from.velocity, ...PILL_SPRING });
     const lift = spring({
@@ -99,7 +99,7 @@ function sampleSpring(from: Pose, targetX: number, targetLift: number): Pose[] {
     return poses;
 }
 
-/** Interruption starts from the same interpolated pose that the browser is displaying. */
+/** При прерывании восстанавливаем промежуточное состояние по текущему времени анимации браузера. */
 function readPose(run: Run): Pose {
     const progress = Number(run.animations[0].currentTime ?? 0) / SAMPLE_MS;
     const index = Math.min(Math.floor(Math.max(0, progress)), run.poses.length - 1);
@@ -264,7 +264,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         const finalPose = restingPose(targetX, targetLift);
         const finalTransforms = transforms(finalPose);
 
-        // The resting style is already correct when the finite animations finish or are cancelled.
+        // Заранее задаём стили покоя, которые применятся после завершения или отмены анимаций.
         elements.forEach((element, index) => {
             Object.assign(element.style, { transform: finalTransforms[index] });
         });
@@ -375,7 +375,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         let width = list.offsetWidth;
         let height = list.offsetHeight;
         const observer = new ResizeObserver(() => {
-            // The initial observer delivery must not cancel an animation started in this frame.
+            // Первый вызов наблюдателя не должен отменять анимацию, запущенную в этом кадре.
             const nextWidth = list.offsetWidth;
             const nextHeight = list.offsetHeight;
 
