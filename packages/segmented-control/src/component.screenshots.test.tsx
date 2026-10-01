@@ -103,22 +103,19 @@ describe('SegmentedControl', () => {
                     },
                 }),
             ],
-            ...[32, 40, 48].map(
-                (size) =>
-                    [
-                        `addons | size ${size}`,
-                        createStorybookUrl({
-                            componentName: 'SegmentedControl',
-                            testStory: false,
-                            knobs: {
-                                size,
-                                selectedId: 1,
-                                'addons.left': true,
-                                'addons.right': true,
-                            },
-                        }),
-                    ] as [string, string],
-            ),
+            [
+                `segment width equal | addons`,
+                createStorybookUrl({
+                    componentName: 'SegmentedControl',
+                    testStory: false,
+                    knobs: {
+                        size: 40,
+                        selectedId: 1,
+                        'addons.left': true,
+                        'addons.right': true,
+                    },
+                }),
+            ],
             ...[32, 40, 48].map(
                 (size) =>
                     [
@@ -136,6 +133,18 @@ describe('SegmentedControl', () => {
                         }),
                     ] as [string, string],
             ),
+            [
+                'icon title',
+                createStorybookUrl({
+                    componentName: 'SegmentedControl',
+                    testStory: false,
+                    knobs: {
+                        size: 40,
+                        selectedId: 1,
+                        iconTitle: true,
+                    },
+                }),
+            ],
         ],
         viewport: { width: 960, height: 100 },
     })();
