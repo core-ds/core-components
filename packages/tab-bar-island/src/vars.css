@@ -19,6 +19,7 @@
     --tab-bar-island-border-color-from: var(--color-static-monochrome-white-10);
     --tab-bar-island-border-color-to: var(--color-static-monochrome-white-48);
     --tab-bar-island-gradient: linear-gradient(transparent, var(--color-static-neutral-0));
+    --tab-bar-island-skeleton-color: var(--color-static-neutral-translucent-300);
 }
 
 @define-mixin tab-bar-island-label {
