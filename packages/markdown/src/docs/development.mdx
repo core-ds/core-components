@@ -11,6 +11,23 @@ import { MarkdownMobile } from '@alfalab/core-components/markdown/mobile';
 import { MarkdownDesktop } from '@alfalab/core-components/markdown/desktop';
 ```
 
+## Remark-плагины
+
+Через `remarkPlugins` можно передать дополнительные плагины и их опции. Они применяются после встроенного плагина зачёркивания.
+
+Например, для поддержки таблиц установите `remark-gfm` в приложении:
+
+```jsx
+import { Markdown } from '@alfalab/core-components/markdown';
+import remarkGfm from 'remark-gfm';
+
+<Markdown remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>
+    {'| Кредит | Срок |\n| --- | --- |\n| Наличными | 1–5 лет |'}
+</Markdown>;
+```
+
+Опция `singleTilde: false` сохраняет зачёркивание только через двойную тильду. Для оформления и прокрутки таблицы передайте свой компонент через `overrides.table`.
+
 ## Стилизация
 
 Для стилизации определенного тега используйте класс с его названием.
@@ -27,4 +44,4 @@ import { MarkdownDesktop } from '@alfalab/core-components/markdown/desktop';
 { h1: (props) => (<div>{props.children}</div>)}
 ```
 
-<ArgsTabs components={{MarkdownDesktop, MarkdownMobile, Markdown}} />
+<ArgsTabs components={{ MarkdownDesktop, MarkdownMobile, Markdown }} />

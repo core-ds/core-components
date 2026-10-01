@@ -17,13 +17,14 @@ export const BaseMarkdown: FC<BaseMarkdownProps> = (props) => {
         platform,
         font = 'system',
         overrides,
+        remarkPlugins,
         transformLinkUri = true,
     } = props;
     const defaultOverrides = useOverrides(platform, font);
 
     return (
         <ReactMarkdown
-            remarkPlugins={[strikethroughRemarkPlugin]}
+            remarkPlugins={[strikethroughRemarkPlugin, ...(remarkPlugins ?? [])]}
             components={{ ...defaultOverrides, ...overrides }}
             className={cn(styles.component, className)}
             urlTransform={urlTransformer(transformLinkUri)}

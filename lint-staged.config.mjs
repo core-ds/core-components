@@ -32,7 +32,7 @@ const config = {
         .reduce(
             (packagesConfig, { relativeDir, packageJson }) => ({
                 ...packagesConfig,
-                [`./${convertPathToPattern(relativeDir)}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: `yarn workspace ${packageJson.name} exec eslint --fix --max-warnings 0`,
+                [`./${convertPathToPattern(relativeDir)}/**/!(*.test|*.stories).{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: `yarn workspace ${packageJson.name} exec eslint --fix --max-warnings 0`,
             }),
             {},
         ),
