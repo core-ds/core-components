@@ -2,6 +2,10 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    createStorybookUrl,
+    openBrowserPage,
+    matchHtml,
+    closeBrowser,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -246,3 +250,35 @@ describe(
         },
     }),
 );
+
+describe('Underlay | justifyContent=between', () => {
+    it('between', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'Underlay',
+            testStory: false,
+            knobs: {
+                axis_contentProps: 'horizontal',
+                justifyContent_contentProps: 'between',
+            },
+        });
+
+        const { browser, context, page } = await openBrowserPage(pageUrl);
+
+        try {
+            await matchHtml({
+                context,
+                page,
+                expect,
+                screenshotOpts: { fullPage: true },
+                viewport: { width: 840, height: 100 },
+            });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});
