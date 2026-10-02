@@ -1,5 +1,13 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+
 ## 0.1.0
 
 ### Minor Changes

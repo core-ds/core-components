@@ -1,5 +1,25 @@
 # @alfalab/core-components-markdown
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2392](https://github.com/core-ds/core-components/pull/2392)
+
+##### Markdown
+
+- Добавлен пропс `remarkPlugins` для подключения дополнительных remark-плагинов и их опций с сохранением встроенного плагина зачёркивания.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-typography@6.0.13
+- @alfalab/core-components-list@5.0.14
+
 ## 3.0.17
 
 ### Patch Changes

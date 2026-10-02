@@ -1,5 +1,13 @@
 # @alfalab/core-components-pagination
 
+## 4.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.3.2
+
 ## 4.0.11
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @alfalab/core-components-popover
 
+## 8.1.4
+
+### Patch Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2396](https://github.com/core-ds/core-components/pull/2396)
+
+##### Popover
+
+- Исправлены случаи, когда контент не появлялся с первого раза
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-portal@5.0.6
+
 ## 8.1.3
 
 ### Patch Changes
