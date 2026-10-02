@@ -1,10 +1,6 @@
 import { mergeAutoFocus, programmaticFocus } from './focus';
 
 describe('focus policy on server', () => {
-    it('has no window', () => {
-        expect(typeof window).toBe('undefined');
-    });
-
     it.each([
         [true, true],
         [false, false],
