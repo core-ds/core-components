@@ -8,7 +8,7 @@ import { type MainElement } from '../types';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellMainProps = {
     /**
      * Компоненты
      */
@@ -41,7 +41,13 @@ const MAIN_COMPONENT: Record<string, keyof Pick<React.ReactHTML, 'button' | 'sec
     section: 'section',
 };
 
-export const Main: React.FC<Props> = ({ children, isReverse, className, dataTestId, onClick }) => {
+export const Main: React.FC<PureCellMainProps> = ({
+    children,
+    isReverse,
+    className,
+    dataTestId,
+    onClick,
+}) => {
     const {
         direction = 'horizontal',
         dataTestId: contextDataTestId,

@@ -8,7 +8,7 @@ import { type FooterElement } from '../types';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellFooterProps = {
     /**
      * Компоненты
      */
@@ -31,7 +31,7 @@ type Props = {
     className?: string;
 };
 
-export const Footer: React.FC<Props> = ({
+export const Footer: React.FC<PureCellFooterProps> = ({
     children,
     footerPadding = 'default',
     dataTestId,

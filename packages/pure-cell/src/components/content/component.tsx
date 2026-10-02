@@ -8,7 +8,7 @@ import { type ContentElement } from '../types';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellContentProps = {
     /**
      * Компоненты
      */
@@ -21,7 +21,7 @@ type Props = {
     dataTestId?: string;
 };
 
-export const Content: React.FC<Props> = ({ children, dataTestId }) => {
+export const Content: React.FC<PureCellContentProps> = ({ children, dataTestId }) => {
     const { direction, dataTestId: contextDataTestId } = useContext(PureCellContext);
 
     return (
