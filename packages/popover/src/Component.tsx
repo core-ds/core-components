@@ -23,7 +23,7 @@ import cn from 'classnames';
 import maxSize from 'popper-max-size-modifier';
 
 import { Portal } from '@alfalab/core-components-portal';
-import { isFn, noop, useRefAsState } from '@alfalab/core-components-shared';
+import { isFn, noop } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -242,8 +242,8 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         },
         ref,
     ) => {
-        const [popperElementRef, popperElement] = useRefAsState<RefElement>(null);
-        const [arrowElementRef, arrowElement] = useRefAsState<RefElement>(null);
+        const [popperElement, setPopperElement] = useState<RefElement>(null);
+        const [arrowElement, setArrowElement] = useState<RefElement>(null);
         const [maxSizeOptions, setMaxSizeOptions] = useState<
             Partial<ModifierOptions<typeof maxSize>>
         >(() => ({}));
@@ -352,7 +352,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
         const renderContent = (computedZIndex: number) => (
             <div
-                ref={mergeRefs([ref, popperRef, popperElementRef])}
+                ref={mergeRefs([ref, popperRef, setPopperElement])}
                 style={{
                     zIndex: computedZIndex,
                     [widthProp]: useAnchorWidth ? anchorElement?.offsetWidth : undefined,
@@ -380,7 +380,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
                     {withArrow && (
                         <div
-                            ref={mergeRefs([arrowElementRef])}
+                            ref={mergeRefs([setArrowElement])}
                             style={popperStyles.arrow}
                             className={cn(styles.arrow, arrowClassName)}
                         />
