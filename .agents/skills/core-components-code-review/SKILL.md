@@ -105,12 +105,12 @@ False positive хуже, чем пропущенный низкоприорит�
 
 ## Severity и blocking policy
 
-| Severity | Означает | Blocking |
-|---|---|---|
-| **P0** | Критическая проблема: security vulnerability, массовая поломка компонентов, потеря/повреждение данных, критический a11y-блокер основного сценария | да |
-| **P1** | Серьёзная проблема: breaking change публичного API без соответствующего changeset, поломка основного сценария компонента, серьёзная accessibility/keyboard regression, SSR/hydration ломается, runtime error в поддерживаемом сценарии, серьёзная visual regression | да |
-| **P2** | Потенциальная проблема: edge case, проблема отдельного состояния, ограниченная interaction/visual regression, неполное тестирование важного сценария | нет |
-| **P3** | Улучшение: maintainability, readability, дополнительные тесты, документация — использовать умеренно | нет |
+| Severity | Означает                                                                                                                                                                                                                                                            | Blocking |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| **P0**   | Критическая проблема: security vulnerability, массовая поломка компонентов, потеря/повреждение данных, критический a11y-блокер основного сценария                                                                                                                   | да       |
+| **P1**   | Серьёзная проблема: breaking change публичного API без соответствующего changeset, поломка основного сценария компонента, серьёзная accessibility/keyboard regression, SSR/hydration ломается, runtime error в поддерживаемом сценарии, серьёзная visual regression | да       |
+| **P2**   | Потенциальная проблема: edge case, проблема отдельного состояния, ограниченная interaction/visual regression, неполное тестирование важного сценария                                                                                                                | нет      |
+| **P3**   | Улучшение: maintainability, readability, дополнительные тесты, документация — использовать умеренно                                                                                                                                                                 | нет      |
 
 **Не блокируй PR только из-за визуального отличия**, если оно явно является целью PR или соответствует обновлению design system — сам факт визуального изменения не является доказательством ошибки.
 
@@ -154,6 +154,7 @@ Finding
 REQUEST_CHANGES
 
 Found 2 issues:
+
 - 1 P1
 - 1 P2
 
@@ -202,13 +203,13 @@ APPROVE
 
 Детальные, привязанные к конкретному стеку и конвенциям этого проекта чек-листы вынесены в отдельные файлы — читай их на соответствующем этапе процесса (см. выше), не пропускай этот шаг:
 
-| Файл | Тема | Когда читать |
-|---|---|---|
-| `references/public-api.md` | Публичный API, breaking changes, changesets | Этап 4 |
-| `references/accessibility-interaction.md` | Accessibility, keyboard/focus/pointer | Этап 5 |
-| `references/states-and-visual.md` | Состояния компонента, controlled/uncontrolled, visual/layout regression | Этап 6 |
-| `references/platform-and-performance.md` | SSR/hydration, browser compatibility, performance | Этап 7 |
-| `references/tests-and-conventions.md` | Tests, CI-авточеки, project-specific "неочевидные правила" | Этап 8 |
+| Файл                                      | Тема                                                                    | Когда читать |
+| ----------------------------------------- | ----------------------------------------------------------------------- | ------------ |
+| `references/public-api.md`                | Публичный API, breaking changes, changesets                             | Этап 4       |
+| `references/accessibility-interaction.md` | Accessibility, keyboard/focus/pointer                                   | Этап 5       |
+| `references/states-and-visual.md`         | Состояния компонента, controlled/uncontrolled, visual/layout regression | Этап 6       |
+| `references/platform-and-performance.md`  | SSR/hydration, browser compatibility, performance                       | Этап 7       |
+| `references/tests-and-conventions.md`     | Tests, CI-авточеки, project-specific "неочевидные правила"              | Этап 8       |
 
 Каждый из этих файлов включает реальные примеры из истории проекта (конкретные коммиты/diff'ы) и таблицу severity для своей области — используй их как основной источник конкретики, а не только общие принципы этого файла.
 
