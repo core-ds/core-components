@@ -4,7 +4,7 @@ exports[`segmented-control should display correctly 1`] = `
 <div>
   <div>
     <div
-      class="wrapper wrapper rectangular size-32"
+      class="wrapper wrapper rectangular size32"
     >
       <div
         class="container"
@@ -20,26 +20,42 @@ exports[`segmented-control should display correctly 1`] = `
             class="segment segment segment segment selected"
             type="button"
           >
-            Label 1
+            <span
+              class="title"
+            >
+              Label 1
+            </span>
           </button>
           <button
             class="segment segment segment segment"
             data-test-id="SEGMENT"
             type="button"
           >
-            Label 2
+            <span
+              class="title"
+            >
+              Label 2
+            </span>
           </button>
           <button
             class="segment segment segment segment"
             type="button"
           >
-            Label 3
+            <span
+              class="title"
+            >
+              Label 3
+            </span>
           </button>
           <button
             class="segment segment segment segment"
             type="button"
           >
-            Label 4
+            <span
+              class="title"
+            >
+              Label 4
+            </span>
           </button>
         </div>
       </div>

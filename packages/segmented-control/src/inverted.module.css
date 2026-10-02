@@ -2,10 +2,15 @@
 
 .wrapper {
     background-color: var(--color-light-neutral-translucent-200-inverted);
-}
 
-.segment.selected {
-    color: var(--color-light-text-primary-inverted);
+    &.muted {
+        background-color: var(--color-light-neutral-translucent-0-inverted);
+
+        & .selectedBox {
+            border: none;
+            background-color: var(--color-light-neutral-translucent-300-inverted);
+        }
+    }
 }
 
 .selectedBox {

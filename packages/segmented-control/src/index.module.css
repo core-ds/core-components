@@ -24,49 +24,57 @@
     margin: var(--gap-0) var(--gap-2);
 }
 
-.segment {
-    @mixin paragraph_primary_small;
+.contentWidth {
+    width: fit-content;
+    max-width: 100%;
+
+    & .segment {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
 }
 
 .selected {
-    @mixin action_primary_small;
-
     &:before,
     & + .segment:before {
         opacity: 0;
     }
 }
 
-.size-40 {
-    height: var(--size-xs-height);
+/* prettier-ignore */
+@each $size, $font, $padding, $gap, $addonsPadding in
+    (32, small, var(--gap-2s), var(--gap-4), var(--gap-4)),
+    (40, small, var(--gap-16), var(--gap-4), var(--gap-6)),
+    (48, medium, var(--gap-16), var(--gap-6), var(--gap-10)) {
+    .size$(size) {
+        height: $(size)px;
 
-    & .rounded,
-    &:has(.rounded) {
-        border-radius: var(--border-radius-20);
-    }
+        & .segment {
+            @mixin paragraph_primary_$(font);
+            padding: var(--gap-0) $padding;
+            gap: $gap;
 
-    &:has(.rectangular) {
-        border-radius: var(--border-radius-12);
-
-        & .selectedBox {
-            border-radius: var(--border-radius-10);
+            &.withAddons {
+                padding: var(--gap-0) $addonsPadding;
+            }
         }
     }
 }
 
-.size-32 {
-    height: var(--size-xxs-height);
-}
+/* prettier-ignore */
+@each $size, $shape, $radius, $selectedBoxRadius in
+    (32, rectangular, var(--border-radius-8), var(--border-radius-6)),
+    (32, rounded, var(--border-radius-16), var(--border-radius-20)),
+    (40, rectangular, var(--border-radius-10), var(--border-radius-8)),
+    (40, rounded, var(--border-radius-20), var(--border-radius-20)),
+    (48, rectangular, var(--border-radius-10), var(--border-radius-8)),
+    (48, rounded, 22px, var(--border-radius-24)) {
+    .size$(size).$(shape) {
+        border-radius: $radius;
 
-.rounded {
-    border-radius: var(--border-radius-16);
-}
-
-.rectangular {
-    border-radius: var(--border-radius-10);
-
-    & .selectedBox {
-        border-radius: var(--border-radius-8);
+        & .selectedBox {
+            border-radius: $selectedBoxRadius;
+        }
     }
 }
 

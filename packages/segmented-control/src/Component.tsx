@@ -45,7 +45,7 @@ export interface SegmentedControlProps {
      * Размер компонента
      * @default 32
      */
-    size?: 32 | 40;
+    size?: 32 | 40 | 48;
 
     /**
      * Форма компонента
@@ -82,6 +82,19 @@ export interface SegmentedControlProps {
      * Настройки скелетона
      */
     skeleton?: SkeletonProps;
+
+    /**
+     * Вариант отображения
+     * @default default
+     */
+    view?: 'default' | 'muted';
+
+    /**
+     * Ширина сегментов: equal — одинаковая, сегменты вместе занимают весь контейнер;
+     * content — по ширине контента
+     * @default equal
+     */
+    segmentWidth?: 'equal' | 'content';
 }
 
 const MAX_SEGMENTS = 5;
@@ -98,6 +111,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     style,
     disabled = false,
     skeleton,
+    view = 'default',
+    segmentWidth = 'equal',
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -123,13 +138,17 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     const setSelectedBoxStyles = useCallback(() => {
         if (innerRef.current && selectedBoxRef.current) {
-            const segments = Array.from(innerRef.current.children);
-            const { width: parentWidth } = innerRef.current.getBoundingClientRect();
-            const width = parentWidth / segments.length;
-            const offsetLeft = width * selectedSegmentPosition;
+            const segment = innerRef.current.children[selectedSegmentPosition];
+
+            if (!segment) {
+                return;
+            }
+
+            const { left: parentLeft } = innerRef.current.getBoundingClientRect();
+            const { left, width } = segment.getBoundingClientRect();
 
             selectedBoxRef.current.style.width = `${width}px`;
-            selectedBoxRef.current.style.transform = `translateX(${offsetLeft}px)`;
+            selectedBoxRef.current.style.transform = `translateX(${left - parentLeft}px)`;
         }
     }, [selectedSegmentPosition]);
 
@@ -165,6 +184,10 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
         observer.observe(wrapperRef.current);
 
+        if (innerRef.current) {
+            observer.observe(innerRef.current);
+        }
+
         return () => observer.disconnect();
     }, [skeleton?.visible]);
 
@@ -185,16 +208,18 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <SegmentedControlContext.Provider value={{ onChange, colors }}>
+        <SegmentedControlContext.Provider value={{ onChange, colors, size }}>
             <div ref={wrapperRef} className={className} style={style} data-test-id={dataTestId}>
                 <div
                     className={cn(
                         styles.wrapper,
                         colorStyles[colors].wrapper,
                         styles[shape],
-                        styles[`size-${size}`],
+                        styles[`size${size}`],
                         {
                             [styles.disabled]: disabled,
+                            [colorStyles[colors].muted]: view === 'muted',
+                            [styles.contentWidth]: segmentWidth === 'content',
                         },
                     )}
                 >
@@ -220,6 +245,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                                             [styles.selected]: item.props.id === selectedId,
                                             [colorStyles[colors].selected]:
                                                 item.props.id === selectedId,
+                                            [styles.withAddons]:
+                                                item.props.addons?.left || item.props.addons?.right,
                                         },
                                         item.props.className,
                                     ),

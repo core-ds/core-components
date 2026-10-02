@@ -7,17 +7,11 @@
     margin: var(--gap-0);
     align-items: center;
     justify-content: center;
-    padding: var(--gap-0) var(--gap-8);
     border: none;
     background-color: transparent;
     position: relative;
-    transition:
-        font-weight 0.2s ease,
-        color 0.2s ease;
     cursor: pointer;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
 
     &:not(:first-child):before {
         content: '';
@@ -28,6 +22,48 @@
         border-radius: 0.5px;
         bottom: var(--gap-8);
         left: var(--gap-0);
+    }
+}
+
+.title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    & > * {
+        vertical-align: top;
+    }
+}
+
+.addon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+/* prettier-ignore */
+@each $size, $addonSize, $titleIndent in
+    (32, 20px, var(--gap-10)),
+    (40, 24px, var(--gap-10)),
+    (48, 24px, var(--gap-6)) {
+    .addonSize$(size) {
+        width: $addonSize;
+        height: $addonSize;
+    }
+
+    .titleIndentLeft$(size) {
+        padding-left: $titleIndent;
+    }
+
+    .titleIndentRight$(size) {
+        padding-right: $titleIndent;
     }
 }
 
