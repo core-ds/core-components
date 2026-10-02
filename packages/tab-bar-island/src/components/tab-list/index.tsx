@@ -1,20 +1,45 @@
 import React, { type FC, useMemo, useState } from 'react';
+import cn from 'classnames';
 
+import { isNonNullable } from '@alfalab/core-components-shared';
 import { Underlay } from '@alfalab/core-components-tab-bar-island/components/underlay';
 import { usePillAnimation } from '@alfalab/core-components-tab-bar-island/hooks/use-pill-animation';
-import { type TabBarIslandTabListProps } from '@alfalab/core-components-tab-bar-island/types';
+import {
+    type TabBarIslandTabKey,
+    type TabBarIslandTabListProps,
+} from '@alfalab/core-components-tab-bar-island/types';
 
 import styles from './index.module.css';
 
 export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
-    activeKey,
+    activeKey: activeKeyFromProps,
+    defaultActiveKey,
     items = [],
     gap,
     Tab,
     onActiveKeyChange,
+    content = 'fit',
+    iconAnimation,
 }) => {
+    const [activeKey, setActiveKey] = useState(
+        () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
+    );
+    const isUncontrolled = activeKeyFromProps === undefined;
+
+    if (!isUncontrolled && activeKey !== activeKeyFromProps) {
+        setActiveKey(activeKeyFromProps);
+    }
+
+    const handleActiveKeyChange = (nextActiveKey: TabBarIslandTabKey) => {
+        onActiveKeyChange?.(nextActiveKey);
+
+        if (isUncontrolled) {
+            setActiveKey(nextActiveKey);
+        }
+    };
+
     const activeKeyIndex = useMemo(
-        () => (activeKey ? items.findIndex((item) => item.key === activeKey) : -1),
+        () => (isNonNullable(activeKey) ? items.findIndex((item) => item.key === activeKey) : -1),
         [activeKey, items],
     );
     const tabWidth = `calc(${100 / items.length}% ${Math.sign(gap) === 1 ? '-' : '+'} ${(Math.abs(gap) * (items.length - 1)) / items.length}px)`;
@@ -32,16 +57,30 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
         listRef,
         underlayRef,
         wrapperRef,
-        trackRef,
         frameRef,
         trackerRef,
         handlePointerDown,
         handlePointerUp,
-    } = usePillAnimation({ activeKeyIndex, items, gap, iconClassName: styles.icon });
+    } = usePillAnimation({
+        activeKeyIndex,
+        items,
+        gap,
+        iconClassName: iconAnimation ? styles.icon : null,
+    });
 
     return (
-        <div role='tablist' className={styles.list} ref={listRef}>
-            <Underlay className={styles.underlay} ref={underlayRef} />
+        <div role='tablist' className={cn(styles.list, styles[content])} ref={listRef}>
+            <Underlay className={styles.underlay} ref={underlayRef}>
+                {activeKeyIndex >= 0 && (
+                    <div
+                        className={styles.frame}
+                        ref={frameRef}
+                        style={{ width: tabWidth, transform: initialTransform }}
+                    >
+                        <div className={styles.tracker} ref={trackerRef} />
+                    </div>
+                )}
+            </Underlay>
             <div
                 className={styles.wrapper}
                 ref={wrapperRef}
@@ -56,21 +95,11 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                         style={{ marginLeft: index > 0 ? gap : undefined }}
                         tab={tab}
                         active={tab.key === activeKey}
-                        onClick={() => onActiveKeyChange?.(tab.key)}
+                        onClick={() => handleActiveKeyChange?.(tab.key)}
                         iconClassName={styles.icon}
+                        content={content}
                     />
                 ))}
-            </div>
-            <div className={styles.track} ref={trackRef}>
-                {activeKeyIndex >= 0 && (
-                    <div
-                        className={styles.frame}
-                        ref={frameRef}
-                        style={{ width: tabWidth, transform: initialTransform }}
-                    >
-                        <div className={styles.tracker} ref={trackerRef} />
-                    </div>
-                )}
             </div>
         </div>
     );

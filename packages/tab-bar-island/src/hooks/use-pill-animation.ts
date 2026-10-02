@@ -1,11 +1,4 @@
-import {
-    type PointerEvent,
-    useCallback,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import { type PointerEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { spring } from 'motion';
 
 import {
@@ -23,6 +16,7 @@ import {
     type SpringTransition,
 } from '@alfalab/core-components-tab-bar-island/physics';
 import { type TabBarIslandItem } from '@alfalab/core-components-tab-bar-island/types';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 /**
  * Потолок шага кадра. После долгого пропуска кадров (вкладка была в фоне)
@@ -112,7 +106,7 @@ type UsePillAnimationParams = {
      * Класс иконки таба — по нему находим элемент для squash & stretch, не
      * прокидывая ref через пользовательский компонент таба.
      */
-    iconClassName: string;
+    iconClassName?: string | null;
 };
 
 export function usePillAnimation({
@@ -124,7 +118,6 @@ export function usePillAnimation({
     const listRef = useRef<HTMLDivElement>(null);
     const underlayRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
     const frameRef = useRef<HTMLDivElement>(null);
     const trackerRef = useRef<HTMLDivElement>(null);
     const rafRef = useRef(0);
@@ -310,7 +303,7 @@ export function usePillAnimation({
     }, [measure, render, settle, stopLoop, targetXFor, values]);
 
     // Перелёт пилюли на новый активный таб.
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const { current } = state;
 
         current.activeIndex = activeKeyIndex;
@@ -347,17 +340,19 @@ export function usePillAnimation({
         values.x.to(current.targetX, scaledSpring(PILL_SPRING, current.rate));
         startLoop();
 
-        const icon = (
-            wrapperRef.current?.children[activeKeyIndex] as HTMLElement | undefined
-        )?.querySelector<HTMLElement>(`.${iconClassName}`);
+        if (iconClassName) {
+            const icon = (
+                wrapperRef.current?.children[activeKeyIndex] as HTMLElement | undefined
+            )?.querySelector<HTMLElement>(`.${iconClassName}`);
 
-        if (icon) {
-            playKeyframes(icon, ICON_POP, current.rate);
+            if (icon) {
+                playKeyframes(icon, ICON_POP, current.rate);
+            }
         }
     }, [activeKeyIndex, iconClassName, measure, render, snap, startLoop, targetXFor, values]);
 
     // Смена состава табов или отступа меняет геометрию — переставляем без анимации.
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         snap();
     }, [gap, items.length, snap]);
 
@@ -419,7 +414,7 @@ export function usePillAnimation({
          * Панель, табы и дорожка пульсируют вместе, чтобы пилюля не отрывалась
          * от подложки.
          */
-        [underlayRef.current, wrapperRef.current, trackRef.current].forEach((element) => {
+        [underlayRef.current, wrapperRef.current].forEach((element) => {
             if (element) {
                 playKeyframes(element, PANEL_PULSE, current.rate);
             }
@@ -454,7 +449,6 @@ export function usePillAnimation({
         listRef,
         underlayRef,
         wrapperRef,
-        trackRef,
         frameRef,
         trackerRef,
         handlePointerDown,

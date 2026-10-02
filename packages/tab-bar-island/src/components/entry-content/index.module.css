@@ -2,31 +2,39 @@
 
 .icon {
     position: relative;
-    margin: var(--gap-6) var(--gap-10) var(--gap-2);
     height: var(--tab-bar-island-tab-icon-size);
+    margin: auto var(--gap-12);
+
+    @media screen and (min-width: 360px) {
+        margin: var(--gap-8) var(--gap-12) var(--gap-2);
+    }
 }
 
 .label {
-    @mixin action_secondary_small;
-    position: relative;
-    margin: 0 var(--gap-10) var(--gap-6);
+    @mixin tab-bar-island-label;
+    margin: 0 var(--gap-12) var(--gap-8);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: calc(100% - var(--gap-10));
+    max-width: calc(100% - 2 * var(--gap-12));
+    display: none;
+
+    @media screen and (min-width: 360px) {
+        display: block;
+    }
 }
 
 .indicator {
     position: absolute;
     pointer-events: none;
-    top: 0;
-    right: 0;
 
     &.size8 {
-        transform: translate(50%, 0);
+        top: 0;
+        left: calc(100% - 4px);
     }
 
     &.size16 {
-        transform: translate(50%, -25%);
+        top: -4px;
+        left: calc(100% - 8px);
     }
 }

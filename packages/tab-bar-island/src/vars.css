@@ -5,8 +5,7 @@
 :root {
     --tab-bar-island-tab-icon-size: 24px;
     --tab-bar-island-tab-min-size: 54px;
-    --tab-bar-island-tab-default-size: 92px;
-    --tab-bar-island-tab-max-size: 120px;
+    --tab-bar-island-tab-base-size: 96px;
     --tab-bar-island-border-radius: 40px;
     --tab-bar-island-box-shadow: var(--shadow-promo);
     --tab-bar-island-backdrop-filter: blur(10px);
@@ -20,4 +19,12 @@
     --tab-bar-island-border-color-from: var(--color-static-monochrome-white-10);
     --tab-bar-island-border-color-to: var(--color-static-monochrome-white-48);
     --tab-bar-island-gradient: linear-gradient(transparent, var(--color-static-neutral-0));
+    --tab-bar-island-skeleton-color: var(--color-static-neutral-translucent-300);
+}
+
+@define-mixin tab-bar-island-label {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
 }

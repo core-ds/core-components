@@ -10,7 +10,7 @@ export interface TabBarIslandEntryBaseProps {
     /**
      * Лэйбл
      */
-    label?: ReactNode;
+    label: string;
     /**
      * Заблокировать
      */
@@ -42,8 +42,10 @@ export interface TabBarIslandEntryCustomProps {
 
 export interface TabBarIslandEntryProps
     extends ComponentProps<'div'>,
-        TabBarIslandEntryBaseProps,
-        TabBarIslandEntryCustomProps {}
+        Omit<TabBarIslandEntryBaseProps, 'label'>,
+        TabBarIslandEntryCustomProps {
+    label?: ReactNode;
+}
 
 export interface TabBarIslandItem extends TabBarIslandEntryBaseProps {
     /**
@@ -57,14 +59,18 @@ export interface TabBarIslandTabProps
         Pick<TabBarIslandEntryCustomProps, 'iconClassName'> {
     active?: boolean;
     tab: TabBarIslandItem;
+    content?: 'fill' | 'fit';
 }
 
 export interface TabBarIslandTabListProps {
+    defaultActiveKey?: TabBarIslandTabKey;
     activeKey?: TabBarIslandTabKey;
     gap: number;
     items?: TabBarIslandItem[];
     Tab: ComponentType<TabBarIslandTabProps>;
     onActiveKeyChange?: (nextActiveKey: TabBarIslandTabKey) => void;
+    content?: 'fill' | 'fit';
+    iconAnimation?: boolean;
 }
 
 export interface TabBarIslandProps {
@@ -97,11 +103,21 @@ export interface TabBarIslandProps {
      * Дополнительный класс
      */
     className?: string;
+    /**
+     * Включена ли анимация иконки при смене активного таба
+     * @default true
+     */
+    iconAnimation?: boolean;
+
+    /**
+     * Показать скелетон
+     */
+    showSkeleton?: boolean;
 }
 
 export interface TabBarIslandTrailingIconButtonProps
     extends Pick<ComponentProps<'div'>, 'className' | 'onClick' | 'onKeyDown'>,
-        TabBarIslandEntryBaseProps,
+        Partial<TabBarIslandEntryBaseProps>,
         TabBarIslandEntryCustomProps {}
 
 export type TabBarIslandTrailingButtonProps = ComponentProps<'div'>;

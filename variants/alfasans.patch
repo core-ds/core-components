@@ -1,16 +1,17 @@
-From 1199eb8d3a60d5a6c1b11d8ef1dfb5ba65009a06 Mon Sep 17 00:00:00 2001
+From 23c0c87a90428386835f487015b96d964bc64cab Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Wed, 16 Sep 2026 15:29:18 +0300
+Date: Mon, 28 Sep 2026 13:32:25 +0300
 Subject: [PATCH] feat: updated alfasans
 
 ---
  packages/confirmation/src/vars.css            |  14 +-
+ packages/tab-bar-island/src/vars.css          |   2 +-
  packages/typography/src/title/component.tsx   |  11 +-
  .../typography/src/title/index.module.css     |   8 -
  packages/typography/src/title/utils.test.ts   |  12 -
  packages/typography/src/title/utils.ts        |  14 -
  packages/vars/src/typography.css              | 297 +++++++++++-------
- 6 files changed, 189 insertions(+), 167 deletions(-)
+ 7 files changed, 190 insertions(+), 168 deletions(-)
  delete mode 100644 packages/typography/src/title/utils.test.ts
  delete mode 100644 packages/typography/src/title/utils.ts
 
@@ -67,6 +68,17 @@ index a063c57d3a..19d00b0a6f 100644
      --confirmation-header-color-mobile: var(--color-light-text-primary);
 
      /* INITIAL */
+diff --git a/packages/tab-bar-island/src/vars.css b/packages/tab-bar-island/src/vars.css
+index 77c7558f67..3375a3bead 100644
+--- a/packages/tab-bar-island/src/vars.css
++++ b/packages/tab-bar-island/src/vars.css
+@@ -25,5 +25,5 @@
+     font-size: 10px;
+     line-height: 12px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
 diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
 index 8f1ff6ac59..420012c85b 100644
 --- a/packages/typography/src/title/component.tsx
