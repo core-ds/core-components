@@ -1,6 +1,6 @@
 # Как внести вклад в core-components
 
-Основная документация для контрибьюторов — в [Storybook](https://core-ds.github.io/core-components/), раздел «For contributors». Её исходники лежат в `docs/*.stories.mdx`; если этот файл с ними расходится, верна документация. Здесь — короткая выжимка.
+Основная документация для контрибьюторов — в [Storybook](https://core-ds.github.io/core-components/), раздел «For contributors». Её исходники лежат в `docs/*.stories.mdx`. Здесь — короткая выжимка; если она с документацией расходится, ориентируйтесь на документацию и сообщите о расхождении.
 
 ## Предложения и вопросы
 
@@ -22,7 +22,7 @@ yarn start # Storybook на http://localhost:9009/
 ## Pull request
 
 - Внешние контрибьюторы работают из форка. PR направляется в `master`.
-- Сообщения коммитов и название PR — по [conventional commits](https://www.conventionalcommits.org). Scope, если он указан, — имя пакета без префикса `@alfalab/core-components-` (`fix(button): …`) или `root` для корневого пакета. Сообщения коммитов проверяет `commitlint`, собрать коммит помогает `yarn cm`.
+- Сообщения коммитов и название PR — по [conventional commits](https://www.conventionalcommits.org). Scope, если он указан, — имя пакета без префикса `@alfalab/core-components-` (`fix(button): …`); для пакета `@alfalab/core-components` — `root`. Сообщения коммитов локально проверяет `commitlint` (хук husky), собрать коммит помогает `yarn cm`.
 - PR, который меняет публикуемый код пакета, включает changeset (`yarn changeset add`). Как его оформить — в разделе «Выставление Pull request-а» документа [«Создание компонентов»](../docs/contributing.stories.mdx).
 - Заполните чек-лист из [шаблона PR](pull_request_template.md). Что смотрят в ревью — [«Чек-лист для Code Review»](../docs/code-review.stories.mdx).
 
