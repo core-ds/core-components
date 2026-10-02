@@ -10,7 +10,7 @@ import styles from './index.module.css';
 
 export const TabBarIsland: FC<TabBarIslandProps> = ({
     items = [],
-    gap = -10,
+    gap = -12,
     activeKey,
     defaultActiveKey,
     onActiveKeyChange,
