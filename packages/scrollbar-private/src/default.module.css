@@ -1,15 +1,11 @@
-@import './vars.css';
+@import '@alfalab/core-components-scrollbar-private/src/vars.css';
 
-.component {
-    & :global(.simplebar-scrollbar) {
-        &:before {
-            background-color: var(--scrollbar-background-color);
-        }
+.scrollbar:global(.simplebar-visible) {
+    &:before {
+        background: var(--scrollbar-background-color);
     }
 
-    &:global(.simplebar-dragging .simplebar-track) {
-        & :global(.simplebar-scrollbar.simplebar-visible):before {
-            background-color: var(--scrollbar-background-color-active);
-        }
+    .component:global(.simplebar-dragging) &:before {
+        background: var(--scrollbar-background-color-active);
     }
 }
