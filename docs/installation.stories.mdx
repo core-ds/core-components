@@ -18,6 +18,24 @@ yarn add @alfalab/core-components
 yarn add @alfalab/core-components-button
 ```
 
+Важно установить необходимые `peer dependencies`
+
+```bash
+yarn add @alfalab/core-components-config @alfalab/core-components-stack-context
+```
+
+> При возникновении сомнений о необдимости их установки обратите внимание на предупреждения пакетного менеджера
+
+<details>
+<summary>Пример предупреждения `yarn@4.13.0`</summary>
+
+```
+➤ YN0002: │ my-app@workspace:. doesn't provide @alfalab/core-components-config (p25f59b), requested by @alfalab/core-components.
+➤ YN0002: │ my-app@workspace:. doesn't provide @alfalab/core-components-stack-context (p1c3d71), requested by @alfalab/core-components.
+```
+
+</details>
+
 ## Использование
 
 ```jsx
