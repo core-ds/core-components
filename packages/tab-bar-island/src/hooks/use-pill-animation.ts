@@ -187,7 +187,15 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
 
         if (capsuleRef.current?.tracker !== tracker) {
             removeCapsule();
-            const parts = ['left', 'middle', 'right'].map((name) => {
+            const parts = [
+                'top-left',
+                'top-right',
+                'bottom-left',
+                'bottom-right',
+                'middle',
+                'left',
+                'right',
+            ].map((name) => {
                 const part = document.createElement('span');
 
                 part.dataset.pillPart = name;
@@ -216,13 +224,22 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         }
         const { height } = state.current;
 
-        const borderRadii = [`${height}px 0 0 ${height}px`, '0', `0 ${height}px ${height}px 0`];
+        const radius = height / 2;
+        const borderRadii = [
+            `${radius}px 0 0 0`,
+            `0 ${radius}px 0 0`,
+            `0 0 0 ${radius}px`,
+            `0 0 ${radius}px 0`,
+        ];
 
         capsuleRef.current.parts.forEach((part, index) => {
+            const isCorner = index < 4;
+            const isMiddle = index === 4;
+
             Object.assign(part.style, {
-                width: `${index === 1 ? 1 : height / 2}px`,
-                height: `${height}px`,
-                borderRadius: borderRadii[index],
+                width: `${isMiddle ? 1 : radius}px`,
+                height: `${isCorner ? radius : 1}px`,
+                borderRadius: borderRadii[index] ?? '0',
             });
         });
 
@@ -239,16 +256,29 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         const { width, height, trackWidth } = state.current;
         const x = clamp(pose.x, -EDGE_OVERFLOW, trackWidth + EDGE_OVERFLOW);
         const shapeHeight = height * pose.scaleY;
-        const shapeWidth = Math.max(shapeHeight, width * pose.scaleX);
+        const shapeWidth = width * pose.scaleX;
         const left = clamp(x / trackWidth, 0, 1) * (width - shapeWidth);
         const top = (height - shapeHeight) / 2;
-        const diameter = shapeHeight / height;
+        /*
+         * Радиус ограничен меньшей стороной: узкая пилюля становится вертикальной капсулой.
+         * Части стыкуются без перекрытий, чтобы полупрозрачный фон не темнел на швах.
+         */
+        const radius = Math.min(shapeWidth, shapeHeight) / 2;
+        const cornerScale = radius / (height / 2);
+        const right = left + shapeWidth - radius;
+        const bottom = top + shapeHeight - radius;
+        const middleWidth = shapeWidth - 2 * radius;
+        const sideHeight = shapeHeight - 2 * radius;
 
         return [
             `translateX(${x}px) scale(${1 + pose.lift * (LIFT_SCALE - 1)})`,
-            `translate(${left}px, ${top}px) scale(${diameter})`,
-            `translate(${left + shapeHeight / 2}px, ${top}px) scale(${Math.max(0, shapeWidth - shapeHeight)}, ${diameter})`,
-            `translate(${left + shapeWidth - shapeHeight / 2}px, ${top}px) scale(${diameter})`,
+            `translate(${left}px, ${top}px) scale(${cornerScale})`,
+            `translate(${right}px, ${top}px) scale(${cornerScale})`,
+            `translate(${left}px, ${bottom}px) scale(${cornerScale})`,
+            `translate(${right}px, ${bottom}px) scale(${cornerScale})`,
+            `translate(${left + radius}px, ${top}px) scale(${middleWidth}, ${shapeHeight})`,
+            `translate(${left}px, ${top + radius}px) scale(${cornerScale}, ${sideHeight})`,
+            `translate(${right}px, ${top + radius}px) scale(${cornerScale}, ${sideHeight})`,
         ];
     }, []);
 
