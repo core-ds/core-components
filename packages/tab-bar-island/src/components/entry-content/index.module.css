@@ -27,14 +27,14 @@
 .indicator {
     position: absolute;
     pointer-events: none;
-    top: 0;
-    right: 0;
 
     &.size8 {
-        transform: translate(50%, 0);
+        top: 0;
+        left: calc(100% - 4px);
     }
 
     &.size16 {
-        transform: translate(50%, -25%);
+        top: -4px;
+        left: calc(100% - 8px);
     }
 }
