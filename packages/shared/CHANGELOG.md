@@ -1,5 +1,17 @@
 # @alfalab/core-components-shared
 
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2394](https://github.com/core-ds/core-components/pull/2394)
+
+##### Shared
+
+- Добавлены утилиты `mergeAutoFocus` и `programmaticFocus` для автофокуса и программного фокуса текстовых полей. Использование этих утилит позволяет избегать некоторых ошибок возникающих на iOS.
+
 ## 2.2.4
 
 ### Patch Changes

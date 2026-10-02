@@ -1,5 +1,17 @@
 # @alfalab/core-components-underlay
 
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2390](https://github.com/core-ds/core-components/pull/2390)
+
+##### Underlay
+
+- Добавлено значение `between` для `contentProps.justifyContent` (`justify-content: space-between`)
+
 ## 3.1.0
 
 ### Minor Changes

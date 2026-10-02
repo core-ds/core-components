@@ -1,5 +1,30 @@
 # @alfalab/core-components-select
 
+## 19.2.11
+
+### Patch Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2394](https://github.com/core-ds/core-components/pull/2394)
+
+##### Select
+
+- В мобильной версии на iOS отключен автофокус в поле поиска при открытии шторки/модального окна. Программный фокус вне пользовательского события не открывает клавиатуру в iOS, но поле при этом окрашивалось в фокусные цвета
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.4
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-base-modal@7.2.2
+- @alfalab/core-components-bottom-sheet@8.1.16
+- @alfalab/core-components-button@13.2.4
+- @alfalab/core-components-checkbox@6.3.2
+- @alfalab/core-components-form-control@14.0.11
+- @alfalab/core-components-input@17.2.2
+- @alfalab/core-components-modal@11.0.19
+- @alfalab/core-components-mq@6.0.9
+
 ## 19.2.10
 
 ### Patch Changes

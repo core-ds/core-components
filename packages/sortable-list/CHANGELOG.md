@@ -1,5 +1,14 @@
 # @alfalab/core-components-sortable-list
 
+## 3.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-portal@5.0.6
+
 ## 3.0.9
 
 ### Patch Changes

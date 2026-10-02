@@ -1,5 +1,13 @@
 # @alfalab/core-components-radio
 
+## 6.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+
 ## 6.1.1
 
 ### Patch Changes

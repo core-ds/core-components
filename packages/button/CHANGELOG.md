@@ -1,5 +1,15 @@
 # @alfalab/core-components-button
 
+## 13.2.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-spinner@6.0.9
+
 ## 13.2.3
 
 ### Patch Changes

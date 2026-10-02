@@ -1,5 +1,15 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-base-modal@7.2.2
+- @alfalab/core-components-navigation-bar-private@2.0.16
+
 ## 8.1.15
 
 ### Patch Changes

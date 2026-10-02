@@ -1,5 +1,26 @@
 # @alfalab/core-components-pure-cell
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2364](https://github.com/core-ds/core-components/pull/2364)
+
+##### PureCell
+
+- В пропс `horizontalPadding` добавлена возможность передать объект `{ left, right }` с размером отступа `0 | 16 | 20` для каждой стороны
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-button@13.2.4
+- @alfalab/core-components-typography@6.0.13
+- @alfalab/core-components-comment@4.0.13
+
 ## 6.0.15
 
 ### Patch Changes
