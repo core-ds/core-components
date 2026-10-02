@@ -21,7 +21,7 @@ import {
     type UseMultipleSelectionState,
 } from 'downshift';
 
-import { getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
+import { getDataTestId, isClient, programmaticFocus } from '@alfalab/core-components-shared';
 
 import {
     type AnyObject,
@@ -375,14 +375,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         );
 
         const handleEntered = (node: HTMLElement, isAppearing: boolean) => {
-            /**
-             * В iOS программный фокус вне синхронного обработчика пользовательского события
-             * не открывает клавиатуру, но DOM-фокус применяется и поле получает фокусные стили.
-             * Это намеренная политика WebKit, а не баг.
-             * https://bugs.webkit.org/show_bug.cgi?id=195884
-             */
-            if (showSearch && !isIOS()) {
-                searchRef.current?.focus();
+            if (showSearch) {
+                programmaticFocus(searchRef.current);
             }
 
             if (isBottomSheet) {
