@@ -11,3 +11,8 @@ export const dom = {
 export function getElementWindow(element: Element): typeof window {
     return element.ownerDocument.defaultView!;
 }
+
+export function triggerReflow(element: HTMLElement): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    element.offsetHeight;
+}

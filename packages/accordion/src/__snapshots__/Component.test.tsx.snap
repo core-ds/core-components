@@ -39,8 +39,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
       </div>
     </div>
     <div
-      class="body"
-      style="height: 0px;"
+      class="collapse"
     >
       <div
         class="bodyContent"
