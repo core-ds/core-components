@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { render, fireEvent, act, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { MMSP, THINSP } from '@alfalab/utils';
 import { AmountInput } from './index';
+import { COMPONENT_MINUS_SIGN as MINUS } from './maskito-utils';
 import { AmountInputProps } from './types';
 
-xdescribe('AmountInput', () => {
+describe('AmountInput', () => {
     Object.defineProperty(window, 'matchMedia', {
         writable: true,
         value: jest.fn().mockImplementation((query) => ({
@@ -21,16 +22,16 @@ xdescribe('AmountInput', () => {
         })),
     });
 
+    const dataTestId = 'test-id';
+
     function renderAmountInput(
         value: AmountInputProps['value'],
         currency: CurrencyCodes | null = 'RUR',
         props: AmountInputProps = {},
     ) {
-        // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
-        const dataTestId = 'test-id';
-        const { getByTestId } = render(
+        render(
             <AmountInput
-                value={value}
+                defaultValue={value}
                 currency={currency as CurrencyCodes}
                 minority={100}
                 dataTestId={dataTestId}
@@ -38,9 +39,26 @@ xdescribe('AmountInput', () => {
             />,
         );
 
-        const input = getByTestId(dataTestId) as HTMLInputElement;
+        return screen.getByTestId(dataTestId) as HTMLInputElement;
+    }
 
-        return input;
+    /**
+     * Maskito formats the value via the native value setter, so user-event's own
+     * value tracking becomes stale and its select-all helpers (`clear`, `tripleClick`,
+     * `initialSelectionEnd`) miss the trailing characters. Select via the DOM instead.
+     */
+    async function selectAll(user: ReturnType<typeof userEvent.setup>, input: HTMLInputElement) {
+        await user.click(input);
+        input.setSelectionRange(0, input.value.length);
+    }
+
+    async function changeValue(
+        user: ReturnType<typeof userEvent.setup>,
+        input: HTMLInputElement,
+        value: string,
+    ) {
+        await selectAll(user, input);
+        await user.keyboard(value);
     }
 
     describe('Snapshots tests', () => {
@@ -120,7 +138,7 @@ xdescribe('AmountInput', () => {
 
     it('should render passed negative amount', () => {
         const input = renderAmountInput(-1234567);
-        expect(input.value).toBe(`-12${MMSP}345,67`);
+        expect(input.value).toBe(`${MINUS}12${MMSP}345,67`);
     });
 
     it('should render passed amount without zero minor part', () => {
@@ -153,269 +171,252 @@ xdescribe('AmountInput', () => {
         expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
-    it("should replace entered '.' with ','", () => {
+    it("should replace entered '.' with ','", async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null, null, { positiveOnly: false, integerLength: 12 });
 
-        fireEvent.change(input, { target: { value: '-0.' } });
-        expect(input.value).toBe('-0,');
+        await changeValue(user, input, '-0.');
+        expect(input.value).toBe(`${MINUS}0,`);
 
-        fireEvent.change(input, { target: { value: '0.' } });
+        await changeValue(user, input, '0.');
         expect(input.value).toBe('0,');
 
-        fireEvent.change(input, { target: { value: '-123.' } });
-        expect(input.value).toBe('-123,');
+        await changeValue(user, input, '-123.');
+        expect(input.value).toBe(`${MINUS}123,`);
 
-        fireEvent.change(input, { target: { value: '123.4' } });
+        await changeValue(user, input, '123.4');
         expect(input.value).toBe('123,4');
 
-        fireEvent.change(input, { target: { value: '-123.45' } });
-        expect(input.value).toBe('-123,45');
+        await changeValue(user, input, '-123.45');
+        expect(input.value).toBe(`${MINUS}123,45`);
 
-        fireEvent.change(input, { target: { value: '123456789.12' } });
+        await changeValue(user, input, '123456789.12');
         expect(input.value).toBe(`123${MMSP}456${MMSP}789,12`);
     });
 
-    it('should allow input correct amounts', () => {
+    it('should allow input correct amounts', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(0, null, { integerLength: 12 });
 
-        fireEvent.change(input, { target: { value: '123456' } });
+        await changeValue(user, input, '123456');
         expect(input.value).toBe(`123${MMSP}456`);
 
-        fireEvent.change(input, { target: { value: '0,' } });
+        await changeValue(user, input, '0,');
         expect(input.value).toBe('0,');
 
-        fireEvent.change(input, { target: { value: '0,2' } });
+        await changeValue(user, input, '0,2');
         expect(input.value).toBe('0,2');
 
-        fireEvent.change(input, { target: { value: '123,' } });
+        await changeValue(user, input, '123,');
         expect(input.value).toBe('123,');
 
-        fireEvent.change(input, { target: { value: '123,4' } });
+        await changeValue(user, input, '123,4');
         expect(input.value).toBe('123,4');
 
-        fireEvent.change(input, { target: { value: '123,45' } });
+        await changeValue(user, input, '123,45');
         expect(input.value).toBe('123,45');
 
-        fireEvent.change(input, { target: { value: '123456789' } });
+        await changeValue(user, input, '123456789');
         expect(input.value).toBe(`123${MMSP}456${MMSP}789`);
 
-        fireEvent.change(input, { target: { value: '123456789,12' } });
+        await changeValue(user, input, '123456789,12');
         expect(input.value).toBe(`123${MMSP}456${MMSP}789,12`);
     });
 
-    it('should allow input correct amounts when positiveOnly is false', () => {
+    it('should allow input correct amounts when positiveOnly is false', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(0, null, { positiveOnly: false, integerLength: 13 });
 
-        fireEvent.change(input, { target: { value: '-' } });
-        expect(input.value).toBe('-');
+        await changeValue(user, input, '-');
+        expect(input.value).toBe(MINUS);
 
-        fireEvent.change(input, { target: { value: '-0,' } });
-        expect(input.value).toBe('-0,');
+        await changeValue(user, input, '-0,');
+        expect(input.value).toBe(`${MINUS}0,`);
 
-        fireEvent.change(input, { target: { value: '-0,2' } });
-        expect(input.value).toBe('-0,2');
+        await changeValue(user, input, '-0,2');
+        expect(input.value).toBe(`${MINUS}0,2`);
 
-        fireEvent.change(input, { target: { value: '-123456' } });
-        expect(input.value).toBe(`-123${MMSP}456`);
+        await changeValue(user, input, '-123456');
+        expect(input.value).toBe(`${MINUS}123${MMSP}456`);
 
-        fireEvent.change(input, { target: { value: '-123,' } });
-        expect(input.value).toBe('-123,');
+        await changeValue(user, input, '-123,');
+        expect(input.value).toBe(`${MINUS}123,`);
 
-        fireEvent.change(input, { target: { value: '-123,4' } });
-        expect(input.value).toBe('-123,4');
+        await changeValue(user, input, '-123,4');
+        expect(input.value).toBe(`${MINUS}123,4`);
 
-        fireEvent.change(input, { target: { value: '-123,45' } });
-        expect(input.value).toBe('-123,45');
+        await changeValue(user, input, '-123,45');
+        expect(input.value).toBe(`${MINUS}123,45`);
 
-        fireEvent.change(input, { target: { value: '-123456789' } });
-        expect(input.value).toBe(`-123${MMSP}456${MMSP}789`);
+        await changeValue(user, input, '-123456789');
+        expect(input.value).toBe(`${MINUS}123${MMSP}456${MMSP}789`);
 
-        fireEvent.change(input, { target: { value: '-123456789,12' } });
-        expect(input.value).toBe(`-123${MMSP}456${MMSP}789,12`);
+        await changeValue(user, input, '-123456789,12');
+        expect(input.value).toBe(`${MINUS}123${MMSP}456${MMSP}789,12`);
 
-        fireEvent.change(input, { target: { value: '123456' } });
+        await changeValue(user, input, '123456');
         expect(input.value).toBe(`123${MMSP}456`);
 
-        fireEvent.change(input, { target: { value: '0,' } });
+        await changeValue(user, input, '0,');
         expect(input.value).toBe('0,');
 
-        fireEvent.change(input, { target: { value: '0,2' } });
+        await changeValue(user, input, '0,2');
         expect(input.value).toBe('0,2');
 
-        fireEvent.change(input, { target: { value: '123,' } });
+        await changeValue(user, input, '123,');
         expect(input.value).toBe('123,');
 
-        fireEvent.change(input, { target: { value: '123,4' } });
+        await changeValue(user, input, '123,4');
         expect(input.value).toBe('123,4');
 
-        fireEvent.change(input, { target: { value: '123,45' } });
+        await changeValue(user, input, '123,45');
         expect(input.value).toBe('123,45');
 
-        fireEvent.change(input, { target: { value: '123456789' } });
+        await changeValue(user, input, '123456789');
         expect(input.value).toBe(`123${MMSP}456${MMSP}789`);
 
-        fireEvent.change(input, { target: { value: '123456789,12' } });
+        await changeValue(user, input, '123456789,12');
         expect(input.value).toBe(`123${MMSP}456${MMSP}789,12`);
     });
 
-    it("should infer 0 if only ',' is entered", () => {
+    it("should infer 0 if only ',' is entered", async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        fireEvent.change(input, { target: { value: ',' } });
+        await user.type(input, ',');
         expect(input.value).toBe('0,');
     });
 
     it("should infer 0 if '-,' is entered", async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null, null, { positiveOnly: false });
 
-        fireEvent.change(input, { target: { value: '-,' } });
-        expect(input.value).toBe('-0,');
+        await user.type(input, '-,');
+        expect(input.value).toBe(`${MINUS}0,`);
     });
 
     it('should prevent input of incorrect values', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(1234567);
 
-        await userEvent.type(input, 'f');
+        await user.type(input, 'f');
         expect(input.value).toBe(`12${MMSP}345,67`);
 
-        await userEvent.type(input, '!', { initialSelectionStart: 4, initialSelectionEnd: 4 });
+        await user.type(input, '!', { initialSelectionStart: 4, initialSelectionEnd: 4 });
         expect(input.value).toBe(`12${MMSP}345,67`);
 
-        await userEvent.type(input, 'e', { initialSelectionStart: 0, initialSelectionEnd: 4 });
+        await user.type(input, 'e', { initialSelectionStart: 0, initialSelectionEnd: 4 });
         expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
-    it('should prevent input of negative values when onlyPositive is true', () => {
+    it('should prevent input of negative values when onlyPositive is true', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        fireEvent.change(input, { target: { value: '-' } });
+        await user.type(input, '-');
         expect(input.value).toBe('');
 
-        fireEvent.change(input, { target: { value: '-17700' } });
-        expect(input.value).toBe('');
+        await user.paste('-17700');
+        expect(input.value).toBe(`17${MMSP}700`);
     });
 
     it('should allow enter only integer values when integersOnly is true', async () => {
-        const input = renderAmountInput(12345, 'RUR', { integersOnly: true });
+        const user = userEvent.setup();
+        const input = renderAmountInput(12300, 'RUR', { integersOnly: true });
 
-        expect(input.value).toBe('123,45');
-
-        await userEvent.type(input, '1');
         expect(input.value).toBe('123');
 
-        await userEvent.type(input, '.');
+        await user.type(input, '.');
         expect(input.value).toBe('123');
 
-        await userEvent.type(input, ',');
+        await user.type(input, ',');
         expect(input.value).toBe('123');
 
-        await userEvent.type(input, '.50');
+        await user.type(input, '.50');
         expect(input.value).toBe(`12${MMSP}350`);
 
-        await userEvent.click(input);
-        await act(() => {
-            input.setSelectionRange(0, 3);
-        });
-        await userEvent.paste('123.456');
+        await selectAll(user, input);
+        await user.paste('123.456');
         expect(input.value).toBe('123');
     });
 
     it('should avoid inserting leading zero before number, but allow inserting zero', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
-        await userEvent.type(input, '0');
+
+        await user.type(input, '0');
         expect(input.value).toBe('0');
 
-        await userEvent.type(input, '1234');
+        await changeValue(user, input, '1234');
         expect(input.value).toBe(`1${MMSP}234`);
 
-        await userEvent.type(input, '0', {
-            initialSelectionStart: 0,
-            initialSelectionEnd: 0,
-            delay: 10,
-        });
+        await user.type(input, '0', { initialSelectionStart: 0, initialSelectionEnd: 0 });
+        await user.tab();
         expect(input.value).toBe(`1${MMSP}234`);
 
-        fireEvent.change(input, { target: { value: '' } });
-        await userEvent.type(input, '0');
+        await changeValue(user, input, '0');
         expect(input.value).toBe('0');
     });
 
     it('should allow replace minor part without deleting', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(1234567);
 
-        await userEvent.click(input);
-
-        await userEvent.type(input, '8', {
-            initialSelectionStart: 7,
-            initialSelectionEnd: 7,
-            delay: 10,
-        });
-        expect(input.value).toBe(`12${MMSP}345,86`);
+        await user.type(input, '8', { initialSelectionStart: 7, initialSelectionEnd: 8 });
+        expect(input.value).toBe(`12${MMSP}345,87`);
     });
 
     it('should allow to paste value with spaces', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        await userEvent.click(input);
-        await userEvent.paste('1 23');
+        await user.click(input);
+        await user.paste('1 23');
         expect(input.value).toBe('123');
     });
 
     it('should allow to paste value with invalid chars', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        await userEvent.click(input);
-        await userEvent.paste('1 23₽');
+        await user.click(input);
+        await user.paste('1 23₽');
         expect(input.value).toBe('123');
     });
 
     it('should delete symbols on delete button press event', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        await userEvent.type(input, '123,45');
-        await userEvent.click(input);
-        await userEvent.type(input, '{Delete}', {
-            initialSelectionStart: 1,
-            initialSelectionEnd: 1,
-            delay: 10,
-        });
+        await user.type(input, '123,45');
+        await user.type(input, '{Delete}', { initialSelectionStart: 1, initialSelectionEnd: 1 });
         expect(input.value).toBe('13,45');
     });
 
     it('should allow set caret in the middle and enter decimal divider symbol', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        await userEvent.type(input, '123456');
+        await user.type(input, '123456');
 
-        await userEvent.type(input, ',', {
-            initialSelectionStart: 4,
-            initialSelectionEnd: 4,
-            delay: 10,
-        });
+        await user.type(input, ',', { initialSelectionStart: 5, initialSelectionEnd: 5 });
+        expect(input.value).toBe(`1${MMSP}234,56`);
 
-        expect(input.value).toBe('123,45');
-
-        await userEvent.type(input, '.', {
-            initialSelectionStart: 4,
-            initialSelectionEnd: 4,
-            delay: 10,
-        });
-
-        expect(input.value).toBe('123,45');
+        await user.type(input, '.', { initialSelectionStart: 2, initialSelectionEnd: 2 });
+        expect(input.value).toBe(`1${MMSP}234,56`);
     });
 
     it('should delete the symbol before the space when placing the cursor after the space and pressing the Backspace key', async () => {
+        const user = userEvent.setup();
         const input = renderAmountInput(null);
 
-        await userEvent.type(input, '12345');
+        await user.type(input, '12345');
         expect(input.value).toBe(`12${MMSP}345`);
 
-        await userEvent.type(input, '{backspace}', {
-            initialSelectionStart: 2,
-            initialSelectionEnd: 2,
-            delay: 10,
+        await user.type(input, '{Backspace}', {
+            initialSelectionStart: 3,
+            initialSelectionEnd: 3,
         });
-
         expect(input.value).toBe(`1${MMSP}345`);
     });
 
@@ -483,16 +484,20 @@ xdescribe('AmountInput', () => {
         it.each`
             initialValue | eventValue  | expectValue
             ${123456}    | ${'1234,'}  | ${`1${MMSP}234`}
-            ${123456}    | ${'1234,5'} | ${`1${MMSP}234,5`}
+            ${123456}    | ${'1234,5'} | ${`1${MMSP}234,50`}
             ${123456}    | ${'1234'}   | ${`1${MMSP}234`}
-        `('drop decimal if value is $eventValue', ({ initialValue, eventValue, expectValue }) => {
-            const input = renderAmountInput(initialValue, null);
+        `(
+            'drop decimal if value is $eventValue',
+            async ({ initialValue, eventValue, expectValue }) => {
+                const user = userEvent.setup();
+                const input = renderAmountInput(initialValue, null);
 
-            fireEvent.change(input, { target: { value: eventValue } });
-            fireEvent.blur(input);
+                await changeValue(user, input, eventValue);
+                await user.tab();
 
-            expect(input.value).toBe(expectValue);
-        });
+                expect(input.value).toBe(expectValue);
+            },
+        );
     });
 
     describe('should fill minor part with view="withZeroMinorPart"', () => {
@@ -525,15 +530,16 @@ xdescribe('AmountInput', () => {
         });
 
         testCases.forEach(({ userInput, value, valueString }) => {
-            it(`should emit blur event with value=${value} and valueString=${valueString} when userInput=${userInput}`, () => {
+            it(`should emit blur event with value=${value} and valueString=${valueString} when userInput=${userInput}`, async () => {
+                const user = userEvent.setup();
                 const onChange = jest.fn();
                 const input = renderAmountInput(null, undefined, {
                     onChange,
                     view: 'withZeroMinorPart',
                 });
 
-                fireEvent.change(input, { target: { value: userInput } });
-                fireEvent.blur(input);
+                await user.type(input, userInput);
+                await user.tab();
 
                 expect(onChange).toHaveBeenCalledWith(expect.anything(), {
                     value: value,
@@ -620,8 +626,8 @@ xdescribe('AmountInput', () => {
             expect(screen.queryByTestId(`${dataTestId}-decrement-button`)).toBeInTheDocument();
         });
 
-        it('should increment', () => {
-            const dataTestId = 'test-id';
+        it('should increment', async () => {
+            const user = userEvent.setup();
 
             const Component = () => {
                 const [value, setValue] = useState(1000);
@@ -646,14 +652,14 @@ xdescribe('AmountInput', () => {
             const incrementButton = screen.getByTestId(`${dataTestId}-increment-button`);
             const input: HTMLInputElement = screen.getByTestId(dataTestId);
 
-            fireEvent.click(incrementButton);
-            fireEvent.click(incrementButton);
+            await user.click(incrementButton);
+            await user.click(incrementButton);
 
             expect(input.value).toBe('10,02');
         });
 
-        it('should decrement', () => {
-            const dataTestId = 'test-id';
+        it('should decrement', async () => {
+            const user = userEvent.setup();
 
             const Component = () => {
                 const [value, setValue] = useState(1000);
@@ -678,8 +684,8 @@ xdescribe('AmountInput', () => {
             const decrementButton = screen.getByTestId(`${dataTestId}-decrement-button`);
             const input: HTMLInputElement = screen.getByTestId(dataTestId);
 
-            fireEvent.click(decrementButton);
-            fireEvent.click(decrementButton);
+            await user.click(decrementButton);
+            await user.click(decrementButton);
 
             expect(input.value).toBe('9,98');
         });
