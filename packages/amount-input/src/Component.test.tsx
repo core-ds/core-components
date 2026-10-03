@@ -626,6 +626,68 @@ describe('AmountInput', () => {
         });
     });
 
+    describe('should keep minor part short with view="shortMinorPart"', () => {
+        it.each`
+            initialValue | expectValue
+            ${120}       | ${'1,2'}
+            ${100}       | ${'1'}
+            ${0}         | ${'0'}
+            ${123456}    | ${`1${MMSP}234,56`}
+        `(
+            'should contain value=$expectValue if initialValue=$initialValue',
+            ({ initialValue, expectValue }) => {
+                render(
+                    <AmountInput
+                        defaultValue={initialValue}
+                        dataTestId={dataTestId}
+                        view='shortMinorPart'
+                    />,
+                );
+                const input = screen.getByTestId<HTMLInputElement>(dataTestId);
+
+                expect(input.value).toBe(expectValue);
+            },
+        );
+
+        it.each`
+            eventValue   | expectValue
+            ${'1234,5'}  | ${`1${MMSP}234,5`}
+            ${'1234,50'} | ${`1${MMSP}234,5`}
+            ${'1234,56'} | ${`1${MMSP}234,56`}
+            ${'1234,'}   | ${`1${MMSP}234`}
+            ${'1234,00'} | ${`1${MMSP}234`}
+        `(
+            'should contain value=$expectValue on blur if userInput=$eventValue',
+            async ({ eventValue, expectValue }) => {
+                const user = userEvent.setup();
+                render(
+                    <AmountInput
+                        defaultValue={null}
+                        dataTestId={dataTestId}
+                        view='shortMinorPart'
+                    />,
+                );
+                const input = screen.getByTestId<HTMLInputElement>(dataTestId);
+
+                await user.type(input, eventValue);
+                await user.tab();
+
+                expect(input.value).toBe(expectValue);
+            },
+        );
+
+        it('should not pad minor part when value is changed from props', () => {
+            const { rerender } = render(
+                <AmountInput value={100} dataTestId={dataTestId} view='shortMinorPart' />,
+            );
+            const input = screen.getByTestId<HTMLInputElement>(dataTestId);
+
+            rerender(<AmountInput value={120} dataTestId={dataTestId} view='shortMinorPart' />);
+
+            expect(input.value).toBe('1,2');
+        });
+    });
+
     describe('should emit value in minority on change event', () => {
         const dataTestId = 'test-id';
 
