@@ -12,7 +12,7 @@ import { type MaskitoNumberParams } from '@maskito/kit';
 import escapeRegExp from 'lodash/escapeRegExp';
 import noop from 'lodash/noop';
 
-import { type AmountInputProps } from './types';
+import { type AmountInputProps, type AmountInputView } from './types';
 
 type SelectionRange = [from: number, to: number];
 
@@ -286,7 +286,7 @@ export function parseNumber(value: string, numberParams: NumberParams): string |
 export function processDecimalPart(
     value: string,
     numberParams: NumberParams,
-    view: 'default' | 'withZeroMinorPart',
+    view: AmountInputView,
 ): string {
     if (value) {
         const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(
@@ -294,7 +294,7 @@ export function processDecimalPart(
             numberParams,
         );
         const nextDecimalPart =
-            view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
+            view === 'withZeroMinorPart' || (view === 'default' && /[1-9]/.test(decimalPart))
                 ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
                 : decimalPart.replace(/0+$/, '');
 
@@ -802,10 +802,7 @@ const preventDotSpaceInputPlugin = maskitoEventHandler('beforeinput', (_, __, ev
     }
 });
 
-function processDecimalPartPlugin(
-    numberParams: NumberParams,
-    view: 'default' | 'withZeroMinorPart',
-) {
+function processDecimalPartPlugin(numberParams: NumberParams, view: AmountInputView) {
     return maskitoEventHandler('blur', (element) => {
         const nextValue = processDecimalPart(element.value, numberParams, view);
 
@@ -933,7 +930,7 @@ function zeroHandlePlugin(numberParams: NumberParams): MaskitoPlugin {
 export function maskitoOptionsGenerator(
     numberParams: NumberParams,
     posivite: boolean,
-    view: 'default' | 'withZeroMinorPart',
+    view: AmountInputView,
     maximumIntegerDigits: number,
     onInputReject?: () => void,
     zeroValue?: boolean,

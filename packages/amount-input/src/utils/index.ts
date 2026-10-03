@@ -59,14 +59,14 @@ export function getAmountValueFromStr(str: string, minority: number) {
 }
 
 export function getCurrencyCodeWithFormat(
-    currency: CurrencyCodes,
+    currency: CurrencyCodes | null,
     codeFormat: AmountInputProps['codeFormat'],
 ) {
-    if (!currency) {
-        return '';
+    if (currency) {
+        return codeFormat === 'symbolic' ? getCurrencySymbol(currency) : currency;
     }
 
-    return codeFormat === 'symbolic' ? getCurrencySymbol(currency) : currency;
+    return '';
 }
 
 export const getVisiblePlaceholder = (
