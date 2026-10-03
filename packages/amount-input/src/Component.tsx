@@ -108,7 +108,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         const colorStyles = colorsStyles[colors];
         const { disabled, readOnly } = restProps;
         const dispatchInputRejectRef = useRef(false);
-        const [inputRejectPhase, setInputRejectPhase] = useState<number>();
+        const [inputRejectPhase, setInputRejectPhase] = useState<number>(2);
         const inputRef = useRef<HTMLInputElement>(null);
         const uncontrolled = valueFromProps === undefined;
         const numberParams = useMemo<NumberParams>(() => {
@@ -136,9 +136,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         const maskitoOptions = useMemo(() => {
             const handleInputReject = () => {
                 // switching between 0 and 1
-                setInputRejectPhase((prevInputRejectPhase = 0) =>
-                    Math.abs(prevInputRejectPhase - 1),
-                );
+                setInputRejectPhase((prevInputRejectPhase) => Math.abs(prevInputRejectPhase - 1));
             };
 
             return maskitoOptionsGenerator(
