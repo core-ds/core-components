@@ -23,24 +23,8 @@ describe('AmountInput', () => {
     });
 
     const dataTestId = 'test-id';
-
-    function renderAmountInput(
-        value: AmountInputProps['value'],
-        currency: CurrencyCodes | null = 'RUR',
-        props: AmountInputProps = {},
-    ) {
-        render(
-            <AmountInput
-                defaultValue={value}
-                currency={currency as CurrencyCodes}
-                minority={100}
-                dataTestId={dataTestId}
-                {...props}
-            />,
-        );
-
-        return screen.getByTestId(dataTestId) as HTMLInputElement;
-    }
+    // `currency` prop type doesn't allow null, but the component handles it
+    const NO_CURRENCY = null;
 
     /**
      * Maskito formats the value via the native value setter, so user-event's own
@@ -71,12 +55,14 @@ describe('AmountInput', () => {
     });
 
     it('should use default placeholder', () => {
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}₽`);
     });
 
     it('should correctly render default placeholder if currency is empty', () => {
-        const input = renderAmountInput(null, null);
+        render(<AmountInput defaultValue={null} currency={NO_CURRENCY} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}`);
     });
 
@@ -97,83 +83,121 @@ describe('AmountInput', () => {
     });
 
     it('should use custom suffix when currency empty', () => {
-        const input = renderAmountInput(null, null, { suffix: '%' });
+        render(
+            <AmountInput
+                defaultValue={null}
+                currency={NO_CURRENCY}
+                dataTestId={dataTestId}
+                suffix='%'
+            />,
+        );
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}%`);
     });
 
     it('should use custom suffix', () => {
-        const input = renderAmountInput(null, 'RUR', { suffix: '%' });
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} suffix='%' />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}%`);
     });
 
     it('should use currency suffix with codeFormat=letter', () => {
-        const input = renderAmountInput(null, 'RUR', { codeFormat: 'letter' });
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} codeFormat='letter' />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}RUR`);
     });
 
     it('should use currency suffix with codeFormat=symbolic', () => {
-        const input = renderAmountInput(null, 'RUR', { codeFormat: 'symbolic' });
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} codeFormat='symbolic' />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}₽`);
     });
 
     it('should use currency suffix without codeFormat', () => {
-        const input = renderAmountInput(null, 'RUR');
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}₽`);
     });
 
     it('should allow to clean suffix when currency empty', () => {
-        const input = renderAmountInput(null, null, { suffix: '' });
+        render(
+            <AmountInput
+                defaultValue={null}
+                currency={NO_CURRENCY}
+                dataTestId={dataTestId}
+                suffix=''
+            />,
+        );
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}`);
     });
 
     it('should allow to clean suffix', () => {
-        const input = renderAmountInput(null, 'RUR', { suffix: '' });
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} suffix='' />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.placeholder).toBe(`0${THINSP}`);
     });
 
     it('should render passed amount', () => {
-        const input = renderAmountInput(1234567);
+        render(<AmountInput defaultValue={1234567} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it('should render passed negative amount', () => {
-        const input = renderAmountInput(-1234567);
+        render(<AmountInput defaultValue={-1234567} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe(`${MINUS}12${MMSP}345,67`);
     });
 
     it('should render passed amount without zero minor part', () => {
-        const input = renderAmountInput(1234500);
+        render(<AmountInput defaultValue={1234500} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe(`12${MMSP}345`);
     });
 
     it('should render empty input if passed amount.value is null', () => {
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe('');
     });
 
     it('should render empty input if passed amount.value is empty string', () => {
-        const input = renderAmountInput('');
+        render(<AmountInput defaultValue='' dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe('');
     });
 
     it('should render 0 in input if passed amount.value is 0', () => {
-        const input = renderAmountInput(0);
+        render(<AmountInput defaultValue={0} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe('0');
     });
 
     it('should render passed decimal amount', () => {
-        const input = renderAmountInput(1234567);
+        render(<AmountInput defaultValue={1234567} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it('should render passed decimal amount if value is string', () => {
-        const input = renderAmountInput('1234567');
+        render(<AmountInput defaultValue='1234567' dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it("should replace entered '.' with ','", async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null, null, { positiveOnly: false, integerLength: 12 });
+        render(
+            <AmountInput
+                defaultValue={null}
+                currency={NO_CURRENCY}
+                dataTestId={dataTestId}
+                positiveOnly={false}
+                integerLength={12}
+            />,
+        );
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await changeValue(user, input, '-0.');
         expect(input.value).toBe(`${MINUS}0,`);
@@ -196,7 +220,15 @@ describe('AmountInput', () => {
 
     it('should allow input correct amounts', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(0, null, { integerLength: 12 });
+        render(
+            <AmountInput
+                defaultValue={0}
+                currency={NO_CURRENCY}
+                dataTestId={dataTestId}
+                integerLength={12}
+            />,
+        );
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await changeValue(user, input, '123456');
         expect(input.value).toBe(`123${MMSP}456`);
@@ -225,7 +257,16 @@ describe('AmountInput', () => {
 
     it('should allow input correct amounts when positiveOnly is false', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(0, null, { positiveOnly: false, integerLength: 13 });
+        render(
+            <AmountInput
+                defaultValue={0}
+                currency={NO_CURRENCY}
+                dataTestId={dataTestId}
+                positiveOnly={false}
+                integerLength={13}
+            />,
+        );
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await changeValue(user, input, '-');
         expect(input.value).toBe(MINUS);
@@ -281,7 +322,8 @@ describe('AmountInput', () => {
 
     it("should infer 0 if only ',' is entered", async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, ',');
         expect(input.value).toBe('0,');
@@ -289,7 +331,15 @@ describe('AmountInput', () => {
 
     it("should infer 0 if '-,' is entered", async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null, null, { positiveOnly: false });
+        render(
+            <AmountInput
+                defaultValue={null}
+                currency={NO_CURRENCY}
+                dataTestId={dataTestId}
+                positiveOnly={false}
+            />,
+        );
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '-,');
         expect(input.value).toBe(`${MINUS}0,`);
@@ -297,7 +347,8 @@ describe('AmountInput', () => {
 
     it('should prevent input of incorrect values', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(1234567);
+        render(<AmountInput defaultValue={1234567} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, 'f');
         expect(input.value).toBe(`12${MMSP}345,67`);
@@ -311,7 +362,8 @@ describe('AmountInput', () => {
 
     it('should prevent input of negative values when onlyPositive is true', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '-');
         expect(input.value).toBe('');
@@ -322,7 +374,8 @@ describe('AmountInput', () => {
 
     it('should allow enter only integer values when integersOnly is true', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(12300, 'RUR', { integersOnly: true });
+        render(<AmountInput defaultValue={12300} dataTestId={dataTestId} integersOnly />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         expect(input.value).toBe('123');
 
@@ -342,7 +395,8 @@ describe('AmountInput', () => {
 
     it('should avoid inserting leading zero before number, but allow inserting zero', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '0');
         expect(input.value).toBe('0');
@@ -360,7 +414,8 @@ describe('AmountInput', () => {
 
     it('should allow replace minor part without deleting', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(1234567);
+        render(<AmountInput defaultValue={1234567} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '8', { initialSelectionStart: 7, initialSelectionEnd: 8 });
         expect(input.value).toBe(`12${MMSP}345,87`);
@@ -368,7 +423,8 @@ describe('AmountInput', () => {
 
     it('should allow to paste value with spaces', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.click(input);
         await user.paste('1 23');
@@ -377,7 +433,8 @@ describe('AmountInput', () => {
 
     it('should allow to paste value with invalid chars', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.click(input);
         await user.paste('1 23₽');
@@ -386,7 +443,8 @@ describe('AmountInput', () => {
 
     it('should delete symbols on delete button press event', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '123,45');
         await user.type(input, '{Delete}', { initialSelectionStart: 1, initialSelectionEnd: 1 });
@@ -395,7 +453,8 @@ describe('AmountInput', () => {
 
     it('should allow set caret in the middle and enter decimal divider symbol', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '123456');
 
@@ -408,7 +467,8 @@ describe('AmountInput', () => {
 
     it('should delete the symbol before the space when placing the cursor after the space and pressing the Backspace key', async () => {
         const user = userEvent.setup();
-        const input = renderAmountInput(null);
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
         await user.type(input, '12345');
         expect(input.value).toBe(`12${MMSP}345`);
@@ -490,7 +550,14 @@ describe('AmountInput', () => {
             'drop decimal if value is $eventValue',
             async ({ initialValue, eventValue, expectValue }) => {
                 const user = userEvent.setup();
-                const input = renderAmountInput(initialValue, null);
+                render(
+                    <AmountInput
+                        defaultValue={initialValue}
+                        currency={NO_CURRENCY}
+                        dataTestId={dataTestId}
+                    />,
+                );
+                const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
                 await changeValue(user, input, eventValue);
                 await user.tab();
@@ -521,9 +588,14 @@ describe('AmountInput', () => {
 
         testCases.forEach(({ value, valueString }) => {
             it(`should contain value=${valueString} if initialValue=${value}`, () => {
-                const input = renderAmountInput(value, undefined, {
-                    view: 'withZeroMinorPart',
-                });
+                render(
+                    <AmountInput
+                        defaultValue={value}
+                        dataTestId={dataTestId}
+                        view='withZeroMinorPart'
+                    />,
+                );
+                const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
                 expect(input.value).toBe(valueString);
             });
@@ -533,10 +605,15 @@ describe('AmountInput', () => {
             it(`should emit blur event with value=${value} and valueString=${valueString} when userInput=${userInput}`, async () => {
                 const user = userEvent.setup();
                 const onChange = jest.fn();
-                const input = renderAmountInput(null, undefined, {
-                    onChange,
-                    view: 'withZeroMinorPart',
-                });
+                render(
+                    <AmountInput
+                        defaultValue={null}
+                        dataTestId={dataTestId}
+                        onChange={onChange}
+                        view='withZeroMinorPart'
+                    />,
+                );
+                const input = screen.getByTestId<HTMLInputElement>(dataTestId);
 
                 await user.type(input, userInput);
                 await user.tab();
@@ -605,7 +682,8 @@ describe('AmountInput', () => {
     });
 
     it('should has passed `inputClassName` too', () => {
-        const input = renderAmountInput(null, 'RUR', { inputClassName: 'foo' });
+        render(<AmountInput defaultValue={null} dataTestId={dataTestId} inputClassName='foo' />);
+        const input = screen.getByTestId<HTMLInputElement>(dataTestId);
         expect(input).toHaveClass('foo');
     });
 
