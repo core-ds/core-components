@@ -27,7 +27,7 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
     /**
      * Валюта
      */
-    currency?: CurrencyCodes;
+    currency?: null | CurrencyCodes;
 
     /**
      * Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)
@@ -51,8 +51,8 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
     integersOnly?: boolean;
 
     /**
-     * @default - true. Нельзя вводить отрицательные значения.
      * Возможность вводить только положительные значения
+     * @default true
      */
     positiveOnly?: boolean;
 
