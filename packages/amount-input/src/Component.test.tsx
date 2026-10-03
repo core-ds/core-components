@@ -23,7 +23,6 @@ describe('AmountInput', () => {
     });
 
     const dataTestId = 'test-id';
-    // `currency` prop type doesn't allow null, but the component handles it
     const NO_CURRENCY = null;
 
     /**
