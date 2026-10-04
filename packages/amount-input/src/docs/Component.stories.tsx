@@ -21,7 +21,7 @@ function toUndefined<T>(value: T): T | undefined {
 export const amount_input: Story = {
     name: 'AmountInput',
     render: () => {
-        const [value, setValue] = useState(1000);
+        const [value, setValue] = useState<number | null>(1000);
 
         const size = select('size', [40, 48, 56, 64, 72], 48);
         const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
@@ -29,9 +29,7 @@ export const amount_input: Story = {
         const colors = select('colors', ['default', 'inverted'], 'default');
 
         const handleChange: AmountInputProps['onChange'] = (_, payload) => {
-            if (payload?.value) {
-                setValue(payload.value);
-            }
+            setValue(payload.value);
         };
 
         return (
