@@ -1,4 +1,4 @@
-import React, { type FC, useMemo, useState } from 'react';
+import React, { type FC, type PointerEventHandler, useMemo, useState } from 'react';
 import cn from 'classnames';
 
 import { isNonNullable } from '@alfalab/core-components-shared';
@@ -21,6 +21,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     content = 'fit',
     iconAnimation,
 }) => {
+    const [isTrackedActive, setIsTrackedActive] = useState(false);
     const [activeKey, setActiveKey] = useState(
         () => activeKeyFromProps ?? defaultActiveKey ?? items.find((tab) => !tab.disabled)?.key,
     );
@@ -68,6 +69,18 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
         iconClassName: iconAnimation ? styles.icon : null,
     });
 
+    const onPointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
+        setIsTrackedActive(true);
+
+        event.currentTarget.ownerDocument.addEventListener(
+            'pointerup',
+            () => {
+                setIsTrackedActive(false);
+            },
+            { once: true },
+        );
+    };
+
     return (
         <div role='tablist' className={cn(styles.list, styles[content])} ref={listRef}>
             <Underlay className={styles.underlay} ref={underlayRef}>
@@ -77,7 +90,10 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                         ref={frameRef}
                         style={{ width: tabWidth, transform: initialTransform }}
                     >
-                        <div className={styles.tracker} ref={trackerRef} />
+                        <div
+                            className={cn(styles.tracker, { [styles.active]: isTrackedActive })}
+                            ref={trackerRef}
+                        />
                     </div>
                 )}
             </Underlay>
@@ -89,17 +105,22 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
                 onPointerCancel={handlePointerUp}
                 onPointerLeave={handlePointerUp}
             >
-                {items.map((tab, index) => (
-                    <Tab
-                        key={tab.key}
-                        style={{ marginLeft: index > 0 ? gap : undefined }}
-                        tab={tab}
-                        active={tab.key === activeKey}
-                        onClick={() => handleActiveKeyChange?.(tab.key)}
-                        iconClassName={styles.icon}
-                        content={content}
-                    />
-                ))}
+                {items.map((tab, index) => {
+                    const isTabActive = tab.key === activeKey;
+
+                    return (
+                        <Tab
+                            key={tab.key}
+                            style={{ marginLeft: index > 0 ? gap : undefined }}
+                            tab={tab}
+                            active={isTabActive}
+                            onClick={() => handleActiveKeyChange?.(tab.key)}
+                            iconClassName={styles.icon}
+                            content={content}
+                            onPointerDown={isTabActive ? onPointerDown : undefined}
+                        />
+                    );
+                })}
             </div>
         </div>
     );

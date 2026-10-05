@@ -55,7 +55,7 @@ export interface TabBarIslandItem extends TabBarIslandEntryBaseProps {
 }
 
 export interface TabBarIslandTabProps
-    extends Pick<ComponentProps<'div'>, 'style' | 'onClick' | 'onKeyDown'>,
+    extends Pick<ComponentProps<'div'>, 'style' | 'onClick' | 'onKeyDown' | 'onPointerDown'>,
         Pick<TabBarIslandEntryCustomProps, 'iconClassName'> {
     active?: boolean;
     tab: TabBarIslandItem;
