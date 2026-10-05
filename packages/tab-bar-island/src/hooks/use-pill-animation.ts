@@ -17,6 +17,8 @@ import { type TabBarIslandItem } from '@alfalab/core-components-tab-bar-island/t
 
 const SAMPLE_MS = 1000 / 60;
 const MAX_SAMPLES = 600;
+// Крупная исходная плитка не усиливает погрешность растеризации при масштабировании страницы.
+const CAPSULE_PART_SIZE = 100;
 
 type Pose = {
     x: number;
@@ -43,16 +45,32 @@ const restingPose = (x: number, lift = 0): Pose => ({
 type Run = { animations: Animation[]; poses: Pose[] };
 type Capsule = {
     tracker: HTMLElement;
+    group: HTMLElement;
     parts: HTMLElement[];
     background: string;
+    color: string;
     willChange: string;
+    overlap: number;
 };
 type Params = {
     activeKeyIndex: number;
     items: TabBarIslandItem[];
     gap: number;
-    iconClassName: string;
+    iconClassName?: string | null;
 };
+
+function capsulePaint(background: string) {
+    const rgba = background
+        .match(/^rgba?\(([^)]+)\)$/)?.[1]
+        .split(',')
+        .map(Number);
+
+    return {
+        opacity: rgba?.length === 4 ? rgba[3] : 1,
+        fill: rgba && rgba.length >= 3 ? `rgb(${rgba.slice(0, 3).join(',')})` : background,
+        canOverlap: Boolean(rgba),
+    };
+}
 
 /** Заранее рассчитываем кадры пружин, чтобы проигрывание не зависело от кадровых вызовов JavaScript. */
 function sampleSpring(from: Pose, targetX: number, targetLift: number): Pose[] {
@@ -162,7 +180,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         if (!capsule) {
             return;
         }
-        capsule.parts.forEach((part) => part.remove());
+        capsule.group.remove();
         capsule.tracker.style.background = capsule.background;
         capsule.tracker.style.willChange = capsule.willChange;
         capsuleRef.current = null;
@@ -187,6 +205,24 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
 
         if (capsuleRef.current?.tracker !== tracker) {
             removeCapsule();
+            const background = getComputedStyle(tracker).backgroundColor;
+            const { opacity, fill, canOverlap } = capsulePaint(background);
+            const group = document.createElement('span');
+            const list = listRef.current;
+            const zoom = list?.offsetWidth
+                ? list.getBoundingClientRect().width / list.offsetWidth
+                : 1;
+            // Даже при уменьшении страницы перекрытие должно закрывать целый физический пиксель.
+            const pixelSize = 1 / (zoom * (window.devicePixelRatio || 1));
+
+            // Прозрачность применяется к собранной форме, чтобы перекрытия не становились темнее.
+            Object.assign(group.style, {
+                position: 'absolute',
+                inset: '0',
+                opacity: String(opacity),
+                pointerEvents: 'none',
+            });
+            tracker.appendChild(group);
             const parts = [
                 'top-left',
                 'top-right',
@@ -205,26 +241,28 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
                     top: '0',
                     left: '0',
                     pointerEvents: 'none',
+                    background: fill,
                     transformOrigin: '0 0',
                     willChange: 'transform',
                 });
-                tracker.appendChild(part);
+                group.appendChild(part);
 
                 return part;
             });
 
             capsuleRef.current = {
                 tracker,
+                group,
                 parts,
                 background: tracker.style.background,
+                color: background,
                 willChange: tracker.style.willChange,
+                overlap: canOverlap ? Math.max(1, pixelSize) : 0,
             };
             tracker.style.background = 'none';
             tracker.style.willChange = 'auto';
         }
-        const { height } = state.current;
-
-        const radius = height / 2;
+        const radius = CAPSULE_PART_SIZE;
         const borderRadii = [
             `${radius}px 0 0 0`,
             `0 ${radius}px 0 0`,
@@ -233,12 +271,9 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         ];
 
         capsuleRef.current.parts.forEach((part, index) => {
-            const isCorner = index < 4;
-            const isMiddle = index === 4;
-
             Object.assign(part.style, {
-                width: `${isMiddle ? 1 : radius}px`,
-                height: `${isCorner ? radius : 1}px`,
+                width: `${CAPSULE_PART_SIZE}px`,
+                height: `${CAPSULE_PART_SIZE}px`,
                 borderRadius: borderRadii[index] ?? '0',
             });
         });
@@ -261,14 +296,15 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         const top = (height - shapeHeight) / 2;
         /*
          * Радиус ограничен меньшей стороной: узкая пилюля становится вертикальной капсулой.
-         * Части стыкуются без перекрытий, чтобы полупрозрачный фон не темнел на швах.
+         * Непрозрачные части перекрываются внутри контура, закрывая субпиксельные швы.
          */
         const radius = Math.min(shapeWidth, shapeHeight) / 2;
-        const cornerScale = radius / (height / 2);
+        const cornerScale = radius / CAPSULE_PART_SIZE;
         const right = left + shapeWidth - radius;
         const bottom = top + shapeHeight - radius;
         const middleWidth = shapeWidth - 2 * radius;
         const sideHeight = shapeHeight - 2 * radius;
+        const overlap = Math.min(radius, capsuleRef.current?.overlap ?? 0);
 
         return [
             `translateX(${x}px) scale(${1 + pose.lift * (LIFT_SCALE - 1)})`,
@@ -276,13 +312,16 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
             `translate(${right}px, ${top}px) scale(${cornerScale})`,
             `translate(${left}px, ${bottom}px) scale(${cornerScale})`,
             `translate(${right}px, ${bottom}px) scale(${cornerScale})`,
-            `translate(${left + radius}px, ${top}px) scale(${middleWidth}, ${shapeHeight})`,
-            `translate(${left}px, ${top + radius}px) scale(${cornerScale}, ${sideHeight})`,
-            `translate(${right}px, ${top + radius}px) scale(${cornerScale}, ${sideHeight})`,
+            `translate(${left + radius - overlap}px, ${top}px) scale(${(middleWidth + 2 * overlap) / CAPSULE_PART_SIZE}, ${shapeHeight / CAPSULE_PART_SIZE})`,
+            `translate(${left}px, ${top + radius - overlap}px) scale(${(radius + overlap) / CAPSULE_PART_SIZE}, ${(sideHeight + 2 * overlap) / CAPSULE_PART_SIZE})`,
+            `translate(${right - overlap}px, ${top + radius - overlap}px) scale(${(radius + overlap) / CAPSULE_PART_SIZE}, ${(sideHeight + 2 * overlap) / CAPSULE_PART_SIZE})`,
         ];
     }, []);
 
     const animateToTarget = useCallback(() => {
+        if (!capsuleRef.current && !measure()) {
+            return;
+        }
         const frame = frameRef.current;
         const capsule = capsuleRef.current;
 
@@ -300,6 +339,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         });
         if (reduceMotion || typeof frame.animate !== 'function') {
             poseRef.current = finalPose;
+            removeCapsule();
 
             return;
         }
@@ -325,8 +365,10 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
                 Object.assign(animation, { onfinish: null });
                 animation.cancel();
             });
+            // В покое рисуем цельную пилюлю из CSS: отдельные слои нужны только для деформации.
+            removeCapsule();
         };
-    }, [transforms]);
+    }, [measure, removeCapsule, transforms]);
 
     const snap = useCallback(() => {
         stop();
@@ -342,7 +384,8 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         transforms(poseRef.current).forEach((value, i) => {
             elements[i].style.transform = value;
         });
-    }, [measure, stop, targetXFor, transforms]);
+        removeCapsule();
+    }, [measure, removeCapsule, stop, targetXFor, transforms]);
 
     useLayoutEffect(() => {
         state.current.activeIndex = activeKeyIndex;
@@ -372,7 +415,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
             if (frameRef.current) {
                 playKeyframes(frameRef.current, REDUCED_MOTION_FADE, 1);
             }
-        } else {
+        } else if (iconClassName) {
             const icon = wrapperRef.current?.children[activeKeyIndex]?.querySelector<HTMLElement>(
                 `.${iconClassName}`,
             );
@@ -395,6 +438,35 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
     useLayoutEffect(() => {
         snap();
     }, [gap, items.length, snap]);
+
+    /*
+     * React может сменить класс нажатия после запуска анимации в обработчике указателя.
+     * Синхронизируем заливку до отрисовки, сохраняя текущие кадры и общую прозрачность формы.
+     */
+    useLayoutEffect(() => {
+        const capsule = capsuleRef.current;
+
+        if (!capsule) {
+            return;
+        }
+        const { tracker } = capsule;
+        const { background } = tracker.style;
+
+        tracker.style.background = capsule.background;
+        const color = getComputedStyle(tracker).backgroundColor;
+
+        tracker.style.background = background;
+        if (color === capsule.color) {
+            return;
+        }
+        const { opacity, fill } = capsulePaint(color);
+
+        capsule.color = color;
+        capsule.group.style.opacity = String(opacity);
+        capsule.parts.forEach((part) => {
+            Object.assign(part.style, { background: fill });
+        });
+    });
 
     useEffect(() => {
         const list = listRef.current;

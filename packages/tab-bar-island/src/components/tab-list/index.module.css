@@ -49,10 +49,6 @@
     height: 100%;
     width: 100%;
     background: var(--tab-bar-island-tab-tracker-background-color);
-
-    & > [data-pill-part] {
-        background: var(--tab-bar-island-tab-tracker-background-color);
-    }
 }
 
 .icon {
