@@ -5,6 +5,12 @@ import { CustomButton } from '.';
 import { CustomButtonDesktop } from './desktop';
 import { CustomButtonMobile } from './mobile';
 
+jest.mock('uuid', () => {
+    let nextMaskId = 0;
+
+    return { v4: () => `:r${nextMaskId++}:` };
+});
+
 const dataTestId = 'test-id';
 
 describe('CustomButton', () => {

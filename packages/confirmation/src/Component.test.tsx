@@ -4,6 +4,12 @@ import userEvent from '@testing-library/user-event';
 import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
 import { ConfirmationMobile } from './mobile';
 
+jest.mock('uuid', () => {
+    let nextMaskId = 0;
+
+    return { v4: () => `:r${nextMaskId++}:` };
+});
+
 /**
  * TODO: сделать тесты на все callbacks
  * TODO: сделать тесты на все таймеры

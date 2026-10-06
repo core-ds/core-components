@@ -11,6 +11,12 @@ import { getButtonTestIds } from './utils';
 import { ButtonDesktop as Button, ButtonDesktopProps as ButtonProps } from './desktop';
 import { LOADER_MIN_DISPLAY_INTERVAL } from './constants/loader-min-display-interval';
 
+jest.mock('uuid', () => {
+    let nextMaskId = 0;
+
+    return { v4: () => `:r${nextMaskId++}:` };
+});
+
 const dataTestId = 'test-id';
 
 const ButtonWithLoader: FC<ButtonProps & { timeout: number }> = ({ timeout, ...restProps }) => {
