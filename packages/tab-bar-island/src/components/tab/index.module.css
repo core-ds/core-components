@@ -9,12 +9,12 @@
         max-width: var(--tab-bar-island-tab-base-size);
     }
 
+    &:active,
     &.active {
-        z-index: 1;
         color: var(--tab-bar-island-tab-active-color);
     }
 
-    &:not(.active):active {
-        background: var(--tab-bar-island-tab-press-background-color);
+    &.active {
+        z-index: 1;
     }
 }
