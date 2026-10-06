@@ -189,9 +189,8 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
     const measure = useCallback(() => {
         const wrapper = wrapperRef.current;
         const frame = frameRef.current;
-        const tracker = trackerRef.current;
 
-        if (!wrapper || !frame || !tracker) {
+        if (!wrapper || !frame) {
             return false;
         }
         const last = wrapper.lastElementChild as HTMLElement | null;
@@ -199,10 +198,19 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         state.current.width = frame.offsetWidth;
         state.current.height = frame.offsetHeight;
         state.current.trackWidth = Math.max(1, last?.offsetLeft ?? 0);
-        if (!state.current.width || !state.current.height) {
-            return false;
-        }
+        state.current.targetX =
+            (wrapper.children[state.current.activeIndex] as HTMLElement | undefined)?.offsetLeft ??
+            0;
 
+        return Boolean(state.current.width && state.current.height);
+    }, []);
+
+    const createCapsule = useCallback(() => {
+        const tracker = trackerRef.current;
+
+        if (!tracker) {
+            return;
+        }
         if (capsuleRef.current?.tracker !== tracker) {
             removeCapsule();
             const background = getComputedStyle(tracker).backgroundColor;
@@ -277,15 +285,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
                 borderRadius: borderRadii[index] ?? '0',
             });
         });
-
-        return true;
     }, [removeCapsule]);
-
-    const targetXFor = useCallback(
-        (index: number) =>
-            (wrapperRef.current?.children[index] as HTMLElement | undefined)?.offsetLeft ?? 0,
-        [],
-    );
 
     const transforms = useCallback((pose: Pose) => {
         const { width, height, trackWidth } = state.current;
@@ -319,30 +319,39 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
     }, []);
 
     const animateToTarget = useCallback(() => {
-        if (!capsuleRef.current && !measure()) {
+        /*
+         * Части капсулы могут создавать скроллбар в узком контейнере.
+         * Считываем всю геометрию до их добавления, в обычной раскладке.
+         */
+        removeCapsule();
+        if (!measure()) {
             return;
         }
-        const frame = frameRef.current;
+        const frame = frameRef.current!;
+        const { targetX, targetLift, reduceMotion } = state.current;
+        const finalPose = restingPose(targetX, targetLift);
+
+        if (reduceMotion || typeof frame.animate !== 'function') {
+            const [frameTransform] = transforms(finalPose);
+
+            poseRef.current = finalPose;
+            frame.style.transform = frameTransform;
+
+            return;
+        }
+        createCapsule();
         const capsule = capsuleRef.current;
 
-        if (!frame || !capsule) {
+        if (!capsule) {
             return;
         }
-        const { targetX, targetLift, reduceMotion } = state.current;
         const elements = [frame, ...capsule.parts];
-        const finalPose = restingPose(targetX, targetLift);
         const finalTransforms = transforms(finalPose);
 
         // Заранее задаём стили покоя, которые применятся после завершения или отмены анимаций.
         elements.forEach((element, index) => {
             Object.assign(element.style, { transform: finalTransforms[index] });
         });
-        if (reduceMotion || typeof frame.animate !== 'function') {
-            poseRef.current = finalPose;
-            removeCapsule();
-
-            return;
-        }
         const poses = sampleSpring(poseRef.current, targetX, targetLift);
         const frames = poses.map(transforms);
         const duration = (poses.length - 1) * SAMPLE_MS;
@@ -367,25 +376,28 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
             });
             // В покое рисуем цельную пилюлю из CSS: отдельные слои нужны только для деформации.
             removeCapsule();
+            if (measure()) {
+                poseRef.current = restingPose(state.current.targetX, state.current.targetLift);
+                const [frameTransform] = transforms(poseRef.current);
+
+                frame.style.transform = frameTransform;
+            }
         };
-    }, [measure, removeCapsule, transforms]);
+    }, [createCapsule, measure, removeCapsule, transforms]);
 
     const snap = useCallback(() => {
         stop();
+        removeCapsule();
         if (state.current.activeIndex < 0 || !measure()) {
             return;
         }
-        state.current.targetX = targetXFor(state.current.activeIndex);
         state.current.targetLift = 0;
         state.current.pressed = false;
         poseRef.current = restingPose(state.current.targetX);
-        const elements = [frameRef.current!, ...capsuleRef.current!.parts];
+        const [frameTransform] = transforms(poseRef.current);
 
-        transforms(poseRef.current).forEach((value, i) => {
-            elements[i].style.transform = value;
-        });
-        removeCapsule();
-    }, [measure, removeCapsule, stop, targetXFor, transforms]);
+        frameRef.current!.style.transform = frameTransform;
+    }, [measure, removeCapsule, stop, transforms]);
 
     useLayoutEffect(() => {
         state.current.activeIndex = activeKeyIndex;
@@ -403,10 +415,6 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
 
             return;
         }
-        if (!measure()) {
-            return;
-        }
-        state.current.targetX = targetXFor(activeKeyIndex);
         state.current.targetLift = 0;
         state.current.pressed = false;
         poseRef.current = { ...poseRef.current, landingPeak: 0, hasLanded: false };
@@ -424,16 +432,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
                 playKeyframes(icon, ICON_POP, 1);
             }
         }
-    }, [
-        activeKeyIndex,
-        iconClassName,
-        animateToTarget,
-        measure,
-        removeCapsule,
-        snap,
-        stop,
-        targetXFor,
-    ]);
+    }, [activeKeyIndex, iconClassName, animateToTarget, removeCapsule, snap, stop]);
 
     useLayoutEffect(() => {
         snap();
@@ -538,9 +537,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         stop();
         state.current.pressed = true;
         state.current.targetLift = 1;
-        if (measure()) {
-            animateToTarget();
-        }
+        animateToTarget();
     };
 
     const handlePointerUp = () => {
