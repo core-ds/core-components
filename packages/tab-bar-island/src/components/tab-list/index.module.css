@@ -55,7 +55,7 @@
     background: var(--tab-bar-island-tab-tracker-background-color);
 
     &.active {
-        background: var(--tab-bar-island-tab-tracker-active-background-color);
+        background: var(--tab-bar-island-tab-press-background-color);
     }
 }
 

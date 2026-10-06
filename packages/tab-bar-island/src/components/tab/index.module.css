@@ -13,4 +13,8 @@
         z-index: 1;
         color: var(--tab-bar-island-tab-active-color);
     }
+
+    &:not(.active):active {
+        background: var(--tab-bar-island-tab-press-background-color);
+    }
 }
