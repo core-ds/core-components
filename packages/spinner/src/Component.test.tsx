@@ -4,7 +4,7 @@ import { devWarning } from '@alfalab/core-components-shared';
 
 import { Spinner } from './index';
 
-jest.mock('@alfalab/hooks', () => ({ useId: () => 1 }));
+jest.mock('uuid', () => ({ v4: () => '1' }));
 
 jest.mock('@alfalab/core-components-shared', () => {
     const original = jest.requireActual('@alfalab/core-components-shared');

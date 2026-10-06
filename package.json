@@ -180,6 +180,7 @@
         "ts-jest": "^29.4.1",
         "typescript": "~5.5.4",
         "ui-primitives": "^36.2.0",
+        "uuid": "^14.0.0",
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },

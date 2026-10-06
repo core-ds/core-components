@@ -2,7 +2,8 @@ import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { devWarning, hasOwnProperty, isNonNullable } from '@alfalab/core-components-shared';
-import { useId } from '@alfalab/hooks';
+
+import { useMaskId } from './use-mask-id';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -97,7 +98,7 @@ export const Spinner: FC<SpinnerProps> = (props) => {
             `[Spinner]: Палитра, в контексте которой используется спиннер (проп 'colors') игнорируется. Используется цвет 'style.color' ${color}`,
         );
     }
-    const uniqId = useId();
+    const { maskId, maskRef } = useMaskId();
     const radius = size / 2 - lineWidth / 2;
     const rotationAngle /* deg */ = Math.ceil((Math.asin(lineWidth / 2 / radius) * 180) / Math.PI);
     const gap /* deg */ = 90;
@@ -123,7 +124,7 @@ export const Spinner: FC<SpinnerProps> = (props) => {
             id={id}
         >
             <defs>
-                <mask id={uniqId}>
+                <mask id={maskId} ref={maskRef} suppressHydrationWarning={true}>
                     <circle
                         cx='50%'
                         cy='50%'
@@ -137,7 +138,14 @@ export const Spinner: FC<SpinnerProps> = (props) => {
                     />
                 </mask>
             </defs>
-            <foreignObject x='0' y='0' width={size} height={size} mask={`url(#${uniqId})`}>
+            <foreignObject
+                x='0'
+                y='0'
+                width={size}
+                height={size}
+                mask={`url(#${maskId})`}
+                suppressHydrationWarning={true}
+            >
                 <div className={styles.gradient} style={{ backgroundImage: gradient }} />
             </foreignObject>
         </svg>
