@@ -1,4 +1,4 @@
-import { type PointerEvent, useCallback, useEffect, useLayoutEffect, useRef } from 'react';
+import { type PointerEvent, useCallback, useEffect, useRef } from 'react';
 import { spring } from 'motion';
 
 import {
@@ -14,6 +14,7 @@ import {
     REDUCED_MOTION_FADE,
 } from '@alfalab/core-components-tab-bar-island/physics';
 import { type TabBarIslandItem } from '@alfalab/core-components-tab-bar-island/types';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 const SAMPLE_MS = 1000 / 60;
 const MAX_SAMPLES = 600;
@@ -142,7 +143,6 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
     const listRef = useRef<HTMLDivElement>(null);
     const underlayRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
     const frameRef = useRef<HTMLDivElement>(null);
     const trackerRef = useRef<HTMLDivElement>(null);
     const capsuleRef = useRef<Capsule | null>(null);
@@ -399,7 +399,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         frameRef.current!.style.transform = frameTransform;
     }, [measure, removeCapsule, stop, transforms]);
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         state.current.activeIndex = activeKeyIndex;
         stop();
         if (activeKeyIndex < 0) {
@@ -434,7 +434,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         }
     }, [activeKeyIndex, iconClassName, animateToTarget, removeCapsule, snap, stop]);
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         snap();
     }, [gap, items.length, snap]);
 
@@ -442,7 +442,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
      * React может сменить класс нажатия после запуска анимации в обработчике указателя.
      * Синхронизируем заливку до отрисовки, сохраняя текущие кадры и общую прозрачность формы.
      */
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const capsule = capsuleRef.current;
 
         if (!capsule) {
@@ -526,7 +526,7 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         if (index < 0 || items[index]?.disabled) {
             return;
         }
-        [underlayRef.current, wrapperRef.current, trackRef.current].forEach((element) => {
+        [underlayRef.current, wrapperRef.current].forEach((element) => {
             if (element) {
                 playKeyframes(element, PANEL_PULSE, 1);
             }
@@ -554,7 +554,6 @@ export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: 
         listRef,
         underlayRef,
         wrapperRef,
-        trackRef,
         frameRef,
         trackerRef,
         handlePointerDown,

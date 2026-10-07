@@ -1517,7 +1517,7 @@ __metadata:
     "@actions/core": "npm:^1.11.1"
     "@actions/exec": "npm:^1.1.1"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@alfalab/icons-glyph-26": "npm:^1.1.0"
+    "@alfalab/icons-glyph-26": "npm:^1.29.0"
     "@alfalab/lint-preset": "npm:^1.0.0"
     "@changesets/cli": "npm:^2.31.0"
     "@changesets/get-github-info": "npm:^0.8.0"
@@ -1966,6 +1966,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-indicator": "npm:^4.0.2"
     "@alfalab/core-components-shared": "npm:^2.3.0"
+    "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     motion: "npm:^13.0.0"
     tslib: "npm:^2.4.0"
@@ -2430,16 +2431,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/icons-glyph-26@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@alfalab/icons-glyph-26@npm:1.1.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/9102ca27b5f92b2a72ec2a54ff11196f7c3fd3d793ac87cd886e4c1454d93d9d8bb10391077f390c8ac673daf5c030308f23cf5d8e24505050c51bca4d304dda
-  languageName: node
-  linkType: hard
-
 "@alfalab/icons-glyph-26@npm:^1.20.0":
   version: 1.20.0
   resolution: "@alfalab/icons-glyph-26@npm:1.20.0"
@@ -2447,6 +2438,16 @@ __metadata:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   checksum: 10c0/4437a306cd6ab9d57791fce8b51095ed78fb6cd32fba0129efb0bf4b008d29968dd1dabe4fcc3eefaf07c71abde75dfc60d988dd93cee2623bc007d4fff98041
+  languageName: node
+  linkType: hard
+
+"@alfalab/icons-glyph-26@npm:^1.29.0":
+  version: 1.29.0
+  resolution: "@alfalab/icons-glyph-26@npm:1.29.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/d80336d8d414546ea8496d1319054519c9ac57aadf785fcd5c04d05c602d474ac47c69aaff6f685135539fcc4ef64df5d9947431f550f80a187175b58a5f3746
   languageName: node
   linkType: hard
 
