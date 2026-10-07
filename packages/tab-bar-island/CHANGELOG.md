@@ -1,5 +1,26 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.2.0
+
+### Minor Changes
+
+<sup><time>07.10.2026</time></sup>
+
+#### [#2389](https://github.com/core-ds/core-components/pull/2389)
+
+- Приведение к дизайну
+- Добавлена поддержка `Skeleton`
+- Добавлена поддержка режима 0 элементов `items` + `trailingAddon`
+- Мелкие исправления недочетов
+
+### Patch Changes
+
+<sup><time>07.10.2026</time></sup>
+
+#### [#2395](https://github.com/core-ds/core-components/pull/2395)
+
+- Рефакторинг хука use-pill-animation для избежания зависаний при блокировках основного потока исполнения JS
+
 ## 0.1.1
 
 ### Patch Changes
