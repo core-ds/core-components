@@ -7,6 +7,7 @@ import {
     TabBarIslandTrailingIconButton,
 } from '@alfalab/core-components-tab-bar-island';
 import { DiamondsLine24Icon } from '@alfalab/icons-glyph-26/DiamondsLine24Icon';
+import { NavigationPaymentLine24Icon } from '@alfalab/icons-glyph-26/NavigationPaymentLine24Icon';
 
 const meta: Meta<typeof TabBarIsland> = {
     title: 'Components/TabBarIsland',
@@ -28,10 +29,20 @@ export const button: Story = {
                 iconAnimation={iconAnimation}
                 showSkeleton={showSkeleton}
                 items={[
-                    { key: 0, icon: <DiamondsLine24Icon />, label: 'Label' },
-                    { key: 1, icon: <DiamondsLine24Icon />, label: 'Label', indicator: true },
+                    { key: 0, icon: <DiamondsLine24Icon />, label: 'Label', indicator: true },
+                    {
+                        key: 1,
+                        icon: <NavigationPaymentLine24Icon />,
+                        label: 'Label',
+                        indicator: true,
+                    },
                     { key: 2, icon: <DiamondsLine24Icon />, label: 'Label', indicator: 5 },
-                    { key: 3, icon: <DiamondsLine24Icon />, label: 'Label', indicator: 100 },
+                    {
+                        key: 3,
+                        icon: <NavigationPaymentLine24Icon />,
+                        label: 'Label',
+                        indicator: 100,
+                    },
                 ]}
                 trailingAddon={
                     trailingAddon && (
