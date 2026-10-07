@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.4.1
+
+### Patch Changes
+
+<sup><time>07.10.2026</time></sup>
+
+#### [#2403](https://github.com/core-ds/core-components/pull/2403)
+
+##### Vars
+
+- Обновлены тёмные фоны поверхностей superapp в `colors-superapp.css` (ui-primitives 36.8.0): `--color-dark-superapp-surface-bg-primary` — `#151517`, `--color-dark-superapp-surface-bg-secondary` — `#212124`
+
 ## 11.4.0
 
 ### Minor Changes
