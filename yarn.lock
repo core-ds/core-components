@@ -2248,7 +2248,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-vars@npm:^11.4.0, @alfalab/core-components-vars@workspace:packages/vars":
+"@alfalab/core-components-vars@npm:^11.4.1, @alfalab/core-components-vars@workspace:packages/vars":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-vars@workspace:packages/vars"
   languageName: unknown
@@ -2395,7 +2395,7 @@ __metadata:
     "@alfalab/core-components-underlay": "npm:^3.2.0"
     "@alfalab/core-components-universal-date-input": "npm:^4.0.22"
     "@alfalab/core-components-universal-modal": "npm:^3.2.8"
-    "@alfalab/core-components-vars": "npm:^11.4.0"
+    "@alfalab/core-components-vars": "npm:^11.4.1"
     "@alfalab/core-components-with-suffix": "npm:^6.0.16"
   peerDependencies:
     "@alfalab/core-components-config": ^1.1.0
