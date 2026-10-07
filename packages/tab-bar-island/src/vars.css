@@ -8,7 +8,9 @@
     --tab-bar-island-tab-base-size: 96px;
     --tab-bar-island-border-radius: 40px;
     --tab-bar-island-box-shadow: var(--shadow-promo);
-    --tab-bar-island-backdrop-filter: blur(10px);
+
+    /* in figma used blur(10px) but css results to blur(5px) in dev mode */
+    --tab-bar-island-backdrop-filter: blur(5px);
     --tab-bar-island-border-width: 1px;
 
     /* default */
