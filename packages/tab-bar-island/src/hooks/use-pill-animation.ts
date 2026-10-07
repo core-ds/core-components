@@ -1,11 +1,4 @@
-import {
-    type PointerEvent,
-    useCallback,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import { type PointerEvent, useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import { spring } from 'motion';
 
 import {
@@ -19,347 +12,460 @@ import {
     PILL_SPRING,
     playKeyframes,
     REDUCED_MOTION_FADE,
-    scaledSpring,
-    type SpringTransition,
 } from '@alfalab/core-components-tab-bar-island/physics';
 import { type TabBarIslandItem } from '@alfalab/core-components-tab-bar-island/types';
 
-/**
- * Потолок шага кадра. После долгого пропуска кадров (вкладка была в фоне)
- * пружина иначе перепрыгнула бы сразу к цели.
- */
-const MAX_FRAME_DELTA = 64;
+const SAMPLE_MS = 1000 / 60;
+const MAX_SAMPLES = 600;
+// Крупная исходная плитка не усиливает погрешность растеризации при масштабировании страницы.
+const CAPSULE_PART_SIZE = 100;
 
-function readRate(_: HTMLElement | null) {
-    return 1;
-}
+type Pose = {
+    x: number;
+    velocity: number;
+    lift: number;
+    liftVelocity: number;
+    scaleX: number;
+    scaleY: number;
+    landingPeak: number;
+    hasLanded: boolean;
+};
 
-/**
- * Пружина на одно число: текущее значение, скорость, цель.
- *
- * Из motion берём только генератор пружины. Универсальный `animate()` умеет
- * анимировать что угодно и поэтому весит ~62 кб в бандле потребителя, а нам
- * нужен ровно один сценарий — гнать одно число к цели и знать его скорость.
- * Генератор при этом тот же самый, что `animate()` использует внутри, так что
- * физика не «похожая», а буквально та же.
- */
-function createSpringValue(initial: number) {
-    let value = initial;
-    let velocity = 0;
-    let target = initial;
-    let generator: ReturnType<typeof spring> | null = null;
-    let elapsed = 0;
+const restingPose = (x: number, lift = 0): Pose => ({
+    x,
+    velocity: 0,
+    lift,
+    liftVelocity: 0,
+    scaleX: 1,
+    scaleY: 1,
+    landingPeak: 0,
+    hasLanded: false,
+});
 
-    return {
-        get: () => value,
-        getVelocity: () => velocity,
-
-        /** Мгновенно поставить значение и погасить движение. */
-        jump(next: number) {
-            value = next;
-            target = next;
-            velocity = 0;
-            generator = null;
-        },
-
-        /**
-         * Новая цель. Пружина стартует с текущей скорости, поэтому прерывание
-         * на лету продолжает движение, а не дёргает значение с нуля.
-         */
-        to(next: number, transition: SpringTransition) {
-            target = next;
-            elapsed = 0;
-            generator = spring({ keyframes: [value, next], velocity, ...transition });
-        },
-
-        stop() {
-            generator = null;
-        },
-
-        /** Шаг на `delta` мс. Возвращает false, когда пружина уже стоит. */
-        step(delta: number) {
-            if (!generator) {
-                return false;
-            }
-
-            elapsed += delta;
-
-            const state = generator.next(elapsed);
-
-            velocity = delta > 0 ? ((state.value - value) / delta) * 1000 : velocity;
-            value = state.value;
-
-            if (state.done) {
-                /*
-                 * Генератор резолвится по допуску скорости, а не строго на
-                 * цели — доводим руками, чтобы не осесть в доле пикселя от неё.
-                 */
-                value = target;
-                velocity = 0;
-                generator = null;
-            }
-
-            return true;
-        },
-    };
-}
-
-type UsePillAnimationParams = {
+type Run = { animations: Animation[]; poses: Pose[] };
+type Capsule = {
+    tracker: HTMLElement;
+    group: HTMLElement;
+    parts: HTMLElement[];
+    background: string;
+    color: string;
+    willChange: string;
+    overlap: number;
+};
+type Params = {
     activeKeyIndex: number;
     items: TabBarIslandItem[];
     gap: number;
-    /**
-     * Класс иконки таба — по нему находим элемент для squash & stretch, не
-     * прокидывая ref через пользовательский компонент таба.
-     */
-    iconClassName: string;
+    iconClassName?: string | null;
 };
 
-export function usePillAnimation({
-    activeKeyIndex,
-    items,
-    gap,
-    iconClassName,
-}: UsePillAnimationParams) {
+function capsulePaint(background: string) {
+    const rgba = background
+        .match(/^rgba?\(([^)]+)\)$/)?.[1]
+        .split(',')
+        .map(Number);
+
+    return {
+        opacity: rgba?.length === 4 ? rgba[3] : 1,
+        fill: rgba && rgba.length >= 3 ? `rgb(${rgba.slice(0, 3).join(',')})` : background,
+        canOverlap: Boolean(rgba),
+    };
+}
+
+/** Заранее рассчитываем кадры пружин, чтобы проигрывание не зависело от кадровых вызовов JavaScript. */
+function sampleSpring(from: Pose, targetX: number, targetLift: number): Pose[] {
+    const x = spring({ keyframes: [from.x, targetX], velocity: from.velocity, ...PILL_SPRING });
+    const lift = spring({
+        keyframes: [from.lift, targetLift],
+        velocity: from.liftVelocity,
+        ...LIFT_SPRING,
+    });
+    const poses = [from];
+    let previous = from;
+
+    for (let i = 1; i <= MAX_SAMPLES; i += 1) {
+        const nextX = x.next(i * SAMPLE_MS);
+        const nextLift = lift.next(i * SAMPLE_MS);
+
+        if (nextX.done && nextLift.done) {
+            poses.push(restingPose(targetX, targetLift));
+            break;
+        }
+        const position = nextX.done ? targetX : nextX.value;
+        const lifted = nextLift.done ? targetLift : nextLift.value;
+        const velocity = nextX.done ? 0 : ((position - previous.x) * 1000) / SAMPLE_MS;
+        const deform = composeDeform(
+            velocity,
+            Math.abs(targetX - position),
+            previous.landingPeak,
+            previous.hasLanded,
+        );
+
+        previous = {
+            x: position,
+            velocity,
+            lift: lifted,
+            liftVelocity: nextLift.done ? 0 : ((lifted - previous.lift) * 1000) / SAMPLE_MS,
+            ...deform,
+        };
+        poses.push(previous);
+        if (i === MAX_SAMPLES) {
+            poses.push(restingPose(targetX, targetLift));
+        }
+    }
+
+    return poses;
+}
+
+/** При прерывании восстанавливаем промежуточное состояние по текущему времени анимации браузера. */
+function readPose(run: Run): Pose {
+    const progress = Number(run.animations[0].currentTime ?? 0) / SAMPLE_MS;
+    const index = Math.min(Math.floor(Math.max(0, progress)), run.poses.length - 1);
+    const a = run.poses[index];
+    const b = run.poses[Math.min(index + 1, run.poses.length - 1)];
+    const t = clamp(progress - index, 0, 1);
+    const mix = (key: Exclude<keyof Pose, 'hasLanded'>) => a[key] + (b[key] - a[key]) * t;
+
+    return {
+        x: mix('x'),
+        velocity: mix('velocity'),
+        lift: mix('lift'),
+        liftVelocity: mix('liftVelocity'),
+        scaleX: mix('scaleX'),
+        scaleY: mix('scaleY'),
+        landingPeak: mix('landingPeak'),
+        hasLanded: a.hasLanded,
+    };
+}
+
+export function usePillAnimation({ activeKeyIndex, items, gap, iconClassName }: Params) {
     const listRef = useRef<HTMLDivElement>(null);
     const underlayRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const frameRef = useRef<HTMLDivElement>(null);
     const trackerRef = useRef<HTMLDivElement>(null);
-    const rafRef = useRef(0);
-
-    // x — позиция пилюли в px, lift — 0 в покое, 1 при полном нажатии.
-    const [values] = useState(() => ({ x: createSpringValue(0), lift: createSpringValue(0) }));
-
+    const capsuleRef = useRef<Capsule | null>(null);
+    const runRef = useRef<Run | null>(null);
+    const poseRef = useRef(restingPose(0));
     const state = useRef({
-        baseWidth: 0,
-        baseHeight: 0,
+        width: 0,
+        height: 0,
         trackWidth: 1,
         targetX: 0,
-        landingPeak: 0,
-        hasLanded: false,
-        rate: 1,
+        targetLift: 0,
         reduceMotion: false,
         mounted: false,
         pressed: false,
         activeIndex: activeKeyIndex,
     });
 
+    const stop = useCallback(() => {
+        const run = runRef.current;
+
+        if (!run) {
+            return;
+        }
+        poseRef.current = readPose(run);
+        runRef.current = null;
+        run.animations.forEach((animation) => {
+            Object.assign(animation, { onfinish: null });
+            animation.cancel();
+        });
+    }, []);
+
+    const removeCapsule = useCallback(() => {
+        const capsule = capsuleRef.current;
+
+        if (!capsule) {
+            return;
+        }
+        capsule.group.remove();
+        capsule.tracker.style.background = capsule.background;
+        capsule.tracker.style.willChange = capsule.willChange;
+        capsuleRef.current = null;
+    }, []);
+
     const measure = useCallback(() => {
         const wrapper = wrapperRef.current;
         const frame = frameRef.current;
 
         if (!wrapper || !frame) {
-            return;
+            return false;
         }
+        const last = wrapper.lastElementChild as HTMLElement | null;
 
-        const lastTab = wrapper.children[wrapper.children.length - 1] as HTMLElement | undefined;
+        state.current.width = frame.offsetWidth;
+        state.current.height = frame.offsetHeight;
+        state.current.trackWidth = Math.max(1, last?.offsetLeft ?? 0);
+        state.current.targetX =
+            (wrapper.children[state.current.activeIndex] as HTMLElement | undefined)?.offsetLeft ??
+            0;
 
-        state.current.trackWidth = Math.max(1, lastTab ? lastTab.offsetLeft : 1);
-        state.current.baseWidth = frame.offsetWidth;
-        state.current.baseHeight = frame.offsetHeight;
+        return Boolean(state.current.width && state.current.height);
     }, []);
 
-    const targetXFor = useCallback((index: number) => {
-        const tab = wrapperRef.current?.children[index] as HTMLElement | undefined;
-
-        return tab ? tab.offsetLeft : 0;
-    }, []);
-
-    /** Возврат формы к значениям из CSS после того, как пружина улеглась. */
-    const settle = useCallback(() => {
-        state.current.landingPeak = 0;
-        state.current.hasLanded = false;
-
+    const createCapsule = useCallback(() => {
         const tracker = trackerRef.current;
 
         if (!tracker) {
             return;
         }
+        if (capsuleRef.current?.tracker !== tracker) {
+            removeCapsule();
+            const background = getComputedStyle(tracker).backgroundColor;
+            const { opacity, fill, canOverlap } = capsulePaint(background);
+            const group = document.createElement('span');
+            const list = listRef.current;
+            const zoom = list?.offsetWidth
+                ? list.getBoundingClientRect().width / list.offsetWidth
+                : 1;
+            // Даже при уменьшении страницы перекрытие должно закрывать целый физический пиксель.
+            const pixelSize = 1 / (zoom * (window.devicePixelRatio || 1));
 
+            // Прозрачность применяется к собранной форме, чтобы перекрытия не становились темнее.
+            Object.assign(group.style, {
+                position: 'absolute',
+                inset: '0',
+                opacity: String(opacity),
+                pointerEvents: 'none',
+            });
+            tracker.appendChild(group);
+            const parts = [
+                'top-left',
+                'top-right',
+                'bottom-left',
+                'bottom-right',
+                'middle',
+                'left',
+                'right',
+            ].map((name) => {
+                const part = document.createElement('span');
+
+                part.dataset.pillPart = name;
+                part.setAttribute('aria-hidden', 'true');
+                Object.assign(part.style, {
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    pointerEvents: 'none',
+                    background: fill,
+                    transformOrigin: '0 0',
+                    willChange: 'transform',
+                });
+                group.appendChild(part);
+
+                return part;
+            });
+
+            capsuleRef.current = {
+                tracker,
+                group,
+                parts,
+                background: tracker.style.background,
+                color: background,
+                willChange: tracker.style.willChange,
+                overlap: canOverlap ? Math.max(1, pixelSize) : 0,
+            };
+            tracker.style.background = 'none';
+            tracker.style.willChange = 'auto';
+        }
+        const radius = CAPSULE_PART_SIZE;
+        const borderRadii = [
+            `${radius}px 0 0 0`,
+            `0 ${radius}px 0 0`,
+            `0 0 0 ${radius}px`,
+            `0 0 ${radius}px 0`,
+        ];
+
+        capsuleRef.current.parts.forEach((part, index) => {
+            Object.assign(part.style, {
+                width: `${CAPSULE_PART_SIZE}px`,
+                height: `${CAPSULE_PART_SIZE}px`,
+                borderRadius: borderRadii[index] ?? '0',
+            });
+        });
+    }, [removeCapsule]);
+
+    const transforms = useCallback((pose: Pose) => {
+        const { width, height, trackWidth } = state.current;
+        const x = clamp(pose.x, -EDGE_OVERFLOW, trackWidth + EDGE_OVERFLOW);
+        const shapeHeight = height * pose.scaleY;
+        const shapeWidth = width * pose.scaleX;
+        const left = clamp(x / trackWidth, 0, 1) * (width - shapeWidth);
+        const top = (height - shapeHeight) / 2;
         /*
-         * Последний кадр может застать остаточную деформацию в доли процента.
-         * Снимаем инлайновые стили — форму снова задаёт CSS.
+         * Радиус ограничен меньшей стороной: узкая пилюля становится вертикальной капсулой.
+         * Непрозрачные части перекрываются внутри контура, закрывая субпиксельные швы.
          */
-        tracker.style.width = '';
-        tracker.style.height = '';
-        tracker.style.left = '';
-        tracker.style.top = '';
-        tracker.style.borderRadius = '';
+        const radius = Math.min(shapeWidth, shapeHeight) / 2;
+        const cornerScale = radius / CAPSULE_PART_SIZE;
+        const right = left + shapeWidth - radius;
+        const bottom = top + shapeHeight - radius;
+        const middleWidth = shapeWidth - 2 * radius;
+        const sideHeight = shapeHeight - 2 * radius;
+        const overlap = Math.min(radius, capsuleRef.current?.overlap ?? 0);
+
+        return [
+            `translateX(${x}px) scale(${1 + pose.lift * (LIFT_SCALE - 1)})`,
+            `translate(${left}px, ${top}px) scale(${cornerScale})`,
+            `translate(${right}px, ${top}px) scale(${cornerScale})`,
+            `translate(${left}px, ${bottom}px) scale(${cornerScale})`,
+            `translate(${right}px, ${bottom}px) scale(${cornerScale})`,
+            `translate(${left + radius - overlap}px, ${top}px) scale(${(middleWidth + 2 * overlap) / CAPSULE_PART_SIZE}, ${shapeHeight / CAPSULE_PART_SIZE})`,
+            `translate(${left}px, ${top + radius - overlap}px) scale(${(radius + overlap) / CAPSULE_PART_SIZE}, ${(sideHeight + 2 * overlap) / CAPSULE_PART_SIZE})`,
+            `translate(${right - overlap}px, ${top + radius - overlap}px) scale(${(radius + overlap) / CAPSULE_PART_SIZE}, ${(sideHeight + 2 * overlap) / CAPSULE_PART_SIZE})`,
+        ];
     }, []);
 
-    const render = useCallback(() => {
-        const frame = frameRef.current;
-        const tracker = trackerRef.current;
-
-        if (!frame || !tracker) {
-            return;
-        }
-
-        const { current } = state;
-        const x = values.x.get();
-
-        if (current.reduceMotion) {
-            frame.style.transform = `translateX(${x}px)`;
-
-            return;
-        }
-
-        const liftScale = 1 + values.lift.get() * (LIFT_SCALE - 1);
+    const animateToTarget = useCallback(() => {
         /*
-         * Деформация считается по реальной, не зажатой позиции: пружина
-         * недодемпфирована и естественно перелетает цель — именно это даёт
-         * форме «спружинить» при подлёте.
+         * Части капсулы могут создавать скроллбар в узком контейнере.
+         * Считываем всю геометрию до их добавления, в обычной раскладке.
          */
-        const deform = composeDeform(
-            values.x.getVelocity(),
-            Math.abs(current.targetX - x),
-            current.landingPeak,
-            current.hasLanded,
-            current.rate,
+        removeCapsule();
+        if (!measure()) {
+            return;
+        }
+        const frame = frameRef.current!;
+        const { targetX, targetLift, reduceMotion } = state.current;
+        const finalPose = restingPose(targetX, targetLift);
+
+        if (reduceMotion || typeof frame.animate !== 'function') {
+            const [frameTransform] = transforms(finalPose);
+
+            poseRef.current = finalPose;
+            frame.style.transform = frameTransform;
+
+            return;
+        }
+        createCapsule();
+        const capsule = capsuleRef.current;
+
+        if (!capsule) {
+            return;
+        }
+        const elements = [frame, ...capsule.parts];
+        const finalTransforms = transforms(finalPose);
+
+        // Заранее задаём стили покоя, которые применятся после завершения или отмены анимаций.
+        elements.forEach((element, index) => {
+            Object.assign(element.style, { transform: finalTransforms[index] });
+        });
+        const poses = sampleSpring(poseRef.current, targetX, targetLift);
+        const frames = poses.map(transforms);
+        const duration = (poses.length - 1) * SAMPLE_MS;
+        const animations = elements.map((element, index) =>
+            element.animate(
+                frames.map((values) => ({ transform: values[index] })),
+                { duration, easing: 'linear', fill: 'both' },
+            ),
         );
+        const run = { animations, poses };
 
-        current.landingPeak = deform.landingPeak;
-        current.hasLanded = deform.hasLanded;
+        runRef.current = run;
+        animations[0].onfinish = () => {
+            if (runRef.current !== run) {
+                return;
+            }
+            poseRef.current = finalPose;
+            runRef.current = null;
+            animations.forEach((animation) => {
+                Object.assign(animation, { onfinish: null });
+                animation.cancel();
+            });
+            // В покое рисуем цельную пилюлю из CSS: отдельные слои нужны только для деформации.
+            removeCapsule();
+            if (measure()) {
+                poseRef.current = restingPose(state.current.targetX, state.current.targetLift);
+                const [frameTransform] = transforms(poseRef.current);
 
-        /*
-         * Рисуем пилюлю зажатой в границах дорожки, но с небольшим запасом:
-         * жёсткий стоп ровно на краю ощущается как затычка.
-         */
-        const renderX = clamp(x, -EDGE_OVERFLOW, current.trackWidth + EDGE_OVERFLOW);
-
-        frame.style.transform = `translateX(${renderX}px) scale(${liftScale})`;
-
-        /*
-         * Меняем реальные width/height, а не transform: scale — так торцы
-         * капсулы остаются полукругами, а не растягиваются в эллипс. Элемент
-         * спозиционирован абсолютно, поэтому reflow за его пределы не выходит.
-         */
-        const shapeWidth = current.baseWidth * deform.scaleX;
-        const shapeHeight = current.baseHeight * deform.scaleY;
-        /*
-         * По горизонтали у края дорожки растём только вовнутрь, в центре —
-         * симметрично. По вертикали позиция от края не зависит.
-         */
-        const originX = clamp(renderX / current.trackWidth, 0, 1);
-
-        tracker.style.width = `${shapeWidth}px`;
-        tracker.style.height = `${shapeHeight}px`;
-        tracker.style.left = `${originX * (current.baseWidth - shapeWidth)}px`;
-        tracker.style.top = `${(current.baseHeight - shapeHeight) / 2}px`;
-        tracker.style.borderRadius = `${Math.min(shapeWidth, shapeHeight) / 2}px`;
-    }, [values]);
-
-    const stopLoop = useCallback(() => {
-        if (rafRef.current) {
-            cancelAnimationFrame(rafRef.current);
-            rafRef.current = 0;
-        }
-    }, []);
-
-    /**
-     * Один кадровый цикл на обе пружины: пока хоть одна едет — перерисовываем,
-     * как только обе встали — возвращаем форму под CSS.
-     */
-    const startLoop = useCallback(() => {
-        if (rafRef.current) {
-            return;
-        }
-
-        let last = performance.now();
-
-        const tick = (now: number) => {
-            const delta = clamp(now - last, 0, MAX_FRAME_DELTA);
-
-            last = now;
-
-            // Шагаем обе пружины: `||` бы не выполнил вторую.
-            const xMoving = values.x.step(delta);
-            const liftMoving = values.lift.step(delta);
-
-            render();
-
-            if (xMoving || liftMoving) {
-                rafRef.current = requestAnimationFrame(tick);
-            } else {
-                rafRef.current = 0;
-                settle();
+                frame.style.transform = frameTransform;
             }
         };
+    }, [createCapsule, measure, removeCapsule, transforms]);
 
-        rafRef.current = requestAnimationFrame(tick);
-    }, [render, settle, values]);
-
-    /** Мгновенная установка пилюли на активный таб, без анимации. */
     const snap = useCallback(() => {
-        const { current } = state;
-
-        if (current.activeIndex < 0) {
+        stop();
+        removeCapsule();
+        if (state.current.activeIndex < 0 || !measure()) {
             return;
         }
+        state.current.targetLift = 0;
+        state.current.pressed = false;
+        poseRef.current = restingPose(state.current.targetX);
+        const [frameTransform] = transforms(poseRef.current);
 
-        measure();
-        current.rate = readRate(listRef.current);
-        current.targetX = targetXFor(current.activeIndex);
-        values.x.jump(current.targetX);
-        values.lift.jump(0);
-        stopLoop();
-        render();
-        settle();
-    }, [measure, render, settle, stopLoop, targetXFor, values]);
+        frameRef.current!.style.transform = frameTransform;
+    }, [measure, removeCapsule, stop, transforms]);
 
-    // Перелёт пилюли на новый активный таб.
     useLayoutEffect(() => {
-        const { current } = state;
-
-        current.activeIndex = activeKeyIndex;
-
+        state.current.activeIndex = activeKeyIndex;
+        stop();
         if (activeKeyIndex < 0) {
+            state.current.mounted = false;
+            removeCapsule();
+
             return;
         }
-
-        if (!current.mounted) {
-            current.mounted = true;
+        state.current.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!state.current.mounted) {
+            state.current.mounted = true;
             snap();
 
             return;
         }
-
-        measure();
-        current.rate = readRate(listRef.current);
-        current.targetX = targetXFor(activeKeyIndex);
-        // Новое движение — забываем память подлёта предыдущего.
-        current.landingPeak = 0;
-        current.hasLanded = false;
-
-        if (current.reduceMotion) {
-            values.x.jump(current.targetX);
-            render();
-
+        state.current.targetLift = 0;
+        state.current.pressed = false;
+        poseRef.current = { ...poseRef.current, landingPeak: 0, hasLanded: false };
+        animateToTarget();
+        if (state.current.reduceMotion) {
             if (frameRef.current) {
-                playKeyframes(frameRef.current, REDUCED_MOTION_FADE, current.rate);
+                playKeyframes(frameRef.current, REDUCED_MOTION_FADE, 1);
             }
+        } else if (iconClassName) {
+            const icon = wrapperRef.current?.children[activeKeyIndex]?.querySelector<HTMLElement>(
+                `.${iconClassName}`,
+            );
 
-            return;
+            if (icon) {
+                playKeyframes(icon, ICON_POP, 1);
+            }
         }
+    }, [activeKeyIndex, iconClassName, animateToTarget, removeCapsule, snap, stop]);
 
-        values.x.to(current.targetX, scaledSpring(PILL_SPRING, current.rate));
-        startLoop();
-
-        const icon = (
-            wrapperRef.current?.children[activeKeyIndex] as HTMLElement | undefined
-        )?.querySelector<HTMLElement>(`.${iconClassName}`);
-
-        if (icon) {
-            playKeyframes(icon, ICON_POP, current.rate);
-        }
-    }, [activeKeyIndex, iconClassName, measure, render, snap, startLoop, targetXFor, values]);
-
-    // Смена состава табов или отступа меняет геометрию — переставляем без анимации.
     useLayoutEffect(() => {
         snap();
     }, [gap, items.length, snap]);
+
+    /*
+     * React может сменить класс нажатия после запуска анимации в обработчике указателя.
+     * Синхронизируем заливку до отрисовки, сохраняя текущие кадры и общую прозрачность формы.
+     */
+    useLayoutEffect(() => {
+        const capsule = capsuleRef.current;
+
+        if (!capsule) {
+            return;
+        }
+        const { tracker } = capsule;
+        const { background } = tracker.style;
+
+        tracker.style.background = capsule.background;
+        const color = getComputedStyle(tracker).backgroundColor;
+
+        tracker.style.background = background;
+        if (color === capsule.color) {
+            return;
+        }
+        const { opacity, fill } = capsulePaint(color);
+
+        capsule.color = color;
+        capsule.group.style.opacity = String(opacity);
+        capsule.parts.forEach((part) => {
+            Object.assign(part.style, { background: fill });
+        });
+    });
 
     useEffect(() => {
         const list = listRef.current;
@@ -367,8 +473,19 @@ export function usePillAnimation({
         if (!list || typeof ResizeObserver === 'undefined') {
             return undefined;
         }
+        let width = list.offsetWidth;
+        let height = list.offsetHeight;
+        const observer = new ResizeObserver(() => {
+            // Первый вызов наблюдателя не должен отменять анимацию, запущенную в этом кадре.
+            const nextWidth = list.offsetWidth;
+            const nextHeight = list.offsetHeight;
 
-        const observer = new ResizeObserver(() => snap());
+            if (nextWidth !== width || nextHeight !== height) {
+                width = nextWidth;
+                height = nextHeight;
+                snap();
+            }
+        });
 
         observer.observe(list);
 
@@ -379,75 +496,58 @@ export function usePillAnimation({
         const query = window.matchMedia('(prefers-reduced-motion: reduce)');
         const update = () => {
             state.current.reduceMotion = query.matches;
+            snap();
         };
 
-        update();
         query.addEventListener('change', update);
 
         return () => query.removeEventListener('change', update);
-    }, []);
+    }, [snap]);
 
     useEffect(
         () => () => {
-            stopLoop();
-            values.x.stop();
-            values.lift.stop();
+            stop();
+            removeCapsule();
+            state.current.mounted = false;
         },
-        [stopLoop, values],
+        [removeCapsule, stop],
     );
 
     const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-        const { current } = state;
         const wrapper = wrapperRef.current;
 
-        if (current.reduceMotion || !wrapper) {
+        if (state.current.reduceMotion || !wrapper) {
             return;
         }
-
-        const target = event.target as Node;
         const index = Array.prototype.findIndex.call(wrapper.children, (tab: Element) =>
-            tab.contains(target),
+            tab.contains(event.target as Node),
         );
 
         if (index < 0 || items[index]?.disabled) {
             return;
         }
-
-        current.rate = readRate(listRef.current);
-
-        /*
-         * Панель, табы и дорожка пульсируют вместе, чтобы пилюля не отрывалась
-         * от подложки.
-         */
         [underlayRef.current, wrapperRef.current, trackRef.current].forEach((element) => {
             if (element) {
-                playKeyframes(element, PANEL_PULSE, current.rate);
+                playKeyframes(element, PANEL_PULSE, 1);
             }
         });
-
-        if (index !== current.activeIndex) {
+        if (index !== state.current.activeIndex) {
             return;
         }
-
-        current.pressed = true;
-        values.lift.to(1, scaledSpring(LIFT_SPRING, current.rate));
-        startLoop();
+        stop();
+        state.current.pressed = true;
+        state.current.targetLift = 1;
+        animateToTarget();
     };
 
     const handlePointerUp = () => {
-        const { current } = state;
-
-        /*
-         * pointerleave прилетает на каждый увод курсора с таббара, а не только
-         * после нажатия — без флага это гоняло бы пружину lift из 0 в 0.
-         */
-        if (current.reduceMotion || !current.pressed) {
+        if (state.current.reduceMotion || !state.current.pressed) {
             return;
         }
-
-        current.pressed = false;
-        values.lift.to(0, scaledSpring(LIFT_SPRING, current.rate));
-        startLoop();
+        stop();
+        state.current.pressed = false;
+        state.current.targetLift = 0;
+        animateToTarget();
     };
 
     return {

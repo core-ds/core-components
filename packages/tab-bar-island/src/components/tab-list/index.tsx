@@ -22,7 +22,7 @@ export const TabBarIslandTabList: FC<TabBarIslandTabListProps> = ({
     /*
      * Стартовая позиция пилюли по-прежнему задаётся в разметке — она нужна до
      * того, как отработает usePillAnimation (SSR, первый кадр до гидратации).
-     * Индекс фиксируем на первом рендере: дальше позицию покадрово пишет
+     * Индекс фиксируем на первом рендере: дальше позицией управляет
      * анимация, и React не должен перетирать её своим transform.
      */
     const [initialKeyIndex] = useState(activeKeyIndex);
