@@ -21,6 +21,7 @@ export const button: Story = {
     render: () => {
         const iconAnimation = boolean('iconAnimation', true);
         const showSkeleton = boolean('showSkeleton', false);
+        const trailingAddon = boolean('trailingAddon', true);
 
         return (
             <TabBarIsland
@@ -33,10 +34,12 @@ export const button: Story = {
                     { key: 3, icon: <DiamondsLine24Icon />, label: 'Label', indicator: 100 },
                 ]}
                 trailingAddon={
-                    <TabBarIslandTrailingIconButton
-                        icon={<DiamondsLine24Icon />}
-                        label='Поддержка'
-                    />
+                    trailingAddon && (
+                        <TabBarIslandTrailingIconButton
+                            icon={<DiamondsLine24Icon />}
+                            label='Поддержка'
+                        />
+                    )
                 }
             />
         );
