@@ -1618,7 +1618,7 @@ __metadata:
     tinyglobby: "npm:^0.2.14"
     ts-jest: "npm:^29.4.1"
     typescript: "npm:~5.5.4"
-    ui-primitives: "npm:^36.2.0"
+    ui-primitives: "npm:^36.8.0"
     webpack: "npm:^5.98.0"
     yargs: "npm:^17.7.2"
   languageName: unknown
@@ -33194,10 +33194,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui-primitives@npm:^36.2.0":
-  version: 36.2.0
-  resolution: "ui-primitives@npm:36.2.0"
-  checksum: 10c0/3c6771b4f12d6c691549bf2700ef05fdb213ae9e451f1cf34451660de196127a1aada80cfc4afee593f5d0b3ada8a36bd7533633b691d15c73592442854b904f
+"ui-primitives@npm:^36.8.0":
+  version: 36.8.0
+  resolution: "ui-primitives@npm:36.8.0"
+  checksum: 10c0/2571142e2dffd7fa8d46ec01857ec1898629f60b7016b28608299936c015bd6bd3ebd5b04761215a2aefde6d4d2b64e2ec2cb70c80cffe71c97a06111283554a
   languageName: node
   linkType: hard
 
