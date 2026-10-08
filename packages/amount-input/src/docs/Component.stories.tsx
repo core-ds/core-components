@@ -4,6 +4,7 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 import { AmountInput, AmountInputProps } from '@alfalab/core-components-amount-input';
+import { currency, CurrencyCodes } from '@alfalab/data';
 
 const meta: Meta<typeof AmountInput> = {
     title: 'Components/AmountInput',
@@ -13,26 +14,22 @@ const meta: Meta<typeof AmountInput> = {
 
 type Story = StoryObj<typeof AmountInput>;
 
+function toUndefined<T>(value: T): T | undefined {
+    return value || undefined;
+}
+
 export const amount_input: Story = {
     name: 'AmountInput',
     render: () => {
-        const [value, setValue] = useState(1000);
+        const [value, setValue] = useState<number | null>(1000);
 
         const size = select('size', [40, 48, 56, 64, 72], 48);
         const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
         const colors = select('colors', ['default', 'inverted'], 'default');
 
-        const stepper = boolean('stepper', false);
-        const step = stepper && number('step', 100);
-        const min = stepper && number('min', 0);
-        const max = stepper && number('max', 1500);
-        const zeroValue = boolean('zeroValue', false);
-
         const handleChange: AmountInputProps['onChange'] = (_, payload) => {
-            if (payload?.value) {
-                setValue(payload.value);
-            }
+            setValue(payload.value);
         };
 
         return (
@@ -53,8 +50,12 @@ export const amount_input: Story = {
                 <AmountInput
                     value={value}
                     colors={colors}
-                    currency={text('currency', 'RUR')}
-                    suffix={text('suffix', undefined)}
+                    currency={select(
+                        'currency',
+                        Object.keys(currency.CURRENCY_SYMBOLS) as CurrencyCodes[],
+                        'RUR',
+                    )}
+                    suffix={toUndefined(text('suffix', ''))}
                     integerLength={number('integerLength', 9)}
                     minority={number('minority', 100)}
                     integersOnly={boolean('integersOnly', false)}
@@ -65,7 +66,7 @@ export const amount_input: Story = {
                     disabled={boolean('disabled', false)}
                     readOnly={boolean('readOnly', false)}
                     disableUserInput={boolean('disableUserInput', false)}
-                    placeholder={text('placeholder', undefined)}
+                    placeholder={toUndefined(text('placeholder', ''))}
                     label={text('label', '')}
                     hint={text('hint', '')}
                     error={text('error', '')}
@@ -73,9 +74,22 @@ export const amount_input: Story = {
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                     clear={boolean('clear', false)}
                     labelView={select('labelView', ['inner', 'outer'], 'inner')}
-                    stepper={stepper && { step, min, max }}
-                    zeroValue={zeroValue}
+                    stepper={
+                        boolean('stepper', false)
+                            ? {
+                                  step: number('step', 100),
+                                  min: number('min', 0),
+                                  max: number('max', 1500),
+                              }
+                            : undefined
+                    }
                     onChange={handleChange}
+                    zeroValue={boolean('zeroValue', false)}
+                    view={select(
+                        'view',
+                        ['default', 'withZeroMinorPart', 'shortMinorPart'],
+                        'default',
+                    )}
                 />
             </div>
         );
