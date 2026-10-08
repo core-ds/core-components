@@ -1,5 +1,15 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.2.1
+
+### Patch Changes
+
+<sup><time>08.10.2026</time></sup>
+
+#### [#2405](https://github.com/core-ds/core-components/pull/2405)
+
+- Исправлен цвет фона при нажатии на активный таб
+
 ## 0.2.0
 
 ### Minor Changes
