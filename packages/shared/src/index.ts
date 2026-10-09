@@ -18,3 +18,4 @@ export * from './human-file-size';
 export * from './focus';
 export * from './icon-20-adapter';
 export * from './util-components';
+export * from './scroll';
