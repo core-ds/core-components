@@ -255,8 +255,11 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
+                      aria-label="scrollable content"
                       class="simplebar-content-wrapper scrollable"
+                      role="region"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="-1"
                     >
                       <div
                         class="simplebar-content content"
@@ -727,8 +730,11 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
+                      aria-label="scrollable content"
                       class="simplebar-content-wrapper scrollable"
+                      role="region"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="-1"
                     >
                       <div
                         class="simplebar-content content"
@@ -1199,8 +1205,11 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
+                      aria-label="scrollable content"
                       class="simplebar-content-wrapper scrollable"
+                      role="region"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="-1"
                     >
                       <div
                         class="simplebar-content content"
