@@ -205,4 +205,89 @@ render(() => {
         </div>
     );
 });
+
+```
+
+## Несколько галерей
+
+Галереи идут друг за другом. После того как закончились слайды одной, начинаются слайды другой.
+
+```jsx live mobileHeight={500}
+const galleries = [
+    [
+        { name: 'Изображение 1', src: './images/gallery_1.jpg' },
+        { name: 'Изображение 2', src: './images/gallery_2.jpg' },
+    ],
+    [
+        { name: 'Изображение 3', src: './images/gallery_3.jpg' },
+        { name: 'Изображение 4', src: './images/gallery_4.jpg' },
+    ],
+    [
+        { name: 'Изображение 5', src: './images/gallery_1.jpg' },
+        {
+            name: 'Видик',
+            src: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+        },
+    ],
+];
+
+const REQUEST_DELAY = 1000;
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [galleryIndex, setGalleryIndex] = React.useState(0);
+    const [slideIndex, setSlideIndex] = React.useState(0);
+    const [shouldFailRequest, setShouldFailRequest] = React.useState(false);
+
+    const openGallery = (withError = false) => {
+        setGalleryIndex(0);
+        setSlideIndex(0);
+        setShouldFailRequest(withError);
+        setOpen(true);
+    };
+
+    const handleEdgeReached = (direction) =>
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (shouldFailRequest) {
+                    setShouldFailRequest(false);
+                    reject(new Error());
+
+                    return;
+                }
+
+                const nextGalleryIndex = direction === 'next' ? galleryIndex + 1 : galleryIndex - 1;
+
+                setGalleryIndex(nextGalleryIndex);
+                setSlideIndex(direction === 'next' ? 0 : galleries[nextGalleryIndex].length - 1);
+
+                resolve();
+            }, REQUEST_DELAY);
+        });
+
+    return (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, maxWidth: 656 }}>
+            <Button view='secondary' onClick={() => openGallery()}>
+                Открыть галерею
+            </Button>
+            <Button view='secondary' onClick={() => openGallery(true)}>
+                Открыть галерею с ошибкой
+            </Button>
+
+            <Gallery
+                open={open}
+                onClose={() => setOpen(false)}
+                images={galleries[galleryIndex]}
+                slideIndex={slideIndex}
+                initialSlide={slideIndex}
+                onSlideIndexChange={setSlideIndex}
+                paginationConfig={{
+                    onEdgeReached: handleEdgeReached,
+                    hasPrevPage: galleryIndex > 0,
+                    hasNextPage: galleryIndex < galleries.length - 1,
+                }}
+            />
+        </div>
+    );
+});
 ```
