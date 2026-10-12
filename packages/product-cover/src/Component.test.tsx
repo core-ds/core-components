@@ -166,6 +166,36 @@ describe('ProductCover', () => {
             expect(imageElement).toBeInTheDocument();
         });
 
+        it('should use `imageUrl` as is', () => {
+            const imageUrl = 'https://example.com/cards/custom.png';
+            const { container } = render(
+                <ProductCover.Single
+                    imageUrl={imageUrl}
+                    baseUrl='https://baseurl.com/'
+                    layers='BACKGROUND'
+                    cardId='RM'
+                />,
+            );
+
+            const imageElement = container.querySelector('img');
+
+            expect(imageElement).toHaveAttribute('src', imageUrl);
+            expect(imageElement).not.toHaveAttribute('srcset');
+        });
+
+        it('should build 2x `srcset` from `width` param of `imageUrl`', () => {
+            const { container } = render(
+                <ProductCover.Single imageUrl='https://example.com/RM/images?layers=BACKGROUND&width=264' />,
+            );
+
+            const imageElement = container.querySelector('img');
+
+            expect(imageElement).toHaveAttribute(
+                'srcset',
+                'https://example.com/RM/images?layers=BACKGROUND&width=528 2x',
+            );
+        });
+
         it('does not render user info when the size of the card is small', () => {
             render(
                 <ProductCover.Single

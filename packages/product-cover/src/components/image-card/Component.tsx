@@ -2,9 +2,11 @@ import React, { type FC } from 'react';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
+import { type SingleCommonProps } from '../../typings';
+
 import styles from './index.module.css';
 
-export type ImageCardProps = {
+export type ImageCardProps = Pick<SingleCommonProps, 'imageUrl'> & {
     /**
      * Идентификатор карты
      * (например: RM, SQ, SR)
@@ -48,6 +50,7 @@ export const ImageCard: FC<ImageCardProps> = ({
     baseUrl,
     cardId,
     layers,
+    imageUrl,
     width,
     height,
     numberOfСards,
@@ -55,9 +58,21 @@ export const ImageCard: FC<ImageCardProps> = ({
 }) => {
     const imagePatternId = useId();
 
-    const cardImageUrl = `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`;
-    const cardImageUrl2x =
-        width && `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
+    let cardImageUrl = `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`;
+    let cardImageUrl2x = width && `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
+
+    if (imageUrl) {
+        cardImageUrl = imageUrl;
+        cardImageUrl2x = undefined;
+
+        const widthMatch = imageUrl.match(/&width=(\d+)/);
+
+        if (widthMatch) {
+            const [widthParam, urlWidth] = widthMatch;
+
+            cardImageUrl2x = imageUrl.replace(widthParam, `&width=${Number(urlWidth) * 2}`);
+        }
+    }
 
     const imageLoadingState = useImageLoadingState({ src: cardImageUrl || '' });
     const imageLoadingState2x = useImageLoadingState({ src: cardImageUrl2x || '' });
@@ -104,7 +119,7 @@ export const ImageCard: FC<ImageCardProps> = ({
                     width={width}
                     height={height}
                     src={cardImageUrl}
-                    srcSet={`${cardImageUrl2x} 2x`}
+                    {...(cardImageUrl2x && { srcSet: `${cardImageUrl2x} 2x` })}
                 />
             );
         }

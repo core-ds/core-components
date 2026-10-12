@@ -39,6 +39,11 @@ export type SingleCommonProps = {
     layers?: string;
 
     /**
+     * Полный URL изображения. При передаче ссылка используется как есть, параметры для построения игнорируются
+     */
+    imageUrl?: string;
+
+    /**
      * Слот для иконки с оверлеем
      */
     icon?: ElementType;
