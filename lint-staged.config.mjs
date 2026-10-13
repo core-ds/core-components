@@ -24,7 +24,8 @@ const config = {
     '{package,tsconfig*}.json': () => 'yarn tsconfig check',
     '*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,yaml,yml,md}': 'prettier --write --list-different',
     './*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
-    './{bin,tools}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
+    './{bin,tools}/**/!(*.test|*.spec|*.stories).{js,jsx,ts,tsx,mjs,mts,cjs,cts}':
+        'eslint --fix --max-warnings 0',
     '*.css': 'stylelint --fix',
     '**/package.json': 'sort-package-json',
     ...packages
