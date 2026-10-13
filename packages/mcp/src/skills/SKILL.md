@@ -1,6 +1,6 @@
 ---
 name: core-components
-description: Work with @alfalab/core-components React UI library — imports, theming, MCP tools, and component patterns. Use when building or editing UI with @alfalab/core-components, choosing a component for a use case, looking up component props, demos or changelog, setting up themes, CSS variables or CoreConfig, or migrating from deprecated components and older library versions.
+description: Work with @alfalab/core-components React UI library — imports, theming, CSS variables, and component patterns. Use when building or editing UI with @alfalab/core-components, choosing a component for a use case, looking up component props, demos or changelog, setting up themes, CSS variables or CoreConfig, or migrating from deprecated components and older library versions.
 license: MIT
 ---
 
@@ -16,14 +16,11 @@ This skill provides guidance for working with the `@alfalab/core-components` Rea
 - **Components**: ~100 components available
 - **Structure**: Desktop/Mobile responsive variants, theme support, TypeScript
 
-## MCP Tools
+## Component Data
 
-- **Always use MCP tools** to get component data — never read the library's source files, `CHANGELOG.md`, `package.json`, or `*.mdx` docs directly from the filesystem (e.g. from `node_modules/@alfalab/*`). Reading the user's own project files (including its `package.json`) is fine.
-- If a tool returns "not found" — do not guess or invent the component API.
-
-For tool reference and workflow: **read [MCP.md](./MCP.md)**.
-
-Available tools: `component_list`, `component_info`, `component_demo`, `component_changelog`.
+- If the core-components MCP server is available, **read [MCP.md](./MCP.md)** and use the MCP server as the primary source of component data (props, demos, changelog).
+- Without MCP, rely on this skill, the project's existing code and the TypeScript types of the installed `@alfalab/core-components` version.
+- If you cannot verify a component's API (props, allowed values, `dataTestId` modifiers) — do not guess or invent it. Say so explicitly.
 
 ## Working Scenarios
 
@@ -445,7 +442,7 @@ Then use `screen.getByTestId('submit-button')`.
 2. **Leverage built-in variants** - most components have pre-defined views
 3. **Use breakpoints for responsive** - set once at root, components inherit
 4. **Use `dataTestId`** - for testing automation, see [Test IDs](#test-ids)
-5. **Check component demos** - always verify with official examples
+5. **Check component demos** - verify usage with official examples when they are available
 
 ## Component Categories
 
@@ -466,22 +463,22 @@ Then use `screen.getByTestId('submit-button')`.
 ## Troubleshooting
 
 - **Component not found**: Check if desktop/mobile variant is exported
-- **Props not working**: Verify correct prop name via `component_info`
+- **Props not working**: Verify the prop name against the component's props
 - **Styling issues**: Ensure theme CSS is imported
-- **Type errors**: Check prop types via `component_info`
+- **Type errors**: Check the component's exported props type (e.g. `ButtonProps`)
 
 ## Deprecated Components Migration
 
-If the user references a deprecated component, inform them that it is no longer supported and no MCP data is available for it. Then offer to help migrate to the replacement:
+If the user references a deprecated component, inform them that it is no longer supported. Then offer to help migrate to the replacement:
 
-> **ComponentName** is deprecated and is not available in the current version of MCP. The recommended replacement is **ReplacementName**. Would you like me to help migrate to it?
+> **ComponentName** is deprecated and no longer supported. The recommended replacement is **ReplacementName**. Would you like me to help migrate to it?
 
 Do not attempt to use the deprecated component's API or guess its props — always redirect to the replacement.
 
 When editing existing code that uses a deprecated component (see [Editing existing code](#editing-existing-code)):
 
 - If the task does not touch the deprecated component — leave it as is. You may mention that a replacement exists.
-- If the task requires changing the deprecated component's usage — do not guess its API. Tell the user that no data is available for it and offer to migrate to the replacement first. Migrate only after the user agrees.
+- If the task requires changing the deprecated component's usage — do not guess its API. Tell the user that the component is deprecated and offer to migrate to the replacement first. Migrate only after the user agrees.
 
 | Deprecated         | Replacement               |
 | ------------------ | ------------------------- |
@@ -505,7 +502,7 @@ When a user's code uses a deprecated component:
 
 ```
 1. Identify the replacement from the table above
-2. component_info("ReplacementName")   → check the new API
-3. component_demo("ReplacementName")   → find a relevant demo
+2. Check the replacement's API (props, types, defaults)
+3. Find a relevant usage example for the replacement
 4. Rewrite usage with the new component API
 ```
