@@ -19,7 +19,7 @@ This skill provides guidance for working with the `@alfalab/core-components` Rea
 ## Component Data
 
 - If the core-components MCP server is available, **read [MCP.md](./MCP.md)** and use the MCP server as the primary source of component data (props, demos, changelog).
-- Without MCP, rely on this skill, the project's existing code and the TypeScript types of the installed `@alfalab/core-components` version.
+- Without MCP, rely on this skill, the project's existing code and the installed `@alfalab/core-components` package in `node_modules` — its TypeScript types (`*.d.ts`, e.g. `node_modules/@alfalab/core-components/button/*.d.ts`) describe component props.
 - If you cannot verify a component's API (props, allowed values, `dataTestId` modifiers) — do not guess or invent it. Say so explicitly.
 
 ## Working Scenarios
