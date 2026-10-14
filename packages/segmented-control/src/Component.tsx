@@ -12,6 +12,7 @@ import cn from 'classnames';
 
 import { Skeleton, type SkeletonProps } from '@alfalab/core-components-skeleton';
 
+import { isAddonOnly } from './components/segment/utils';
 import { type SegmentProps } from './components';
 import { type ContextType, SegmentedControlContext } from './context';
 import { type IDType } from './typing';
@@ -243,10 +244,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                                         colorStyles[colors].segment,
                                         {
                                             [styles.selected]: item.props.id === selectedId,
-                                            [colorStyles[colors].selected]:
-                                                item.props.id === selectedId,
-                                            [styles.withAddons]:
-                                                item.props.addons?.left || item.props.addons?.right,
+                                            [styles.addonOnly]: isAddonOnly(item.props),
                                         },
                                         item.props.className,
                                     ),

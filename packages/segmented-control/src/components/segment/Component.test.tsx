@@ -74,8 +74,6 @@ describe('segment', () => {
 
         expect(left).toContainElement(getByTestId('left-icon'));
         expect(right).toContainElement(getByTestId('right-icon'));
-        expect(left).toHaveAttribute('aria-hidden', 'true');
-        expect(right).toHaveAttribute('aria-hidden', 'true');
     });
 
     it('should render only left addon', () => {

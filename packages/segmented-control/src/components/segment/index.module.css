@@ -30,6 +30,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: var(--gap-0) var(--gap-4);
 
     & > * {
         vertical-align: top;
@@ -49,21 +50,18 @@
 }
 
 /* prettier-ignore */
-@each $size, $addonSize, $titleIndent in
-    (32, 20px, var(--gap-10)),
-    (40, 24px, var(--gap-10)),
-    (48, 24px, var(--gap-6)) {
+@each $size, $addonSize, $addonOnlySize in
+    (32, 20px, 20px),
+    (40, 20px, 24px),
+    (48, 24px, 24px) {
     .addonSize$(size) {
         width: $addonSize;
         height: $addonSize;
-    }
 
-    .titleIndentLeft$(size) {
-        padding-left: $titleIndent;
-    }
-
-    .titleIndentRight$(size) {
-        padding-right: $titleIndent;
+        &.addonOnly {
+            width: $addonOnlySize;
+            height: $addonOnlySize;
+        }
     }
 }
 
