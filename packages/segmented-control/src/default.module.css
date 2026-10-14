@@ -9,6 +9,7 @@
         & .selectedBox {
             border: none;
             background-color: var(--color-light-neutral-translucent-300);
+            box-shadow: none;
         }
     }
 }
