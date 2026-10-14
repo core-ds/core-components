@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
 import { Diamonds20Icon } from '@alfalab/icons-glyph-26/Diamonds20Icon';
 import { Diamonds24Icon } from '@alfalab/icons-glyph-26/Diamonds24Icon';
+import { getQueryParam } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 import { SegmentedControl, Segment } from '@alfalab/core-components-segmented-control';
 
 const meta: Meta<typeof SegmentedControl> = {
@@ -23,15 +24,16 @@ export const segmented_control: Story = {
         const view = select('view', ['default', 'muted'], 'default');
         const leftAddon = boolean('addons.left', false);
         const rightAddon = boolean('addons.right', false);
-        const addonsOnly = boolean('addonsOnly', false);
-        const iconTitle = boolean('iconTitle', false);
-        const size = select('size', [48, 40, 32], 40);
+        const size = Number(select('size', [48, 40, 32], 40)) as 48 | 40 | 32;
         const addonIcon = size === 48 ? <Diamonds24Icon /> : <Diamonds20Icon />;
         const addonOnlyIcon = size === 32 ? <Diamonds20Icon /> : <Diamonds24Icon />;
         const addons = {
             left: leftAddon ? { content: addonIcon } : undefined,
             right: rightAddon ? { content: addonIcon } : undefined,
         };
+
+        const addonsOnly = Boolean(getQueryParam('knob-addonsOnly', true));
+        const iconTitle = Boolean(getQueryParam('knob-iconTitle', true));
 
         const getBackgroundColor = () => {
             if (colors === 'inverted') {

@@ -145,6 +145,22 @@ describe('SegmentedControl', () => {
                     },
                 }),
             ],
+            ...['default', 'inverted'].map(
+                (color) =>
+                    [
+                        `skeleton | colors ${color}`,
+                        createStorybookUrl({
+                            componentName: 'SegmentedControl',
+                            testStory: false,
+                            knobs: {
+                                size: 40,
+                                selectedId: 1,
+                                colors: color,
+                                'skeleton.visible': true,
+                            },
+                        }),
+                    ] as [string, string],
+            ),
         ],
         viewport: { width: 960, height: 100 },
     })();

@@ -196,6 +196,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         return (
             <Skeleton
                 {...skeleton}
+                colors={skeleton.colors ?? colors}
                 dataTestId={dataTestId}
                 borderRadius={skeletonBorderRadius}
                 className={cn(className, styles.skeletonWrapper, skeleton.className)}
