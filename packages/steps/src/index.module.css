@@ -10,3 +10,30 @@
         align-items: flex-start;
     }
 }
+
+.scrollbar :global(.simplebar-track) {
+    display: none;
+}
+
+.scrollbarControl {
+    display: flex;
+    position: sticky;
+    right: 0;
+
+    &:not(.show) {
+        display: none;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+
+    & > * {
+        flex-shrink: 0;
+    }
+}
+
+.noShrink {
+    flex-shrink: 0;
+}

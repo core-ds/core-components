@@ -8,8 +8,12 @@
         "paths": {
             "@alfalab/core-components-badge": ["../badge/src"],
             "@alfalab/core-components-badge/*": ["../badge/src/*"],
+            "@alfalab/core-components-icon-button": ["../icon-button/src"],
+            "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-scrollbar-private": ["../scrollbar-private/src"],
+            "@alfalab/core-components-scrollbar-private/*": ["../scrollbar-private/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-status-badge": ["../status-badge/src"],
@@ -22,7 +26,9 @@
     },
     "references": [
         { "path": "../badge/tsconfig.build.json" },
+        { "path": "../icon-button/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../scrollbar-private/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../status-badge/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }

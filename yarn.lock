@@ -1918,9 +1918,12 @@ __metadata:
   resolution: "@alfalab/core-components-steps@workspace:packages/steps"
   dependencies:
     "@alfalab/core-components-badge": "npm:^7.0.3"
+    "@alfalab/core-components-icon-button": "npm:^8.0.12"
+    "@alfalab/core-components-scrollbar-private": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
+    "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:

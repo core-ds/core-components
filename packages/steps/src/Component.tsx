@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
+import React, { type Reducer, useEffect, useReducer, useRef, useState } from 'react';
 import cn from 'classnames';
+
+import { IconButtonDesktop } from '@alfalab/core-components-icon-button/desktop';
+import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
+import { isEndScrollPosition, isStartScrollPosition, noop } from '@alfalab/core-components-shared';
+import { ChevronLeftCompactSIcon } from '@alfalab/icons-glyph/ChevronLeftCompactSIcon';
+import { ChevronRightCompactSIcon } from '@alfalab/icons-glyph/ChevronRightCompactSIcon';
 
 import { Step } from './components/step';
 import { type StepIndicatorProps } from './components/step-indicator';
@@ -7,7 +13,7 @@ import { type CommonProps } from './types/common-props';
 
 import styles from './index.module.css';
 
-export type StepsProps = {
+export interface StepsProps extends CommonProps {
     /**
      * Дополнительный класс
      */
@@ -85,7 +91,23 @@ export type StepsProps = {
      * @param stepNumber - номер активного шага
      */
     onChange?: (stepNumber: number) => void;
-} & CommonProps;
+
+    /**
+     * Скроллящийся контент компонента. Работает только в вертикальной ориентацией
+     * @default false
+     */
+    scrollable?: boolean;
+}
+
+type ScrollPosition = {
+    isStart: boolean;
+    isEnd: boolean;
+};
+
+const scrollPositionReducer: Reducer<ScrollPosition | null, Element> = (_, element) => ({
+    isStart: isStartScrollPosition(element, 'x'),
+    isEnd: isEndScrollPosition(element, 'x'),
+});
 
 export const Steps: React.FC<StepsProps> = ({
     className,
@@ -108,11 +130,67 @@ export const Steps: React.FC<StepsProps> = ({
     onChange,
     dataTestId,
     completedDashColor,
+    scrollable = false,
 }) => {
+    const listNodeRef = useRef<HTMLDivElement>(null);
+    const scrollableNodeRef = useRef<HTMLDivElement>(null);
+    const contentNodeRef = useRef<HTMLDivElement>(null);
     const uncontrolled = activeStepProp === undefined;
     const [activeStep, setActiveStep] = useState(defaultActiveStep);
+    const [showScrollControl, setShowScrollControl] = useState(false);
+    const [scrollPosition, setScrollPosition] = useReducer(scrollPositionReducer, null);
+    const childrenCount = React.Children.count(children);
+    const shouldRender = childrenCount > 0;
 
-    const stepsLength = React.Children.count(children);
+    const scrollToStart = () => {
+        const scrollableNode = scrollableNodeRef.current;
+
+        if (scrollableNode) {
+            scrollableNode.scrollTo({
+                left: 0,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    const scrollToEnd = () => {
+        const scrollableNode = scrollableNodeRef.current;
+
+        if (scrollableNode) {
+            scrollableNode.scrollTo({
+                left: scrollableNode.scrollWidth - scrollableNode.clientWidth,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    useEffect(() => {
+        const contentNode = contentNodeRef.current;
+        const listNode = listNodeRef.current;
+
+        if (shouldRender && !isVerticalAlign && scrollable && contentNode && listNode) {
+            const resiveObserverCallback = () => {
+                setShowScrollControl(listNode.scrollWidth > contentNode.clientWidth);
+
+                const scrollableNode = scrollableNodeRef.current;
+
+                if (scrollableNode) {
+                    setScrollPosition(scrollableNode);
+                }
+            };
+
+            const ro = new ResizeObserver(resiveObserverCallback);
+
+            ro.observe(contentNode);
+            ro.observe(listNode);
+
+            return () => {
+                ro.disconnect();
+            };
+        }
+
+        return noop;
+    }, [isVerticalAlign, scrollable, shouldRender]);
 
     const handleStepClick = (stepNumber: number) => {
         if (uncontrolled) {
@@ -124,16 +202,15 @@ export const Steps: React.FC<StepsProps> = ({
         }
     };
 
-    if (!stepsLength) return null;
+    if (!shouldRender) return null;
 
     const visibleActiveStep = uncontrolled ? activeStep : activeStepProp;
 
-    return (
+    const stepsRender = (
         <div
-            className={cn(className, styles.component, {
-                [styles.vertical]: isVerticalAlign,
-            })}
+            ref={listNodeRef}
             data-test-id={dataTestId}
+            className={cn(className, styles.component, { [styles.vertical]: isVerticalAlign })}
         >
             {React.Children.map(children, (step, index) => {
                 const stepNumber = index + 1;
@@ -148,7 +225,7 @@ export const Steps: React.FC<StepsProps> = ({
                 const isWarning = checkIsStepWarning ? checkIsStepWarning(stepNumber) : false;
                 const isWaiting = checkIsStepWaiting ? checkIsStepWaiting(stepNumber) : false;
                 const customStepIndicator = checkIsStepCustom?.(stepNumber);
-                const isNotLastStep = stepsLength !== stepNumber;
+                const isNotLastStep = childrenCount !== stepNumber;
                 const isInteractive = !disabled && interactive;
 
                 return (
@@ -179,5 +256,43 @@ export const Steps: React.FC<StepsProps> = ({
                 );
             })}
         </div>
+    );
+
+    if (isVerticalAlign || !scrollable) {
+        return stepsRender;
+    }
+
+    const handleScroll: React.UIEventHandler<HTMLDivElement> = (event) => {
+        setScrollPosition(event.currentTarget);
+    };
+
+    return (
+        <ScrollbarPrivate
+            className={styles.scrollbar}
+            scrollableNodeProps={{
+                ref: scrollableNodeRef,
+                onScroll: handleScroll,
+            }}
+            contentNodeProps={{
+                ref: contentNodeRef,
+                className: styles.content,
+            }}
+        >
+            {stepsRender}
+            <div className={cn(styles.scrollbarControl, { [styles.show]: showScrollControl })}>
+                <IconButtonDesktop
+                    size={40}
+                    icon={ChevronLeftCompactSIcon}
+                    onClick={scrollToStart}
+                    disabled={scrollPosition?.isStart}
+                />
+                <IconButtonDesktop
+                    size={40}
+                    icon={ChevronRightCompactSIcon}
+                    onClick={scrollToEnd}
+                    disabled={scrollPosition?.isEnd}
+                />
+            </div>
+        </ScrollbarPrivate>
     );
 };
