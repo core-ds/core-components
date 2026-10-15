@@ -1,21 +1,19 @@
 import React, {
     type FC,
-    type ReactElement,
     useCallback,
     useEffect,
     useLayoutEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
-import { Skeleton, type SkeletonProps } from '@alfalab/core-components-skeleton';
+import { Skeleton } from '@alfalab/core-components-skeleton';
 
-import { isAddonOnly } from './components/segment/utils';
-import { type SegmentProps } from './components';
 import { type ContextType, SegmentedControlContext } from './context';
-import { type IDType } from './typing';
+import { type SegmentedControlProps } from './typing';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -25,78 +23,6 @@ const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
-
-export interface SegmentedControlProps {
-    /**
-     * Дополнительный className
-     */
-    className?: string;
-
-    /**
-     * Обработчик смены выбранного сегмента
-     */
-    onChange: ContextType['onChange'];
-
-    /**
-     * ID выбранного сегмента
-     */
-    selectedId: IDType;
-
-    /**
-     * Размер компонента
-     * @default 32
-     */
-    size?: 32 | 40 | 48;
-
-    /**
-     * Форма компонента
-     */
-    shape?: 'rounded' | 'rectangular';
-
-    /**
-     * Дочерние элементы
-     */
-    children: Array<ReactElement<SegmentProps>>;
-
-    /**
-     * Набор цветов для компонента
-     */
-    colors?: 'default' | 'inverted';
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Дополнительные инлайн стили для враппера
-     */
-    style?: React.CSSProperties;
-
-    /**
-     * Отключает пользовательский ввод
-     * @default false
-     */
-    disabled?: boolean;
-
-    /**
-     * Настройки скелетона
-     */
-    skeleton?: SkeletonProps;
-
-    /**
-     * Вариант отображения
-     * @default default
-     */
-    view?: 'default' | 'muted';
-
-    /**
-     * Ширина сегментов: equal — одинаковая, сегменты вместе занимают весь контейнер;
-     * content — по ширине контента
-     * @default equal
-     */
-    segmentWidth?: 'equal' | 'content';
-}
 
 const MAX_SEGMENTS = 5;
 
@@ -192,6 +118,17 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         return () => observer.disconnect();
     }, [skeleton?.visible]);
 
+    const contextValue = useMemo<ContextType>(
+        () => ({
+            colors,
+            size,
+            selectedId,
+            segmentWidth,
+            onChange,
+        }),
+        [colors, size, selectedId, segmentWidth, onChange],
+    );
+
     if (skeleton?.visible) {
         return (
             <Skeleton
@@ -209,8 +146,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     }
 
     return (
-        // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <SegmentedControlContext.Provider value={{ onChange, colors, size }}>
+        <SegmentedControlContext.Provider value={contextValue}>
             <div ref={wrapperRef} className={className} style={style} data-test-id={dataTestId}>
                 <div
                     className={cn(
@@ -238,19 +174,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                             ref={selectedBoxRef}
                         />
                         <div className={cn(styles.inner)} ref={innerRef}>
-                            {React.Children.map(children, (item) =>
-                                React.cloneElement(item, {
-                                    className: cn(
-                                        styles.segment,
-                                        colorStyles[colors].segment,
-                                        {
-                                            [styles.selected]: item.props.id === selectedId,
-                                            [styles.addonOnly]: isAddonOnly(item.props),
-                                        },
-                                        item.props.className,
-                                    ),
-                                }),
-                            )}
+                            {children}
                         </div>
                     </div>
                 </div>

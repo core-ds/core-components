@@ -25,6 +25,33 @@
     }
 }
 
+.contentWidth {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.selected {
+    &:before,
+    & + .segment:before {
+        opacity: 0;
+    }
+}
+
+/* prettier-ignore */
+@each $size, $font, $padding, $addonOnlyPadding in
+    (32, small, var(--gap-10), var(--gap-4)),
+    (40, small, var(--gap-12), var(--gap-6)),
+    (48, medium, var(--gap-12), var(--gap-10)) {
+    .size$(size) {
+        @mixin paragraph_primary_$(font);
+        padding: var(--gap-0) $padding;
+
+        &.addonOnly {
+            padding: var(--gap-0) $addonOnlyPadding;
+        }
+    }
+}
+
 .title {
     min-width: 0;
     overflow: hidden;

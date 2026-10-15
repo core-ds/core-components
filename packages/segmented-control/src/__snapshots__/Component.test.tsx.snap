@@ -17,7 +17,7 @@ exports[`segmented-control should display correctly 1`] = `
           class="inner"
         >
           <button
-            class="segment segment segment segment selected"
+            class="segment segment size32 selected"
             type="button"
           >
             <span
@@ -27,7 +27,7 @@ exports[`segmented-control should display correctly 1`] = `
             </span>
           </button>
           <button
-            class="segment segment segment segment"
+            class="segment segment size32"
             data-test-id="SEGMENT"
             type="button"
           >
@@ -38,7 +38,7 @@ exports[`segmented-control should display correctly 1`] = `
             </span>
           </button>
           <button
-            class="segment segment segment segment"
+            class="segment segment size32"
             type="button"
           >
             <span
@@ -48,7 +48,7 @@ exports[`segmented-control should display correctly 1`] = `
             </span>
           </button>
           <button
-            class="segment segment segment segment"
+            class="segment segment size32"
             type="button"
           >
             <span
