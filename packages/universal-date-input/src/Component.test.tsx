@@ -353,6 +353,30 @@ describe('UniversalDateInput', () => {
             expect(input.value).toBe(`12.12.2021${DATE_RANGE_SEPARATOR}13.12.2024`);
         });
 
+        it('should display partial default value with only dateFrom and trailing separator', () => {
+            const { queryByRole } = render(
+                <UniversalDateInputDesktop
+                    view='date-range'
+                    defaultValue={{ dateFrom: new Date('2022-12-12'), dateTo: null }}
+                />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+            expect(input.value).toBe(`12.12.2022${DATE_RANGE_SEPARATOR}`);
+        });
+
+        it('should display partial value when dateTo is null', () => {
+            const { queryByRole } = render(
+                <UniversalDateInputDesktop
+                    view='date-range'
+                    value={{ dateFrom: new Date('2022-12-12'), dateTo: null }}
+                />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+            expect(input.value).toBe(`12.12.2022${DATE_RANGE_SEPARATOR}`);
+        });
+
         it('should call onBlur callback', async () => {
             const onBlur = jest.fn();
 
