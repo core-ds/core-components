@@ -1,0 +1,115 @@
+import { Gap } from '@alfalab/core-components-gap';
+
+## Поведение
+
+Spoiler скрывает баланс или другую чувствительную информацию за облаком частиц.
+При скрытии контента плавно появляются движущиеся точки, а при раскрытии облако исчезает,
+показывая актуальное значение.
+
+В этом примере сумма обновляется, пока она скрыта. Нажмите на спойлер или используйте
+переключатель, чтобы раскрыть содержимое. Нажатие работает во всех примерах ниже.
+
+```jsx live
+render(() => {
+    const [revealed, setRevealed] = React.useState(true);
+    const [valueIndex, setValueIndex] = React.useState(0);
+    const values = ['−4 940 ₽', '−5 186 ₽'];
+
+    React.useEffect(() => {
+        if (revealed) return undefined;
+
+        const timer = window.setTimeout(() => {
+            setValueIndex((current) => (current + 1) % 2);
+        }, 500);
+
+        return () => window.clearTimeout(timer);
+    }, [revealed]);
+
+    return (
+        <>
+            <Typography.Title
+                tag='div'
+                view='medium'
+                font='system'
+                style={{ fontVariantNumeric: 'tabular-nums' }}
+            >
+                <Spoiler revealed={revealed} onRevealedChange={setRevealed}>
+                    {values[valueIndex]}
+                </Spoiler>
+            </Typography.Title>
+            <Gap size={24} />
+            <Switch
+                checked={!revealed}
+                label='Скрыть'
+                onChange={() => setRevealed((current) => !current)}
+            />
+        </>
+    );
+});
+```
+
+## Использование с текстом
+
+Компонент размещается внутри `Typography.Text` или `Typography.Title` и наследует типографику.
+Спойлер можно поставить внутри текстового слоя: частицы повторяют строки и сохраняют переносы.
+Вложенное выделение текста также поддерживается.
+
+```jsx live
+render(() => {
+    const [revealed, setRevealed] = React.useState(false);
+
+    return (
+        <div style={{ maxWidth: 360 }}>
+            <Typography.Text view='primary-medium'>
+                Доставка ожидается{' '}
+                <Spoiler revealed={revealed} onRevealedChange={setRevealed}>
+                    <strong>в пятницу после 18:00</strong>, по адресу: улица Лесная, дом 12.
+                </Spoiler>{' '}
+                Мы заранее отправим уведомление.
+            </Typography.Text>
+            <Gap size={24} />
+            <Switch
+                checked={!revealed}
+                label='Скрыть'
+                onChange={() => setRevealed((value) => !value)}
+            />
+        </div>
+    );
+});
+```
+
+## Использование с другими элементами
+
+В `mode='element'` частицы закрывают всю площадь контейнера с изображением или любым другим
+контентом, сохраняя исходные размеры элемента при скрытии и раскрытии.
+
+```jsx live
+render(() => {
+    const [revealed, setRevealed] = React.useState(false);
+
+    return (
+        <>
+            <Spoiler
+                mode='element'
+                revealed={revealed}
+                onRevealedChange={setRevealed}
+                style={{ borderRadius: 'var(--border-radius-8)' }}
+            >
+                <img
+                    src='./images/gorgeous-garden.png'
+                    alt='Пейзаж'
+                    width={150}
+                    height={150}
+                    style={{ display: 'block', objectFit: 'cover' }}
+                />
+            </Spoiler>
+            <Gap size={24} />
+            <Switch
+                checked={!revealed}
+                label='Скрыть'
+                onChange={() => setRevealed((value) => !value)}
+            />
+        </>
+    );
+});
+```

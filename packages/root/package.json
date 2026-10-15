@@ -111,6 +111,7 @@
         "@alfalab/core-components-sortable-list": "^3.0.10",
         "@alfalab/core-components-space": "^5.0.2",
         "@alfalab/core-components-spinner": "^6.0.9",
+        "@alfalab/core-components-spoiler": "^0.0.0",
         "@alfalab/core-components-stack": "^7.0.1",
         "@alfalab/core-components-status": "^5.1.0",
         "@alfalab/core-components-status-badge": "^3.0.2",
