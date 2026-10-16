@@ -74,7 +74,7 @@ yarn generate-data
 
 - ищет entry point компонентов в `packages/*/src`;
 - собирает пропсы, описание, демо и changelog из корневого `CHANGELOG.md`;
-- пересоздаёт каталог `src/data/v<version>`;
+- пересоздаёт каталог `src/data` (хранится только актуальная версия данных);
 - обновляет `src/version.ts` по версии из `packages/root/package.json`.
 
 ## Инструменты

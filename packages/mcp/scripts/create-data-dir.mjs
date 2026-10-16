@@ -9,19 +9,18 @@ const rootPackageJson = JSON.parse(
 
 const { version } = rootPackageJson;
 
-export function createIndexDir() {
-    const indexDir = `v${version}`;
-    const versionDir = path.resolve(dirname, '..', 'src', 'data', indexDir);
+export function createDataDir() {
+    const dataDir = path.resolve(dirname, '..', 'src', 'data');
 
-    rmSync(versionDir, { recursive: true, force: true });
-    mkdirSync(versionDir, { recursive: true });
+    rmSync(dataDir, { recursive: true, force: true });
+    mkdirSync(dataDir, { recursive: true });
 
     writeFileSync(
         path.resolve(dirname, '..', 'src/version.mts'),
         `export const DATA_VERSION = 'v${version}';\n`,
     );
 
-    console.log(`📁 Created directory: ${indexDir}`);
+    console.log(`📁 Recreated data directory for v${version}`);
 
-    return versionDir;
+    return dataDir;
 }
