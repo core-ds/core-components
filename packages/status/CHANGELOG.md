@@ -1,5 +1,17 @@
 # @alfalab/core-components-status
 
+## 5.1.1
+
+### Patch Changes
+
+<sup><time>16.10.2026</time></sup>
+
+#### [#2413](https://github.com/core-ds/core-components/pull/2413)
+
+##### Status
+
+- Исправлен `letter-spacing` для `uppercase` компонентов c размерами `20/24`
+
 ## 5.1.0
 
 ### Minor Changes
