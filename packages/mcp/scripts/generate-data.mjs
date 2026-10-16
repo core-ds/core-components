@@ -116,8 +116,8 @@ function main() {
                     changelog,
                 },
                 null,
-                1,
-            ).replace(/^ +/gm, ''),
+                2,
+            ),
         );
     });
 
