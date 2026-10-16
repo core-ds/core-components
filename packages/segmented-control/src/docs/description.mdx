@@ -1,69 +1,83 @@
-## Размеры и стили
+## Размеры
 
-Для контрола доступно два размера и два вида скруглений.
+Компонент доступен в размерах 48, 40, 32.
 
 ```jsx live
 render(() => {
     const [selectedId, setSelectedId] = React.useState({
-        '1': 1,
-        '2': 1,
-        '3': 1,
-        '4': 1,
+        1: 1,
+        2: 1,
+        3: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
-        <div style={{ width: 360 }}>
-        <Space fullWidth size={24}>
-            <SegmentedControl size={40} onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl onChange={(id) => handleChange('2', id)} selectedId={selectedId["2"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl size={40} shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId["3"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl shape='rounded' onChange={(id) => handleChange('4', id)} selectedId={selectedId["4"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-        </Space>
-    </div>
-    )
-})
+        <div style={{ width: 436 }}>
+            <Space fullWidth size={12}>
+                <SegmentedControl
+                    size={48}
+                    selectedId={selectedId['1']}
+                    onChange={(id) => handleChange('1', id)}
+                >
+                    <Segment id={1} title='Size' />
+                    <Segment id={2} title='48' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={40}
+                    selectedId={selectedId['2']}
+                    onChange={(id) => handleChange('2', id)}
+                >
+                    <Segment id={1} title='Size' />
+                    <Segment id={2} title='40' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={32}
+                    selectedId={selectedId['3']}
+                    onChange={(id) => handleChange('3', id)}
+                >
+                    <Segment id={1} title='Size' />
+                    <Segment id={2} title='32' />
+                </SegmentedControl>
+            </Space>
+        </div>
+    );
+});
 //MOBILE
 render(() => {
     const [selectedId, setSelectedId] = React.useState({
-        '1': 1,
-        '2': 1,
-        '3': 1,
-        '4': 1,
+        1: 1,
+        2: 1,
+        3: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
-        <Space fullWidth size={24}>
-            <SegmentedControl size={40} onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
+        <Space fullWidth size={12}>
+            <SegmentedControl
+                size={48}
+                selectedId={selectedId['1']}
+                onChange={(id) => handleChange('1', id)}
+            >
+                <Segment id={1} title='Size' />
+                <Segment id={2} title='48' />
             </SegmentedControl>
-            <SegmentedControl onChange={(id) => handleChange('2', id)} selectedId={selectedId["2"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
+            <SegmentedControl
+                size={40}
+                selectedId={selectedId['2']}
+                onChange={(id) => handleChange('2', id)}
+            >
+                <Segment id={1} title='Size' />
+                <Segment id={2} title='40' />
             </SegmentedControl>
-            <SegmentedControl size={40} shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId["3"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl shape='rounded' onChange={(id) => handleChange('4', id)} selectedId={selectedId["4"]}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
+            <SegmentedControl
+                size={32}
+                selectedId={selectedId['3']}
+                onChange={(id) => handleChange('3', id)}
+            >
+                <Segment id={1} title='Size' />
+                <Segment id={2} title='32' />
             </SegmentedControl>
         </Space>
-    )
-})
+    );
+});
 ```
 
 ## Количество сегментов
@@ -73,126 +87,620 @@ render(() => {
 ```jsx live
 render(() => {
     const [selectedId, setSelectedId] = React.useState({
-        '1': 1,
-        '2': 1,
-        '3': 1,
-        '4': 1,
-        '5': 1,
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
-        <div style={{ width: 360 }}>
-        <Space fullWidth size={24}>
-            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-                <Segment id={3} title='Таб 3' />
-            </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["3"]} onChange={(id) => handleChange('3', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-                <Segment id={3} title='Таб 3' />
-                <Segment id={4} title='Таб 4' />
-            </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["4"]} onChange={(id) => handleChange('4', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-                <Segment id={3} title='Таб 3' />
-                <Segment id={4} title='Таб 4' />
-                <Segment id={5} title='Таб 5' />
-            </SegmentedControl>
-        </Space>
-    </div>
-    )
-})
+        <div style={{ width: 436 }}>
+            <Space fullWidth size={12}>
+                <SegmentedControl
+                    selectedId={selectedId['1']}
+                    onChange={(id) => handleChange('1', id)}
+                >
+                    <Segment id={1} title='1' />
+                    <Segment id={2} title='2' />
+                </SegmentedControl>
+                <SegmentedControl
+                    selectedId={selectedId['2']}
+                    onChange={(id) => handleChange('2', id)}
+                >
+                    <Segment id={1} title='1' />
+                    <Segment id={2} title='2' />
+                    <Segment id={3} title='3' />
+                </SegmentedControl>
+                <SegmentedControl
+                    selectedId={selectedId['3']}
+                    onChange={(id) => handleChange('3', id)}
+                >
+                    <Segment id={1} title='1' />
+                    <Segment id={2} title='2' />
+                    <Segment id={3} title='3' />
+                    <Segment id={4} title='4' />
+                </SegmentedControl>
+                <SegmentedControl
+                    selectedId={selectedId['4']}
+                    onChange={(id) => handleChange('4', id)}
+                >
+                    <Segment id={1} title='1' />
+                    <Segment id={2} title='2' />
+                    <Segment id={3} title='3' />
+                    <Segment id={4} title='4' />
+                    <Segment id={5} title='5' />
+                </SegmentedControl>
+            </Space>
+        </div>
+    );
+});
 //MOBILE
 render(() => {
     const [selectedId, setSelectedId] = React.useState({
-        '1': 1,
-        '2': 1,
-        '3': 1,
-        '4': 1,
-        '5': 1,
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
-        <Space fullWidth size={24}>
-            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
+        <Space fullWidth size={12}>
+            <SegmentedControl selectedId={selectedId['1']} onChange={(id) => handleChange('1', id)}>
+                <Segment id={1} title='1' />
+                <Segment id={2} title='2' />
             </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-                <Segment id={3} title='Таб 3' />
+            <SegmentedControl selectedId={selectedId['2']} onChange={(id) => handleChange('2', id)}>
+                <Segment id={1} title='1' />
+                <Segment id={2} title='2' />
+                <Segment id={3} title='3' />
             </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["3"]} onChange={(id) => handleChange('3', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-                <Segment id={3} title='Таб 3' />
-                <Segment id={4} title='Таб 4' />
+            <SegmentedControl selectedId={selectedId['3']} onChange={(id) => handleChange('3', id)}>
+                <Segment id={1} title='1' />
+                <Segment id={2} title='2' />
+                <Segment id={3} title='3' />
+                <Segment id={4} title='4' />
             </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["4"]} onChange={(id) => handleChange('4', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-                <Segment id={3} title='Таб 3' />
-                <Segment id={4} title='Таб 4' />
-                <Segment id={5} title='Таб 5' />
+            <SegmentedControl selectedId={selectedId['4']} onChange={(id) => handleChange('4', id)}>
+                <Segment id={1} title='1' />
+                <Segment id={2} title='2' />
+                <Segment id={3} title='3' />
+                <Segment id={4} title='4' />
+                <Segment id={5} title='5' />
             </SegmentedControl>
         </Space>
-    )
-})
+    );
+});
 ```
 
-## Заголовки сегментов
+## Форма
 
-Сегменты могут содержать как строковые значения, так и React компоненты
+Можно выбрать прямоугольную или овальную форму.
 
 ```jsx live
 render(() => {
     const [selectedId, setSelectedId] = React.useState({
-        '1': 1,
-        '2': 1,
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1,
+        5: 1,
+        6: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
-        <div style={{ width: 360 }}>
-        <Space fullWidth size={24}>
-            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
-                <Segment id={1} title={<AScoresCircleMIcon />} />
-                <Segment id={2} title={<AScoresCircleMIcon />} />
-            </SegmentedControl>
-        </Space>
-    </div>
-    )
-})
+        <div style={{ width: 436 }}>
+            <Space fullWidth size={20}>
+                <Space fullWidth size={12}>
+                    <SegmentedControl
+                        size={48}
+                        shape='rounded'
+                        selectedId={selectedId['1']}
+                        onChange={(id) => handleChange('1', id)}
+                    >
+                        <Segment id={1} title='Shape' />
+                        <Segment id={2} title='Rounded' />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={40}
+                        shape='rounded'
+                        selectedId={selectedId['2']}
+                        onChange={(id) => handleChange('2', id)}
+                    >
+                        <Segment id={1} title='Shape' />
+                        <Segment id={2} title='Rounded' />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={32}
+                        shape='rounded'
+                        selectedId={selectedId['3']}
+                        onChange={(id) => handleChange('3', id)}
+                    >
+                        <Segment id={1} title='Shape' />
+                        <Segment id={2} title='Rounded' />
+                    </SegmentedControl>
+                </Space>
+                <Space fullWidth size={8}>
+                    <SegmentedControl
+                        size={48}
+                        shape='rectangular'
+                        selectedId={selectedId['4']}
+                        onChange={(id) => handleChange('4', id)}
+                    >
+                        <Segment id={1} title='Shape' />
+                        <Segment id={2} title='Rectangular' />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={40}
+                        shape='rectangular'
+                        selectedId={selectedId['5']}
+                        onChange={(id) => handleChange('5', id)}
+                    >
+                        <Segment id={1} title='Shape' />
+                        <Segment id={2} title='Rectangular' />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={32}
+                        shape='rectangular'
+                        selectedId={selectedId['6']}
+                        onChange={(id) => handleChange('6', id)}
+                    >
+                        <Segment id={1} title='Shape' />
+                        <Segment id={2} title='Rectangular' />
+                    </SegmentedControl>
+                </Space>
+            </Space>
+        </div>
+    );
+});
 //MOBILE
 render(() => {
     const [selectedId, setSelectedId] = React.useState({
-        '1': 1,
-        '2': 1,
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1,
+        5: 1,
+        6: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
-        <Space fullWidth size={24}>
-            <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
-                <Segment id={1} title='Таб 1' />
-                <Segment id={2} title='Таб 2' />
-            </SegmentedControl>
-            <SegmentedControl selectedId={selectedId["2"]} onChange={(id) => handleChange('2', id)}>
-                <Segment id={1} title={<AScoresCircleMIcon />} />
-                <Segment id={2} title={<AScoresCircleMIcon />} />
-            </SegmentedControl>
+        <Space fullWidth size={20}>
+            <Space fullWidth size={12}>
+                <SegmentedControl
+                    size={48}
+                    shape='rounded'
+                    selectedId={selectedId['1']}
+                    onChange={(id) => handleChange('1', id)}
+                >
+                    <Segment id={1} title='Shape' />
+                    <Segment id={2} title='Rounded' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={40}
+                    shape='rounded'
+                    selectedId={selectedId['2']}
+                    onChange={(id) => handleChange('2', id)}
+                >
+                    <Segment id={1} title='Shape' />
+                    <Segment id={2} title='Rounded' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={32}
+                    shape='rounded'
+                    selectedId={selectedId['3']}
+                    onChange={(id) => handleChange('3', id)}
+                >
+                    <Segment id={1} title='Shape' />
+                    <Segment id={2} title='Rounded' />
+                </SegmentedControl>
+            </Space>
+            <Space fullWidth size={8}>
+                <SegmentedControl
+                    size={48}
+                    shape='rectangular'
+                    selectedId={selectedId['4']}
+                    onChange={(id) => handleChange('4', id)}
+                >
+                    <Segment id={1} title='Shape' />
+                    <Segment id={2} title='Rectangular' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={40}
+                    shape='rectangular'
+                    selectedId={selectedId['5']}
+                    onChange={(id) => handleChange('5', id)}
+                >
+                    <Segment id={1} title='Shape' />
+                    <Segment id={2} title='Rectangular' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={32}
+                    shape='rectangular'
+                    selectedId={selectedId['6']}
+                    onChange={(id) => handleChange('6', id)}
+                >
+                    <Segment id={1} title='Shape' />
+                    <Segment id={2} title='Rectangular' />
+                </SegmentedControl>
+            </Space>
         </Space>
-    )
-})
+    );
+});
 ```
 
+## Вид
+
+Доступно два вида: `default` и `muted`.
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+        2: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <div
+            style={{
+                margin: -20,
+                padding: 20,
+                backgroundColor: 'var(--color-light-base-bg-secondary)',
+            }}
+        >
+            <div style={{ width: 436 }}>
+                <Space fullWidth size={12}>
+                    <SegmentedControl
+                        size={40}
+                        selectedId={selectedId['1']}
+                        onChange={(id) => handleChange('1', id)}
+                    >
+                        <Segment id={1} title='View' />
+                        <Segment id={2} title='Default' />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={40}
+                        view='muted'
+                        selectedId={selectedId['2']}
+                        onChange={(id) => handleChange('2', id)}
+                    >
+                        <Segment id={1} title='View' />
+                        <Segment id={2} title='Muted' />
+                    </SegmentedControl>
+                </Space>
+            </div>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+        2: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <div
+            style={{
+                margin: -20,
+                padding: 20,
+                boxSizing: 'border-box',
+                minHeight: '100vh',
+                backgroundColor: 'var(--color-light-base-bg-secondary)',
+            }}
+        >
+            <Space fullWidth size={12}>
+                <SegmentedControl
+                    size={40}
+                    selectedId={selectedId['1']}
+                    onChange={(id) => handleChange('1', id)}
+                >
+                    <Segment id={1} title='View' />
+                    <Segment id={2} title='Default' />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={40}
+                    view='muted'
+                    selectedId={selectedId['2']}
+                    onChange={(id) => handleChange('2', id)}
+                >
+                    <Segment id={1} title='View' />
+                    <Segment id={2} title='Muted' />
+                </SegmentedControl>
+            </Space>
+        </div>
+    );
+});
+```
+
+## Ширина
+
+Компонент может занимать всю доступную ширину или зависеть от ширин сегментов.
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+        2: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <div style={{ width: 436 }}>
+            <Space fullWidth size={12}>
+                <SegmentedControl
+                    selectedId={selectedId['1']}
+                    onChange={(id) => handleChange('1', id)}
+                >
+                    <Segment id={1} title='Один' />
+                    <Segment id={2} title='Два' />
+                </SegmentedControl>
+                <SegmentedControl
+                    segmentWidth='content'
+                    selectedId={selectedId['2']}
+                    onChange={(id) => handleChange('2', id)}
+                >
+                    <Segment id={1} title='Один' />
+                    <Segment id={2} title='Два' />
+                    <Segment id={3} title='Три' />
+                    <Segment id={4} title='Четыре' />
+                </SegmentedControl>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+        2: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    return (
+        <Space fullWidth size={12}>
+            <SegmentedControl selectedId={selectedId['1']} onChange={(id) => handleChange('1', id)}>
+                <Segment id={1} title='Один' />
+                <Segment id={2} title='Два' />
+            </SegmentedControl>
+            <SegmentedControl
+                segmentWidth='content'
+                selectedId={selectedId['2']}
+                onChange={(id) => handleChange('2', id)}
+            >
+                <Segment id={1} title='Один' />
+                <Segment id={2} title='Два' />
+                <Segment id={3} title='Три' />
+                <Segment id={4} title='Четыре' />
+            </SegmentedControl>
+        </Space>
+    );
+});
+```
+
+## Анатомия
+
+С помощью слотов leftAddons и rightAddons можно кастомизировать тэг. Например, добавить иконку. Переданный контент будет отрисован слева или справа от текста тэга.
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    const diamonds20 = { content: <Diamonds20Icon /> };
+    const diamonds24 = { content: <Diamonds24Icon /> };
+    return (
+        <div style={{ width: 310 }}>
+            <SegmentedControl
+                size={40}
+                shape='rounded'
+                segmentWidth='content'
+                selectedId={selectedId['1']}
+                onChange={(id) => handleChange('1', id)}
+            >
+                <Segment id={1} title={null} addons={{ left: diamonds24 }} />
+                <Segment id={2} title='Left' addons={{ left: diamonds20 }} />
+                <Segment id={3} title='Right' addons={{ right: diamonds20 }} />
+                <Segment id={4} title='Both' addons={{ left: diamonds20, right: diamonds20 }} />
+            </SegmentedControl>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    const diamonds20 = { content: <Diamonds20Icon /> };
+    const diamonds24 = { content: <Diamonds24Icon /> };
+    return (
+        <SegmentedControl
+            size={40}
+            shape='rounded'
+            segmentWidth='content'
+            selectedId={selectedId['1']}
+            onChange={(id) => handleChange('1', id)}
+        >
+            <Segment id={1} title={null} addons={{ left: diamonds24 }} />
+            <Segment id={2} title='Left' addons={{ left: diamonds20 }} />
+            <Segment id={3} title='Right' addons={{ right: diamonds20 }} />
+            <Segment id={4} title='Both' addons={{ left: diamonds20, right: diamonds20 }} />
+        </SegmentedControl>
+    );
+});
+```
+
+## Аддоны
+
+В 40-м размере размер иконки зависит от наличия лейбла.
+
+```jsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1,
+        5: 1,
+        6: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    const diamonds20 = { content: <Diamonds20Icon /> };
+    const diamonds24 = { content: <Diamonds24Icon /> };
+    return (
+        <div style={{ width: 360 }}>
+            <Space fullWidth size={12}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                    <SegmentedControl
+                        size={48}
+                        shape='rounded'
+                        segmentWidth='content'
+                        selectedId={selectedId['1']}
+                        onChange={(id) => handleChange('1', id)}
+                    >
+                        <Segment id={1} title={null} addons={{ left: diamonds24 }} />
+                        <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={48}
+                        shape='rounded'
+                        segmentWidth='content'
+                        selectedId={selectedId['2']}
+                        onChange={(id) => handleChange('2', id)}
+                    >
+                        <Segment id={1} title='Один' addons={{ left: diamonds24 }} />
+                        <Segment id={2} title='Два' addons={{ left: diamonds24 }} />
+                    </SegmentedControl>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                    <SegmentedControl
+                        size={40}
+                        shape='rounded'
+                        segmentWidth='content'
+                        selectedId={selectedId['3']}
+                        onChange={(id) => handleChange('3', id)}
+                    >
+                        <Segment id={1} title={null} addons={{ left: diamonds24 }} />
+                        <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={40}
+                        shape='rounded'
+                        segmentWidth='content'
+                        selectedId={selectedId['4']}
+                        onChange={(id) => handleChange('4', id)}
+                    >
+                        <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
+                        <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                    </SegmentedControl>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                    <SegmentedControl
+                        size={32}
+                        shape='rounded'
+                        segmentWidth='content'
+                        selectedId={selectedId['5']}
+                        onChange={(id) => handleChange('5', id)}
+                    >
+                        <Segment id={1} title={null} addons={{ left: diamonds20 }} />
+                        <Segment id={2} title={null} addons={{ left: diamonds20 }} />
+                    </SegmentedControl>
+                    <SegmentedControl
+                        size={32}
+                        shape='rounded'
+                        segmentWidth='content'
+                        selectedId={selectedId['6']}
+                        onChange={(id) => handleChange('6', id)}
+                    >
+                        <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
+                        <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                    </SegmentedControl>
+                </div>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [selectedId, setSelectedId] = React.useState({
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1,
+        5: 1,
+        6: 1,
+    });
+    const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
+    const diamonds20 = { content: <Diamonds20Icon /> };
+    const diamonds24 = { content: <Diamonds24Icon /> };
+    return (
+        <Space fullWidth size={12}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                <SegmentedControl
+                    size={48}
+                    shape='rounded'
+                    segmentWidth='content'
+                    selectedId={selectedId['1']}
+                    onChange={(id) => handleChange('1', id)}
+                >
+                    <Segment id={1} title={null} addons={{ left: diamonds24 }} />
+                    <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={48}
+                    shape='rounded'
+                    segmentWidth='content'
+                    selectedId={selectedId['2']}
+                    onChange={(id) => handleChange('2', id)}
+                >
+                    <Segment id={1} title='Один' addons={{ left: diamonds24 }} />
+                    <Segment id={2} title='Два' addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                <SegmentedControl
+                    size={40}
+                    shape='rounded'
+                    segmentWidth='content'
+                    selectedId={selectedId['3']}
+                    onChange={(id) => handleChange('3', id)}
+                >
+                    <Segment id={1} title={null} addons={{ left: diamonds24 }} />
+                    <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={40}
+                    shape='rounded'
+                    segmentWidth='content'
+                    selectedId={selectedId['4']}
+                    onChange={(id) => handleChange('4', id)}
+                >
+                    <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
+                    <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                <SegmentedControl
+                    size={32}
+                    shape='rounded'
+                    segmentWidth='content'
+                    selectedId={selectedId['5']}
+                    onChange={(id) => handleChange('5', id)}
+                >
+                    <Segment id={1} title={null} addons={{ left: diamonds20 }} />
+                    <Segment id={2} title={null} addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+                <SegmentedControl
+                    size={32}
+                    shape='rounded'
+                    segmentWidth='content'
+                    selectedId={selectedId['6']}
+                    onChange={(id) => handleChange('6', id)}
+                >
+                    <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
+                    <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                </SegmentedControl>
+            </div>
+        </Space>
+    );
+});
+```

@@ -1,11 +1,14 @@
-import React, { forwardRef, type ReactNode, useContext, useRef } from 'react';
+import React, { forwardRef, useContext, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { SegmentedControlContext } from '../../context';
-import { type IDType } from '../../typing';
+
+import { type SegmentProps } from './types';
+import { isAddonOnly } from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -16,45 +19,25 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export interface SegmentProps {
-    /**
-     * Дополнительный className
-     */
-    className?: string;
-
-    /**
-     * Дополнительный className для контента сегмента
-     */
-    contentClassName?: string;
-
-    /**
-     * ID сегмента
-     */
-    id: IDType;
-
-    /**
-     * Заголовок сегмента
-     */
-    title: ReactNode;
-
-    /**
-     * Контент выбранного сегмента
-     */
-    children?: ReactNode;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-}
-
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
-    ({ id, className, title, dataTestId }, ref) => {
-        const { onChange, colors = 'default' } = useContext(SegmentedControlContext);
+    ({ id, className, title, dataTestId, addons }, ref) => {
+        const {
+            onChange,
+            colors = 'default',
+            size,
+            selectedId,
+            segmentWidth,
+        } = useContext(SegmentedControlContext);
 
         const segmentRef = useRef<HTMLButtonElement>(null);
 
         const [focused] = useFocus(segmentRef, 'keyboard');
+
+        const addonOnly = isAddonOnly({ title, addons });
+
+        const addonClassName = cn(styles.addon, styles[`addonSize${size}`], {
+            [styles.addonOnly]: addonOnly,
+        });
 
         const handleClick = () => {
             onChange(id);
@@ -68,12 +51,34 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
                 className={cn(
                     styles.segment,
                     colorStyles[colors].segment,
+                    size && styles[`size${size}`],
+                    {
+                        [styles.selected]: id === selectedId,
+                        [styles.addonOnly]: addonOnly,
+                        [styles.contentWidth]: segmentWidth === 'content',
+                    },
                     className,
                     styles.focused && focused,
                 )}
                 data-test-id={dataTestId}
             >
-                {title}
+                {addons?.left && (
+                    <span
+                        className={addonClassName}
+                        data-test-id={getDataTestId(dataTestId, 'left-addon')}
+                    >
+                        {addons.left.content}
+                    </span>
+                )}
+                {Boolean(title) && <span className={styles.title}>{title}</span>}
+                {addons?.right && (
+                    <span
+                        className={addonClassName}
+                        data-test-id={getDataTestId(dataTestId, 'right-addon')}
+                    >
+                        {addons.right.content}
+                    </span>
+                )}
             </button>
         );
     },
