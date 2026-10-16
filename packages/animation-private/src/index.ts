@@ -1,1 +1,1 @@
-export * from './component';
+export { sampleGenerator } from './sample-generator';

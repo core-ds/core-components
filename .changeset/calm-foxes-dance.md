@@ -3,3 +3,4 @@
 ---
 
 - Добавлен новый пакет `@alfalab/core-components-animation-private`
+- Добавлена функция генерации кадров
