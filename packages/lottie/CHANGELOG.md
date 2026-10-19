@@ -1,5 +1,18 @@
 # @alfalab/core-components-lottie
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2419](https://github.com/core-ds/core-components/pull/2419)
+
+##### Lottie
+
+- Добавлен проп `onLoadingSuccess` - callback, вызываемый при успешной загрузке лотти
+- Добавлен проп `onLoadingError` - callback, вызываемый при ошибке загрузки лотти
+
 ## 1.0.2
 
 ### Patch Changes

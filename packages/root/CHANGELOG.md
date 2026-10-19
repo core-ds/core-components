@@ -1,5 +1,53 @@
 # @alfalab/core-components
 
+## 50.36.0
+
+### Minor Changes
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2419](https://github.com/core-ds/core-components/pull/2419)
+
+##### Lottie
+
+- Добавлен проп `onLoadingSuccess` - callback, вызываемый при успешной загрузке лотти
+- Добавлен проп `onLoadingError` - callback, вызываемый при ошибке загрузки лотти
+
+### Patch Changes
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2409](https://github.com/core-ds/core-components/pull/2409)
+
+##### CustomButton
+
+- Исправлена подсветка в состояниях hover/active, сломавшаяся в результате регресса ([#1669](https://github.com/core-ds/core-components/pull/1669))
+- Убран класс `undefined`, добавлявшийся кнопке в состоянии `loading`
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2411](https://github.com/core-ds/core-components/pull/2411)
+
+##### FileUploadItem
+
+- Уточнено описание пропсов `downloadLink` и `onDownload`
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2413](https://github.com/core-ds/core-components/pull/2413)
+
+##### Status
+
+- Исправлен `letter-spacing` для `uppercase` компонентов c размерами `20/24`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-custom-button@5.0.13
+- @alfalab/core-components-file-upload-item@8.2.4
+- @alfalab/core-components-lottie@1.1.0
+- @alfalab/core-components-status@5.1.1
+- @alfalab/core-components-custom-picker-button@4.1.24
+
 ## 50.35.1
 
 ### Patch Changes

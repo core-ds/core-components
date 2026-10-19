@@ -1,5 +1,17 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.2.4
+
+### Patch Changes
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2411](https://github.com/core-ds/core-components/pull/2411)
+
+##### FileUploadItem
+
+- Уточнено описание пропсов `downloadLink` и `onDownload`
+
 ## 8.2.3
 
 ### Patch Changes
