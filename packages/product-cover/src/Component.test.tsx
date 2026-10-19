@@ -166,11 +166,10 @@ describe('ProductCover', () => {
             expect(imageElement).toBeInTheDocument();
         });
 
-        it('should use `imageUrl` as is', () => {
-            const imageUrl = 'https://example.com/cards/custom.png';
+        it('should build `src` and 2x `srcset` from `baseUrl`, `cardId`, `layers` and `size`', () => {
             const { container } = render(
                 <ProductCover.Single
-                    imageUrl={imageUrl}
+                    size={164}
                     baseUrl='https://baseurl.com/'
                     layers='BACKGROUND'
                     cardId='RM'
@@ -179,21 +178,86 @@ describe('ProductCover', () => {
 
             const imageElement = container.querySelector('img');
 
-            expect(imageElement).toHaveAttribute('src', imageUrl);
-            expect(imageElement).not.toHaveAttribute('srcset');
+            expect(imageElement).toHaveAttribute(
+                'src',
+                'https://baseurl.com/RM/images?layers=BACKGROUND&width=264',
+            );
+            expect(imageElement).toHaveAttribute(
+                'srcset',
+                'https://baseurl.com/RM/images?layers=BACKGROUND&width=528 2x',
+            );
         });
 
-        it('should build 2x `srcset` from `width` param of `imageUrl`', () => {
+        it('should use `imageProps` as is and ignore `baseUrl`, `cardId`, `layers`', () => {
+            const imageProps = {
+                src: 'https://example.com/cards/custom.png',
+                srcSet: 'https://example.com/cards/custom@2x.png 2x',
+            };
             const { container } = render(
-                <ProductCover.Single imageUrl='https://example.com/RM/images?layers=BACKGROUND&width=264' />,
+                <ProductCover.Single
+                    imageProps={imageProps}
+                    baseUrl='https://baseurl.com/'
+                    layers='BACKGROUND'
+                    cardId='RM'
+                />,
             );
 
             const imageElement = container.querySelector('img');
 
-            expect(imageElement).toHaveAttribute(
-                'srcset',
-                'https://example.com/RM/images?layers=BACKGROUND&width=528 2x',
+            expect(imageElement).toHaveAttribute('src', imageProps.src);
+            expect(imageElement).toHaveAttribute('srcset', imageProps.srcSet);
+        });
+
+        it('should not build 2x `srcset` when only `imageProps.src` is passed', () => {
+            const src = 'https://example.com/cards/custom.png';
+            const { container } = render(
+                <ProductCover.Single
+                    imageProps={{ src }}
+                    baseUrl='https://baseurl.com/'
+                    layers='BACKGROUND'
+                    cardId='RM'
+                />,
             );
+
+            const imageElement = container.querySelector('img');
+
+            expect(imageElement).toHaveAttribute('src', src);
+            expect(imageElement).not.toHaveAttribute('srcset');
+        });
+
+        it('should not build `src` when only `imageProps.srcSet` is passed', () => {
+            const srcSet = 'https://example.com/cards/custom@2x.png 2x';
+            const { container } = render(
+                <ProductCover.Single
+                    imageProps={{ srcSet }}
+                    baseUrl='https://baseurl.com/'
+                    layers='BACKGROUND'
+                    cardId='RM'
+                />,
+            );
+
+            const imageElement = container.querySelector('img');
+
+            expect(imageElement).not.toHaveAttribute('src');
+            expect(imageElement).toHaveAttribute('srcset', srcSet);
+        });
+
+        it('should use `imageProps.src` in card mack', () => {
+            const src = 'https://example.com/cards/custom.png';
+            const { container } = render(
+                <ProductCover.Stack
+                    size={16}
+                    numberOfCards={2}
+                    secondCard={{
+                        imageProps: { src },
+                        baseUrl: 'https://baseurl.com/',
+                        layers: 'BACKGROUND',
+                        cardId: 'RM',
+                    }}
+                />,
+            );
+
+            expect(container.querySelector('image')).toHaveAttribute('href', src);
         });
 
         it('does not render user info when the size of the card is small', () => {

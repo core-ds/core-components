@@ -6,7 +6,7 @@ import { type SingleCommonProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export type ImageCardProps = Pick<SingleCommonProps, 'imageUrl'> & {
+export type ImageCardProps = Pick<SingleCommonProps, 'imageProps'> & {
     /**
      * Идентификатор карты
      * (например: RM, SQ, SR)
@@ -50,7 +50,7 @@ export const ImageCard: FC<ImageCardProps> = ({
     baseUrl,
     cardId,
     layers,
-    imageUrl,
+    imageProps,
     width,
     height,
     numberOfСards,
@@ -58,24 +58,15 @@ export const ImageCard: FC<ImageCardProps> = ({
 }) => {
     const imagePatternId = useId();
 
-    let cardImageUrl = `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`;
-    let cardImageUrl2x = width && `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
+    const cardImageProps = imageProps ?? {
+        src: `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`,
+        srcSet: width
+            ? `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2} 2x`
+            : undefined,
+    };
 
-    if (imageUrl) {
-        cardImageUrl = imageUrl;
-        cardImageUrl2x = undefined;
-
-        const widthMatch = imageUrl.match(/&width=(\d+)/);
-
-        if (widthMatch) {
-            const [widthParam, urlWidth] = widthMatch;
-
-            cardImageUrl2x = imageUrl.replace(widthParam, `&width=${Number(urlWidth) * 2}`);
-        }
-    }
-
-    const imageLoadingState = useImageLoadingState({ src: cardImageUrl || '' });
-    const imageLoadingState2x = useImageLoadingState({ src: cardImageUrl2x || '' });
+    const imageLoadingState = useImageLoadingState({ src: cardImageProps.src ?? '' });
+    const imageLoadingState2x = useImageLoadingState({ src: cardImageProps.srcSet ?? '' });
     const imageFailed = imageLoadingState === 'error' || imageLoadingState2x === 'error';
 
     const renderCardMack = () => (
@@ -91,7 +82,7 @@ export const ImageCard: FC<ImageCardProps> = ({
                 <defs>
                     <pattern id={imagePatternId} width='100%' height='100%'>
                         <image
-                            href={cardImageUrl}
+                            href={cardImageProps.src}
                             width='100%'
                             height='100%'
                             preserveAspectRatio='xMidYMid slice'
@@ -118,8 +109,7 @@ export const ImageCard: FC<ImageCardProps> = ({
                     className={styles.cardImage}
                     width={width}
                     height={height}
-                    src={cardImageUrl}
-                    {...(cardImageUrl2x && { srcSet: `${cardImageUrl2x} 2x` })}
+                    {...cardImageProps}
                 />
             );
         }

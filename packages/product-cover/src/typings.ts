@@ -1,4 +1,10 @@
-import { type CSSProperties, type ElementType, type HTMLAttributes, type ReactNode } from 'react';
+import {
+    type CSSProperties,
+    type ElementType,
+    type HTMLAttributes,
+    type ImgHTMLAttributes,
+    type ReactNode,
+} from 'react';
 
 export type Size = 16 | 32 | 40 | 48 | 96 | 128 | 164;
 
@@ -39,9 +45,9 @@ export type SingleCommonProps = {
     layers?: string;
 
     /**
-     * Полный URL изображения. При передаче ссылка используется как есть, параметры для построения игнорируются
+     * Атрибуты изображения. При передаче ссылка используется как есть, параметры для построения игнорируются
      */
-    imageUrl?: string;
+    imageProps?: Pick<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet'>;
 
     /**
      * Слот для иконки с оверлеем

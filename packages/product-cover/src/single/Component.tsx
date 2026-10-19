@@ -15,7 +15,7 @@ export const Single: FC<SingleCommonProps> = ({
     cardId,
     layers,
     baseUrl,
-    imageUrl,
+    imageProps,
     shadow,
     iconColor,
     backgroundColor,
@@ -71,7 +71,7 @@ export const Single: FC<SingleCommonProps> = ({
                 cardId={cardId}
                 layers={layers}
                 baseUrl={baseUrl}
-                imageUrl={imageUrl}
+                imageProps={imageProps}
                 numberOfCards={numberOfCards}
             />
 
