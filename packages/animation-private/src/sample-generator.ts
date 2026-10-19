@@ -1,6 +1,8 @@
 import { calcGeneratorDuration, type KeyframeGenerator, maxGeneratorDuration } from 'motion';
 
-export function sampleGenerator(generator: KeyframeGenerator<number>, resolution = 10) {
+const resolution = 10;
+
+export function sampleGenerator(generator: KeyframeGenerator<number>) {
     const duration = Math.min(
         generator.calculatedDuration ?? calcGeneratorDuration(generator),
         maxGeneratorDuration,
