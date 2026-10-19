@@ -1,10 +1,9 @@
-import React, { type FC, Fragment, useRef, useState } from 'react';
+import React, { type FC, Fragment, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
+import { useLottie } from '@alfalab/core-components-lottie/react-lottie';
 import { type LottieProps } from '@alfalab/core-components-lottie/types';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-
-import { useLottie } from './react-lottie';
 
 import styles from './index.module.css';
 
@@ -26,6 +25,8 @@ export const Lottie: FC<LottieProps> = ({
     size,
     className,
     onComplete,
+    onLoadingSuccess,
+    onLoadingError,
 }) => {
     const [play, setPlay] = useState(playFromProps ?? defaultPlay);
     const playControlled = typeof playFromProps === 'boolean';
@@ -154,6 +155,16 @@ export const Lottie: FC<LottieProps> = ({
             }),
         [animation],
     );
+
+    useEffect(() => {
+        if (dataState === 'ok') {
+            onLoadingSuccess?.();
+        }
+        if (dataState === 'error') {
+            onLoadingError?.();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dataState]);
 
     return (
         <Fragment>
