@@ -84,6 +84,14 @@ export interface LottieProps {
      * Дополнительный класс
      */
     className?: string;
+    /**
+     * Callback, вызываемый при успешной загрузке лотти
+     */
+    onLoadingSuccess?: () => void;
+    /**
+     * Callback, вызываемый при ошибке загрузки лотти
+     */
+    onLoadingError?: () => void;
 }
 
 export type { AnimationDirection };
