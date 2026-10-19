@@ -50,7 +50,7 @@ export const ImageCard: FC<ImageCardProps> = ({
     baseUrl,
     cardId,
     layers,
-    imageProps,
+    imageProps: imagePropsFromProps,
     width,
     height,
     numberOfСards,
@@ -58,15 +58,15 @@ export const ImageCard: FC<ImageCardProps> = ({
 }) => {
     const imagePatternId = useId();
 
-    const cardImageProps = imageProps ?? {
+    const imageProps = imagePropsFromProps ?? {
         src: `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`,
         srcSet: width
             ? `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2} 2x`
             : undefined,
     };
 
-    const imageLoadingState = useImageLoadingState({ src: cardImageProps.src ?? '' });
-    const imageLoadingState2x = useImageLoadingState({ src: cardImageProps.srcSet ?? '' });
+    const imageLoadingState = useImageLoadingState({ src: imageProps.src ?? '' });
+    const imageLoadingState2x = useImageLoadingState({ src: imageProps.srcSet ?? '' });
     const imageFailed = imageLoadingState === 'error' || imageLoadingState2x === 'error';
 
     const renderCardMack = () => (
@@ -82,7 +82,7 @@ export const ImageCard: FC<ImageCardProps> = ({
                 <defs>
                     <pattern id={imagePatternId} width='100%' height='100%'>
                         <image
-                            href={cardImageProps.src}
+                            href={imageProps.src}
                             width='100%'
                             height='100%'
                             preserveAspectRatio='xMidYMid slice'
@@ -105,12 +105,7 @@ export const ImageCard: FC<ImageCardProps> = ({
         if (!imageFailed) {
             return (
                 // eslint-disable-next-line jsx-a11y/alt-text
-                <img
-                    className={styles.cardImage}
-                    width={width}
-                    height={height}
-                    {...cardImageProps}
-                />
+                <img className={styles.cardImage} width={width} height={height} {...imageProps} />
             );
         }
 

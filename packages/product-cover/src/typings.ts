@@ -1,8 +1,8 @@
 import {
+    type ComponentProps,
     type CSSProperties,
     type ElementType,
     type HTMLAttributes,
-    type ImgHTMLAttributes,
     type ReactNode,
 } from 'react';
 
@@ -47,7 +47,7 @@ export type SingleCommonProps = {
     /**
      * Атрибуты изображения. При передаче ссылка используется как есть, параметры для построения игнорируются
      */
-    imageProps?: Pick<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet'>;
+    imageProps?: Pick<ComponentProps<'img'>, 'src' | 'srcSet'>;
 
     /**
      * Слот для иконки с оверлеем
