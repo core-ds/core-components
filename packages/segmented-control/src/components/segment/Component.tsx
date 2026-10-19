@@ -20,7 +20,7 @@ const colorStyles = {
 };
 
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
-    ({ id, className, title, dataTestId, addons }, ref) => {
+    ({ id, className, title, dataTestId, leftAddons, rightAddons }, ref) => {
         const {
             onChange,
             colors = 'default',
@@ -33,7 +33,7 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
 
         const [focused] = useFocus(segmentRef, 'keyboard');
 
-        const addonOnly = isAddonOnly({ title, addons });
+        const addonOnly = isAddonOnly({ title, leftAddons, rightAddons });
 
         const addonClassName = cn(styles.addon, styles[`addonSize${size}`], {
             [styles.addonOnly]: addonOnly,
@@ -62,21 +62,21 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
                 )}
                 data-test-id={dataTestId}
             >
-                {addons?.left && (
+                {Boolean(leftAddons) && (
                     <span
                         className={addonClassName}
                         data-test-id={getDataTestId(dataTestId, 'left-addon')}
                     >
-                        {addons.left.content}
+                        {leftAddons}
                     </span>
                 )}
                 {Boolean(title) && <span className={styles.title}>{title}</span>}
-                {addons?.right && (
+                {Boolean(rightAddons) && (
                     <span
                         className={addonClassName}
                         data-test-id={getDataTestId(dataTestId, 'right-addon')}
                     >
-                        {addons.right.content}
+                        {rightAddons}
                     </span>
                 )}
             </button>

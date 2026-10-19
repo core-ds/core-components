@@ -485,8 +485,8 @@ render(() => {
         1: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
-    const diamonds20 = { content: <Diamonds20Icon /> };
-    const diamonds24 = { content: <Diamonds24Icon /> };
+    const diamonds20 = <Diamonds20Icon />;
+    const diamonds24 = <Diamonds24Icon />;
     return (
         <div style={{ width: 310 }}>
             <SegmentedControl
@@ -496,10 +496,10 @@ render(() => {
                 selectedId={selectedId['1']}
                 onChange={(id) => handleChange('1', id)}
             >
-                <Segment id={1} title={null} addons={{ left: diamonds24 }} />
-                <Segment id={2} title='Left' addons={{ left: diamonds20 }} />
-                <Segment id={3} title='Right' addons={{ right: diamonds20 }} />
-                <Segment id={4} title='Both' addons={{ left: diamonds20, right: diamonds20 }} />
+                <Segment id={1} title={null} leftAddons={diamonds24} />
+                <Segment id={2} title='Left' leftAddons={diamonds20} />
+                <Segment id={3} title='Right' rightAddons={diamonds20} />
+                <Segment id={4} title='Both' leftAddons={diamonds20} rightAddons={diamonds20} />
             </SegmentedControl>
         </div>
     );
@@ -510,8 +510,8 @@ render(() => {
         1: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
-    const diamonds20 = { content: <Diamonds20Icon /> };
-    const diamonds24 = { content: <Diamonds24Icon /> };
+    const diamonds20 = <Diamonds20Icon />;
+    const diamonds24 = <Diamonds24Icon />;
     return (
         <SegmentedControl
             size={40}
@@ -520,10 +520,10 @@ render(() => {
             selectedId={selectedId['1']}
             onChange={(id) => handleChange('1', id)}
         >
-            <Segment id={1} title={null} addons={{ left: diamonds24 }} />
-            <Segment id={2} title='Left' addons={{ left: diamonds20 }} />
-            <Segment id={3} title='Right' addons={{ right: diamonds20 }} />
-            <Segment id={4} title='Both' addons={{ left: diamonds20, right: diamonds20 }} />
+            <Segment id={1} title={null} leftAddons={diamonds24} />
+            <Segment id={2} title='Left' leftAddons={diamonds20} />
+            <Segment id={3} title='Right' rightAddons={diamonds20} />
+            <Segment id={4} title='Both' leftAddons={diamonds20} rightAddons={diamonds20} />
         </SegmentedControl>
     );
 });
@@ -544,8 +544,8 @@ render(() => {
         6: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
-    const diamonds20 = { content: <Diamonds20Icon /> };
-    const diamonds24 = { content: <Diamonds24Icon /> };
+    const diamonds20 = <Diamonds20Icon />;
+    const diamonds24 = <Diamonds24Icon />;
     return (
         <div style={{ width: 360 }}>
             <Space fullWidth size={12}>
@@ -557,8 +557,8 @@ render(() => {
                         selectedId={selectedId['1']}
                         onChange={(id) => handleChange('1', id)}
                     >
-                        <Segment id={1} title={null} addons={{ left: diamonds24 }} />
-                        <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                        <Segment id={1} title={null} leftAddons={diamonds24} />
+                        <Segment id={2} title={null} leftAddons={diamonds24} />
                     </SegmentedControl>
                     <SegmentedControl
                         size={48}
@@ -567,8 +567,8 @@ render(() => {
                         selectedId={selectedId['2']}
                         onChange={(id) => handleChange('2', id)}
                     >
-                        <Segment id={1} title='Один' addons={{ left: diamonds24 }} />
-                        <Segment id={2} title='Два' addons={{ left: diamonds24 }} />
+                        <Segment id={1} title='Один' leftAddons={diamonds24} />
+                        <Segment id={2} title='Два' leftAddons={diamonds24} />
                     </SegmentedControl>
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
@@ -579,8 +579,8 @@ render(() => {
                         selectedId={selectedId['3']}
                         onChange={(id) => handleChange('3', id)}
                     >
-                        <Segment id={1} title={null} addons={{ left: diamonds24 }} />
-                        <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                        <Segment id={1} title={null} leftAddons={diamonds24} />
+                        <Segment id={2} title={null} leftAddons={diamonds24} />
                     </SegmentedControl>
                     <SegmentedControl
                         size={40}
@@ -589,8 +589,8 @@ render(() => {
                         selectedId={selectedId['4']}
                         onChange={(id) => handleChange('4', id)}
                     >
-                        <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
-                        <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                        <Segment id={1} title='Один' leftAddons={diamonds20} />
+                        <Segment id={2} title='Два' leftAddons={diamonds20} />
                     </SegmentedControl>
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
@@ -601,8 +601,8 @@ render(() => {
                         selectedId={selectedId['5']}
                         onChange={(id) => handleChange('5', id)}
                     >
-                        <Segment id={1} title={null} addons={{ left: diamonds20 }} />
-                        <Segment id={2} title={null} addons={{ left: diamonds20 }} />
+                        <Segment id={1} title={null} leftAddons={diamonds20} />
+                        <Segment id={2} title={null} leftAddons={diamonds20} />
                     </SegmentedControl>
                     <SegmentedControl
                         size={32}
@@ -611,8 +611,8 @@ render(() => {
                         selectedId={selectedId['6']}
                         onChange={(id) => handleChange('6', id)}
                     >
-                        <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
-                        <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                        <Segment id={1} title='Один' leftAddons={diamonds20} />
+                        <Segment id={2} title='Два' leftAddons={diamonds20} />
                     </SegmentedControl>
                 </div>
             </Space>
@@ -630,8 +630,8 @@ render(() => {
         6: 1,
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
-    const diamonds20 = { content: <Diamonds20Icon /> };
-    const diamonds24 = { content: <Diamonds24Icon /> };
+    const diamonds20 = <Diamonds20Icon />;
+    const diamonds24 = <Diamonds24Icon />;
     return (
         <Space fullWidth size={12}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
@@ -642,8 +642,8 @@ render(() => {
                     selectedId={selectedId['1']}
                     onChange={(id) => handleChange('1', id)}
                 >
-                    <Segment id={1} title={null} addons={{ left: diamonds24 }} />
-                    <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                    <Segment id={1} title={null} leftAddons={diamonds24} />
+                    <Segment id={2} title={null} leftAddons={diamonds24} />
                 </SegmentedControl>
                 <SegmentedControl
                     size={48}
@@ -652,8 +652,8 @@ render(() => {
                     selectedId={selectedId['2']}
                     onChange={(id) => handleChange('2', id)}
                 >
-                    <Segment id={1} title='Один' addons={{ left: diamonds24 }} />
-                    <Segment id={2} title='Два' addons={{ left: diamonds24 }} />
+                    <Segment id={1} title='Один' leftAddons={diamonds24} />
+                    <Segment id={2} title='Два' leftAddons={diamonds24} />
                 </SegmentedControl>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
@@ -664,8 +664,8 @@ render(() => {
                     selectedId={selectedId['3']}
                     onChange={(id) => handleChange('3', id)}
                 >
-                    <Segment id={1} title={null} addons={{ left: diamonds24 }} />
-                    <Segment id={2} title={null} addons={{ left: diamonds24 }} />
+                    <Segment id={1} title={null} leftAddons={diamonds24} />
+                    <Segment id={2} title={null} leftAddons={diamonds24} />
                 </SegmentedControl>
                 <SegmentedControl
                     size={40}
@@ -674,8 +674,8 @@ render(() => {
                     selectedId={selectedId['4']}
                     onChange={(id) => handleChange('4', id)}
                 >
-                    <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
-                    <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                    <Segment id={1} title='Один' leftAddons={diamonds20} />
+                    <Segment id={2} title='Два' leftAddons={diamonds20} />
                 </SegmentedControl>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
@@ -686,8 +686,8 @@ render(() => {
                     selectedId={selectedId['5']}
                     onChange={(id) => handleChange('5', id)}
                 >
-                    <Segment id={1} title={null} addons={{ left: diamonds20 }} />
-                    <Segment id={2} title={null} addons={{ left: diamonds20 }} />
+                    <Segment id={1} title={null} leftAddons={diamonds20} />
+                    <Segment id={2} title={null} leftAddons={diamonds20} />
                 </SegmentedControl>
                 <SegmentedControl
                     size={32}
@@ -696,8 +696,8 @@ render(() => {
                     selectedId={selectedId['6']}
                     onChange={(id) => handleChange('6', id)}
                 >
-                    <Segment id={1} title='Один' addons={{ left: diamonds20 }} />
-                    <Segment id={2} title='Два' addons={{ left: diamonds20 }} />
+                    <Segment id={1} title='Один' leftAddons={diamonds20} />
+                    <Segment id={2} title='Два' leftAddons={diamonds20} />
                 </SegmentedControl>
             </div>
         </Space>

@@ -22,14 +22,14 @@ export const segmented_control: Story = {
         const colors = select('colors', ['default', 'inverted'], 'default');
         const skeletonVisible = boolean('skeleton.visible', false);
         const view = select('view', ['default', 'muted'], 'default');
-        const leftAddon = boolean('addons.left', false);
-        const rightAddon = boolean('addons.right', false);
+        const leftAddon = boolean('leftAddons', false);
+        const rightAddon = boolean('rightAddons', false);
         const size = Number(select('size', [48, 40, 32], 40)) as 48 | 40 | 32;
         const addonIcon = size === 48 ? <Diamonds24Icon /> : <Diamonds20Icon />;
         const addonOnlyIcon = size === 32 ? <Diamonds20Icon /> : <Diamonds24Icon />;
         const addons = {
-            left: leftAddon ? { content: addonIcon } : undefined,
-            right: rightAddon ? { content: addonIcon } : undefined,
+            leftAddons: leftAddon ? addonIcon : undefined,
+            rightAddons: rightAddon ? addonIcon : undefined,
         };
 
         const addonsOnly = Boolean(getQueryParam('knob-addonsOnly', true));
@@ -76,22 +76,20 @@ export const segmented_control: Story = {
                                   key={id}
                                   id={id}
                                   title={iconTitle ? addonOnlyIcon : null}
-                                  addons={
-                                      addonsOnly ? { left: { content: addonOnlyIcon } } : undefined
-                                  }
+                                  leftAddons={addonsOnly ? addonOnlyIcon : undefined}
                               />
                           ))
                         : [
                               <Segment key={1} id={1} title={'Сегмент 1'}>
                                   Сегмент 1
                               </Segment>,
-                              <Segment key={2} id={2} title={'Сегмент 2'} addons={addons}>
+                              <Segment key={2} id={2} title={'Сегмент 2'} {...addons}>
                                   Сегмент 2
                               </Segment>,
                               <Segment key={3} id={3} title={'Сегмент 3'}>
                                   Сегмент 3
                               </Segment>,
-                              <Segment key={4} id={4} title={'Сегмент 4'} addons={addons}>
+                              <Segment key={4} id={4} title={'Сегмент 4'} {...addons}>
                                   Сегмент 4
                               </Segment>,
                               <Segment key={5} id={5} title={'Сегмент 4'}>

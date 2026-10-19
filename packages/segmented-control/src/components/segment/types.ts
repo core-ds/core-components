@@ -1,15 +1,4 @@
-import { type ReactElement, type ReactNode } from 'react';
-
-type SegmentAddon = {
-    /**
-     * Контент аддона
-     */
-    content: ReactElement;
-};
-type SegmentAddons = {
-    left?: SegmentAddon;
-    right?: SegmentAddon;
-};
+import { type ReactNode } from 'react';
 
 type IDType = string | number;
 
@@ -45,7 +34,12 @@ export interface SegmentProps {
     dataTestId?: string;
 
     /**
-     * Аддоны сегмента
+     * Слот слева
      */
-    addons?: SegmentAddons;
+    leftAddons?: ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 }
