@@ -52,6 +52,13 @@
     }
 }
 
+.size48 {
+    & .addon + .title,
+    & .title + .addon {
+        margin-left: var(--gap-2);
+    }
+}
+
 .title {
     min-width: 0;
     overflow: hidden;
