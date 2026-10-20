@@ -1,8 +1,17 @@
-import React, { type Reducer, useEffect, useReducer, useRef, useState } from 'react';
+import React, {
+    type ComponentRef,
+    type Reducer,
+    type Ref,
+    useCallback,
+    useEffect,
+    useReducer,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
+import { compute } from 'compute-scroll-into-view';
 
 import { IconButtonDesktop } from '@alfalab/core-components-icon-button/desktop';
-import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
 import { isEndScrollPosition, isStartScrollPosition, noop } from '@alfalab/core-components-shared';
 import { ChevronLeftCompactSIcon } from '@alfalab/icons-glyph/ChevronLeftCompactSIcon';
 import { ChevronRightCompactSIcon } from '@alfalab/icons-glyph/ChevronRightCompactSIcon';
@@ -99,15 +108,18 @@ export interface StepsProps extends CommonProps {
     scrollable?: boolean;
 }
 
-type ScrollPosition = {
-    isStart: boolean;
-    isEnd: boolean;
-};
-
-const scrollPositionReducer: Reducer<ScrollPosition | null, Element> = (_, element) => ({
+const scrollPositionReducer: Reducer<{ isStart: boolean; isEnd: boolean } | null, Element> = (
+    _,
+    element,
+) => ({
     isStart: isStartScrollPosition(element, 'x'),
     isEnd: isEndScrollPosition(element, 'x'),
 });
+
+/**
+ * Дополнительная прокрутка при клике на не поместившийся таб
+ */
+const ADDITIONAL_SCROLL_LEFT_VALUE = 50;
 
 export const Steps: React.FC<StepsProps> = ({
     className,
@@ -132,65 +144,79 @@ export const Steps: React.FC<StepsProps> = ({
     completedDashColor,
     scrollable = false,
 }) => {
+    const stepsRef = useRef<Map<number, ComponentRef<typeof Step>> | null>(null);
+    const getStepsRef = useCallback(() => {
+        if (!stepsRef.current) {
+            stepsRef.current = new Map();
+        }
+
+        return stepsRef.current;
+    }, []);
     const listNodeRef = useRef<HTMLDivElement>(null);
     const scrollableNodeRef = useRef<HTMLDivElement>(null);
-    const contentNodeRef = useRef<HTMLDivElement>(null);
     const uncontrolled = activeStepProp === undefined;
     const [activeStep, setActiveStep] = useState(defaultActiveStep);
     const [showScrollControl, setShowScrollControl] = useState(false);
     const [scrollPosition, setScrollPosition] = useReducer(scrollPositionReducer, null);
+    const [scrollBarWidth, setScrollBarWidth] = useState(0);
     const childrenCount = React.Children.count(children);
     const shouldRender = childrenCount > 0;
-
-    const scrollToStart = () => {
-        const scrollableNode = scrollableNodeRef.current;
-
-        if (scrollableNode) {
-            scrollableNode.scrollTo({
-                left: 0,
-                behavior: 'smooth',
-            });
-        }
-    };
-
-    const scrollToEnd = () => {
-        const scrollableNode = scrollableNodeRef.current;
-
-        if (scrollableNode) {
-            scrollableNode.scrollTo({
-                left: scrollableNode.scrollWidth - scrollableNode.clientWidth,
-                behavior: 'smooth',
-            });
-        }
-    };
+    const visibleActiveStep = uncontrolled ? activeStep : activeStepProp;
 
     useEffect(() => {
-        const contentNode = contentNodeRef.current;
+        const scrollableNode = scrollableNodeRef.current;
         const listNode = listNodeRef.current;
 
-        if (shouldRender && !isVerticalAlign && scrollable && contentNode && listNode) {
+        if (shouldRender && !isVerticalAlign && scrollable && scrollableNode && listNode) {
             const resiveObserverCallback = () => {
-                setShowScrollControl(listNode.scrollWidth > contentNode.clientWidth);
-
-                const scrollableNode = scrollableNodeRef.current;
-
-                if (scrollableNode) {
-                    setScrollPosition(scrollableNode);
-                }
+                setShowScrollControl(listNode.scrollWidth - scrollableNode.clientWidth > 1);
+                setScrollPosition(scrollableNode);
+                setScrollBarWidth(
+                    (prevScrollBarWidth) =>
+                        scrollableNode.offsetWidth -
+                        scrollableNode.clientWidth -
+                        prevScrollBarWidth,
+                );
             };
 
             const ro = new ResizeObserver(resiveObserverCallback);
 
-            ro.observe(contentNode);
+            ro.observe(scrollableNode);
             ro.observe(listNode);
 
             return () => {
                 ro.disconnect();
+                setScrollBarWidth(0);
             };
         }
 
         return noop;
     }, [isVerticalAlign, scrollable, shouldRender]);
+
+    useEffect(() => {
+        const refs = stepsRef.current;
+        const scrollableNode = scrollableNodeRef.current;
+        const stepNode = refs?.get(visibleActiveStep);
+
+        if (scrollableNode && stepNode) {
+            const actions = compute(stepNode, {
+                scrollMode: 'if-needed',
+                block: 'nearest',
+                inline: 'nearest',
+                boundary: scrollableNode,
+            });
+
+            actions.forEach(({ el, left }) => {
+                el.scrollTo({
+                    left:
+                        el.scrollLeft > left
+                            ? left - ADDITIONAL_SCROLL_LEFT_VALUE
+                            : left + ADDITIONAL_SCROLL_LEFT_VALUE,
+                    behavior: 'smooth',
+                });
+            });
+        }
+    }, [visibleActiveStep]);
 
     const handleStepClick = (stepNumber: number) => {
         if (uncontrolled) {
@@ -203,8 +229,6 @@ export const Steps: React.FC<StepsProps> = ({
     };
 
     if (!shouldRender) return null;
-
-    const visibleActiveStep = uncontrolled ? activeStep : activeStepProp;
 
     const stepsRender = (
         <div
@@ -227,9 +251,19 @@ export const Steps: React.FC<StepsProps> = ({
                 const customStepIndicator = checkIsStepCustom?.(stepNumber);
                 const isNotLastStep = childrenCount !== stepNumber;
                 const isInteractive = !disabled && interactive;
+                const stepRef: Ref<ComponentRef<typeof Step>> = (node) => {
+                    const refs = getStepsRef();
+
+                    if (node) {
+                        refs.set(stepNumber, node);
+                    } else {
+                        refs.delete(stepNumber);
+                    }
+                };
 
                 return (
                     <Step
+                        ref={stepRef}
                         stepNumber={stepNumber}
                         isSelected={isSelected}
                         isStepCompleted={isStepCompleted}
@@ -262,24 +296,43 @@ export const Steps: React.FC<StepsProps> = ({
         return stepsRender;
     }
 
+    const scrollToStart = () => {
+        const scrollableNode = scrollableNodeRef.current;
+
+        if (scrollableNode) {
+            scrollableNode.scrollTo({
+                left: 0,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    const scrollToEnd = () => {
+        const scrollableNode = scrollableNodeRef.current;
+
+        if (scrollableNode) {
+            scrollableNode.scrollTo({
+                left: scrollableNode.scrollWidth - scrollableNode.clientWidth,
+                behavior: 'smooth',
+            });
+        }
+    };
+
     const handleScroll: React.UIEventHandler<HTMLDivElement> = (event) => {
         setScrollPosition(event.currentTarget);
     };
 
     return (
-        <ScrollbarPrivate
-            className={styles.scrollbar}
-            scrollableNodeProps={{
-                ref: scrollableNodeRef,
-                onScroll: handleScroll,
-            }}
-            contentNodeProps={{
-                ref: contentNodeRef,
-                className: styles.content,
-            }}
-        >
-            {stepsRender}
-            <div className={cn(styles.scrollbarControl, { [styles.show]: showScrollControl })}>
+        <div className={styles.scrollHide}>
+            <div
+                ref={scrollableNodeRef}
+                className={styles.scrollable}
+                style={{ marginBottom: -scrollBarWidth }}
+                onScroll={handleScroll}
+            >
+                {stepsRender}
+            </div>
+            <div className={cn(styles.scrollControl, { [styles.show]: showScrollControl })}>
                 <IconButtonDesktop
                     size={40}
                     icon={ChevronLeftCompactSIcon}
@@ -293,6 +346,6 @@ export const Steps: React.FC<StepsProps> = ({
                     disabled={scrollPosition?.isEnd}
                 />
             </div>
-        </ScrollbarPrivate>
+        </div>
     );
 };
