@@ -1,2 +1,1 @@
-export { sampleGenerator } from './sample-generator';
-export { animateTransform } from './animate-transform';
+export { SpringTransition } from './spring-transition';

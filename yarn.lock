@@ -52,10 +52,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-accordion@workspace:packages/accordion"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.3.0"
+    "@alfalab/core-components-animation-private": "npm:^0.0.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -130,10 +129,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-animation-private@workspace:packages/animation-private":
+"@alfalab/core-components-animation-private@npm:^0.0.0, @alfalab/core-components-animation-private@workspace:packages/animation-private":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-animation-private@workspace:packages/animation-private"
   dependencies:
+    "@alfalab/hooks": "npm:^1.17.0"
     motion: "npm:13.0.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
