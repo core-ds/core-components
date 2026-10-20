@@ -1,5 +1,15 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.3.0
+
+### Minor Changes
+
+<sup><time>20.10.2026</time></sup>
+
+#### [#2422](https://github.com/core-ds/core-components/pull/2422)
+
+- Добавлен `dark.ts`
+
 ## 0.2.1
 
 ### Patch Changes

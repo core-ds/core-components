@@ -1,5 +1,23 @@
 # @alfalab/core-components
 
+## 50.37.0
+
+### Minor Changes
+
+<sup><time>20.10.2026</time></sup>
+
+#### [#2410](https://github.com/core-ds/core-components/pull/2410)
+
+##### ProductCover
+
+- Добавлен проп `imageProps` для передачи атрибутов изображения (`src`, `srcSet`)
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-product-cover@3.3.0
+
 ## 50.36.0
 
 ### Minor Changes
