@@ -50,6 +50,37 @@ interface ElementState {
 
 const sampleDelta = 10;
 
+const nonNegativeValues = new Set<string>([
+    'width',
+    'height',
+    'minWidth',
+    'minHeight',
+    'maxWidth',
+    'maxHeight',
+    'padding',
+    'paddingTop',
+    'paddingRight',
+    'paddingBottom',
+    'paddingLeft',
+    'paddingBlock',
+    'paddingBlockStart',
+    'paddingBlockEnd',
+    'paddingInline',
+    'paddingInlineStart',
+    'paddingInlineEnd',
+    'borderWidth',
+    'borderTopWidth',
+    'borderRightWidth',
+    'borderBottomWidth',
+    'borderLeftWidth',
+    'borderRadius',
+    'borderTopLeftRadius',
+    'borderTopRightRadius',
+    'borderBottomLeftRadius',
+    'borderBottomRightRadius',
+    'fontSize',
+]);
+
 const states = new WeakMap<HTMLElement, ElementState>();
 
 function createOwner(count: number) {
@@ -114,7 +145,9 @@ const buildKeyframe = (track: string, latest: Record<string, number>) => {
         return buildTransform(latest, {});
     }
 
-    const keyframes: AnyResolvedKeyframe[] = [latest[track]];
+    const keyframes: AnyResolvedKeyframe[] = [
+        nonNegativeValues.has(track) ? Math.max(0, latest[track]) : latest[track],
+    ];
 
     applyPxDefaults(keyframes, track);
 

@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { SpringTransition } from '@alfalab/core-components-animation-private';
+import { SpringHeadlessCollapse } from '@alfalab/core-components-animation-private';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
@@ -178,11 +178,9 @@ export const Accordion: FC<AccordionProps> = ({
                 </div>
             </div>
 
-            <SpringTransition
+            <SpringHeadlessCollapse
                 nodeRef={bodyRef}
                 in={isExpanded}
-                enter={(node) => ({ height: node.scrollHeight })}
-                exit={{ height: 0 }}
                 spring={{
                     enter: { stiffness: 400, damping: 20, mass: 1 },
                     exit: { stiffness: 743, damping: 49, mass: 1 },
@@ -194,14 +192,13 @@ export const Accordion: FC<AccordionProps> = ({
                         className={cn(styles.body, bodyClassName, {
                             [styles.expandedBody]: status !== 'exited',
                         })}
-                        style={{ height: status === 'entered' ? 'auto' : undefined }}
                     >
                         <div className={cn(styles.bodyContent, bodyContentClassName)}>
                             {bodyContent}
                         </div>
                     </div>
                 )}
-            </SpringTransition>
+            </SpringHeadlessCollapse>
         </div>
     );
 };

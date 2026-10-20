@@ -133,8 +133,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-animation-private@workspace:packages/animation-private"
   dependencies:
-    "@alfalab/hooks": "npm:^1.17.0"
+    "@alfalab/core-components-shared": "npm:^2.3.0"
+    "@types/react-transition-group": "npm:^4.4.12"
     motion: "npm:13.0.0"
+    react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
