@@ -11,29 +11,28 @@
     }
 }
 
-.scrollbar :global(.simplebar-track) {
-    display: none;
-}
-
-.scrollbarControl {
+.scrollHide {
+    overflow: hidden;
+    border: none;
     display: flex;
-    position: sticky;
-    right: 0;
-
-    &:not(.show) {
-        display: none;
-    }
 }
 
-.content {
+.scrollable {
+    overflow: auto hidden;
     display: flex;
     align-items: center;
+    @mixin hidden-scrollbar;
 
-    & > * {
+    .component,
+    .scrollControl {
         flex-shrink: 0;
     }
 }
 
-.noShrink {
-    flex-shrink: 0;
+.scrollControl {
+    display: flex;
+
+    &:not(.show) {
+        display: none;
+    }
 }
