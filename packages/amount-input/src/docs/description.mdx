@@ -92,14 +92,18 @@ render(() => {
 });
 ```
 
-Параметр `view="withZeroMinorPart"` позволяет отобразить нулевую дробную часть.
+Компонент может работать в 3 режимах:
+
+- `view="default"` позволяет не отображать нулевую дробную часть
+- `view="withZeroMinorPart"` позволяет отображать нулевую дробную часть всегда
+- `view="shortMinorPart"` позволяет не отображать незначащие нули
 
 ```jsx live
 render(() => {
-    const [withZeroMinorPart, setWithZeroMinorPart] = React.useState(true);
+    const [view, setView] = React.useState('default');
     const [value, setValue] = React.useState(123456700);
-    const handleWithZeroMinorPartChange = (_, payload) => {
-        setWithZeroMinorPart(payload.checked);
+    const onViewChange = (_, payload) => {
+        setView(payload.value);
     };
     const handleValueChange = (_, payload) => {
         setValue(payload.value);
@@ -119,60 +123,27 @@ render(() => {
                     block={true}
                     size={isMobile() ? 48 : 56}
                     breakpoint={BREAKPOINT}
-                    view={withZeroMinorPart ? 'withZeroMinorPart' : 'default'}
+                    view={view}
                 />
             </div>
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            <Switch
-                label='Отображать нулевую дробную часть'
-                checked={withZeroMinorPart}
-                onChange={handleWithZeroMinorPartChange}
-            />
-        </React.Fragment>
-    );
-});
-```
-
-Параметр `view="shortMinorPart"` позволяет не отображать незначащие нули.
-
-```jsx live
-render(() => {
-    const [shortMinorPart, setShortMinorPart] = React.useState(true);
-    const [value, setValue] = React.useState(123456760);
-    const handleShortMinorPartChange = (_, payload) => {
-        setShortMinorPart(payload.checked);
-    };
-    const handleValueChange = (_, payload) => {
-        setValue(payload.value);
-    };
-
-    return (
-        <React.Fragment>
-            <div style={{ width: isMobile() ? '100%' : 320 }}>
-                <AmountInput
-                    value={value}
-                    onChange={handleValueChange}
-                    placeholder='Введите сумму'
-                    labelView={isMobile() ? 'outer' : 'inner'}
-                    label='Сумма'
-                    minority={100}
-                    bold={false}
-                    block={true}
-                    size={isMobile() ? 48 : 56}
-                    breakpoint={BREAKPOINT}
-                    view={shortMinorPart ? 'shortMinorPart' : 'default'}
+            <RadioGroup
+                label='Режим работы'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onViewChange}
+                value={view}
+            >
+                <Radio size={24} label='не отображать нулевую дробную часть' value='default' />
+                <Radio
+                    size={24}
+                    label='отображать нулевую дробную часть всегда'
+                    value='withZeroMinorPart'
                 />
-            </div>
-            <Gap size={20} />
-            <Divider />
-            <Gap size={20} />
-            <Switch
-                label='Не отображать незначащие нули'
-                checked={shortMinorPart}
-                onChange={handleShortMinorPartChange}
-            />
+                <Radio size={24} label='не отображать незначащие нули' value='shortMinorPart' />
+            </RadioGroup>
         </React.Fragment>
     );
 });
