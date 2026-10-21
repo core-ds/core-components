@@ -193,7 +193,13 @@ export const Accordion: FC<AccordionProps> = ({
                             [styles.expandedBody]: status !== 'exited',
                         })}
                     >
-                        <div className={cn(styles.bodyContent, bodyContentClassName)}>
+                        <div
+                            className={cn(styles.bodyContent, bodyContentClassName, {
+                                [styles.bodyContentEnter]:
+                                    status === 'entering' || status === 'entered',
+                                [styles.bodyContentExit]: status === 'exiting',
+                            })}
+                        >
                             {bodyContent}
                         </div>
                     </div>
