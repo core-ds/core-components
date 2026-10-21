@@ -182,8 +182,8 @@ export const Accordion: FC<AccordionProps> = ({
                 nodeRef={bodyRef}
                 in={isExpanded}
                 spring={{
-                    enter: { stiffness: 400, damping: 20, mass: 1 },
-                    exit: { stiffness: 743, damping: 49, mass: 1 },
+                    enter: { stiffness: 426, damping: 41, mass: 1 },
+                    exit: { stiffness: 743, damping: 49, mass: 1, delay: 75 },
                 }}
             >
                 {(status) => (

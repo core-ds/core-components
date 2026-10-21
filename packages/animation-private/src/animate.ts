@@ -25,7 +25,9 @@ type ValueName = Extract<keyof StyleKeyframesDefinition, string>;
 
 export type AnimationTarget = { [K in ValueName]?: number };
 
-export type AnimationTransition = SpringOptions;
+export interface AnimationTransition extends SpringOptions {
+    delay?: number;
+}
 
 export interface AnimationControls {
     finished: Promise<void>;
@@ -167,6 +169,13 @@ const release = (state: ElementState, name: ValueName, channel: Channel, now: nu
         return;
     }
 
+    channel.owner.stop();
+    state.channels.delete(name);
+
+    if (now <= channel.startTime) {
+        return;
+    }
+
     const sampleTime = Math.max(sampleDelta, now - channel.startTime);
     const delta = clamp(0, sampleDelta, sampleTime - sampleDelta);
     const current = channel.generator.next(sampleTime).value;
@@ -176,8 +185,6 @@ const release = (state: ElementState, name: ValueName, channel: Channel, now: nu
         current,
         delta,
     );
-    channel.owner.stop();
-    state.channels.delete(name);
 };
 
 const render = (element: HTMLElement, state: ElementState, track: string, now: number) => {
@@ -208,7 +215,7 @@ const render = (element: HTMLElement, state: ElementState, track: string, now: n
         const offset = now - startTime;
         const { values } = sampleGenerator({
             calculatedDuration: duration,
-            next: (t) => generator.next(offset + t),
+            next: (t) => generator.next(Math.max(0, offset + t)),
         });
 
         return { name, values };
@@ -255,7 +262,7 @@ const renderTracks = (
 export function animate(
     element: HTMLElement,
     target: AnimationTarget,
-    options: AnimationTransition = {},
+    { delay = 0, ...options }: AnimationTransition = {},
 ): AnimationControls {
     const now = time.now();
     const state = getState(element);
@@ -283,7 +290,7 @@ export function animate(
                 generator.calculatedDuration ?? calcGeneratorDuration(generator),
                 maxGeneratorDuration,
             ),
-            startTime: now,
+            startTime: now + delay,
             owner,
         });
     });
