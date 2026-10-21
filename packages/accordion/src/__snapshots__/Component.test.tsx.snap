@@ -24,7 +24,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
         class="control"
       >
         <svg
-          class="icon"
+          class=""
           fill="currentColor"
           focusable="false"
           height="24"

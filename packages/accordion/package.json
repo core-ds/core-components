@@ -15,7 +15,6 @@
     "dependencies": {
         "@alfalab/core-components-animation-private": "^0.0.0",
         "@alfalab/core-components-typography": "^6.0.13",
-        "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

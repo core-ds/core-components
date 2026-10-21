@@ -54,7 +54,6 @@ __metadata:
   dependencies:
     "@alfalab/core-components-animation-private": "npm:^0.0.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
