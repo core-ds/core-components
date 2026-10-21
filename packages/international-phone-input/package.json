@@ -20,7 +20,7 @@
         "@alfalab/core-components-shared": "^2.3.0",
         "@alfalab/core-components-types": "^2.1.0",
         "@alfalab/hooks": "^1.17.0",
-        "@alfalab/icons-glyph": "^2.260.0",
+        "@alfalab/icons-glyph": "^2.293.3",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
         "classnames": "^2.5.1",

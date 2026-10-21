@@ -17,7 +17,7 @@
         "@alfalab/core-components-select": "^19.2.11",
         "@alfalab/core-components-shared": "^2.3.0",
         "@alfalab/hooks": "^1.17.0",
-        "@alfalab/icons-glyph": "^2.260.0",
+        "@alfalab/icons-glyph": "^2.293.3",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "libphonenumber-js": "^1.10.30",
