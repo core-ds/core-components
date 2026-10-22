@@ -14,22 +14,15 @@ async function main() {
         ...rootPackage.packageJson.dependencies,
         ...rootPackage.packageJson.peerDependencies,
     });
-    const newPackages = packages
-        .filter(({ packageJson }) => packageJson.version === '0.0.0')
-        .map(({ packageJson }) => packageJson.name);
 
     for (const { id, releases, summary } of await getChangesets(cwd)) {
         if (releases.some((release) => dependencies.includes(release.name))) {
             if (releases.every((release) => release.name !== '@alfalab/core-components')) {
-                // Первый релиз нового пакета (0.0.0 → 1.0.0) поднимает корень минором
-                const types = releases.map((release) =>
-                    release.type === 'major' && newPackages.includes(release.name)
-                        ? 'minor'
-                        : release.type,
-                );
                 const type =
-                    ['major', 'minor'].find((releaseType) => types.includes(releaseType)) ??
-                    'patch';
+                    (
+                        releases.find((release) => release.type === 'major') ??
+                        releases.find((release) => release.type === 'minor')
+                    )?.type ?? 'patch';
 
                 releases.push({ name: '@alfalab/core-components', type });
             }
