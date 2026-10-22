@@ -1,25 +1,23 @@
 ## Примеры
 
-Значения могут быть положительными и отрицательными.
+Значение `view` определяет порядок работы с дробной частью:
+
+- `"withZeroMinorPart"` показывает дробную часть до указанного знака, даже если она нулевая.
+- `"shortMinorPart"` скрывает незначащие нули в дробной части
+- `"default"` показывает дробную часть до указанного знака, если она не нулевая.
 
 ```jsx live
 render(() => {
-    const [positiveOnly, setPositiveOnly] = React.useState(false);
-    const [value, setValue] = React.useState(-123456767);
-    const handlePositiveOnlyChange = (_, payload) => {
-        setPositiveOnly(!payload.checked);
-        setValue((prevValue) => prevValue * -1);
-    };
-    const handleValueChange = (_, payload) => {
-        setValue(payload.value);
+    const [view, setView] = React.useState('withZeroMinorPart');
+    const onViewChange = (_, payload) => {
+        setView(payload.value);
     };
 
     return (
         <React.Fragment>
             <div style={{ width: isMobile() ? '100%' : 320 }}>
                 <AmountInput
-                    value={value}
-                    onChange={handleValueChange}
+                    defaultValue={1234567}
                     placeholder='Введите сумму'
                     labelView={isMobile() ? 'outer' : 'inner'}
                     label='Сумма'
@@ -28,17 +26,57 @@ render(() => {
                     block={true}
                     size={isMobile() ? 48 : 56}
                     breakpoint={BREAKPOINT}
-                    positiveOnly={positiveOnly}
+                    view={view}
+                />
+                <Gap size={12} />
+                <AmountInput
+                    defaultValue={12345610}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    view={view}
+                />
+                <Gap size={12} />
+                <AmountInput
+                    defaultValue={12345600}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    view={view}
                 />
             </div>
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            <Switch
-                label='Принимать отрицательные значения'
-                checked={!positiveOnly}
-                onChange={handlePositiveOnlyChange}
-            />
+            <RadioGroup
+                label='Работа с дробной частью'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onViewChange}
+                value={view}
+            >
+                <Radio size={24} label='Показывать целиком' value='withZeroMinorPart' />
+                <Radio
+                    size={24}
+                    label='Показывать до последнего значащего знака'
+                    value='shortMinorPart'
+                />
+                <Radio
+                    size={24}
+                    label='Если есть — показывать целиком, если нет — скрывать '
+                    value='default'
+                />
+            </RadioGroup>
         </React.Fragment>
     );
 });
@@ -92,18 +130,15 @@ render(() => {
 });
 ```
 
-Компонент может работать в 3 режимах:
-
-- `view="default"` позволяет не отображать нулевую дробную часть
-- `view="withZeroMinorPart"` позволяет отображать нулевую дробную часть всегда
-- `view="shortMinorPart"` позволяет не отображать незначащие нули
+Значения могут быть положительными и отрицательными.
 
 ```jsx live
 render(() => {
-    const [view, setView] = React.useState('default');
-    const [value, setValue] = React.useState(123456700);
-    const onViewChange = (_, payload) => {
-        setView(payload.value);
+    const [positiveOnly, setPositiveOnly] = React.useState(false);
+    const [value, setValue] = React.useState(-123456767);
+    const handlePositiveOnlyChange = (_, payload) => {
+        setPositiveOnly(!payload.checked);
+        setValue((prevValue) => prevValue * -1);
     };
     const handleValueChange = (_, payload) => {
         setValue(payload.value);
@@ -123,27 +158,17 @@ render(() => {
                     block={true}
                     size={isMobile() ? 48 : 56}
                     breakpoint={BREAKPOINT}
-                    view={view}
+                    positiveOnly={positiveOnly}
                 />
             </div>
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            <RadioGroup
-                label='Режим работы'
-                direction='vertical'
-                name='radioGroup'
-                onChange={onViewChange}
-                value={view}
-            >
-                <Radio size={24} label='не отображать нулевую дробную часть' value='default' />
-                <Radio
-                    size={24}
-                    label='отображать нулевую дробную часть всегда'
-                    value='withZeroMinorPart'
-                />
-                <Radio size={24} label='не отображать незначащие нули' value='shortMinorPart' />
-            </RadioGroup>
+            <Switch
+                label='Принимать отрицательные значения'
+                checked={!positiveOnly}
+                onChange={handlePositiveOnlyChange}
+            />
         </React.Fragment>
     );
 });
