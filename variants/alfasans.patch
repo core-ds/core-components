@@ -80,10 +80,10 @@ index 77c7558f67..3375a3bead 100644
 +    font-family: var(--font-family-alfasans);
  }
 diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
-index 8f1ff6ac59..420012c85b 100644
+index c6fd31a068..2a50d06904 100644
 --- a/packages/typography/src/title/component.tsx
 +++ b/packages/typography/src/title/component.tsx
-@@ -2,13 +2,10 @@ import React, { forwardRef, type HTMLAttributes } from 'react';
+@@ -2,13 +2,10 @@ import React, { type ComponentProps, forwardRef, Fragment, type HTMLAttributes }
  import mergeRefs from 'react-merge-refs';
  import cn from 'classnames';
 
@@ -118,15 +118,15 @@ index 8f1ff6ac59..420012c85b 100644
              defaultMargins = false,
              color,
              className,
-@@ -134,8 +131,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
-                     {
-                         [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
-                         [commonStyles.transparent]: showSkeleton,
--                        [styles.font]:
--                            (isObject(font) && !font.systemCompat) || !(font === 'system'),
-                     },
-                 )}
-                 data-test-id={dataTestId}
+@@ -130,8 +127,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+                         {
+                             [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
+                             [commonStyles.transparent]: showSkeleton,
+-                            [styles.font]:
+-                                (isObject(font) && !font.systemCompat) || !(font === 'system'),
+                         },
+                     )}
+                     data-test-id={dataTestId}
 diff --git a/packages/typography/src/title/index.module.css b/packages/typography/src/title/index.module.css
 index edef8eb6d3..50fd1d8ae7 100644
 --- a/packages/typography/src/title/index.module.css

@@ -1,9 +1,9 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+import React, { forwardRef, useRef, useState } from 'react';
 import cn from 'classnames';
-import debounce from 'lodash/debounce';
 
+import { HeadlessCollapse } from '@alfalab/core-components-headless-collapse';
 import { Link } from '@alfalab/core-components-link';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
 
 import styles from './index.module.css';
@@ -78,7 +78,7 @@ export type CollapseProps = {
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
     (
         {
-            expanded,
+            expanded: expandedFromProps,
             collapsedLabel,
             expandedLabel,
             children,
@@ -93,69 +93,27 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         },
         ref,
     ) => {
-        const uncontrolled = expanded === undefined;
-
+        const expandedInProps = expandedFromProps !== undefined;
         const contentRef = useRef<HTMLDivElement>(null);
-        const contentCaseRef = useRef<HTMLDivElement>(null);
-        const [expandedState, setExpandedState] = useState(
-            uncontrolled ? defaultExpanded : expanded,
-        );
+        const [expanded, setExpanded] = useState(expandedFromProps ?? defaultExpanded);
 
-        const isExpanded = uncontrolled ? expandedState : expanded;
+        const handleTransitionEnd = () => {
+            if (onTransitionEnd) onTransitionEnd(expanded);
+        };
 
-        const recalculate = useCallback(() => {
-            let contentHeight;
+        const handleExpandedChange = () => {
+            onExpandedChange?.(!expanded);
 
-            if (!contentCaseRef.current || !contentRef.current) {
-                return;
+            if (!expandedInProps) {
+                setExpanded(!expanded);
             }
+        };
 
-            if (isExpanded) {
-                contentHeight = contentCaseRef.current.offsetHeight;
-            } else {
-                contentHeight = 0;
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (expandedInProps && expanded !== expandedFromProps) {
+                setExpanded(expandedFromProps);
             }
-
-            contentRef.current.style.height = `${contentHeight}px`;
-        }, [isExpanded]);
-
-        const handleTransitionEnd = useCallback(() => {
-            if (onTransitionEnd) onTransitionEnd(isExpanded);
-        }, [isExpanded, onTransitionEnd]);
-
-        const handleExpandedChange = useCallback(() => {
-            if (uncontrolled) {
-                setExpandedState(!isExpanded);
-            }
-
-            if (onExpandedChange) onExpandedChange(!isExpanded);
-        }, [isExpanded, onExpandedChange, uncontrolled]);
-
-        useEffect(() => {
-            const handleResize = debounce(() => recalculate(), 300);
-
-            window.addEventListener('resize', handleResize);
-
-            return () => {
-                window.removeEventListener('resize', handleResize);
-                handleResize.cancel();
-            };
-        }, [recalculate]);
-
-        useEffect(() => {
-            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-            const observer = new ResizeObserver(recalculate);
-
-            if (contentCaseRef.current) {
-                observer.observe(contentCaseRef.current);
-            }
-
-            return () => {
-                observer.disconnect();
-            };
-        }, [recalculate]);
-
-        useEffect(() => recalculate(), [isExpanded, recalculate]);
+        }, [expanded, expandedFromProps, expandedInProps]);
 
         return (
             <div
@@ -164,30 +122,40 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                 id={id}
                 data-test-id={dataTestId}
             >
-                <div
-                    ref={contentRef}
-                    className={cn(styles.content, expandedContentClassName, {
-                        [styles.expandedContent]: isExpanded,
-                    })}
-                    onTransitionEnd={handleTransitionEnd}
+                <HeadlessCollapse
+                    in={expanded}
+                    nodeRef={contentRef}
+                    getDimensionValue={(node) => node.getBoundingClientRect().height}
                 >
-                    <div ref={contentCaseRef}>{children}</div>
-                </div>
+                    {(state) => (
+                        <div
+                            ref={contentRef}
+                            className={cn(expandedContentClassName, {
+                                [styles.expanded]: state === 'entered',
+                                [styles.collapsing]: state === 'exiting' || state === 'entering',
+                                [styles.collapsed]: state === 'exited' || state === 'entered',
+                            })}
+                            onTransitionEnd={handleTransitionEnd}
+                        >
+                            <div>{children}</div>
+                        </div>
+                    )}
+                </HeadlessCollapse>
                 {(expandedLabel || collapsedLabel) && (
                     <Link
-                        className={cn({ [styles.expandedLabel]: isExpanded })}
+                        className={cn({ [styles.expandedLabel]: expanded })}
                         pseudo={true}
                         onClick={handleExpandedChange}
                         colors={colors}
                         rightAddons={
                             <ChevronDownSIcon
                                 className={cn(styles.toggleIcon, {
-                                    [styles.rotated]: isExpanded,
+                                    [styles.rotated]: expanded,
                                 })}
                             />
                         }
                     >
-                        {isExpanded ? expandedLabel : collapsedLabel}
+                        {expanded ? expandedLabel : collapsedLabel}
                     </Link>
                 )}
             </div>

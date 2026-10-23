@@ -1,25 +1,5 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
-.collapse *,
-.collapse:before,
-.collapse:after {
-    box-sizing: border-box;
-}
-
-.content {
-    position: relative;
-    overflow: hidden;
-    visibility: hidden;
-    height: 0;
-    transition: height 0.2s;
-}
-
-.expandedContent {
-    visibility: visible;
-    height: auto;
-    transform: translate3d(0, 0, 0);
-}
-
 .expandedLabel.expandedLabel {
     margin-top: 15px;
 }
@@ -30,4 +10,16 @@
 
 .rotated {
     transform: var(--arrow-transform);
+}
+
+.collapsed {
+    &:not(.expanded) {
+        display: none;
+    }
+}
+
+.collapsing {
+    height: 0;
+    overflow: hidden;
+    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1);
 }
