@@ -197,7 +197,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         // this effect watches `numberValue` change
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            const focused = inputRef.current?.matches(':focus');
+            const input = inputRef.current;
+            const isInputActive = !input?.readOnly && input?.matches(':focus');
 
             setInputValue((prevInputValue) => {
                 if (isCorrectValue(numberValue, { integerLength, integersOnly, minority })) {
@@ -206,7 +207,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         numberParams,
                     );
 
-                    if (focused) {
+                    if (isInputActive) {
                         if (
                             isEquivalentInput(nextInputValue, prevInputValue, numberParams) ||
                             isEquivalentInput(prevInputValue, nextInputValue, numberParams)
