@@ -242,6 +242,8 @@
             "@alfalab/core-components-space/*": ["./packages/space/src/*"],
             "@alfalab/core-components-spinner": ["./packages/spinner/src"],
             "@alfalab/core-components-spinner/*": ["./packages/spinner/src/*"],
+            "@alfalab/core-components-spoiler": ["./packages/spoiler/src"],
+            "@alfalab/core-components-spoiler/*": ["./packages/spoiler/src/*"],
             "@alfalab/core-components-stack": ["./packages/stack/src"],
             "@alfalab/core-components-stack/*": ["./packages/stack/src/*"],
             "@alfalab/core-components-stack-context": ["./packages/stack-context/src"],

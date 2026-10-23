@@ -1,0 +1,85 @@
+@import './vars.css';
+
+.component {
+    position: relative;
+    border-radius: var(--spoiler-border-radius);
+    box-decoration-break: clone;
+
+    &:focus-visible {
+        outline: 2px solid var(--focus-color);
+        outline-offset: var(--gap-2);
+    }
+}
+
+.element {
+    max-width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+
+    &:not([hidden]) {
+        display: inline-block;
+    }
+
+    & > .content {
+        display: flow-root;
+    }
+
+    & > .canvas {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Скрытые кнопки/ссылки недоступны и в браузерах без inert. */
+    &.hidden > .content {
+        transition: none;
+    }
+}
+
+.interactive {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.content {
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity var(--spoiler-transition-duration) ease,
+        visibility 0s;
+}
+
+.hidden {
+    & .content {
+        opacity: 0;
+        visibility: hidden;
+        user-select: none;
+        pointer-events: none;
+        transition:
+            opacity var(--spoiler-transition-duration) ease,
+            visibility 0s var(--spoiler-transition-duration);
+    }
+}
+
+.anchor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.canvas {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--spoiler-transition-duration) ease;
+}
+
+.hidden .canvas {
+    opacity: 1;
+}
