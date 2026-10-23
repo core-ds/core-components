@@ -2,7 +2,6 @@ import React, {
     type ComponentRef,
     type Reducer,
     type Ref,
-    useCallback,
     useEffect,
     useReducer,
     useRef,
@@ -145,13 +144,13 @@ export const Steps: React.FC<StepsProps> = ({
     scrollable = false,
 }) => {
     const stepsRef = useRef<Map<number, ComponentRef<typeof Step>> | null>(null);
-    const getStepsRef = useCallback(() => {
+    const getStepsRef = () => {
         if (!stepsRef.current) {
             stepsRef.current = new Map();
         }
 
         return stepsRef.current;
-    }, []);
+    };
     const listNodeRef = useRef<HTMLDivElement>(null);
     const scrollableNodeRef = useRef<HTMLDivElement>(null);
     const uncontrolled = activeStepProp === undefined;
