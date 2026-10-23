@@ -59,7 +59,6 @@ export const ScrollbarPrivate = forwardRef<ScrollbarPrivateRef, ScrollbarPrivate
             contentNodeProps?: NodeProps;
         }) => (
             <div
-                {...scrollableNodeProps}
                 {...scrollableNodePropsFromProps}
                 style={{ ...scrollableNodeProps?.style, ...scrollableNodePropsFromProps?.style }}
                 ref={mergeRefs([
@@ -72,7 +71,6 @@ export const ScrollbarPrivate = forwardRef<ScrollbarPrivateRef, ScrollbarPrivate
                 )}
             >
                 <div
-                    {...contentNodeProps}
                     {...contentNodePropsFromProps}
                     style={{ ...contentNodeProps?.style, ...contentNodePropsFromProps?.style }}
                     ref={mergeRefs([
