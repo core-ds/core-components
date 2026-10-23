@@ -1,1 +1,2 @@
-export * from './Component';
+export { Segment } from './Component';
+export { type SegmentProps } from './types';
