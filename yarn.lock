@@ -93,7 +93,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-amount-input@npm:^9.3.5, @alfalab/core-components-amount-input@workspace:packages/amount-input":
+"@alfalab/core-components-amount-input@npm:^9.4.0, @alfalab/core-components-amount-input@workspace:packages/amount-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-amount-input@workspace:packages/amount-input"
   dependencies:
@@ -2278,7 +2278,7 @@ __metadata:
     "@alfalab/core-components-action-button": "npm:^3.0.9"
     "@alfalab/core-components-alert": "npm:^6.0.12"
     "@alfalab/core-components-amount": "npm:^5.1.1"
-    "@alfalab/core-components-amount-input": "npm:^9.3.5"
+    "@alfalab/core-components-amount-input": "npm:^9.4.0"
     "@alfalab/core-components-attach": "npm:^8.0.12"
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
     "@alfalab/core-components-badge": "npm:^7.0.3"
