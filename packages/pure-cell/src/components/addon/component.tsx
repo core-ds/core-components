@@ -8,7 +8,7 @@ import { type AddonElement } from '../types';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellAddonProps = {
     /**
      * Вертикальное выравнивание
      */
@@ -41,7 +41,7 @@ const ADDON_COMPONENT: Record<string, keyof Pick<React.ReactHTML, 'button' | 'se
     section: 'section',
 };
 
-export const Addon: React.FC<Props> = ({
+export const Addon: React.FC<PureCellAddonProps> = ({
     children,
     verticalAlign = 'top',
     addonPadding = 'default',
