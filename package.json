@@ -77,8 +77,8 @@
     "devDependencies": {
         "@actions/core": "^1.11.1",
         "@actions/exec": "^1.1.1",
-        "@alfalab/icons-glyph": "^2.260.0",
-        "@alfalab/icons-glyph-26": "^1.29.0",
+        "@alfalab/icons-glyph": "^2.293.3",
+        "@alfalab/icons-glyph-26": "^1.32.2",
         "@alfalab/lint-preset": "^1.0.0",
         "@changesets/cli": "^2.31.0",
         "@changesets/get-github-info": "^0.8.0",

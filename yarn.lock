@@ -54,7 +54,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -137,7 +137,7 @@ __metadata:
     "@alfalab/core-components-button": "npm:^13.2.4"
     "@alfalab/core-components-keyboard-focusable": "npm:^6.0.2"
     "@alfalab/core-components-progress-bar": "npm:^5.0.2"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@alfalab/utils": "npm:^1.18.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -180,7 +180,7 @@ __metadata:
   resolution: "@alfalab/core-components-bank-card@workspace:packages/bank-card"
   dependencies:
     "@alfalab/core-components-masked-input": "npm:^8.0.16"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@alfalab/icons-logotype": "npm:^2.37.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -261,7 +261,7 @@ __metadata:
     "@alfalab/core-components-date-input": "npm:^6.0.15"
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-popover": "npm:^8.1.4"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
     react-merge-refs: "npm:^1.1.0"
@@ -319,7 +319,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
@@ -352,7 +352,7 @@ __metadata:
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -477,7 +477,7 @@ __metadata:
   resolution: "@alfalab/core-components-collapse@workspace:packages/collapse"
   dependencies:
     "@alfalab/core-components-link": "npm:^7.0.3"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     lodash: "npm:^4.17.21"
@@ -520,7 +520,7 @@ __metadata:
     "@alfalab/core-components-link": "npm:^7.0.3"
     "@alfalab/core-components-loader": "npm:^5.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@alfalab/utils": "npm:^1.18.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -602,7 +602,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-popover": "npm:^8.1.4"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
     react-merge-refs: "npm:^1.1.0"
@@ -623,7 +623,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-popover": "npm:^8.1.4"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
     react-merge-refs: "npm:^1.1.0"
@@ -665,7 +665,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-dropzone@workspace:packages/dropzone"
   dependencies:
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -690,7 +690,7 @@ __metadata:
     "@alfalab/core-components-link": "npm:^7.0.3"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-spinner": "npm:^6.0.9"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -708,7 +708,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -723,7 +723,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -760,7 +760,7 @@ __metadata:
     "@alfalab/core-components-tooltip": "npm:^9.0.22"
     "@alfalab/core-components-typography": "npm:^6.0.13"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     element-closest: "npm:^3.0.2"
     hls.js: "npm:^1.5.13"
@@ -902,7 +902,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -923,7 +923,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-types": "npm:^2.1.0"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@maskito/core": "npm:^1.7.0"
     "@maskito/react": "npm:^1.7.0"
     classnames: "npm:^2.5.1"
@@ -943,7 +943,7 @@ __metadata:
     "@alfalab/core-components-select": "npm:^19.2.11"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@alfalab/utils": "npm:^1.18.0"
     classnames: "npm:^2.5.1"
     libphonenumber-js: "npm:^1.10.30"
@@ -1125,7 +1125,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1142,7 +1142,7 @@ __metadata:
     "@alfalab/core-components-button": "npm:^13.2.4"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1196,7 +1196,7 @@ __metadata:
     "@alfalab/core-components-input": "npm:^17.2.2"
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-shared": "npm:^2.3.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@maskito/core": "npm:^1.7.0"
     "@maskito/react": "npm:^1.7.0"
     classnames: "npm:^2.5.1"
@@ -1228,7 +1228,7 @@ __metadata:
   resolution: "@alfalab/core-components-pagination@workspace:packages/pagination"
   dependencies:
     "@alfalab/core-components-tag": "npm:^10.3.2"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1244,7 +1244,7 @@ __metadata:
     "@alfalab/core-components-button": "npm:^13.2.4"
     "@alfalab/core-components-gap": "npm:^3.0.2"
     "@alfalab/core-components-shared": "npm:^2.3.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
@@ -1262,7 +1262,7 @@ __metadata:
     "@alfalab/core-components-gap": "npm:^3.0.2"
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-shared": "npm:^2.3.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
@@ -1278,7 +1278,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-icon-button": "npm:^8.0.12"
     "@alfalab/core-components-input": "npm:^17.2.2"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1342,8 +1342,8 @@ __metadata:
     "@alfalab/core-components-popover": "npm:^8.1.4"
     "@alfalab/core-components-select": "npm:^19.2.11"
     "@alfalab/core-components-shared": "npm:^2.3.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@alfalab/icons-glyph-26": "npm:^1.20.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
+    "@alfalab/icons-glyph-26": "npm:^1.32.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1361,7 +1361,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1438,7 +1438,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@alfalab/utils": "npm:^1.18.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1516,8 +1516,8 @@ __metadata:
   dependencies:
     "@actions/core": "npm:^1.11.1"
     "@actions/exec": "npm:^1.1.1"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@alfalab/icons-glyph-26": "npm:^1.29.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
+    "@alfalab/icons-glyph-26": "npm:^1.32.2"
     "@alfalab/lint-preset": "npm:^1.0.0"
     "@changesets/cli": "npm:^2.31.0"
     "@changesets/get-github-info": "npm:^0.8.0"
@@ -1692,7 +1692,7 @@ __metadata:
     "@alfalab/core-components-select": "npm:^19.2.11"
     "@alfalab/core-components-tag": "npm:^10.3.2"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1719,7 +1719,7 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-skeleton": "npm:^7.0.5"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     compute-scroll-into-view: "npm:^3.1.0"
     downshift: "npm:8.4.0"
@@ -1814,7 +1814,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-portal": "npm:^5.0.6"
     "@alfalab/core-components-shared": "npm:^2.3.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@dnd-kit/core": "npm:^6.0.7"
     "@dnd-kit/sortable": "npm:^7.0.2"
     "@dnd-kit/utilities": "npm:^3.2.1"
@@ -1879,7 +1879,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-status-badge@workspace:packages/status-badge"
   dependencies:
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -2020,7 +2020,7 @@ __metadata:
     "@alfalab/core-components-tag": "npm:^10.3.2"
     "@alfalab/core-components-types": "npm:^2.1.0"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     compute-scroll-into-view: "npm:^3.1.0"
@@ -2041,7 +2041,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/hooks": "npm:^1.17.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -2115,7 +2115,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-shared": "npm:^2.3.0"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -2214,7 +2214,7 @@ __metadata:
     "@alfalab/core-components-mq": "npm:^6.0.9"
     "@alfalab/core-components-popover": "npm:^8.1.4"
     "@alfalab/core-components-shared": "npm:^2.3.0"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph": "npm:^2.293.3"
     "@maskito/core": "npm:^1.7.0"
     "@maskito/react": "npm:^1.7.0"
     classnames: "npm:^2.5.1"
@@ -2431,33 +2431,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/icons-glyph-26@npm:^1.20.0":
-  version: 1.20.0
-  resolution: "@alfalab/icons-glyph-26@npm:1.20.0"
+"@alfalab/icons-glyph-26@npm:^1.32.2":
+  version: 1.32.2
+  resolution: "@alfalab/icons-glyph-26@npm:1.32.2"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/4437a306cd6ab9d57791fce8b51095ed78fb6cd32fba0129efb0bf4b008d29968dd1dabe4fcc3eefaf07c71abde75dfc60d988dd93cee2623bc007d4fff98041
+  checksum: 10c0/dd9fbdfe80e0fccd4ef2b4700bab6eecc9dfbb65effc695942423a42f29b6be1368611359192707bd1ff5b65f3fe07c93f4bafa87135bc8c599efddca85db0d4
   languageName: node
   linkType: hard
 
-"@alfalab/icons-glyph-26@npm:^1.29.0":
-  version: 1.29.0
-  resolution: "@alfalab/icons-glyph-26@npm:1.29.0"
+"@alfalab/icons-glyph@npm:^2.293.3":
+  version: 2.293.3
+  resolution: "@alfalab/icons-glyph@npm:2.293.3"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/d80336d8d414546ea8496d1319054519c9ac57aadf785fcd5c04d05c602d474ac47c69aaff6f685135539fcc4ef64df5d9947431f550f80a187175b58a5f3746
-  languageName: node
-  linkType: hard
-
-"@alfalab/icons-glyph@npm:^2.260.0":
-  version: 2.260.0
-  resolution: "@alfalab/icons-glyph@npm:2.260.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/16379909c9f11af8cac3c8a77fb090b141f4a992ae5e6f10d528ac7281be8af2d1af9733cb9873416157664fd4a7a45e5c835790b875fbbb5af4b8475626095e
+  checksum: 10c0/a1e537d71d21a2067fd7aba62491bdd2b3498b167b2c8d17f25fb7b929d74e234d2cbf0a5e54f0e97ede82a7725d825f82f653d48304324b9b6303888eddbd94
   languageName: node
   linkType: hard
 
