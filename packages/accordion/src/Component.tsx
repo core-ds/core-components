@@ -4,14 +4,15 @@ import React, {
     type KeyboardEvent,
     type ReactNode,
     useCallback,
+    useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
 
+import { SpringHeadlessCollapse } from '@alfalab/core-components-animation-private';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
-import { useMeasureHeight } from './hooks';
 import { type ControlPosition } from './typings';
 
 import styles from './index.module.css';
@@ -111,7 +112,7 @@ export const Accordion: FC<AccordionProps> = ({
 
     const isStartPosition = controlPosition === 'start';
 
-    const [contentHeight, contentRef] = useMeasureHeight();
+    const bodyRef = useRef<HTMLDivElement>(null);
 
     const controlContent =
         control === undefined ? (
@@ -177,14 +178,33 @@ export const Accordion: FC<AccordionProps> = ({
                 </div>
             </div>
 
-            <div
-                className={cn(styles.body, bodyClassName, { [styles.expandedBody]: isExpanded })}
-                style={{ height: isExpanded ? contentHeight : 0 }}
+            <SpringHeadlessCollapse
+                nodeRef={bodyRef}
+                in={isExpanded}
+                spring={{
+                    enter: { stiffness: 426, damping: 41, mass: 1 },
+                    exit: { stiffness: 743, damping: 49, mass: 1, delay: 75 },
+                }}
             >
-                <div className={cn(styles.bodyContent, bodyContentClassName)} ref={contentRef}>
-                    {bodyContent}
-                </div>
-            </div>
+                {(status) => (
+                    <div
+                        ref={bodyRef}
+                        className={cn(styles.body, bodyClassName, {
+                            [styles.expandedBody]: status !== 'exited',
+                        })}
+                    >
+                        <div
+                            className={cn(styles.bodyContent, bodyContentClassName, {
+                                [styles.bodyContentEnter]:
+                                    status === 'entering' || status === 'entered',
+                                [styles.bodyContentExit]: status === 'exiting',
+                            })}
+                        >
+                            {bodyContent}
+                        </div>
+                    </div>
+                )}
+            </SpringHeadlessCollapse>
         </div>
     );
 };

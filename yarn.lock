@@ -52,10 +52,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-accordion@workspace:packages/accordion"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.3.0"
+    "@alfalab/core-components-animation-private": "npm:^0.0.0"
     "@alfalab/core-components-typography": "npm:^6.0.13"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -123,6 +121,21 @@ __metadata:
     "@alfalab/data": "npm:^1.9.2"
     "@alfalab/utils": "npm:^1.18.0"
     classnames: "npm:^2.5.1"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@alfalab/core-components-animation-private@npm:^0.0.0, @alfalab/core-components-animation-private@workspace:packages/animation-private":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-animation-private@workspace:packages/animation-private"
+  dependencies:
+    "@alfalab/core-components-shared": "npm:^2.3.0"
+    "@types/react-transition-group": "npm:^4.4.12"
+    motion: "npm:13.0.0"
+    react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -25491,7 +25504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion@npm:^13.0.0":
+"motion@npm:13.0.0, motion@npm:^13.0.0":
   version: 13.0.0
   resolution: "motion@npm:13.0.0"
   dependencies:
