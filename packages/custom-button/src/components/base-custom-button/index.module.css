@@ -9,7 +9,6 @@
 }
 
 .customButton {
-    overflow: hidden;
     position: relative;
 
     &.border {
@@ -39,10 +38,11 @@
 
     &:before {
         position: absolute;
-        left: var(--gap-0);
-        right: var(--gap-0);
-        top: var(--gap-0);
-        bottom: var(--gap-0);
+        left: -1px;
+        right: -1px;
+        top: -1px;
+        bottom: -1px;
+        border-radius: inherit;
         background-color: rgba(0, 0, 0, 0);
         content: '';
         transition: 0.2s;

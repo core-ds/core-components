@@ -18,8 +18,8 @@
         "@alfalab/core-components-popover": "^8.1.4",
         "@alfalab/core-components-select": "^19.2.11",
         "@alfalab/core-components-shared": "^2.3.0",
-        "@alfalab/icons-glyph": "^2.260.0",
-        "@alfalab/icons-glyph-26": "^1.20.0",
+        "@alfalab/icons-glyph": "^2.294.0",
+        "@alfalab/icons-glyph-26": "^1.33.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

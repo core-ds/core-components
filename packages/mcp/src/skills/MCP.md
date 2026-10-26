@@ -9,6 +9,12 @@ Use these tools when working with components:
 - `core-components-mcp_component_demo` - Get demo examples
 - `core-components-mcp_component_changelog` - Get changelog for a component
 
+## Rules
+
+- **Always use MCP tools** to get component data — never read the library's source files, `CHANGELOG.md`, `package.json`, or `*.mdx` docs directly from the filesystem (e.g. from `node_modules/@alfalab/*`). Reading the user's own project files (including its `package.json`) is fine.
+- If a tool returns "not found" — do not guess or invent the component API.
+- Deprecated components (see the table in [SKILL.md](./SKILL.md#deprecated-components-migration)) have no MCP data — tools return "not found" for them. Do not retry; tell the user the component is not available in the current version of MCP and offer to migrate to the replacement. Migrate following the [Migration workflow](./SKILL.md#migration-workflow) in SKILL.md, using the tools above to get the replacement's API and demos.
+
 ## When to Call Each Tool
 
 **`component_list`** — call when:
@@ -22,6 +28,8 @@ Use these tools when working with components:
 - You need to know available props and their types
 - User asks how a specific component works
 - You need to check a prop's default value or allowed values
+- A prop doesn't work as expected or there is a type error — verify the prop name and type
+- You need `dataTestId` modifiers for nested elements — they are listed in the `dataTestId` prop description
 
 **`component_demo`** — is a two-step tool:
 
