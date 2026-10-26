@@ -251,6 +251,30 @@
             "apiTypes": "passed",
             "tagGroupBehaviorChecks": 32
         },
-        "postPublishPreview": "pending"
+        "postPublishPreview": {
+            "checked": 148,
+            "passed": 143,
+            "expectedGuards": 5,
+            "unexpectedErrors": 0,
+            "servicePlaceholders": 0
+        }
+    },
+    "pullRequestReview": {
+        "reviewedAt": "2026-10-27",
+        "verifiedCodeCommit": "da8247558b6c4d25f8a570a127115cd66f35d3cf",
+        "checked": 217,
+        "passed": 201,
+        "expectedGuards": 16,
+        "unexpectedErrors": 0,
+        "servicePlaceholders": 0,
+        "ciCommand": "yarn figma:connect:check",
+        "unitTests": {
+            "passedSuites": 153,
+            "passedTests": 3348,
+            "passedSnapshots": 284,
+            "skippedSuites": 2,
+            "skippedTests": 58,
+            "todoTests": 1
+        }
     }
 }
