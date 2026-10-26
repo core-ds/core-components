@@ -181,7 +181,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-masked-input": "npm:^8.0.16"
     "@alfalab/icons-glyph": "npm:^2.294.0"
-    "@alfalab/icons-logotype": "npm:^2.37.0"
+    "@alfalab/icons-logotype": "npm:^2.38.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -2461,13 +2461,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/icons-logotype@npm:^2.37.0":
-  version: 2.37.0
-  resolution: "@alfalab/icons-logotype@npm:2.37.0"
+"@alfalab/icons-logotype@npm:^2.38.0":
+  version: 2.38.0
+  resolution: "@alfalab/icons-logotype@npm:2.38.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/bfec79824a60ee48f53d2cb653a4aeea36d17ff72b0b1a06ad34077239df46115b6ee406b00cb26bc9d9a60e534c542634a406f350217c934b0f183a36112fdb
+  checksum: 10c0/d1ed30d875fbab52dfba16da48cccf62667b23a8982468bdaa914b6797c7cf0d9a7f7faf3d96b7cb922a1b78aa3edc7cca6d4052b14e1f57c5bd43b4b50c77ec
   languageName: node
   linkType: hard
 

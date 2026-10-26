@@ -15,7 +15,7 @@
     "dependencies": {
         "@alfalab/core-components-masked-input": "^8.0.16",
         "@alfalab/icons-glyph": "^2.294.0",
-        "@alfalab/icons-logotype": "^2.37.0",
+        "@alfalab/icons-logotype": "^2.38.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
