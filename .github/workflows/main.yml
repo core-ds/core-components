@@ -79,6 +79,9 @@ jobs:
               run: |
                   yarn tsconfig check
 
+            - name: Check Code Connect
+              run: yarn figma:connect:check
+
             - name: Format
               run: |
                   yarn format

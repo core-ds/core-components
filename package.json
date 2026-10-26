@@ -18,6 +18,7 @@
         "check-package-json": "sort-package-json --check package.json \"{packages,scripts}/*/package.json\"",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
+        "figma:connect:check": "node tools/code-connect/check.cjs",
         "figma:connect:publish": "figma connect publish",
         "figma:connect:unpublish": "figma connect unpublish",
         "format": "prettier --check \"{packages,scripts,bin,tools}/**/*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,yaml,yml,md}\"",

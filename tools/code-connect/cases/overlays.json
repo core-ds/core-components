@@ -1,0 +1,543 @@
+{
+    "cases": [
+        {
+            "template": "packages/popup-sheet/code-connect/PopupSheet.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Cross": true
+                }
+            },
+            "expect": ["hasCloser={true}", "open={open}"]
+        },
+        {
+            "template": "packages/popup-sheet/code-connect/PopupSheet.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Cross": false
+                }
+            },
+            "expect": ["hasCloser={false}", "open={open}"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "←",
+                    "Colors": "Default",
+                    "View": "Hint"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"left\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "←",
+                    "Colors": "Default",
+                    "View": "Tooltip"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"left\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "→",
+                    "Colors": "Inverted",
+                    "View": "Hint"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"right\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "→",
+                    "Colors": "Inverted",
+                    "View": "Tooltip"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"right\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "↓",
+                    "Colors": "Default",
+                    "View": "Hint"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"bottom\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "↓",
+                    "Colors": "Default",
+                    "View": "Tooltip"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"bottom\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "↑",
+                    "Colors": "Inverted",
+                    "View": "Hint"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"top\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "↑",
+                    "Colors": "Inverted",
+                    "View": "Tooltip"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "Text",
+                            "✎ Text": "Подсказка"
+                        }
+                    }
+                ]
+            },
+            "expect": ["position=\"top\"", "Подсказка"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "←",
+                    "Colors": "Default",
+                    "View": "Tooltip"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "SwapMe"
+                        }
+                    }
+                ]
+            },
+            "expect": ["content={content}"]
+        },
+        {
+            "template": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TailDirection": "←",
+                    "Colors": "Default",
+                    "View": "Tooltip"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Content",
+                        "properties": {
+                            "Preset": "SwapMe"
+                        },
+                        "slots": {
+                            "Slot": [
+                                {
+                                    "type": "CODE",
+                                    "code": "<span>Слот</span>"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "expect": ["<span>Слот</span>"]
+        },
+        {
+            "template": "packages/popover/code-connect/OptionListDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "FixedHeight": "True",
+                    "Header": true,
+                    "Footer": true
+                },
+                "slots": {
+                    "HeaderContent": [
+                        {
+                            "type": "CODE",
+                            "code": "<strong>Заголовок</strong>"
+                        }
+                    ],
+                    "Body": [
+                        {
+                            "type": "CODE",
+                            "code": "<button>Опция</button>"
+                        }
+                    ],
+                    "FooterContent": [
+                        {
+                            "type": "CODE",
+                            "code": "<small>Футер</small>"
+                        }
+                    ]
+                }
+            },
+            "expect": [
+                "<Popover",
+                "<strong>Заголовок</strong>",
+                "<button>Опция</button>",
+                "<small>Футер</small>"
+            ]
+        },
+        {
+            "template": "packages/popover/code-connect/OptionListDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "FixedHeight": "False",
+                    "Header": true,
+                    "Footer": true
+                },
+                "slots": {
+                    "HeaderContent": [
+                        {
+                            "type": "CODE",
+                            "code": "<strong>Заголовок</strong>"
+                        }
+                    ],
+                    "Body": [
+                        {
+                            "type": "CODE",
+                            "code": "<button>Опция</button>"
+                        }
+                    ],
+                    "FooterContent": [
+                        {
+                            "type": "CODE",
+                            "code": "<small>Футер</small>"
+                        }
+                    ]
+                }
+            },
+            "expect": [
+                "<Popover",
+                "<strong>Заголовок</strong>",
+                "<button>Опция</button>",
+                "<small>Футер</small>"
+            ]
+        },
+        {
+            "template": "packages/popover/code-connect/OptionListDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "FixedHeight": "True",
+                    "Header": false,
+                    "Footer": false
+                },
+                "slots": {
+                    "Body": [
+                        {
+                            "type": "CODE",
+                            "code": "<span>Decoration</span>"
+                        }
+                    ]
+                },
+                "connectedSlots": {
+                    "Body": [
+                        {
+                            "type": "INSTANCE",
+                            "name": "Scrollbar"
+                        }
+                    ]
+                }
+            },
+            "expect": ["{body}"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/Scrollbar.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Start"
+                }
+            },
+            "expect": ["forceVisible=\"x\"", "colors=\"default\"", "* 0"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/Scrollbar.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Center"
+                }
+            },
+            "expect": ["forceVisible=\"x\"", "colors=\"default\"", "* 0.5"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/Scrollbar.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "End"
+                }
+            },
+            "expect": ["forceVisible=\"x\"", "colors=\"default\"", "* 1"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/Scrollbar.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Unknown"
+                }
+            },
+            "throws": "Неизвестный Position"
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVertical.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Start"
+                }
+            },
+            "expect": ["forceVisible=\"y\"", "colors=\"default\"", "* 0"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVertical.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Center"
+                }
+            },
+            "expect": ["forceVisible=\"y\"", "colors=\"default\"", "* 0.5"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVertical.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "End"
+                }
+            },
+            "expect": ["forceVisible=\"y\"", "colors=\"default\"", "* 1"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVertical.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Unknown"
+                }
+            },
+            "throws": "Неизвестный Position"
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVerticalInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Start"
+                }
+            },
+            "expect": ["forceVisible=\"y\"", "colors=\"inverted\"", "* 0"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVerticalInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Center"
+                }
+            },
+            "expect": ["forceVisible=\"y\"", "colors=\"inverted\"", "* 0.5"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVerticalInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "End"
+                }
+            },
+            "expect": ["forceVisible=\"y\"", "colors=\"inverted\"", "* 1"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarVerticalInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Unknown"
+                }
+            },
+            "throws": "Неизвестный Position"
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Start"
+                }
+            },
+            "expect": ["forceVisible=\"x\"", "colors=\"inverted\"", "* 0"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Center"
+                }
+            },
+            "expect": ["forceVisible=\"x\"", "colors=\"inverted\"", "* 0.5"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "End"
+                }
+            },
+            "expect": ["forceVisible=\"x\"", "colors=\"inverted\"", "* 1"]
+        },
+        {
+            "template": "packages/scrollbar/code-connect/ScrollbarInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Position": "Unknown"
+                }
+            },
+            "throws": "Неизвестный Position"
+        }
+    ]
+}

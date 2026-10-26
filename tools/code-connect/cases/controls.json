@@ -1,0 +1,3557 @@
+{
+    "cases": [
+        {
+            "template": "packages/button/code-connect/ButtonMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Button",
+                "properties": {
+                    "Hint": false,
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Hint": "Hint",
+                    "✎ Label": "Label",
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["ButtonMobile", "size={56}", "Label"]
+        },
+        {
+            "template": "packages/button/code-connect/ButtonMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Button",
+                "properties": {
+                    "Hint": false,
+                    "RightAddon": false,
+                    "LeftAddon": true,
+                    "Label": false,
+                    "✎ Hint": "Hint",
+                    "✎ Label": "Label",
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "LeftAddon",
+                        "properties": {
+                            "Type": "Spinner"
+                        }
+                    }
+                ]
+            },
+            "expect": ["loading", "ButtonMobile"]
+        },
+        {
+            "template": "packages/button/code-connect/ButtonInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Button_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "✎ Label": "Label",
+                    "RightAddon": false,
+                    "✎ Hint": "Hint",
+                    "Hint": false,
+                    "Label": true,
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["ButtonDesktop", "size={56}", "Label"]
+        },
+        {
+            "template": "packages/button/code-connect/ButtonInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Button_Inverted",
+                "properties": {
+                    "LeftAddon": true,
+                    "✎ Label": "Label",
+                    "RightAddon": false,
+                    "✎ Hint": "Hint",
+                    "Hint": false,
+                    "Label": false,
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "LeftAddon",
+                        "properties": {
+                            "Type": "Spinner"
+                        }
+                    }
+                ]
+            },
+            "expect": ["loading", "ButtonDesktop"]
+        },
+        {
+            "template": "packages/button/code-connect/ButtonInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Button_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "✎ Label": "Label",
+                    "RightAddon": false,
+                    "✎ Hint": "Hint",
+                    "Hint": false,
+                    "Label": true,
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["ButtonMobile", "size={56}", "Label"]
+        },
+        {
+            "template": "packages/button/code-connect/ButtonInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Button_Inverted",
+                "properties": {
+                    "LeftAddon": true,
+                    "✎ Label": "Label",
+                    "RightAddon": false,
+                    "✎ Hint": "Hint",
+                    "Hint": false,
+                    "Label": false,
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "LeftAddon",
+                        "properties": {
+                            "Type": "Spinner"
+                        }
+                    }
+                ]
+            },
+            "expect": ["loading", "ButtonMobile"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagMobile", "view=\"filled\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Collapsed",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["Component={IndicatorTag}", "mode: 'dot'"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Muted",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagDesktop", "view=\"muted\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Muted",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Muted",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Collapsed",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["Component={IndicatorTag}", "mode: 'dot'"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Muted",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagMobile", "view=\"muted\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Muted",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Muted",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Collapsed",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["Component={IndicatorTag}", "mode: 'dot'"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Transparent",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagDesktop", "view=\"transparent\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Transparent",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Transparent",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagMobile", "view=\"transparent\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Transparent",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Filled_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagDesktop", "view=\"filled\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Filled_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Filled_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Collapsed",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["Component={IndicatorTag}", "mode: 'dot'"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagMobile", "view=\"filled\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Collapsed",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["Component={IndicatorTag}", "mode: 'dot'"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Transparent_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagDesktop", "view=\"transparent\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] Tag_Transparent_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Transparent_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "False",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": ["TagMobile", "view=\"transparent\"", "size={40}", "Label"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Transparent_Inverted",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Hidden",
+                    "ClearButton": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "IndicatorTag.*Size=56"
+        },
+        {
+            "template": "packages/action-button/code-connect/ActionButton.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "ActionButton",
+                "properties": {
+                    "Icon 24": "153730:12962",
+                    "✎ Label": "Label",
+                    "View": "Primary",
+                    "Inverted": "False",
+                    "Static": "False",
+                    "DisabledState": "False"
+                },
+                "children": [],
+                "swaps": {
+                    "Icon 24": {
+                        "type": "INSTANCE",
+                        "name": "ActualIcon",
+                        "code": "<ActualIcon />"
+                    }
+                }
+            },
+            "expect": ["ActionButton", "<ActualIcon />", "colors=\"default\""]
+        },
+        {
+            "template": "packages/action-button/code-connect/ActionButton.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "ActionButton",
+                "properties": {
+                    "Icon 24": "153730:12962",
+                    "✎ Label": "Label",
+                    "View": "Primary",
+                    "Inverted": "True",
+                    "Static": "True",
+                    "DisabledState": "False"
+                },
+                "children": [],
+                "swaps": {
+                    "Icon 24": {
+                        "type": "INSTANCE",
+                        "name": "ActualIcon",
+                        "code": "<ActualIcon />"
+                    }
+                }
+            },
+            "expect": [],
+            "throws": "Static=True.*Inverted=True"
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_24",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Checkbox", "size={24}", "colors=\"default\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_24",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "True"
+                },
+                "children": []
+            },
+            "expect": ["indeterminate", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_24_Inverted",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Checkbox", "size={24}", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_24_Inverted",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "True"
+                },
+                "children": []
+            },
+            "expect": ["indeterminate", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_20",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Checkbox", "size={20}", "colors=\"default\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_20",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "True"
+                },
+                "children": []
+            },
+            "expect": ["indeterminate", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_20_Inverted",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Checkbox", "size={20}", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Checkbox_20_Inverted",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "IndeterminateState": "True"
+                },
+                "children": []
+            },
+            "expect": ["indeterminate", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"before\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24_Reverse",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"after\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24_Reverse",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"before\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24_Reverse_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"after\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel24ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_24_Reverse_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"before\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Reverse",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"after\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Reverse",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"before\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Reverse_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Checkbox", "label=\"Label\"", "position=\"after\""]
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Reverse_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "True",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Checkbox"]
+        },
+        {
+            "template": "packages/radio/code-connect/Radio24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Radio_24",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Radio", "size={24}", "colors=\"default\""]
+        },
+        {
+            "template": "packages/radio/code-connect/Radio24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Radio_24_Inverted",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Radio", "size={24}", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/radio/code-connect/Radio20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Radio_20",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Radio", "size={20}", "colors=\"default\""]
+        },
+        {
+            "template": "packages/radio/code-connect/Radio20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Radio_20_Inverted",
+                "properties": {
+                    "SelectedState": "True",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Radio", "size={20}", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_24",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Radio", "label=\"Label\""]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_24",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Radio"]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_24_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Radio", "label=\"Label\""]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_24_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True",
+                    "DisabledLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Radio"]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_20",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio20.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Radio", "label=\"Label\""]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_20",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio20.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Radio"]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_20_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Radio", "label=\"Label\""]
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_20_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Radio"]
+        },
+        {
+            "template": "packages/switch/code-connect/Switch24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Switch_24",
+                "properties": {
+                    "SelectedState": "False",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Switch", "colors=\"default\""]
+        },
+        {
+            "template": "packages/switch/code-connect/Switch24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Switch_24_Inverted",
+                "properties": {
+                    "SelectedState": "False",
+                    "DisabledState": "False"
+                },
+                "children": []
+            },
+            "expect": ["Switch", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_24",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Switch", "label=\"Label\""]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_24",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Switch"]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_Inverted",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Switch", "label=\"Label\""]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_Inverted",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Switch"]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24_Reverse",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_24",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Switch", "label=\"Label\"", "reversed"]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24_Reverse",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_24",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Switch"]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24_Reverse_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_24_Inverted",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["Switch", "label=\"Label\"", "reversed"]
+        },
+        {
+            "template": "packages/switch/code-connect/SwitchLabel24ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SwitchLabel_24_Reverse_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Switch_24_Inverted",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/switch/code-connect/Switch24Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["hint=", "Switch"]
+        },
+        {
+            "template": "packages/checkbox-group/code-connect/CheckboxGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] CheckboxGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "False"
+                },
+                "children": [],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Checkbox label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["CheckboxGroupDesktop", "direction=\"horizontal\"", "label=", "<Checkbox"],
+            "preamble": "import { Checkbox } from '@alfalab/core-components/checkbox';"
+        },
+        {
+            "template": "packages/checkbox-group/code-connect/CheckboxGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] CheckboxGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "True"
+                },
+                "children": [],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Checkbox label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["CheckboxGroupDesktop", "error="],
+            "preamble": "import { Checkbox } from '@alfalab/core-components/checkbox';"
+        },
+        {
+            "template": "packages/checkbox-group/code-connect/CheckboxGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] CheckboxGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "False"
+                },
+                "children": [],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Checkbox label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["CheckboxGroupMobile", "direction=\"horizontal\"", "label=", "<Checkbox"],
+            "preamble": "import { Checkbox } from '@alfalab/core-components/checkbox';"
+        },
+        {
+            "template": "packages/checkbox-group/code-connect/CheckboxGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] CheckboxGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "True"
+                },
+                "children": [],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Checkbox label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["CheckboxGroupMobile", "error="],
+            "preamble": "import { Checkbox } from '@alfalab/core-components/checkbox';"
+        },
+        {
+            "template": "packages/radio-group/code-connect/RadioGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] RadioGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "RadioLabel_24",
+                        "properties": {},
+                        "code": "<Radio label=\"A\" />",
+                        "metadata": {
+                            "props": {
+                                "checked": true
+                            }
+                        },
+                        "__containingSlotName__": "Items"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Radio label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["RadioGroupDesktop", "direction=\"horizontal\"", "label=", "option-1"],
+            "preamble": "import { Radio } from '@alfalab/core-components/radio';"
+        },
+        {
+            "template": "packages/radio-group/code-connect/RadioGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] RadioGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "RadioLabel_24",
+                        "properties": {},
+                        "code": "<Radio label=\"A\" />",
+                        "metadata": {
+                            "props": {
+                                "checked": true
+                            }
+                        },
+                        "__containingSlotName__": "Items"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Radio label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["RadioGroupDesktop", "error="],
+            "preamble": "import { Radio } from '@alfalab/core-components/radio';"
+        },
+        {
+            "template": "packages/radio-group/code-connect/RadioGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] RadioGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "RadioLabel_24",
+                        "properties": {},
+                        "code": "<Radio label=\"A\" />",
+                        "metadata": {
+                            "props": {
+                                "checked": true
+                            }
+                        },
+                        "__containingSlotName__": "Items"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Radio label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["RadioGroupMobile", "direction=\"horizontal\"", "label=", "option-1"],
+            "preamble": "import { Radio } from '@alfalab/core-components/radio';"
+        },
+        {
+            "template": "packages/radio-group/code-connect/RadioGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] RadioGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "RadioLabel_24",
+                        "properties": {},
+                        "code": "<Radio label=\"A\" />",
+                        "metadata": {
+                            "props": {
+                                "checked": true
+                            }
+                        },
+                        "__containingSlotName__": "Items"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Radio label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["RadioGroupMobile", "error="],
+            "preamble": "import { Radio } from '@alfalab/core-components/radio';"
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] FilterTag_Filled",
+                "properties": {
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "N",
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["FilterTagDesktop", "open", "Label: Value"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] FilterTag_Filled",
+                "properties": {
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "3",
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Label (3)"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] FilterTag_Filled",
+                "properties": {
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "N",
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["FilterTagMobile", "open", "Label: Value"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] FilterTag_Filled",
+                "properties": {
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "3",
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Label (3)"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagMutedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] FilterTag_Muted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "N",
+                    "Label": true,
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["FilterTagDesktop", "open", "Label: Value"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagMutedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] FilterTag_Muted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "3",
+                    "Label": true,
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Label (3)"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagMutedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] FilterTag_Muted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "N",
+                    "Label": true,
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["FilterTagMobile", "open", "Label: Value"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagMutedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] FilterTag_Muted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "✎ AmountItems": "3",
+                    "Label": true,
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "Chevron": "True",
+                    "ClearButton": "False",
+                    "MultipleValue": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Label (3)"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] FilterTag_Filled_Inverted",
+                "properties": {
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "Divider": true,
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "ClearButton": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["FilterTagDesktop", "open", "Label: Value"]
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] FilterTag_Filled_Inverted",
+                "properties": {
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "✎ Value": "Value",
+                    "LeftAddon": false,
+                    "Divider": true,
+                    "Size": "48",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "ClearButton": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Arrow",
+                        "properties": {
+                            "Open": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["FilterTagMobile", "open", "Label: Value"]
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] IconButton",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Icon 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["IconButtonDesktop", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] IconButton",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Spinner 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts",
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "Spinner",
+                                "properties": {},
+                                "code": "<Spinner visible preset={24} />"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "expect": ["loading", "IconButtonDesktop"],
+            "preamble": "import { Spinner } from '@alfalab/core-components/spinner';"
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] IconButton",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Icon 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["IconButtonMobile", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] IconButton",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Spinner 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts",
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "Spinner",
+                                "properties": {},
+                                "code": "<Spinner visible preset={24} />"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "expect": ["loading", "IconButtonMobile"],
+            "preamble": "import { Spinner } from '@alfalab/core-components/spinner';"
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] IconButton_Inverted",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Icon 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["IconButtonDesktop", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonInvertedDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] IconButton_Inverted",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Spinner 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts",
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "Spinner",
+                                "properties": {},
+                                "code": "<Spinner visible preset={24} />"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "expect": ["loading", "IconButtonDesktop"],
+            "preamble": "import { Spinner } from '@alfalab/core-components/spinner';"
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] IconButton_Inverted",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Icon 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts"
+                    }
+                ]
+            },
+            "expect": ["IconButtonMobile", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonInvertedMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] IconButton_Inverted",
+                "properties": {
+                    "Size": "56",
+                    "View": "Primary",
+                    "TransparentBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Icon",
+                        "properties": {
+                            "Type": "Spinner 24"
+                        },
+                        "swaps": {
+                            "Icon-24": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        },
+                        "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts",
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "Spinner",
+                                "properties": {},
+                                "code": "<Spinner visible preset={24} />"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "expect": ["loading", "IconButtonMobile"],
+            "preamble": "import { Spinner } from '@alfalab/core-components/spinner';"
+        },
+        {
+            "template": "packages/custom-button/code-connect/CustomButton.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CustomButton",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ActualContent",
+                        "path": ["Content"],
+                        "code": "<span>Custom label</span>"
+                    }
+                ]
+            },
+            "expect": ["CustomButton", "Custom label", "backgroundColor={backgroundColor}"]
+        },
+        {
+            "template": "packages/custom-button/code-connect/CustomButton.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CustomButton",
+                "properties": {
+                    "LeftAddon": false,
+                    "RightAddon": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "SwapMe",
+                        "path": ["Content"],
+                        "code": "<span>Custom label</span>"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Замени SwapMe"
+        },
+        {
+            "template": "packages/button/code-connect/ButtonMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Button",
+                "properties": {
+                    "Hint": false,
+                    "RightAddon": false,
+                    "LeftAddon": true,
+                    "Label": true,
+                    "✎ Hint": "Hint",
+                    "✎ Label": "Кнопка \"A\" <B>",
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "LeftAddon",
+                        "properties": {
+                            "Type": "SwapMe"
+                        },
+                        "slots": {
+                            "Slot": [
+                                {
+                                    "type": "CODE",
+                                    "code": "<span>Slot content</span>"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "expect": ["Slot content", "leftAddons=", "Кнопка"]
+        },
+        {
+            "template": "packages/button/code-connect/ButtonMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Button",
+                "properties": {
+                    "Hint": false,
+                    "RightAddon": false,
+                    "LeftAddon": true,
+                    "Label": true,
+                    "✎ Hint": "Hint",
+                    "✎ Label": "Label",
+                    "View": "Accent",
+                    "Size": "56",
+                    "Shape": "Rectangular",
+                    "SingleIcon": "False",
+                    "DisabledState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "LeftAddon",
+                        "properties": {
+                            "Type": "Icon-20"
+                        },
+                        "swaps": {
+                            "Icon-20": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "code": "<ActualIcon />"
+                            }
+                        }
+                    }
+                ]
+            },
+            "expect": ["Icon20Adapter", "React.cloneElement", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] Tag_Filled",
+                "properties": {
+                    "RightAddon": false,
+                    "LeftAddon": false,
+                    "Label": true,
+                    "✎ Label": "Label",
+                    "Size": "40",
+                    "Shape": "Rectangular",
+                    "SelectedState": "True",
+                    "DisabledState": "False",
+                    "SingleIcon": "True",
+                    "Indicator": "Digit",
+                    "ClearButton": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Indicator",
+                        "properties": {
+                            "✎ Value": "12"
+                        },
+                        "children": [
+                            {
+                                "type": "TEXT",
+                                "name": "Count",
+                                "textContent": "12"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "expect": ["Component={IndicatorTag}", "value: 12"]
+        },
+        {
+            "template": "packages/radio-group/code-connect/RadioGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] RadioGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Type": "Horizontal",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "RadioLabel_24",
+                        "properties": {},
+                        "code": "<Radio label=\"A\" />",
+                        "metadata": {
+                            "props": {
+                                "checked": true
+                            }
+                        },
+                        "__containingSlotName__": "Items"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "RadioLabel_24",
+                        "properties": {},
+                        "code": "<Radio label=\"B\" />",
+                        "metadata": {
+                            "props": {
+                                "checked": true
+                            }
+                        },
+                        "__containingSlotName__": "Items"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<Radio label=\"A\" />"
+                        }
+                    ]
+                }
+            },
+            "expect": [],
+            "throws": "один выбранный",
+            "preamble": "import { Radio } from '@alfalab/core-components/radio';"
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20.figma.ts"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "CompactLabel=True.*API"
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20Reverse.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Reverse",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20.figma.ts"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "CompactLabel=True.*API"
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "CompactLabel=True.*API"
+        },
+        {
+            "template": "packages/checkbox/code-connect/CheckboxLabel20ReverseInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "CheckboxLabel_20_Reverse_Inverted",
+                "properties": {
+                    "✎ Label": "Label",
+                    "✎ Hint message": "Hint Message",
+                    "✎ Error message": "Error message",
+                    "Hint": "False",
+                    "ErrorMessage": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Checkbox",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "IndeterminateState": "False"
+                        },
+                        "template": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "CompactLabel=True.*API"
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel20.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_20",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio20.figma.ts"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "CompactLabel=True.*API"
+        },
+        {
+            "template": "packages/radio/code-connect/RadioLabel20Inverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "RadioLabel_20_Inverted",
+                "properties": {
+                    "✎ Hint Message": "Hint Message",
+                    "✎ Label": "Label",
+                    "Hint": "False",
+                    "DisabledLabel": "False",
+                    "CompactLabel": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Radio",
+                        "properties": {
+                            "SelectedState": "True",
+                            "DisabledState": "False"
+                        },
+                        "template": "packages/radio/code-connect/Radio20Inverted.figma.ts"
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "CompactLabel=True.*API"
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "False",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": [
+                "mode: 'single'",
+                "mode: 'multiple'",
+                "RadioGroupDesktop type=\"tag\"",
+                "CheckboxGroupDesktop type=\"tag\"",
+                "React.useState<boolean[]>([true,false])",
+                "value: scenario.values[index]",
+                "checked: checked[index]"
+            ]
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": [
+                "React.useState<boolean[]>([true,true])",
+                "checked.filter(Boolean).length > 1"
+            ]
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["error=\"Error message\"", "RadioGroupDesktop", "CheckboxGroupDesktop"]
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "48",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagDesktop.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": [],
+            "throws": "Размер каждого Tag"
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "False",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": [
+                "mode: 'single'",
+                "mode: 'multiple'",
+                "RadioGroupMobile type=\"tag\"",
+                "CheckboxGroupMobile type=\"tag\"",
+                "React.useState<boolean[]>([true,false])",
+                "value: scenario.values[index]",
+                "checked: checked[index]"
+            ]
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": [
+                "React.useState<boolean[]>([true,true])",
+                "checked.filter(Boolean).length > 1"
+            ]
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": ["error=\"Error message\"", "RadioGroupMobile", "CheckboxGroupMobile"]
+        },
+        {
+            "template": "packages/radio-group/code-connect/TagGroupMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] TagGroup",
+                "properties": {
+                    "✎ Hint message": "Hint message",
+                    "✎ Group title": "Group title",
+                    "✎ Error message": "Error message",
+                    "Hint": true,
+                    "ErrorMessage": true,
+                    "GroupTitle": true,
+                    "Size": "40",
+                    "ErrorState": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "40",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "A"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Tag",
+                        "properties": {
+                            "Size": "48",
+                            "Shape": "Rectangular",
+                            "SelectedState": "True",
+                            "DisabledState": "False",
+                            "SingleIcon": "False",
+                            "Indicator": "Hidden",
+                            "ClearButton": "False",
+                            "LeftAddon": false,
+                            "RightAddon": false,
+                            "Label": true,
+                            "✎ Label": "B"
+                        },
+                        "__containingSlotName__": "Items",
+                        "template": "packages/tag/code-connect/TagFilledMobile.figma.ts"
+                    }
+                ],
+                "slots": {
+                    "Items": [
+                        {
+                            "type": "CODE",
+                            "code": "<span />"
+                        }
+                    ]
+                }
+            },
+            "expect": [],
+            "throws": "Размер каждого Tag"
+        }
+    ]
+}

@@ -16,6 +16,8 @@ async function main() {
             '**/*.test.ts',
             '**/*.test.tsx',
             '**/*.stories.tsx',
+            // Code Connect templates use a virtual Figma runtime, not package dependencies.
+            '**/code-connect/**',
         ],
         ignoreMatches: ['tslib'],
         parsers: {
