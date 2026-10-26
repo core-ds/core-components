@@ -5,8 +5,3 @@
 .startPosition.expanded {
     transform: rotate(90deg);
 }
-
-.startPositionPath {
-    transform: rotate(-90deg);
-    transform-origin: center;
-}
