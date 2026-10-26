@@ -17,7 +17,7 @@
         "@alfalab/core-components-link": "^7.0.3",
         "@alfalab/core-components-loader": "^5.0.2",
         "@alfalab/hooks": "^1.17.0",
-        "@alfalab/icons-glyph": "^2.260.0",
+        "@alfalab/icons-glyph": "^2.294.0",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
