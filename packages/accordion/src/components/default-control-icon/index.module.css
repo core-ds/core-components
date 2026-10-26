@@ -2,10 +2,11 @@
     transform: rotate(180deg);
 }
 
-.startPosition {
-    transform: rotate(-90deg);
+.startPosition.expanded {
+    transform: rotate(90deg);
 }
 
-.startPosition.expanded {
-    transform: rotate(0deg);
+.startPositionPath {
+    transform: rotate(-90deg);
+    transform-origin: center;
 }

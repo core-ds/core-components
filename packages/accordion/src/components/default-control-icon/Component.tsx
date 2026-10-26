@@ -19,8 +19,8 @@ export const DefaultControlIcon: FC<Props> = ({ expanded, startPosition }) => {
         <SpringTransition
             in={expanded}
             nodeRef={iconRef as unknown as RefObject<HTMLElement>}
-            enter={{ rotate: startPosition ? 0 : 180 }}
-            exit={{ rotate: startPosition ? -90 : 0 }}
+            enter={{ rotate: startPosition ? 90 : 180 }}
+            exit={{ rotate: 0 }}
             spring={{ enter: rotateSpring, exit: rotateSpring }}
         >
             {(status) => (
@@ -37,7 +37,10 @@ export const DefaultControlIcon: FC<Props> = ({ expanded, startPosition }) => {
                         [styles.startPosition]: startPosition,
                     })}
                 >
-                    <path d='M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z' />
+                    <path
+                        className={startPosition ? styles.startPositionPath : undefined}
+                        d='M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z'
+                    />
                 </svg>
             )}
         </SpringTransition>
