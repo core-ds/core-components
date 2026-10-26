@@ -34,11 +34,15 @@
     transform: translate3d(0, 0, 0);
 }
 
+.enteredBody {
+    overflow: visible;
+}
+
 .bodyContent {
     padding-top: var(--gap-12);
     opacity: 0;
-    filter: blur(2.5px);
-    transform: translateY(-10px);
+    filter: blur(2px);
+    transform: translateY(-12px);
 }
 
 .bodyContentEnter {
@@ -46,17 +50,14 @@
     filter: none;
     transform: none;
     transition:
-        opacity 280ms cubic-bezier(0.22, 1, 0.36, 1) 90ms,
-        filter 320ms cubic-bezier(0.22, 1, 0.36, 1) 110ms,
-        transform 280ms cubic-bezier(0.22, 1, 0.36, 1) 75ms;
+        opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        filter 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .bodyContentExit {
-    transform: translateY(-6px);
     transition:
-        opacity 180ms cubic-bezier(0.32, 0, 0.2, 1) 20ms,
-        filter 200ms cubic-bezier(0.32, 0, 0.2, 1),
-        transform 180ms cubic-bezier(0.32, 0, 0.2, 1) 12ms;
+        opacity 150ms cubic-bezier(0.4, 0, 1, 1),
+        filter 150ms cubic-bezier(0.4, 0, 1, 1);
 }
 
 .endPosition {

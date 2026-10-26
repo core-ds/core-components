@@ -9,7 +9,10 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { SpringHeadlessCollapse } from '@alfalab/core-components-animation-private';
+import {
+    SpringHeadlessCollapse,
+    SpringTransition,
+} from '@alfalab/core-components-animation-private';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
@@ -89,6 +92,11 @@ export type AccordionProps = {
     dataTestId?: string;
 } & AnchorHTMLAttributes<HTMLDivElement>;
 
+const spring = {
+    enter: { stiffness: 426, damping: 41, mass: 1 },
+    exit: { stiffness: 743, damping: 49, mass: 1, delay: 40 },
+};
+
 export const Accordion: FC<AccordionProps> = ({
     expanded,
     defaultExpanded = false,
@@ -113,6 +121,15 @@ export const Accordion: FC<AccordionProps> = ({
     const isStartPosition = controlPosition === 'start';
 
     const bodyRef = useRef<HTMLDivElement>(null);
+    const bodyContentRef = useRef<HTMLDivElement>(null);
+
+    const [isContentVisible, setContentVisible] = useState(isExpanded);
+
+    if (!isExpanded && isContentVisible) {
+        setContentVisible(false);
+    }
+
+    const showContent = useCallback(() => setContentVisible(true), []);
 
     const controlContent =
         control === undefined ? (
@@ -181,27 +198,39 @@ export const Accordion: FC<AccordionProps> = ({
             <SpringHeadlessCollapse
                 nodeRef={bodyRef}
                 in={isExpanded}
-                spring={{
-                    enter: { stiffness: 426, damping: 41, mass: 1 },
-                    exit: { stiffness: 743, damping: 49, mass: 1, delay: 75 },
-                }}
+                spring={spring}
+                threshold={0.35}
+                onThreshold={showContent}
             >
                 {(status) => (
                     <div
                         ref={bodyRef}
                         className={cn(styles.body, bodyClassName, {
                             [styles.expandedBody]: status !== 'exited',
+                            [styles.enteredBody]: status === 'entered',
                         })}
                     >
-                        <div
-                            className={cn(styles.bodyContent, bodyContentClassName, {
-                                [styles.bodyContentEnter]:
-                                    status === 'entering' || status === 'entered',
-                                [styles.bodyContentExit]: status === 'exiting',
-                            })}
+                        <SpringTransition
+                            in={isContentVisible}
+                            nodeRef={bodyContentRef}
+                            enter={{ y: 0 }}
+                            exit={{ y: -12 }}
+                            spring={spring}
                         >
-                            {bodyContent}
-                        </div>
+                            {(contentStatus) => (
+                                <div
+                                    ref={bodyContentRef}
+                                    className={cn(styles.bodyContent, bodyContentClassName, {
+                                        [styles.bodyContentEnter]:
+                                            contentStatus === 'entering' ||
+                                            contentStatus === 'entered',
+                                        [styles.bodyContentExit]: contentStatus === 'exiting',
+                                    })}
+                                >
+                                    {bodyContent}
+                                </div>
+                            )}
+                        </SpringTransition>
                     </div>
                 )}
             </SpringHeadlessCollapse>

@@ -19,6 +19,7 @@ import {
     transformProps,
 } from 'motion';
 
+import { findPassTime } from './find-pass-time';
 import { sampleGenerator } from './sample-generator';
 
 type ValueName = Extract<keyof StyleKeyframesDefinition, string>;
@@ -31,6 +32,7 @@ export interface AnimationTransition extends SpringOptions {
 
 export interface AnimationControls {
     finished: Promise<void>;
+    passed: (name: ValueName, value: number) => Promise<void>;
     stop: () => void;
 }
 
@@ -109,6 +111,7 @@ function createOwner(count: number) {
         stop: () => {
             stopped = true;
         },
+        active: () => !stopped,
     };
 }
 
@@ -137,6 +140,14 @@ const getValue = (element: HTMLElement, state: ElementState, name: ValueName) =>
     state.values.set(name, value);
 
     return value;
+};
+
+export const resetValue = (element: HTMLElement, name: ValueName) => {
+    const state = states.get(element);
+
+    if (state && !state.channels.has(name)) {
+        state.values.delete(name);
+    }
 };
 
 const getLatestValues = (state: ElementState) =>
@@ -304,6 +315,31 @@ export function animate(
 
     return {
         finished: owner.finished,
+        passed: (name, value) =>
+            new Promise<void>((resolve) => {
+                const channel = state.channels.get(name);
+                const settle = () => {
+                    if (owner.active()) {
+                        resolve();
+                    }
+                };
+
+                if (!channel || channel.owner !== owner) {
+                    settle();
+
+                    return;
+                }
+
+                setTimeout(
+                    settle,
+                    Math.max(
+                        0,
+                        channel.startTime +
+                            findPassTime(channel.generator, channel.duration, value) -
+                            time.now(),
+                    ),
+                );
+            }),
         stop: () => {
             const stopTime = time.now();
             const owned = Array.from(state.channels).filter(
