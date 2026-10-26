@@ -23,7 +23,7 @@
         "@alfalab/core-components-tooltip": "^9.0.22",
         "@alfalab/core-components-typography": "^6.0.13",
         "@alfalab/hooks": "^1.17.0",
-        "@alfalab/icons-glyph": "^2.260.0",
+        "@alfalab/icons-glyph": "^2.294.0",
         "classnames": "^2.5.1",
         "element-closest": "^3.0.2",
         "hls.js": "^1.5.13",
