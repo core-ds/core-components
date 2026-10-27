@@ -8,6 +8,7 @@
     padding: var(--gap-0);
     border: 0;
     cursor: pointer;
+    vertical-align: middle;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
