@@ -15,19 +15,16 @@ type Range = [from: number, to: number];
 type GeneratorOptions = ValueAnimationOptions & { type: GeneratorFactory };
 
 const springs: Array<[string, SpringOptions]> = [
-    ['пружина по умолчанию', {}],
-    ['недодемпфированная пружина', { stiffness: 300, damping: 15 }],
-    ['критически демпфированная пружина', { stiffness: 100, damping: 20 }],
-    ['передемпфированная пружина', { stiffness: 100, damping: 40, mass: 2 }],
-    ['пружина по visualDuration/bounce', { visualDuration: 0.4, bounce: 0.2 }],
-    ['пружина с начальной скоростью', { stiffness: 200, damping: 20, velocity: 1000 }],
-    [
-        'пружина с отрицательной начальной скоростью',
-        { stiffness: 400, damping: 25, velocity: -800 },
-    ],
-    ['пружина по duration/bounce', { duration: 500, bounce: 0.25 }],
-    ['пружина по duration без bounce', { duration: 800 }],
-    ['пружина по duration с длительностью, не кратной 50 и 10 мс', { duration: 526, bounce: 0 }],
+    ['default spring', {}],
+    ['underdamped spring', { stiffness: 300, damping: 15 }],
+    ['critically damped spring', { stiffness: 100, damping: 20 }],
+    ['overdamped spring', { stiffness: 100, damping: 40, mass: 2 }],
+    ['spring by visualDuration/bounce', { visualDuration: 0.4, bounce: 0.2 }],
+    ['spring with initial velocity', { stiffness: 200, damping: 20, velocity: 1000 }],
+    ['spring with negative initial velocity', { stiffness: 400, damping: 25, velocity: -800 }],
+    ['spring by duration/bounce', { duration: 500, bounce: 0.25 }],
+    ['spring by duration without bounce', { duration: 800 }],
+    ['spring by duration not divisible by 50 and 10 ms', { duration: 526, bounce: 0 }],
 ];
 
 const ranges: Range[] = [
@@ -60,9 +57,9 @@ const expectSameAsJsPath = (options: GeneratorOptions) => {
 };
 
 describe('sampleGenerator', () => {
-    describe('совпадает с JS-путём motion: JSAnimation.sample в узлах сетки generateLinearEasing', () => {
+    describe('matches motion JS path: JSAnimation.sample at generateLinearEasing grid points', () => {
         describe.each(springs)('%s', (_, options) => {
-            it.each(ranges)('из %p в %p', (from, to) => {
+            it.each(ranges)('from %p to %p', (from, to) => {
                 expectSameAsJsPath({ ...options, type: spring, keyframes: [from, to] });
             });
         });

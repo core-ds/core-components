@@ -20,13 +20,13 @@ afterEach(() => {
 });
 
 describe('getNow', () => {
-    it('совпадает с time.now()', async () => {
+    it('matches time.now()', async () => {
         await tick(1234.5678);
 
         expect(getNow()).toBe(time.now());
     });
 
-    it('кеширует значение до микротаска', async () => {
+    it('caches the value until the next microtask', async () => {
         await tick(100);
 
         expect(getNow()).toBe(100);
@@ -45,7 +45,7 @@ describe('getNow', () => {
 });
 
 describe('createValue', () => {
-    it('совпадает с motionValue по значению и скорости', async () => {
+    it('matches motionValue value and velocity', async () => {
         await tick(1234.5678);
 
         const expected = motionValue(42.5);
@@ -59,7 +59,7 @@ describe('createValue', () => {
 
 describe('setWithVelocity', () => {
     it.each([0, 5, 10, 3.3333333333333335])(
-        'скорость совпадает с motion при delta = %p',
+        'velocity matches motion with delta = %p',
         async (delta) => {
             await tick(1000);
 
@@ -80,7 +80,7 @@ describe('setWithVelocity', () => {
         [29.9, false],
         [30, false],
         [30.1, true],
-    ])('через %p мс скорость совпадает с motion (нулевая: %p)', async (elapsed, zero) => {
+    ])('velocity matches motion after %p ms (zero: %p)', async (elapsed, zero) => {
         await tick(1000);
 
         const expected = motionValue(0);
@@ -99,7 +99,7 @@ describe('setWithVelocity', () => {
 });
 
 describe('jump', () => {
-    it('сбрасывает скорость после setWithVelocity', async () => {
+    it('resets velocity after setWithVelocity', async () => {
         await tick(1000);
 
         const expected = motionValue(0);
@@ -124,12 +124,12 @@ describe('jump', () => {
     });
 });
 
-describe('цикл прерываний', () => {
+describe('interruption loop', () => {
     type Step = [prev: number, current: number, delta: number, elapsed: number];
 
     it.each<[string, Step[]]>([
         [
-            'частые прерывания',
+            'frequent interruptions',
             [
                 [0, 12.5, 10, 4.2],
                 [12.5, 20.75, 5, 8.1],
@@ -137,14 +137,14 @@ describe('цикл прерываний', () => {
             ],
         ],
         [
-            'прерывания с паузами на границе окна',
+            'interruptions with pauses at the window boundary',
             [
                 [100, 87.654321, 10, 30],
                 [87.654321, 80.1, 0, 30.1],
                 [80.1, 60.0000001, 7.25, 12.5],
             ],
         ],
-    ])('%s: совпадает с motion', async (_, steps) => {
+    ])('%s: matches motion', async (_, steps) => {
         await tick(500.123);
 
         let expected = motionValue(steps[0][0]);

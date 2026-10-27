@@ -60,7 +60,7 @@ describe('SpringTransition', () => {
         delete (HTMLElement.prototype as Partial<HTMLElement>).animate;
     });
 
-    it('запускает пружину сразу, без задержки', () => {
+    it('starts the spring immediately without delay', () => {
         const { keyframes, duration } = runEnter();
 
         expect(keyframes[0]).toBe('0px');
@@ -69,7 +69,7 @@ describe('SpringTransition', () => {
         expect(duration).toBe(springDuration);
     });
 
-    it('удерживает начальное значение на время delay', () => {
+    it('holds the initial value during delay', () => {
         const delay = 200;
         const { keyframes, duration } = runEnter({ spring: { enter: { delay } } });
 
@@ -78,7 +78,7 @@ describe('SpringTransition', () => {
         expect(duration).toBe(springDuration + delay);
     });
 
-    it('при прерывании во время delay стартует с текущего значения', () => {
+    it('starts from the current value when interrupted during delay', () => {
         const toggle = setup({ exit: { height: 50 }, spring: { enter: { delay: 200 } } });
 
         toggle(true);
