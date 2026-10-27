@@ -23,6 +23,7 @@ export interface SwipeData {
     isScrolling?: boolean;
     startMoving?: boolean;
     startTime: number | null;
+    allowClick: boolean;
 }
 
 interface SwipeListeners {
@@ -99,6 +100,7 @@ export function useSwipe<T extends Element>(
                 isTouched: false,
                 isMoved: false,
                 startTime: null,
+                allowClick: true,
             };
 
             const coords: Coords = {
@@ -161,6 +163,7 @@ export function useSwipe<T extends Element>(
                     isScrolling: undefined,
                     startMoving: undefined,
                     startTime: Date.now(),
+                    allowClick: true,
                 });
 
                 event.preventDefault();
@@ -237,6 +240,7 @@ export function useSwipe<T extends Element>(
 
                 if (!data.isMoved) {
                     data.isMoved = true;
+                    data.allowClick = false;
                 }
 
                 if (event.cancelable) {
@@ -293,8 +297,20 @@ export function useSwipe<T extends Element>(
                     isTouched: false,
                     isMoved: false,
                 });
+
+                setTimeout(() => {
+                    data.allowClick = true;
+                }, 0);
             };
 
+            const handleClick = (event: Event) => {
+                if (!data.allowClick) {
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                }
+            };
+
+            node.addEventListener('click', handleClick, true);
             node.addEventListener('touchstart', swipeStart, { passive: false });
             node.addEventListener('pointerdown', swipeStart, { passive: false });
             document.addEventListener('touchmove', swipe, {
@@ -314,6 +330,7 @@ export function useSwipe<T extends Element>(
             document.addEventListener('contextmenu', swipeStop, { passive: true });
 
             return () => {
+                node.removeEventListener('click', handleClick, true);
                 node.removeEventListener('touchstart', swipeStart);
                 node.removeEventListener('pointerdown', swipeStart);
                 document.removeEventListener('touchmove', swipe, { capture: captureEvent });

@@ -12,7 +12,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
           class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="field inner inner inner inner"
+            class="inputReject2 field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -23,7 +23,6 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                 <input
                   class="input size-48 input bold input"
                   inputmode="decimal"
-                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -44,17 +43,20 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                     <span
                       class="minorPartAndCurrency"
                     >
-                       
                       <span
-                        class="suffixCurrency"
-                      >
-                        ₽
+                        class="suffixMinor"
+                      />
+                      <span>
+                         ₽
                       </span>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
           </div>
         </div>
       </div>
@@ -68,7 +70,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
         class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="field inner inner inner inner"
+          class="inputReject2 field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -79,7 +81,6 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
               <input
                 class="input size-48 input bold input"
                 inputmode="decimal"
-                pattern="[0-9\\s\\.,]*"
                 placeholder="0 ₽"
                 type="text"
                 value=""
@@ -100,17 +101,20 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                   <span
                     class="minorPartAndCurrency"
                   >
-                     
                     <span
-                      class="suffixCurrency"
-                    >
-                      ₽
+                      class="suffixMinor"
+                    />
+                    <span>
+                       ₽
                     </span>
                   </span>
                 </div>
               </div>
             </div>
           </div>
+          <div
+            class="addons rightAddons rightAddons size-48"
+          />
         </div>
       </div>
     </div>
@@ -181,7 +185,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
           class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="field inner inner inner inner"
+            class="inputReject2 field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -192,7 +196,6 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 <input
                   class="input size-48 input bold input"
                   inputmode="decimal"
-                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -213,17 +216,20 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                     <span
                       class="minorPartAndCurrency"
                     >
-                       
                       <span
-                        class="suffixCurrency"
-                      >
-                        ₽
+                        class="suffixMinor"
+                      />
+                      <span>
+                         ₽
                       </span>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
           </div>
         </div>
       </div>
@@ -236,7 +242,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
           class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="field inner inner inner inner filled"
+            class="inputReject2 field inner inner inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -247,7 +253,6 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 <input
                   class="input size-48 input bold input"
                   inputmode="decimal"
-                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
@@ -277,17 +282,17 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                       >
                         ,67
                       </span>
-                       
-                      <span
-                        class="suffixCurrency"
-                      >
-                        $
+                      <span>
+                         $
                       </span>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
           </div>
         </div>
       </div>
@@ -301,7 +306,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
         class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="field inner inner inner inner filled"
+          class="inputReject2 field inner inner inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -312,7 +317,6 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
               <input
                 class="input size-48 input bold input"
                 inputmode="decimal"
-                pattern="[0-9\\s\\.,]*"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"
@@ -342,17 +346,17 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                     >
                       ,67
                     </span>
-                     
-                    <span
-                      class="suffixCurrency"
-                    >
-                      $
+                    <span>
+                       $
                     </span>
                   </span>
                 </div>
               </div>
             </div>
           </div>
+          <div
+            class="addons rightAddons rightAddons size-48"
+          />
         </div>
       </div>
     </div>

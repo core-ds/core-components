@@ -2,6 +2,10 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    createStorybookUrl,
+    openBrowserPage,
+    matchHtml,
+    closeBrowser,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -224,6 +228,18 @@ describe(
                     size: { width: 400, height: 60 },
                 }),
             ],
+            [
+                'sprite superapp',
+                createSpriteStorybookUrl({
+                    componentName: 'Underlay',
+                    knobs: {
+                        children: 'Content',
+                        backgroundColor: 'info',
+                        shadow: ['superapp-shadow-default', 'superapp-shadow-promo'],
+                    },
+                    size: { width: 400, height: 60 },
+                }),
+            ],
         ],
         screenshotOpts: {
             fullPage: true,
@@ -234,3 +250,35 @@ describe(
         },
     }),
 );
+
+describe('Underlay | justifyContent=between', () => {
+    it('between', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'Underlay',
+            testStory: false,
+            knobs: {
+                axis_contentProps: 'horizontal',
+                justifyContent_contentProps: 'between',
+            },
+        });
+
+        const { browser, context, page } = await openBrowserPage(pageUrl);
+
+        try {
+            await matchHtml({
+                context,
+                page,
+                expect,
+                screenshotOpts: { fullPage: true },
+                viewport: { width: 840, height: 100 },
+            });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});

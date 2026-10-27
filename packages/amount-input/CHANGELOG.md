@@ -1,5 +1,50 @@
 # @alfalab/core-components-amount-input
 
+## 9.4.0
+
+### Minor Changes
+
+<sup><time>23.10.2026</time></sup>
+
+#### [#2400](https://github.com/core-ds/core-components/pull/2400)
+
+##### AmountInput
+
+- Для пропа `view` добавлено значение `shortMinorPart`: работает как `default`, но не дополняет копейки нулями (`1,2` вместо `1,20`)
+- Для пропа `currency` добавлена поддержка `null`
+
+### Patch Changes
+
+<sup><time>23.10.2026</time></sup>
+
+#### [#2400](https://github.com/core-ds/core-components/pull/2400)
+
+##### AmountInput
+
+- Исправлено изменение значение в режиме `readOnly`
+
+## 9.3.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-input@17.2.2
+- @alfalab/core-components-number-input@4.0.15
+- @alfalab/core-components-with-suffix@6.0.16
+
+## 9.3.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-input@17.2.1
+- @alfalab/core-components-number-input@4.0.14
+- @alfalab/core-components-with-suffix@6.0.15
+
 ## 9.3.3
 
 ### Patch Changes
