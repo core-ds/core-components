@@ -1,7 +1,6 @@
 import {
     type AnyResolvedKeyframe,
     applyPxDefaults,
-    buildTransform,
     calcGeneratorDuration,
     clamp,
     getComputedStyle,
@@ -12,7 +11,6 @@ import {
     spring,
     type SpringOptions,
     type StyleKeyframesDefinition,
-    transformProps,
 } from 'motion';
 
 import { findPassTime } from './find-pass-time';
@@ -25,6 +23,7 @@ import {
     type Value,
 } from './motion-value';
 import { sampleGenerator } from './sample-generator';
+import { buildTransform, transformProps } from './transform';
 
 type ValueName = Extract<keyof StyleKeyframesDefinition, string>;
 
@@ -159,7 +158,7 @@ const getLatestValues = (state: ElementState) =>
 
 const buildKeyframe = (track: string, latest: Record<string, number>) => {
     if (track === 'transform') {
-        return buildTransform(latest, {});
+        return buildTransform(latest);
     }
 
     const keyframes: AnyResolvedKeyframe[] = [
