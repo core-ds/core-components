@@ -3,15 +3,15 @@ import React, {
     type FC,
     type KeyboardEvent,
     type ReactNode,
-    useCallback,
+    useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
 
+import { HeadlessCollapse } from '@alfalab/core-components-headless-collapse';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
-import { useMeasureHeight } from './hooks';
 import { type ControlPosition } from './typings';
 
 import styles from './index.module.css';
@@ -89,7 +89,7 @@ export type AccordionProps = {
 } & AnchorHTMLAttributes<HTMLDivElement>;
 
 export const Accordion: FC<AccordionProps> = ({
-    expanded,
+    expanded: expandedFromProps,
     defaultExpanded = false,
     header,
     control,
@@ -105,17 +105,19 @@ export const Accordion: FC<AccordionProps> = ({
     bodyContentClassName,
     ...rest
 }) => {
-    const uncontrolled = expanded === undefined;
-    const [expandedState, setExpanded] = useState(uncontrolled ? defaultExpanded : expanded);
-    const isExpanded = uncontrolled ? expandedState : expanded;
-
+    const expandedInProps = expandedFromProps !== undefined;
+    const [expanded, setExpanded] = useState(expandedFromProps ?? defaultExpanded);
     const isStartPosition = controlPosition === 'start';
+    const bodyRef = useRef<HTMLDivElement>(null);
 
-    const [contentHeight, contentRef] = useMeasureHeight();
+    // getDerivedStateFromProps
+    if (expandedInProps && expanded !== expandedFromProps) {
+        setExpanded(expandedFromProps);
+    }
 
     const controlContent =
         control === undefined ? (
-            <DefaultControlIcon expanded={isExpanded} startPosition={isStartPosition} />
+            <DefaultControlIcon expanded={expanded} startPosition={isStartPosition} />
         ) : (
             control
         );
@@ -136,13 +138,14 @@ export const Accordion: FC<AccordionProps> = ({
             children
         );
 
-    const handleExpandedChange = useCallback(() => {
-        if (uncontrolled) {
-            setExpanded(!isExpanded);
-        }
+    const handleExpandedChange = () => {
+        const nextExpanded = !expanded;
 
-        onExpandedChange?.(!isExpanded);
-    }, [isExpanded, onExpandedChange, uncontrolled]);
+        onExpandedChange?.(nextExpanded);
+        if (!expandedInProps) {
+            setExpanded(nextExpanded);
+        }
+    };
 
     const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -155,7 +158,7 @@ export const Accordion: FC<AccordionProps> = ({
             <div
                 role='button'
                 tabIndex={0}
-                aria-expanded={isExpanded}
+                aria-expanded={expanded}
                 onClick={handleExpandedChange}
                 onKeyDown={handleKeyDown}
                 className={cn(styles.container, containerClassName)}
@@ -176,15 +179,22 @@ export const Accordion: FC<AccordionProps> = ({
                     {controlContent}
                 </div>
             </div>
-
-            <div
-                className={cn(styles.body, bodyClassName, { [styles.expandedBody]: isExpanded })}
-                style={{ height: isExpanded ? contentHeight : 0 }}
-            >
-                <div className={cn(styles.bodyContent, bodyContentClassName)} ref={contentRef}>
-                    {bodyContent}
-                </div>
-            </div>
+            <HeadlessCollapse in={expanded} nodeRef={bodyRef}>
+                {(state) => (
+                    <div
+                        ref={bodyRef}
+                        className={cn(bodyClassName, {
+                            [styles.expanded]: state === 'entered',
+                            [styles.collapsing]: state === 'exiting' || state === 'entering',
+                            [styles.collapse]: state === 'exited' || state === 'entered',
+                        })}
+                    >
+                        <div className={cn(styles.bodyContent, bodyContentClassName)}>
+                            {bodyContent}
+                        </div>
+                    </div>
+                )}
+            </HeadlessCollapse>
         </div>
     );
 };
