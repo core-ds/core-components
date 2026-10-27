@@ -7,18 +7,23 @@ import {
     getComputedStyle,
     type KeyframeGenerator,
     maxGeneratorDuration,
-    type MotionValue,
-    motionValue,
     readTransformValue,
     setStyle,
     spring,
     type SpringOptions,
     type StyleKeyframesDefinition,
-    time,
     transformProps,
 } from 'motion';
 
 import { findPassTime } from './find-pass-time';
+import {
+    createValue,
+    getNow,
+    getVelocity,
+    jump,
+    setWithVelocity,
+    type Value,
+} from './motion-value';
 import { sampleGenerator } from './sample-generator';
 
 type ValueName = Extract<keyof StyleKeyframesDefinition, string>;
@@ -38,7 +43,7 @@ export interface AnimationControls {
 type Owner = ReturnType<typeof createOwner>;
 
 interface Channel {
-    value: MotionValue<number>;
+    value: Value;
     generator: KeyframeGenerator<number>;
     duration: number;
     startTime: number;
@@ -46,7 +51,7 @@ interface Channel {
 }
 
 interface ElementState {
-    values: Map<ValueName, MotionValue<number>>;
+    values: Map<ValueName, Value>;
     channels: Map<ValueName, Channel>;
     animations: Map<string, Animation>;
 }
@@ -134,7 +139,7 @@ const readValue = (element: HTMLElement, name: ValueName) =>
         : parseFloat(getComputedStyle(element, name)) || 0;
 
 const getValue = (element: HTMLElement, state: ElementState, name: ValueName) => {
-    const value = state.values.get(name) ?? motionValue(readValue(element, name));
+    const value = state.values.get(name) ?? createValue(readValue(element, name));
 
     state.values.set(name, value);
 
@@ -150,7 +155,7 @@ export const resetValue = (element: HTMLElement, name: ValueName) => {
 };
 
 const getLatestValues = (state: ElementState) =>
-    Object.fromEntries(Array.from(state.values, ([name, value]) => [name, value.get()]));
+    Object.fromEntries(Array.from(state.values, ([name, value]) => [name, value.current]));
 
 const buildKeyframe = (track: string, latest: Record<string, number>) => {
     if (track === 'transform') {
@@ -167,7 +172,7 @@ const buildKeyframe = (track: string, latest: Record<string, number>) => {
 };
 
 const complete = (state: ElementState, name: ValueName, channel: Channel) => {
-    channel.value.jump(channel.generator.next(channel.duration).value);
+    jump(channel.value, channel.generator.next(channel.duration).value);
     state.channels.delete(name);
     channel.owner.complete();
 };
@@ -190,7 +195,8 @@ const release = (state: ElementState, name: ValueName, channel: Channel, now: nu
     const delta = clamp(0, sampleDelta, sampleTime - sampleDelta);
     const current = channel.generator.next(sampleTime).value;
 
-    channel.value.setWithVelocity(
+    setWithVelocity(
+        channel.value,
         channel.generator.next(Math.max(0, sampleTime - delta)).value,
         current,
         delta,
@@ -277,7 +283,7 @@ export function animate(
     target: AnimationTarget,
     { delay = 0, ...options }: AnimationTransition = {},
 ): AnimationControls {
-    const now = time.now();
+    const now = getNow();
     const state = getState(element);
     const entries = Object.entries(target) as Array<[ValueName, number]>;
     const owner = createOwner(entries.length);
@@ -291,9 +297,9 @@ export function animate(
 
         const value = getValue(element, state, name);
         const generator: KeyframeGenerator<number> = spring({
-            velocity: value.getVelocity(),
+            velocity: getVelocity(value),
             ...options,
-            keyframes: [value.get(), to],
+            keyframes: [value.current, to],
         });
 
         state.channels.set(name, {
@@ -338,12 +344,12 @@ export function animate(
                         0,
                         channel.startTime +
                             findPassTime(channel.generator, channel.duration, value) -
-                            time.now(),
+                            getNow(),
                     ),
                 );
             }),
         stop: () => {
-            const stopTime = time.now();
+            const stopTime = getNow();
             const owned = Array.from(state.channels).filter(
                 ([, channel]) => channel.owner === owner,
             );
