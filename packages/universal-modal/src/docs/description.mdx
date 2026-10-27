@@ -3,11 +3,10 @@
 ```jsx live mobileWidth={560} mobileOnly
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [sticky, setSticky] = React.useState(false);
     const [preset, setPreset] = React.useState('1');
 
     const headerProps = {
-        sticky,
+        sticky: true,
         hasCloser: false,
         hasBackButton: false,
         headerMode: 'left',
@@ -44,7 +43,6 @@ render(() => {
     }
 
     if (preset === '8') {
-        headerProps.headerMode = 'relative';
         headerProps.hasBackButton = true;
         headerProps.subtitle = 'Subtitle';
     }
@@ -98,8 +96,6 @@ render(() => {
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
-            <Gap size={20} />
-            <Switch label='Sticky' checked={sticky} onChange={() => setSticky((prev) => !prev)} />
             <Gap size={20} />
             <SelectMobile
                 block={true}

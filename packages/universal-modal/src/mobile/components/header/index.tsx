@@ -8,6 +8,7 @@ import {
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
 
+import { type BaseHeaderNextProps } from '../../../components/base-header/types';
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
 import styles from '../../../components/base-header/index.module.css';
@@ -15,16 +16,8 @@ import styles from '../../../components/base-header/index.module.css';
 export type HeaderMobileProps = Omit<
     NavigationBarPrivateNextProps,
     'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps'
-> & {
-    closerProps?: Omit<
-        NonNullable<NavigationBarPrivateNextProps['closerProps']>,
-        'size' | 'buttonClassName'
-    >;
-    backButtonProps?: Omit<
-        NonNullable<NavigationBarPrivateNextProps['backButtonProps']>,
-        'icon' | 'size' | 'iconWrapperClassName'
-    >;
-};
+> &
+    BaseHeaderNextProps;
 
 export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {

@@ -7,6 +7,7 @@ import {
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
+import { type BaseHeaderNextProps } from '../../../components/base-header/types';
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
 import styles from '../../../components/base-header/index.module.css';
@@ -14,24 +15,21 @@ import desktopStyles from './desktop.module.css';
 
 export interface HeaderDesktopProps
     extends Omit<
-        NavigationBarPrivateProps,
-        'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle' | 'closerProps' | 'backButtonProps'
-    > {
+            NavigationBarPrivateProps,
+            | 'size'
+            | 'view'
+            | 'parentRef'
+            | 'titleSize'
+            | 'subtitle'
+            | 'closerProps'
+            | 'backButtonProps'
+        >,
+        BaseHeaderNextProps {
     /**
      * Заголовок в шапке крупного размера
      * @default false
      */
     bigTitle?: boolean;
-
-    closerProps?: Omit<
-        NonNullable<NavigationBarPrivateProps['closerProps']>,
-        'size' | 'buttonClassName'
-    >;
-
-    backButtonProps?: Omit<
-        NonNullable<NavigationBarPrivateProps['backButtonProps']>,
-        'icon' | 'size' | 'iconWrapperClassName'
-    >;
 }
 
 export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {

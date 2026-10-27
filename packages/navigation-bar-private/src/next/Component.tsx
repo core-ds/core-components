@@ -18,12 +18,6 @@ import styles from './index.module.css';
 
 const ADDONS_HEIGHT = 48;
 
-/**
- * Копия `NavigationBarPrivate` с компенсацией отступов заголовка,
- * зашитой под конкретного потребителя — мобильную шапку `universal-modal`
- * (см. `getUniversalModalTitleMargin`). Не предназначен для использования
- * другими компонентами.
- */
 export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBarPrivateNextProps>(
     (
         {
@@ -80,9 +74,8 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const hasLeftPart = Boolean(leftAddons || hasBackButton);
         const hasRightPart = Boolean(rightAddons || hasCloser);
         const hasContent = Boolean(title || children);
-        const withAnimation = Boolean(isMobile && hasLeftPart && sticky);
-        const showContentOnBot =
-            hasContent && hasLeftPart && (headerMode === 'left' || withAnimation);
+        const withAnimation = Boolean(isMobile && hasLeftPart && sticky && headerMode === 'left');
+        const showContentOnBot = hasContent && hasLeftPart && headerMode === 'left';
         const showContentOnTop = hasContent && !showContentOnBot;
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
         const showStaticContentOnBot = !withAnimation && showContentOnBot;
