@@ -10,3 +10,29 @@
         align-items: flex-start;
     }
 }
+
+.scrollHide {
+    overflow: hidden;
+    border: none;
+    display: flex;
+}
+
+.scrollable {
+    overflow: auto hidden;
+    display: flex;
+    align-items: center;
+    @mixin hidden-scrollbar;
+
+    .component,
+    .scrollControl {
+        flex-shrink: 0;
+    }
+}
+
+.scrollControl {
+    display: flex;
+
+    &:not(.show) {
+        display: none;
+    }
+}
