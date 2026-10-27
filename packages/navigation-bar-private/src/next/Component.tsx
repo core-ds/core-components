@@ -320,7 +320,6 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                     renderContent({
                         extraClassName: cn({
                             [styles.contentOnBotDesktop]: view === 'desktop',
-                            [styles.contentOnBotMobile]: isMobile,
                         }),
                         extraAlign: 'left',
                     })}

@@ -62,7 +62,7 @@
     align-self: baseline;
     box-sizing: border-box;
     min-height: 40px;
-    padding: 9px var(--gap-12) var(--gap-8);
+    padding: 9px var(--gap-8) var(--gap-8);
 
     &.withBothAddons.withBothAddons,
     &.showStaticContentOnTop.showStaticContentOnTop {
@@ -80,10 +80,6 @@
     }
 
     &.contentOnBotDesktop.contentOnBotDesktop {
-        padding-top: var(--gap-12);
-    }
-
-    &.contentOnBotMobile.contentOnBotMobile {
         padding-top: var(--gap-12);
     }
 }

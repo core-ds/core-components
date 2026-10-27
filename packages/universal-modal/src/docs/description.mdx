@@ -14,10 +14,6 @@ render(() => {
         title: 'Title',
     };
 
-    if (preset === '1') {
-        headerProps.title = null;
-    }
-
     if (preset === '2') {
         headerProps.hasCloser = true;
         headerProps.title = null;
@@ -48,6 +44,7 @@ render(() => {
     }
 
     if (preset === '8') {
+        headerProps.headerMode = 'relative';
         headerProps.hasBackButton = true;
         headerProps.subtitle = 'Subtitle';
     }
@@ -129,7 +126,9 @@ render(() => {
                 Option={BaseOption}
             />
             <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
-                <UniversalModalMobile.Header {...headerProps} onBack={() => setOpen(false)} />
+                {preset !== '1' && (
+                    <UniversalModalMobile.Header {...headerProps} onBack={() => setOpen(false)} />
+                )}
                 <UniversalModal.Content>
                     <Typography.Text tag='p'>
                         115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто

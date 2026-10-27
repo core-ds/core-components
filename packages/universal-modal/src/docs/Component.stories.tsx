@@ -232,9 +232,7 @@ export const mobile: Story = {
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
         const headerLeftAddons = boolean('header.leftAddons', false);
-        const headerBigLeftAddons = headerLeftAddons && boolean('header.bigLeftAddons', false);
         const headerRightAddons = boolean('header.rightAddons', false);
-        const headerBigRightAddons = headerRightAddons && boolean('header.bigRightAddons', false);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -256,42 +254,24 @@ export const mobile: Story = {
                             hasBackButton={hasBackButton}
                             trim={trim}
                             bottomAddons={bottomAddons}
-                            leftAddons={
-                                headerLeftAddons && (
-                                    <Fragment>
-                                        <ButtonMobile
-                                            leftAddons={<DiamondsMIcon />}
-                                            size={48}
-                                            view='secondary'
-                                        />
-                                        {headerBigLeftAddons && (
-                                            <ButtonMobile
-                                                leftAddons={<DiamondsMIcon />}
-                                                size={48}
-                                                view='secondary'
-                                            />
-                                        )}
-                                    </Fragment>
-                                )
-                            }
-                            rightAddons={
-                                headerRightAddons && (
-                                    <Fragment>
-                                        <ButtonMobile
-                                            leftAddons={<DiamondsMIcon />}
-                                            size={48}
-                                            view='secondary'
-                                        />
-                                        {headerBigRightAddons && (
-                                            <ButtonMobile
-                                                leftAddons={<DiamondsMIcon />}
-                                                size={48}
-                                                view='secondary'
-                                            />
-                                        )}
-                                    </Fragment>
-                                )
-                            }
+                            {...(headerLeftAddons && {
+                                leftAddons: (
+                                    <ButtonMobile
+                                        leftAddons={<DiamondsMIcon />}
+                                        size={48}
+                                        view='secondary'
+                                    />
+                                ),
+                            })}
+                            {...(headerRightAddons && {
+                                rightAddons: (
+                                    <ButtonMobile
+                                        leftAddons={<DiamondsMIcon />}
+                                        size={48}
+                                        view='secondary'
+                                    />
+                                ),
+                            })}
                         />
                     )}
                     <UniversalModalMobile.Content>

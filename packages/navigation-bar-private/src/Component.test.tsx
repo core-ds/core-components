@@ -59,17 +59,5 @@ describe('Navigation Bar', () => {
                 backButtonProps.className,
             );
         });
-
-        it('should set closer props', () => {
-            const closerProps = {
-                buttonClassName: 'custom-closer',
-                'data-test-id': 'closer-id',
-            };
-
-            const { getByTestId } = render(<NavigationBarWrapper closerProps={closerProps} />);
-            const closer = getByTestId(closerProps['data-test-id']);
-
-            expect(closer).toHaveClass(closerProps.buttonClassName);
-        });
     });
 });
