@@ -1,5 +1,14 @@
 # @alfalab/core-components-masked-input
 
+## 8.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-input@17.2.3
+
 ## 8.0.16
 
 ### Patch Changes
