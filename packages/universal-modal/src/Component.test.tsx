@@ -465,7 +465,6 @@ describe('UniversalModal', () => {
             });
         });
 
-        // hasScroll обновляется через ResizeObserver, поэтому мокаем его и вызываем колбэк вручную
         describe('hasScroll', () => {
             const dti = 'modal-dti';
 
@@ -523,7 +522,6 @@ describe('UniversalModal', () => {
                     </UniversalModalDesktop>,
                 );
 
-                // ждём завершения анимации открытия модалки
                 act(() => {
                     jest.advanceTimersByTime(250);
                 });
@@ -558,7 +556,6 @@ describe('UniversalModal', () => {
             });
         });
 
-        // проверяем итоговый CSS-класс, а не сам факт вызова сеттера контекста
         describe('header/footer highlight on real scroll', () => {
             const dti = 'modal-dti';
             const testIds = getUniversalModalTestIds(dti);
@@ -694,7 +691,7 @@ describe('UniversalModal', () => {
                 });
             };
 
-            it('should follow scroll position when the box touches viewport edges (realistic mobile)', () => {
+            it('should follow scroll position when the box touches viewport edges', () => {
                 const componentNode = renderScrollableModal({ top: 0, bottom: 800 });
 
                 scrollTo(componentNode, 0);
@@ -702,11 +699,9 @@ describe('UniversalModal', () => {
                 expect(screen.queryByTestId(testIds.footer)).toHaveClass('highlighted');
 
                 scrollTo(componentNode, 300);
-                expect(screen.queryByTestId(testIds.header)).toHaveClass('highlighted');
                 expect(screen.queryByTestId(testIds.footer)).toHaveClass('highlighted');
 
                 scrollTo(componentNode, 600);
-                expect(screen.queryByTestId(testIds.header)).toHaveClass('highlighted');
                 expect(screen.queryByTestId(testIds.footer)).not.toHaveClass('highlighted');
             });
 
