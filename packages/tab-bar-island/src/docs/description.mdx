@@ -1,31 +1,28 @@
 ## Примеры
 
-```jsx live mobileOnly mobileHeight={214}
+```jsx live mobileOnly mobileHeight={198}
 render(() => {
     const [tabCount, setTabCount] = React.useState(2);
+    const handleTabCountChange = (_, payload) => {
+        setTabCount(payload.value);
+    };
 
     return (
         <React.Fragment>
-            <Typography.Text view='component-secondary' color='secondary' tag='p'>
-                Количество табов
-            </Typography.Text>
-            <Gap size={12} />
-            {[2, 3, 4, 5].map((count, index, arr) => (
-                <React.Fragment key={index}>
-                    <TagMobile
-                        view='filled'
-                        shape='rectangular'
-                        size={32}
-                        checked={tabCount === count}
-                        onClick={() => {
-                            setTabCount(count);
-                        }}
-                    >
+            <RadioGroupMobile
+                label='Количество табов'
+                type='tag'
+                direction='horizontal'
+                value={tabCount}
+                onChange={handleTabCountChange}
+                name='tabCount'
+            >
+                {[2, 3, 4, 5].map((count, index, arr) => (
+                    <TagMobile view='filled' shape='rectangular' size={32} value={count}>
                         {`${count}`}
                     </TagMobile>
-                    {index < arr.length - 1 && <Gap size={8} direction='horizontal' />}
-                </React.Fragment>
-            ))}
+                ))}
+            </RadioGroupMobile>
             <Gap size={32} />
             <div
                 style={{
@@ -99,7 +96,7 @@ render(() => {
 
 Трэйлинг используется, как кнопка, для открытия другого экрана/шторки.
 
-```jsx live mobileOnly mobileHeight={372}
+```jsx live mobileOnly mobileHeight={368}
 const IconComponent = ({ style, children, ...restProps }) => (
     <div {...restProps} style={{ ...style, width: 48 }}>
         {children}
@@ -107,6 +104,9 @@ const IconComponent = ({ style, children, ...restProps }) => (
 );
 render(() => {
     const [tabCount, setTabCount] = React.useState(2);
+    const handleTabCountChange = (_, payload) => {
+        setTabCount(payload.value);
+    };
     const [trailing, setTrailing] = React.useState(1);
     const handleTrailingChange = (_, payload) => {
         setTrailing(Number(payload.value));
@@ -114,25 +114,20 @@ render(() => {
 
     return (
         <React.Fragment>
-            <Typography.Text view='component-secondary' color='secondary' tag='p'>
-                Количество табов
-            </Typography.Text>
-            {[0, 2, 3, 4].map((count, index, arr) => (
-                <React.Fragment key={index}>
-                    <TagMobile
-                        view='filled'
-                        shape='rectangular'
-                        size={32}
-                        checked={tabCount === count}
-                        onClick={() => {
-                            setTabCount(count);
-                        }}
-                    >
+            <RadioGroupMobile
+                label='Количество табов'
+                type='tag'
+                direction='horizontal'
+                value={tabCount}
+                onChange={handleTabCountChange}
+                name='tabCount'
+            >
+                {[0, 2, 3, 4].map((count, index, arr) => (
+                    <TagMobile view='filled' shape='rectangular' size={32} value={count}>
                         {`${count}`}
                     </TagMobile>
-                    {index < arr.length - 1 && <Gap size={8} direction='horizontal' />}
-                </React.Fragment>
-            ))}
+                ))}
+            </RadioGroupMobile>
             <Gap size={24} />
             <RadioGroupMobile
                 label='Трейлинг-таб'
