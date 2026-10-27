@@ -1,5 +1,21 @@
 # @alfalab/core-components-bank-card
 
+## 7.0.18
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.17
+
 ## 7.0.17
 
 ### Patch Changes

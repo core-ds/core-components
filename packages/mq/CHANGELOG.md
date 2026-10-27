@@ -1,5 +1,13 @@
 # @alfalab/core-components-mq
 
+## 6.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+
 ## 6.0.9
 
 ### Patch Changes
