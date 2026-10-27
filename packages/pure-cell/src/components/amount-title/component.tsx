@@ -10,7 +10,7 @@ import { type AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellAmountTitleProps = {
     /**
      * Пропсы, которые будут прокинуты в компонент типографики
      */
@@ -28,7 +28,7 @@ type Props = {
     dataTestId?: string;
 } & Omit<AmountType, 'dataTestId'>;
 
-export const AmountTitle: React.FC<Props> = ({
+export const AmountTitle: React.FC<PureCellAmountTitleProps> = ({
     minority,
     minorUnits = 100,
     hidden,
