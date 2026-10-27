@@ -9,7 +9,6 @@ import {
     maxGeneratorDuration,
     type MotionValue,
     motionValue,
-    NativeAnimation,
     readTransformValue,
     setStyle,
     spring,
@@ -49,7 +48,7 @@ interface Channel {
 interface ElementState {
     values: Map<ValueName, MotionValue<number>>;
     channels: Map<ValueName, Channel>;
-    animations: Map<string, NativeAnimation<AnyResolvedKeyframe>>;
+    animations: Map<string, Animation>;
 }
 
 const sampleDelta = 10;
@@ -240,22 +239,25 @@ const render = (element: HTMLElement, state: ElementState, track: string, now: n
         return buildKeyframe(track, latest);
     });
 
-    const animation = new NativeAnimation<AnyResolvedKeyframe>({
-        element,
-        name: track,
-        keyframes,
+    const animation = element.animate({ [track]: keyframes } as PropertyIndexedKeyframes, {
+        delay: 0,
         duration,
-        ease: 'linear',
-        onComplete: () => {
-            state.animations.delete(track);
-            state.channels.forEach((channel, name) => {
-                if (getTrack(name) === track) {
-                    complete(state, name, channel);
-                }
-            });
-        },
+        easing: 'linear',
+        fill: 'both',
+        iterations: 1,
+        direction: 'normal',
     });
 
+    animation.onfinish = () => {
+        setStyle(element, track, keyframes[keyframes.length - 1]);
+        animation.cancel();
+        state.animations.delete(track);
+        state.channels.forEach((channel, name) => {
+            if (getTrack(name) === track) {
+                complete(state, name, channel);
+            }
+        });
+    };
     animation.startTime = now;
     state.animations.set(track, animation);
     previous?.cancel();
