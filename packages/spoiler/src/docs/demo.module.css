@@ -1,0 +1,18 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.story {
+    min-height: 100vh;
+    background: var(--color-light-base-bg-secondary);
+}
+
+.demo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-24);
+    padding: var(--gap-24);
+}
+
+.value {
+    font-variant-numeric: tabular-nums;
+}
