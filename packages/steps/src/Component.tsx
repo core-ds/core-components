@@ -333,12 +333,14 @@ export const Steps: React.FC<StepsProps> = ({
             </div>
             <div className={cn(styles.scrollControl, { [styles.show]: showScrollControl })}>
                 <IconButtonDesktop
+                    view='secondary'
                     size={40}
                     icon={ChevronLeftCompactSIcon}
                     onClick={scrollToStart}
                     disabled={scrollPosition?.isStart}
                 />
                 <IconButtonDesktop
+                    view='secondary'
                     size={40}
                     icon={ChevronRightCompactSIcon}
                     onClick={scrollToEnd}
