@@ -105,6 +105,7 @@ describe('Confirmation', () => {
         it('should render passed texts on INITIAL screen', async () => {
             const texts = {
                 title: 'Title',
+                subtitle: 'SubTitle',
                 linkToHint: 'Link',
                 codeError: 'Code error',
                 codeErrorExpired: 'Code error expired',
@@ -119,6 +120,7 @@ describe('Confirmation', () => {
             const { getByText, rerender } = render(<ConfirmationDesktop {...props} />);
 
             expect(getByText(texts.title)).toBeInTheDocument();
+            expect(getByText(texts.subtitle)).toBeInTheDocument();
             expect(getByText(texts.linkToHint)).toBeInTheDocument();
 
             rerender(<ConfirmationDesktop {...props} state='CODE_CHECKING' />);

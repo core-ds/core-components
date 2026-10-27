@@ -178,7 +178,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 {texts.title}
             </Header>
 
-            {phone ? (
+            {phone || texts.subtitle ? (
                 <TypographyText
                     view='primary-medium'
                     color='primary'
@@ -188,20 +188,24 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.phoneMobile]: mobile,
                     })}
                 >
-                    <span
-                        className={cn(styles.phoneLabel, {
-                            [styles.phoneLabelMobile]: mobile,
-                        })}
-                    >
-                        Отправили на{'\u00A0'}
-                    </span>
-                    <span
-                        className={cn(styles.phoneNumber, {
-                            [styles.phoneNumberMobile]: mobile,
-                        })}
-                    >
-                        {phone}
-                    </span>
+                    {texts.subtitle || (
+                        <React.Fragment>
+                            <span
+                                className={cn(styles.phoneLabel, {
+                                    [styles.phoneLabelMobile]: mobile,
+                                })}
+                            >
+                                Отправили на{'\u00A0'}
+                            </span>
+                            <span
+                                className={cn(styles.phoneNumber, {
+                                    [styles.phoneNumberMobile]: mobile,
+                                })}
+                            >
+                                {phone}
+                            </span>
+                        </React.Fragment>
+                    )}
                 </TypographyText>
             ) : null}
             <ComponentCodeInput
