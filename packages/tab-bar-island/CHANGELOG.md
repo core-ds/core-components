@@ -1,5 +1,15 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.3.2
+
+### Patch Changes
+
+<sup><time>28.10.2026</time></sup>
+
+#### [#2432](https://github.com/core-ds/core-components/pull/2432)
+
+- Исправлено отсутствие подписи элементов для маленьких размеров экрана
+
 ## 0.3.1
 
 ### Patch Changes
