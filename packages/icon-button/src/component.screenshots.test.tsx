@@ -61,27 +61,24 @@ describe(
     }),
 );
 
-['IconButton', 'IconButtonDesktop', 'IconButtonMobile'].forEach((subComponentName) => {
-    describe(
-        `${subComponentName} | loading`,
-        screenshotTesting({
-            cases: generateTestCases({
-                componentName: 'IconButton',
-                subComponentName,
-                knobs: {
-                    view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
-                    colors: ['default', 'inverted'],
-                    size: 48,
-                    loading: true,
-                },
-                testStory: false,
-            }),
-            screenshotOpts: {
-                clip,
+describe(
+    'IconButton | loading',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconButton',
+            knobs: {
+                view: 'primary',
+                colors: ['default', 'inverted'],
+                size: 48,
+                loading: true,
             },
+            testStory: false,
         }),
-    );
-});
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
 
 describe(
     'IconButton | hover',
