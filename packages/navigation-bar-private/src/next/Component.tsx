@@ -11,7 +11,7 @@ import { BackArrowAddon } from '../components/back-arrow-addon';
 import { Closer } from '../components/closer';
 import { type ContentParams } from '../types';
 
-import { getUniversalModalTitleMargin } from './get-title-margin';
+import { getCenteredContentMargin, getUniversalModalTitleMargin } from './get-title-margin';
 import { type NavigationBarPrivateNextProps } from './types';
 
 import styles from './index.module.css';
@@ -46,7 +46,6 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             onClose,
             view,
             scrollableParentRef,
-            sticky,
             onBack,
             dataName,
             titleClassName,
@@ -74,7 +73,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const hasLeftPart = Boolean(leftAddons || hasBackButton);
         const hasRightPart = Boolean(rightAddons || hasCloser);
         const hasContent = Boolean(title || children);
-        const withAnimation = Boolean(isMobile && hasLeftPart && sticky && headerMode === 'left');
+        const withAnimation = Boolean(isMobile && hasLeftPart && headerMode === 'left');
         const showContentOnBot = hasContent && hasLeftPart && headerMode === 'left';
         const showContentOnTop = hasContent && !showContentOnBot;
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
@@ -85,6 +84,9 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const headerPaddingTop = mainLinePaddingTopRef.current;
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
+            const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
+            const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
+
             const { contentMargin, mainLineMargin: nextMainLineMargin } =
                 getUniversalModalTitleMargin({
                     headerMode,
@@ -92,15 +94,19 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                     hasCloser: Boolean(hasCloser),
                     hasLeftAddons: Boolean(leftAddons),
                     hasRightAddons: Boolean(rightAddons),
-                    leftAddonsWidth: leftAddonsRef.current?.offsetWidth || 0,
-                    rightAddonsWidth: rightAddonsRef.current?.offsetWidth || 0,
+                    leftAddonsWidth,
+                    rightAddonsWidth,
                 });
+
+            const nextContentMargin = showAnimatedContentOnTop
+                ? getCenteredContentMargin(leftAddonsWidth, rightAddonsWidth)
+                : contentMargin;
 
             setTitleMargin((prev) => {
                 const isStateChanged =
-                    prev.left !== contentMargin.left || prev.right !== contentMargin.right;
+                    prev.left !== nextContentMargin.left || prev.right !== nextContentMargin.right;
 
-                return isStateChanged ? contentMargin : prev;
+                return isStateChanged ? nextContentMargin : prev;
             });
 
             setMainLineMargin((prev) => {

@@ -15,17 +15,17 @@ import styles from '../../../components/base-header/index.module.css';
 
 export type HeaderMobileProps = Omit<
     NavigationBarPrivateNextProps,
-    'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps'
+    'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps' | 'sticky'
 > &
     BaseHeaderNextProps;
 
+// TODO новый компонет шапки
 export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {
         className,
         children,
         contentClassName,
         title,
-        sticky,
         dataTestId,
         bottomAddonsClassName,
         onClose,
@@ -46,10 +46,8 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
             {...restProps}
             view='mobile'
             dataTestId={getDataTestId(dataTestId, 'header')}
-            sticky={sticky}
             title={title}
-            className={cn(styles.header, className, {
-                [styles.sticky]: sticky,
+            className={cn(styles.header, styles.sticky, className, {
                 [styles.hasContent]: hasContent,
             })}
             contentClassName={cn(contentClassName)}

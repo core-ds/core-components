@@ -16,6 +16,17 @@ export type TitleMarginResult = {
 /** Фиксированная ширина одного control-элемента (closer/back button), см. их CSS. */
 const CONTROL_WIDTH = 48;
 
+export const getCenteredContentMargin = (
+    leftAddonsWidth: number,
+    rightAddonsWidth: number,
+): TitleMarginResult['contentMargin'] => {
+    const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
+
+    return rightAddonsWidth > leftAddonsWidth
+        ? { left: marginSize, right: 0 }
+        : { left: 0, right: marginSize };
+};
+
 /**
  * Компенсирует смещение заголовка шапки, когда левый блок (кнопка "назад" +
  * leftAddons) и правый блок (rightAddons + closer) не симметричны по ширине.

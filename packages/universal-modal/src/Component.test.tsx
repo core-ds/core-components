@@ -657,7 +657,7 @@ describe('UniversalModal', () => {
             const renderScrollableModal = (rect: { top: number; bottom: number }) => {
                 render(
                     <UniversalModalMobile dataTestId={dti} open={true}>
-                        <UniversalModalMobile.Header dataTestId={dti} sticky={true}>
+                        <UniversalModalMobile.Header dataTestId={dti}>
                             Header
                         </UniversalModalMobile.Header>
                         <UniversalModalMobile.Content dataTestId={dti}>
