@@ -61,6 +61,27 @@ describe(
     }),
 );
 
+['IconButton', 'IconButtonDesktop', 'IconButtonMobile'].forEach((subComponentName) => {
+    describe(
+        `${subComponentName} | loading`,
+        screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'IconButton',
+                subComponentName,
+                knobs: {
+                    view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
+                    colors: ['default', 'inverted'],
+                    loading: true,
+                },
+                testStory: false,
+            }),
+            screenshotOpts: {
+                clip,
+            },
+        }),
+    );
+});
+
 describe(
     'IconButton | hover',
     screenshotTesting({
