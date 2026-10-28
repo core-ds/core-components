@@ -1,5 +1,14 @@
 # @alfalab/core-components-system-message
 
+## 4.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-mq@6.0.10
+
 ## 4.0.10
 
 ### Patch Changes

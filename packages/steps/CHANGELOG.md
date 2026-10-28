@@ -1,5 +1,25 @@
 # @alfalab/core-components-steps
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2408](https://github.com/core-ds/core-components/pull/2408)
+
+##### Steps
+
+- Добавлен скролл для горизонатльных шагов
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-status-badge@3.0.3
+- @alfalab/core-components-icon-button@8.0.13
+
 ## 3.0.11
 
 ### Patch Changes

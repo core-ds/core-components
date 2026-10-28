@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.5.0
+
+### Minor Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2408](https://github.com/core-ds/core-components/pull/2408)
+
+##### Vars
+
+- Добавлен mixin `hidden-scrollbar` для скрытия полосы скролла
+
 ## 11.4.1
 
 ### Patch Changes

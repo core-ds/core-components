@@ -67,6 +67,20 @@ render(() => {
 });
 ```
 
+Горизонтальный со стрелками.
+
+```jsx live desktopOnly
+render(() => {
+    return (
+        <Steps defaultActiveStep={2} scrollable={true} ordered={false}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, key) => (
+                <div key={key}>Шаг {item}</div>
+            ))}
+        </Steps>
+    );
+});
+```
+
 Вертикальный.
 
 ```jsx live mobileHeight={560}

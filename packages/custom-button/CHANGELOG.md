@@ -1,5 +1,13 @@
 # @alfalab/core-components-custom-button
 
+## 5.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.5
+
 ## 5.0.13
 
 ### Patch Changes
