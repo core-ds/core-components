@@ -71,6 +71,7 @@ describe(
                 knobs: {
                     view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                     colors: ['default', 'inverted'],
+                    size: 48,
                     loading: true,
                 },
                 testStory: false,
