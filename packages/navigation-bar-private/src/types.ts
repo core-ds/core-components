@@ -94,7 +94,7 @@ export type NavigationBarPrivateProps = {
 
     /**
      * Обрезать заголовок
-     * @deafult true
+     * @default true
      */
     trim?: boolean;
 
