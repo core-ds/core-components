@@ -131,7 +131,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             const handleScroll = (ev: Event) => {
                 const divElement = ev.target as HTMLDivElement;
 
-                setScrollTop(divElement.scrollTop);
+                setScrollTop(Math.min(Math.max(divElement.scrollTop, 0), ADDONS_HEIGHT * 2));
             };
 
             if (withAnimation && headerRef.current) {
