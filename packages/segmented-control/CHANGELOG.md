@@ -1,5 +1,29 @@
 # @alfalab/core-components-segmented-control
 
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2391](https://github.com/core-ds/core-components/pull/2391)
+
+##### SegmentedControl
+
+- Изменены скругления и типографика компонента
+- Добавлен размер `48`
+- Добавлен пропс `view` (`'default' | 'muted'`, по умолчанию `'default'`)
+- Добавлен пропс `segmentWidth` (`'equal' | 'content'`, по умолчанию `'equal'`). В режиме `content` ширина сегментов подстраивается под контент
+- Добавлены пропсы `leftAddons` и `rightAddons` у `Segment` для отображения элементов слева и справа от заголовка
+- Исправлено отображение скелетона при `colors='inverted'`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.6
+- @alfalab/core-components-shared@2.4.0
+
 ## 3.1.6
 
 ### Patch Changes

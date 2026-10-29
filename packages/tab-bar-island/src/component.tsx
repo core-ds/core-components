@@ -19,7 +19,10 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
     iconAnimation = true,
     showSkeleton,
 }) => (
-    <div className={cn(styles.component, className)}>
+    <div
+        className={cn(styles.component, className)}
+        data-items-count={items.length + (trailingAddon ? 1 : 0)}
+    >
         {showSkeleton ? (
             <TabBarIslandSkeleton gap={gap} />
         ) : (

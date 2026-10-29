@@ -9,14 +9,14 @@
         "paths": {
             "@alfalab/core-components-accordion": ["./src"],
             "@alfalab/core-components-accordion/*": ["./src/*"],
-            "@alfalab/core-components-animation-private": ["../animation-private/src"],
-            "@alfalab/core-components-animation-private/*": ["../animation-private/src/*"],
+            "@alfalab/core-components-headless-collapse": ["../headless-collapse/src"],
+            "@alfalab/core-components-headless-collapse/*": ["../headless-collapse/src/*"],
             "@alfalab/core-components-typography": ["../typography/src"],
             "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
     },
     "references": [
-        { "path": "../animation-private/tsconfig.build.json" },
+        { "path": "../headless-collapse/tsconfig.build.json" },
         { "path": "../typography/tsconfig.build.json" }
     ]
 }

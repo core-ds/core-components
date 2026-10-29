@@ -3,16 +3,12 @@ import React, {
     type FC,
     type KeyboardEvent,
     type ReactNode,
-    useCallback,
     useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
 
-import {
-    SpringHeadlessCollapse,
-    SpringTransition,
-} from '@alfalab/core-components-animation-private';
+import { HeadlessCollapse } from '@alfalab/core-components-headless-collapse';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
@@ -92,13 +88,8 @@ export type AccordionProps = {
     dataTestId?: string;
 } & AnchorHTMLAttributes<HTMLDivElement>;
 
-const spring = {
-    enter: { stiffness: 426, damping: 41, mass: 1 },
-    exit: { stiffness: 743, damping: 49, mass: 1, delay: 40 },
-};
-
 export const Accordion: FC<AccordionProps> = ({
-    expanded,
+    expanded: expandedFromProps,
     defaultExpanded = false,
     header,
     control,
@@ -114,26 +105,19 @@ export const Accordion: FC<AccordionProps> = ({
     bodyContentClassName,
     ...rest
 }) => {
-    const uncontrolled = expanded === undefined;
-    const [expandedState, setExpanded] = useState(uncontrolled ? defaultExpanded : expanded);
-    const isExpanded = uncontrolled ? expandedState : expanded;
-
+    const expandedInProps = expandedFromProps !== undefined;
+    const [expanded, setExpanded] = useState(expandedFromProps ?? defaultExpanded);
     const isStartPosition = controlPosition === 'start';
-
     const bodyRef = useRef<HTMLDivElement>(null);
-    const bodyContentRef = useRef<HTMLDivElement>(null);
 
-    const [isContentVisible, setContentVisible] = useState(isExpanded);
-
-    if (!isExpanded && isContentVisible) {
-        setContentVisible(false);
+    // getDerivedStateFromProps
+    if (expandedInProps && expanded !== expandedFromProps) {
+        setExpanded(expandedFromProps);
     }
-
-    const showContent = useCallback(() => setContentVisible(true), []);
 
     const controlContent =
         control === undefined ? (
-            <DefaultControlIcon expanded={isExpanded} startPosition={isStartPosition} />
+            <DefaultControlIcon expanded={expanded} startPosition={isStartPosition} />
         ) : (
             control
         );
@@ -154,13 +138,14 @@ export const Accordion: FC<AccordionProps> = ({
             children
         );
 
-    const handleExpandedChange = useCallback(() => {
-        if (uncontrolled) {
-            setExpanded(!isExpanded);
-        }
+    const handleExpandedChange = () => {
+        const nextExpanded = !expanded;
 
-        onExpandedChange?.(!isExpanded);
-    }, [isExpanded, onExpandedChange, uncontrolled]);
+        onExpandedChange?.(nextExpanded);
+        if (!expandedInProps) {
+            setExpanded(nextExpanded);
+        }
+    };
 
     const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -173,7 +158,7 @@ export const Accordion: FC<AccordionProps> = ({
             <div
                 role='button'
                 tabIndex={0}
-                aria-expanded={isExpanded}
+                aria-expanded={expanded}
                 onClick={handleExpandedChange}
                 onKeyDown={handleKeyDown}
                 className={cn(styles.container, containerClassName)}
@@ -194,46 +179,22 @@ export const Accordion: FC<AccordionProps> = ({
                     {controlContent}
                 </div>
             </div>
-
-            <SpringHeadlessCollapse
-                nodeRef={bodyRef}
-                in={isExpanded}
-                spring={spring}
-                threshold={0.35}
-                onThreshold={showContent}
-            >
-                {(status) => (
+            <HeadlessCollapse in={expanded} nodeRef={bodyRef}>
+                {(state) => (
                     <div
                         ref={bodyRef}
-                        className={cn(styles.body, bodyClassName, {
-                            [styles.expandedBody]: status !== 'exited',
-                            [styles.enteredBody]: status === 'entered',
+                        className={cn(bodyClassName, {
+                            [styles.expanded]: state === 'entered',
+                            [styles.collapsing]: state === 'exiting' || state === 'entering',
+                            [styles.collapse]: state === 'exited' || state === 'entered',
                         })}
                     >
-                        <SpringTransition
-                            in={isContentVisible}
-                            nodeRef={bodyContentRef}
-                            enter={{ y: 0 }}
-                            exit={{ y: -12 }}
-                            spring={spring}
-                        >
-                            {(contentStatus) => (
-                                <div
-                                    ref={bodyContentRef}
-                                    className={cn(styles.bodyContent, bodyContentClassName, {
-                                        [styles.bodyContentEnter]:
-                                            contentStatus === 'entering' ||
-                                            contentStatus === 'entered',
-                                        [styles.bodyContentExit]: contentStatus === 'exiting',
-                                    })}
-                                >
-                                    {bodyContent}
-                                </div>
-                            )}
-                        </SpringTransition>
+                        <div className={cn(styles.bodyContent, bodyContentClassName)}>
+                            {bodyContent}
+                        </div>
                     </div>
                 )}
-            </SpringHeadlessCollapse>
+            </HeadlessCollapse>
         </div>
     );
 };

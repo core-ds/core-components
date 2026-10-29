@@ -6,8 +6,7 @@ exports[`Collapse Display tests should display childrens correctly 1`] = `
     class="collapse"
   >
     <div
-      class="content"
-      style="height: 0px;"
+      class="collapsed"
     >
       <div>
         <p
@@ -61,8 +60,7 @@ exports[`Collapse Display tests should display one child correctly 1`] = `
     class="collapse"
   >
     <div
-      class="content"
-      style="height: 0px;"
+      class="collapsed"
     >
       <div>
         test text
