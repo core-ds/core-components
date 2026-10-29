@@ -175,12 +175,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     };
 
     const renderSubtitle = () => {
-        if (texts.subtitle) {
-            return texts.subtitle;
-        }
-
-        if (phone) {
-            return (
+        return (
+            texts.subtitle ||
+            (phone && (
                 <Fragment>
                     <span
                         className={cn(styles.phoneLabel, {
@@ -197,10 +194,8 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         {phone}
                     </span>
                 </Fragment>
-            );
-        }
-
-        return null;
+            ))
+        );
     };
 
     const subtitle = renderSubtitle();
