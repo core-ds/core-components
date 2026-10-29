@@ -250,6 +250,18 @@ describe('Confirmation', () => {
             expect(getByText(phone).parentElement).toHaveTextContent(`Отправили на ${phone}`);
         });
 
+        it('should render subtitle instead of phone when both are passed', () => {
+            const phone = '+0 (000) 000 00 00';
+            const subtitle = 'Custom subtitle';
+
+            const { getByText, queryByText } = render(
+                <ConfirmationDesktop {...baseProps} phone={phone} texts={{ subtitle }} />,
+            );
+
+            expect(getByText(subtitle)).toBeInTheDocument();
+            expect(queryByText(phone)).not.toBeInTheDocument();
+        });
+
         it('should render with custom title tag', () => {
             const { container } = render(<ConfirmationDesktop {...baseProps} titleTag='h1' />);
 

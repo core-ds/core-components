@@ -1,4 +1,12 @@
-import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, {
+    type FC,
+    Fragment,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -166,6 +174,37 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         );
     };
 
+    const renderSubtitle = () => {
+        if (texts.subtitle) {
+            return texts.subtitle;
+        }
+
+        if (phone) {
+            return (
+                <Fragment>
+                    <span
+                        className={cn(styles.phoneLabel, {
+                            [styles.phoneLabelMobile]: mobile,
+                        })}
+                    >
+                        Отправили на{'\u00A0'}
+                    </span>
+                    <span
+                        className={cn(styles.phoneNumber, {
+                            [styles.phoneNumberMobile]: mobile,
+                        })}
+                    >
+                        {phone}
+                    </span>
+                </Fragment>
+            );
+        }
+
+        return null;
+    };
+
+    const subtitle = renderSubtitle();
+
     const processing = ['CODE_CHECKING', 'CODE_SENDING'].includes(state);
 
     const timePassed = timeLeft === 0;
@@ -178,7 +217,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 {texts.title}
             </Header>
 
-            {phone || texts.subtitle ? (
+            {subtitle && (
                 <TypographyText
                     view='primary-medium'
                     color='primary'
@@ -188,26 +227,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.phoneMobile]: mobile,
                     })}
                 >
-                    {texts.subtitle || (
-                        <React.Fragment>
-                            <span
-                                className={cn(styles.phoneLabel, {
-                                    [styles.phoneLabelMobile]: mobile,
-                                })}
-                            >
-                                Отправили на{'\u00A0'}
-                            </span>
-                            <span
-                                className={cn(styles.phoneNumber, {
-                                    [styles.phoneNumberMobile]: mobile,
-                                })}
-                            >
-                                {phone}
-                            </span>
-                        </React.Fragment>
-                    )}
+                    {subtitle}
                 </TypographyText>
-            ) : null}
+            )}
             <ComponentCodeInput
                 disabled={processing}
                 error={getCodeInputError()}
