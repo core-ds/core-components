@@ -8,26 +8,29 @@ type Dimension = 'height' | 'width';
 const scrollProps = { height: 'scrollHeight', width: 'scrollWidth' } as const;
 
 export interface SpringHeadlessCollapseProps<T extends HTMLElement>
-    extends Pick<SpringTransitionProps<T>, 'in' | 'nodeRef' | 'spring' | 'children'> {
+    extends Pick<SpringTransitionProps<T>, 'in' | 'nodeRef' | 'spring' | 'children' | 'onEntered'> {
     dimension?: Dimension;
-    threshold?: number;
-    onThreshold?: () => void;
+    enterThreshold?: number;
+    onEnterThreshold?: () => void;
 }
 
 export function SpringHeadlessCollapse<T extends HTMLElement>({
     dimension = 'height',
     nodeRef,
-    threshold = 0,
-    onThreshold,
+    enterThreshold = 0,
+    onEnterThreshold,
+    onEntered,
     ...restProps
 }: SpringHeadlessCollapseProps<T>) {
     const handleEnterStart = (controls: AnimationControls, target: AnimationTarget) => {
-        if (onThreshold) {
-            controls.passed(dimension, (target[dimension] ?? 0) * threshold).then(onThreshold);
+        if (onEnterThreshold) {
+            controls
+                .passed(dimension, (target[dimension] ?? 0) * enterThreshold)
+                .then(onEnterThreshold);
         }
     };
 
-    const handleEntered = () => {
+    const handleEntered = (isAppearing: boolean) => {
         const node = nodeRef.current;
 
         if (node) {
@@ -35,14 +38,15 @@ export function SpringHeadlessCollapse<T extends HTMLElement>({
             resetValue(node, dimension);
         }
 
-        onThreshold?.();
+        onEnterThreshold?.();
+        onEntered?.(isAppearing);
     };
 
     return (
         <SpringTransition
             {...restProps}
             nodeRef={nodeRef}
-            enter={(node) => ({ [dimension]: node[scrollProps[dimension]] })}
+            entering={(node) => ({ [dimension]: node[scrollProps[dimension]] })}
             exit={{ [dimension]: 0 }}
             onEnterStart={handleEnterStart}
             onEntered={handleEntered}

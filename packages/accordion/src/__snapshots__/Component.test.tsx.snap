@@ -42,7 +42,7 @@ exports[`Accordion Display test should match snapshots for base 1`] = `
       class="collapse"
     >
       <div
-        class="bodyContent"
+        class="bodyContent bodyContentExit"
       >
         <span
           class="primary-medium"

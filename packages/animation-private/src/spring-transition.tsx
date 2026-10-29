@@ -17,7 +17,8 @@ export interface SpringTransitionProps<T extends HTMLElement>
     extends Pick<TransitionProps<T>, 'children' | 'onEntered' | 'onExited'> {
     in?: boolean;
     nodeRef: RefObject<T>;
-    enter: Target<T>;
+    enter?: Target<T>;
+    entering?: Target<T>;
     exit: Target<T>;
     spring?: Partial<Record<'enter' | 'exit', AnimationTransition>>;
     onEnterStart?: (controls: AnimationControls, target: AnimationTarget) => void;
@@ -30,6 +31,7 @@ export function SpringTransition<T extends HTMLElement>({
     in: inProp,
     nodeRef,
     enter,
+    entering,
     exit,
     spring = {},
     onEnterStart,
@@ -64,11 +66,15 @@ export function SpringTransition<T extends HTMLElement>({
         <Transition
             in={inProp}
             nodeRef={nodeRef}
-            onEnter={start(enter, spring.enter, onEnterStart)}
+            onEnter={enter && start(enter, spring.enter, onEnterStart)}
+            onEntering={entering && start(entering, spring.enter, onEnterStart)}
             onExit={start(exit, spring.exit)}
             onEntered={onEntered}
             onExited={onExited}
             addEndListener={handleEndListener}
+            appear={false}
+            mountOnEnter={false}
+            unmountOnExit={false}
         >
             {children}
         </Transition>

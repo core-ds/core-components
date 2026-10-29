@@ -3,12 +3,16 @@ import React, {
     type FC,
     type KeyboardEvent,
     type ReactNode,
+    useCallback,
     useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
 
-import { HeadlessCollapse } from '@alfalab/core-components-headless-collapse';
+import {
+    SpringHeadlessCollapse,
+    SpringTransition,
+} from '@alfalab/core-components-animation-private';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
@@ -88,6 +92,11 @@ export type AccordionProps = {
     dataTestId?: string;
 } & AnchorHTMLAttributes<HTMLDivElement>;
 
+const spring = {
+    enter: { stiffness: 426, damping: 41, mass: 1 },
+    exit: { stiffness: 743, damping: 49, mass: 1, delay: 40 },
+};
+
 export const Accordion: FC<AccordionProps> = ({
     expanded: expandedFromProps,
     defaultExpanded = false,
@@ -109,11 +118,20 @@ export const Accordion: FC<AccordionProps> = ({
     const [expanded, setExpanded] = useState(expandedFromProps ?? defaultExpanded);
     const isStartPosition = controlPosition === 'start';
     const bodyRef = useRef<HTMLDivElement>(null);
+    const bodyContentRef = useRef<HTMLDivElement>(null);
+
+    const [isContentVisible, setContentVisible] = useState(expanded);
 
     // getDerivedStateFromProps
     if (expandedInProps && expanded !== expandedFromProps) {
         setExpanded(expandedFromProps);
     }
+
+    if (!expanded && isContentVisible) {
+        setContentVisible(false);
+    }
+
+    const showContent = useCallback(() => setContentVisible(true), []);
 
     const controlContent =
         control === undefined ? (
@@ -179,7 +197,13 @@ export const Accordion: FC<AccordionProps> = ({
                     {controlContent}
                 </div>
             </div>
-            <HeadlessCollapse in={expanded} nodeRef={bodyRef}>
+            <SpringHeadlessCollapse
+                in={expanded}
+                nodeRef={bodyRef}
+                spring={spring}
+                enterThreshold={0.35}
+                onEnterThreshold={showContent}
+            >
                 {(state) => (
                     <div
                         ref={bodyRef}
@@ -189,12 +213,32 @@ export const Accordion: FC<AccordionProps> = ({
                             [styles.collapse]: state === 'exited' || state === 'entered',
                         })}
                     >
-                        <div className={cn(styles.bodyContent, bodyContentClassName)}>
-                            {bodyContent}
-                        </div>
+                        <SpringTransition
+                            in={isContentVisible}
+                            nodeRef={bodyContentRef}
+                            enter={{ y: 0 }}
+                            exit={{ y: -12 }}
+                            spring={spring}
+                        >
+                            {(contentStatus) => (
+                                <div
+                                    ref={bodyContentRef}
+                                    className={cn(styles.bodyContent, bodyContentClassName, {
+                                        [styles.bodyContentEnter]:
+                                            contentStatus === 'entering' ||
+                                            contentStatus === 'entered',
+                                        [styles.bodyContentExit]:
+                                            contentStatus === 'exiting' ||
+                                            contentStatus === 'exited',
+                                    })}
+                                >
+                                    {bodyContent}
+                                </div>
+                            )}
+                        </SpringTransition>
                     </div>
                 )}
-            </HeadlessCollapse>
+            </SpringHeadlessCollapse>
         </div>
     );
 };
