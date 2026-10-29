@@ -16,6 +16,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import * as defaultProps from '../../default-props';
 import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
 import { ClearButton } from '../clear-button';
 import { LockIcon } from '../lock-icon';
@@ -42,10 +43,10 @@ export const BaseInput = forwardRef<
     // eslint-disable-next-line complexity
     (
         {
-            size = 48,
+            size = defaultProps.size,
             type = 'text',
             block = false,
-            colors = 'default',
+            colors = defaultProps.colors,
             bottomAddons,
             dataTestId,
             clear = false,
@@ -82,7 +83,8 @@ export const BaseInput = forwardRef<
             disableUserInput,
             platformStyles = {},
             bold,
-            fontWeight = bold ? 'bold' : 'regular',
+            fontWeight = defaultProps.fontWeight(bold),
+            as: Component = defaultProps.asProp,
             ...restProps
         },
         ref,
@@ -364,7 +366,7 @@ export const BaseInput = forwardRef<
                 rightAddonsProps={rightAddonsProps}
                 leftAddonsProps={leftAddonsProps}
             >
-                <input
+                <Component
                     {...restProps}
                     className={cn(
                         styles.input,

@@ -15,7 +15,7 @@ import { Input } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
 import { isNonNullable } from '@alfalab/core-components-shared';
-import { withSuffix } from '@alfalab/core-components-with-suffix';
+import { SuffixInput } from '@alfalab/core-components-with-suffix';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { MMSP, THINSP } from '@alfalab/utils';
 
@@ -53,11 +53,6 @@ const colorsStyles = {
     default: defaultColors,
     inverted: invertedColors,
 } as const;
-
-/**
- * Инпут, позволяющий закрепить значок валюты
- */
-const SuffixInput = withSuffix(Input);
 
 /**
  * Компонент для ввода денежных значений
@@ -346,6 +341,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             >
                 <SuffixInput
                     {...restProps}
+                    Input={Input}
                     rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
@@ -399,4 +395,3 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 );
 
 AmountInput.displayName = 'AmountInput';
-SuffixInput.displayName = 'SuffixInput';

@@ -1,23 +1,28 @@
 import React, {
+    type ComponentRef,
+    type ComponentType,
     type FC,
     forwardRef,
     Fragment,
     type ReactNode,
     type RefAttributes,
-    useCallback,
     useState,
 } from 'react';
-import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { type InputProps } from '@alfalab/core-components-input';
-import { Portal } from '@alfalab/core-components-portal';
-import { useRefAsState } from '@alfalab/core-components-shared';
+import { type InputComponentProps, type InputProps } from '@alfalab/core-components-input';
+import * as inputDefaultProps from '@alfalab/core-components-input/default-props';
 
+import defaultStyles from './default.module.css';
 import styles from './index.module.css';
+import invertedStyles from './inverted.module.css';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export type withSuffixProps = InputProps & {
+const colorsStyles = {
+    default: defaultStyles,
+    inverted: invertedStyles,
+} as const;
+
+export type SuffixProps = {
     /**
      * Дополнительный закрепленный текст справа от основного значения.
      * Например: value='85' suffix=' мес' -> 85 мес
@@ -30,108 +35,159 @@ export type withSuffixProps = InputProps & {
     suffixContainerClassName?: string;
 };
 
-export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement>>) =>
-    forwardRef<HTMLInputElement, withSuffixProps>(
-        (
-            {
-                value,
-                defaultValue,
-                onChange,
-                onClear,
-                suffix = '',
-                placeholder,
-                className,
-                disabled,
-                readOnly,
+/**
+ * @deprecated
+ */
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export type withSuffixProps = InputProps & SuffixProps;
+
+export type SuffixInputComponentCustomProps = Pick<
+    InputProps,
+    'size' | 'colors' | 'fontWeight' | 'bold' | 'as' | 'customProps'
+> &
+    SuffixProps;
+
+const SuffixInputComponent = forwardRef<
+    ComponentRef<'input'>,
+    InputComponentProps<SuffixInputComponentCustomProps>
+>(
+    (
+        {
+            customProps: {
+                suffix,
                 suffixContainerClassName,
-                ...restProps
-            },
-            ref,
-        ) => {
-            const uncontrolled = value === undefined;
+                colors = inputDefaultProps.colors,
+                fontWeight,
+                size,
+                as: Component = inputDefaultProps.asProp,
+                customProps,
+            } = {},
+            ...inputProps
+        },
+        ref,
+    ) => {
+        const { value, disabled, readOnly } = inputProps;
+        const colorStyles = colorsStyles[colors];
 
-            const [inputNodeRef, inputNode] = useRefAsState<HTMLInputElement>(null);
-
-            const [stateValue, setStateValue] = useState(defaultValue || '');
-
-            const handleInputChange = useCallback<Required<InputProps>['onChange']>(
-                (event, payload) => {
-                    if (onChange) {
-                        onChange(event, payload);
-                    }
-
-                    if (uncontrolled) {
-                        setStateValue(payload.value);
-                    }
-                },
-                [onChange, uncontrolled],
-            );
-
-            const handleClear = useCallback<Required<InputProps>['onClear']>(
-                (event) => {
-                    if (uncontrolled) {
-                        setStateValue('');
-                    }
-
-                    if (onClear) {
-                        onClear(event);
-                    }
-                },
-                [onClear, uncontrolled],
-            );
-
-            const getPortalContainer = useCallback(
-                // TODO: Изменить сигнатуру getPortalContainer в Portal
-                () => (inputNode?.parentElement || null) as HTMLElement,
-                [inputNode],
-            );
-
-            const visibleValue = uncontrolled ? stateValue : value;
-
-            const isInverted = restProps.colors === 'inverted';
-
-            return (
-                <Fragment>
-                    <Input
-                        ref={mergeRefs([ref, inputNodeRef])}
-                        value={visibleValue}
-                        disabled={disabled}
-                        readOnly={readOnly}
-                        onChange={handleInputChange}
-                        onClear={handleClear}
-                        placeholder={placeholder}
-                        className={cn(className, {
-                            [styles.suffixVisible]: Boolean(visibleValue),
-                            [styles.hasSuffix]: suffix,
-                        })}
-                        {...restProps}
-                    />
-                    <Portal getPortalContainer={getPortalContainer}>
+        return (
+            <Fragment>
+                <Component {...inputProps} customProps={customProps} ref={ref} />
+                <div
+                    translate='no'
+                    className={cn(
+                        styles.suffixContainer,
+                        suffixContainerClassName,
+                        styles[`size-${size}`],
+                        {
+                            [styles.bold]: fontWeight === 'bold',
+                            [styles.medium]: fontWeight === 'medium',
+                        },
+                    )}
+                >
+                    <span className={styles.spacer}>{value}</span>
+                    {suffix && (
                         <div
-                            translate='no'
-                            className={cn(styles.suffixContainer, suffixContainerClassName, {
-                                [styles[`size-${restProps.size}`]]: restProps.size,
-                                [styles.bold]:
-                                    (restProps.fontWeight ??
-                                        (restProps.bold ? 'bold' : 'regular')) === 'bold',
-                                [styles.medium]: restProps.fontWeight === 'medium',
+                            className={cn(styles.suffix, {
+                                [colorStyles.disabled]: disabled,
+                                [colorStyles.readOnly]: readOnly,
                             })}
                         >
-                            <span className={styles.spacer}>{visibleValue}</span>
-                            {suffix && (
-                                <div
-                                    className={cn(styles.suffix, {
-                                        [styles.disabled]: disabled,
-                                        [styles.readOnly]: readOnly,
-                                        [styles.inverted]: isInverted,
-                                    })}
-                                >
-                                    {suffix}
-                                </div>
-                            )}
+                            {suffix}
                         </div>
-                    </Portal>
-                </Fragment>
-            );
+                    )}
+                </div>
+            </Fragment>
+        );
+    },
+);
+
+export interface SuffixInputProps extends InputProps, SuffixProps {
+    Input: ComponentType<InputProps & RefAttributes<ComponentRef<'input'>>>;
+}
+
+export const SuffixInput = forwardRef<ComponentRef<'input'>, SuffixInputProps>(
+    (
+        {
+            Input,
+            value: valueFromProps,
+            defaultValue = '',
+            onChange,
+            onClear,
+            className,
+            suffix,
+            suffixContainerClassName,
+            colors = inputDefaultProps.colors,
+            bold,
+            fontWeight = inputDefaultProps.fontWeight(bold),
+            size = inputDefaultProps.size,
+            as: Component = inputDefaultProps.asProp,
+            customProps: originalCustomProps,
+            ...restProps
         },
-    );
+        ref,
+    ) => {
+        const uncontrolled = valueFromProps === undefined;
+        const [value, setValue] = useState(valueFromProps ?? defaultValue);
+
+        // getDerivedStateFromProps
+        if (!uncontrolled && valueFromProps !== value) {
+            setValue(valueFromProps);
+        }
+
+        const handleInputChange: InputProps['onChange'] = (event, payload) => {
+            onChange?.(event, payload);
+
+            if (uncontrolled) {
+                setValue(payload.value);
+            }
+        };
+
+        const handleClear: InputProps['onClear'] = (event) => {
+            onClear?.(event);
+
+            if (uncontrolled) {
+                setValue('');
+            }
+        };
+
+        const customProps: SuffixInputComponentCustomProps = {
+            size,
+            colors,
+            fontWeight,
+            suffix,
+            suffixContainerClassName,
+            as: Component,
+            customProps: originalCustomProps,
+        };
+
+        return (
+            <Input
+                ref={ref}
+                value={value}
+                onChange={handleInputChange}
+                onClear={handleClear}
+                className={cn(className, {
+                    [styles.suffixVisible]: value,
+                    [styles.hasSuffix]: suffix,
+                })}
+                colors={colors}
+                bold={bold}
+                fontWeight={fontWeight}
+                size={size}
+                as={SuffixInputComponent}
+                customProps={customProps}
+                {...restProps}
+            />
+        );
+    },
+);
+
+SuffixInput.displayName = 'SuffixInput';
+
+/**
+ * @deprecated Используйте {@link SuffixInput} напрямую
+ */
+export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement>>) =>
+    forwardRef<HTMLInputElement, withSuffixProps>((props, ref) => (
+        <SuffixInput {...props} ref={ref} Input={Input} />
+    ));

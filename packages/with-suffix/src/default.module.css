@@ -1,0 +1,10 @@
+@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-input/src/vars.css';
+
+.disabled {
+    color: var(--input-disabled-color);
+}
+
+.readOnly {
+    color: var(--input-read-only-color);
+}

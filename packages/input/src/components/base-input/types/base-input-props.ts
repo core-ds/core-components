@@ -1,5 +1,6 @@
 import {
     type ChangeEvent,
+    type ComponentPropsWithoutRef,
     type ElementType,
     type HTMLAttributes,
     type InputHTMLAttributes,
@@ -10,6 +11,11 @@ import {
 } from 'react';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
+
+export type InputComponentCustomProps = Record<string, unknown>;
+
+export type InputComponentProps<T = InputComponentCustomProps> =
+    ComponentPropsWithoutRef<'input'> & { customProps?: T };
 
 export interface BaseInputProps
     extends Omit<
@@ -208,4 +214,14 @@ export interface BaseInputProps
      * Вес шрифта инпута, в том числе плейсхолдера
      */
     fontWeight?: 'bold' | 'medium' | 'regular';
+
+    /**
+     * Внутренний компонент для рендера
+     */
+    as?: ElementType<InputComponentProps<InputComponentCustomProps>, 'input'>;
+
+    /**
+     * Кастомные пропы для внутреннего компонента для рендера {@link BaseInputProps.as}
+     */
+    customProps?: InputComponentCustomProps;
 }

@@ -2302,10 +2302,7 @@ __metadata:
   resolution: "@alfalab/core-components-with-suffix@workspace:packages/with-suffix"
   dependencies:
     "@alfalab/core-components-input": "npm:^17.2.5"
-    "@alfalab/core-components-portal": "npm:^5.0.7"
-    "@alfalab/core-components-shared": "npm:^2.4.0"
     classnames: "npm:^2.5.1"
-    react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
