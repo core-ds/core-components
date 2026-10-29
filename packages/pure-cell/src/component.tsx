@@ -70,7 +70,21 @@ type BasePureCellProps = {
     /**
      * Горизонтальные отступы
      */
-    horizontalPadding?: 'left' | 'right' | 'both' | 'none';
+    horizontalPadding?:
+        | 'left'
+        | 'right'
+        | 'both'
+        | 'none'
+        | {
+              /**
+               * Горизонтальный отступ слева
+               */
+              left?: 0 | 16 | 20;
+              /**
+               * Горизонтальный отступ справа
+               */
+              right?: 0 | 16 | 20;
+          };
 
     /**
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
@@ -136,7 +150,6 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
-            [styles[horizontalPadding]]: true,
             [styles.hover]: hoverState,
             [styles.active]: activeState,
         };
@@ -156,6 +169,17 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
         if (typeof verticalPadding === 'object') {
             addClasses[styles[`${verticalPadding.top}Top`]] = !!verticalPadding.top;
             addClasses[styles[`${verticalPadding.bottom}Bottom`]] = !!verticalPadding.bottom;
+        }
+
+        if (typeof horizontalPadding === 'string') {
+            addClasses[styles[horizontalPadding]] = true;
+        }
+
+        if (typeof horizontalPadding === 'object') {
+            const { left, right } = horizontalPadding;
+
+            addClasses[styles[`left${left}`]] = left !== undefined;
+            addClasses[styles[`right${right}`]] = right !== undefined;
         }
 
         if (href) {

@@ -1,5 +1,53 @@
 # @alfalab/core-components-carousel
 
+## 1.1.7
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+
+## 1.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+
+## 1.1.5
+
+### Patch Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2384](https://github.com/core-ds/core-components/pull/2384)
+
+##### Carousel
+
+- Исправлен вызов события `click` при свайпе
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2382](https://github.com/core-ds/core-components/pull/2382)
+
+##### Carousel
+
+- Исправлено переключение на первый элемент в режиме зацикливания
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+
 ## 1.1.4
 
 ### Patch Changes

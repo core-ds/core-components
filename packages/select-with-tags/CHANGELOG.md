@@ -1,5 +1,80 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.25
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.12
+- @alfalab/core-components-input@17.2.3
+- @alfalab/core-components-tag@10.3.3
+- @alfalab/core-components-bottom-sheet@8.1.17
+- @alfalab/core-components-form-control@14.0.12
+- @alfalab/core-components-mq@6.0.10
+- @alfalab/core-components-popover@8.1.5
+
+## 10.1.24
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.4
+- @alfalab/core-components-select@19.2.11
+- @alfalab/core-components-bottom-sheet@8.1.16
+- @alfalab/core-components-form-control@14.0.11
+- @alfalab/core-components-input@17.2.2
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-tag@10.3.2
+
+## 10.1.23
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.15
+- @alfalab/core-components-select@19.2.10
+- @alfalab/core-components-form-control@14.0.10
+- @alfalab/core-components-input@17.2.1
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-popover@8.1.3
+- @alfalab/core-components-tag@10.3.1
+
+## 10.1.22
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.14
+- @alfalab/core-components-select@19.2.9
+
+## 10.1.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.8
+
+## 10.1.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.7
+
 ## 10.1.19
 
 ### Patch Changes

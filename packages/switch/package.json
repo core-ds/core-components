@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-switch",
-    "version": "6.2.1",
+    "version": "6.2.4",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,8 +14,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-config": "^1.1.0",
-        "@alfalab/core-components-shared": "^2.2.3",
-        "@alfalab/core-components-skeleton": "^7.0.5",
+        "@alfalab/core-components-shared": "^2.4.0",
+        "@alfalab/core-components-skeleton": "^7.0.6",
         "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
@@ -31,5 +31,5 @@
     },
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "themesVersion": "15.2.1",
-    "varsVersion": "11.2.1"
+    "varsVersion": "11.5.0"
 }

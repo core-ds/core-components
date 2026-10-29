@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-steps",
-    "version": "3.0.9",
+    "version": "3.1.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,11 +13,15 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-badge": "^7.0.2",
-        "@alfalab/core-components-shared": "^2.2.3",
-        "@alfalab/core-components-status-badge": "^3.0.2",
+        "@alfalab/core-components-badge": "^7.0.3",
+        "@alfalab/core-components-icon-button": "^8.0.13",
+        "@alfalab/core-components-shared": "^2.4.0",
+        "@alfalab/core-components-status-badge": "^3.0.3",
         "@alfalab/hooks": "^1.17.0",
+        "@alfalab/icons-glyph": "^2.294.0",
         "classnames": "^2.5.1",
+        "compute-scroll-into-view": "^3.1.0",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
@@ -29,5 +33,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.2.1",
-    "varsVersion": "11.2.1"
+    "varsVersion": "11.5.0"
 }

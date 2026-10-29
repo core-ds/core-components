@@ -1,5 +1,48 @@
 # @alfalab/core-components-accordion
 
+## 3.0.14
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2351](https://github.com/core-ds/core-components/pull/2351)
+
+##### Accordion, Collapse
+
+- Внутренние улучшения работы компонента
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-headless-collapse@0.0.1
+- @alfalab/core-components-typography@6.0.14
+
+## 3.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-typography@6.0.13
+
+## 3.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-typography@6.0.12
+
 ## 3.0.11
 
 ### Patch Changes

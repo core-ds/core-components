@@ -78,8 +78,7 @@ export const DefaultView: FC<DefaultViewProps> = ({
                         <Tag
                             key={i.toString()}
                             checked={active}
-                            disabled={active}
-                            onClick={() => onPageChange(pageIndex)}
+                            onClick={() => !active && onPageChange(pageIndex)}
                         >
                             {getPageString(pageIndex + 1)}
                         </Tag>

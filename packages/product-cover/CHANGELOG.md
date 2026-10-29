@@ -1,5 +1,55 @@
 # @alfalab/core-components-product-cover
 
+## 3.3.1
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.14
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-button@13.2.5
+
+## 3.3.0
+
+### Minor Changes
+
+<sup><time>20.10.2026</time></sup>
+
+#### [#2410](https://github.com/core-ds/core-components/pull/2410)
+
+##### ProductCover
+
+- Добавлен проп `imageProps` для передачи атрибутов изображения (`src`, `srcSet`)
+
+## 3.2.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-button@13.2.4
+- @alfalab/core-components-typography@6.0.13
+
+## 3.2.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-button@13.2.3
+- @alfalab/core-components-typography@6.0.12
+
 ## 3.2.6
 
 ### Patch Changes

@@ -1,5 +1,37 @@
 # @alfalab/core-components-slider-input
 
+## 11.1.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.3
+
+## 11.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.2
+
+## 11.1.9
+
+### Patch Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2363](https://github.com/core-ds/core-components/pull/2363)
+
+##### SliderInput
+
+- Крайние подписи шкалы `pips` выровнены по краям трека.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.1
+
 ## 11.1.8
 
 ### Patch Changes

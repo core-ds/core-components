@@ -262,7 +262,6 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                             style: { minHeight: rowVirtualizer.totalSize },
                         }}
                     >
-                        <div data-options-list-padding='top' />
                         <div
                             className={cn(styles.list, listNodeClassName)}
                             ref={listRef}
@@ -270,7 +269,6 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         >
                             {renderList()}
                         </div>
-                        <div data-options-list-padding='bottom' />
                     </ScrollbarPrivate>
                 )}
 

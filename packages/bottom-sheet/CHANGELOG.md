@@ -1,5 +1,44 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-navigation-bar-private@2.0.17
+- @alfalab/core-components-base-modal@7.2.3
+
+## 8.1.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-base-modal@7.2.2
+- @alfalab/core-components-navigation-bar-private@2.0.16
+
+## 8.1.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-base-modal@7.2.1
+- @alfalab/core-components-navigation-bar-private@2.0.15
+
+## 8.1.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.2.0
+
 ## 8.1.13
 
 ### Patch Changes

@@ -1,4 +1,10 @@
-import { type CSSProperties, type ElementType, type HTMLAttributes, type ReactNode } from 'react';
+import {
+    type ComponentProps,
+    type CSSProperties,
+    type ElementType,
+    type HTMLAttributes,
+    type ReactNode,
+} from 'react';
 
 export type Size = 16 | 32 | 40 | 48 | 96 | 128 | 164;
 
@@ -37,6 +43,11 @@ export type SingleCommonProps = {
      * (полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)
      */
     layers?: string;
+
+    /**
+     * Атрибуты изображения. При передаче ссылка используется как есть, параметры для построения игнорируются
+     */
+    imageProps?: Pick<ComponentProps<'img'>, 'src' | 'srcSet'>;
 
     /**
      * Слот для иконки с оверлеем

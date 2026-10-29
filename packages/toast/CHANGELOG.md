@@ -1,5 +1,41 @@
 # @alfalab/core-components-toast
 
+## 8.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-toast-plate@9.1.9
+- @alfalab/core-components-mq@6.0.10
+- @alfalab/core-components-popover@8.1.5
+- @alfalab/core-components-portal@5.0.7
+
+## 8.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.4
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-portal@5.0.6
+- @alfalab/core-components-toast-plate@9.1.8
+
+## 8.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-popover@8.1.3
+- @alfalab/core-components-portal@5.0.5
+- @alfalab/core-components-toast-plate@9.1.7
+
 ## 8.0.13
 
 ### Patch Changes

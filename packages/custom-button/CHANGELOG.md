@@ -1,5 +1,42 @@
 # @alfalab/core-components-custom-button
 
+## 5.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.5
+
+## 5.0.13
+
+### Patch Changes
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2409](https://github.com/core-ds/core-components/pull/2409)
+
+##### CustomButton
+
+- Исправлена подсветка в состояниях hover/active, сломавшаяся в результате регресса ([#1669](https://github.com/core-ds/core-components/pull/1669))
+- Убран класс `undefined`, добавлявшийся кнопке в состоянии `loading`
+
+## 5.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.4
+
+## 5.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.3
+
 ## 5.0.10
 
 ### Patch Changes

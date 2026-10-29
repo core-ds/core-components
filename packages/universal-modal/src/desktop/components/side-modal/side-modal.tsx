@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, type MutableRefObject, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -30,6 +30,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
+        wrapperClassName,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
@@ -55,9 +56,10 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             ref={ref}
             componentRef={componentRef}
             contentElementRef={contentRef}
-            scrollHandler='content'
+            scrollHandler={scrollableContainerRef as MutableRefObject<HTMLDivElement | null>}
+            scrollContainerFillsViewport={false}
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
+            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, wrapperClassName, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',

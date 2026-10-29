@@ -1,5 +1,44 @@
 # @alfalab/core-components-code-input
 
+## 5.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-mq@6.0.10
+
+## 5.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-mq@6.0.9
+
+## 5.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+
+## 5.1.3
+
+### Patch Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2337](https://github.com/core-ds/core-components/pull/2337)
+
+##### CodeInput
+
+- Исправлен скачок вьюпорта при повторном фокусе на ячейке ввода
+
 ## 5.1.2
 
 ### Patch Changes

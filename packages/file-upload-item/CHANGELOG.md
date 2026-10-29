@@ -1,5 +1,55 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.2.5
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.14
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-icon-button@8.0.13
+
+## 8.2.4
+
+### Patch Changes
+
+<sup><time>19.10.2026</time></sup>
+
+#### [#2411](https://github.com/core-ds/core-components/pull/2411)
+
+##### FileUploadItem
+
+- Уточнено описание пропсов `downloadLink` и `onDownload`
+
+## 8.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-typography@6.0.13
+- @alfalab/core-components-icon-button@8.0.12
+
+## 8.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-typography@6.0.12
+- @alfalab/core-components-icon-button@8.0.11
+
 ## 8.2.1
 
 ### Patch Changes

@@ -1,5 +1,41 @@
 # @alfalab/core-components-typography
 
+## 6.0.14
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2351](https://github.com/core-ds/core-components/pull/2351)
+
+##### Typography, Skeleton
+
+- Исправлена работа `skeleton` внутри анимации
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.6
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-mq@6.0.10
+
+## 6.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-mq@6.0.9
+
+## 6.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+
 ## 6.0.11
 
 ### Patch Changes

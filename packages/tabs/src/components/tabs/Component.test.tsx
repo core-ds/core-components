@@ -2,11 +2,12 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
+import { Tabs } from './Component';
 import { TabsDesktop } from './Component.desktop';
 import { TabsMobile } from './Component.mobile';
 import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
-import { TabsProps } from '../../typings';
+import { TabListProps, TabsProps } from '../../typings';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 
 Object.defineProperty(window, 'matchMedia', {
@@ -98,6 +99,38 @@ describe('Tabs', () => {
             });
             const container = getByTestId('tabs-test').parentElement as HTMLElement;
             expect(container).toHaveClass(containerClassName);
+        });
+
+        it('should forward `scrollControlsContainerClassName` to TabList', () => {
+            const className = 'test-class';
+            const TabList = ({ scrollControlsContainerClassName }: TabListProps) => (
+                <div data-test-id='tab-list' className={scrollControlsContainerClassName} />
+            );
+
+            const { getByTestId } = render(
+                <Tabs TabList={TabList} scrollControlsContainerClassName={className}>
+                    <Tab title='Таб 1' id='tab-1' />
+                    <Tab title='Таб 2' id='tab-2' />
+                </Tabs>,
+            );
+
+            expect(getByTestId('tab-list')).toHaveClass(className);
+        });
+
+        it('should forward `scrollControlsButtonClassName` to TabList', () => {
+            const className = 'test-class';
+            const TabList = ({ scrollControlsButtonClassName }: TabListProps) => (
+                <div data-test-id='tab-list' className={scrollControlsButtonClassName} />
+            );
+
+            const { getByTestId } = render(
+                <Tabs TabList={TabList} scrollControlsButtonClassName={className}>
+                    <Tab title='Таб 1' id='tab-1' />
+                    <Tab title='Таб 2' id='tab-2' />
+                </Tabs>,
+            );
+
+            expect(getByTestId('tab-list')).toHaveClass(className);
         });
     });
 

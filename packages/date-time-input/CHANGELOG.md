@@ -1,5 +1,57 @@
 # @alfalab/core-components-date-time-input
 
+## 6.0.23
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.17
+- @alfalab/core-components-input@17.2.3
+- @alfalab/core-components-mq@6.0.10
+- @alfalab/core-components-popover@8.1.5
+- @alfalab/core-components-icon-button@8.0.13
+
+## 6.0.22
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.4
+- @alfalab/core-components-calendar@9.1.16
+- @alfalab/core-components-input@17.2.2
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-icon-button@8.0.12
+
+## 6.0.21
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.15
+- @alfalab/core-components-input@17.2.1
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-popover@8.1.3
+- @alfalab/core-components-icon-button@8.0.11
+
+## 6.0.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.14
+
 ## 6.0.19
 
 ### Patch Changes

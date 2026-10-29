@@ -315,6 +315,72 @@ describe('Select | interactions tests', () => {
             await closeBrowser({ browser, context, page });
         }
     });
+
+    test('text ellipsis', async () => {
+        const pageUrl = createStorybookUrl({
+            packageName: 'select',
+            componentName: 'SelectDesktop',
+            knobs: {
+                block: true,
+                label: 'Элемент Элемент Элемент',
+                placeholder: 'Выберите элемент',
+                optionsListWidth: 'field',
+                options: JSON.stringify([{ key: '1', content: 'Option 1' }]),
+            },
+        });
+        const { browser, context, page } = await openBrowserPage(pageUrl);
+
+        const viewport = { width: 200, height: 500 };
+        const screenshotOpts = {
+            clip: { x: 0, y: 0, width: 200, height: 120 },
+        };
+        const matchImageSnapshotOptions = {
+            failureThreshold: 10 as const,
+            failureThresholdType: 'pixel' as const,
+        };
+
+        await page.setViewportSize(viewport);
+
+        try {
+            await matchHtml({
+                context,
+                page,
+                expect,
+                viewport,
+                screenshotOpts,
+                matchImageSnapshotOptions,
+            });
+
+            await page.click('[role="combobox"]');
+
+            await matchHtml({
+                context,
+                page,
+                expect,
+                viewport,
+                screenshotOpts,
+                matchImageSnapshotOptions,
+            });
+
+            await page.click('[role="option"]');
+
+            await matchHtml({
+                context,
+                page,
+                expect,
+                viewport,
+                screenshotOpts,
+                matchImageSnapshotOptions,
+            });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
 });
 
 describe('Select | optgroup', () => {

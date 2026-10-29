@@ -1,5 +1,86 @@
 # @alfalab/core-components-tabs
 
+## 10.1.5
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.6
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-picker-button@13.1.8
+- @alfalab/core-components-tag@10.3.3
+- @alfalab/core-components-mq@6.0.10
+- @alfalab/core-components-icon-button@8.0.13
+
+## 10.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-picker-button@13.1.7
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-tag@10.3.2
+- @alfalab/core-components-icon-button@8.0.12
+
+## 10.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+- @alfalab/core-components-badge@7.0.3
+- @alfalab/core-components-shared@2.2.4
+- @alfalab/core-components-mq@6.0.8
+- @alfalab/core-components-picker-button@13.1.6
+- @alfalab/core-components-tag@10.3.1
+- @alfalab/core-components-icon-button@8.0.11
+
+## 10.1.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.5
+
+## 10.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.4
+
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>11.09.2026</time></sup>
+
+#### [#2352](https://github.com/core-ds/core-components/pull/2352)
+
+##### Tabs
+
+- Добавлены `scrollControlsContainerClassName` и `scrollControlsButtonClassName` для стилизации контейнера и кнопок прокрутки табов.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-picker-button@13.1.3
+
 ## 10.0.26
 
 ### Patch Changes

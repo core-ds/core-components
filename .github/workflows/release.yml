@@ -23,7 +23,7 @@ on:
             - '!version/48'
 
 concurrency:
-    group: ${{ format('{0} ${1}', github.workflow, case(github.event_name == 'push', github.ref, format('pull_request {0} {1}', inputs.pull-request, inputs.variant))) }}
+    group: ${{ format('{0}-${1}', github.workflow, case(github.event_name == 'push', github.ref, format('pull_request-{0}-{1}', inputs.pull-request, inputs.variant))) }}
     cancel-in-progress: true
 
 defaults:
@@ -231,7 +231,7 @@ jobs:
                                   notification: {
                                       status: 'ok',
                                       body: `
-                                          Опубликована новая версия [\`${spec}\`](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/releases/tag/${encodeURIComponent(spec)})
+                                          Опубликована новая версия [${spec}](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/releases/tag/${encodeURIComponent(spec)})
                                       `.trim(),
                                   },
                               }),

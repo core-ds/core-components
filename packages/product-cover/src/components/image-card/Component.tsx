@@ -2,9 +2,11 @@ import React, { type FC } from 'react';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
+import { type SingleCommonProps } from '../../typings';
+
 import styles from './index.module.css';
 
-export type ImageCardProps = {
+export type ImageCardProps = Pick<SingleCommonProps, 'imageProps'> & {
     /**
      * Идентификатор карты
      * (например: RM, SQ, SR)
@@ -48,6 +50,7 @@ export const ImageCard: FC<ImageCardProps> = ({
     baseUrl,
     cardId,
     layers,
+    imageProps: imagePropsFromProps,
     width,
     height,
     numberOfСards,
@@ -55,12 +58,15 @@ export const ImageCard: FC<ImageCardProps> = ({
 }) => {
     const imagePatternId = useId();
 
-    const cardImageUrl = `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`;
-    const cardImageUrl2x =
-        width && `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
+    const imageProps = imagePropsFromProps ?? {
+        src: `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`,
+        srcSet: width
+            ? `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2} 2x`
+            : undefined,
+    };
 
-    const imageLoadingState = useImageLoadingState({ src: cardImageUrl || '' });
-    const imageLoadingState2x = useImageLoadingState({ src: cardImageUrl2x || '' });
+    const imageLoadingState = useImageLoadingState({ src: imageProps.src ?? '' });
+    const imageLoadingState2x = useImageLoadingState({ src: imageProps.srcSet ?? '' });
     const imageFailed = imageLoadingState === 'error' || imageLoadingState2x === 'error';
 
     const renderCardMack = () => (
@@ -76,7 +82,7 @@ export const ImageCard: FC<ImageCardProps> = ({
                 <defs>
                     <pattern id={imagePatternId} width='100%' height='100%'>
                         <image
-                            href={cardImageUrl}
+                            href={imageProps.src}
                             width='100%'
                             height='100%'
                             preserveAspectRatio='xMidYMid slice'
@@ -99,13 +105,7 @@ export const ImageCard: FC<ImageCardProps> = ({
         if (!imageFailed) {
             return (
                 // eslint-disable-next-line jsx-a11y/alt-text
-                <img
-                    className={styles.cardImage}
-                    width={width}
-                    height={height}
-                    src={cardImageUrl}
-                    srcSet={`${cardImageUrl2x} 2x`}
-                />
+                <img className={styles.cardImage} width={width} height={height} {...imageProps} />
             );
         }
 

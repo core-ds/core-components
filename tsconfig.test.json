@@ -117,6 +117,8 @@
             "@alfalab/core-components-hatching-progress-bar/*": [
                 "./packages/hatching-progress-bar/src/*"
             ],
+            "@alfalab/core-components-headless-collapse": ["./packages/headless-collapse/src"],
+            "@alfalab/core-components-headless-collapse/*": ["./packages/headless-collapse/src/*"],
             "@alfalab/core-components-icon-button": ["./packages/icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["./packages/icon-button/src/*"],
             "@alfalab/core-components-icon-view": ["./packages/icon-view/src"],
@@ -149,6 +151,8 @@
             "@alfalab/core-components-list-header/*": ["./packages/list-header/src/*"],
             "@alfalab/core-components-loader": ["./packages/loader/src"],
             "@alfalab/core-components-loader/*": ["./packages/loader/src/*"],
+            "@alfalab/core-components-lottie": ["./packages/lottie/src"],
+            "@alfalab/core-components-lottie/*": ["./packages/lottie/src/*"],
             "@alfalab/core-components-markdown": ["./packages/markdown/src"],
             "@alfalab/core-components-markdown/*": ["./packages/markdown/src/*"],
             "@alfalab/core-components-masked-input": ["./packages/masked-input/src"],

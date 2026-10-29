@@ -5,3 +5,4 @@ colors-addons.css
 **/dist/**
 
 packages/mcp/src/data
+.storybook/public/lottie

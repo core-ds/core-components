@@ -21,7 +21,7 @@ import {
     type UseMultipleSelectionState,
 } from 'downshift';
 
-import { getDataTestId, isClient } from '@alfalab/core-components-shared';
+import { getDataTestId, isClient, programmaticFocus } from '@alfalab/core-components-shared';
 
 import {
     type AnyObject,
@@ -375,7 +375,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         );
 
         const handleEntered = (node: HTMLElement, isAppearing: boolean) => {
-            if (showSearch) searchRef.current?.focus();
+            if (showSearch) {
+                programmaticFocus(searchRef.current);
+            }
 
             if (isBottomSheet) {
                 bottomSheetProps?.transitionProps?.onEntered?.(node, isAppearing);

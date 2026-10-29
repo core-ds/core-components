@@ -220,9 +220,8 @@ export function useVirtualVisibleOptions({
 
             const win = getElementWindow(list);
 
-            nextHeight += [...(list.parentNode?.children ?? [])]
-                .filter((el) => el.getAttribute('data-options-list-padding'))
-                .map((el) => parseFloat(win.getComputedStyle(el).paddingTop) || 0)
+            nextHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
                 .reduce((a, b) => a + b);
 
             setHeight(nextHeight);
@@ -294,9 +293,8 @@ export function useVisibleOptions({
 
             const win = getElementWindow(list);
 
-            measuredHeight += [...(list.parentNode?.children ?? [])]
-                .filter((el) => el.getAttribute('data-options-list-padding'))
-                .map((el) => parseFloat(win.getComputedStyle(el).paddingTop) || 0)
+            measuredHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
                 .reduce((a, b) => a + b);
 
             setHeight(measuredHeight);

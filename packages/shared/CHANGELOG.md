@@ -1,5 +1,45 @@
 # @alfalab/core-components-shared
 
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2408](https://github.com/core-ds/core-components/pull/2408)
+
+##### Shared
+
+- Добавлены проверки `isStartScrollPosition` и `isEndScrollPosition`
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2351](https://github.com/core-ds/core-components/pull/2351)
+
+##### Shared
+
+- Добавлена утилита `triggerReflow`
+
+## 2.3.0
+
+### Minor Changes
+
+<sup><time>02.10.2026</time></sup>
+
+#### [#2394](https://github.com/core-ds/core-components/pull/2394)
+
+##### Shared
+
+- Добавлены утилиты `mergeAutoFocus` и `programmaticFocus` для автофокуса и программного фокуса текстовых полей. Использование этих утилит позволяет избегать некоторых ошибок возникающих на iOS.
+
+## 2.2.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-types@2.1.0
+
 ## 2.2.3
 
 ### Patch Changes

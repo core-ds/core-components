@@ -35,7 +35,7 @@ on:
                 type: string
 
 concurrency:
-    group: ${{ format('Demo {0}', case(inputs.version == '', github.ref, inputs.version)) }}
+    group: ${{ format('demo-{0}', case(inputs.version == '', github.sha, inputs.version)) }}
     cancel-in-progress: true
 
 defaults:
@@ -45,7 +45,6 @@ defaults:
 jobs:
     params:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
-        secrets: inherit
         with:
             version: ${{ case(github.event_name == 'workflow_dispatch' && inputs.version == '', github.ref, inputs.version) }}
             directory: ${{ inputs.directory }}
@@ -69,17 +68,52 @@ jobs:
             artifact-name: ${{ matrix.variant }}
 
     deploy:
+        if: ${{ github.repository == 'core-ds/core-components' && vars.APP_ID != '' }}
         needs: [build-demo, params, variants]
         strategy:
-            max-parallel: 1
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
-        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
-        secrets: inherit
-        with:
-            run-id: ${{ needs.build-demo.outputs.run-id }}
-            directory: ${{ case(matrix.variant == 'default', needs.params.outputs.directory, format('{0}-{1}', needs.params.outputs.directory, matrix.variant)) }}
-            variant: ${{ matrix.variant }}
-            artifact-name: ${{ matrix.variant }}
-            deploy-repository: ${{ inputs.deploy-repository }}
-            pull-request-number: ${{ inputs.pull-request-number }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v3
+              with:
+                  client-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+            - name: Dispatch deploy demo workflow
+              uses: actions/github-script@v9
+              id: dispatch
+              with:
+                  github-token: ${{ steps.generate-token.outputs.token }}
+                  result-encoding: string
+                  script: |
+                      const { data } = await github.rest.actions.createWorkflowDispatch({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          workflow_id: 'dispatch-deploy-demo.yml',
+                          ref: 'master',
+                          inputs: {
+                              'run-id': '${{ needs.build-demo.outputs.run-id }}',
+                              'directory': '${{ case(matrix.variant == 'default', needs.params.outputs.directory, format('{0}-{1}', needs.params.outputs.directory, matrix.variant)) }}',
+                              'variant': '${{ matrix.variant }}',
+                              'artifact-name': '${{ matrix.variant }}',
+                              'deploy-repository': '${{ inputs.deploy-repository }}',
+                              'pull-request-number': '${{ inputs.pull-request-number }}',
+                          }
+                      });
+
+                      return data.workflow_run_id;
+
+            - name: Clean up workflow run on cancel
+              if: cancelled()
+              uses: actions/github-script@v9
+              with:
+                  github-token: ${{ steps.generate-token.outputs.token }}
+                  script: |
+                      await github.rest.actions.cancelWorkflowRun({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          run_id: Number('${{ steps.dispatch.outputs.result }}'),
+                      });

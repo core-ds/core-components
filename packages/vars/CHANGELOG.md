@@ -1,5 +1,67 @@
 # @alfalab/core-components-vars
 
+## 11.5.0
+
+### Minor Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2408](https://github.com/core-ds/core-components/pull/2408)
+
+##### Vars
+
+- Добавлен mixin `hidden-scrollbar` для скрытия полосы скролла
+
+## 11.4.1
+
+### Patch Changes
+
+<sup><time>07.10.2026</time></sup>
+
+#### [#2403](https://github.com/core-ds/core-components/pull/2403)
+
+##### Vars
+
+- Обновлены тёмные фоны поверхностей superapp в `colors-superapp.css` (ui-primitives 36.8.0): `--color-dark-superapp-surface-bg-primary` — `#151517`, `--color-dark-superapp-surface-bg-secondary` — `#212124`
+
+## 11.4.0
+
+### Minor Changes
+
+<sup><time>25.09.2026</time></sup>
+
+#### [#2386](https://github.com/core-ds/core-components/pull/2386)
+
+##### Vars
+
+- Добавлена палитра `colors-corp.css` из ui-primitives: 7 корпоративных цветов `--color-static-corp-*` и их прозрачные пары `-transparent` (альфа 0) для градиентов
+
+## 11.3.0
+
+### Minor Changes
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2368](https://github.com/core-ds/core-components/pull/2368)
+
+##### Vars
+
+- Добавлены новые палитры:
+    - `colors-superapp.css`
+    - `colors-superapp-dark.css`
+
+- Добавлены новые стили типографики `Alfa Interface Sans` (доступны в `alfasans`-варианте пакета):
+    - `superapp_headline_24_32_bold`
+    - `superapp_headline_44_52_bold`
+
+<sup><time>16.09.2026</time></sup>
+
+#### [#2369](https://github.com/core-ds/core-components/pull/2369)
+
+##### Vars
+
+- Добавлен набор теней superapp `shadows-superapp.css` из ui-primitives: `--shadow-default` и `--shadow-promo`
+
 ## 11.2.1
 
 ### Patch Changes
