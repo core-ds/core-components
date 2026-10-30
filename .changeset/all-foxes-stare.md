@@ -2,6 +2,7 @@
 '@alfalab/core-components-action-button': patch
 '@alfalab/core-components-gallery': patch
 '@alfalab/core-components-pure-cell': patch
+'@alfalab/core-components-calendar': patch
 ---
 
-- Исправлены цвета компонента
+- Цвета компонентов приведены в соответствие с дизайном
