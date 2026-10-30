@@ -1,0 +1,191 @@
+{
+    "schemaVersion": 1,
+    "id": "core-default-reference-order",
+    "scope": "Контрольный экран заказа справки; настройки проекта не являются правилом замены иконок в Code Connect.",
+    "figma": {
+        "fileKey": "3sImiRGiPBCJHPa3Tyve9o",
+        "nodeId": "2550:5679",
+        "url": "https://www.figma.com/design/3sImiRGiPBCJHPa3Tyve9o/DS-AI-HUB-Test?node-id=2550-5679",
+        "observedModes": [
+            {
+                "collection": "Theme",
+                "mode": "Default",
+                "inherited": true
+            },
+            {
+                "collection": "Interface Dynamic",
+                "mode": "BlueTint Light",
+                "explicit": true
+            },
+            {
+                "collection": "Font",
+                "mode": "AlfaSans",
+                "inherited": true
+            }
+        ]
+    },
+    "theme": {
+        "name": "Default",
+        "colorMode": "Light",
+        "palette": "BlueTint",
+        "font": "AlfaSans",
+        "additionalThemeCss": []
+    },
+    "dependencies": {
+        "runtime": {
+            "package": "@alfalab/core-components",
+            "version": "50.23.0"
+        },
+        "icons": {
+            "package": "@alfalab/icons-glyph-26",
+            "version": "1.36.0"
+        },
+        "legacyIcons": {
+            "package": "@alfalab/icons-glyph",
+            "version": "2.260.0"
+        },
+        "react": {
+            "package": "react",
+            "version": "18.3.1"
+        }
+    },
+    "framework": "React",
+    "fullFrameRequired": true,
+    "nodes": [
+        {
+            "nodeId": "2550:7028",
+            "component": "ButtonDesktop",
+            "importPath": "@alfalab/core-components/button/desktop"
+        },
+        {
+            "nodeId": "2550:7075",
+            "component": "ButtonDesktop",
+            "importPath": "@alfalab/core-components/button/desktop"
+        },
+        {
+            "nodeId": "2550:7114",
+            "component": "ButtonDesktop",
+            "importPath": "@alfalab/core-components/button/desktop"
+        },
+        {
+            "nodeId": "2550:7185",
+            "component": "ButtonDesktop",
+            "importPath": "@alfalab/core-components/button/desktop",
+            "assetImport": "import { DotsThreeVerticalMIcon } from '@alfalab/icons-glyph/DotsThreeVerticalMIcon';"
+        },
+        {
+            "nodeId": "2550:5717",
+            "component": "IconButtonDesktop",
+            "importPath": "@alfalab/core-components/icon-button/desktop",
+            "assetImport": "import { ArrowLeft24Icon } from '@alfalab/icons-glyph-26/ArrowLeft24Icon';"
+        },
+        {
+            "nodeId": "2550:5742",
+            "component": "IconButtonDesktop",
+            "importPath": "@alfalab/core-components/icon-button/desktop",
+            "assetImport": "import { InformationCircle24Icon } from '@alfalab/icons-glyph-26/InformationCircle24Icon';"
+        },
+        {
+            "nodeId": "2550:5759",
+            "component": "IconButtonDesktop",
+            "importPath": "@alfalab/core-components/icon-button/desktop",
+            "assetImport": "import { ChevronDown24Icon } from '@alfalab/icons-glyph-26/ChevronDown24Icon';"
+        },
+        {
+            "nodeId": "2550:5778",
+            "component": "SelectDesktop",
+            "importPath": "@alfalab/core-components/select/desktop",
+            "contextual": true
+        },
+        {
+            "nodeId": "2550:6674",
+            "component": "SelectDesktop",
+            "importPath": "@alfalab/core-components/select/desktop",
+            "contextual": true
+        },
+        {
+            "nodeId": "2550:6552",
+            "component": "UniversalDateInputDesktop",
+            "importPath": "@alfalab/core-components/universal-date-input/desktop"
+        },
+        {
+            "nodeId": "2550:6626",
+            "component": "UniversalDateInputDesktop",
+            "importPath": "@alfalab/core-components/universal-date-input/desktop"
+        },
+        {
+            "nodeId": "2550:6723",
+            "component": "Switch",
+            "importPath": "@alfalab/core-components/switch"
+        },
+        {
+            "nodeId": "2550:6731",
+            "component": "Switch",
+            "importPath": "@alfalab/core-components/switch"
+        },
+        {
+            "nodeId": "2550:6737",
+            "component": "Switch",
+            "importPath": "@alfalab/core-components/switch"
+        },
+        {
+            "nodeId": "2550:5850",
+            "component": "RadioGroupDesktop",
+            "importPath": "@alfalab/core-components/radio-group/desktop",
+            "contextual": true
+        },
+        {
+            "nodeId": "2550:6747",
+            "component": "RadioGroupDesktop",
+            "importPath": "@alfalab/core-components/radio-group/desktop",
+            "contextual": true
+        },
+        {
+            "nodeId": "I2550:5850;171:16067;2550:6400",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        },
+        {
+            "nodeId": "I2550:5850;171:16067;2550:6438",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        },
+        {
+            "nodeId": "I2550:5850;171:16067;2550:6476",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        },
+        {
+            "nodeId": "I2550:5850;171:16067;2550:6506",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        },
+        {
+            "nodeId": "I2550:5850;171:16067;2550:6536",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        },
+        {
+            "nodeId": "I2550:6747;171:16067;2550:6983",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        },
+        {
+            "nodeId": "I2550:6747;171:16067;2550:7013",
+            "component": "TagDesktop",
+            "importPath": "@alfalab/core-components/tag/desktop",
+            "nested": true
+        }
+    ],
+    "requirements": {
+        "iconIdentity": "Конкретный Figma component key и вариант сопоставляются точному существующему экспорту. Набор, имя или стиль не заменяются по правилам миграции.",
+        "runtime": "Опубликованный npm-пакет используется отдельно от файлов Code Connect в Git-ветке.",
+        "context": "Select требует продуктовые options/selected/обработчики. TagGroup требует явный scenario.mode single или multiple и значения элементов."
+    }
+}

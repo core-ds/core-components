@@ -194,6 +194,7 @@ const filled = flag(instance, 'FilledState');
 const active = flag(instance, 'ActiveState');
 const hasError = flag(instance, 'ErrorState');
 const labelView = instance.getEnum('OuterLabel', { False: 'inner', True: 'outer' });
+if (labelView === undefined) throw new Error('Неизвестное значение OuterLabel');
 const label = booleanProperty(instance, '↳ Label') ? text('Label') : undefined;
 const hint = !hasError && booleanProperty(instance, 'Hint') ? text('Hint') : undefined;
 const error = hasError
@@ -213,7 +214,14 @@ const rightCode = right1 || right2 ? figma.code`<>${right2 || ''}${right1 || ''}
 const clear = addonType('RightAddon2', right2Enabled) === 'ClearButton';
 const success = addonType('RightAddon2', right2Enabled) === 'StatusPositive';
 const value = filled ? text('Value') : undefined;
-const placeholder = !filled && flag(instance, '↳ Placeholder') ? text('Placeholder') : undefined;
+// У пустого поля с внутренней подписью отдельного Placeholder нет: его роль выполняет Label.
+// Используем уже проверенную видимость Label, чтобы не показывать скрытую подпись как placeholder.
+const placeholder =
+    !filled && flag(instance, '↳ Placeholder')
+        ? labelView === 'inner'
+            ? label
+            : text('Placeholder')
+        : undefined;
 const colors = inverted ? 'inverted' : 'default';
 const contextType = filled ? " & { selected: NonNullable<SelectMobileProps['selected']> }" : '';
 

@@ -123,6 +123,9 @@ try {
         'verify-web-core-libraries.cjs',
         'verify-nesting.cjs',
         'verify-diamonds.cjs',
+        'verify-select-anatomy.cjs',
+        'verify-screen-icons.cjs',
+        'verify-screen-context-smoke.cjs',
     ]) {
         const result = run([path.join(__dirname, verifier)]);
 

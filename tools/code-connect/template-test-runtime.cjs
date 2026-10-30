@@ -349,6 +349,7 @@ function checkApi(repo, snippets) {
     const ts = require(path.join(repo, 'node_modules/typescript'));
     const paths = {
         '@alfalab/icons-glyph-26/*': [path.join(repo, 'node_modules/@alfalab/icons-glyph-26/*')],
+        '@alfalab/icons-glyph/*': [path.join(repo, 'node_modules/@alfalab/icons-glyph/*')],
     };
 
     for (const entry of fs.readdirSync(path.join(repo, 'packages'), { withFileTypes: true })) {
