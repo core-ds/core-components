@@ -6,21 +6,21 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { validateScreenContext, extractContextualPayloads } = require('./verify-screen-context.cjs');
 
-const iconImport = "import { ArrowLeft24Icon } from '@alfalab/icons-glyph-26/ArrowLeft24Icon';";
+const nestedImport = "import { Spinner } from '@alfalab/core-components/spinner';";
 const profile = {
     figma: { fileKey: 'smokeFile', nodeId: '1:1' },
     theme: { name: 'Default', colorMode: 'Light', palette: 'BlueTint' },
     dependencies: {
         runtime: { package: '@alfalab/core-components', version: '50.23.0' },
-        icons: { package: '@alfalab/icons-glyph-26', version: '1.36.0' },
+        react: { package: 'react', version: '18.3.1' },
     },
     fullFrameRequired: true,
     nodes: [
         {
             nodeId: '10:1',
-            component: 'IconButtonDesktop',
-            importPath: '@alfalab/core-components/icon-button/desktop',
-            assetImport: iconImport,
+            component: 'ButtonDesktop',
+            importPath: '@alfalab/core-components/button/desktop',
+            childImport: nestedImport,
         },
         {
             nodeId: '20:1',
@@ -36,10 +36,10 @@ const profile = {
         },
     ],
 };
-const iconCode = `${iconImport}
-import { IconButtonDesktop } from '@alfalab/core-components/icon-button/desktop';
-export default function DIconButton() {
-  return <CodeConnectSnippet data-node-id="10:1"><IconButtonDesktop icon={<ArrowLeft24Icon />} /></CodeConnectSnippet>;
+const contentCode = `${nestedImport}
+import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
+export default function DButton() {
+  return <CodeConnectSnippet data-node-id="10:1"><ButtonDesktop leftAddons={<Spinner />} /></CodeConnectSnippet>;
 }`;
 const selectCode = `import { SelectDesktop } from '@alfalab/core-components/select/desktop';
 function Example() { return <SelectDesktop options={[]} selected={null} />; }
@@ -54,9 +54,9 @@ const capture = {
     fileKey: 'smokeFile',
     nodeId: '1:1',
     clientFrameworks: 'React',
-    fullFrame: { code: `${iconCode}\n${selectCode}` },
+    fullFrame: { code: `${contentCode}\n${selectCode}` },
     nodes: [
-        { nodeId: '10:1', code: iconCode },
+        { nodeId: '10:1', code: contentCode },
         { nodeId: '20:1', code: selectCode },
         { nodeId: '30:1', code: tagCode },
     ],
@@ -118,28 +118,27 @@ positive('multi-hop named helper is reachable', (data) => {
         'function Inner() { return <SelectDesktop options={[]} selected={null} />; } const Example = () => <Inner />;',
     );
 });
-positive('asset named alias is accepted', (data) => {
-    data.nodes[0].code = iconCode
+positive('nested component named alias is accepted', (data) => {
+    data.nodes[0].code = contentCode
         .replace(
-            iconImport,
-            "import { ArrowLeft24Icon as BackIcon } from '@alfalab/icons-glyph-26/ArrowLeft24Icon';",
+            nestedImport,
+            "import { Spinner as Progress } from '@alfalab/core-components/spinner';",
         )
-        .replace('<ArrowLeft24Icon />', '<BackIcon />');
+        .replace('<Spinner />', '<Progress />');
 });
-positive('exact old glyph mapping stays valid', (data, settings) => {
-    const old =
-        "import { DotsThreeVerticalMIcon } from '@alfalab/icons-glyph/DotsThreeVerticalMIcon';";
+positive('another nested component stays valid', (data, settings) => {
+    const old = "import { StatusBadge } from '@alfalab/core-components/status-badge';";
 
-    settings.nodes[0].assetImport = old;
-    data.nodes[0].code = iconCode
-        .replace(iconImport, old)
-        .replace('<ArrowLeft24Icon />', '<DotsThreeVerticalMIcon />');
+    settings.nodes[0].childImport = old;
+    data.nodes[0].code = contentCode
+        .replace(nestedImport, old)
+        .replace('<Spinner />', '<StatusBadge />');
     data.fullFrame.code = `${data.nodes[0].code}\n${selectCode}`;
 });
 positive('MCP options form is accepted', (data) => {
-    data.nodes[0].code = iconCode.replace(
-        '<CodeConnectSnippet data-node-id="10:1"><IconButtonDesktop icon={<ArrowLeft24Icon />} /></CodeConnectSnippet>',
-        '<CodeConnectSnippet data-node-id="10:1" options={[<IconButtonDesktop icon={<ArrowLeft24Icon />} />]} />',
+    data.nodes[0].code = contentCode.replace(
+        '<CodeConnectSnippet data-node-id="10:1"><ButtonDesktop leftAddons={<Spinner />} /></CodeConnectSnippet>',
+        '<CodeConnectSnippet data-node-id="10:1" options={[<ButtonDesktop leftAddons={<Spinner />} />]} />',
     );
 });
 positive('comment mentioning prohibited CSS is not an import', (data) => {
@@ -148,7 +147,7 @@ positive('comment mentioning prohibited CSS is not an import', (data) => {
 positive('hyphen node IDs match colon IDs', (data) => {
     data.nodeId = '1-1';
     data.nodes[0].nodeId = '10-1';
-    data.nodes[0].code = iconCode.replace('10:1', '10-1');
+    data.nodes[0].code = contentCode.replace('10:1', '10-1');
 });
 
 negative('missing required full frame', 'missing-code', (data) => {
@@ -159,7 +158,7 @@ negative('frame is a connection gate', 'connection-gate', (data) => {
         'Some Figma design components are not connected to your codebase with Code Connect. Would you like to connect code components to the Figma design?';
 });
 negative('full frame omits a top-level marker', 'missing-node-marker', (data) => {
-    data.fullFrame.code = iconCode;
+    data.fullFrame.code = contentCode;
 });
 negative(
     'nested marker becomes required when configured as top-level',
@@ -227,10 +226,7 @@ negative(
     },
 );
 negative('Logic Instance placeholder', 'unresolved-code-connect', (data) => {
-    data.nodes[0].code = iconCode.replace(
-        '<ArrowLeft24Icon />',
-        '{/* Code Connect Logic Instance */}',
-    );
+    data.nodes[0].code = contentCode.replace('<Spinner />', '{/* Code Connect Logic Instance */}');
 });
 negative('missing template placeholder', 'unresolved-code-connect', (data) => {
     data.nodes[2].code += '\n// no Code Connect template found';
@@ -263,19 +259,18 @@ negative('Corp CSS require under Default', 'corp-theme-in-default', (data) => {
 negative('Corp CSS @import in style template under Default', 'corp-theme-in-default', (data) => {
     data.fullFrame.code += '\nconst style = `@import "@alfalab/core-components-themes/corp.css";`;';
 });
-negative('asset import is required', 'missing-asset-import', (data) => {
-    data.nodes[0].code = iconCode.replace(iconImport, '');
+negative('nested import is required', 'missing-child-import', (data) => {
+    data.nodes[0].code = contentCode.replace(nestedImport, '');
 });
-negative(
-    'wrong glyph family is not substituted for the exact profile import',
-    'missing-asset-import',
-    (data) => {
-        data.nodes[0].code = iconCode.replace('@alfalab/icons-glyph-26/', '@alfalab/icons-glyph/');
-    },
-);
-negative('inline SVG helper instead of imported asset', 'inline-svg-asset', (data) => {
-    data.nodes[0].code = `${iconCode.replace(
-        '<ArrowLeft24Icon />',
+negative('wrong module does not satisfy the nested import', 'missing-child-import', (data) => {
+    data.nodes[0].code = contentCode.replace(
+        '@alfalab/core-components/spinner',
+        '@alfalab/core-components/status-badge',
+    );
+});
+negative('inline SVG helper instead of imported child', 'inline-svg-asset', (data) => {
+    data.nodes[0].code = `${contentCode.replace(
+        '<Spinner />',
         '<LocalAsset />',
     )}\nfunction LocalAsset() { return <svg width="24" height="24"><path d="M0 0" /></svg>; }`;
 });
@@ -284,13 +279,13 @@ negative('unquoted Corp CSS @import under Default', 'corp-theme-in-default', (da
         '\nconst style = `@import url(@alfalab/core-components-themes/corp.css);`;';
 });
 negative('incomplete environment profile is rejected', 'invalid-profile', (data, settings) => {
-    delete settings.dependencies.icons.version;
+    delete settings.dependencies.react.version;
 });
-negative('assetImport cannot carry unrelated code', 'invalid-asset-import', (data, settings) => {
-    settings.nodes[0].assetImport += '\nconst unrelated = 1;';
+negative('childImport cannot carry unrelated code', 'invalid-child-import', (data, settings) => {
+    settings.nodes[0].childImport += '\nconst unrelated = 1;';
 });
-negative('unused asset import alone is insufficient', 'unused-asset-import', (data) => {
-    data.nodes[0].code = iconCode.replace('<ArrowLeft24Icon />', '<span />');
+negative('unused nested import alone is insufficient', 'unused-child-import', (data) => {
+    data.nodes[0].code = contentCode.replace('<Spinner />', '<span />');
 });
 negative(
     'Core symbol shadowed by a local binding is not the imported component',
@@ -326,7 +321,7 @@ const rawSelectResult = positive(
     'raw Select Example payload is validated as a standalone module',
     (data) => {
         data.nodes[1].code = rawSelectCode();
-        data.fullFrame.code = `${iconCode}\n${data.nodes[1].code}`;
+        data.fullFrame.code = `${contentCode}\n${data.nodes[1].code}`;
     },
 );
 

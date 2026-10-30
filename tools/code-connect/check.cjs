@@ -118,14 +118,14 @@ try {
         console.log(`Code Connect ${name}: parse passed (${count} templates)`);
     }
     for (const verifier of [
+        'verify-component-scope.cjs',
         'verify-hedging.cjs',
         'verify-web-core.cjs',
         'verify-web-core-libraries.cjs',
         'verify-nesting.cjs',
-        'verify-diamonds.cjs',
+        'verify-child-composition.cjs',
         'verify-select-anatomy.cjs',
         'verify-switch-layer-identity.cjs',
-        'verify-screen-icons.cjs',
         'verify-screen-context-smoke.cjs',
     ]) {
         const result = run([path.join(__dirname, verifier)]);

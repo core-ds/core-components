@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "core-default-reference-order",
-    "scope": "Контрольный экран заказа справки; настройки проекта не являются правилом замены иконок в Code Connect.",
+    "scope": "Контрольный экран заказа справки; профиль описывает компоненты Core и настройки проекта.",
     "figma": {
         "fileKey": "3sImiRGiPBCJHPa3Tyve9o",
         "nodeId": "2550:5679",
@@ -36,14 +36,6 @@
             "package": "@alfalab/core-components",
             "version": "50.23.0"
         },
-        "icons": {
-            "package": "@alfalab/icons-glyph-26",
-            "version": "1.36.0"
-        },
-        "legacyIcons": {
-            "package": "@alfalab/icons-glyph",
-            "version": "2.260.0"
-        },
         "react": {
             "package": "react",
             "version": "18.3.1"
@@ -70,26 +62,22 @@
         {
             "nodeId": "2550:7185",
             "component": "ButtonDesktop",
-            "importPath": "@alfalab/core-components/button/desktop",
-            "assetImport": "import { DotsThreeVerticalMIcon } from '@alfalab/icons-glyph/DotsThreeVerticalMIcon';"
+            "importPath": "@alfalab/core-components/button/desktop"
         },
         {
             "nodeId": "2550:5717",
             "component": "IconButtonDesktop",
-            "importPath": "@alfalab/core-components/icon-button/desktop",
-            "assetImport": "import { ArrowLeft24Icon } from '@alfalab/icons-glyph-26/ArrowLeft24Icon';"
+            "importPath": "@alfalab/core-components/icon-button/desktop"
         },
         {
             "nodeId": "2550:5742",
             "component": "IconButtonDesktop",
-            "importPath": "@alfalab/core-components/icon-button/desktop",
-            "assetImport": "import { InformationCircle24Icon } from '@alfalab/icons-glyph-26/InformationCircle24Icon';"
+            "importPath": "@alfalab/core-components/icon-button/desktop"
         },
         {
             "nodeId": "2550:5759",
             "component": "IconButtonDesktop",
-            "importPath": "@alfalab/core-components/icon-button/desktop",
-            "assetImport": "import { ChevronDown24Icon } from '@alfalab/icons-glyph-26/ChevronDown24Icon';"
+            "importPath": "@alfalab/core-components/icon-button/desktop"
         },
         {
             "nodeId": "2550:5778",
@@ -184,7 +172,6 @@
         }
     ],
     "requirements": {
-        "iconIdentity": "Конкретный Figma component key и вариант сопоставляются точному существующему экспорту. Набор, имя или стиль не заменяются по правилам миграции.",
         "runtime": "Опубликованный npm-пакет используется отдельно от файлов Code Connect в Git-ветке.",
         "context": "Select требует продуктовые options/selected/обработчики. TagGroup требует явный scenario.mode single или multiple и значения элементов."
     }

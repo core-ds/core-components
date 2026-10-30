@@ -40,7 +40,7 @@ function fixture({ outer, filled, active, placeholder, labelVisible, size, right
             {
                 type: 'INSTANCE',
                 name: active ? 'Arrow_Up' : 'Arrow_Down',
-                children: [{ type: 'INSTANCE', name: active ? 'chevron-up' : 'chevron-down' }],
+                children: [{ type: 'INSTANCE', name: 'InternalContent' }],
             },
         ],
     });

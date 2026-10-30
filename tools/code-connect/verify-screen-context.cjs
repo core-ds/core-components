@@ -400,9 +400,9 @@ function validProfile(profile) {
         isObject(profile.dependencies.runtime) &&
         isText(profile.dependencies.runtime.package) &&
         isText(profile.dependencies.runtime.version) &&
-        isObject(profile.dependencies.icons) &&
-        isText(profile.dependencies.icons.package) &&
-        isText(profile.dependencies.icons.version) &&
+        isObject(profile.dependencies.react) &&
+        isText(profile.dependencies.react.package) &&
+        isText(profile.dependencies.react.version) &&
         typeof profile.fullFrameRequired === 'boolean' &&
         Array.isArray(profile.nodes) &&
         profile.nodes.length > 0
@@ -441,9 +441,9 @@ function indexProfile(expected, add) {
 
         if (ids.has(id)) add('profile', 'duplicate-profile-node', 'Повтор nodeId в профиле', id);
         ids.add(id);
-        if (node.assetImport === undefined) return;
-        if (isText(node.assetImport)) {
-            const parsed = analyze(node.assetImport);
+        if (node.childImport === undefined) return;
+        if (isText(node.childImport)) {
+            const parsed = analyze(node.childImport);
             const declarations = parsed.imports.flatMap((item) =>
                 item.named
                     .filter((binding) => !binding.typeOnly)
@@ -456,16 +456,16 @@ function indexProfile(expected, add) {
             if (parsed.syntax.length || declarations.length === 0 || !importsOnly)
                 add(
                     'profile',
-                    'invalid-asset-import',
-                    'assetImport должен содержать корректный named import значения',
+                    'invalid-child-import',
+                    'childImport должен содержать корректный named import значения',
                     id,
                 );
             else assets.set(id, declarations);
         } else
             add(
                 'profile',
-                'invalid-asset-import',
-                'assetImport должен быть строкой named import',
+                'invalid-child-import',
+                'childImport должен быть строкой named import',
                 id,
             );
     });
@@ -521,7 +521,7 @@ function validateScreenContext(capture, profile) {
         add(
             'profile',
             'invalid-profile',
-            'Нужны figma, полная theme, версии runtime/icons, непустые nodes и fullFrameRequired',
+            'Нужны figma, полная theme, версии runtime/React, непустые nodes и fullFrameRequired',
         );
     const expected = profileValid ? profile.nodes : [];
     const { ids, assets } = indexProfile(expected, add);
@@ -727,7 +727,7 @@ function validateScreenContext(capture, profile) {
                 if (!found.length)
                     add(
                         scope,
-                        'missing-asset-import',
+                        'missing-child-import',
                         `Нет named import ${asset.exported} из ${asset.module}`,
                         id,
                     );
@@ -752,7 +752,7 @@ function validateScreenContext(capture, profile) {
             )
                 add(
                     scope,
-                    'unused-asset-import',
+                    'unused-child-import',
                     'Пакетная иконка импортирована, но не используется в достижимом JSX marker',
                     id,
                 );

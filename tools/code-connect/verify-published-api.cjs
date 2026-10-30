@@ -42,8 +42,6 @@ const files = args.flatMap((directory) =>
 assert(files.length, 'No generated examples found');
 const paths = {
     '@alfalab/core-components/*': [path.join(installed, '@alfalab/core-components/*')],
-    '@alfalab/icons-glyph-26/*': [path.join(installed, '@alfalab/icons-glyph-26/*')],
-    '@alfalab/icons-glyph/*': [path.join(installed, '@alfalab/icons-glyph/*')],
     react: [path.join(installed, '@types/react/index.d.ts')],
     'react/*': [path.join(installed, '@types/react/*')],
     'react-dom': [path.join(installed, '@types/react-dom/index.d.ts')],
@@ -80,23 +78,60 @@ if (actual.length) {
     );
     process.exitCode = 1;
 } else {
-    const candidate = files.find((file) => {
+    let candidate;
+
+    for (const file of files) {
         const source = fs.readFileSync(file, 'utf8');
-
-        return (
-            /import \{ InformationCircle24Icon \}/.test(source) &&
-            /<InformationCircle24Icon\b/.test(source)
+        const parsed = ts.createSourceFile(
+            file,
+            source,
+            ts.ScriptTarget.Latest,
+            true,
+            ts.ScriptKind.TSX,
         );
-    });
+        const used = new Set();
+        const visit = (node) => {
+            if (
+                (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) &&
+                ts.isIdentifier(node.tagName)
+            )
+                used.add(node.tagName.text);
+            ts.forEachChild(node, visit);
+        };
 
-    assert(candidate, 'The icon regression example is required for the negative control');
+        visit(parsed);
+        const imports = parsed.statements.filter(
+            (statement) =>
+                ts.isImportDeclaration(statement) &&
+                ts.isStringLiteral(statement.moduleSpecifier) &&
+                statement.moduleSpecifier.text.startsWith('@alfalab/core-components/') &&
+                !statement.importClause?.isTypeOnly,
+        );
+
+        for (const statement of imports) {
+            const bindings = statement.importClause?.namedBindings;
+            const binding =
+                bindings && ts.isNamedImports(bindings)
+                    ? bindings.elements.find(
+                          (entry) => !entry.isTypeOnly && used.has(entry.name.text),
+                      )
+                    : undefined;
+
+            if (binding) {
+                candidate = { source, statement, name: binding.name.text };
+                break;
+            }
+        }
+        if (candidate) break;
+    }
+    assert(candidate, 'An imported Core JSX component is required for the negative control');
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'code-connect-published-negative-'));
 
     try {
         const broken = path.join(directory, 'missing-import.tsx');
-        const source = fs
-            .readFileSync(candidate, 'utf8')
-            .replace(/^import \{ InformationCircle24Icon \}[^\n]*\n/m, '');
+        const source =
+            candidate.source.slice(0, candidate.statement.getFullStart()) +
+            candidate.source.slice(candidate.statement.end);
 
         fs.writeFileSync(broken, source);
         const negative = diagnostics([broken]);
@@ -105,11 +140,9 @@ if (actual.length) {
             negative.some(
                 (item) =>
                     item.code === 2304 &&
-                    ts
-                        .flattenDiagnosticMessageText(item.messageText, ' ')
-                        .includes('InformationCircle24Icon'),
+                    ts.flattenDiagnosticMessageText(item.messageText, ' ').includes(candidate.name),
             ),
-            'Missing icon import must be detected',
+            'Missing Core component import must be detected',
         );
     } finally {
         fs.rmSync(directory, { recursive: true, force: true });
@@ -119,7 +152,7 @@ if (actual.length) {
             examples: files.length,
             versions,
             apiTypes: 'passed-against-installed-published-packages',
-            missingIconImportNegativeControl: 'detected',
+            missingComponentImportNegativeControl: 'detected',
             workspaceSourceAliases: false,
             visualEquivalenceChecked: false,
         }),
