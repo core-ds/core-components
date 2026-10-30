@@ -18,6 +18,7 @@ export const BaseMarkdown: FC<BaseMarkdownProps> = (props) => {
         font = 'system',
         overrides,
         remarkPlugins = [],
+        rehypePlugins = [],
         transformLinkUri = true,
     } = props;
     const defaultOverrides = useOverrides(platform, font);
@@ -25,6 +26,7 @@ export const BaseMarkdown: FC<BaseMarkdownProps> = (props) => {
     return (
         <ReactMarkdown
             remarkPlugins={[strikethroughRemarkPlugin, ...remarkPlugins]}
+            rehypePlugins={rehypePlugins}
             components={{ ...defaultOverrides, ...overrides }}
             className={cn(styles.component, className)}
             urlTransform={urlTransformer(transformLinkUri)}

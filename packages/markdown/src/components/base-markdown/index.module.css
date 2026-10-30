@@ -44,7 +44,9 @@
     margin-bottom: var(--gap-16);
 }
 
-.h4 {
+.h4,
+.h5,
+.h6 {
     margin-top: var(--gap-8);
     margin-bottom: var(--gap-4);
 }
