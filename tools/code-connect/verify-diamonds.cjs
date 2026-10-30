@@ -7,44 +7,100 @@ const { createRuntime, checkApi } = require('./template-test-runtime.cjs');
 const repo = path.resolve(__dirname, '../..');
 const template = 'packages/button/code-connect/Diamonds.figma.ts';
 const iconTemplate = 'packages/icon-button/code-connect/IconButtonIcon.figma.ts';
+const arrowTemplate = 'packages/icon-button/code-connect/icons/ArrowLeft.figma.ts';
 const config = JSON.parse(fs.readFileSync(path.join(repo, 'figma.config.json'), 'utf8'));
 const { scripts } = JSON.parse(fs.readFileSync(path.join(repo, 'package.json'), 'utf8'));
 
 assert(config.codeConnect.include.includes(template), 'Diamonds отсутствует в общем наборе');
+assert(
+    config.codeConnect.include.includes(arrowTemplate),
+    'Реальная SVG20-регрессия требует ArrowLeft',
+);
 assert(config.codeConnect.include.every((file) => file.endsWith('.figma.ts')));
 assert(scripts['figma:connect:publish'].includes('--config figma.config.json'));
 assert.equal(scripts['figma:connect:unpublish'], undefined);
 for (const legacy of ['Button.figma.tsx', 'Diamonds.figma.tsx']) {
     assert(!fs.existsSync(path.join(repo, 'packages/button/code-connect', legacy)));
 }
+const currentSource = fs.readFileSync(path.join(repo, template), 'utf8');
+
+assert(
+    currentSource.includes(
+        'https://www.figma.com/design/ZcdUPebEhHfSZ91zgmv2cK/Icons?node-id=92210-20888',
+    ),
+);
+const runtime = createRuntime(repo, { directChildImportsOnly: true });
+const output = fs.mkdtempSync(path.join(os.tmpdir(), 'diamonds-code-connect-'));
+const legacyVariants = [
+    { variant: 's', size: 16, component: 'DiamondsSIcon' },
+    { variant: 'm', size: 24, component: 'DiamondsMIcon' },
+    { variant: 'xxl', size: 48, component: 'DiamondsXxlIcon' },
+];
 
 function diamonds(size) {
     return { type: 'INSTANCE', name: 'diamonds', template, properties: { Size: size } };
 }
-const cases = [
-    {
+function declaration(component, packageName = '@alfalab/icons-glyph') {
+    return `import { ${component} } from '${packageName}/${component}';`;
+}
+function checkLegacyIdentity(value, expected) {
+    assert.equal(value.id, 'core-diamonds-icon');
+    assert.equal(value.metadata.nestable, true);
+    assert.equal(
+        value.metadata.props.svgSize,
+        expected.size,
+        'Подменён размер выбранного Diamonds',
+    );
+    assert.equal(value.imports.length, 1);
+    assert.equal(
+        value.imports[0],
+        declaration(expected.component),
+        'Подменён экспорт выбранного Diamonds',
+    );
+    assert.equal(value.metadata.props.imports[0], declaration(expected.component));
+    assert.equal(runtime.flatten(value.example), `<${expected.component} />`);
+}
+const cases = legacyVariants.map((expected) => {
+    const value = runtime.evaluate(template, diamonds(expected.variant));
+
+    checkLegacyIdentity(value, expected);
+    assert(
+        fs.existsSync(
+            path.join(repo, `node_modules/@alfalab/icons-glyph/${expected.component}.js`),
+        ),
+    );
+    assert(
+        fs.existsSync(
+            path.join(repo, `node_modules/@alfalab/icons-glyph/${expected.component}.d.ts`),
+        ),
+    );
+
+    return {
         template,
-        fixture: diamonds('s'),
-        expect: ['<Diamonds20Icon'],
-        notExpect: ['Diamonds24Icon', 'Icon20Adapter'],
-    },
-    {
-        template,
-        fixture: diamonds('m'),
-        expect: ['<Diamonds24Icon'],
-        notExpect: ['Diamonds20Icon', 'Icon20Adapter'],
-    },
-    {
-        template,
-        fixture: diamonds('xxl'),
-        throws: 'Diamonds: поддерживаются только',
-    },
-    {
-        template,
-        fixture: diamonds('unknown'),
-        throws: 'Diamonds: поддерживаются только',
-    },
-];
+        fixture: diamonds(expected.variant),
+        expect: [`<${expected.component} />`],
+        notExpect: ['Diamonds20Icon', 'Diamonds24Icon', 'Icon20Adapter'],
+    };
+});
+
+cases.push({ template, fixture: diamonds('unknown'), throws: 'Diamonds: неизвестный Size' });
+const arrow = {
+    type: 'INSTANCE',
+    name: 'arrow-left',
+    template: arrowTemplate,
+    properties: { Size: '20', Style: 'Default', Color: 'False' },
+};
+const arrowImport = declaration('ArrowLeft20Icon', '@alfalab/icons-glyph-26');
+const arrowValue = runtime.evaluate(arrowTemplate, arrow);
+
+assert.equal(arrowValue.metadata.props.svgSize, 20);
+assert(arrowValue.imports.includes(arrowImport));
+cases.push({
+    template: arrowTemplate,
+    fixture: arrow,
+    expect: ['<ArrowLeft20Icon />'],
+    notExpect: ['Icon20Adapter'],
+});
 const buttonTemplates = [
     'ButtonDesktop',
     'ButtonMobile',
@@ -62,65 +118,82 @@ const buttonBase = controls.cases.find(
     (test) => test.template.endsWith('/ButtonMobile.figma.ts') && !test.throws,
 ).fixture;
 
-for (const parent of buttonTemplates) {
-    for (const size of ['32', '40']) {
-        /*
-         * The live 32/40 variants use Type=Icon-16 with a Diamonds Size=s (20px).
-         * Also preserve the explicit Icon-20 contract and leave ordinary 24px SVGs raw.
-         */
-        for (const [type, svgSize, adapted] of [
-            ['Icon-20', 's', true],
-            ['Icon-16', 's', true],
-            ['Icon-16', 'm', false],
-            ['Icon-24', 'm', false],
-            ['Icon-20', 'm', true],
-        ]) {
-            const fixture = structuredClone(buttonBase);
+function buttonFixture(size, type, child) {
+    const fixture = structuredClone(buttonBase);
 
-            fixture.properties.Size = size;
-            fixture.properties.LeftAddon = true;
-            fixture.properties.RightAddon = true;
-            fixture.children = ['LeftAddon', 'RightAddon'].map((name) => ({
-                type: 'INSTANCE',
-                name,
-                properties: { Type: type },
-                swaps: { [type]: diamonds(svgSize) },
-            }));
+    fixture.properties.Size = size;
+    fixture.properties.LeftAddon = true;
+    fixture.properties.RightAddon = true;
+    fixture.children = ['LeftAddon', 'RightAddon'].map((name) => ({
+        type: 'INSTANCE',
+        name,
+        properties: { Type: type },
+        swaps: { [type]: structuredClone(child) },
+    }));
+
+    return fixture;
+}
+for (const parent of buttonTemplates)
+    for (const size of ['32', '40']) {
+        // Legacy S действительно16px: технический Icon-16 не превращает его в SVG20.
+        for (const expected of legacyVariants)
             cases.push({
                 template: `packages/button/code-connect/${parent}.figma.ts`,
-                fixture,
+                fixture: buttonFixture(
+                    size,
+                    expected.size === 16 ? 'Icon-16' : 'Icon-24',
+                    diamonds(expected.variant),
+                ),
                 expect: [
                     `size={${size}}`,
-                    svgSize === 's' ? 'Diamonds20Icon' : 'Diamonds24Icon',
+                    `<${expected.component} />`,
                     'leftAddons=',
                     'rightAddons=',
                 ],
-                notExpect: [svgSize === 's' ? 'Diamonds24Icon' : 'Diamonds20Icon'],
-                expectedAdapters: adapted ? 2 : 0,
+                notExpect: ['Diamonds20Icon', 'Diamonds24Icon', 'ArrowLeft'],
+                expectedImport: declaration(expected.component),
+                expectedAdapters: 0,
+                legacyVariant: expected.variant,
             });
-        }
+        // Настоящий glyph-26 SVG20 должен адаптироваться и в техническом Icon-16, и в Icon-20.
+        for (const type of ['Icon-16', 'Icon-20'])
+            cases.push({
+                template: `packages/button/code-connect/${parent}.figma.ts`,
+                fixture: buttonFixture(size, type, arrow),
+                expect: [`size={${size}}`, '<ArrowLeft20Icon', 'leftAddons=', 'rightAddons='],
+                notExpect: ['Diamonds'],
+                expectedImport: arrowImport,
+                expectedAdapters: 2,
+                actualSvg20: true,
+            });
     }
-}
-
 const boundaryCases = [];
+const children = legacyVariants.map((expected) => ({
+    fixture: diamonds(expected.variant),
+    size: expected.size,
+    component: expected.component,
+    imports: [declaration(expected.component)],
+}));
 
-for (const [type, swap, size] of [
-    ['Icon 24', 'Icon-24', 'm'],
-    ['icon-20', 'Icon-20', 's'],
-]) {
+children.push({ fixture: arrow, size: 20, component: 'ArrowLeft20Icon', imports: [arrowImport] });
+for (const child of children) {
+    const type = child.size === 16 ? 'Icon 16' : 'Icon 24';
+    const swap = child.size === 16 ? 'Icon-16' : 'Icon-24';
     const icon = {
         type: 'INSTANCE',
         name: 'Icon',
         template: iconTemplate,
         properties: { Type: type },
-        swaps: { [swap]: diamonds(size) },
+        swaps: { [swap]: child.fixture },
     };
 
     boundaryCases.push({
         template: iconTemplate,
         fixture: icon,
-        expectedLeafSize: size,
-        expect: [size === 's' ? 'Diamonds20Icon' : 'Diamonds24Icon'],
+        leafImports: child.imports,
+        expectedImport: child.imports[0],
+        expect: [`<${child.component}`],
+        expectedAdapters: child.size === 20 ? 1 : 0,
     });
     for (const parent of iconButtonTemplates) {
         const fixture = structuredClone(
@@ -133,22 +206,17 @@ for (const [type, swap, size] of [
         boundaryCases.push({
             template: `packages/icon-button/code-connect/${parent}.figma.ts`,
             fixture,
-            expectedLeafSize: size,
-            expect: [size === 's' ? 'Diamonds20Icon' : 'Diamonds24Icon'],
+            leafImports: child.imports,
+            expectedImport: child.imports[0],
+            expect: [`<${child.component}`],
+            expectedAdapters: child.size === 20 ? 1 : 0,
         });
     }
 }
 cases.push(...boundaryCases);
-
-/*
- * The live renderer propagates immediate child imports, not arbitrary descendants.
- * This mode catches Diamonds -> IconButtonIcon -> IconButton import loss.
- */
-const runtime = createRuntime(repo, { directChildImportsOnly: true });
-const output = fs.mkdtempSync(path.join(os.tmpdir(), 'diamonds-code-connect-'));
 const result = runtime.runCases(cases, output);
 
-assert.deepEqual(result.failures, [], 'Не прошла композиция с настоящим шаблоном Diamonds');
+assert.deepEqual(result.failures, [], 'Не прошла композиция с точными выбранными иконками');
 function checkAdapterCount(source, count) {
     assert.equal((source.match(/<Icon20Adapter\b/g) || []).length, count);
 }
@@ -159,13 +227,9 @@ for (const [index, file] of result.generated.entries()) {
     const test = renderedCases[index];
 
     assert(!source.includes('@alfalab/core-components-shared/'));
-    if (test.expectedAdapters !== undefined) {
-        checkAdapterCount(source, test.expectedAdapters);
-        assert.equal((source.match(/import \{ Icon20Adapter \}/g) || []).length, 1);
-        assert.equal((source.match(/import \{ Diamonds(?:20|24)Icon \}/g) || []).length, 1);
-    }
+    if (test.expectedAdapters !== undefined) checkAdapterCount(source, test.expectedAdapters);
+    if (test.expectedImport) assert.equal(source.split(test.expectedImport).length - 1, 1);
 }
-
 function checkForwardedImports(value, leafImports) {
     assert(Array.isArray(value.imports), 'Нет export.imports');
     assert(Array.isArray(value.metadata?.props?.imports), 'Нет metadata.props.imports');
@@ -175,24 +239,29 @@ function checkForwardedImports(value, leafImports) {
         value.metadata.props.imports.length,
         'Повтор metadata.props.imports',
     );
-    for (const declaration of leafImports) {
-        assert(value.imports.includes(declaration), 'Потерян leaf import в export.imports');
+    for (const entry of leafImports) {
+        assert(value.imports.includes(entry), 'Потерян leaf import в export.imports');
         assert(
-            value.metadata.props.imports.includes(declaration),
+            value.metadata.props.imports.includes(entry),
             'Потерян leaf import в metadata.props.imports',
         );
     }
 }
 for (const test of boundaryCases) {
-    const leaf = runtime.evaluate(template, diamonds(test.expectedLeafSize));
     const value = runtime.evaluate(test.template, test.fixture);
 
-    checkForwardedImports(leaf, leaf.imports);
-    checkForwardedImports(value, leaf.imports);
-    /*
-     * These controls inspect actual exports, so a recursive global collector cannot
-     * hide a missing metadata forwarding step at either intermediate or parent level.
-     */
+    checkForwardedImports(value, test.leafImports);
+    assert.throws(
+        () =>
+            checkForwardedImports(
+                {
+                    ...value,
+                    imports: value.imports.filter((item) => !test.leafImports.includes(item)),
+                },
+                test.leafImports,
+            ),
+        /Потерян leaf import в export.imports/,
+    );
     assert.throws(
         () =>
             checkForwardedImports(
@@ -203,39 +272,79 @@ for (const test of boundaryCases) {
                         props: {
                             ...value.metadata.props,
                             imports: value.metadata.props.imports.filter(
-                                (item) => !leaf.imports.includes(item),
+                                (item) => !test.leafImports.includes(item),
                             ),
                         },
                     },
                 },
-                leaf.imports,
+                test.leafImports,
             ),
         /Потерян leaf import в metadata.props.imports/,
     );
-    assert.throws(
-        () =>
-            checkForwardedImports(
-                { ...value, imports: value.imports.filter((item) => !leaf.imports.includes(item)) },
-                leaf.imports,
-            ),
-        /Потерян leaf import в export.imports/,
-    );
 }
-const actualSmall = renderedCases.findIndex(
-    (test) =>
-        test.expectedAdapters === 2 && test.fixture.children?.[0]?.properties?.Type === 'Icon-16',
+// Реальный прежний шаблон возвращал glyph-26 вместо выбранного legacy glyph.
+const transferredSource = [
+    '// url=https://www.figma.com/design/ZcdUPebEhHfSZ91zgmv2cK/Icons?node-id=92210-20888',
+    '// source=https://github.com/core-ds/icons/tree/master/packages/glyph-26/src',
+    '// component=Diamonds20Icon / Diamonds24Icon',
+    "import figma from 'figma';",
+    '',
+    "const size = figma.selectedInstance.getEnum('Size', {",
+    '    s: 20,',
+    '    m: 24,',
+    "    xxl: 'unsupported',",
+    '});',
+    'if (size !== 20 && size !== 24) {',
+    '    throw new Error(',
+    "        'Diamonds: поддерживаются только Size=s (20) и Size=m (24); у xxl нет соответствия в glyph-26',",
+    '    );',
+    '}',
+    '',
+    '// Сниппет иконки возвращает SVG. Icon20Adapter добавляет родитель слота,',
+    '// когда иконка 20 используется в Button/Input 32/40.',
+    'const imports =',
+    '    size === 20',
+    '        ? ["import { Diamonds20Icon } from \'@alfalab/icons-glyph-26/Diamonds20Icon\';"]',
+    '        : ["import { Diamonds24Icon } from \'@alfalab/icons-glyph-26/Diamonds24Icon\';"];',
+    '',
+    'export default {',
+    "    id: 'core-diamonds-icon',",
+    '    imports,',
+    '    example: size === 20 ? figma.code`<Diamonds20Icon />` : figma.code`<Diamonds24Icon />`,',
+    '    metadata: { nestable: true, props: { svgSize: size, imports } },',
+    '};',
+].join('\n');
+const transferredFile = path.join(output, 'transferred-diamonds.figma.ts');
+
+fs.writeFileSync(transferredFile, transferredSource);
+const preFixRuntime = createRuntime(repo);
+const transferredS = preFixRuntime.evaluate(path.relative(repo, transferredFile), diamonds('s'));
+const transferredM = preFixRuntime.evaluate(path.relative(repo, transferredFile), diamonds('m'));
+
+assert.throws(
+    () => checkLegacyIdentity(transferredS, legacyVariants[0]),
+    /Подменён размер выбранного Diamonds/,
 );
-const adapted = fs.readFileSync(result.generated[actualSmall], 'utf8');
+assert.throws(
+    () => checkLegacyIdentity(transferredM, legacyVariants[1]),
+    /Подменён экспорт выбранного Diamonds/,
+);
+const actualSvg20 = renderedCases.findIndex(
+    (test) => test.actualSvg20 && test.fixture.children[0].properties.Type === 'Icon-16',
+);
+const adapted = fs.readFileSync(result.generated[actualSvg20], 'utf8');
 
 assert.throws(
     () => checkAdapterCount(adapted.replaceAll('<Icon20Adapter ', '<PreFixRawSvg '), 2),
     /0 !== 2/,
 );
 const negative = path.join(output, 'missing-leaf-import.tsx');
-const boundaryIndex = renderedCases.findIndex((test) => test.expectedLeafSize === 'm');
+const boundaryIndex = renderedCases.findIndex(
+    (test) => test.leafImports?.[0] === declaration('DiamondsMIcon'),
+);
 const boundarySource = fs.readFileSync(result.generated[boundaryIndex], 'utf8');
 
-fs.writeFileSync(negative, boundarySource.replace(/^import \{ Diamonds24Icon \}[^\n]*\n/m, ''));
+fs.writeFileSync(negative, boundarySource.replace(`${declaration('DiamondsMIcon')}\n`, ''));
 const negativeApi = checkApi(repo, [negative]);
 
 assert(
@@ -244,9 +353,9 @@ assert(
             item.code === 2304 &&
             negativeApi.ts
                 .flattenDiagnosticMessageText(item.messageText, ' ')
-                .includes('Diamonds24Icon'),
+                .includes('DiamondsMIcon'),
     ),
-    'Отрицательный контроль не обнаружил потерянный импорт Diamonds24Icon',
+    'Не обнаружен потерянный импорт точного DiamondsMIcon',
 );
 const { diagnostics, ts } = checkApi(repo, result.generated);
 
@@ -265,12 +374,15 @@ if (diagnostics.length) {
             checks: cases.length,
             renderedSnippets: result.generated.length,
             buttonTemplates: buttonTemplates.length,
-            actualIcon16ButtonCases: 8,
+            actualIcon16DiamondsSCases: 8,
+            legacyButtonIdentityCases: 24,
+            actualSvg20ButtonCases: 16,
             twoLevelImportCases: boundaryCases.length,
             importForwardingNegativeControls: boundaryCases.length * 2,
+            previousFamilyTransferNegativeControls: 2,
             missingLeafImportNegativeControl: 'detected',
-            missingAdapterNegativeControl: 'detected',
-            actualDiamondsTemplate: true,
+            missingRealSvg20AdapterNegativeControl: 'detected',
+            preservesSelectedDiamondsIdentity: true,
             directChildImportsOnly: true,
             declaredImportsOnly: true,
             apiTypes: 'passed',
