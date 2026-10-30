@@ -12,9 +12,9 @@
     /* secondary */
     --action-button-secondary-base-color: var(--color-light-text-primary);
     --action-button-secondary-base-icon-color: var(--color-light-neutral-translucent-1300);
-    --action-button-secondary-base-bg-color: var(--color-light-neutral-100);
-    --action-button-secondary-hover-color: var(--color-light-neutral-100-hover);
-    --action-button-secondary-active-color: var(--color-light-neutral-100-press);
+    --action-button-secondary-base-bg-color: var(--color-light-neutral-translucent-100);
+    --action-button-secondary-hover-color: var(--color-light-neutral-translucent-100-hover);
+    --action-button-secondary-active-color: var(--color-light-neutral-translucent-100-press);
 
     /* spinner */
     --action-button-spinner-primary-color: var(--color-light-neutral-translucent-1300-inverted);
@@ -22,8 +22,8 @@
 
     /* disabled */
     --action-button-disabled-color: var(--color-light-text-tertiary);
-    --action-button-disabled-icon-color: var(--color-light-neutral-500);
-    --action-button-disabled-bg-color: var(--color-light-neutral-100);
+    --action-button-disabled-icon-color: var(--color-light-neutral-translucent-500);
+    --action-button-disabled-bg-color: var(--color-light-neutral-translucent-100);
 }
 
 .primary {
@@ -99,9 +99,15 @@
     --action-button-inverted-secondary-base-icon-color: var(
         --color-light-neutral-translucent-1300-inverted
     );
-    --action-button-inverted-secondary-base-bg-color: var(--color-light-neutral-100-inverted);
-    --action-button-inverted-secondary-hover-color: var(--color-light-neutral-100-inverted-hover);
-    --action-button-inverted-secondary-active-color: var(--color-light-neutral-100-inverted-press);
+    --action-button-inverted-secondary-base-bg-color: var(
+        --color-light-neutral-translucent-100-inverted
+    );
+    --action-button-inverted-secondary-hover-color: var(
+        --color-light-neutral-translucent-100-inverted-hover
+    );
+    --action-button-inverted-secondary-active-color: var(
+        --color-light-neutral-translucent-100-inverted-press
+    );
 
     /* spinner */
     --action-button-spinner-inverted-default-color: var(--color-light-neutral-translucent-1300);
@@ -111,8 +117,10 @@
 
     /* disabled */
     --action-button-inverted-disabled-color: var(--color-light-text-tertiary-inverted);
-    --action-button-inverted-disabled-icon-color: var(--color-light-neutral-500-inverted);
-    --action-button-inverted-disabled-bg-color: var(--color-light-neutral-100-inverted);
+    --action-button-inverted-disabled-icon-color: var(
+        --color-light-neutral-translucent-500-inverted
+    );
+    --action-button-inverted-disabled-bg-color: var(--color-light-neutral-translucent-100-inverted);
 }
 
 .primary {
