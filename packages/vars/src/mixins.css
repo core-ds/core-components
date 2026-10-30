@@ -71,10 +71,16 @@
     }
 }
 
-@define-mixin bg-class-list {
+@define-mixin bg-class-list $surface {
+    @each $backgroundColorBg in primary, secondary {
+        .background-$(backgroundColorBg) {
+            background-color: var(--color-light-$(surface)-bg-$(backgroundColorBg));
+        }
+    }
+
     @each $backgroundColorBg in accent, info, attention-muted, positive-muted, negative-muted,
-        primary, primary-inverted, secondary, secondary-inverted, tertiary, tertiary-inverted,
-        quaternary, quaternary-inverted {
+        primary-inverted, secondary-inverted, tertiary, tertiary-inverted, quaternary,
+        quaternary-inverted {
         .background-$(backgroundColorBg) {
             background-color: var(--color-light-bg-$(backgroundColorBg));
         }
