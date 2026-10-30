@@ -16,7 +16,7 @@
 
 .categoryPercent {
     padding: var(--gap-0) var(--gap-8);
-    background-color: var(--color-light-base-bg-secondary);
+    background-color: var(--color-light-neutral-translucent-100);
     border-radius: var(--border-radius-16);
     margin-left: var(--gap-4);
 }
