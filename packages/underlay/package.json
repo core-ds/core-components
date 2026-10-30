@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-underlay",
-    "version": "3.2.0",
+    "version": "3.2.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.2.1",
+    "themesVersion": "15.2.2",
     "varsVersion": "11.5.0"
 }

@@ -1,5 +1,17 @@
 # @alfalab/core-components-underlay
 
+## 3.2.1
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
 ## 3.2.0
 
 ### Minor Changes
