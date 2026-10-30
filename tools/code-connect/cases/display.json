@@ -1,0 +1,981 @@
+{
+    "cases": [
+        {
+            "template": "packages/indicator/code-connect/Indicator.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "8",
+                    "View": "Red",
+                    "Border": "False"
+                }
+            },
+            "expect": ["size={8}"]
+        },
+        {
+            "template": "packages/indicator/code-connect/Indicator.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "24",
+                    "View": "Gray",
+                    "Border": "True",
+                    "✎ Value": "7"
+                }
+            },
+            "expect": ["view=\"grey\"", "value={7}"]
+        },
+        {
+            "template": "packages/indicator/code-connect/Indicator.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "40",
+                    "View": "White",
+                    "Border": "False",
+                    "✎ Value": "99+"
+                }
+            },
+            "expect": ["count: number", "count <= 99"]
+        },
+        {
+            "template": "packages/indicator/code-connect/Indicator.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "16",
+                    "View": "Red",
+                    "Border": "False",
+                    "✎ Value": ""
+                }
+            },
+            "expect": ["size={16}"]
+        },
+        {
+            "template": "packages/indicator/code-connect/Indicator.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "24",
+                    "View": "Red",
+                    "Border": "False",
+                    "✎ Value": "0"
+                }
+            },
+            "expect": [],
+            "throws": "положительное"
+        },
+        {
+            "template": "packages/spinner/code-connect/Spinner.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "16",
+                    "Static": "False",
+                    "Inverted": "False"
+                }
+            },
+            "expect": ["preset={16}", "colors=\"default\""]
+        },
+        {
+            "template": "packages/spinner/code-connect/Spinner.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "24",
+                    "Static": "False",
+                    "Inverted": "True"
+                }
+            },
+            "expect": ["preset={24}", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/spinner/code-connect/Spinner.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "48",
+                    "Static": "True",
+                    "Inverted": "False"
+                }
+            },
+            "expect": ["preset={48}", "colors=\"default\"", "staticColor: string"]
+        },
+        {
+            "template": "packages/spinner/code-connect/Spinner.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "48",
+                    "Static": "True",
+                    "Inverted": "True"
+                }
+            },
+            "expect": ["preset={48}", "colors=\"inverted\"", "staticColor: string"]
+        },
+        {
+            "template": "packages/status-badge/code-connect/StatusBadge.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "View": "PositiveCheckmark",
+                    "Size": "24"
+                }
+            },
+            "expect": ["view=\"positive-checkmark\"", "colors=\"default\""]
+        },
+        {
+            "template": "packages/status-badge/code-connect/StatusBadge.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "View": "NegativeCross",
+                    "Size": "20"
+                }
+            },
+            "expect": ["view=\"negative-cross\"", "colors=\"default\""]
+        },
+        {
+            "template": "packages/status-badge/code-connect/StatusBadge.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "View": "NeutralInformation",
+                    "Size": "32"
+                }
+            },
+            "expect": ["view=\"neutral-information\"", "colors=\"default\""]
+        },
+        {
+            "template": "packages/status-badge/code-connect/StatusBadgeInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "View": "PositiveCheckmark",
+                    "Size": "24"
+                }
+            },
+            "expect": ["view=\"positive-checkmark\"", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/status-badge/code-connect/StatusBadgeInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "View": "NegativeCross",
+                    "Size": "20"
+                }
+            },
+            "expect": ["view=\"negative-cross\"", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/status-badge/code-connect/StatusBadgeInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "View": "NeutralInformation",
+                    "Size": "32"
+                }
+            },
+            "expect": ["view=\"neutral-information\"", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/skeleton/code-connect/Skeleton.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {}
+            },
+            "expect": ["width, height, borderRadius", "colors=\"default\""]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {}
+            },
+            "expect": ["width, height, borderRadius", "colors=\"inverted\""]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonText.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "14_18",
+                    "Length": "56"
+                }
+            },
+            "expect": ["fontSize: 14", "lineHeight: '18px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonText.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "16_24",
+                    "Length": "56"
+                }
+            },
+            "expect": ["fontSize: 16", "lineHeight: '24px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonTextInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "14_18",
+                    "Length": "56"
+                }
+            },
+            "expect": ["fontSize: 14", "lineHeight: '18px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonTextInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "16_24",
+                    "Length": "56"
+                }
+            },
+            "expect": ["fontSize: 16", "lineHeight: '24px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "22_26"
+                }
+            },
+            "expect": ["fontSize: 22", "lineHeight: '26px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "18_22"
+                }
+            },
+            "expect": ["fontSize: 18", "lineHeight: '22px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleDesktopInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "22_26"
+                }
+            },
+            "expect": ["fontSize: 22", "lineHeight: '26px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleDesktopInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "18_22"
+                }
+            },
+            "expect": ["fontSize: 18", "lineHeight: '22px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "20_28"
+                }
+            },
+            "expect": ["fontSize: 20", "lineHeight: '28px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "26_32"
+                }
+            },
+            "expect": ["fontSize: 26", "lineHeight: '32px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleMobileInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "20_28"
+                }
+            },
+            "expect": ["fontSize: 20", "lineHeight: '28px'", "style={layout}"]
+        },
+        {
+            "template": "packages/skeleton/code-connect/SkeletonSystemTitleMobileInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "TextStyle": "26_32"
+                }
+            },
+            "expect": ["fontSize: 26", "lineHeight: '32px'", "style={layout}"]
+        },
+        {
+            "template": "packages/status/code-connect/Status.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "20",
+                    "Shape": "Rectangular",
+                    "LeftAddon": "False",
+                    "RightAddon": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Label",
+                        "properties": {
+                            "✎ Label": "Готово",
+                            "Uppercase": "False"
+                        }
+                    }
+                ]
+            },
+            "expect": ["size={20}", "uppercase={false}", "Готово"]
+        },
+        {
+            "template": "packages/status/code-connect/Status.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "20",
+                    "Shape": "Rounded",
+                    "LeftAddon": "True",
+                    "RightAddon": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Addon",
+                        "properties": {},
+                        "slots": {
+                            "Slot": [
+                                {
+                                    "type": "CODE",
+                                    "code": "<span />"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Label",
+                        "properties": {
+                            "✎ Label": "Готово",
+                            "Uppercase": "False"
+                        }
+                    }
+                ]
+            },
+            "expect": ["leftAddons={", "<span />"]
+        },
+        {
+            "template": "packages/status/code-connect/Status.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "32",
+                    "Shape": "Rounded",
+                    "LeftAddon": "False",
+                    "RightAddon": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Label",
+                        "properties": {
+                            "✎ Label": "Готово",
+                            "Uppercase": "False"
+                        }
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Addon",
+                        "properties": {
+                            "Type": "Icon 20"
+                        },
+                        "swaps": {
+                            "icon-20": {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "properties": {},
+                                "code": "<ActualIcon />"
+                            }
+                        }
+                    }
+                ]
+            },
+            "expect": ["rightAddons={", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/link/code-connect/Link.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "S (14-20)",
+                    "Left Addon": false,
+                    "Right Addon": false,
+                    "✎ Label": "Подробнее"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Underline",
+                        "properties": {
+                            "Line": "Solid"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Typography.Text", "href={href}"]
+        },
+        {
+            "template": "packages/link/code-connect/Link.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "S (14-20) (Size-20 icons)",
+                    "Left Addon": false,
+                    "Right Addon": false,
+                    "✎ Label": "Подробнее"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Underline",
+                        "properties": {
+                            "Line": "Pseudo"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Typography.Text", "pseudo onClick"]
+        },
+        {
+            "template": "packages/link/code-connect/Link.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "L (18-24)",
+                    "Left Addon": false,
+                    "Right Addon": false,
+                    "✎ Label": "Подробнее"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Underline",
+                        "properties": {
+                            "Line": "None"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Typography.Text", "href={href}"]
+        },
+        {
+            "template": "packages/link/code-connect/Link.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "M (16-24)",
+                    "Left Addon": true,
+                    "Right Addon": false,
+                    "✎ Label": "Иконка"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Underline",
+                        "properties": {
+                            "Line": "Solid"
+                        }
+                    }
+                ],
+                "swaps": {
+                    "Left icon 24": {
+                        "type": "INSTANCE",
+                        "name": "ActualIcon",
+                        "properties": {},
+                        "code": "<ActualIcon />"
+                    }
+                }
+            },
+            "expect": ["<ActualIcon />", "leftAddons={"]
+        },
+        {
+            "template": "packages/list/code-connect/List.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Caption": "False",
+                    "✎ Text": "Пункт",
+                    "✎ Сaption": "Подпись"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Marker",
+                        "properties": {
+                            "Type": "Dash",
+                            "style": "default"
+                        }
+                    }
+                ]
+            },
+            "expect": ["<List.Item", "Пункт"]
+        },
+        {
+            "template": "packages/list/code-connect/List.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Caption": "True",
+                    "✎ Text": "Пункт",
+                    "✎ Сaption": "Подпись"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Marker",
+                        "properties": {
+                            "Type": "Number",
+                            "style": "default"
+                        }
+                    }
+                ]
+            },
+            "expect": ["<List.Item", "Пункт", "start={start}"]
+        },
+        {
+            "template": "packages/list/code-connect/List.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Caption": "False",
+                    "✎ Text": "Пункт",
+                    "✎ Сaption": "Подпись"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Marker",
+                        "properties": {
+                            "Type": "SwapMe",
+                            "style": "default"
+                        },
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "ActualIcon",
+                                "properties": {},
+                                "code": "<ActualIcon />"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "expect": ["<List.Item", "Пункт"]
+        },
+        {
+            "template": "packages/list/code-connect/List.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Caption": "False",
+                    "✎ Text": "Текст"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Marker",
+                        "properties": {
+                            "Type": "❌ Bullet"
+                        }
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Устаревший"
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "# [h1] desktop",
+                    "✎ Value": "Заголовок"
+                }
+            },
+            "expect": ["Markdown", "Заголовок"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "## [h2] mobile",
+                    "✎ Value": "Заголовок"
+                }
+            },
+            "expect": ["Markdown", "Заголовок"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "p [paragraph]",
+                    "✎ Value": "Абзац"
+                }
+            },
+            "expect": ["Markdown", "Абзац"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "> [quote]",
+                    "✎ Value": "Цитата"
+                }
+            },
+            "expect": ["Markdown", "Цитата"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "- [listDashed]",
+                    "✎ Value": "Пункт"
+                }
+            },
+            "expect": ["Markdown", "Пункт"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "1. [listNumbered]",
+                    "✎ Value": "Пункт"
+                }
+            },
+            "expect": ["Markdown", "Пункт"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "! [img]",
+                    "✎ Value": "Изображение"
+                }
+            },
+            "expect": ["Markdown", "imageUrl: string"]
+        },
+        {
+            "template": "packages/markdown/code-connect/Markdown.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Tag": "❌ • [listBulleted]",
+                    "✎ Value": "Пункт"
+                }
+            },
+            "expect": [],
+            "throws": "Устаревший"
+        },
+        {
+            "template": "packages/typography/code-connect/Text.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "✎ Value": "Текст \"с кавычками\""
+                }
+            },
+            "expect": [
+                "Typography.Text",
+                "textProps",
+                "Текст",
+                "textProps: ComponentProps<typeof Typography.Text>"
+            ]
+        },
+        {
+            "template": "packages/slider/code-connect/Slider.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "4",
+                    "Mode": "Single",
+                    "Pips": "False",
+                    "Dots": "False"
+                }
+            },
+            "expect": ["size={4}", "value={value}", "step, value", "value: number"]
+        },
+        {
+            "template": "packages/slider/code-connect/Slider.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "4",
+                    "Mode": "Range",
+                    "Pips": "True",
+                    "Dots": "True"
+                }
+            },
+            "expect": [
+                "size={4}",
+                "value={value}",
+                "valueTo={valueTo}",
+                "pips={pips}",
+                "step, value",
+                "value: number"
+            ]
+        },
+        {
+            "template": "packages/slider/code-connect/SliderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "4",
+                    "Mode": "Single",
+                    "Pips": "False",
+                    "Dots": "False"
+                }
+            },
+            "expect": [
+                "size={4}",
+                "value={value}",
+                "step, value",
+                "value: number",
+                ", invertedThemeClassName"
+            ]
+        },
+        {
+            "template": "packages/slider/code-connect/SliderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "4",
+                    "Mode": "Range",
+                    "Pips": "True",
+                    "Dots": "True"
+                }
+            },
+            "expect": [
+                "size={4}",
+                "value={value}",
+                "valueTo={valueTo}",
+                "pips={pips}",
+                "step, value",
+                "value: number",
+                ", invertedThemeClassName"
+            ]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverSingle.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "16x24",
+                    "Shadow": false,
+                    "Border": false,
+                    "Overlay": false,
+                    "Details": false,
+                    "CardImage": false,
+                    "Icon": false
+                }
+            },
+            "expect": ["ProductCover.Single", "size={16}"]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverSingle.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "164x264",
+                    "Shadow": true,
+                    "Border": true,
+                    "Overlay": true,
+                    "Details": true,
+                    "CardImage": true,
+                    "Icon": true
+                },
+                "swaps": {
+                    "icon 24": {
+                        "type": "INSTANCE",
+                        "name": "ActualIcon",
+                        "properties": {},
+                        "code": "<ActualIcon />"
+                    }
+                }
+            },
+            "expect": ["ProductCover.Single", "size={164}", "<ActualIcon />"]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Preset": "40x65 RightBottom",
+                    "CardAmount": "Two"
+                }
+            },
+            "expect": ["ProductCover.Stack", "numberOfCards={2}"]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Preset": "40x65 Bottom",
+                    "CardAmount": "MoreThanTwo"
+                }
+            },
+            "expect": ["ProductCover.Stack", "numberOfCards={numberOfCards}"]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Preset": "32x51 RightBottom",
+                    "CardAmount": "Two"
+                }
+            },
+            "expect": ["ProductCover.Stack", "numberOfCards={2}"]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Preset": "16x24 RightBottom",
+                    "CardAmount": "Two"
+                }
+            },
+            "expect": ["ProductCover.Stack", "numberOfCards={2}"]
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Preset": "164x264 Left",
+                    "CardAmount": "Two"
+                }
+            },
+            "expect": [],
+            "throws": "отсутствует"
+        },
+        {
+            "template": "packages/status/code-connect/Status.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Status20RightSlotWithoutType",
+                "properties": {
+                    "Size": "20",
+                    "Shape": "Rectangular",
+                    "LeftAddon": "False",
+                    "RightAddon": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Label",
+                        "properties": {
+                            "✎ Label": "Готово",
+                            "Uppercase": "False"
+                        }
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Addon",
+                        "properties": {},
+                        "slots": {
+                            "Slot": [
+                                {
+                                    "type": "CODE",
+                                    "code": "<span />"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "expect": ["size={20}", "rightAddons={", "<span />"]
+        }
+    ]
+}

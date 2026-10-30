@@ -1,0 +1,1214 @@
+{
+    "cases": [
+        {
+            "template": "packages/modal/code-connect/ModalDesktopHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalHeader",
+                "properties": {
+                    "↳ Overlap#75289:3": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<ModalDesktop.Header sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalHeader",
+                "properties": {
+                    "↳ Overlap#75289:3": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": [
+                "headerProps: ComponentProps<typeof ModalDesktop.Header>",
+                "<ModalDesktop.Header {...headerProps}"
+            ]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalBody",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ModalBodyContent",
+                        "properties": {},
+                        "code": "<span>Connected body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<ModalDesktop.Content>", "Connected body"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalBody",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["children: ComponentProps<typeof ModalDesktop.Content>['children']"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:0": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<ModalDesktop.Footer sticky={sticky}"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:0": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ModalFooterContent",
+                        "properties": {},
+                        "code": "<button>Connected action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<ModalDesktop.Footer {...footerProps}>", "Connected action"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:0": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof ModalDesktop.Footer>"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopHeaderAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalHeader",
+                "properties": {
+                    "↳ Overlap#75289:3": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<ModalDesktop.Header sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopHeaderAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalHeader",
+                "properties": {
+                    "↳ Overlap#75289:3": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": [
+                "headerProps: ComponentProps<typeof ModalDesktop.Header>",
+                "<ModalDesktop.Header {...headerProps}"
+            ]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopContentAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalBody",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ModalDesktopBodyContent",
+                        "properties": {},
+                        "code": "<span>Connected body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<ModalDesktop.Content>", "Connected body"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopContentAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalBody",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["children: ComponentProps<typeof ModalDesktop.Content>['children']"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopFooterAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:0": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<ModalDesktop.Footer sticky={sticky}"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopFooterAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:0": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ModalFooterContent",
+                        "properties": {},
+                        "code": "<button>Connected action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<ModalDesktop.Footer {...footerProps}>", "Connected action"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalDesktopFooterAlternate.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] ModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:0": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof ModalDesktop.Footer>"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalHeader",
+                "properties": {
+                    "↳ Overlap#75029:5": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<ModalMobile.Header sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalHeader",
+                "properties": {
+                    "↳ Overlap#75029:5": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": [
+                "headerProps: ComponentProps<typeof ModalMobile.Header>",
+                "<ModalMobile.Header {...headerProps}"
+            ]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalBody",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ModalBodySwapContent",
+                        "properties": {},
+                        "code": "<span>Connected body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<ModalMobile.Content>", "Connected body"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalBody",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["children: ComponentProps<typeof ModalMobile.Content>['children']"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<ModalMobile.Footer sticky={sticky}"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "ModalFooterContent",
+                        "properties": {},
+                        "code": "<button>Connected action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<ModalMobile.Footer {...footerProps}>", "Connected action"]
+        },
+        {
+            "template": "packages/modal/code-connect/ModalMobileFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] ModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof ModalMobile.Footer>"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelHeader",
+                "properties": {
+                    "↳ Overlap#75289:12": true,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<SidePanelDesktop.Header sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelHeader",
+                "properties": {
+                    "↳ Overlap#75289:12": true,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": [
+                "headerProps: ComponentProps<typeof SidePanelDesktop.Header>",
+                "<SidePanelDesktop.Header {...headerProps}"
+            ]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelBody",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "SidePanelBodyContent",
+                        "properties": {},
+                        "code": "<span>Connected body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<SidePanelDesktop.Content>", "Connected body"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelBody",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["children: ComponentProps<typeof SidePanelDesktop.Content>['children']"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<SidePanelDesktop.Footer sticky={sticky}"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "SidePanelFooterContent",
+                        "properties": {},
+                        "code": "<button>Connected action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<SidePanelDesktop.Footer {...footerProps}>", "Connected action"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelDesktopFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] SidePanelFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof SidePanelDesktop.Footer>"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelHeader",
+                "properties": {
+                    "↳ Overlap#75029:5": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<SidePanelMobile.Header sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelHeader",
+                "properties": {
+                    "↳ Overlap#75029:5": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": [
+                "headerProps: ComponentProps<typeof SidePanelMobile.Header>",
+                "<SidePanelMobile.Header {...headerProps}"
+            ]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelBody",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "🔩 [M] ModalBodySwapContent",
+                        "properties": {},
+                        "code": "<span>Connected body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<SidePanelMobile.Content>", "Connected body"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileContent.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelBody",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["children: ComponentProps<typeof SidePanelMobile.Content>['children']"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["<SidePanelMobile.Footer sticky={sticky}"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "SidePanelFooterContent",
+                        "properties": {},
+                        "code": "<button>Connected action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["<SidePanelMobile.Footer {...footerProps}>", "Connected action"]
+        },
+        {
+            "template": "packages/side-panel/code-connect/SidePanelMobileFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] SidePanelFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof SidePanelMobile.Footer>"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalHeaderMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalHeader",
+                "properties": {
+                    "↳ Overlap#50472:7": true,
+                    "Content": "False",
+                    "Custom": "False",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["<HeaderMobile sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalHeaderMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalHeader",
+                "properties": {
+                    "↳ Overlap#50472:7": true,
+                    "Content": "True",
+                    "Custom": "True",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["headerProps: ComponentProps<typeof HeaderMobile>"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalHeaderMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalHeader",
+                "properties": {
+                    "↳ Overlap#50472:7": true,
+                    "Content": "True",
+                    "Custom": "False",
+                    "FilledBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Preset",
+                        "properties": {
+                            "Cross": "True",
+                            "Back": "False",
+                            "✎ Title": "Mapped title",
+                            "LeftTitle": "False",
+                            "CentredTitle": "True",
+                            "Subtitle": "True",
+                            "✎ Subtitle": "Mapped subtitle"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Mapped title", "<HeaderMobile {...headerContext}", "Mapped subtitle"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalContentMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalBody",
+                "properties": {},
+                "children": [],
+                "slots": {
+                    "BodyContent#118707:6": [
+                        {
+                            "type": "CODE",
+                            "code": "<span>Slot body</span>"
+                        }
+                    ]
+                }
+            },
+            "expect": ["<ContentMobile>", "Slot body"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": true,
+                    "Custom": "False",
+                    "Content": "False",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["<FooterMobile sticky={sticky}"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": true,
+                    "Custom": "True",
+                    "Content": "True",
+                    "FilledBg": "True"
+                },
+                "children": [],
+                "slots": {
+                    "FooterContent#118707:33": [
+                        {
+                            "type": "CODE",
+                            "code": "<button>Filled slot action</button>"
+                        }
+                    ]
+                }
+            },
+            "expect": ["Filled slot action", "<FooterMobile {...footerContext}>"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": true,
+                    "Custom": "True",
+                    "Content": "True",
+                    "FilledBg": "False"
+                },
+                "children": [],
+                "slots": {
+                    "FooterContentTransparent#118707:26": [
+                        {
+                            "type": "CODE",
+                            "code": "<button>Transparent slot action</button>"
+                        }
+                    ]
+                }
+            },
+            "expect": ["Transparent slot action"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": true,
+                    "Custom": "False",
+                    "Content": "True",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof FooterMobile>"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalHeaderDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalHeader",
+                "properties": {
+                    "↳ Overlap#50472:0": true,
+                    "Content": "False",
+                    "Custom": "False",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["<HeaderDesktop sticky={sticky} hasCloser={false}"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalHeaderDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalHeader",
+                "properties": {
+                    "↳ Overlap#50472:0": true,
+                    "Content": "True",
+                    "Custom": "True",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["headerProps: ComponentProps<typeof HeaderDesktop>"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalHeaderDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalHeader",
+                "properties": {
+                    "↳ Overlap#50472:0": true,
+                    "Content": "True",
+                    "Custom": "False",
+                    "FilledBg": "False"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Presets",
+                        "properties": {
+                            "Cross": "True",
+                            "Back": "False",
+                            "✎ Title": "Mapped title",
+                            "Title": "True",
+                            "BigTitle": "True"
+                        }
+                    }
+                ]
+            },
+            "expect": ["Mapped title", "<HeaderDesktop {...headerContext}", "bigTitle={true}"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalContentDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalBody",
+                "properties": {
+                    "Scrollbar#33127:0": true
+                },
+                "children": [],
+                "slots": {
+                    "BodyContent#118707:8": [
+                        {
+                            "type": "CODE",
+                            "code": "<span>Slot body</span>"
+                        }
+                    ]
+                }
+            },
+            "expect": ["<ContentDesktop>", "Slot body"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": true,
+                    "Content": "False",
+                    "Custom": "False",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["<FooterDesktop sticky={sticky}"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": true,
+                    "Content": "True",
+                    "Custom": "True",
+                    "FilledBg": "True"
+                },
+                "children": [],
+                "slots": {
+                    "FooterContent#118707:16": [
+                        {
+                            "type": "CODE",
+                            "code": "<button>Filled slot action</button>"
+                        }
+                    ]
+                }
+            },
+            "expect": ["Filled slot action", "<FooterDesktop {...footerContext}>"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": true,
+                    "Content": "True",
+                    "Custom": "True",
+                    "FilledBg": "False"
+                },
+                "children": [],
+                "slots": {
+                    "FooterContentTransparent#118707:9": [
+                        {
+                            "type": "CODE",
+                            "code": "<button>Transparent slot action</button>"
+                        }
+                    ]
+                }
+            },
+            "expect": ["Transparent slot action"]
+        },
+        {
+            "template": "packages/universal-modal/code-connect/UniversalModalFooterDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[D] UniversalModalFooter",
+                "properties": {
+                    "↳ Overlap#75289:9": true,
+                    "Content": "True",
+                    "Custom": "False",
+                    "FilledBg": "False"
+                },
+                "children": []
+            },
+            "expect": ["footerProps: ComponentProps<typeof FooterDesktop>"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader",
+                "properties": {
+                    "Swiper#75029:2": true,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": [
+                "function getBottomSheetHeaderProps",
+                "colors: 'default'",
+                "showSwipeMarker: true",
+                "hideOverlay: false"
+            ]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader",
+                "properties": {
+                    "Swiper#75029:2": true,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "True",
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["navigationProps", "initialHeight: 'full'"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetBody.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetBody",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "BottomSheetBodySwapContent",
+                        "properties": {},
+                        "code": "<span>Bottom body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["Bottom body", "satisfies Pick<BottomSheetProps, 'children'>"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetBody.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetBody",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["function getBottomSheetBodyProps"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["actionButton: null"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "BottomSheetFooterContent",
+                        "properties": {},
+                        "code": "<button>Sheet action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["Sheet action", "actionButton: <>"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetFooter.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetFooter",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["stickyFooter, actionButton"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader_Inverted",
+                "properties": {
+                    "Swiper#75029:2": true,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": [
+                "function getBottomSheetHeaderProps",
+                "colors: 'inverted'",
+                "showSwipeMarker: true",
+                "hideOverlay: false"
+            ]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader_Inverted",
+                "properties": {
+                    "Swiper#75029:2": true,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "True",
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["navigationProps", "initialHeight: 'full'"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetBodyInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetBody_Inverted",
+                "properties": {},
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "BottomSheetBodySwapContent",
+                        "properties": {},
+                        "code": "<span>Bottom body</span>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["Bottom body", "satisfies Pick<BottomSheetProps, 'children'>"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetBodyInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetBody_Inverted",
+                "properties": {},
+                "children": []
+            },
+            "expect": ["function getBottomSheetBodyProps"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetFooterInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetFooter_Inverted",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["actionButton: null"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetFooterInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetFooter_Inverted",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "BottomSheetFooterContent",
+                        "properties": {},
+                        "code": "<button>Sheet action</button>",
+                        "metadata": {
+                            "nestable": true
+                        }
+                    }
+                ]
+            },
+            "expect": ["Sheet action", "actionButton: <>"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetFooterInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetFooter_Inverted",
+                "properties": {
+                    "↳ Overlap#74918:15": false,
+                    "Content": "True"
+                },
+                "children": []
+            },
+            "expect": ["stickyFooter, actionButton"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader",
+                "properties": {
+                    "Swiper#75029:2": false,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": false,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["showSwipeMarker: false", "hideOverlay: true"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader",
+                "properties": {
+                    "Swiper#75029:2": false,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["showSwipeMarker: false", "hideOverlay: false"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader",
+                "properties": {
+                    "Swiper#75029:2": true,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": false,
+                    "FullHeight": "True",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "FullHeight=True requires Overlay=True"
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader",
+                "properties": {
+                    "Swiper#75029:2": null,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "boolean|PROPERTY"
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader_Inverted",
+                "properties": {
+                    "Swiper#75029:2": false,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": false,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["showSwipeMarker: false", "hideOverlay: true"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader_Inverted",
+                "properties": {
+                    "Swiper#75029:2": false,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": ["showSwipeMarker: false", "hideOverlay: false"]
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader_Inverted",
+                "properties": {
+                    "Swiper#75029:2": true,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": false,
+                    "FullHeight": "True",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "FullHeight=True requires Overlay=True"
+        },
+        {
+            "template": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "[M] BottomSheetHeader_Inverted",
+                "properties": {
+                    "Swiper#75029:2": null,
+                    "↳ Overlap#75029:5": false,
+                    "Overlay#75503:0": true,
+                    "FullHeight": "False",
+                    "Content": "False"
+                },
+                "children": []
+            },
+            "expect": [],
+            "throws": "boolean|PROPERTY"
+        }
+    ]
+}
