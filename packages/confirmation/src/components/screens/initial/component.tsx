@@ -174,29 +174,26 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         );
     };
 
-    const renderSubtitle = () => {
-        return (
-            texts.subtitle ||
-            (phone && (
-                <Fragment>
-                    <span
-                        className={cn(styles.phoneLabel, {
-                            [styles.phoneLabelMobile]: mobile,
-                        })}
-                    >
-                        Отправили на{'\u00A0'}
-                    </span>
-                    <span
-                        className={cn(styles.phoneNumber, {
-                            [styles.phoneNumberMobile]: mobile,
-                        })}
-                    >
-                        {phone}
-                    </span>
-                </Fragment>
-            ))
-        );
-    };
+    const renderSubtitle = () =>
+        texts.subtitle ||
+        (phone && (
+            <Fragment>
+                <span
+                    className={cn(styles.phoneLabel, {
+                        [styles.phoneLabelMobile]: mobile,
+                    })}
+                >
+                    Отправили на{'\u00A0'}
+                </span>
+                <span
+                    className={cn(styles.phoneNumber, {
+                        [styles.phoneNumberMobile]: mobile,
+                    })}
+                >
+                    {phone}
+                </span>
+            </Fragment>
+        ));
 
     const subtitle = renderSubtitle();
 
