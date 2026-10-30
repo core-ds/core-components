@@ -1,4 +1,12 @@
-import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, {
+    type FC,
+    Fragment,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -166,6 +174,29 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         );
     };
 
+    const renderSubtitle = () =>
+        texts.subtitle ||
+        (phone && (
+            <Fragment>
+                <span
+                    className={cn(styles.phoneLabel, {
+                        [styles.phoneLabelMobile]: mobile,
+                    })}
+                >
+                    Отправили на{'\u00A0'}
+                </span>
+                <span
+                    className={cn(styles.phoneNumber, {
+                        [styles.phoneNumberMobile]: mobile,
+                    })}
+                >
+                    {phone}
+                </span>
+            </Fragment>
+        ));
+
+    const subtitle = renderSubtitle();
+
     const processing = ['CODE_CHECKING', 'CODE_SENDING'].includes(state);
 
     const timePassed = timeLeft === 0;
@@ -178,7 +209,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 {texts.title}
             </Header>
 
-            {phone ? (
+            {subtitle && (
                 <TypographyText
                     view='primary-medium'
                     color='primary'
@@ -188,22 +219,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.phoneMobile]: mobile,
                     })}
                 >
-                    <span
-                        className={cn(styles.phoneLabel, {
-                            [styles.phoneLabelMobile]: mobile,
-                        })}
-                    >
-                        Отправили на{'\u00A0'}
-                    </span>
-                    <span
-                        className={cn(styles.phoneNumber, {
-                            [styles.phoneNumberMobile]: mobile,
-                        })}
-                    >
-                        {phone}
-                    </span>
+                    {subtitle}
                 </TypographyText>
-            ) : null}
+            )}
             <ComponentCodeInput
                 disabled={processing}
                 error={getCodeInputError()}

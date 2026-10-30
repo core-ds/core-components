@@ -192,6 +192,7 @@ export interface ConfirmationTexts {
      * Экран INITIAL
      */
     title?: ReactNode; // заголовок
+    subtitle?: ReactNode; // подзаголовок
     codeError?: string; // ошибка проверки кода
     codeErrorExpired?: string; // код устарел, запросите новый
     codeErrorExpiredEnded?: string; // код устарел

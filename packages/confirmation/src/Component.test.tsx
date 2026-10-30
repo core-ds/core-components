@@ -105,6 +105,7 @@ describe('Confirmation', () => {
         it('should render passed texts on INITIAL screen', async () => {
             const texts = {
                 title: 'Title',
+                subtitle: 'SubTitle',
                 linkToHint: 'Link',
                 codeError: 'Code error',
                 codeErrorExpired: 'Code error expired',
@@ -119,6 +120,7 @@ describe('Confirmation', () => {
             const { getByText, rerender } = render(<ConfirmationDesktop {...props} />);
 
             expect(getByText(texts.title)).toBeInTheDocument();
+            expect(getByText(texts.subtitle)).toBeInTheDocument();
             expect(getByText(texts.linkToHint)).toBeInTheDocument();
 
             rerender(<ConfirmationDesktop {...props} state='CODE_CHECKING' />);
@@ -246,6 +248,18 @@ describe('Confirmation', () => {
             const { getByText } = render(<ConfirmationDesktop {...baseProps} phone={phone} />);
 
             expect(getByText(phone).parentElement).toHaveTextContent(`Отправили на ${phone}`);
+        });
+
+        it('should render subtitle instead of phone when both are passed', () => {
+            const phone = '+0 (000) 000 00 00';
+            const subtitle = 'Custom subtitle';
+
+            const { getByText, queryByText } = render(
+                <ConfirmationDesktop {...baseProps} phone={phone} texts={{ subtitle }} />,
+            );
+
+            expect(getByText(subtitle)).toBeInTheDocument();
+            expect(queryByText(phone)).not.toBeInTheDocument();
         });
 
         it('should render with custom title tag', () => {
