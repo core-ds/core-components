@@ -7,6 +7,7 @@ import { ContentMobile } from '../components/content/Component.mobile';
 import { Controls, type ControlsProps } from '../components/controls';
 import { FooterMobile } from '../components/footer/Component.mobile';
 import { Header } from '../components/header/Component';
+import { ModalContext } from '../Context';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { type TResponsiveModalContext } from '../typings';
 
@@ -19,6 +20,20 @@ export type SidePanelMobileProps = BaseModalProps & {
      * @default false
      */
     hasCloser?: boolean;
+};
+
+const ContentLayout = ({ children }: { children: React.ReactNode }) => {
+    const { hasFooter } = useContext(ModalContext);
+
+    return (
+        <div
+            className={cn(styles.mobileContent, {
+                [styles.withoutFooter]: !hasFooter,
+            })}
+        >
+            {children}
+        </div>
+    );
 };
 
 const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
@@ -45,7 +60,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
                     className: cn(styles.content, restProps.contentProps?.className),
                 }}
             >
-                <div className={styles.mobileContent}>{children}</div>
+                <ContentLayout>{children}</ContentLayout>
             </BaseModal>
         );
 
