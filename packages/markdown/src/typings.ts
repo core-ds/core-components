@@ -34,6 +34,11 @@ export type BaseMarkdownProps = {
     remarkPlugins?: NonNullable<Options['remarkPlugins']>;
 
     /**
+     * Rehype-плагины и их настройки для обработки HTML-разметки
+     */
+    rehypePlugins?: NonNullable<Options['rehypePlugins']>;
+
+    /**
      * Трансформация ссылок неизвестных форматов
      * https://github.com/remarkjs/react-markdown/issues/537
      * @default true
