@@ -3,3 +3,4 @@
 ---
 
 - Удалена темизация `site` для `CalendarInput`
+- Удалена темизация `site` для `UniversalDateInput`
