@@ -2,8 +2,20 @@
 // source=packages/icon-view/src/components/index.ts
 // component=IconView
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
 
 const size = instance.getEnum('Size', {
     '16': 16,
@@ -57,7 +69,7 @@ if (instance.getBoolean('Content')) {
                   : 'Icon 24';
     const child = content.getInstanceSwap(property);
     if (!child || child.type !== 'INSTANCE') throw new Error('Не найден выбранный ассет IconView');
-    contentCode = child.executeTemplate().example;
+    contentCode = nestedTemplate(child).example;
 }
 function nested(name: string, enabled: boolean) {
     if (!enabled) return undefined;
@@ -66,7 +78,7 @@ function nested(name: string, enabled: boolean) {
         child = instance.findInstance('IconView', { path: [name] });
     }
     if (child.type !== 'INSTANCE') throw new Error(`Не найден ${name}`);
-    const result = child.executeTemplate().example;
+    const result = nestedTemplate(child).example;
     if (
         result.some(
             (section) => section.type === 'CODE' && section.code.trim().startsWith('function '),

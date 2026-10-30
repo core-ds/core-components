@@ -2,8 +2,20 @@
 // source=packages/button/src/desktop/Component.desktop.tsx
 // component=ButtonDesktop
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
 
 function childText(name: string, owner: InstanceHandle = instance): string {
     const child = owner.findInstance(name);
@@ -37,7 +49,7 @@ function addon(name: string, enabled: boolean) {
                 : 'Instance';
     const content = child.getInstanceSwap(swapName);
     if (!content || content.type !== 'INSTANCE') throw new Error(`Проверь содержимое ${name}`);
-    const rendered = content.executeTemplate().example;
+    const rendered = nestedTemplate(content).example;
     if (type === 'Icon-20') {
         return figma.code`<Icon20Adapter icon={(props: React.SVGProps<SVGSVGElement>) => React.cloneElement(${rendered}, props)} />`
             .sections;

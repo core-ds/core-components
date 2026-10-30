@@ -2,8 +2,21 @@
 // source=packages/action-button/src/Component.tsx
 // component=ActionButton
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
 const view = instance.getEnum('View', {
     Primary: 'primary',
     Secondary: 'secondary',
@@ -19,7 +32,7 @@ if (inverted && isStatic)
 const colors = isStatic ? 'static' : inverted ? 'inverted' : 'default';
 const icon = instance.getInstanceSwap('Icon 24');
 if (!icon || icon.type !== 'INSTANCE') throw new Error('Не найдена иконка ActionButton');
-const iconCode = icon.executeTemplate().example;
+const iconCode = nestedTemplate(icon).example;
 const label = instance.getString('✎ Label');
 
 export default {

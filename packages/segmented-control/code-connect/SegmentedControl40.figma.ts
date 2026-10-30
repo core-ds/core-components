@@ -2,8 +2,20 @@
 // source=packages/segmented-control/src/Component.tsx
 // component=SegmentedControl
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
 
 const shape = instance.getEnum('Shape', { Rectangular: 'rectangular', Rounded: 'rounded' });
 const capacity = instance.getEnum('Capacity', { '2': 2, '3': 3, '4': 4, '5': 5 });
@@ -34,7 +46,7 @@ function addon(segment: InstanceHandle, name: string) {
     }
     const icon = detail.getInstanceSwap('Instance');
     if (!icon || icon.type !== 'INSTANCE') throw new Error(`Не найдена подстановка ${name}`);
-    return icon.executeTemplate().example;
+    return nestedTemplate(icon).example;
 }
 
 const segments = instance

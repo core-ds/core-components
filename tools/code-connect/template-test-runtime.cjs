@@ -285,7 +285,8 @@ function createRuntime(repo, runtimeOptions = {}) {
                             !body.includes(unexpected),
                             `Неожиданная подстановка: ${unexpected}`,
                         );
-                    const imports = [...new Set(["import React from 'react';", ...childImports])];
+                    // Validate only imports declared by this template and its connected children.
+                    const imports = [...childImports];
 
                     if (body.includes('ActualIcon'))
                         imports.push(
@@ -300,7 +301,7 @@ function createRuntime(repo, runtimeOptions = {}) {
                         ts.transpileModule(full, {
                             fileName: 'example.tsx',
                             reportDiagnostics: true,
-                            compilerOptions: { jsx: ts.JsxEmit.React },
+                            compilerOptions: { jsx: ts.JsxEmit.ReactJSX },
                         }).diagnostics || [];
 
                     assert.equal(diagnostics.length, 0, 'Некорректный синтаксис JSX');
@@ -331,7 +332,9 @@ function checkApi(repo, snippets) {
     // Resolve TypeScript from the repository whose component API is being checked.
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const ts = require(path.join(repo, 'node_modules/typescript'));
-    const paths = {};
+    const paths = {
+        '@alfalab/icons-glyph-26/*': [path.join(repo, 'node_modules/@alfalab/icons-glyph-26/*')],
+    };
 
     for (const entry of fs.readdirSync(path.join(repo, 'packages'), { withFileTypes: true })) {
         if (entry.isDirectory()) {
@@ -363,7 +366,7 @@ function checkApi(repo, snippets) {
             lib: ['lib.es2023.d.ts', 'lib.dom.d.ts'],
             module: ts.ModuleKind.CommonJS,
             moduleResolution: ts.ModuleResolutionKind.Node10,
-            jsx: ts.JsxEmit.React,
+            jsx: ts.JsxEmit.ReactJSX,
             strict: true,
             noEmit: true,
             esModuleInterop: true,

@@ -5,6 +5,18 @@ import figma from 'figma';
 import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
 
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
 // Непрозрачное содержимое задаёт сценарий; готовые секции сохраняют своё место.
 const addonParameters: string[] = [];
 function addonContent(sections: ResultSection[] | undefined, name: string, resolvedIcon = false) {
@@ -146,7 +158,11 @@ function addon(name: string, enabled: boolean) {
     ) {
         const layer =
             kind === 'Spinner' ? 'Spinner' : inverted ? 'StatusBadge_Inverted' : 'StatusBadge';
-        return addonContent(nested(layer, child).executeTemplate()?.example, name);
+        return addonContent(
+            nestedTemplate(nested(layer, child), () => [{ type: 'SLOT', propertyName: name }])
+                ?.example,
+            name,
+        );
     }
     const swapName =
         kind === 'icon20'
@@ -162,7 +178,11 @@ function addon(name: string, enabled: boolean) {
                 : 'Instance';
     const icon = child.getInstanceSwap(swapName);
     if (!icon || icon.type !== 'INSTANCE') throw new Error(`Не найдено содержимое ${name}`);
-    const rendered = addonContent(icon.executeTemplate()?.example, name, kind === 'icon20');
+    const rendered = addonContent(
+        nestedTemplate(icon, () => [{ type: 'SLOT', propertyName: name }])?.example,
+        name,
+        kind === 'icon20',
+    );
     return kind === 'icon20'
         ? figma.code`<Icon20Adapter icon={(props: React.SVGProps<SVGSVGElement>) => React.cloneElement(${rendered}, props)} />`
               .sections

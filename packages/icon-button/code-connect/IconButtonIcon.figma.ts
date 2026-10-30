@@ -2,8 +2,21 @@
 // source=packages/icon-button/src/components/base-icon-button/Component.tsx
 // component=IconButton
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
 const type = instance.getEnum('Type', {
     'Icon 24': 'icon24',
     'Icon 16': 'icon16',
@@ -16,13 +29,13 @@ let content;
 if (loading) {
     const child = instance.findInstance('Spinner');
     if (child.type !== 'INSTANCE') throw new Error('Не найден Spinner');
-    content = child.executeTemplate().example;
+    content = nestedTemplate(child).example;
 } else {
     const child = instance.getInstanceSwap(
         type === 'icon24' ? 'Icon-24' : type === 'icon16' ? 'Icon-16' : 'Icon-20',
     );
     if (!child || child.type !== 'INSTANCE') throw new Error('Не найдена иконка');
-    const code = child.executeTemplate().example;
+    const code = nestedTemplate(child).example;
     content =
         type === 'icon20'
             ? figma.code`<Icon20Adapter icon={(props: React.SVGProps<SVGSVGElement>) => React.cloneElement(${code}, props)} />`

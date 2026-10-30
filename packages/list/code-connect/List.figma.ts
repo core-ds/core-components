@@ -2,8 +2,21 @@
 // source=packages/list/src/index.ts
 // component=List
 import figma from 'figma';
-import type { ResultSection } from 'figma';
+import type { ResultSection, InstanceHandle } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
 function slotContent(sections: ResultSection[] | undefined, name: string) {
     const source = sections ?? [];
     function opaque(section: ResultSection) {
@@ -72,7 +85,11 @@ if (type === 'custom') {
     const content = marker.findLayers((n) => n.type === 'INSTANCE');
     const parts = content
         .filter((n) => n.type === 'INSTANCE')
-        .map((n) => (n.type === 'INSTANCE' ? n.executeTemplate().example : []));
+        .map((n) =>
+            n.type === 'INSTANCE'
+                ? nestedTemplate(n, () => [{ type: 'SLOT', propertyName: 'marker' }]).example
+                : [],
+        );
     if (!parts.length) throw new Error('Не найден custom Marker List');
     markerContent = slotContent(parts.flat(), 'marker');
 }

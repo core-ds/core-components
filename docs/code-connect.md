@@ -1,18 +1,35 @@
 # Figma Code Connect
 
-Привязка компонентов библиотеки к component set в Figma (Web :: Core), чтобы в Dev Mode и через Figma MCP показывались сниппеты с реальными импортами `@alfalab/core-components/*` и props.
+Шаблоны связывают библиотечные компоненты Figma с реальными импортами `@alfalab/core-components/*` и props. Примеры доступны в Dev Mode и через Figma MCP.
 
-Опубликованный полный набор использует `figma.web-core.config.json` и шаблоны `packages/**/code-connect/**/*.figma.ts`. Для восьми дополнительных библиотек используется отдельный `figma.web-core-libraries.config.json`; состав, статус публикации и ограничения — в [отчёте](code-connect-web-core-libraries.md). Исходный `figma.config.json` с `.figma.tsx` сохранён как прежняя конфигурация. Документация Figma: [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect).
+## Конфигурация и публикация
 
-Прежние команды `yarn figma:connect:publish` и `yarn figma:connect:unpublish` используют `figma.config.json` с `.figma.tsx` Button. Для набора из 148 шаблонов используйте `bash tools/code-connect/publish-web-core.sh`; для восьми дополнительных библиотек — команды с `--config figma.web-core-libraries.config.json` из [отчёта](code-connect-web-core-libraries.md). Не запускайте прежние команды для новых наборов.
+Канонический конфиг — `figma.config.json`: **218 шаблонов `.figma.ts`**. В него входят 148 связей основного Web :: Core, 69 связей восьми дополнительных библиотек и одна связь [Diamonds в Icons](https://www.figma.com/design/ZcdUPebEhHfSZ91zgmv2cK/Icons?node-id=92210-20888). Diamonds не входит в число 148 связей основного файла.
 
-## Общая проверка
+`figma.web-core.config.json`, `figma.web-core-libraries.config.json` и `figma.hedging.config.json` — поднаборы тех же реализаций, а не отдельные версии привязок. Все используют метку `React`. Прежние `.figma.tsx` Button/Diamonds удалены: для одного узла больше нет конкурирующей реализации в другом формате.
 
-`yarn figma:connect:check` проверяет типы шаблонов, официальный parse трёх конфигов и API сгенерированных примеров. Команда не использует токен и не публикует связи; она включена в CI.
+Проверка полного набора и пробный выпуск:
 
-## Button
+```sh
+yarn figma:connect:check
+yarn figma:connect:publish --dry-run
+```
 
-Файлы: `packages/button/code-connect/` (`Button.figma.tsx`, `Diamonds.figma.tsx`).
+`yarn figma:connect:publish` явно использует канонический конфиг. Команды массового снятия связей в `package.json` нет. Для согласованного выпуска только 148 связей основного файла остаётся `bash tools/code-connect/publish-web-core.sh`; дополнительные библиотеки можно выпускать с `--config figma.web-core-libraries.config.json`.
+
+Для серверного preview и публикации через CLI нужен `FIGMA_ACCESS_TOKEN`. Проверка `figma:connect:check` его не использует и ничего не публикует. Факт выпуска подтверждается отдельным ответом Figma; локальная правка шаблона сама по себе опубликованную связь не обновляет. Состав, подтверждения прежней публикации и ограничения находятся в [основном отчёте](code-connect-web-core.md) и [отчёте дополнительных библиотек](code-connect-web-core-libraries.md). Документация Figma: [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect).
+
+## Проверки и вложенность
+
+`yarn figma:connect:check` проверяет три TypeScript-конфига, официальный parse канонического набора и трёх поднаборов, API сгенерированных примеров, композицию дочерних шаблонов и Button с настоящей привязкой Diamonds. Команда включена в CI.
+
+Сгенерированный TSX проверяется в режиме `react-jsx` только с импортами, объявленными самим шаблоном и вложенными шаблонами. Проверяющая обвязка не добавляет `import React` за автора примера. Для Attach Desktop и Mobile отдельно проверяется ветка Icon-20 с `React.cloneElement`.
+
+Перед вставкой дочернего `.example` в JSX учитывается `metadata.nestable`. Значение `false` означает контекстный пример: его функцию нельзя вставлять внутрь другого JSX. Родитель либо запрашивает необходимые данные через явный типизированный контекст, либо останавливает преобразование с объяснением. Готовый вложенный JSX сохраняется без подмены.
+
+## Button и Diamonds
+
+Файлы — `packages/button/code-connect/*.figma.ts`.
 
 | Figma        | Код                                    |
 | ------------ | -------------------------------------- |
@@ -20,16 +37,9 @@
 | `[M] Button` | `ButtonMobile`                         |
 | `*_Inverted` | тот же компонент + `colors="inverted"` |
 
-Смаплено:
+Сопоставлены `view`, `size`, `shape`, `disabled`, подпись, подсказка и аддоны. Выбранная иконка разрешается через её дочерний Code Connect; Diamonds не подставляется вместо произвольного ассета. Для дефолтных Diamonds используется единственный шаблон `Diamonds.figma.ts` с объявленным импортом реальной иконки 20 или 24. Он возвращает SVG-компонент без адаптера. Единственный `Icon20Adapter` добавляет родитель Button для своего 20dp-слота, поэтому двойной адаптации нет.
 
-- `view`, `size`, `shape`, `disabled`
-- `children` (Label), `hint`
-- `leftAddons` / `rightAddons` — по boolean + `Type` у вложенного 🔩 Addon (эталон diamonds; `figma.children` не проходит через FRAME)
-- `loading` — LeftAddon + Addon `Type=Spinner`
-
-Не мапятся (нет свойств в Figma): `block`, `textResizing`, `nowrap`, `allowBackdropBlur`.
-
-На один component set — одна CLI-привязка.
+Параметры `block`, `textResizing`, `nowrap`, `allowBackdropBlur` не опубликованы как свойства Figma и автоматически не восстанавливаются. Проверка композиции Button 32/40 с Diamonds использует дочерний шаблон и его импорты, а не готовую строку иконки из тестовых данных.
 
 ## Подготовка к декабрьскому макету хеджирования
 
@@ -44,7 +54,7 @@
 | `Amount`                 | `packages/amount/code-connect/Amount.figma.ts` → `Amount`                                                                    |
 | `IconView`               | `packages/icon-view/code-connect/IconView.figma.ts` → `SuperEllipse`, `Circle`, `Rectangle` или `NoShape`                    |
 
-Объём — desktop-наборы из выбранного экрана; мобильные, инвертированные и устаревшие Corporate-наборы в этот конфиг не включены. Исходные `.figma.tsx`, старый конфиг и существующие скрипты не изменены. Новый конфиг не включает старую привязку Button, чтобы при проверке не было двух шаблонов для одного набора.
+Объём — desktop-наборы из выбранного экрана; мобильные, инвертированные и устаревшие Corporate-наборы в этот конфиг не включены. Набор использует те же `.figma.ts`, что и канонический конфиг; дополнительных реализаций Button в нём нет.
 
 ### Локальная проверка без публикации
 
@@ -70,7 +80,7 @@ node node_modules/@figma/code-connect/bin/figma connect preview --config figma.h
 
 CLI требует `FIGMA_ACCESS_TOKEN`. Полный набор из 148 связей, включая эти шесть, опубликован и проверен через серверный preview; результаты и ограничения — в [общем отчёте](./code-connect-web-core.md). Токен передавался только в памяти процесса и не сохранён в репозитории.
 
-Для последующих изменений опубликованного полного набора используйте `--config figma.web-core.config.json`. Слияние ветки Figma и слияние Git-ветки сами по себе не выполняют эту публикацию. Не запускайте старый и новый конфиги вместе для одного набора Button.
+Для последующих изменений основного набора используйте `--config figma.web-core.config.json`; для канонического набора вместе с дополнительными библиотеками и Diamonds — `--config figma.config.json`. Слияние ветки Figma и слияние Git-ветки сами по себе не выполняют публикацию.
 
 ### Границы шаблонов
 

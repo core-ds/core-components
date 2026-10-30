@@ -127,6 +127,7 @@ if (!booleanProperty(button, 'LeftAddon'))
 export default {
     id: 'core-AttachDesktop',
     imports: [
+        "import React from 'react';",
         "import { Attach, type AttachProps } from '@alfalab/core-components/attach';",
         "import { Icon20Adapter } from '@alfalab/core-components/shared/icon-20-adapter';",
     ],

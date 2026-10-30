@@ -2,8 +2,20 @@
 // source=packages/tag/src/mobile/Component.mobile.tsx
 // component=TagMobile
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
 
 function addon(name: string, enabled: boolean, owner: InstanceHandle = instance) {
     if (!enabled) return undefined;
@@ -27,7 +39,7 @@ function addon(name: string, enabled: boolean, owner: InstanceHandle = instance)
     if (type === 'spinner' || type === 'indicator') {
         const nested = child.findInstance(type === 'spinner' ? 'Spinner' : 'Indicator');
         if (nested.type !== 'INSTANCE') throw new Error(`Не найдено содержимое ${name}`);
-        return nested.executeTemplate().example;
+        return nestedTemplate(nested).example;
     }
     const prop =
         type === 'icon16'
@@ -39,7 +51,7 @@ function addon(name: string, enabled: boolean, owner: InstanceHandle = instance)
                 : 'Instance';
     const content = child.getInstanceSwap(prop);
     if (!content || content.type !== 'INSTANCE') throw new Error(`Проверь содержимое ${name}`);
-    const rendered = content.executeTemplate().example;
+    const rendered = nestedTemplate(content).example;
     if (type === 'icon20')
         return figma.code`<Icon20Adapter icon={(props: React.SVGProps<SVGSVGElement>) => React.cloneElement(${rendered}, props)} />`
             .sections;

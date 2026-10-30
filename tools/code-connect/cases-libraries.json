@@ -90401,6 +90401,132 @@
             },
             "expect": ["children: React.ReactNode", "{children}"],
             "notExpect": ["no Code Connect template found"]
+        },
+        {
+            "template": "packages/attach/code-connect/AttachDesktop.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "32",
+                    "Label": true
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "[D] Button",
+                        "properties": {
+                            "Label": true,
+                            "✎ Label": "Выбрать",
+                            "Hint": false,
+                            "✎ Hint": "Подсказка",
+                            "DisabledState": "False",
+                            "View": "Secondary",
+                            "Shape": "Rectangular",
+                            "SingleIcon": "False",
+                            "LeftAddon": true,
+                            "RightAddon": false
+                        },
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "LeftAddon",
+                                "properties": {
+                                    "Type": "Icon-20"
+                                },
+                                "swaps": {
+                                    "Icon-20": {
+                                        "type": "INSTANCE",
+                                        "name": "Actual",
+                                        "properties": {},
+                                        "code": "<svg data-icon=\"attach-icon-20\" />"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Label",
+                        "properties": {
+                            "Loading": "False",
+                            "ProgressBar": true,
+                            "✎ Label": "Нет файла"
+                        }
+                    }
+                ]
+            },
+            "expect": [
+                "size={32}",
+                "value={null}",
+                "Выбрать",
+                "React.cloneElement",
+                "<svg data-icon=\"attach-icon-20\" />",
+                "leftAddons: <>"
+            ]
+        },
+        {
+            "template": "packages/attach/code-connect/AttachMobile.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "Fixture",
+                "properties": {
+                    "Size": "32",
+                    "Label": true
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "[M] Button",
+                        "properties": {
+                            "Label": true,
+                            "✎ Label": "Выбрать",
+                            "Hint": false,
+                            "✎ Hint": "Подсказка",
+                            "DisabledState": "False",
+                            "View": "Secondary",
+                            "Shape": "Rectangular",
+                            "SingleIcon": "False",
+                            "LeftAddon": true,
+                            "RightAddon": false
+                        },
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "LeftAddon",
+                                "properties": {
+                                    "Type": "Icon-20"
+                                },
+                                "swaps": {
+                                    "Icon-20": {
+                                        "type": "INSTANCE",
+                                        "name": "Actual",
+                                        "properties": {},
+                                        "code": "<svg data-icon=\"attach-icon-20\" />"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Label",
+                        "properties": {
+                            "Loading": "False",
+                            "ProgressBar": true,
+                            "✎ Label": "Нет файла"
+                        }
+                    }
+                ]
+            },
+            "expect": [
+                "size={32}",
+                "value={null}",
+                "Выбрать",
+                "React.cloneElement",
+                "<svg data-icon=\"attach-icon-20\" />",
+                "leftAddons: <>"
+            ]
         }
     ]
 }

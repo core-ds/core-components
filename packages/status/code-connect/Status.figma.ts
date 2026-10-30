@@ -3,7 +3,20 @@
 // component=Status
 import figma from 'figma';
 const instance = figma.selectedInstance;
-import type { InstanceHandle } from 'figma';
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
+import type { InstanceHandle, ResultSection } from 'figma';
 const size = instance.getEnum('Size', {
     '20': 20,
     '24': 24,
@@ -37,13 +50,13 @@ function addon(node: InstanceHandle | undefined) {
     if (type === 'Spinner 16') {
         const spinner = node.findInstance('Spinner', { traverseInstances: true });
         if (spinner.type !== 'INSTANCE') throw new Error('Не найден Spinner Status');
-        return spinner.executeTemplate().example;
+        return nestedTemplate(spinner).example;
     }
     const property = type === 'Icon 16' ? 'Icon 16' : type === 'Icon 20' ? 'icon-20' : undefined;
     if (!property) throw new Error('Неизвестный Addon Status');
     const icon = node.getInstanceSwap(property);
     if (!icon || icon.type !== 'INSTANCE') throw new Error('Не найдена иконка Status');
-    return icon.executeTemplate().example;
+    return nestedTemplate(icon).example;
 }
 const left = hasLeft ? addon(addons[0]) : undefined;
 const right = hasRight ? addon(addons[hasLeft ? 1 : 0]) : undefined;

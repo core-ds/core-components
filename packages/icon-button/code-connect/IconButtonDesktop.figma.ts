@@ -2,8 +2,21 @@
 // source=packages/icon-button/src/desktop/Component.desktop.tsx
 // component=IconButtonDesktop
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
 const size = instance.getEnum('Size', {
     '56': 56,
     '48': 48,
@@ -23,7 +36,7 @@ const transparentBg = instance.getEnum('TransparentBg', {
 });
 const child = instance.findInstance('Icon');
 if (child.type !== 'INSTANCE') throw new Error('Не найден Icon');
-const icon = child.executeTemplate();
+const icon = nestedTemplate(child);
 const loading = icon.metadata?.props?.loading === true;
 
 export default {

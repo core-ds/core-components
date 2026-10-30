@@ -2,7 +2,21 @@
 // source=packages/product-cover/src/index.ts
 // component=ProductCover.Single
 import figma from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
+
 const size = instance.getEnum('Size', {
     '16x24': 16,
     '32x51': 32,
@@ -22,7 +36,7 @@ let iconCode;
 if (size !== 16 && instance.getBoolean('Icon')) {
     const icon = instance.getInstanceSwap(size <= 32 ? 'icon 16' : 'icon 24');
     if (!icon || icon.type !== 'INSTANCE') throw new Error('Не найдена иконка ProductCover');
-    iconCode = icon.executeTemplate().example;
+    iconCode = nestedTemplate(icon).example;
 }
 export default {
     id: 'core-product-cover-single',

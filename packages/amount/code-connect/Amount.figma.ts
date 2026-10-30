@@ -2,8 +2,20 @@
 // source=packages/amount/src/index.ts
 // component=Amount
 import figma from 'figma';
-import type { InstanceHandle } from 'figma';
+import type { InstanceHandle, ResultSection } from 'figma';
 const instance = figma.selectedInstance;
+
+// CLI не собирает локальные модули: единый контракт проверяет verify-nesting.cjs.
+function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) {
+    const result = child.executeTemplate();
+    if (result.metadata?.nestable === false) {
+        if (context) return { ...result, example: context() };
+        throw new Error(
+            `Вложенный компонент ${child.name} требует контекста приложения и не может встраиваться в JSX`,
+        );
+    }
+    return result;
+}
 
 function childText(name: string, owner: InstanceHandle = instance): string {
     const child = owner.findInstance(name);
@@ -66,7 +78,7 @@ if (instance.getBoolean('Addon')) {
     const nested = child.findLayers((node) => node.type === 'INSTANCE');
     const parts = nested
         .filter((node) => node.type === 'INSTANCE')
-        .map((node) => (node.type === 'INSTANCE' ? node.executeTemplate().example : []));
+        .map((node) => (node.type === 'INSTANCE' ? nestedTemplate(node).example : []));
     if (!parts.length) throw new Error('Addon суммы не имеет подключённого содержимого');
     rightCode = parts.reduce((result, part) => figma.code`${result}${part}`, figma.code``);
 }
