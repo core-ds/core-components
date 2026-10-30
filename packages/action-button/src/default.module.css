@@ -21,8 +21,8 @@
 
     /* disabled */
     --action-button-disabled-color: var(--color-light-text-tertiary);
-    --action-button-disabled-icon-color: var(--color-light-neutral-500);
-    --action-button-disabled-bg-color: var(--color-light-neutral-100);
+    --action-button-disabled-icon-color: var(--color-light-neutral-translucent-500);
+    --action-button-disabled-bg-color: var(--color-light-neutral-translucent-100);
 }
 
 .primary {
