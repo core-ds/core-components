@@ -1,5 +1,97 @@
 # @alfalab/core-components
 
+## 50.40.0
+
+### Minor Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2431](https://github.com/core-ds/core-components/pull/2431)
+
+##### Confirmation
+
+- Добавлена возможность изменения текста у подзаголовка
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2433](https://github.com/core-ds/core-components/pull/2433)
+
+##### Themes
+
+- Удалена темизация `site` для `CalendarInput`
+- Удалена темизация `site` для `UniversalDateInput`
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2436](https://github.com/core-ds/core-components/pull/2436)
+
+##### SidePanel
+
+- Исправлен нижний safe-area отступ мобильной SidePanel без футера в PWA
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2434](https://github.com/core-ds/core-components/pull/2434)
+
+##### IconButton
+
+- Исправлен цвет спиннера в инвертированной палитре
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-action-button@3.0.11
+- @alfalab/core-components-gallery@7.4.6
+- @alfalab/core-components-pure-cell@6.1.2
+- @alfalab/core-components-calendar@9.1.18
+- @alfalab/core-components-underlay@3.2.1
+- @alfalab/core-components-bottom-sheet@8.1.18
+- @alfalab/core-components-themes@15.2.2
+- @alfalab/core-components-confirmation@15.3.0
+- @alfalab/core-components-side-panel@7.1.6
+- @alfalab/core-components-icon-button@8.0.14
+- @alfalab/core-components-calendar-input@12.0.24
+- @alfalab/core-components-calendar-range@9.1.10
+- @alfalab/core-components-calendar-with-skeleton@7.0.22
+- @alfalab/core-components-date-range-input@5.0.24
+- @alfalab/core-components-date-time-input@6.0.24
+- @alfalab/core-components-universal-date-input@4.0.24
+- @alfalab/core-components-select@19.2.13
+- @alfalab/core-components-select-with-tags@10.1.26
+- @alfalab/core-components-tooltip@9.0.24
+- @alfalab/core-components-file-upload-item@8.2.6
+- @alfalab/core-components-file-upload-item-v1@3.0.14
+- @alfalab/core-components-navigation-bar-private@2.0.18
+- @alfalab/core-components-number-input@4.0.17
+- @alfalab/core-components-password-input@7.0.17
+- @alfalab/core-components-plate@9.0.14
+- @alfalab/core-components-steps@3.1.1
+- @alfalab/core-components-tabs@10.1.6
+- @alfalab/core-components-toast-plate@9.1.10
+- @alfalab/core-components-custom-picker-button@4.1.26
+- @alfalab/core-components-input-autocomplete@14.0.31
+- @alfalab/core-components-international-phone-input@4.0.31
+- @alfalab/core-components-intl-phone-input@11.0.31
+- @alfalab/core-components-picker-button@13.1.9
+- @alfalab/core-components-table@4.0.32
+- @alfalab/core-components-modal@11.0.21
+- @alfalab/core-components-popup-sheet@3.0.21
+- @alfalab/core-components-universal-modal@3.2.10
+- @alfalab/core-components-amount-input@9.4.2
+- @alfalab/core-components-alert@6.0.14
+- @alfalab/core-components-notification@9.0.15
+- @alfalab/core-components-toast@8.0.17
+- @alfalab/core-components-notification-manager@7.0.15
+
 ## 50.39.0
 
 ### Minor Changes
