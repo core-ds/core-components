@@ -1,5 +1,3 @@
 @define-mixin calendar-click {
-    /* theme */
-    --calendar-range-background: var(--color-light-base-bg-secondary);
     --calendar-select-button-today-border-color: transparent;
 }

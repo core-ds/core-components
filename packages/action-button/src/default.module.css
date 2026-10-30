@@ -11,9 +11,9 @@
     /* secondary */
     --action-button-secondary-base-color: var(--color-light-text-primary);
     --action-button-secondary-base-icon-color: var(--color-light-neutral-translucent-1300);
-    --action-button-secondary-base-bg-color: var(--color-light-neutral-100);
-    --action-button-secondary-hover-color: var(--color-light-neutral-100-hover);
-    --action-button-secondary-active-color: var(--color-light-neutral-100-press);
+    --action-button-secondary-base-bg-color: var(--color-light-neutral-translucent-100);
+    --action-button-secondary-hover-color: var(--color-light-neutral-translucent-100-hover);
+    --action-button-secondary-active-color: var(--color-light-neutral-translucent-100-press);
 
     /* spinner */
     --action-button-spinner-primary-color: var(--color-light-neutral-translucent-1300-inverted);
@@ -21,8 +21,8 @@
 
     /* disabled */
     --action-button-disabled-color: var(--color-light-text-tertiary);
-    --action-button-disabled-icon-color: var(--color-light-neutral-500);
-    --action-button-disabled-bg-color: var(--color-light-neutral-100);
+    --action-button-disabled-icon-color: var(--color-light-neutral-translucent-500);
+    --action-button-disabled-bg-color: var(--color-light-neutral-translucent-100);
 }
 
 .primary {

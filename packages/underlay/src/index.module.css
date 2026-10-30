@@ -48,7 +48,7 @@
     overflow: hidden;
 }
 
-@mixin bg-class-list;
+@mixin bg-class-list base;
 
 /* prettier-ignore */
 @each $size in 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72 {
