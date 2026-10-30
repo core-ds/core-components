@@ -5,8 +5,10 @@ import figma from 'figma';
 import type { InstanceHandle } from 'figma';
 const instance = figma.selectedInstance;
 const hint = instance.getEnum('Hint', { True: true, False: false });
-const control = instance.findInstance('Switch_Inverted');
-if (control.type !== 'INSTANCE') throw new Error('Не найден вложенный Switch');
+// Имя слоя может меняться; выбираем именно подключённый Switch_24_Inverted.
+const control = instance.findConnectedInstance('core-switch-switch24inverted');
+if (!control || control.type !== 'INSTANCE')
+    throw new Error('Не найден подключённый Switch_24_Inverted');
 const props = control.executeTemplate().metadata?.props;
 if (!props || typeof props.checked !== 'boolean' || typeof props.disabled !== 'boolean')
     throw new Error('Требуется Code Connect вложенного контрола');

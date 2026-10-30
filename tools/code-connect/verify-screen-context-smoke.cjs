@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { validateScreenContext } = require('./verify-screen-context.cjs');
+const { validateScreenContext, extractContextualPayloads } = require('./verify-screen-context.cjs');
 
 const iconImport = "import { ArrowLeft24Icon } from '@alfalab/icons-glyph-26/ArrowLeft24Icon';";
 const profile = {
@@ -302,6 +302,180 @@ negative(
         );
     },
 );
+
+const rawSelectPayload = `function Example({ options }: { options: unknown[] }) {
+  return <SelectDesktop options={options} selected={null} />;
+}`;
+const rawSelectCode = (
+    payload = rawSelectPayload,
+) => `import { SelectDesktop } from '@alfalab/core-components/select/desktop';
+export default function DSelect() {
+  return (<CodeConnectSnippet data-node-id="20:1">${payload}</CodeConnectSnippet>);
+}`;
+const rawScenarioPayload = `type Scenario = { values: string[] };
+function Example({ scenario }: { scenario: Scenario }) {
+  return <RadioGroupDesktop>{scenario.values.map(value => <TagDesktop key={value}>{value}</TagDesktop>)}</RadioGroupDesktop>;
+}`;
+const rawTagGroupCode = `import { RadioGroupDesktop } from '@alfalab/core-components/radio-group/desktop';
+import { TagDesktop } from '@alfalab/core-components/tag/desktop';
+export default function DTagGroup() {
+  return (<CodeConnectSnippet data-node-id="30:1">${rawScenarioPayload}</CodeConnectSnippet>);
+}`;
+
+const rawSelectResult = positive(
+    'raw Select Example payload is validated as a standalone module',
+    (data) => {
+        data.nodes[1].code = rawSelectCode();
+        data.fullFrame.code = `${iconCode}\n${data.nodes[1].code}`;
+    },
+);
+
+assert.equal(rawSelectResult.rawContextIsReadyApplication, false);
+assert.equal(rawSelectResult.contextualPayloadsValidatedSeparately.checked, 2);
+assert.equal(rawSelectResult.contextualPayloadsValidatedSeparately.passed, 2);
+assert(rawSelectResult.rawTsxDiagnostics.some((item) => item.count > 0));
+
+positive('raw Scenario and TagGroup Example payload are validated separately', (data, settings) => {
+    settings.nodes[2] = {
+        nodeId: '30:1',
+        component: 'RadioGroupDesktop',
+        importPath: '@alfalab/core-components/radio-group/desktop',
+        contextual: true,
+    };
+    data.nodes[2].code = rawTagGroupCode;
+    data.fullFrame.code = `${data.fullFrame.code}\n${rawTagGroupCode}`;
+});
+positive('leading contextual payload comments are retained and validated', (data) => {
+    data.nodes[1].code = rawSelectCode(
+        `/* protocol payload */\n// product context is required\n${rawSelectPayload}`,
+    );
+});
+positive('raw payload resolves only helpers reached from Example', (data) => {
+    data.nodes[1].code =
+        rawSelectCode(`function Connected() { return <SelectDesktop options={[]} selected={null} />; }
+function Example() { return <Connected />; }`);
+});
+positive('marker-shaped string outside the protocol payload is not extracted', (data) => {
+    data.nodes[1].code = `const documentation = '<CodeConnectSnippet data-node-id="20:1">function Example() {}</CodeConnectSnippet>';\n${selectCode}`;
+});
+
+negative(
+    'malformed raw payload is not hidden by the empty protocol skeleton',
+    'invalid-contextual-payload',
+    (data) => {
+        data.nodes[1].code = rawSelectCode('function Example( { return <SelectDesktop />; }');
+    },
+);
+negative('raw payload with unrelated Core helper is rejected', 'missing-connected-jsx', (data) => {
+    data.nodes[1].code =
+        rawSelectCode(`function Unrelated() { return <SelectDesktop options={[]} selected={null} />; }
+function Example() { return <div />; }`);
+});
+negative(
+    'raw payload with unrelated top-level Core JSX is rejected',
+    'missing-connected-jsx',
+    (data) => {
+        data.nodes[1].code = rawSelectCode(`function Example() { return <div />; }
+const unrelated = <SelectDesktop options={[]} selected={null} />;`);
+    },
+);
+negative('raw payload must declare the Example entry', 'missing-contextual-entry', (data) => {
+    data.nodes[1].code = rawSelectCode(
+        'function Other() { return <SelectDesktop options={[]} selected={null} />; }',
+    );
+});
+negative(
+    'raw payload cannot succeed through an import alone',
+    'missing-component-import',
+    (data) => {
+        data.nodes[1].code = rawSelectCode().replace(
+            "import { SelectDesktop } from '@alfalab/core-components/select/desktop';",
+            '',
+        );
+    },
+);
+negative('raw payload placeholders remain failures', 'unresolved-code-connect', (data) => {
+    data.nodes[1].code = rawSelectCode(
+        rawSelectPayload.replace(
+            'return <SelectDesktop',
+            '// Code Connect Logic Instance\nreturn <SelectDesktop',
+        ),
+    );
+});
+negative('raw payload cannot hide prohibited CSS', 'corp-theme-in-default', (data) => {
+    data.nodes[1].code = rawSelectCode(
+        rawSelectPayload.replace(
+            'return <SelectDesktop',
+            "require('@alfalab/core-components-themes/corp.css'); return <SelectDesktop",
+        ),
+    );
+});
+negative(
+    'literal closing marker in a raw payload string is ambiguous',
+    'ambiguous-contextual-boundary',
+    (data) => {
+        data.nodes[1].code = rawSelectCode(
+            'function Example() { const literal = "</CodeConnectSnippet>"; return <SelectDesktop />; }',
+        );
+    },
+);
+negative(
+    'literal closing marker in a raw payload template is ambiguous',
+    'ambiguous-contextual-boundary',
+    (data) => {
+        data.nodes[1].code = rawSelectCode(
+            'function Example() { const literal = `</CodeConnectSnippet>`; return <SelectDesktop />; }',
+        );
+    },
+);
+negative(
+    'literal closing marker in a raw payload block comment is ambiguous',
+    'ambiguous-contextual-boundary',
+    (data) => {
+        data.nodes[1].code = rawSelectCode(
+            'function Example() { /* literal </CodeConnectSnippet> */ return <SelectDesktop />; }',
+        );
+    },
+);
+negative(
+    'literal closing marker in a raw payload line comment is ambiguous',
+    'ambiguous-contextual-boundary',
+    (data) => {
+        data.nodes[1].code = rawSelectCode(
+            'function Example() { return <SelectDesktop />; }\n// literal </CodeConnectSnippet>\n',
+        );
+    },
+);
+negative('nested raw protocol marker is not accepted', 'ambiguous-contextual-boundary', (data) => {
+    data.nodes[1].code = rawSelectCode(
+        'function Example() { return <CodeConnectSnippet data-node-id="nested"><SelectDesktop /></CodeConnectSnippet>; }',
+    );
+});
+negative(
+    'duplicate raw contextual markers are ambiguous',
+    'duplicate-contextual-marker',
+    (data) => {
+        data.nodes[1].code = `${rawSelectCode()}\n${rawSelectCode()}`;
+    },
+);
+
+const extracted = extractContextualPayloads(rawSelectCode(), ['20:1']);
+
+assert.deepEqual(extracted.errors, []);
+assert.equal(extracted.payloads.length, 1);
+assert.equal(extracted.payloads[0].code, rawSelectPayload);
+assert(!extracted.skeleton.includes('function Example('));
+assert(
+    extracted.skeleton.includes('<CodeConnectSnippet data-node-id="20:1"></CodeConnectSnippet>'),
+);
+const ambiguousSource = rawSelectCode(
+    'function Example() { const literal = "</CodeConnectSnippet>"; return <SelectDesktop />; }',
+);
+const ambiguous = extractContextualPayloads(ambiguousSource, ['20:1']);
+
+assert(ambiguous.errors.length > 0);
+assert.deepEqual(ambiguous.payloads, []);
+assert.equal(ambiguous.skeleton, ambiguousSource);
 
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'screen-context-smoke-'));
 let cliChecks = 0;

@@ -19,6 +19,199 @@ function callableBody(declaration) {
         : undefined;
 }
 
+function openingMarkerEnd(code, start) {
+    let quote = null;
+    let escaped = false;
+    let braces = 0;
+
+    for (let index = start; index < code.length; index += 1) {
+        const char = code[index];
+
+        if (quote) {
+            if (escaped) escaped = false;
+            else if (char === '\\') escaped = true;
+            else if (char === quote) quote = null;
+        } else if (char === '"' || char === "'" || char === '`') quote = char;
+        else if (char === '{') braces += 1;
+        else if (char === '}') braces -= 1;
+        else if (char === '>' && braces === 0) return index + 1;
+    }
+
+    return null;
+}
+
+function markerHeader(header) {
+    const selfClosing = /\/\s*>$/.test(header);
+    const expression = selfClosing ? header : `${header.slice(0, -1)}/>`;
+    const source = ts.createSourceFile(
+        'marker.tsx',
+        `const marker = ${expression};`,
+        ts.ScriptTarget.Latest,
+        true,
+        ts.ScriptKind.TSX,
+    );
+
+    if (source.parseDiagnostics.length) return null;
+    const node = source.statements[0]?.declarationList?.declarations[0]?.initializer;
+
+    if (
+        !node ||
+        !ts.isJsxSelfClosingElement(node) ||
+        node.tagName.getText(source) !== 'CodeConnectSnippet'
+    )
+        return null;
+    const attribute = node.attributes.properties.find(
+        (item) => ts.isJsxAttribute(item) && item.name.getText(source) === 'data-node-id',
+    );
+    let value = attribute?.initializer;
+
+    if (value && ts.isJsxExpression(value)) value = value.expression;
+
+    return value && ts.isStringLiteralLike(value)
+        ? { nodeId: normalizeId(value.text), selfClosing }
+        : null;
+}
+
+function literalRanges(code) {
+    const scanner = ts.createScanner(ts.ScriptTarget.Latest, false, ts.LanguageVariant.JSX, code);
+    const kinds = new Set([
+        ts.SyntaxKind.StringLiteral,
+        ts.SyntaxKind.NoSubstitutionTemplateLiteral,
+        ts.SyntaxKind.TemplateHead,
+        ts.SyntaxKind.TemplateMiddle,
+        ts.SyntaxKind.TemplateTail,
+        ts.SyntaxKind.SingleLineCommentTrivia,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+    ]);
+    const ranges = [];
+    let kind = scanner.scan();
+
+    while (kind !== ts.SyntaxKind.EndOfFileToken) {
+        if (kinds.has(kind))
+            ranges.push({ start: scanner.getTokenPos(), end: scanner.getTextPos() });
+        kind = scanner.scan();
+    }
+
+    return ranges;
+}
+
+function ambiguousPayloadBoundary(payload) {
+    const source = ts.createSourceFile(
+        'payload.tsx',
+        payload,
+        ts.ScriptTarget.Latest,
+        true,
+        ts.ScriptKind.TSX,
+    );
+    const unterminated = new Set([1002, 1010, 1160, 1161]);
+
+    if (source.parseDiagnostics.some((diagnostic) => unterminated.has(diagnostic.code)))
+        return true;
+    const scanner = ts.createScanner(
+        ts.ScriptTarget.Latest,
+        false,
+        ts.LanguageVariant.JSX,
+        payload,
+    );
+    let kind = scanner.scan();
+    let last = null;
+
+    while (kind !== ts.SyntaxKind.EndOfFileToken) {
+        last = { kind, end: scanner.getTextPos() };
+        kind = scanner.scan();
+    }
+
+    // A protocol delimiter inside a line comment is indistinguishable from its literal text.
+    return last?.kind === ts.SyntaxKind.SingleLineCommentTrivia && last.end === payload.length;
+}
+
+function isStandalonePayload(payload) {
+    const scanner = ts.createScanner(ts.ScriptTarget.Latest, true, ts.LanguageVariant.JSX, payload);
+    const modifiers = new Set([
+        ts.SyntaxKind.ExportKeyword,
+        ts.SyntaxKind.DefaultKeyword,
+        ts.SyntaxKind.AsyncKeyword,
+    ]);
+    const declarations = new Set([
+        ts.SyntaxKind.FunctionKeyword,
+        ts.SyntaxKind.TypeKeyword,
+        ts.SyntaxKind.InterfaceKeyword,
+        ts.SyntaxKind.ConstKeyword,
+        ts.SyntaxKind.LetKeyword,
+        ts.SyntaxKind.ClassKeyword,
+    ]);
+    let kind = scanner.scan();
+
+    while (modifiers.has(kind)) kind = scanner.scan();
+
+    return declarations.has(kind);
+}
+
+/**
+ * Separate only declared raw contextual payloads from the MCP marker protocol.
+ * This is a framing operation, not code execution or API validation. On ambiguous
+ * delimiters it returns the original string and no payloads; callers must reject errors.
+ */
+function extractContextualPayloads(code, expectedContextualIds) {
+    const ids = new Set([...expectedContextualIds].map(normalizeId));
+    const errors = [];
+    const payloads = [];
+    const ranges = literalRanges(code);
+    const opening = /<CodeConnectSnippet\b/g;
+    const closing = /<\/CodeConnectSnippet\s*>/g;
+    const replacements = [];
+    const seen = new Set();
+    let match = opening.exec(code);
+
+    while (match) {
+        const start = match.index;
+        const inLiteral = ranges.some((range) => start >= range.start && start < range.end);
+        const end = openingMarkerEnd(code, start);
+        const header = end ? markerHeader(code.slice(start, end)) : null;
+
+        if (!inLiteral && header && ids.has(header.nodeId) && !header.selfClosing) {
+            closing.lastIndex = end;
+            const close = closing.exec(code);
+
+            if (close) {
+                const payload = code.slice(end, close.index);
+                const standalone = isStandalonePayload(payload);
+
+                if (standalone) {
+                    if (
+                        /<\/?CodeConnectSnippet\b/.test(payload) ||
+                        ambiguousPayloadBoundary(payload)
+                    )
+                        errors.push({
+                            kind: 'ambiguous-contextual-boundary',
+                            nodeId: header.nodeId,
+                        });
+                    else if (seen.has(header.nodeId))
+                        errors.push({ kind: 'duplicate-contextual-marker', nodeId: header.nodeId });
+                    else {
+                        seen.add(header.nodeId);
+                        payloads.push({ nodeId: header.nodeId, code: payload });
+                        replacements.push({ start: end, end: close.index });
+                    }
+                    opening.lastIndex = close.index + close[0].length;
+                }
+            } else errors.push({ kind: 'unclosed-contextual-marker', nodeId: header.nodeId });
+        }
+        match = opening.exec(code);
+    }
+    if (errors.length) return { skeleton: code, payloads: [], errors };
+    let skeleton = '';
+    let position = 0;
+
+    for (const replacement of replacements) {
+        skeleton += code.slice(position, replacement.start);
+        position = replacement.end;
+    }
+    skeleton += code.slice(position);
+
+    return { skeleton, payloads, errors };
+}
+
 function analyze(code) {
     const file = 'captured-context.tsx';
     const source = ts.createSourceFile(file, code, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
@@ -148,6 +341,21 @@ function analyze(code) {
         reachable,
         matches,
         syntax: program.getSyntacticDiagnostics(source),
+        entryBodies(name) {
+            return source.statements.flatMap((statement) => {
+                if (ts.isFunctionDeclaration(statement) && statement.name?.text === name)
+                    return statement.body ? [statement.body] : [];
+                if (!ts.isVariableStatement(statement)) return [];
+
+                return statement.declarationList.declarations
+                    .filter(
+                        (declaration) =>
+                            ts.isIdentifier(declaration.name) && declaration.name.text === name,
+                    )
+                    .map(callableBody)
+                    .filter(Boolean);
+            });
+        },
     };
 }
 
@@ -303,6 +511,8 @@ function validateScreenContext(capture, profile) {
     const failures = [];
     const warnings = [];
     const nodes = [];
+    const payloadChecks = [];
+    const rawTsxDiagnostics = [];
     const add = (scope, kind, message, nodeId) =>
         failures.push({ scope, kind, message, ...(nodeId ? { nodeId } : {}) });
     const profileValid = validProfile(profile);
@@ -321,7 +531,7 @@ function validateScreenContext(capture, profile) {
     if (profileValid && captureValid) validateCaptureIdentity(capture, profile, add);
     const captured = indexCapture(captureValid ? capture.nodes : [], ids, add, warnings);
 
-    function inspectCode(code, scope, nodeId) {
+    function inspectCode(code, scope, nodeId, syntaxKind = 'invalid-tsx-structure') {
         if (!isText(code)) {
             add(scope, 'missing-code', 'Не получен непустой код get_design_context', nodeId);
 
@@ -403,12 +613,67 @@ function validateScreenContext(capture, profile) {
         if (parsed.syntax.length)
             add(
                 scope,
-                'invalid-tsx-structure',
+                syntaxKind,
                 `Синтаксис контекста содержит ошибок: ${parsed.syntax.length}`,
                 nodeId,
             );
 
         return parsed;
+    }
+
+    function inspectProtocol(code, scope, nodeId) {
+        if (!isText(code)) return inspectCode(code, scope, nodeId);
+        const contextualIds = expected
+            .filter((node) => validNode(node) && node.contextual)
+            .map((node) => node.nodeId);
+        const extracted = extractContextualPayloads(code, contextualIds);
+
+        for (const error of extracted.errors)
+            add(
+                scope,
+                error.kind,
+                'Неоднозначные или незакрытые границы contextual payload',
+                error.nodeId,
+            );
+        const parsed = inspectCode(extracted.skeleton, scope, nodeId);
+
+        if (!parsed) return null;
+        if (extracted.payloads.length)
+            rawTsxDiagnostics.push({
+                scope,
+                ...(nodeId ? { nodeId } : {}),
+                count: analyze(code).syntax.length,
+            });
+        parsed.contextualPayloads = new Map(
+            extracted.payloads.map((payload) => [payload.nodeId, payload]),
+        );
+
+        return parsed;
+    }
+
+    function contextualContent(parsed, payload, scope, id) {
+        const actualImports = parsed.source.statements
+            .filter((statement) => ts.isImportDeclaration(statement))
+            .map((statement) => statement.getText(parsed.source))
+            .join('\n');
+        const content = inspectCode(
+            `${actualImports}\n${payload.code}`,
+            'contextualPayload',
+            id,
+            'invalid-contextual-payload',
+        );
+        const bodies = content?.entryBodies('Example') || [];
+
+        if (bodies.length !== 1)
+            add(
+                scope,
+                'missing-contextual-entry',
+                'Payload должен объявлять ровно один callable Example',
+                id,
+            );
+        const reachable = content && bodies.length === 1 ? content.reachable(bodies[0], true) : [];
+
+        return { content, reachable };
     }
 
     function inspectExpected(parsed, node, scope) {
@@ -428,27 +693,36 @@ function validateScreenContext(capture, profile) {
 
         if (!markers.length)
             add(scope, 'missing-node-marker', 'Нет CodeConnectSnippet с нужным data-node-id', id);
-        const reachable = markers.flatMap((marker) =>
-            parsed.reachable(marker.node, node.contextual === true),
-        );
+        const payload = parsed.contextualPayloads?.get(id);
+        const payloadStart = failures.length;
+        let content = parsed;
+        let reachable;
+
+        if (payload) {
+            ({ content, reachable } = contextualContent(parsed, payload, scope, id));
+        } else
+            reachable = markers.flatMap((marker) =>
+                parsed.reachable(marker.node, node.contextual === true),
+            );
+        const contentBindings = content ? namedBindings(content, node.importPath, exported) : [];
 
         if (
             markers.length &&
             !reachable.some((jsx) =>
-                bindings.some((binding) => parsed.matches(jsx, binding, memberPath)),
+                contentBindings.some((binding) => content.matches(jsx, binding, memberPath)),
             )
         )
             add(
                 scope,
                 'missing-connected-jsx',
-                `В marker недостижим ${node.component}${node.contextual ? ' через именованные helpers' : ' как прямой JSX'}`,
+                `В marker недостижим ${node.component}${node.contextual ? ' через Example или именованные helpers' : ' как прямой JSX'}`,
                 id,
             );
         if (assets.has(id)) {
             const assetBindings = [];
 
             for (const asset of assets.get(id)) {
-                const found = namedBindings(parsed, asset.module, asset.exported);
+                const found = content ? namedBindings(content, asset.module, asset.exported) : [];
 
                 if (!found.length)
                     add(
@@ -459,9 +733,11 @@ function validateScreenContext(capture, profile) {
                     );
                 assetBindings.push(...found);
             }
-            const assetJsx = markers.flatMap((marker) => parsed.reachable(marker.node, true));
+            const assetJsx = payload
+                ? reachable
+                : markers.flatMap((marker) => parsed.reachable(marker.node, true));
 
-            if (assetJsx.some((jsx) => jsxName(jsx, parsed.source) === 'svg'))
+            if (assetJsx.some((jsx) => jsxName(jsx, content.source) === 'svg'))
                 add(
                     scope,
                     'inline-svg-asset',
@@ -471,7 +747,7 @@ function validateScreenContext(capture, profile) {
             if (
                 assetBindings.length &&
                 !assetJsx.some((jsx) =>
-                    assetBindings.some((binding) => parsed.matches(jsx, binding)),
+                    assetBindings.some((binding) => content.matches(jsx, binding)),
                 )
             )
                 add(
@@ -481,6 +757,12 @@ function validateScreenContext(capture, profile) {
                     id,
                 );
         }
+        if (payload)
+            payloadChecks.push({
+                scope,
+                nodeId: id,
+                status: failures.length === payloadStart ? 'passed' : 'failed',
+            });
     }
 
     expected.forEach((node) => {
@@ -490,7 +772,7 @@ function validateScreenContext(capture, profile) {
         const value = captured.get(id);
 
         if (value) {
-            const parsed = inspectCode(value.code, 'node', id);
+            const parsed = inspectProtocol(value.code, 'node', id);
 
             if (parsed) inspectExpected(parsed, node, 'node');
         } else add('node', 'missing-captured-node', 'Узел профиля отсутствует в capture', id);
@@ -508,7 +790,7 @@ function validateScreenContext(capture, profile) {
     const topLevel = expected.filter((node) => isObject(node) && node.nested !== true);
 
     if (fullRequired || fullPresent) {
-        const full = inspectCode(capture?.fullFrame?.code, 'fullFrame');
+        const full = inspectProtocol(capture?.fullFrame?.code, 'fullFrame');
 
         if (full)
             for (const node of topLevel)
@@ -523,6 +805,13 @@ function validateScreenContext(capture, profile) {
     return {
         status: failures.length ? 'failed' : 'passed',
         scope: 'structure-and-imports',
+        rawContextIsReadyApplication: false,
+        contextualPayloadsValidatedSeparately: {
+            checked: payloadChecks.length,
+            passed: payloadChecks.filter((item) => item.status === 'passed').length,
+            nodeIds: [...new Set(payloadChecks.map((item) => item.nodeId))],
+        },
+        rawTsxDiagnostics,
         expectedNodes: expected.length,
         capturedExpectedNodes: nodes.filter((node) => captured.has(node.nodeId)).length,
         passedNodes: nodes.filter((node) => node.status === 'passed').length,
@@ -578,7 +867,7 @@ function main() {
     if (result.status !== 'passed') process.exitCode = 1;
 }
 
-module.exports = { validateScreenContext };
+module.exports = { validateScreenContext, extractContextualPayloads };
 if (require.main === module) {
     try {
         main();

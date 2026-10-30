@@ -1632,6 +1632,7 @@
                     {
                         "type": "INSTANCE",
                         "name": "Switch_Inverted",
+                        "codeConnectId": "core-switch-switch24inverted",
                         "properties": {
                             "SelectedState": "True",
                             "DisabledState": "False"
@@ -1656,6 +1657,7 @@
                     {
                         "type": "INSTANCE",
                         "name": "Switch_Inverted",
+                        "codeConnectId": "core-switch-switch24inverted",
                         "properties": {
                             "SelectedState": "True",
                             "DisabledState": "False"

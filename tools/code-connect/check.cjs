@@ -124,6 +124,7 @@ try {
         'verify-nesting.cjs',
         'verify-diamonds.cjs',
         'verify-select-anatomy.cjs',
+        'verify-switch-layer-identity.cjs',
         'verify-screen-icons.cjs',
         'verify-screen-context-smoke.cjs',
     ]) {
