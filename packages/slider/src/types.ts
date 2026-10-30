@@ -1,3 +1,5 @@
+import { type HapticPresetProp } from '@alfalab/core-components-config';
+
 type SubRange = number | [number] | [number, number];
 
 /**
@@ -149,6 +151,12 @@ export interface SliderProps {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Haptic-пресет или кастомный vibration-конфиг при смене шага.
+     * @default selection
+     */
+    'data-haptic-preset'?: HapticPresetProp;
 }
 
 export type CreatePipsConfigParams = {

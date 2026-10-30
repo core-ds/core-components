@@ -112,6 +112,7 @@
         bottom: var(--gap-0);
         width: 100%;
         height: var(--calendar-day-size);
+        pointer-events: none;
     }
 
     &:focus {
