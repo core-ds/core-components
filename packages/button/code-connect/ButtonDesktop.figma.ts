@@ -49,8 +49,9 @@ function addon(name: string, enabled: boolean) {
                 : 'Instance';
     const content = child.getInstanceSwap(swapName);
     if (!content || content.type !== 'INSTANCE') throw new Error(`Проверь содержимое ${name}`);
-    const rendered = nestedTemplate(content).example;
-    if (type === 'Icon-20') {
+    const result = nestedTemplate(content);
+    const rendered = result.example;
+    if (type === 'Icon-20' || result.metadata?.props?.svgSize === 20) {
         return figma.code`<Icon20Adapter icon={(props: React.SVGProps<SVGSVGElement>) => React.cloneElement(${rendered}, props)} />`
             .sections;
     }

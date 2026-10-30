@@ -167,7 +167,22 @@ function createRuntime(repo, runtimeOptions = {}) {
                         example: [{ type: 'INSTANCE', guid: node.name, symbolId: node.name }],
                     };
                 if (data.template) {
-                    const result = evaluate(data.template, data);
+                    let result;
+
+                    if (runtimeOptions.directChildImportsOnly) {
+                        const parentImports = childImports;
+
+                        childImports = new Set();
+                        try {
+                            result = evaluate(data.template, data);
+                        } finally {
+                            childImports = parentImports;
+                        }
+                        for (const declaration of result.imports || [])
+                            childImports.add(declaration);
+                    } else {
+                        result = evaluate(data.template, data);
+                    }
 
                     return {
                         example: result.example.sections || result.example,

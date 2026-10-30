@@ -17,6 +17,15 @@ function nestedTemplate(child: InstanceHandle, context?: () => ResultSection[]) 
     return result;
 }
 
+// Передаём только явно объявленные импорты дочернего шаблона через его metadata.props.
+function templateImports(value: unknown): string[] {
+    if (value === undefined) return [];
+    if (!Array.isArray(value) || !value.every((declaration) => typeof declaration === 'string')) {
+        throw new Error('Вложенный компонент вернул некорректный список импортов');
+    }
+    return value;
+}
+
 const size = instance.getEnum('Size', {
     '56': 56,
     '48': 48,
@@ -38,11 +47,17 @@ const child = instance.findInstance('Icon');
 if (child.type !== 'INSTANCE') throw new Error('Не найден Icon');
 const icon = nestedTemplate(child);
 const loading = icon.metadata?.props?.loading === true;
+const imports = [
+    ...new Set([
+        "import { IconButtonDesktop } from '@alfalab/core-components/icon-button/desktop';",
+        ...templateImports(icon.metadata?.props?.imports),
+    ]),
+];
 
 export default {
     id: 'core-icon-button-iconbuttondesktop',
-    imports: ["import { IconButtonDesktop } from '@alfalab/core-components/icon-button/desktop';"],
+    imports,
     example: figma.code`<IconButtonDesktop size={${size}} view="${view}"
  ${transparentBg ? 'transparentBg' : ''} ${loading ? 'loading' : ''} icon={${icon.example}} />`,
-    metadata: { nestable: true },
+    metadata: { nestable: true, props: { imports } },
 };

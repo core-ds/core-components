@@ -16,12 +16,14 @@ if (size !== 20 && size !== 24) {
 
 // Сниппет иконки возвращает SVG. Icon20Adapter добавляет родитель слота,
 // когда иконка 20 используется в Button/Input 32/40.
+const imports =
+    size === 20
+        ? ["import { Diamonds20Icon } from '@alfalab/icons-glyph-26/Diamonds20Icon';"]
+        : ["import { Diamonds24Icon } from '@alfalab/icons-glyph-26/Diamonds24Icon';"];
+
 export default {
     id: 'core-diamonds-icon',
-    imports:
-        size === 20
-            ? ["import { Diamonds20Icon } from '@alfalab/icons-glyph-26/Diamonds20Icon';"]
-            : ["import { Diamonds24Icon } from '@alfalab/icons-glyph-26/Diamonds24Icon';"],
+    imports,
     example: size === 20 ? figma.code`<Diamonds20Icon />` : figma.code`<Diamonds24Icon />`,
-    metadata: { nestable: true },
+    metadata: { nestable: true, props: { svgSize: size, imports } },
 };
