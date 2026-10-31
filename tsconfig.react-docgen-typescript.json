@@ -116,6 +116,8 @@
             "@alfalab/core-components-hatching-progress-bar/*": [
                 "./packages/hatching-progress-bar/src/*"
             ],
+            "@alfalab/core-components-headless-button": ["./packages/headless-button/src"],
+            "@alfalab/core-components-headless-button/*": ["./packages/headless-button/src/*"],
             "@alfalab/core-components-headless-collapse": ["./packages/headless-collapse/src"],
             "@alfalab/core-components-headless-collapse/*": ["./packages/headless-collapse/src/*"],
             "@alfalab/core-components-icon-button": ["./packages/icon-button/src"],
@@ -198,6 +200,8 @@
             "@alfalab/core-components-picker-button/*": ["./packages/picker-button/src/*"],
             "@alfalab/core-components-plate": ["./packages/plate/src"],
             "@alfalab/core-components-plate/*": ["./packages/plate/src/*"],
+            "@alfalab/core-components-polymorphic": ["./packages/polymorphic/src"],
+            "@alfalab/core-components-polymorphic/*": ["./packages/polymorphic/src/*"],
             "@alfalab/core-components-popover": ["./packages/popover/src"],
             "@alfalab/core-components-popover/*": ["./packages/popover/src/*"],
             "@alfalab/core-components-popup-sheet": ["./packages/popup-sheet/src"],

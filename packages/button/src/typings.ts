@@ -1,9 +1,15 @@
 import {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
+    type ComponentProps as ReactComponentProps,
     type ElementType,
-    type ReactNode,
 } from 'react';
+
+import { type BaseButtonCustomProps } from '@alfalab/core-components-button/shared';
+import {
+    type ComposedPolymorphicProps,
+    type PolymorphicComponentProps,
+} from '@alfalab/core-components-polymorphic';
 
 export type StyleColors = {
     default: {
@@ -14,7 +20,8 @@ export type StyleColors = {
     };
 };
 
-type ComponentProps = {
+export interface ComponentProps
+    extends Omit<BaseButtonCustomProps, 'layout' | 'loadingClassName' | 'styles'> {
     /**
      * Тип кнопки
      * @default secondary
@@ -22,81 +29,9 @@ type ComponentProps = {
     view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
 
     /**
-     * Форма кнопки
-     * @default rectangular
-     */
-    shape?: 'rounded' | 'rectangular';
-
-    /**
-     * Ширина текстового контента
-     * @default hug
-     */
-    textResizing?: 'fill' | 'hug';
-
-    /**
-     *  Подпись под лейблом (видна только в размерах >= m)
-     */
-    hint?: ReactNode;
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: ReactNode;
-
-    /**
-     * Размер компонента
-     * @default 56
-     */
-    size?: 32 | 40 | 48 | 56 | 64 | 72;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     * @default false
-     */
-    block?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для спиннера
-     */
-    spinnerClassName?: string;
-
-    /**
      * Выводит ссылку в виде кнопки
      */
     href?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования.
-     * Для спиннера используется модификатор -loader
-     */
-    dataTestId?: string;
-
-    /**
-     * Показать лоадер
-     * @default false
-     */
-    loading?: boolean;
-
-    /**
-     * Не переносить текст кнопки на новую строку
-     * @default false
-     */
-    nowrap?: boolean;
 
     /**
      * Набор цветов для компонента
@@ -110,20 +45,10 @@ type ComponentProps = {
     allowBackdropBlur?: boolean;
 
     /**
-     * Дочерние элементы.
+     * Заблокировать кнопку
      */
-    children?: ReactNode;
-
-    /**
-     * Дополнительный класс для label
-     */
-    labelClassName?: string;
-
-    /**
-     * Дополнительный класс для hint
-     */
-    hintClassName?: string;
-};
+    disabled?: boolean;
+}
 
 export type PrivateButtonProps = {
     /**
@@ -138,6 +63,10 @@ export type PrivateButtonProps = {
 };
 
 export type CommonButtonProps = ComponentProps &
+    PolymorphicComponentProps<
+        | ElementType<ComposedPolymorphicProps<ReactComponentProps<'a'>>, 'a'>
+        | ElementType<ComposedPolymorphicProps<ReactComponentProps<'button'>>, 'button'>
+    > &
     Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
 export type ButtonProps = CommonButtonProps & {

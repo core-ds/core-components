@@ -28,12 +28,12 @@
 .primary {
     color: var(--action-button-static-primary-base-color);
 
-    & .iconWrapper {
+    .iconWrapper {
         color: var(--action-button-static-primary-base-icon-color);
-        background-color: var(--action-button-static-primary-base-bg-color);
+        background: var(--action-button-static-primary-base-bg-color);
     }
 
-    & .loader {
+    .loader {
         color: var(--action-button-spinner-static-primary-color);
     }
 }
@@ -41,21 +41,25 @@
 .secondary {
     color: var(--action-button-static-secondary-base-color);
 
-    & .iconWrapper {
+    .iconWrapper {
         color: var(--action-button-static-secondary-base-icon-color);
-        background-color: var(--action-button-static-secondary-base-bg-color);
+        background: var(--action-button-static-secondary-base-bg-color);
     }
 
-    & .loader {
+    .loader {
         color: var(--action-button-spinner-static-secondary-color);
     }
 }
 
-.disabled {
-    color: var(--action-button-static-disabled-color);
+.component {
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--action-button-static-disabled-color);
 
-    & .iconWrapper {
-        color: var(--action-button-static-disabled-icon-color);
-        background-color: var(--action-button-static-disabled-bg-color);
+            .iconWrapper {
+                color: var(--action-button-static-disabled-icon-color);
+                background: var(--action-button-static-disabled-bg-color);
+            }
+        }
     }
 }

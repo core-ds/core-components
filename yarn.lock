@@ -67,6 +67,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-action-button@workspace:packages/action-button"
   dependencies:
+    "@alfalab/core-components-button": "npm:^13.2.5"
     "@alfalab/core-components-shared": "npm:^2.4.0"
     "@alfalab/core-components-spinner": "npm:^6.0.10"
     "@alfalab/hooks": "npm:^1.17.0"
@@ -74,6 +75,7 @@ __metadata:
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -239,7 +241,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-button@workspace:packages/button"
   dependencies:
+    "@alfalab/core-components-headless-button": "npm:^0.0.0"
     "@alfalab/core-components-mq": "npm:^6.0.10"
+    "@alfalab/core-components-polymorphic": "npm:^0.0.0"
     "@alfalab/core-components-shared": "npm:^2.4.0"
     "@alfalab/core-components-spinner": "npm:^6.0.10"
     "@alfalab/hooks": "npm:^1.17.0"
@@ -247,6 +251,7 @@ __metadata:
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -552,9 +557,12 @@ __metadata:
   resolution: "@alfalab/core-components-custom-button@workspace:packages/custom-button"
   dependencies:
     "@alfalab/core-components-button": "npm:^13.2.5"
+    "@alfalab/core-components-mq": "npm:^6.0.10"
+    "@alfalab/core-components-polymorphic": "npm:^0.0.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -827,6 +835,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-headless-button@npm:^0.0.0, @alfalab/core-components-headless-button@workspace:packages/headless-button":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-headless-button@workspace:packages/headless-button"
+  dependencies:
+    "@alfalab/core-components-polymorphic": "npm:^0.0.0"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-headless-collapse@npm:^0.0.1, @alfalab/core-components-headless-collapse@workspace:packages/headless-collapse":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-headless-collapse@workspace:packages/headless-collapse"
@@ -847,9 +870,14 @@ __metadata:
   dependencies:
     "@alfalab/core-components-button": "npm:^13.2.5"
     "@alfalab/core-components-mq": "npm:^6.0.10"
+    "@alfalab/core-components-shared": "npm:^2.4.0"
+    "@alfalab/core-components-spinner": "npm:^6.0.10"
+    "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
+    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -1375,6 +1403,17 @@ __metadata:
     "@alfalab/icons-glyph": "npm:^2.294.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@alfalab/core-components-polymorphic@npm:^0.0.0, @alfalab/core-components-polymorphic@workspace:packages/polymorphic":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-polymorphic@workspace:packages/polymorphic"
+  dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0

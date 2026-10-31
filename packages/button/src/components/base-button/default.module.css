@@ -1,153 +1,137 @@
-@import '../../vars.css';
+@import '@alfalab/core-components-button/src/vars.css';
 
 .accent {
     color: var(--button-accent-color);
-    background-color: var(--button-accent-base-bg-color);
-    border: 1px solid transparent;
+    background: var(--button-accent-base-bg-color);
+    border-color: transparent;
 
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-accent-hover-bg-color);
+    @mixin not-disabled {
+        @mixin hover {
+            background: var(--button-accent-hover-bg-color);
+        }
+
+        &:active {
+            background: var(--button-accent-active-bg-color);
         }
     }
 
-    &:active {
-        background-color: var(--button-accent-active-bg-color);
-    }
-
-    & > .loader {
+    .loader {
         color: var(--button-spinner-static-color);
     }
 }
 
 .primary {
-    border: 1px solid transparent;
+    border-color: transparent;
+
+    @mixin not-disabled {
+        .hint {
+            color: var(--button-primary-hint-color);
+        }
+    }
 }
 
 .secondary {
     color: var(--button-secondary-color);
-    border: 1px solid var(--button-secondary-base-border-color);
+    border-color: var(--button-secondary-base-border-color);
 
-    & > .loader {
+    .loader {
         color: var(--button-spinner-default-color);
     }
 
-    &:not([disabled]) .hint {
-        color: var(--button-secondary-hint-color);
+    @mixin not-disabled {
+        .hint {
+            color: var(--button-secondary-hint-color);
+        }
     }
 }
 
 .outlined {
     color: var(--button-outlined-color);
-    background-color: var(--button-outlined-base-bg-color);
-    border: 1px solid var(--button-outlined-base-border-color);
+    background: var(--button-outlined-base-bg-color);
+    border-color: var(--button-outlined-base-border-color);
 
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-outlined-hover-bg-color);
+    @mixin not-disabled {
+        @mixin hover {
+            background: var(--button-outlined-hover-bg-color);
             border-color: var(--button-outlined-hover-border-color);
+        }
+
+        .hint {
+            color: var(--button-outlined-hint-color);
+        }
+
+        &:active {
+            background: var(--button-outlined-active-bg-color);
         }
     }
 
-    &:active {
-        background-color: var(--button-outlined-active-bg-color);
-    }
-
-    & > .loader {
+    .loader {
         color: var(--button-spinner-default-color);
-    }
-
-    &:not([disabled]) .hint {
-        color: var(--button-outlined-hint-color);
     }
 }
 
 .transparent {
     color: var(--button-transparent-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
+    background: transparent;
+    border-color: transparent;
 
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-transparent-hover-bg-color);
+    @mixin not-disabled {
+        @mixin hover {
+            background: var(--button-transparent-hover-bg-color);
+        }
+
+        .hint {
+            color: var(--button-transparent-base-hint-color);
+        }
+
+        &:active {
+            background: var(--button-transparent-active-bg-color);
         }
     }
 
-    &:active {
-        background-color: var(--button-transparent-active-bg-color);
-    }
-
-    & > .loader {
+    .loader {
         color: var(--button-spinner-default-color);
-    }
-
-    &:not([disabled]) .hint {
-        color: var(--button-transparent-base-hint-color);
     }
 }
 
 .text {
-    background-color: transparent;
+    background: transparent;
     color: var(--button-text-base-color);
 
-    @media (hover: hover) {
-        &:hover {
+    @mixin not-disabled {
+        @mixin hover {
             color: var(--button-text-hover-color);
+        }
+
+        .hint {
+            color: var(--button-text-base-hint-color);
         }
     }
 
-    & > .loader {
+    .loader {
         color: var(--button-spinner-default-color);
-    }
-
-    &:not([disabled]) .hint {
-        color: var(--button-text-base-hint-color);
     }
 }
 
-/* Disabled */
+.component {
+    @mixin disabled {
+        &:not(.loading) {
+            &.accent {
+                color: var(--button-accent-disabled-color);
+                background: var(--button-accent-disabled-bg-color);
+            }
 
-.component[disabled] {
-    &.accent {
-        color: var(--button-accent-disabled-color);
-        background-color: var(--button-accent-disabled-bg-color);
+            &.secondary {
+                border-color: var(--button-secondary-disabled-border-color);
+            }
 
-        &.loading {
-            color: var(--button-accent-color);
-            background-color: var(--button-accent-base-bg-color);
-        }
-    }
+            &.outlined {
+                background: var(--button-outlined-disabled-bg-color);
+            }
 
-    &.secondary {
-        border-color: var(--button-secondary-disabled-border-color);
-
-        &.loading {
-            color: var(--button-secondary-color);
-            background-color: var(--button-secondary-base-bg-color);
-            border-color: var(--button-secondary-base-border-color);
-        }
-    }
-
-    &.outlined {
-        background-color: var(--button-outlined-disabled-bg-color);
-
-        &.loading {
-            color: var(--button-outlined-color);
-            border-color: var(--button-outlined-base-border-color);
-        }
-    }
-
-    &.transparent {
-        background-color: transparent;
-
-        &.loading {
-            color: var(--button-transparent-base-color);
-        }
-    }
-
-    &.text {
-        &.loading {
-            color: var(--button-text-base-color);
+            &.transparent {
+                background: transparent;
+            }
         }
     }
 }
