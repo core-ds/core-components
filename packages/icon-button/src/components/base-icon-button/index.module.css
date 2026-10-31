@@ -1,32 +1,30 @@
 @import '@alfalab/core-components-vars/src/index.css';
-@import '../../vars.css';
+@import '@alfalab/core-components-button/src/shared/base-button/loader.module.css';
+@import '@alfalab/core-components-icon-button/src/vars.css';
+@import '@alfalab/core-components-button/src/vars.css';
 
-.size-24 {
-    width: var(--icon-button-xxs-size);
-    height: var(--icon-button-xxs-size);
+.component {
+    @mixin button-component;
+    position: relative;
+    background: transparent;
+    border: none;
 }
 
-.size-32 {
-    width: var(--icon-button-xs-size);
-    height: var(--icon-button-xs-size);
-}
-
-.size-40 {
-    width: var(--icon-button-40-size);
-    height: var(--icon-button-40-size);
-}
-
-.size-48 {
-    width: var(--icon-button-s-size);
-    height: var(--icon-button-s-size);
-}
-
-.size-56 {
-    width: var(--icon-button-56-size);
-    height: var(--icon-button-56-size);
+/* prettier-ignore */
+@each $size, $variable in
+    (24, --icon-button-xxs-size),
+    (32, --icon-button-xs-size),
+    (40, --icon-button-40-size),
+    (48, --icon-button-s-size),
+    (56, --icon-button-56-size) {
+    .size-$(size) {
+        width: var($(variable));
+        height: var($(variable));
+    }
 }
 
 .iconWrapper {
+    z-index: 1;
     display: flex;
     align-items: center;
 

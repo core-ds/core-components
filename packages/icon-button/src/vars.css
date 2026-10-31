@@ -6,4 +6,18 @@
     --icon-button-40-size: 40px;
     --icon-button-s-size: 48px;
     --icon-button-56-size: 56px;
+
+    /* size desktop */
+    --icon-button-size-24-border-radius-desktop: var(--border-radius-6);
+    --icon-button-size-32-border-radius-desktop: var(--border-radius-8);
+    --icon-button-size-40-border-radius-desktop: var(--border-radius-10);
+    --icon-button-size-48-border-radius-desktop: var(--border-radius-10);
+    --icon-button-size-56-border-radius-desktop: var(--border-radius-12);
+
+    /* size mobile */
+    --icon-button-size-24-border-radius-mobile: var(--border-radius-6);
+    --icon-button-size-32-border-radius-mobile: var(--border-radius-8);
+    --icon-button-size-40-border-radius-mobile: var(--border-radius-12);
+    --icon-button-size-48-border-radius-mobile: var(--border-radius-12);
+    --icon-button-size-56-border-radius-mobile: var(--border-radius-16);
 }

@@ -6,14 +6,14 @@ exports[`Button Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
       type="button"
     />
   </div>,
@@ -77,14 +77,16 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
   "baseElement": <body>
     <div>
       <a
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+        aria-disabled="false"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
         href="https://some-url"
       />
     </div>
   </body>,
   "container": <div>
     <a
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+      aria-disabled="false"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
       href="https://some-url"
     />
   </div>,
@@ -148,14 +150,14 @@ exports[`Button Snapshots tests should render button by default 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
       type="button"
     />
   </div>,
@@ -219,11 +221,11 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
         type="button"
       >
         <span
-          class="addons"
+          class="leftAddon"
         >
           <div>
             Left addons
@@ -234,11 +236,11 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
       type="button"
     >
       <span
-        class="addons"
+        class="leftAddon"
       >
         <div>
           Left addons
@@ -306,8 +308,8 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
   "baseElement": <body>
     <div>
       <a
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
-        disabled=""
+        aria-disabled="true"
+        class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 disabled disabled disabled"
         href="https://some-url"
       >
         <svg
@@ -351,8 +353,8 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
   </body>,
   "container": <div>
     <a
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
-      disabled=""
+      aria-disabled="true"
+      class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 disabled disabled disabled"
       href="https://some-url"
     >
       <svg
@@ -453,7 +455,7 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
+        class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56"
         disabled=""
         type="button"
       >
@@ -498,7 +500,7 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
+      class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56"
       disabled=""
       type="button"
     >
@@ -600,11 +602,11 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
         type="button"
       >
         <span
-          class="addons"
+          class="rightAddon"
         >
           <div>
             Right addons
@@ -615,11 +617,11 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
       type="button"
     >
       <span
-        class="addons"
+        class="rightAddon"
       >
         <div>
           Right addons
