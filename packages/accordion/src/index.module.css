@@ -23,6 +23,24 @@
 
 .bodyContent {
     padding-top: var(--gap-12);
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateY(-12px);
+}
+
+.bodyContentEnter {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition:
+        opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        filter 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.bodyContentExit {
+    transition:
+        opacity 150ms cubic-bezier(0.4, 0, 1, 1),
+        filter 150ms cubic-bezier(0.4, 0, 1, 1);
 }
 
 .collapse {
@@ -34,7 +52,6 @@
 .collapsing {
     height: 0;
     overflow: hidden;
-    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .endPosition {
