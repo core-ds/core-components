@@ -39,6 +39,23 @@ const groups = [
     },
 ];
 
+const listGroups = [
+    {
+        label: 'Группа №1',
+        options: [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+        ],
+    },
+    {
+        label: 'Группа №2',
+        options: [
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+        ],
+    },
+];
+
 describe('OptionListDesktop | viewport desktop', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -303,6 +320,66 @@ describe('OptionListMobile | border radius', () => {
         })();
 
     ['default', 'site', 'corp'].forEach((theme) => testCase(theme));
+});
+
+describe('OptionListDesktop | groups', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListDesktop',
+                    testStory: false,
+                    knobs: {
+                        showSearch: false,
+                        showFooter: false,
+                        placeholder: false,
+                        options: JSON.stringify(listGroups),
+                    },
+                }),
+            ],
+            viewport: {
+                width: 180,
+                height: 360,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'corp', 'click'].forEach((theme) => testCase(theme));
+});
+
+describe('OptionListMobile | groups', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListMobile',
+                    testStory: false,
+                    knobs: {
+                        showSearch: false,
+                        showFooter: false,
+                        placeholder: false,
+                        options: JSON.stringify(listGroups),
+                    },
+                }),
+            ],
+            viewport: {
+                width: 500,
+                height: 500,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'corp', 'click'].forEach((theme) => testCase(theme));
 });
 
 describe('Select | optgroup', () => {
