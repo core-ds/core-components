@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
+import { text, boolean, number, object, select as selectKnob } from '@storybook/addon-knobs';
 
 import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { Select as SelectResponsive } from '@alfalab/core-components-select';
@@ -311,7 +311,7 @@ export const option_list_desktop: Story = {
         const placeholder = boolean('placeholder', true);
         const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
 
-        const fiveOptions = boolean('fiveOptions', false);
+        const listOptions = object('options', options);
         const groups = boolean('groups', false);
 
         const [selected, setSelected] = React.useState([]);
@@ -326,7 +326,7 @@ export const option_list_desktop: Story = {
                 defaultOpen={true}
                 {...useSelectWithApply({
                     showSearch,
-                    options: groups ? groupOptions : fiveOptions ? options.slice(0, 5) : options,
+                    options: groups ? groupOptions : listOptions,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
@@ -353,7 +353,7 @@ export const option_list_mobile: Story = {
         const placeholder = boolean('placeholder', true);
         const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
 
-        const fiveOptions = boolean('fiveOptions', false);
+        const listOptions = object('options', options);
         const groups = boolean('groups', false);
 
         const [selected, setSelected] = React.useState([]);
@@ -368,7 +368,7 @@ export const option_list_mobile: Story = {
                 defaultOpen={true}
                 {...useSelectWithApply({
                     showSearch,
-                    options: groups ? groupOptions : fiveOptions ? options.slice(0, 5) : options,
+                    options: groups ? groupOptions : listOptions,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
