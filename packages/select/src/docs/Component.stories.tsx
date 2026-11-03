@@ -29,6 +29,34 @@ const options = [
     { key: '17', content: 'Berkelium' },
 ];
 
+const groupOptions = [
+    {
+        label: 'Актиноиды',
+        options: [
+            { key: 'g1', content: 'Neptunium' },
+            { key: 'g2', content: 'Plutonium' },
+            { key: 'g3', content: 'Americium' },
+            { key: 'g4', content: 'Curium' },
+            { key: 'g5', content: 'Berkelium' },
+        ],
+    },
+    {
+        label: 'Переходные металлы',
+        options: [
+            { key: 'g6', content: 'Vanadium' },
+            { key: 'g7', content: 'Manganese' },
+            { key: 'g8', content: 'Titanium' },
+        ],
+    },
+    {
+        label: 'Металлоиды',
+        options: [
+            { key: 'g9', content: 'Silicon' },
+            { key: 'g10', content: 'Germanium' },
+        ],
+    },
+];
+
 const POSITION_OPTIONS = [
     'top',
     'top-start',
@@ -284,6 +312,7 @@ export const option_list_desktop: Story = {
         const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
 
         const fiveOptions = boolean('fiveOptions', false);
+        const groups = boolean('groups', false);
 
         const [selected, setSelected] = React.useState([]);
 
@@ -297,7 +326,7 @@ export const option_list_desktop: Story = {
                 defaultOpen={true}
                 {...useSelectWithApply({
                     showSearch,
-                    options: fiveOptions ? options.slice(0, 5) : options,
+                    options: groups ? groupOptions : fiveOptions ? options.slice(0, 5) : options,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
@@ -325,6 +354,7 @@ export const option_list_mobile: Story = {
         const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
 
         const fiveOptions = boolean('fiveOptions', false);
+        const groups = boolean('groups', false);
 
         const [selected, setSelected] = React.useState([]);
 
@@ -338,7 +368,7 @@ export const option_list_mobile: Story = {
                 defaultOpen={true}
                 {...useSelectWithApply({
                     showSearch,
-                    options: fiveOptions ? options.slice(0, 5) : options,
+                    options: groups ? groupOptions : fiveOptions ? options.slice(0, 5) : options,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
