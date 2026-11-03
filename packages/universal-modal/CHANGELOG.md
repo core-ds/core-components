@@ -1,5 +1,13 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.18
+
 ## 3.2.9
 
 ### Patch Changes

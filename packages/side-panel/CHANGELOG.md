@@ -1,5 +1,21 @@
 # @alfalab/core-components-side-panel
 
+## 7.1.6
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2436](https://github.com/core-ds/core-components/pull/2436)
+
+##### SidePanel
+
+- Исправлен нижний safe-area отступ мобильной SidePanel без футера в PWA
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.18
+
 ## 7.1.5
 
 ### Patch Changes

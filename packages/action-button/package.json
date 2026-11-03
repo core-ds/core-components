@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-action-button",
-    "version": "3.0.10",
+    "version": "3.0.11",
     "description": "Action Button component",
     "keywords": [],
     "license": "MIT",
@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.2.1",
+    "themesVersion": "15.2.2",
     "varsVersion": "11.5.0"
 }
