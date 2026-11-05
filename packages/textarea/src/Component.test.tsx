@@ -58,6 +58,14 @@ describe('Textarea', () => {
 
             expect(container).toMatchSnapshot();
         });
+
+        it('should match snapshot with clear button', () => {
+            const { container } = render(
+                <Textarea defaultValue='Текст для очистки' clear='always' nativeScrollbar={true} />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
     });
 
     it('should forward ref to textarea', () => {
