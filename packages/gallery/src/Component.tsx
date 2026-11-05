@@ -8,12 +8,20 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 import { BottomButton } from './components/bottom-button';
 import { Single } from './components/image-viewer/single';
 import { Subtitles } from './components/subtitles';
+import { useGalleryNavigation } from './hooks/use-gallery-navigation';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
-import { type GalleryCustomButton, type GalleryImage, type ImageMeta } from './types';
+import {
+    type GalleryCustomButton,
+    type GalleryImage,
+    type GalleryPaginationConfig,
+    type ImageMeta,
+} from './types';
 
 import styles from './index.module.css';
+
+export type { GalleryPaginationConfig } from './types';
 
 export type GalleryProps = {
     /**
@@ -62,6 +70,11 @@ export type GalleryProps = {
      * Дополнительная кнопка в шапке галереи
      */
     customButton?: GalleryCustomButton;
+
+    /**
+     * Настройки пагинации галереи
+     */
+    paginationConfig?: GalleryPaginationConfig;
 };
 
 const DEFAULT_FULL_SCREEN = false;
@@ -70,6 +83,19 @@ const DEFAULT_PLAYING_VIDEO = true;
 const DEFAULT_HIDE_NAVIGATION = false;
 
 const Backdrop = () => null;
+
+const getSwiperInitialSlide = (
+    paginationEnabled: boolean,
+    uncontrolled: boolean,
+    initialSlide: number,
+    currentSlideIndex: number,
+) => {
+    if (paginationEnabled || !uncontrolled) {
+        return currentSlideIndex;
+    }
+
+    return initialSlide;
+};
 
 export const Gallery: FC<GalleryProps> = ({
     open,
@@ -81,6 +107,7 @@ export const Gallery: FC<GalleryProps> = ({
     onSlideIndexChange,
     popupClassName,
     customButton,
+    paginationConfig,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -116,29 +143,12 @@ export const Gallery: FC<GalleryProps> = ({
         [images, setCurrentSlideIndex, swiper],
     );
 
-    const slideNext = useCallback(() => {
-        const lastIndex = images.length - 1;
-
-        let nextIndex = currentSlideIndex + 1;
-
-        if (nextIndex >= images.length) {
-            nextIndex = loop ? 0 : lastIndex;
-        }
-
-        slideTo(nextIndex);
-    }, [images.length, loop, currentSlideIndex, slideTo]);
-
-    const slidePrev = useCallback(() => {
-        const lastIndex = images.length - 1;
-
-        let nextIndex = currentSlideIndex - 1;
-
-        if (nextIndex < 0) {
-            nextIndex = loop ? lastIndex : 0;
-        }
-
-        slideTo(nextIndex);
-    }, [images.length, loop, currentSlideIndex, slideTo]);
+    const { navigation, pagination } = useGalleryNavigation({
+        state: { currentSlideIndex, images },
+        actions: { setCurrentSlideIndex, slideTo },
+        options: { loop, paginationConfig },
+    });
+    const { canSlideNext, canSlidePrev, slideNext, slidePrev } = navigation;
 
     const setImageMeta = useCallback((meta: ImageMeta, index: number) => {
         setImagesMeta((prevImagesMeta) => {
@@ -202,10 +212,10 @@ export const Gallery: FC<GalleryProps> = ({
     }, [setPlayingVideo]);
 
     useEffect(() => {
-        if (!uncontrolled && !swiper?.destroyed) {
-            swiper?.slideTo(currentSlideIndex);
+        if (swiper && !swiper.destroyed && swiper.activeIndex !== currentSlideIndex) {
+            swiper.slideTo(currentSlideIndex, 0);
         }
-    }, [uncontrolled, currentSlideIndex, swiper]);
+    }, [currentSlideIndex, swiper]);
 
     useEffect(() => {
         if (!open) {
@@ -251,14 +261,18 @@ export const Gallery: FC<GalleryProps> = ({
                 const currentY = e.touches[0].clientY;
                 const deltaX = currentX - startX;
                 const deltaY = currentY - startY;
+                const absX = Math.abs(deltaX);
+                const absY = Math.abs(deltaY);
 
-                if (!lockedDirection) {
-                    const absX = Math.abs(deltaX);
-                    const absY = Math.abs(deltaY);
-
-                    if (absX > absY && absX > directionLockThreshold) {
-                        lockedDirection = 'horizontal';
-                    } else if (absY > absX && absY > directionLockThreshold) {
+                if (
+                    lockedDirection !== 'horizontal' &&
+                    absX > absY &&
+                    absX > directionLockThreshold
+                ) {
+                    lockedDirection = 'horizontal';
+                    setSwipeY(0);
+                } else if (!lockedDirection) {
+                    if (absY > absX && absY > directionLockThreshold) {
                         lockedDirection = 'vertical';
                     } else {
                         return;
@@ -299,7 +313,14 @@ export const Gallery: FC<GalleryProps> = ({
         };
     }, [onClose, open]);
 
+    useEffect(() => {
+        if (pagination.loadingDirection) {
+            setImagesMeta([]);
+        }
+    }, [pagination.loadingDirection]);
+
     const singleSlide = images.length === 1;
+    const isSingleSlide = singleSlide && !pagination.enabled;
 
     const showNavigationBar = !singleSlide && !fullScreen;
 
@@ -307,11 +328,24 @@ export const Gallery: FC<GalleryProps> = ({
     const galleryContext: GalleryContext = {
         view: isDesktop ? 'desktop' : 'mobile',
         singleSlide,
+        pagination: {
+            enabled: pagination.enabled,
+            canSlideNext,
+            canSlidePrev,
+            loadingDirection: pagination.loadingDirection,
+            error: pagination.error,
+            retry: pagination.retry,
+        },
         currentSlideIndex,
         images,
         imagesMeta,
         fullScreen,
-        initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
+        initialSlide: getSwiperInitialSlide(
+            pagination.enabled,
+            uncontrolled,
+            initialSlide,
+            currentSlideIndex,
+        ),
         setFullScreen,
         playingVideo,
         setPlayingVideo,
@@ -351,11 +385,13 @@ export const Gallery: FC<GalleryProps> = ({
                     })}
                 >
                     {isDesktop ? <Header /> : <HeaderMobile />}
-                    {images.length === 1 ? <Single /> : <ImageViewer />}
+                    {isSingleSlide ? <Single /> : <ImageViewer />}
                     <nav
                         className={cn({
                             [styles.navigationVideo]: isCurrentVideo && !isDesktop,
-                            [styles.hide]: showNavigationBar && hideNavigation && !isDesktop,
+                            [styles.hide]:
+                                (showNavigationBar && hideNavigation && !isDesktop) ||
+                                pagination.loadingDirection,
                             [styles.hideInfo]: !showNavigationBar && hideNavigation && !isDesktop,
                         })}
                     >
@@ -368,7 +404,7 @@ export const Gallery: FC<GalleryProps> = ({
                             />
                         )}
 
-                        {showNavigationBar && <NavigationBar />}
+                        {showNavigationBar && !pagination.error && <NavigationBar />}
                         {!isDesktop && <InfoBar />}
                     </nav>
                 </div>
