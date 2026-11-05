@@ -126,6 +126,40 @@ render(() => {
 </div>
 ```
 
+## Очистка поля
+
+Свойство `clear` управляет отображением кнопки очистки:
+
+- `never` — кнопка скрыта (по умолчанию).
+- `auto` — кнопка появляется при наведении на компонент или фокусе в поле.
+- `always` — кнопка отображается постоянно.
+
+Кнопка отображается только для непустого поля без `disabled` и `readOnly`.
+После нажатия фокус возвращается в поле.
+
+При использовании `value` сбросьте значение в обработчике `onClear`.
+При использовании `defaultValue` компонент очищает значение самостоятельно.
+Очистка вызывает `onClear`, но не вызывает `onChange`.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState('Текст для очистки');
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Textarea
+                label='Комментарий'
+                block={true}
+                clear='always'
+                value={value}
+                onChange={(_, { value: newValue }) => setValue(newValue)}
+                onClear={() => setValue('')}
+            />
+        </div>
+    );
+});
+```
+
 ## Морфология
 
 Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),
