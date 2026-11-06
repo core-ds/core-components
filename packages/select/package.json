@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "19.2.13",
+    "version": "19.2.14",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-base-modal": "^7.2.3",
-        "@alfalab/core-components-bottom-sheet": "^8.1.18",
+        "@alfalab/core-components-bottom-sheet": "^8.1.19",
         "@alfalab/core-components-button": "^13.2.5",
         "@alfalab/core-components-checkbox": "^6.3.3",
         "@alfalab/core-components-form-control": "^14.0.12",

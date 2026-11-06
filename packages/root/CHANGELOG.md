@@ -1,5 +1,60 @@
 # @alfalab/core-components
 
+## 50.41.0
+
+### Minor Changes
+
+<sup><time>06.11.2026</time></sup>
+
+#### [#2441](https://github.com/core-ds/core-components/pull/2441)
+
+##### Markdown
+
+- Добавлено оформление h5–h6 и пропса `rehypePlugins` для подключения HTML-плагинов.
+
+### Patch Changes
+
+<sup><time>06.11.2026</time></sup>
+
+#### [#2445](https://github.com/core-ds/core-components/pull/2445)
+
+##### Plate
+
+- В компоненте `Plate` добавлен отступ в 4px слева от кнопок `subAddons` в соответствии с макетом в фигма.
+
+<sup><time>06.11.2026</time></sup>
+
+#### [#2442](https://github.com/core-ds/core-components/pull/2442)
+
+##### BottomSheet
+
+- Добавлены отдельные токены цвета заголовка и подзаголовка:
+    - `--bottom-sheet-title-color`
+    - `--bottom-sheet-subtitle-color`
+    - `--bottom-sheet-title-color-inverted`
+    - `--bottom-sheet-subtitle-color-inverted`
+- Изменены цвета подзаголовка:
+    - `--color-light-text-primary` → `--color-light-text-secondary`
+    - `--color-light-text-primary-inverted` → `--color-light-text-secondary-inverted`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-plate@9.0.15
+- @alfalab/core-components-markdown@3.2.0
+- @alfalab/core-components-bottom-sheet@8.1.19
+- @alfalab/core-components-alert@6.0.15
+- @alfalab/core-components-select@19.2.14
+- @alfalab/core-components-select-with-tags@10.1.27
+- @alfalab/core-components-tooltip@9.0.25
+- @alfalab/core-components-custom-picker-button@4.1.27
+- @alfalab/core-components-input-autocomplete@14.0.32
+- @alfalab/core-components-international-phone-input@4.0.32
+- @alfalab/core-components-intl-phone-input@11.0.32
+- @alfalab/core-components-picker-button@13.1.10
+- @alfalab/core-components-table@4.0.33
+- @alfalab/core-components-gallery@7.4.7
+- @alfalab/core-components-tabs@10.1.7
+
 ## 50.40.0
 
 ### Minor Changes

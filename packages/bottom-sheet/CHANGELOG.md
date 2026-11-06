@@ -1,5 +1,24 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.19
+
+### Patch Changes
+
+<sup><time>06.11.2026</time></sup>
+
+#### [#2442](https://github.com/core-ds/core-components/pull/2442)
+
+##### BottomSheet
+
+- Добавлены отдельные токены цвета заголовка и подзаголовка:
+    - `--bottom-sheet-title-color`
+    - `--bottom-sheet-subtitle-color`
+    - `--bottom-sheet-title-color-inverted`
+    - `--bottom-sheet-subtitle-color-inverted`
+- Изменены цвета подзаголовка:
+    - `--color-light-text-primary` → `--color-light-text-secondary`
+    - `--color-light-text-primary-inverted` → `--color-light-text-secondary-inverted`
+
 ## 8.1.18
 
 ### Patch Changes
