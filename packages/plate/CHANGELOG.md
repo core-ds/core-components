@@ -1,5 +1,17 @@
 # @alfalab/core-components-plate
 
+## 9.0.15
+
+### Patch Changes
+
+<sup><time>06.11.2026</time></sup>
+
+#### [#2445](https://github.com/core-ds/core-components/pull/2445)
+
+##### Plate
+
+- В компоненте `Plate` добавлен отступ в 4px слева от кнопок `subAddons` в соответствии с макетом в фигма.
+
 ## 9.0.14
 
 ### Patch Changes
