@@ -58,6 +58,14 @@ describe('Textarea', () => {
 
             expect(container).toMatchSnapshot();
         });
+
+        it('should match snapshot with clear button', () => {
+            const { container } = render(
+                <Textarea defaultValue='Текст для очистки' clear='always' nativeScrollbar={true} />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
     });
 
     it('should forward ref to textarea', () => {
@@ -255,5 +263,109 @@ describe('Textarea', () => {
         const { unmount } = render(<Textarea value='value' onChange={jest.fn()} />);
 
         expect(unmount).not.toThrow();
+    });
+
+    describe('Clear button', () => {
+        it.each([undefined, 'never'] as const)('should hide for clear=%s', (clear) => {
+            render(<Textarea clear={clear} defaultValue='value' />);
+
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+        });
+
+        it('should show for clear=always only when filled', () => {
+            const { rerender } = render(<Textarea clear='always' value='value' />);
+
+            expect(screen.getByLabelText('Очистить')).toBeInTheDocument();
+
+            rerender(<Textarea clear='always' value='' />);
+
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+        });
+
+        it.each([{ disabled: true }, { readOnly: true }])('should hide when %o', (props) => {
+            render(<Textarea clear='always' defaultValue='value' {...props} />);
+
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+        });
+
+        it('should show in auto mode on hover or focus and preserve hover callbacks', async () => {
+            const onMouseEnter = jest.fn();
+            const onMouseLeave = jest.fn();
+            render(
+                <Textarea
+                    clear='auto'
+                    defaultValue='value'
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                />,
+            );
+            const textarea = screen.getByRole('textbox');
+
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+            await userEvent.hover(textarea);
+            expect(screen.getByLabelText('Очистить')).toBeInTheDocument();
+            await userEvent.unhover(textarea);
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+            expect(onMouseEnter).toHaveBeenCalledTimes(1);
+            expect(onMouseLeave).toHaveBeenCalledTimes(1);
+
+            fireEvent.focus(textarea);
+            expect(screen.getByLabelText('Очистить')).toBeInTheDocument();
+            fireEvent.blur(textarea);
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+        });
+
+        it.each([true, false])(
+            'should clear uncontrolled textarea with autosize=%s',
+            (autosize) => {
+                const onClear = jest.fn();
+                const onChange = jest.fn();
+                render(
+                    <Textarea
+                        clear='always'
+                        autosize={autosize}
+                        defaultValue='overflow'
+                        maxLength={3}
+                        showCounter={true}
+                        onClear={onClear}
+                        onChange={onChange}
+                        dataTestId='textarea'
+                    />,
+                );
+                const textarea = screen.getByRole('textbox');
+                const button = screen.getByTestId(getTextareaTestIds('textarea').clearIcon);
+
+                expect(textarea).toHaveClass('overflow');
+                fireEvent.click(button);
+
+                expect(textarea).toHaveValue('');
+                expect(textarea).toHaveFocus();
+                expect(textarea).not.toHaveClass('overflow');
+                expect(screen.getByText('0/3 символов')).toBeInTheDocument();
+                expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+                expect(onClear).toHaveBeenCalledTimes(1);
+                expect(onClear.mock.calls[0][0].type).toBe('click');
+                expect(onChange).not.toHaveBeenCalled();
+            },
+        );
+
+        it('should leave controlled value to the consumer', () => {
+            const onClear = jest.fn();
+            const onChange = jest.fn();
+            const { rerender } = render(
+                <Textarea clear='always' value='value' onClear={onClear} onChange={onChange} />,
+            );
+
+            fireEvent.click(screen.getByLabelText('Очистить'));
+
+            expect(screen.getByRole('textbox')).toHaveValue('value');
+            expect(onClear).toHaveBeenCalledTimes(1);
+            expect(onChange).not.toHaveBeenCalled();
+
+            rerender(<Textarea clear='always' value='' onClear={onClear} />);
+
+            expect(screen.getByRole('textbox')).toHaveValue('');
+            expect(screen.queryByLabelText('Очистить')).not.toBeInTheDocument();
+        });
     });
 });
