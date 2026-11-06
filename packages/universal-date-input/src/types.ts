@@ -188,7 +188,7 @@ export interface InnerDateRangeInputProps
     /**
      *  Диапазон дат по умолчанию
      */
-    defaultValue?: { dateFrom: Date | number; dateTo: Date | number };
+    defaultValue?: { dateFrom?: Date | number | null; dateTo?: Date | number | null };
 
     /**
      * Тип выбора границ в календаре

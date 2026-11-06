@@ -17,6 +17,41 @@ export function formatDateRange(range: { dateFrom: Date | number; dateTo: Date |
     return formatDate(range.dateFrom) + DATE_RANGE_SEPARATOR + formatDate(range.dateTo);
 }
 
+/**
+ * Частично заполненный диапазон дат.
+ */
+export type DateRangeValue = {
+    dateFrom?: Date | number | null;
+    dateTo?: Date | number | null;
+};
+
+/**
+ * Форматирует частично заполненный диапазон дат для отображения в инпуте.
+ *
+ * - заполнены обе даты: `'12.04.2021 – 15.04.2021'`
+ * - только dateFrom: `'12.04.2021 – '` (с хвостовым разделителем)
+ * - только dateTo: `'15.04.2021'`
+ * - пусто: `''`
+ */
+export function formatDateRangeValue(value?: DateRangeValue): string {
+    if (!value) return '';
+
+    const from = value.dateFrom ? formatDate(value.dateFrom) : null;
+    const to = value.dateTo ? formatDate(value.dateTo) : null;
+
+    if (from && to) {
+        return `${from}${DATE_RANGE_SEPARATOR}${to}`;
+    }
+    if (from) {
+        return `${from}${DATE_RANGE_SEPARATOR}`;
+    }
+    if (to) {
+        return to;
+    }
+
+    return '';
+}
+
 export function isCompleteDate(value = '') {
     return value.length === DATE_FORMAT.length;
 }
