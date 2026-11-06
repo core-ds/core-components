@@ -4,6 +4,7 @@ import { Markdown } from '@alfalab/core-components-markdown';
 import { MarkdownDesktop } from '@alfalab/core-components-markdown/desktop';
 import { MarkdownMobile } from '@alfalab/core-components-markdown/mobile';
 import { type Root } from 'mdast';
+import { type Root as HastRoot } from 'hast';
 
 let isDesktopViewport = false;
 
@@ -33,6 +34,24 @@ const demoteHeadingRemarkPlugin = () => (tree: Root) => {
         node.type === 'heading' ? { ...node, depth: 2 } : node,
     );
 };
+
+const headingRehypePlugin =
+    ({ level = 1 }: { level?: 1 | 2 } = {}) =>
+    (tree: HastRoot) => {
+        tree.children = tree.children.map((node) =>
+            node.type === 'element' && node.tagName === 'p'
+                ? { ...node, tagName: `h${level}` }
+                : node,
+        );
+    };
+
+const demoteHeadingRehypePlugin = () => (tree: HastRoot) => {
+    tree.children = tree.children.map((node) =>
+        node.type === 'element' && node.tagName === 'h1' ? { ...node, tagName: 'h2' } : node,
+    );
+};
+
+type RehypePlugins = NonNullable<React.ComponentProps<typeof Markdown>['rehypePlugins']>;
 
 type RemarkPlugins = NonNullable<React.ComponentProps<typeof Markdown>['remarkPlugins']>;
 
@@ -104,9 +123,103 @@ describe('Markdown', () => {
         { name: 'responsive desktop', Component: Markdown, isDesktop: true },
         { name: 'desktop', Component: MarkdownDesktop, isDesktop: false },
         { name: 'mobile', Component: MarkdownMobile, isDesktop: false },
-    ])('remarkPlugins: $name', ({ Component, isDesktop }) => {
+    ])('$name', ({ Component, isDesktop }) => {
         beforeEach(() => {
             isDesktopViewport = isDesktop;
+        });
+
+        it.each([5, 6])('renders h%i with small heading typography', (level) => {
+            render(<Component>{`${'#'.repeat(level)} Заголовок`}</Component>);
+
+            expect(screen.getByRole('heading', { level, name: 'Заголовок' })).toHaveClass(
+                `h${level}`,
+                'xsmall',
+            );
+        });
+
+        it.each<{ name: string; plugins: RehypePlugins | undefined }>([
+            { name: 'undefined', plugins: undefined },
+            { name: 'empty', plugins: [] },
+            { name: 'disabled', plugins: [[headingRehypePlugin, false]] },
+        ])('preserves default rendering when rehypePlugins is $name', ({ plugins }) => {
+            render(<Component rehypePlugins={plugins}>{markdownText}</Component>);
+
+            expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+            expect(screen.getByText('зачёркнутый').tagName).toBe('DEL');
+        });
+
+        it('keeps HTML as text without rehype plugins', () => {
+            const { container } = render(<Component>{'<u>Текст</u>'}</Component>);
+
+            expect(container).toHaveTextContent('<u>Текст</u>');
+            expect(container.querySelector('u')).not.toBeInTheDocument();
+        });
+
+        it.each<{ name: string; plugins: RehypePlugins; level: number }>([
+            { name: 'a plugin', plugins: [headingRehypePlugin], level: 1 },
+            {
+                name: 'a plugin with options',
+                plugins: [[headingRehypePlugin, { level: 2 }]],
+                level: 2,
+            },
+            {
+                name: 'a preset with options',
+                plugins: [{ plugins: [[headingRehypePlugin, { level: 2 }]] }],
+                level: 2,
+            },
+            { name: 'an enabled plugin', plugins: [[headingRehypePlugin, true]], level: 1 },
+        ])('applies rehype $name and preserves strikethrough', ({ plugins, level }) => {
+            render(<Component rehypePlugins={plugins}>{markdownText}</Component>);
+
+            expect(
+                screen.getByRole('heading', { level, name: 'Заголовок зачёркнутый' }),
+            ).toBeInTheDocument();
+            expect(screen.getByText('зачёркнутый').tagName).toBe('DEL');
+        });
+
+        it('applies rehype plugins in the supplied order before overrides', () => {
+            render(
+                <Component
+                    rehypePlugins={[headingRehypePlugin, demoteHeadingRehypePlugin]}
+                    overrides={{
+                        h2: ({ children }) => <h2 className='custom-heading'>{children}</h2>,
+                    }}
+                >
+                    {markdownText}
+                </Component>,
+            );
+
+            expect(screen.getByRole('heading', { level: 2 })).toHaveClass('custom-heading');
+        });
+
+        it('applies rehype plugins after remark plugins', () => {
+            render(
+                <Component
+                    remarkPlugins={[headingRemarkPlugin]}
+                    rehypePlugins={[demoteHeadingRehypePlugin]}
+                >
+                    {markdownText}
+                </Component>,
+            );
+
+            expect(
+                screen.getByRole('heading', { level: 2, name: 'Заголовок зачёркнутый' }),
+            ).toBeInTheDocument();
+        });
+
+        it('updates rehype plugins on rerender without mutating the supplied list', () => {
+            const plugins: RehypePlugins = [headingRehypePlugin];
+
+            Object.freeze(plugins);
+            const { rerender } = render(
+                <Component rehypePlugins={plugins}>{markdownText}</Component>,
+            );
+
+            expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+            rerender(<Component rehypePlugins={[]}>{markdownText}</Component>);
+            expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+            expect(screen.getByText('зачёркнутый').tagName).toBe('DEL');
+            expect(plugins).toEqual([headingRehypePlugin]);
         });
 
         it.each<{ name: string; plugins: RemarkPlugins | undefined }>([
