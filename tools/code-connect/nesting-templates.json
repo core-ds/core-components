@@ -1,0 +1,320 @@
+{
+    "schemaVersion": 1,
+    "templates": [
+        {
+            "template": "packages/action-button/code-connect/ActionButton.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/amount-input/code-connect/AmountInputDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/amount-input/code-connect/AmountInputDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/amount-input/code-connect/AmountInputMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/amount-input/code-connect/AmountInputMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/amount/code-connect/Amount.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/button/code-connect/ButtonDesktop.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/button/code-connect/ButtonInvertedDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/button/code-connect/ButtonInvertedMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/button/code-connect/ButtonMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/custom-button/code-connect/CustomButton.figma.ts",
+            "nestedCalls": 3,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledInvertedDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledInvertedMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagFilledMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagMutedDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/filter-tag/code-connect/FilterTagMutedMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonDesktop.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonIcon.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonInvertedDesktop.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonInvertedMobile.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/icon-button/code-connect/IconButtonMobile.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/icon-view/code-connect/IconView.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/input/code-connect/InputDesktop.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/input/code-connect/InputDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/input/code-connect/InputMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/input/code-connect/InputMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/link/code-connect/Link.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/list/code-connect/List.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": "marker"
+        },
+        {
+            "template": "packages/number-input/code-connect/NumberInputDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/number-input/code-connect/NumberInputDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/number-input/code-connect/NumberInputMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/number-input/code-connect/NumberInputMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/product-cover/code-connect/ProductCoverSingle.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/select-with-tags/code-connect/SelectWithTagsDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select-with-tags/code-connect/SelectWithTagsDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select-with-tags/code-connect/SelectWithTagsMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select-with-tags/code-connect/SelectWithTagsMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select/code-connect/SelectDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select/code-connect/SelectDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select/code-connect/SelectMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/select/code-connect/SelectMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/slider-input/code-connect/SliderInputDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/slider-input/code-connect/SliderInputDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/slider-input/code-connect/SliderInputMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/slider-input/code-connect/SliderInputMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/status/code-connect/Status.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagDesktop.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledInvertedMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagMutedMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentInvertedDesktop.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentInvertedMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/tag/code-connect/TagTransparentMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": null
+        },
+        {
+            "template": "packages/universal-date-input/code-connect/UniversalDateInputDesktop.figma.ts",
+            "nestedCalls": 1,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/universal-date-input/code-connect/UniversalDateInputDesktopInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/universal-date-input/code-connect/UniversalDateInputMobile.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        },
+        {
+            "template": "packages/universal-date-input/code-connect/UniversalDateInputMobileInverted.figma.ts",
+            "nestedCalls": 2,
+            "contextFallback": "addon"
+        }
+    ]
+}

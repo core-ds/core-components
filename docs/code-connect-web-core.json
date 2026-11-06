@@ -1,0 +1,2449 @@
+{
+    "schemaVersion": 1,
+    "figmaFile": "lGWq8DtnUcSkRasagBuwq6",
+    "scope": "Актуальные публичные семейства Web :: Core, отдельные технические зависимости; устаревшие и внутренние части перечислены как исключения.",
+    "preparedAt": "2026-10-26",
+    "gitBranch": "feat/code-connect-button",
+    "sourceRevision": "3243332b29d3ad433fd58bacfb98021817731962",
+    "config": "figma.web-core.config.json",
+    "templateCount": 148,
+    "newTemplateCount": 142,
+    "coverageCounts": {
+        "prepared": 148,
+        "blocked": 15,
+        "excluded": 12
+    },
+    "sources": [
+        "Живые properties и структура Figma Web :: Core, чтение 2026-10-26",
+        "ds-ai-hub/core/web/components/*/bridge.md и figma/adapter.md",
+        "Фактические исходники и экспортируемые типы текущей ветки core-components",
+        "MCP core-components: справка master; расхождения с checkout разрешены по исходникам целевой ветки",
+        "Живые REST componentPropertyDefinitions и серверный Code Connect preview Figma после публикации"
+    ],
+    "limitations": [
+        "Публикация и серверный preview Figma выполнены. Визуальная проверка Dev Mode не подтверждена: Desktop Figma показывала offline.",
+        "Ряд templates имеет typed context и nestable=false. Они не являются готовыми автономными JSX-вставками.",
+        "Модальные части требуют соответствующего родителя; BottomSheet представлен фрагментами props для общей сборки.",
+        "Вложенные иконки и другие swaps/slots должны иметь работающий Code Connect; весь каталог ассетов этой задачей не подключается.",
+        "API MCP master местами новее checkout; несуществующие здесь props не добавляются.",
+        "Настройки текста, цвета, размеров и поведения вне component properties берутся из typed context, без случайных значений."
+    ],
+    "components": [
+        {
+            "component": "icon-view",
+            "figmaName": "IconView",
+            "nodeId": "448:17257",
+            "file": "packages/icon-view/code-connect/IconView.figma.ts",
+            "status": "prepared",
+            "reason": "Ранее подготовленный набор для макета хеджирования; входит в общий конфиг без изменения контракта.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=448-17257",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "amount",
+            "figmaName": "Amount",
+            "nodeId": "485:67101",
+            "file": "packages/amount/code-connect/Amount.figma.ts",
+            "status": "prepared",
+            "reason": "Ранее подготовленный набор для макета хеджирования; входит в общий конфиг без изменения контракта.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=485-67101",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-date-input",
+            "figmaName": "[D] UniversalDateInput",
+            "nodeId": "507:7865",
+            "file": "packages/universal-date-input/code-connect/UniversalDateInputDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Ранее подготовленный набор для макета хеджирования; входит в общий конфиг без изменения контракта.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=507-7865",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "input",
+            "figmaName": "[D] Input",
+            "nodeId": "29:33109",
+            "file": "packages/input/code-connect/InputDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Ранее подготовленный набор для макета хеджирования; входит в общий конфиг без изменения контракта.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=29-33109",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[D] Tag_Filled",
+            "nodeId": "110:28440",
+            "file": "packages/tag/code-connect/TagDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Ранее подготовленный набор для макета хеджирования; входит в общий конфиг без изменения контракта.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=110-28440",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "button",
+            "figmaName": "[D] Button",
+            "nodeId": "47:50695",
+            "file": "packages/button/code-connect/ButtonDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Ранее подготовленный набор для макета хеджирования; входит в общий конфиг без изменения контракта.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-50695",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "button",
+            "figmaName": "[M] Button",
+            "nodeId": "47:52208",
+            "file": "packages/button/code-connect/ButtonMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/инверсия из набора; текст, addons, loading и hint из экземпляра",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-52208",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "button",
+            "figmaName": "[D] Button_Inverted",
+            "nodeId": "650:19395",
+            "file": "packages/button/code-connect/ButtonInvertedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/инверсия из набора; текст, addons, loading и hint из экземпляра",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=650-19395",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "button",
+            "figmaName": "[M] Button_Inverted",
+            "nodeId": "650:20356",
+            "file": "packages/button/code-connect/ButtonInvertedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/инверсия из набора; текст, addons, loading и hint из экземпляра",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=650-20356",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[M] Tag_Filled",
+            "nodeId": "124:26691",
+            "file": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=124-26691",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[D] Tag_Muted",
+            "nodeId": "131186:19741",
+            "file": "packages/tag/code-connect/TagMutedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=131186-19741",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[M] Tag_Muted",
+            "nodeId": "137232:13876",
+            "file": "packages/tag/code-connect/TagMutedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=137232-13876",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[D] Tag_Transparent",
+            "nodeId": "131186:19740",
+            "file": "packages/tag/code-connect/TagTransparentDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=131186-19740",
+            "publication": "published",
+            "preview": "guarded",
+            "previewReason": "IndicatorTag не поддерживает Size=56"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[M] Tag_Transparent",
+            "nodeId": "132022:14811",
+            "file": "packages/tag/code-connect/TagTransparentMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=132022-14811",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[D] Tag_Filled_Inverted",
+            "nodeId": "97003:26617",
+            "file": "packages/tag/code-connect/TagFilledInvertedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=97003-26617",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[M] Tag_Filled_Inverted",
+            "nodeId": "97003:42529",
+            "file": "packages/tag/code-connect/TagFilledInvertedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=97003-42529",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[D] Tag_Transparent_Inverted",
+            "nodeId": "132139:13845",
+            "file": "packages/tag/code-connect/TagTransparentInvertedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=132139-13845",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag",
+            "figmaName": "[M] Tag_Transparent_Inverted",
+            "nodeId": "132182:13980",
+            "file": "packages/tag/code-connect/TagTransparentInvertedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа/view/палитра из набора; Size=56 с SingleIcon заблокирован по API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=132182-13980",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "action-button",
+            "figmaName": "ActionButton",
+            "nodeId": "603:82978",
+            "file": "packages/action-button/code-connect/ActionButton.figma.ts",
+            "status": "prepared",
+            "reason": "Обе оси палитры читаются; неподдерживаемая static+inverted комбинация завершается явной ошибкой",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=603-82978",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "Checkbox_24",
+            "nodeId": "104:21058",
+            "file": "packages/checkbox/code-connect/Checkbox24.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=104-21058",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "Checkbox_24_Inverted",
+            "nodeId": "52544:12998",
+            "file": "packages/checkbox/code-connect/Checkbox24Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-12998",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "Checkbox_20",
+            "nodeId": "34265:42058",
+            "file": "packages/checkbox/code-connect/Checkbox20.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=34265-42058",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "Checkbox_20_Inverted",
+            "nodeId": "52544:29077",
+            "file": "packages/checkbox/code-connect/Checkbox20Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-29077",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_24",
+            "nodeId": "104:21081",
+            "file": "packages/checkbox/code-connect/CheckboxLabel24.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=104-21081",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_24_Reverse",
+            "nodeId": "145560:3150",
+            "file": "packages/checkbox/code-connect/CheckboxLabel24Reverse.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3150",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_24_Inverted",
+            "nodeId": "52544:13023",
+            "file": "packages/checkbox/code-connect/CheckboxLabel24Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-13023",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_24_Reverse_Inverted",
+            "nodeId": "145560:3190",
+            "file": "packages/checkbox/code-connect/CheckboxLabel24ReverseInverted.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3190",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_20",
+            "nodeId": "34265:42102",
+            "file": "packages/checkbox/code-connect/CheckboxLabel20.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=34265-42102",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_20_Reverse",
+            "nodeId": "145560:3230",
+            "file": "packages/checkbox/code-connect/CheckboxLabel20Reverse.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3230",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_20_Inverted",
+            "nodeId": "52544:29102",
+            "file": "packages/checkbox/code-connect/CheckboxLabel20Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-29102",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox",
+            "figmaName": "CheckboxLabel_20_Reverse_Inverted",
+            "nodeId": "145560:3309",
+            "file": "packages/checkbox/code-connect/CheckboxLabel20ReverseInverted.figma.ts",
+            "status": "prepared",
+            "reason": "position=before/after подтверждён локальными CheckboxProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3309",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "Radio_24",
+            "nodeId": "154:3267",
+            "file": "packages/radio/code-connect/Radio24.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=154-3267",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "Radio_24_Inverted",
+            "nodeId": "52544:32633",
+            "file": "packages/radio/code-connect/Radio24Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-32633",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "Radio_20",
+            "nodeId": "34265:42872",
+            "file": "packages/radio/code-connect/Radio20.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=34265-42872",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "Radio_20_Inverted",
+            "nodeId": "52544:32648",
+            "file": "packages/radio/code-connect/Radio20Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-32648",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_24",
+            "nodeId": "154:21092",
+            "file": "packages/radio/code-connect/RadioLabel24.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=154-21092",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_24_Reverse",
+            "nodeId": "145560:4890",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout RadioProps нет API положения контрола справа (Reverse); MCP описывает более новый controlPosition",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-4890"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_24_Inverted",
+            "nodeId": "52544:32663",
+            "file": "packages/radio/code-connect/RadioLabel24Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-32663",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_24_Reverse_Inverted",
+            "nodeId": "145560:5033",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout RadioProps нет API положения контрола справа (Reverse); MCP описывает более новый controlPosition",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-5033"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_20",
+            "nodeId": "34265:42887",
+            "file": "packages/radio/code-connect/RadioLabel20.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=34265-42887",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_20_Reverse",
+            "nodeId": "145560:4919",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout RadioProps нет API положения контрола справа (Reverse); MCP описывает более новый controlPosition",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-4919"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_20_Inverted",
+            "nodeId": "52544:32682",
+            "file": "packages/radio/code-connect/RadioLabel20Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "Обычная анатомия подтверждена RadioProps; CompactLabel=True явно blocked, compact отсутствует в checkout; состояния динамически через child template",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=52544-32682",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio",
+            "figmaName": "RadioLabel_20_Reverse_Inverted",
+            "nodeId": "145560:4976",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout RadioProps нет API положения контрола справа (Reverse); MCP описывает более новый controlPosition",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-4976"
+        },
+        {
+            "component": "switch",
+            "figmaName": "Switch_24",
+            "nodeId": "166:8100",
+            "file": "packages/switch/code-connect/Switch24.figma.ts",
+            "status": "prepared",
+            "reason": "Стандартный фиксированный Switch без size; положение справа через подтверждённый reversed; динамический child template для состояния",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=166-8100",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "switch",
+            "figmaName": "Switch_24_Inverted",
+            "nodeId": "39519:16312",
+            "file": "packages/switch/code-connect/Switch24Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "Стандартный фиксированный Switch без size; положение справа через подтверждённый reversed; динамический child template для состояния",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=39519-16312",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "switch",
+            "figmaName": "Switch_20",
+            "nodeId": "142917:14155",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout Switch фиксированного размера: нет size/compact API; native size меняет только input и не реализует Figma20",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=142917-14155"
+        },
+        {
+            "component": "switch",
+            "figmaName": "Switch_20_Inverted",
+            "nodeId": "142951:14801",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout Switch фиксированного размера: нет size/compact API; native size меняет только input и не реализует Figma20",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=142951-14801"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_24",
+            "nodeId": "166:8505",
+            "file": "packages/switch/code-connect/SwitchLabel24.figma.ts",
+            "status": "prepared",
+            "reason": "Стандартный фиксированный Switch без size; положение справа через подтверждённый reversed; динамический child template для состояния",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=166-8505",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_20",
+            "nodeId": "142917:14168",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout Switch фиксированного размера: нет size/compact API; native size меняет только input и не реализует Figma20",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=142917-14168"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_20_Inverted",
+            "nodeId": "142951:14844",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout Switch фиксированного размера: нет size/compact API; native size меняет только input и не реализует Figma20",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=142951-14844"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_24_Inverted",
+            "nodeId": "39519:16325",
+            "file": "packages/switch/code-connect/SwitchLabel24Inverted.figma.ts",
+            "status": "prepared",
+            "reason": "Стандартный фиксированный Switch без size; положение справа через подтверждённый reversed; динамический child template для состояния",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=39519-16325",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_24_Reverse",
+            "nodeId": "145560:3388",
+            "file": "packages/switch/code-connect/SwitchLabel24Reverse.figma.ts",
+            "status": "prepared",
+            "reason": "Стандартный фиксированный Switch без size; положение справа через подтверждённый reversed; динамический child template для состояния",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3388",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_20_Reverse",
+            "nodeId": "145560:3400",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout Switch фиксированного размера: нет size/compact API; native size меняет только input и не реализует Figma20",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3400"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_24_Reverse_Inverted",
+            "nodeId": "145560:3451",
+            "file": "packages/switch/code-connect/SwitchLabel24ReverseInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Стандартный фиксированный Switch без size; положение справа через подтверждённый reversed; динамический child template для состояния",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3451",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "switch",
+            "figmaName": "SwitchLabel_20_Reverse_Inverted",
+            "nodeId": "145560:3452",
+            "file": null,
+            "status": "blocked",
+            "reason": "В текущем checkout Switch фиксированного размера: нет size/compact API; native size меняет только input и не реализует Figma20",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=145560-3452"
+        },
+        {
+            "component": "checkbox-group",
+            "figmaName": "[D] CheckboxGroup",
+            "nodeId": "173:43116",
+            "file": "packages/checkbox-group/code-connect/CheckboxGroupDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Динамический Items slot; ошибка вытесняет hint; RadioGroup сохраняет выбор и назначает стабильные value по позиции",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=173-43116",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "checkbox-group",
+            "figmaName": "[M] CheckboxGroup",
+            "nodeId": "173:43257",
+            "file": "packages/checkbox-group/code-connect/CheckboxGroupMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Динамический Items slot; ошибка вытесняет hint; RadioGroup сохраняет выбор и назначает стабильные value по позиции",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=173-43257",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio-group",
+            "figmaName": "[D] RadioGroup",
+            "nodeId": "175:53923",
+            "file": "packages/radio-group/code-connect/RadioGroupDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Динамический Items slot; ошибка вытесняет hint; RadioGroup сохраняет выбор и назначает стабильные value по позиции",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=175-53923",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "radio-group",
+            "figmaName": "[M] RadioGroup",
+            "nodeId": "175:53978",
+            "file": "packages/radio-group/code-connect/RadioGroupMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Динамический Items slot; ошибка вытесняет hint; RadioGroup сохраняет выбор и назначает стабильные value по позиции",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=175-53978",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "filter-tag",
+            "figmaName": "[D] FilterTag_Filled",
+            "nodeId": "177:69319",
+            "file": "packages/filter-tag/code-connect/FilterTagFilledDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "view/палитра из набора; Label/Value/AmountItems формируют children, Arrow.Open передаётся в open",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=177-69319",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "filter-tag",
+            "figmaName": "[M] FilterTag_Filled",
+            "nodeId": "182:6448",
+            "file": "packages/filter-tag/code-connect/FilterTagFilledMobile.figma.ts",
+            "status": "prepared",
+            "reason": "view/палитра из набора; Label/Value/AmountItems формируют children, Arrow.Open передаётся в open",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=182-6448",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "filter-tag",
+            "figmaName": "[D] FilterTag_Muted",
+            "nodeId": "131393:26142",
+            "file": "packages/filter-tag/code-connect/FilterTagMutedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "view/палитра из набора; Label/Value/AmountItems формируют children, Arrow.Open передаётся в open",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=131393-26142",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "filter-tag",
+            "figmaName": "[M] FilterTag_Muted",
+            "nodeId": "137256:24709",
+            "file": "packages/filter-tag/code-connect/FilterTagMutedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "view/палитра из набора; Label/Value/AmountItems формируют children, Arrow.Open передаётся в open",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=137256-24709",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "filter-tag",
+            "figmaName": "[D] FilterTag_Filled_Inverted",
+            "nodeId": "57868:16016",
+            "file": "packages/filter-tag/code-connect/FilterTagFilledInvertedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "view/палитра из набора; Label/Value/AmountItems формируют children, Arrow.Open передаётся в open",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=57868-16016",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "filter-tag",
+            "figmaName": "[M] FilterTag_Filled_Inverted",
+            "nodeId": "57868:16473",
+            "file": "packages/filter-tag/code-connect/FilterTagFilledInvertedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "view/палитра из набора; Label/Value/AmountItems формируют children, Arrow.Open передаётся в open",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=57868-16473",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "icon-button",
+            "figmaName": "[D] IconButton",
+            "nodeId": "603:59968",
+            "file": "packages/icon-button/code-connect/IconButtonDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=603-59968",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "icon-button",
+            "figmaName": "[M] IconButton",
+            "nodeId": "96969:28358",
+            "file": "packages/icon-button/code-connect/IconButtonMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=96969-28358",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "icon-button",
+            "figmaName": "[D] IconButton_Inverted",
+            "nodeId": "96969:28357",
+            "file": "packages/icon-button/code-connect/IconButtonInvertedDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=96969-28357",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "icon-button",
+            "figmaName": "[M] IconButton_Inverted",
+            "nodeId": "96969:28439",
+            "file": "packages/icon-button/code-connect/IconButtonInvertedMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=96969-28439",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "custom-button",
+            "figmaName": "CustomButton",
+            "nodeId": "3:7695",
+            "file": "packages/custom-button/code-connect/CustomButton.figma.ts",
+            "status": "prepared",
+            "reason": "Цвет/состояния требуют продуктового контекста Example; addons и фактический Content читаются динамически",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=3-7695",
+            "publication": "published",
+            "preview": "guarded",
+            "previewReason": "Замени SwapMe содержимым CustomButton"
+        },
+        {
+            "component": "picker-button",
+            "figmaName": "[D] Button",
+            "nodeId": "47:50695",
+            "file": null,
+            "status": "excluded",
+            "reason": "Общий URL Button принадлежит Button template; отдельного root PickerButton нет",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-50695"
+        },
+        {
+            "component": "picker-button",
+            "figmaName": "[M] Button",
+            "nodeId": "47:52208",
+            "file": null,
+            "status": "excluded",
+            "reason": "Общий URL Button принадлежит Button template; отдельного root PickerButton нет",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=47-52208"
+        },
+        {
+            "component": "tag-group",
+            "figmaName": "[D] TagGroup",
+            "nodeId": "171:11319",
+            "file": "packages/radio-group/code-connect/TagGroupDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Явный Scenario single/multiple; runtime values/name/onChange передаёт продукт. Начальный SelectedState сохраняется; при нескольких selected single выдаёт ошибку, multiple сохраняет все.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=171-11319",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "tag-group",
+            "figmaName": "[M] TagGroup",
+            "nodeId": "171:18291",
+            "file": "packages/radio-group/code-connect/TagGroupMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Явный Scenario single/multiple; runtime values/name/onChange передаёт продукт. Начальный SelectedState сохраняется; при нескольких selected single выдаёт ошибку, multiple сохраняет все.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=171-18291",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "segmented-control",
+            "figmaName": "SegmentedControl_48",
+            "nodeId": "147561:2045",
+            "file": null,
+            "status": "blocked",
+            "reason": "Size=48 отсутствует в runtime API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=147561-2045"
+        },
+        {
+            "component": "segmented-control",
+            "figmaName": "SegmentedControl_Muted_48",
+            "nodeId": "147566:3663",
+            "file": null,
+            "status": "blocked",
+            "reason": "Size=48 отсутствует в runtime API",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=147566-3663"
+        },
+        {
+            "component": "segmented-control",
+            "figmaName": "SegmentedControl_Muted_32",
+            "nodeId": "147335:21134",
+            "file": null,
+            "status": "blocked",
+            "reason": "Muted не имеет подтверждённого соответствия в runtime colors",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=147335-21134"
+        },
+        {
+            "component": "segmented-control",
+            "figmaName": "SegmentedControl_Muted_40",
+            "nodeId": "147335:18659",
+            "file": null,
+            "status": "blocked",
+            "reason": "Muted не имеет подтверждённого соответствия в runtime colors",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=147335-18659"
+        },
+        {
+            "component": "InputDesktop",
+            "figmaName": "[D] Input_Inverted",
+            "nodeId": "706:77976",
+            "file": "packages/input/code-connect/InputDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа, размер, оболочка и динамические дополнения из опубликованного корня. ActiveState соответствует начальному фокусу.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-77976",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "InputMobile",
+            "figmaName": "[M] Input",
+            "nodeId": "49:111683",
+            "file": "packages/input/code-connect/InputMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа, размер, оболочка и динамические дополнения из опубликованного корня. ActiveState соответствует начальному фокусу.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=49-111683",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "InputMobile",
+            "figmaName": "[M] Input_Inverted",
+            "nodeId": "706:80433",
+            "file": "packages/input/code-connect/InputMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Платформа, размер, оболочка и динамические дополнения из опубликованного корня. ActiveState соответствует начальному фокусу.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-80433",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "AmountInput",
+            "figmaName": "[D] AmountInput",
+            "nodeId": "1202:34546",
+            "file": "packages/amount-input/code-connect/AmountInputDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Major/Minor/Currency читаются раздельно; нечисловые и неточные значения отклоняются. Пустая валюта и скрытая минорность требуют контекста.",
+            "requiredContext": [
+                "В пустом поле — currency/suffix/codeFormat и minority сценария; при скрытой дробной части — minority."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=1202-34546",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "AmountInput",
+            "figmaName": "[D] AmountInput_Inverted",
+            "nodeId": "1202:35303",
+            "file": "packages/amount-input/code-connect/AmountInputDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Major/Minor/Currency читаются раздельно; нечисловые и неточные значения отклоняются. Пустая валюта и скрытая минорность требуют контекста.",
+            "requiredContext": [
+                "В пустом поле — currency/suffix/codeFormat и minority сценария; при скрытой дробной части — minority."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=1202-35303",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "AmountInput",
+            "figmaName": "[M] AmountInput",
+            "nodeId": "1202:36060",
+            "file": "packages/amount-input/code-connect/AmountInputMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Major/Minor/Currency читаются раздельно; нечисловые и неточные значения отклоняются. Пустая валюта и скрытая минорность требуют контекста.",
+            "requiredContext": [
+                "В пустом поле — currency/suffix/codeFormat и minority сценария; при скрытой дробной части — minority."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=1202-36060",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "AmountInput",
+            "figmaName": "[M] AmountInput_Inverted",
+            "nodeId": "1202:36817",
+            "file": "packages/amount-input/code-connect/AmountInputMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Major/Minor/Currency читаются раздельно; нечисловые и неточные значения отклоняются. Пустая валюта и скрытая минорность требуют контекста.",
+            "requiredContext": [
+                "В пустом поле — currency/suffix/codeFormat и minority сценария; при скрытой дробной части — minority."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=1202-36817",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "NumberInputDesktop",
+            "figmaName": "[D] NumberInput",
+            "nodeId": "67:49094",
+            "file": "packages/number-input/code-connect/NumberInputDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Параметры Stepper не угадываются: step и достигнутая min/max передаются в Example. Без Stepper выдаётся обычное числовое поле.",
+            "requiredContext": [
+                "step при видимом Stepper; max если Plus=False; min если Minus=False"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=67-49094",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "NumberInputMobile",
+            "figmaName": "[M] NumberInput",
+            "nodeId": "69:5398",
+            "file": "packages/number-input/code-connect/NumberInputMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Параметры Stepper не угадываются: step и достигнутая min/max передаются в Example. Без Stepper выдаётся обычное числовое поле.",
+            "requiredContext": [
+                "step при видимом Stepper; max если Plus=False; min если Minus=False"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=69-5398",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "NumberInputDesktop",
+            "figmaName": "[D] NumberInput_Inverted",
+            "nodeId": "706:91793",
+            "file": "packages/number-input/code-connect/NumberInputDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Параметры Stepper не угадываются: step и достигнутая min/max передаются в Example. Без Stepper выдаётся обычное числовое поле.",
+            "requiredContext": [
+                "step при видимом Stepper; max если Plus=False; min если Minus=False"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-91793",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "NumberInputMobile",
+            "figmaName": "[M] NumberInput_Inverted",
+            "nodeId": "706:95338",
+            "file": "packages/number-input/code-connect/NumberInputMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Параметры Stepper не угадываются: step и достигнутая min/max передаются в Example. Без Stepper выдаётся обычное числовое поле.",
+            "requiredContext": [
+                "step при видимом Stepper; max если Plus=False; min если Minus=False"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-95338",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SliderInput",
+            "figmaName": "[D] SliderInput",
+            "nodeId": "201:26645",
+            "file": "packages/slider-input/code-connect/SliderInputDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Размер/оболочка/значение поля из Figma; диапазон, шаг, позиция бегунка и конфигурация видимых Pips приходят типизированным контекстом.",
+            "requiredContext": [
+                "min, max, step, sliderValue, onChange; pips если видимы, range при нелинейной шкале"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=201-26645",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SliderInput",
+            "figmaName": "[D] SliderInput_Inverted",
+            "nodeId": "706:103036",
+            "file": "packages/slider-input/code-connect/SliderInputDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Размер/оболочка/значение поля из Figma; диапазон, шаг, позиция бегунка и конфигурация видимых Pips приходят типизированным контекстом.",
+            "requiredContext": [
+                "min, max, step, sliderValue, onChange; pips если видимы, range при нелинейной шкале"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-103036",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SliderInput",
+            "figmaName": "[M] SliderInput",
+            "nodeId": "201:27780",
+            "file": "packages/slider-input/code-connect/SliderInputMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Размер/оболочка/значение поля из Figma; диапазон, шаг, позиция бегунка и конфигурация видимых Pips приходят типизированным контекстом.",
+            "requiredContext": [
+                "min, max, step, sliderValue, onChange; pips если видимы, range при нелинейной шкале"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=201-27780",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SliderInput",
+            "figmaName": "[M] SliderInput_Inverted",
+            "nodeId": "706:105621",
+            "file": "packages/slider-input/code-connect/SliderInputMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Размер/оболочка/значение поля из Figma; диапазон, шаг, позиция бегунка и конфигурация видимых Pips приходят типизированным контекстом.",
+            "requiredContext": [
+                "min, max, step, sliderValue, onChange; pips если видимы, range при нелинейной шкале"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-105621",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectDesktop",
+            "figmaName": "[D] Select",
+            "nodeId": "320:87309",
+            "file": "packages/select/code-connect/SelectDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=320-87309",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectDesktop",
+            "figmaName": "[D] Select_Inverted",
+            "nodeId": "706:122791",
+            "file": "packages/select/code-connect/SelectDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-122791",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectMobile",
+            "figmaName": "[M] Select",
+            "nodeId": "320:88444",
+            "file": "packages/select/code-connect/SelectMobile.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=320-88444",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectMobile",
+            "figmaName": "[M] Select_Inverted",
+            "nodeId": "706:125504",
+            "file": "packages/select/code-connect/SelectMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-125504",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectWithTagsDesktop",
+            "figmaName": "[D] SelectWithTags",
+            "nodeId": "585:91324",
+            "file": "packages/select-with-tags/code-connect/SelectWithTagsDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=585-91324",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectWithTagsDesktop",
+            "figmaName": "[D] SelectWithTags_Inverted",
+            "nodeId": "706:130930",
+            "file": "packages/select-with-tags/code-connect/SelectWithTagsDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-130930",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectWithTagsMobile",
+            "figmaName": "[M] SelectWithTags",
+            "nodeId": "595:37501",
+            "file": "packages/select-with-tags/code-connect/SelectWithTagsMobile.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=595-37501",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SelectWithTagsMobile",
+            "figmaName": "[M] SelectWithTags_Inverted",
+            "nodeId": "706:134419",
+            "file": "packages/select-with-tags/code-connect/SelectWithTagsMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "options и семантические selected/onChange из типизированного контекста; Selected content должен совпадать с макетом. ActiveState — визуальный фокус, не сигнал открытого списка. Inverted задаётся fieldProps.colors.",
+            "requiredContext": [
+                "options; selected с content/keys макета при FilledState=True; onChange; open/onOpen по контексту OptionList"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-134419",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "UniversalDateInputDesktop",
+            "figmaName": "[D] UniversalDateInput_Inverted",
+            "nodeId": "706:114128",
+            "file": "packages/universal-date-input/code-connect/UniversalDateInputDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Общий корень не кодирует view; новые варианты используют типизированный контекст UniversalDateInputProps, сохраняющий совместимость view/value/Calendar. Picker проверяется на соответствие Figma. Value не подменяется произвольной датой.",
+            "requiredContext": [
+                "view; соответствующее Value из макета value/defaultValue и onChange; Calendar при picker=true. Для пустого поля — значение должно отсутствовать."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-114128",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "UniversalDateInputMobile",
+            "figmaName": "[M] UniversalDateInput",
+            "nodeId": "507:9192",
+            "file": "packages/universal-date-input/code-connect/UniversalDateInputMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Общий корень не кодирует view; новые варианты используют типизированный контекст UniversalDateInputProps, сохраняющий совместимость view/value/Calendar. Picker проверяется на соответствие Figma. Value не подменяется произвольной датой.",
+            "requiredContext": [
+                "view; соответствующее Value из макета value/defaultValue и onChange; Calendar при picker=true. Для пустого поля — значение должно отсутствовать."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=507-9192",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "UniversalDateInputMobile",
+            "figmaName": "[M] UniversalDateInput_Inverted",
+            "nodeId": "706:116841",
+            "file": "packages/universal-date-input/code-connect/UniversalDateInputMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Общий корень не кодирует view; новые варианты используют типизированный контекст UniversalDateInputProps, сохраняющий совместимость view/value/Calendar. Picker проверяется на соответствие Figma. Value не подменяется произвольной датой.",
+            "requiredContext": [
+                "view; соответствующее Value из макета value/defaultValue и onChange; Calendar при picker=true. Для пустого поля — значение должно отсутствовать."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=706-116841",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "CodeInputDesktop",
+            "figmaName": "[D] CodeInput",
+            "nodeId": "777:44649",
+            "file": "packages/code-input/code-connect/CodeInputDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Число и содержимое ячеек читаются из вложенных CodeInputDigit; смешанная блокировка и разрывы заполнения явно отклоняются.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=777-44649",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "CodeInputMobile",
+            "figmaName": "[M] CodeInput",
+            "nodeId": "777:44650",
+            "file": "packages/code-input/code-connect/CodeInputMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Число и содержимое ячеек читаются из вложенных CodeInputDigit; смешанная блокировка и разрывы заполнения явно отклоняются.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=777-44650",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Textarea",
+            "figmaName": "Textarea",
+            "nodeId": null,
+            "file": null,
+            "status": "excluded",
+            "reason": "В Web::Core нет собственного публичного корня Textarea: live страница TextArea не содержит компонентных корней; hub использует опубликованные Input roots. Второй шаблон этого URL подменял бы Input; нужен сценарный контекст/отдельный корень."
+        },
+        {
+            "component": "InputAutocomplete",
+            "figmaName": "InputAutocomplete",
+            "nodeId": null,
+            "file": null,
+            "status": "excluded",
+            "reason": "В Web::Core нет собственного публичного корня InputAutocomplete: поле — общий Input и отдельный OptionList; живое чтение страницы не нашло компонентных корней. Не добавлен конкурирующий шаблон InputURL."
+        },
+        {
+            "component": "InternationalPhoneInput",
+            "figmaName": "InternationalPhoneInput",
+            "nodeId": null,
+            "file": null,
+            "status": "excluded",
+            "reason": "Корни Figma — общие Input; выбор страны — отдельная часть композиции. Живая страница не содержит собственного публичного корня. Отдельное соответствие того же URL конфликтовало бы с Input."
+        },
+        {
+            "component": "Indicator",
+            "figmaName": "Indicator",
+            "nodeId": "387:2751",
+            "file": "packages/indicator/code-connect/Indicator.figma.ts",
+            "status": "prepared",
+            "reason": "Properties сопоставлены с настоящим API; настройки вне component properties требуют контекста",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=387-2751",
+            "requiredContext": ["count: number — только для Figma ✎ Value=99+, исходное целое >99"],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Spinner",
+            "figmaName": "Spinner",
+            "nodeId": "24:19668",
+            "file": "packages/spinner/code-connect/Spinner.figma.ts",
+            "status": "prepared",
+            "reason": "Properties сопоставлены с настоящим API; настройки вне component properties требуют контекста",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=24-19668",
+            "requiredContext": [
+                "staticColor: string — подтверждённый CSS token статической палитры, только Static=True; инверсия выбирает соответствующий static token"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "StatusBadge",
+            "figmaName": "StatusBadge",
+            "nodeId": "480:7913",
+            "file": "packages/status-badge/code-connect/StatusBadge.figma.ts",
+            "status": "prepared",
+            "reason": "View/Size/палитра маппятся на штатные semantic presets; ручные изменения внутреннего Content не покрываются",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=480-7913",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "StatusBadge",
+            "figmaName": "StatusBadge_Inverted",
+            "nodeId": "722:45749",
+            "file": "packages/status-badge/code-connect/StatusBadgeInverted.figma.ts",
+            "status": "prepared",
+            "reason": "View/Size/палитра маппятся на штатные semantic presets; ручные изменения внутреннего Content не покрываются",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=722-45749",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "Skeleton",
+            "nodeId": "485:57541",
+            "file": "packages/skeleton/code-connect/Skeleton.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=485-57541",
+            "requiredContext": [
+                "width, height, borderRadius — измеренные настройки экземпляра, отсутствуют в parserless InstanceHandle"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "Skeleton_Inverted",
+            "nodeId": "141371:13946",
+            "file": "packages/skeleton/code-connect/SkeletonInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=141371-13946",
+            "requiredContext": [
+                "width, height, borderRadius — измеренные настройки экземпляра, отсутствуют в parserless InstanceHandle"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "Skeleton_Text",
+            "nodeId": "485:57551",
+            "file": "packages/skeleton/code-connect/SkeletonText.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=485-57551",
+            "requiredContext": [
+                "layout: NonNullable<SkeletonProps[\"style\"]> — измеренные height/width/отступ полоски и её layout; fontSize/lineHeight из TextStyle, Length только текстового пресета"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "Skeleton_Text_Inverted",
+            "nodeId": "141371:12372",
+            "file": "packages/skeleton/code-connect/SkeletonTextInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=141371-12372",
+            "requiredContext": [
+                "layout: NonNullable<SkeletonProps[\"style\"]> — измеренные height/width/отступ полоски и её layout; fontSize/lineHeight из TextStyle, Length только текстового пресета"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "[D] Skeleton_SystemTitle",
+            "nodeId": "56146:715",
+            "file": "packages/skeleton/code-connect/SkeletonSystemTitleDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=56146-715",
+            "requiredContext": [
+                "layout: NonNullable<SkeletonProps[\"style\"]> — измеренные height/width/отступ полоски и её layout; fontSize/lineHeight из TextStyle, Length только текстового пресета"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "[D] Skeleton_SystemTitle_Inverted",
+            "nodeId": "141371:12397",
+            "file": "packages/skeleton/code-connect/SkeletonSystemTitleDesktopInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=141371-12397",
+            "requiredContext": [
+                "layout: NonNullable<SkeletonProps[\"style\"]> — измеренные height/width/отступ полоски и её layout; fontSize/lineHeight из TextStyle, Length только текстового пресета"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "[M] Skeleton_SystemTitle",
+            "nodeId": "56146:840",
+            "file": "packages/skeleton/code-connect/SkeletonSystemTitleMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=56146-840",
+            "requiredContext": [
+                "layout: NonNullable<SkeletonProps[\"style\"]> — измеренные height/width/отступ полоски и её layout; fontSize/lineHeight из TextStyle, Length только текстового пресета"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Skeleton",
+            "figmaName": "[M] Skeleton_SystemTitle_Inverted",
+            "nodeId": "141371:12408",
+            "file": "packages/skeleton/code-connect/SkeletonSystemTitleMobileInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Настоящий Skeleton API; геометрия и layout явно требуются от потребителя, не выводятся из component properties",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=141371-12408",
+            "requiredContext": [
+                "layout: NonNullable<SkeletonProps[\"style\"]> — измеренные height/width/отступ полоски и её layout; fontSize/lineHeight из TextStyle, Length только текстового пресета"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Status",
+            "figmaName": "Status",
+            "nodeId": "34498:5764",
+            "file": "packages/status/code-connect/Status.figma.ts",
+            "status": "prepared",
+            "reason": "Properties сопоставлены с настоящим API; настройки вне component properties требуют контекста",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=34498-5764",
+            "requiredContext": [
+                "view/color — фактическое семантическое оформление из layer tokens; properties не содержат эти оси"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Link",
+            "figmaName": "Link",
+            "nodeId": "493:7843",
+            "file": "packages/link/code-connect/Link.figma.ts",
+            "status": "prepared",
+            "reason": "Properties сопоставлены с настоящим API; настройки вне component properties требуют контекста",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=493-7843",
+            "requiredContext": [
+                "href или onClick — назначение ссылки; view/colors — реальные tokens/контекст; Size и Line выводятся из properties"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "List",
+            "figmaName": "List",
+            "nodeId": "494:7599",
+            "file": "packages/list/code-connect/List.figma.ts",
+            "status": "prepared",
+            "reason": "Properties сопоставлены с настоящим API; настройки вне component properties требуют контекста",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=494-7599",
+            "requiredContext": [
+                "start: number — для Number: порядковый номер / контекст списка, не восстанавливается из variant Type; custom marker выполняет template выбранного ребёнка"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Markdown",
+            "figmaName": "Markdown",
+            "nodeId": "494:8370",
+            "file": "packages/markdown/code-connect/Markdown.figma.ts",
+            "status": "prepared",
+            "reason": "Properties сопоставлены с настоящим API; настройки вне component properties требуют контекста",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=494-8370",
+            "requiredContext": [
+                "imageUrl: string — только Tag=! [img], реальный адрес изображения отсутствует в TEXT; шрифт/цвет overrides вручную не извлекаются"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Typography.Text",
+            "figmaName": "Text",
+            "nodeId": "28:29546",
+            "file": "packages/typography/code-connect/Text.figma.ts",
+            "status": "prepared",
+            "reason": "Только контент через настоящий Typography.Text; style/color/background layer overrides явно не заявляются как автоматически выведенные",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=28-29546",
+            "requiredContext": [
+                "textProps — реальные view/weight/color/align/rowLimit из слоя, вручную; textBackgroundColor не покрыт данным content-only mapping"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Slider",
+            "figmaName": "Slider",
+            "nodeId": "190:36184",
+            "file": "packages/slider/code-connect/Slider.figma.ts",
+            "status": "prepared",
+            "reason": "Size/Mode/Pips/Dots отражены; domain передаётся явно. Inverted требует подтверждённой темы CSS потребителя, которой нет в API Slider",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=190-36184",
+            "requiredContext": ["min/max/step/value и valueTo для Range; pips, если включён"],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Slider",
+            "figmaName": "Slider_Inverted",
+            "nodeId": "102817:22048",
+            "file": "packages/slider/code-connect/SliderInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Size/Mode/Pips/Dots отражены; domain передаётся явно. Inverted требует подтверждённой темы CSS потребителя, которой нет в API Slider",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=102817-22048",
+            "requiredContext": [
+                "min/max/step/value и valueTo для Range; pips, если включён; invertedThemeClassName — CSS-контекст палитры потребителя, у Slider нет colors prop"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "ProductCover.Single",
+            "figmaName": "ProductCover.Single",
+            "nodeId": "20260:3",
+            "file": "packages/product-cover/code-connect/ProductCoverSingle.figma.ts",
+            "status": "prepared",
+            "reason": "Size/boolean gates/icon swap отражены. Остальное — точный локальный SingleProps как явный контекст; MCP ProductCover API не найден",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=20260-3",
+            "requiredContext": [
+                "appearance, image(cardId/baseUrl/layers), details и overlayColors — реальные значения из карточного домена/layer overrides; данные не выведены из placeholder assets"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "ProductCover.Stack",
+            "figmaName": "ProductCover.Stack",
+            "nodeId": "20260:111",
+            "file": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "status": "prepared",
+            "reason": "Четыре поддержанные конфигурации StackProps; 164x264 Left явно blocked, не подменён другим размером",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=20260-111",
+            "requiredContext": [
+                "firstCard/secondCard — реальные card data/appearance; numberOfCards — исходное целое >2 для MoreThanTwo"
+            ],
+            "publication": "published",
+            "preview": "guarded",
+            "previewReason": "Preset 164x264 Left отсутствует в актуальном StackProps: size исключает 164; требуется решение владельца"
+        },
+        {
+            "component": "ProductCover.Stack",
+            "figmaName": "Preset=164x264 Left",
+            "nodeId": "20260:111",
+            "file": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "status": "blocked",
+            "reason": "Local StackProps ConditionalProps excludes size164; no canonical alternate mapping; MCP ProductCover unavailable",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=20260-111",
+            "requiredContext": [
+                "firstCard/secondCard — реальные card data/appearance; numberOfCards — исходное целое >2 для MoreThanTwo"
+            ]
+        },
+        {
+            "component": "List/Markdown",
+            "figmaName": "❌ Bullet / ❌ • [listBulleted]",
+            "nodeId": "494:7611 / 494:8370",
+            "file": "",
+            "status": "excluded",
+            "reason": "Explicit deprecated Figma options, guards reject them; no public internal Marker roots"
+        },
+        {
+            "component": "display internal anatomy",
+            "figmaName": "🔩 Underline / Label / Addon / Marker / Pointer / Pips / Dot / СardImage / Overlay / Details",
+            "nodeId": "",
+            "file": "",
+            "status": "excluded",
+            "reason": "Internal parts of public families; parent handles dynamic content, separate invented public APIs are not created"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[D] ModalHeader",
+            "nodeId": "208:71738",
+            "file": "packages/modal/code-connect/ModalDesktopHeader.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalDesktop parent with open/onClose and size/placement as needed",
+                "headerProps from the current navigation content (title, back/close, addons, handlers)",
+                "sticky from interaction/scroll requirements; Overlap alone is insufficient"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71738",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[D] ModalBody",
+            "nodeId": "208:71734",
+            "file": "packages/modal/code-connect/ModalDesktopContent.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalDesktop parent with open/onClose and size/placement as needed",
+                "children if the custom content has no nestable Code Connect template"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71734",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[D] ModalFooter",
+            "nodeId": "208:71717",
+            "file": "packages/modal/code-connect/ModalDesktopFooter.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalDesktop parent with open/onClose and size/placement as needed",
+                "footerProps (sticky/layout/gap and children for unconnected custom content)"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71717",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[D] ModalHeader",
+            "nodeId": "208:71767",
+            "file": "packages/modal/code-connect/ModalDesktopHeaderAlternate.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalDesktop parent with open/onClose and size/placement as needed",
+                "headerProps from the current navigation content (title, back/close, addons, handlers)",
+                "sticky from interaction/scroll requirements; Overlap alone is insufficient"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71767",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[D] ModalBody",
+            "nodeId": "208:71763",
+            "file": "packages/modal/code-connect/ModalDesktopContentAlternate.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalDesktop parent with open/onClose and size/placement as needed",
+                "children if the custom content has no nestable Code Connect template"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71763",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[D] ModalFooter",
+            "nodeId": "208:71746",
+            "file": "packages/modal/code-connect/ModalDesktopFooterAlternate.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalDesktop parent with open/onClose and size/placement as needed",
+                "footerProps (sticky/layout/gap and children for unconnected custom content)"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71746",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[M] ModalHeader",
+            "nodeId": "316:24588",
+            "file": "packages/modal/code-connect/ModalMobileHeader.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalMobile parent with open/onClose and size/placement as needed",
+                "headerProps from the current navigation content (title, back/close, addons, handlers)",
+                "sticky from interaction/scroll requirements; Overlap alone is insufficient"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=316-24588",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[M] ModalBody",
+            "nodeId": "316:25126",
+            "file": "packages/modal/code-connect/ModalMobileContent.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalMobile parent with open/onClose and size/placement as needed",
+                "children if the custom content has no nestable Code Connect template"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=316-25126",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "modal",
+            "figmaName": "[M] ModalFooter",
+            "nodeId": "316:24580",
+            "file": "packages/modal/code-connect/ModalMobileFooter.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "ModalMobile parent with open/onClose and size/placement as needed",
+                "footerProps (sticky/layout/gap and children for unconnected custom content)"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=316-24580",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "side-panel",
+            "figmaName": "[D] SidePanelHeader",
+            "nodeId": "208:72500",
+            "file": "packages/side-panel/code-connect/SidePanelDesktopHeader.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "SidePanelDesktop parent with open/onClose and size/placement as needed",
+                "headerProps from the current navigation content (title, back/close, addons, handlers)",
+                "sticky from interaction/scroll requirements; Overlap alone is insufficient"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-72500",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "side-panel",
+            "figmaName": "[D] SidePanelBody",
+            "nodeId": "208:72486",
+            "file": "packages/side-panel/code-connect/SidePanelDesktopContent.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "SidePanelDesktop parent with open/onClose and size/placement as needed",
+                "children if the custom content has no nestable Code Connect template"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-72486",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "side-panel",
+            "figmaName": "[D] SidePanelFooter",
+            "nodeId": "208:72479",
+            "file": "packages/side-panel/code-connect/SidePanelDesktopFooter.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "SidePanelDesktop parent with open/onClose and size/placement as needed",
+                "footerProps (sticky/layout/gap and children for unconnected custom content)"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-72479",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "side-panel",
+            "figmaName": "[M] SidePanelHeader",
+            "nodeId": "316:25826",
+            "file": "packages/side-panel/code-connect/SidePanelMobileHeader.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "SidePanelMobile parent with open/onClose and size/placement as needed",
+                "headerProps from the current navigation content (title, back/close, addons, handlers)",
+                "sticky from interaction/scroll requirements; Overlap alone is insufficient"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=316-25826",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "side-panel",
+            "figmaName": "[M] SidePanelBody",
+            "nodeId": "316:28069",
+            "file": "packages/side-panel/code-connect/SidePanelMobileContent.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "SidePanelMobile parent with open/onClose and size/placement as needed",
+                "children if the custom content has no nestable Code Connect template"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=316-28069",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "side-panel",
+            "figmaName": "[M] SidePanelFooter",
+            "nodeId": "316:25818",
+            "file": "packages/side-panel/code-connect/SidePanelMobileFooter.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; requires matching parent and explicit context for custom content/behavior.",
+            "requiredContext": [
+                "SidePanelMobile parent with open/onClose and size/placement as needed",
+                "footerProps (sticky/layout/gap and children for unconnected custom content)"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=316-25818",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-modal",
+            "figmaName": "[M] UniversalModalHeader",
+            "nodeId": "50305:25039",
+            "file": "packages/universal-modal/code-connect/UniversalModalHeaderMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; explicit parent/interaction context. SLOT content is preserved dynamically.",
+            "requiredContext": [
+                "UniversalModalMobile parent with open/onClose and geometry from the composition",
+                "sticky and surface/background from composition/interaction requirements",
+                "custom headerProps when Custom=True; onBack/backButtonProps for standard back navigation"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=50305-25039",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-modal",
+            "figmaName": "[M] UniversalModalBody",
+            "nodeId": "50305:25055",
+            "file": "packages/universal-modal/code-connect/UniversalModalContentMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; explicit parent/interaction context. SLOT content is preserved dynamically.",
+            "requiredContext": [
+                "UniversalModalMobile parent with open/onClose and geometry from the composition"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=50305-25055",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-modal",
+            "figmaName": "[M] UniversalModalFooter",
+            "nodeId": "50305:25022",
+            "file": "packages/universal-modal/code-connect/UniversalModalFooterMobile.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; explicit parent/interaction context. SLOT content is preserved dynamically.",
+            "requiredContext": [
+                "UniversalModalMobile parent with open/onClose and geometry from the composition",
+                "sticky and surface/background from composition/interaction requirements",
+                "footerContext (sticky/layout), footerProps.children for an unconnected standard preset"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=50305-25022",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-modal",
+            "figmaName": "[D] UniversalModalHeader",
+            "nodeId": "50305:25072",
+            "file": "packages/universal-modal/code-connect/UniversalModalHeaderDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; explicit parent/interaction context. SLOT content is preserved dynamically.",
+            "requiredContext": [
+                "UniversalModalDesktop parent with open/onClose and geometry from the composition",
+                "sticky and surface/background from composition/interaction requirements",
+                "custom headerProps when Custom=True; onBack/backButtonProps for standard back navigation"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=50305-25072",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-modal",
+            "figmaName": "[D] UniversalModalBody",
+            "nodeId": "50305:25086",
+            "file": "packages/universal-modal/code-connect/UniversalModalContentDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; explicit parent/interaction context. SLOT content is preserved dynamically.",
+            "requiredContext": [
+                "UniversalModalDesktop parent with open/onClose and geometry from the composition",
+                "parent nativeScrollbar/scroll state; visibility alone does not select scroll behavior"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=50305-25086",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "universal-modal",
+            "figmaName": "[D] UniversalModalFooter",
+            "nodeId": "50305:25059",
+            "file": "packages/universal-modal/code-connect/UniversalModalFooterDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Runtime component part; explicit parent/interaction context. SLOT content is preserved dynamically.",
+            "requiredContext": [
+                "UniversalModalDesktop parent with open/onClose and geometry from the composition",
+                "sticky and surface/background from composition/interaction requirements",
+                "footerContext (sticky/layout), footerProps.children for an unconnected standard preset"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=50305-25059",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "bottom-sheet",
+            "figmaName": "[M] BottomSheetHeader",
+            "nodeId": "208:71786",
+            "file": "packages/bottom-sheet/code-connect/BottomSheetHeader.figma.ts",
+            "status": "prepared",
+            "reason": "Composition props fragment; requires parent assembly. Public BottomSheet has no Header/Body/Footer components.",
+            "requiredContext": [
+                "assemble the fragment into one BottomSheet; supply open/onClose and composition geometry",
+                "all Header/Body/Footer fragments must use the same palette",
+                "layoutProps: initialHeight/magneticAreas/stickyHeader from height/scroll scenario",
+                "navigationProps when Content=True; custom navigation is not a public Header component",
+                "showSwipeMarker requires a sheet with adjustable height"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71786",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "bottom-sheet",
+            "figmaName": "[M] BottomSheetBody",
+            "nodeId": "208:71782",
+            "file": "packages/bottom-sheet/code-connect/BottomSheetBody.figma.ts",
+            "status": "prepared",
+            "reason": "Composition props fragment; requires parent assembly. Public BottomSheet has no Header/Body/Footer components.",
+            "requiredContext": [
+                "assemble the fragment into one BottomSheet; supply open/onClose and composition geometry",
+                "all Header/Body/Footer fragments must use the same palette",
+                "children for an unconnected body content"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71782",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "bottom-sheet",
+            "figmaName": "[M] BottomSheetFooter",
+            "nodeId": "208:71775",
+            "file": "packages/bottom-sheet/code-connect/BottomSheetFooter.figma.ts",
+            "status": "prepared",
+            "reason": "Composition props fragment; requires parent assembly. Public BottomSheet has no Header/Body/Footer components.",
+            "requiredContext": [
+                "assemble the fragment into one BottomSheet; supply open/onClose and composition geometry",
+                "all Header/Body/Footer fragments must use the same palette",
+                "stickyFooter from interaction requirements; actionButton for an unconnected content preset"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-71775",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "bottom-sheet",
+            "figmaName": "[M] BottomSheetHeader_Inverted",
+            "nodeId": "76012:43486",
+            "file": "packages/bottom-sheet/code-connect/BottomSheetHeaderInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Composition props fragment; requires parent assembly. Public BottomSheet has no Header/Body/Footer components.",
+            "requiredContext": [
+                "assemble the fragment into one BottomSheet; supply open/onClose and composition geometry",
+                "all Header/Body/Footer fragments must use the same palette",
+                "layoutProps: initialHeight/magneticAreas/stickyHeader from height/scroll scenario",
+                "navigationProps when Content=True; custom navigation is not a public Header component",
+                "showSwipeMarker requires a sheet with adjustable height"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=76012-43486",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "bottom-sheet",
+            "figmaName": "[M] BottomSheetBody_Inverted",
+            "nodeId": "76012:43940",
+            "file": "packages/bottom-sheet/code-connect/BottomSheetBodyInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Composition props fragment; requires parent assembly. Public BottomSheet has no Header/Body/Footer components.",
+            "requiredContext": [
+                "assemble the fragment into one BottomSheet; supply open/onClose and composition geometry",
+                "all Header/Body/Footer fragments must use the same palette",
+                "children for an unconnected body content"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=76012-43940",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "bottom-sheet",
+            "figmaName": "[M] BottomSheetFooter_Inverted",
+            "nodeId": "76012:43478",
+            "file": "packages/bottom-sheet/code-connect/BottomSheetFooterInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Composition props fragment; requires parent assembly. Public BottomSheet has no Header/Body/Footer components.",
+            "requiredContext": [
+                "assemble the fragment into one BottomSheet; supply open/onClose and composition geometry",
+                "all Header/Body/Footer fragments must use the same palette",
+                "stickyFooter from interaction requirements; actionButton for an unconnected content preset"
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=76012-43478",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "PopupSheet",
+            "figmaName": "PopupSheet",
+            "nodeId": "373:16737",
+            "file": "packages/popup-sheet/code-connect/PopupSheet.figma.ts",
+            "status": "prepared",
+            "reason": "Cross → hasCloser; открытие, обработчик, реальное содержимое и отступы задаёт приложение.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=373-16737",
+            "requiredContext": [
+                "open/onClose: PopupSheetProps",
+                "children: фактическое содержимое вместо SwapMe",
+                "padding: отступы из контекста"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "TooltipDesktop",
+            "figmaName": "TooltipDesktop",
+            "nodeId": "376:12567",
+            "file": "packages/tooltip/code-connect/TooltipDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "Направление, палитра и вид из properties; Text/Slot динамические. Триггер и открытие из приложения.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=376-12567",
+            "requiredContext": [
+                "children: настоящий элемент-триггер",
+                "open: управление видимостью при необходимости",
+                "content: требуется для пустого SwapMe; Text/заполненный Slot берутся из Figma"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Popover",
+            "figmaName": "OptionListDesktop",
+            "nodeId": "121328:27150",
+            "file": "packages/popover/code-connect/OptionListDesktop.figma.ts",
+            "status": "prepared",
+            "reason": "OptionList — композиция Popover по bridge хаба; слоты динамические. Оформление, семантика списка, размеры и anchor из приложения. FixedHeight требует явной высоты поверхности.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=121328-27150",
+            "requiredContext": [
+                "open/anchorElement: PopoverProps",
+                "surfaceProps: оформление, роль и обработчики из потребителя; при FixedHeight=True обязательна height",
+                "body: реальные опции, если Body пуст или содержит только декоративный Scrollbar"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Scrollbar",
+            "figmaName": "Scrollbar",
+            "nodeId": "206:69756",
+            "file": "packages/scrollbar/code-connect/Scrollbar.figma.ts",
+            "status": "prepared",
+            "reason": "Палитра/ось из корня; Position задаёт начальное положение по реальному диапазону прокрутки. Размер thumb зависит от контента.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=206-69756",
+            "requiredContext": [
+                "children: реальное переполняющее содержимое",
+                "style/viewportStyle: размеры контейнера и области прокрутки; отношение размеров задаёт thumb"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Scrollbar",
+            "figmaName": "ScrollbarVertical",
+            "nodeId": "121340:2049",
+            "file": "packages/scrollbar/code-connect/ScrollbarVertical.figma.ts",
+            "status": "prepared",
+            "reason": "Палитра/ось из корня; Position задаёт начальное положение по реальному диапазону прокрутки. Размер thumb зависит от контента.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=121340-2049",
+            "requiredContext": [
+                "children: реальное переполняющее содержимое",
+                "style/viewportStyle: размеры контейнера и области прокрутки; отношение размеров задаёт thumb"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Scrollbar",
+            "figmaName": "ScrollbarVerticalInverted",
+            "nodeId": "121340:2050",
+            "file": "packages/scrollbar/code-connect/ScrollbarVerticalInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Палитра/ось из корня; Position задаёт начальное положение по реальному диапазону прокрутки. Размер thumb зависит от контента.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=121340-2050",
+            "requiredContext": [
+                "children: реальное переполняющее содержимое",
+                "style/viewportStyle: размеры контейнера и области прокрутки; отношение размеров задаёт thumb"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "Scrollbar",
+            "figmaName": "ScrollbarInverted",
+            "nodeId": "121340:2051",
+            "file": "packages/scrollbar/code-connect/ScrollbarInverted.figma.ts",
+            "status": "prepared",
+            "reason": "Палитра/ось из корня; Position задаёт начальное положение по реальному диапазону прокрутки. Размер thumb зависит от контента.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=121340-2051",
+            "requiredContext": [
+                "children: реальное переполняющее содержимое",
+                "style/viewportStyle: размеры контейнера и области прокрутки; отношение размеров задаёт thumb"
+            ],
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "SegmentedControl",
+            "figmaName": "SegmentedControl_32",
+            "nodeId": "147335:19531",
+            "file": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "status": "prepared",
+            "reason": "Подтверждены опубликованный Fill-корень, size, Shape, Capacity, Selected, Segment.title ReactNode и динамические Addon_20/Slot. Resize=Hug явно отклоняется: реализация вычисляет подложку как parentWidth/count, а Figma Hug задаёт независимые ширины. Нет block prop; Fill передаётся через style.width=100%. Разделители проверяются по инварианту кода/cookbook; некорректные ручные значения не подменяются.",
+            "requiredContext": [
+                "ids: реальные уникальные идентификаторы сегментов в порядке Figma; родитель с определённой шириной для Fill. onChange — необязательный callback прикладного сценария."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=147335-19531",
+            "publication": "published",
+            "preview": "guarded",
+            "previewReason": "Разделители рядом с выбранным сегментом должны быть скрыты, остальные видимы"
+        },
+        {
+            "component": "SegmentedControl",
+            "figmaName": "SegmentedControl_40",
+            "nodeId": "147335:16431",
+            "file": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "status": "prepared",
+            "reason": "Подтверждены опубликованный Fill-корень, size, Shape, Capacity, Selected, Segment.title ReactNode и динамические Addon_20/Slot. Resize=Hug явно отклоняется: реализация вычисляет подложку как parentWidth/count, а Figma Hug задаёт независимые ширины. Нет block prop; Fill передаётся через style.width=100%. Разделители проверяются по инварианту кода/cookbook; некорректные ручные значения не подменяются.",
+            "requiredContext": [
+                "ids: реальные уникальные идентификаторы сегментов в порядке Figma; родитель с определённой шириной для Fill. onChange — необязательный callback прикладного сценария."
+            ],
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=147335-16431",
+            "publication": "published",
+            "preview": "guarded",
+            "previewReason": "Разделители рядом с выбранным сегментом должны быть скрыты, остальные видимы"
+        },
+        {
+            "component": "icon-button",
+            "figmaName": "ὒ9 IconButton Icon",
+            "nodeId": "603:59872",
+            "file": "packages/icon-button/code-connect/IconButtonIcon.figma.ts",
+            "status": "prepared",
+            "scope": "technical-dependency",
+            "reason": "Технический адаптер фактически выбранной вложенной иконки IconButton; не новый публичный API.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=603-59872",
+            "publication": "published",
+            "preview": "passed"
+        },
+        {
+            "component": "divider",
+            "figmaName": "❌ Divider",
+            "nodeId": "9997:20838",
+            "file": null,
+            "status": "excluded",
+            "reason": "Устаревший элемент. По bridge хаба разделитель задаётся border контейнера, без импорта Divider.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=9997-20838"
+        },
+        {
+            "component": "webview",
+            "figmaName": "NativeSafariBottom / NativeAlphabeticSuggestion / NativeNumericKeyboard / NativeAlphabeticKeyboard / NativeStatusBar / NativeHomeBar / NativeBrowserKeyboardCap",
+            "nodeId": "208:80750",
+            "file": null,
+            "status": "excluded",
+            "reason": "Примеры системного интерфейса браузера/клавиатуры, а не компоненты Core Web с библиотечным API.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=208-80750"
+        },
+        {
+            "component": "master-input",
+            "figmaName": ":: MasterInput",
+            "nodeId": "67:54624",
+            "file": null,
+            "status": "excluded",
+            "reason": "Техническая анатомия Input. Публичные Input-шаблоны используют эти части через родителя.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=67-54624"
+        },
+        {
+            "component": "option-list-parts",
+            "figmaName": "[D]/[M] OptionListCell / OptionListHeader / GroupTitle / EmptyState",
+            "nodeId": "204:44763",
+            "file": null,
+            "status": "excluded",
+            "reason": "Части композиции списка. Отдельный публичный runtime API не установлен; строки, семантику выбора и поиск задаёт потребитель. Не создаётся фиктивный OptionListCell.",
+            "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=204-44763"
+        },
+        {
+            "component": "documentation",
+            "figmaName": "Интро / Обложка / разделители страниц",
+            "nodeId": null,
+            "file": null,
+            "status": "excluded",
+            "reason": "Документация и навигационные элементы Figma-файла, без соответствия runtime-компоненту."
+        }
+    ],
+    "guardedStates": [
+        {
+            "file": "packages/tag/code-connect/TagFilledMobile.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagMutedDesktop.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagMutedMobile.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagTransparentDesktop.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagTransparentMobile.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagFilledInvertedDesktop.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagFilledInvertedMobile.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagTransparentInvertedDesktop.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/tag/code-connect/TagTransparentInvertedMobile.figma.ts",
+            "reason": "IndicatorTag.*Size=56"
+        },
+        {
+            "file": "packages/action-button/code-connect/ActionButton.figma.ts",
+            "reason": "Static=True.*Inverted=True"
+        },
+        {
+            "file": "packages/custom-button/code-connect/CustomButton.figma.ts",
+            "reason": "Замени SwapMe"
+        },
+        {
+            "file": "packages/radio-group/code-connect/RadioGroupDesktop.figma.ts",
+            "reason": "один выбранный"
+        },
+        {
+            "file": "packages/checkbox/code-connect/CheckboxLabel20.figma.ts",
+            "reason": "CompactLabel=True.*API"
+        },
+        {
+            "file": "packages/checkbox/code-connect/CheckboxLabel20Reverse.figma.ts",
+            "reason": "CompactLabel=True.*API"
+        },
+        {
+            "file": "packages/checkbox/code-connect/CheckboxLabel20Inverted.figma.ts",
+            "reason": "CompactLabel=True.*API"
+        },
+        {
+            "file": "packages/checkbox/code-connect/CheckboxLabel20ReverseInverted.figma.ts",
+            "reason": "CompactLabel=True.*API"
+        },
+        {
+            "file": "packages/radio/code-connect/RadioLabel20.figma.ts",
+            "reason": "CompactLabel=True.*API"
+        },
+        {
+            "file": "packages/radio/code-connect/RadioLabel20Inverted.figma.ts",
+            "reason": "CompactLabel=True.*API"
+        },
+        {
+            "file": "packages/radio-group/code-connect/TagGroupDesktop.figma.ts",
+            "reason": "Размер каждого Tag"
+        },
+        {
+            "file": "packages/radio-group/code-connect/TagGroupMobile.figma.ts",
+            "reason": "Размер каждого Tag"
+        },
+        {
+            "file": "packages/amount-input/code-connect/AmountInputDesktop.figma.ts",
+            "reason": "денежное значение"
+        },
+        {
+            "file": "packages/number-input/code-connect/NumberInputDesktop.figma.ts",
+            "reason": "Stepper не поддерживает дробную часть"
+        },
+        {
+            "file": "packages/code-input/code-connect/CodeInputDesktop.figma.ts",
+            "reason": "пропуски"
+        },
+        {
+            "file": "packages/code-input/code-connect/CodeInputDesktop.figma.ts",
+            "reason": "Смешанная блокировка"
+        },
+        {
+            "file": "packages/code-input/code-connect/CodeInputMobile.figma.ts",
+            "reason": "пропуски"
+        },
+        {
+            "file": "packages/code-input/code-connect/CodeInputMobile.figma.ts",
+            "reason": "Смешанная блокировка"
+        },
+        {
+            "file": "packages/indicator/code-connect/Indicator.figma.ts",
+            "reason": "положительное"
+        },
+        {
+            "file": "packages/list/code-connect/List.figma.ts",
+            "reason": "Устаревший"
+        },
+        {
+            "file": "packages/markdown/code-connect/Markdown.figma.ts",
+            "reason": "Устаревший"
+        },
+        {
+            "file": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+            "reason": "отсутствует"
+        },
+        {
+            "file": "packages/scrollbar/code-connect/Scrollbar.figma.ts",
+            "reason": "Неизвестный Position"
+        },
+        {
+            "file": "packages/scrollbar/code-connect/ScrollbarVertical.figma.ts",
+            "reason": "Неизвестный Position"
+        },
+        {
+            "file": "packages/scrollbar/code-connect/ScrollbarVerticalInverted.figma.ts",
+            "reason": "Неизвестный Position"
+        },
+        {
+            "file": "packages/scrollbar/code-connect/ScrollbarInverted.figma.ts",
+            "reason": "Неизвестный Position"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "reason": "Resize=Hug"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "reason": "ровно один"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "reason": "Capacity"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "reason": "Разделители"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "reason": "видимой подписью"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "reason": "Resize=Hug"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "reason": "ровно один"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "reason": "Capacity"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "reason": "Разделители"
+        },
+        {
+            "file": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "reason": "видимой подписью"
+        }
+    ],
+    "verification": {
+        "templateTypeScript": "passed",
+        "cliParseCount": 148,
+        "duplicateUrls": 0,
+        "duplicateTemplateIds": 0,
+        "newScenarioChecks": 513,
+        "newRenderedSnippets": 423,
+        "generatedSnippetApiTypes": "passed",
+        "tagGroupBehaviorChecks": 32,
+        "existingHedgingScenarioChecks": 32,
+        "existingHedgingRenderedSnippets": 26,
+        "figmaPreview": "completed through CLI:143 success,5 expected guarded states,0unexpected failures",
+        "publication": "published:148 confirmed nodes,0failed",
+        "getterFixPublishedCount": 49,
+        "livePreview": {
+            "checked": 148,
+            "passed": 143,
+            "expectedGuardedStates": [
+                {
+                    "nodeId": "3:7695",
+                    "filePath": "packages/custom-button/code-connect/CustomButton.figma.ts",
+                    "error": "Замени SwapMe содержимым CustomButton"
+                },
+                {
+                    "nodeId": "20260:111",
+                    "filePath": "packages/product-cover/code-connect/ProductCoverStack.figma.ts",
+                    "error": "Preset 164x264 Left отсутствует в актуальном StackProps: size исключает 164; требуется решение владельца"
+                },
+                {
+                    "nodeId": "147335:19531",
+                    "filePath": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+                    "error": "Разделители рядом с выбранным сегментом должны быть скрыты, остальные видимы"
+                },
+                {
+                    "nodeId": "147335:16431",
+                    "filePath": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+                    "error": "Разделители рядом с выбранным сегментом должны быть скрыты, остальные видимы"
+                },
+                {
+                    "nodeId": "131186:19740",
+                    "filePath": "packages/tag/code-connect/TagTransparentDesktop.figma.ts",
+                    "error": "IndicatorTag не поддерживает Size=56"
+                }
+            ],
+            "unexpectedFailures": 0
+        },
+        "missingTemplateMode": "comment"
+    },
+    "publication": {
+        "status": "published",
+        "figmaFile": "lGWq8DtnUcSkRasagBuwq6",
+        "label": "React",
+        "confirmedCount": 148,
+        "failedCount": 0,
+        "receipt": "docs/code-connect-web-core-publication.json",
+        "tokenSaved": false
+    },
+    "pullRequestReview": {
+        "url": "https://github.com/core-ds/core-components/pull/2280",
+        "reviewedAt": "2026-10-27",
+        "slotFixCount": 33,
+        "slotFixPublication": "published",
+        "ciCommand": "yarn figma:connect:check",
+        "publishedCount": 33,
+        "verifiedCodeCommit": "da8247558b6c4d25f8a570a127115cd66f35d3cf",
+        "checked": 217,
+        "passed": 201,
+        "expectedGuards": 16,
+        "unexpectedErrors": 0,
+        "servicePlaceholders": 0,
+        "unitTests": {
+            "passedSuites": 153,
+            "passedTests": 3348,
+            "passedSnapshots": 284,
+            "skippedSuites": 2,
+            "skippedTests": 58,
+            "todoTests": 1
+        }
+    }
+}
