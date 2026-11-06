@@ -15,6 +15,7 @@
         "packages/alert",
         "packages/amount",
         "packages/amount-input",
+        "packages/animation-private",
         "packages/attach",
         "packages/backdrop",
         "packages/badge",
