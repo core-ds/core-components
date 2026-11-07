@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react';
 
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-
 import { BaseCustomButton } from '../components/base-custom-button';
-import { type CustomButtonProps } from '../types/props';
+import { type CommonCustomButtonProps } from '../types/props';
+
+import styles from './index.module.css';
 
 export const CustomButtonMobile = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
-    CustomButtonProps
+    CommonCustomButtonProps
 >(({ children, ...restProps }, ref) => (
-    <BaseCustomButton ref={ref} {...restProps} componentButton={ButtonMobile}>
+    <BaseCustomButton ref={ref} {...restProps} styles={styles}>
         {children}
     </BaseCustomButton>
 ));

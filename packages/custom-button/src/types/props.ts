@@ -1,8 +1,18 @@
-import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+import {
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    type ComponentProps as ReactComponentProps,
+    type ElementType,
+} from 'react';
 
-import { type ButtonProps } from '@alfalab/core-components-button';
+import { type BaseButtonCustomProps } from '@alfalab/core-components-button/shared';
+import {
+    type ComposedPolymorphicProps,
+    type PolymorphicComponentProps,
+} from '@alfalab/core-components-polymorphic';
 
-export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
+export interface ComponentProps
+    extends Omit<BaseButtonCustomProps, 'layout' | 'loadingClassName' | 'styles'> {
     /**
      * Цвет кнопки
      */
@@ -28,9 +38,32 @@ export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
      * @default default
      */
     disableType?: 'default' | 'static' | 'inverted' | 'static-inverted';
-};
+}
 
-type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+interface ResponsiveProps {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 
-export type CustomButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+    /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+}
+
+export type CommonCustomButtonProps = ComponentProps &
+    PolymorphicComponentProps<
+        | ElementType<ComposedPolymorphicProps<ReactComponentProps<'a'>>, 'a'>
+        | ElementType<ComposedPolymorphicProps<ReactComponentProps<'button'>>, 'button'>
+    > &
+    (AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>);
+
+export type CustomButtonProps = CommonCustomButtonProps & ResponsiveProps;
