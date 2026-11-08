@@ -2066,12 +2066,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-test-utils@workspace:packages/test-utils":
-  version: 0.0.0-use.local
-  resolution: "@alfalab/core-components-test-utils@workspace:packages/test-utils"
-  languageName: unknown
-  linkType: soft
-
 "@alfalab/core-components-text@npm:^3.0.3, @alfalab/core-components-text@workspace:packages/text":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-text@workspace:packages/text"

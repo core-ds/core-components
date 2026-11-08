@@ -86,7 +86,7 @@ description: Public API compatibility and breaking-change checklist for core-com
 
 ### Пакеты вне версионирования
 
-Пакеты из `ignore` в `.changeset/config.json` (`@alfalab/core-components-env`, `@alfalab/core-components-screenshot-utils`, `@alfalab/core-components-test-utils`, `@alfalab/core-components-tsconfig-node24-backport`) не версионируются — changeset для изменений в них не нужен вообще.
+Пакеты из `ignore` в `.changeset/config.json` (`@alfalab/core-components-env`, `@alfalab/core-components-screenshot-utils`, `@alfalab/core-components-tsconfig-node24-backport`) не версионируются — changeset для изменений в них не нужен вообще.
 
 ### Новый компонент
 

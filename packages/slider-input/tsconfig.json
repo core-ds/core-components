@@ -13,15 +13,12 @@
             "@alfalab/core-components-slider": ["../slider/src"],
             "@alfalab/core-components-slider/*": ["../slider/src/*"],
             "@alfalab/core-components-slider-input": ["./src"],
-            "@alfalab/core-components-slider-input/*": ["./src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-slider-input/*": ["./src/*"]
         }
     },
     "references": [
         { "path": "../input/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
-        { "path": "../slider/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../slider/tsconfig.build.json" }
     ]
 }

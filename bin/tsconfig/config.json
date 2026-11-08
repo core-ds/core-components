@@ -58,8 +58,7 @@
             "@alfalab/core-components": {
                 "exclude": [
                     "@alfalab/core-components",
-                    "@alfalab/core-components-screenshot-utils",
-                    "@alfalab/core-components-test-utils"
+                    "@alfalab/core-components-screenshot-utils"
                 ],
                 "dependencies": false,
                 "devDependencies": false,
@@ -84,10 +83,7 @@
             }
         },
         "rules": {
-            "include": [
-                "@alfalab/core-components-screenshot-utils",
-                "@alfalab/core-components-test-utils"
-            ],
+            "include": ["@alfalab/core-components-screenshot-utils"],
             "out": "tsconfig.json",
             "template": "templates/tsconfig.package.json",
             "references": "tsconfig.build.json",
