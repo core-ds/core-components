@@ -357,6 +357,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             } else {
                 toggleView('days');
             }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [activeMonth]);
 
         useDidUpdateEffect(() => {
