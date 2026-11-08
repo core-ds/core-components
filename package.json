@@ -17,7 +17,6 @@
         "build-storybook": "node bin/build-storybook/bin.mjs",
         "check-package-json": "sort-package-json --check package.json \"{packages,scripts}/*/package.json\"",
         "clean": "node bin/clean/bin.mjs",
-        "cm": "git-cz",
         "format": "prettier --check \"{packages,scripts,bin,tools}/**/*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,yaml,yml,md}\"",
         "generate-dark-colors": "node bin/dark-colors-generator.mjs",
         "generate-major-changeset": "node bin/generate-major-changeset.mjs",
