@@ -17,7 +17,8 @@
         "dev": "tsx src/index.mts",
         "generate-data": "node scripts/generate-data.mjs",
         "inspect": "npx @modelcontextprotocol/inspector",
-        "start": "node dist/index.mjs"
+        "start": "node dist/index.mjs",
+        "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.18.0",

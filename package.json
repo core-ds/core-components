@@ -33,6 +33,7 @@
         "start": "storybook dev -p 9009",
         "test": "jest --watchAll=false",
         "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
+        "test:mcp": "yarn workspace @alfalab/core-components-mcp test",
         "test:screenshots": "bin/run-screenshots.sh",
         "test:screenshots-local": "bin/run-screenshots-local.sh",
         "tsconfig": "node bin/tsconfig/bin.mjs",

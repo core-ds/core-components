@@ -3,6 +3,7 @@
     "extends": "@alfalab/core-components-tsconfig-node24-backport",
     "include": ["src"],
     "compilerOptions": {
+        "isolatedModules": true,
         "resolveJsonModule": true,
         "rootDir": "src",
         "outDir": "dist"
