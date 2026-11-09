@@ -8,7 +8,7 @@ import { type GraphicsElement } from '../types';
 
 import styles from './index.module.css';
 
-export type Props = {
+export type PureCellGraphicsProps = {
     /**
      * Компоненты
      */
@@ -36,12 +36,14 @@ export type Props = {
     onClick?: () => void;
 };
 
+export type Props = PureCellGraphicsProps;
+
 const GRAPHICS_COMPONENT: Record<string, keyof Pick<React.ReactHTML, 'button' | 'section'>> = {
     button: 'button',
     section: 'section',
 };
 
-export const Graphics: React.FC<Props> = ({
+export const Graphics: React.FC<PureCellGraphicsProps> = ({
     children,
     dataTestId,
     verticalAlign = 'top',

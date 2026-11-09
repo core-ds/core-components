@@ -10,7 +10,7 @@ import { type AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellAmountProps = {
     /**
      * Начертание шрифта денежного значения
      */
@@ -38,7 +38,7 @@ type Props = {
     dataTestId?: string;
 } & Omit<AmountType, 'dataTestId'>;
 
-export const Amount: React.FC<Props> = ({
+export const Amount: React.FC<PureCellAmountProps> = ({
     weight = 'normal',
     textView = 'component-primary',
     color = 'primary',

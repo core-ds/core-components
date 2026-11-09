@@ -23,6 +23,8 @@ type ComponentProps = Omit<ButtonProps, 'dataTestId'> & {
 type FooterButtonProps = ComponentProps &
     Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
+export type PureCellFooterButtonProps = FooterButtonProps;
+
 type FooterButtonMouseEvent = React.MouseEvent<HTMLAnchorElement, MouseEvent> &
     React.MouseEvent<HTMLButtonElement, MouseEvent>;
 
