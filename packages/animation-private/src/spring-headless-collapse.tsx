@@ -8,7 +8,10 @@ type Dimension = 'height' | 'width';
 const scrollProps = { height: 'scrollHeight', width: 'scrollWidth' } as const;
 
 export interface SpringHeadlessCollapseProps<T extends HTMLElement>
-    extends Pick<SpringTransitionProps<T>, 'in' | 'nodeRef' | 'spring' | 'children' | 'onEntered'> {
+    extends Pick<
+        SpringTransitionProps<T>,
+        'in' | 'nodeRef' | 'spring' | 'children' | 'onEntered' | 'onExited'
+    > {
     dimension?: Dimension;
     enterThreshold?: number;
     onEnterThreshold?: () => void;

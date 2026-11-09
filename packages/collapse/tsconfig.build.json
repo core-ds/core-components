@@ -7,16 +7,16 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
+            "@alfalab/core-components-animation-private": ["../animation-private/src"],
+            "@alfalab/core-components-animation-private/*": ["../animation-private/src/*"],
             "@alfalab/core-components-collapse": ["./src"],
             "@alfalab/core-components-collapse/*": ["./src/*"],
-            "@alfalab/core-components-headless-collapse": ["../headless-collapse/src"],
-            "@alfalab/core-components-headless-collapse/*": ["../headless-collapse/src/*"],
             "@alfalab/core-components-link": ["../link/src"],
             "@alfalab/core-components-link/*": ["../link/src/*"]
         }
     },
     "references": [
-        { "path": "../headless-collapse/tsconfig.build.json" },
+        { "path": "../animation-private/tsconfig.build.json" },
         { "path": "../link/tsconfig.build.json" }
     ]
 }

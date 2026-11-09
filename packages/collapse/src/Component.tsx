@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { HeadlessCollapse } from '@alfalab/core-components-headless-collapse';
+import { SpringHeadlessCollapse } from '@alfalab/core-components-animation-private';
 import { Link } from '@alfalab/core-components-link';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
 
@@ -74,6 +74,11 @@ export type CollapseProps = {
     colors?: 'default' | 'inverted';
 };
 
+const spring = {
+    enter: { stiffness: 426, damping: 41, mass: 1 },
+    exit: { stiffness: 743, damping: 49, mass: 1 },
+};
+
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
     (
         {
@@ -120,10 +125,12 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                 id={id}
                 data-test-id={dataTestId}
             >
-                <HeadlessCollapse
+                <SpringHeadlessCollapse
                     in={expanded}
                     nodeRef={contentRef}
-                    getDimensionValue={(node) => node.getBoundingClientRect().height}
+                    spring={spring}
+                    onEntered={handleTransitionEnd}
+                    onExited={handleTransitionEnd}
                 >
                     {(state) => (
                         <div
@@ -133,12 +140,11 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                                 [styles.collapsing]: state === 'exiting' || state === 'entering',
                                 [styles.collapsed]: state === 'exited' || state === 'entered',
                             })}
-                            onTransitionEnd={handleTransitionEnd}
                         >
                             <div>{children}</div>
                         </div>
                     )}
-                </HeadlessCollapse>
+                </SpringHeadlessCollapse>
                 {(expandedLabel || collapsedLabel) && (
                     <Link
                         className={cn({ [styles.expandedLabel]: expanded })}

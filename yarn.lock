@@ -490,7 +490,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-collapse@workspace:packages/collapse"
   dependencies:
-    "@alfalab/core-components-headless-collapse": "npm:^0.0.1"
+    "@alfalab/core-components-animation-private": "npm:^0.0.0"
     "@alfalab/core-components-link": "npm:^7.0.3"
     "@alfalab/icons-glyph": "npm:^2.294.0"
     classnames: "npm:^2.5.1"
@@ -842,7 +842,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-headless-collapse@npm:^0.0.1, @alfalab/core-components-headless-collapse@workspace:packages/headless-collapse":
+"@alfalab/core-components-headless-collapse@workspace:packages/headless-collapse":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-headless-collapse@workspace:packages/headless-collapse"
   dependencies:
