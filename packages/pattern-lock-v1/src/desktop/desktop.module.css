@@ -6,7 +6,7 @@
     margin: var(--gap-8) var(--gap-0) var(--gap-24) var(--gap-0);
 }
 
-.forgotBtn {
+.forgotBtnContainer {
     margin: var(--gap-24) auto var(--gap-0);
 }
 
