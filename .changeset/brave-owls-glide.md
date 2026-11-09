@@ -2,4 +2,4 @@
 '@alfalab/core-components-collapse': minor
 ---
 
-- Изменены анимации компонента
+- Изменены `transition` анимации компонента на `spring`
