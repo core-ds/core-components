@@ -18,9 +18,10 @@ import styles from './index.module.css';
 
 const ADDONS_HEIGHT = 48;
 
-const getImageStyle = (image: NavigationBarPrivateNextProps['image']): CSSProperties | undefined =>
+const getImageSizeStyle = (
+    image: NavigationBarPrivateNextProps['image'],
+): CSSProperties | undefined =>
     image && {
-        backgroundImage: `url(${image.src})`,
         aspectRatio: image.aspectRatio?.toString(),
         minHeight: image.height,
     };
@@ -68,6 +69,8 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const textAlign = headerMode === 'left' ? 'left' : 'center';
 
         const [scrollTop, setScrollTop] = useState(0);
+        const [collapseDistance, setCollapseDistance] = useState(0);
+        const [navReachScrollTop, setNavReachScrollTop] = useState(0);
         const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
         const [mainLineMargin, setMainLineMargin] = useState<{
             left?: number;
@@ -75,6 +78,8 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         }>({});
         const bottomContentRef = useRef<HTMLDivElement>(null);
         const headerRef = useRef<HTMLDivElement>(null);
+        const mainLineRef = useRef<HTMLDivElement>(null);
+        const imageUnderRef = useRef<HTMLDivElement>(null);
         const mainLinePaddingTopRef = useRef<string>('0px');
         const leftAddonsRef = useRef<HTMLDivElement>(null);
         const rightAddonsRef = useRef<HTMLDivElement>(null);
@@ -84,15 +89,37 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const hasLeftPart = Boolean(leftAddons || hasBackButton);
         const hasRightPart = Boolean(rightAddons || hasCloser);
         const hasContent = Boolean(title || children);
-        const withAnimation = Boolean(isMobile && hasLeftPart && headerMode === 'left');
-        const showContentOnBot = hasContent && hasLeftPart && headerMode === 'left';
+        const isContentUnderImage = image?.contentPlacement === 'under';
+        const withImageCollapse = Boolean(image);
+        const withAnimation = Boolean(
+            isMobile && hasLeftPart && headerMode === 'left' && !withImageCollapse,
+        );
+        const withTitleCollapse = Boolean(
+            isMobile && isContentUnderImage && hasContent && headerMode === 'left',
+        );
+        const withContentCollapse = withAnimation || withTitleCollapse;
+        const showContentOnBot =
+            hasContent && (isContentUnderImage || (hasLeftPart && headerMode === 'left'));
         const showContentOnTop = hasContent && !showContentOnBot;
-        const showStaticContentOnTop = !withAnimation && showContentOnTop;
-        const showStaticContentOnBot = !withAnimation && showContentOnBot;
+        const showStaticContentOnTop = !withContentCollapse && showContentOnTop;
+        const showStaticContentOnBot = !withContentCollapse && showContentOnBot;
+        const titleCollapseStart = withTitleCollapse
+            ? Math.max(0, navReachScrollTop - ADDONS_HEIGHT)
+            : 0;
+        const titleScrollTop = scrollTop - titleCollapseStart;
         const showAnimatedContentOnTop =
-            withAnimation && showContentOnBot && scrollTop > ADDONS_HEIGHT;
-        const showAnimatedContentOnBot = withAnimation && showContentOnBot;
+            withContentCollapse && showContentOnBot && titleScrollTop > ADDONS_HEIGHT;
+        const showAnimatedContentOnBot = withContentCollapse && showContentOnBot;
         const headerPaddingTop = mainLinePaddingTopRef.current;
+        const imageFadeDistance = isContentUnderImage ? navReachScrollTop : collapseDistance;
+        const imageOpacity =
+            withImageCollapse && imageFadeDistance > 0
+                ? Math.max(0, 1 - scrollTop / imageFadeDistance)
+                : 1;
+        const collapsingStyle =
+            withImageCollapse && !isContentUnderImage ? { opacity: imageOpacity } : undefined;
+        const isNavigationFilled =
+            isContentUnderImage && navReachScrollTop > 0 && scrollTop >= navReachScrollTop;
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
             const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
@@ -136,25 +163,69 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             hasCloser,
         ]);
 
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            const header = headerRef.current;
+            const mainLine = mainLineRef.current;
+
+            if (!withImageCollapse || !header || !mainLine) return undefined;
+
+            const measure = () => {
+                const paddingTop = parseFloat(getComputedStyle(header).paddingTop) || 0;
+                const navigationBottom = paddingTop + mainLine.offsetHeight;
+                const imageUnder = imageUnderRef.current;
+
+                setCollapseDistance(Math.max(0, header.offsetHeight - navigationBottom));
+                setNavReachScrollTop(
+                    imageUnder
+                        ? Math.max(
+                              0,
+                              imageUnder.offsetTop + imageUnder.offsetHeight - navigationBottom,
+                          )
+                        : 0,
+                );
+            };
+
+            measure();
+
+            if (typeof ResizeObserver === 'undefined') return undefined;
+
+            const observer = new ResizeObserver(measure);
+
+            observer.observe(header);
+
+            return () => observer.disconnect();
+        }, [withImageCollapse, isContentUnderImage]);
+
         useEffect(() => {
             const parent = scrollableParentRef?.current;
+            const titleCollapseEnd = withTitleCollapse ? titleCollapseStart + ADDONS_HEIGHT * 2 : 0;
+            const maxScrollTop = withImageCollapse
+                ? Math.max(collapseDistance, titleCollapseEnd)
+                : ADDONS_HEIGHT * 2;
 
             const handleScroll = (ev: Event) => {
                 const divElement = ev.target as HTMLDivElement;
 
-                setScrollTop(Math.min(Math.max(divElement.scrollTop, 0), ADDONS_HEIGHT * 2));
+                setScrollTop(Math.min(Math.max(divElement.scrollTop, 0), maxScrollTop));
             };
 
             if (withAnimation && headerRef.current) {
                 mainLinePaddingTopRef.current = getComputedStyle(headerRef.current).paddingTop;
             }
 
-            if (withAnimation && parent) {
+            if ((withAnimation || withImageCollapse) && parent) {
                 parent.addEventListener('scroll', handleScroll);
             }
 
             return () => parent?.removeEventListener('scroll', handleScroll);
-        }, [scrollableParentRef, withAnimation]);
+        }, [
+            scrollableParentRef,
+            withAnimation,
+            withImageCollapse,
+            withTitleCollapse,
+            collapseDistance,
+            titleCollapseStart,
+        ]);
 
         const renderBackButton = () => {
             let textOpacity = 1;
@@ -243,10 +314,14 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         return (
             <div
                 ref={mergeRefs([ref, headerRef])}
-                className={cn(styles.header, className, { [styles.withImage]: image })}
+                className={cn(styles.header, className, {
+                    [styles.withImage]: image,
+                    [styles.withContentUnderImage]: isContentUnderImage,
+                })}
                 data-test-id={getDataTestId(dataTestId)}
                 style={{
-                    ...getImageStyle(image),
+                    ...(!isContentUnderImage && getImageSizeStyle(image)),
+                    ...(withImageCollapse && { top: -collapseDistance }),
                     ...(withAnimation &&
                         bottomContentRef.current && {
                             top: -bottomContentRef.current.scrollHeight,
@@ -254,10 +329,18 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 }}
                 data-name={dataName}
             >
+                {image && !isContentUnderImage && (
+                    <div
+                        className={styles.image}
+                        style={{ backgroundImage: `url(${image.src})`, opacity: imageOpacity }}
+                        aria-hidden={true}
+                    />
+                )}
                 <div
+                    ref={mainLineRef}
                     className={cn(styles.mainLine, {
-                        [styles.mainLineSticky]: withAnimation,
-                        [styles.mainLineWithImageBg]: image,
+                        [styles.mainLineSticky]: withAnimation || withImageCollapse,
+                        [styles.mainLineWithImageBg]: image && !isNavigationFilled,
                     })}
                     style={{
                         ...(withAnimation
@@ -285,6 +368,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                                 extraClassName: styles.showStaticContentOnTop,
                             }),
                             style: {
+                                ...collapsingStyle,
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
                             },
@@ -294,7 +378,10 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                         renderContent({
                             extraClassName: styles.withBothAddons,
                             style: {
-                                opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
+                                opacity: Math.min(
+                                    1,
+                                    (titleScrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT,
+                                ),
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
                             },
@@ -317,12 +404,27 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                     )}
                 </div>
 
+                {image && isContentUnderImage && (
+                    <div
+                        ref={imageUnderRef}
+                        className={styles.imageUnder}
+                        style={{
+                            ...getImageSizeStyle(image),
+                            backgroundImage: `url(${image.src})`,
+                            opacity: imageOpacity,
+                        }}
+                        aria-hidden={true}
+                    />
+                )}
+
                 {showAnimatedContentOnBot &&
                     renderContent({
                         wrapperRef: bottomContentRef,
                         extraClassName: styles.underAddons,
-                        style: { opacity: Math.max(0, 1 - scrollTop / ADDONS_HEIGHT) },
-                        hidden: scrollTop / ADDONS_HEIGHT > 1,
+                        style: {
+                            opacity: Math.max(0, 1 - Math.max(0, titleScrollTop) / ADDONS_HEIGHT),
+                        },
+                        hidden: titleScrollTop / ADDONS_HEIGHT > 1,
                         extraAlign: 'left',
                     })}
 
@@ -331,11 +433,15 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                         extraClassName: cn({
                             [styles.contentOnBotDesktop]: view === 'desktop',
                         }),
-                        extraAlign: 'left',
+                        style: collapsingStyle,
+                        extraAlign: isContentUnderImage ? undefined : 'left',
                     })}
 
                 {bottomAddons && (
-                    <div className={cn(styles.bottomAddons, bottomAddonsClassName)}>
+                    <div
+                        className={cn(styles.bottomAddons, bottomAddonsClassName)}
+                        style={collapsingStyle}
+                    >
                         {bottomAddons}
                     </div>
                 )}

@@ -10,11 +10,14 @@ export type NavigationBarPrivateNextProps = Omit<
      *
      * - `src` — адрес изображения;
      * - `aspectRatio` — фиксированное соотношение сторон шапки (ширина / высота);
-     * - `height` — фиксированная высота шапки.
+     * - `height` — фиксированная высота шапки;
+     * - `contentPlacement` — расположение контента: `over` — поверх картинки,
+     *   `under` — под картинкой, размеры задают только картинку.
      *
      * Задаётся либо `aspectRatio`, либо `height`. Контент может растянуть шапку по высоте.
+     * @default contentPlacement over
      */
-    image?: { src: string } & (
+    image?: { src: string; contentPlacement?: 'over' | 'under' } & (
         | { aspectRatio: number; height?: never }
         | { height: number; aspectRatio?: never }
     );

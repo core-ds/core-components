@@ -1,6 +1,7 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 .header {
+    position: relative;
     width: 100%;
     box-sizing: border-box;
     transition:
@@ -8,10 +9,43 @@
         background 0.2s ease;
 
     &.withImage {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        padding-bottom: var(--gap-16);
+        isolation: isolate;
+        padding-bottom: 0;
+
+        &:after {
+            content: '';
+            display: block;
+            height: var(--gap-16);
+        }
+
+        & .mainLineSticky {
+            top: var(--gap-4);
+            padding-bottom: var(--gap-8);
+            margin-bottom: calc(-1 * var(--gap-8));
+            transition: background-color 0.2s ease;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: calc(-1 * var(--gap-4));
+                right: calc(-1 * var(--gap-12));
+                bottom: 0;
+                left: calc(-1 * var(--gap-12));
+                z-index: -1;
+                background-color: inherit;
+                transition: background-color 0.2s ease;
+            }
+        }
+    }
+
+    &.withContentUnderImage {
+        &:after {
+            height: var(--gap-8);
+        }
+
+        & .mainLineSticky {
+            margin-bottom: 0;
+        }
     }
 
     padding: var(--gap-4) var(--gap-12) var(--gap-8);
@@ -34,6 +68,26 @@
             }
         }
     }
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+.imageUnder {
+    margin: calc(-1 * (var(--gap-4) + var(--gap-48) + var(--gap-8))) calc(-1 * var(--gap-12)) 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .mainLine {
