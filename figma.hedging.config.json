@@ -1,0 +1,15 @@
+{
+    "codeConnect": {
+        "parser": "react",
+        "include": [
+            "packages/button/code-connect/ButtonDesktop.figma.ts",
+            "packages/tag/code-connect/TagDesktop.figma.ts",
+            "packages/input/code-connect/InputDesktop.figma.ts",
+            "packages/universal-date-input/code-connect/UniversalDateInputDesktop.figma.ts",
+            "packages/amount/code-connect/Amount.figma.ts",
+            "packages/icon-view/code-connect/IconView.figma.ts"
+        ],
+        "label": "React",
+        "language": "tsx"
+    }
+}

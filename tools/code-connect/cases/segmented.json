@@ -1,0 +1,1146 @@
+{
+    "cases": [
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "2",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={32}", "ids[1]", "Сегмент 2", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rounded",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={32}", "ids[2]", "Сегмент 3", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "4",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": true,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 4",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={32}", "ids[3]", "Сегмент 4", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rounded",
+                    "Capacity": "5",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": true,
+                    "3 | 4#75999:46": true,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 4",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 5",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={32}", "ids[4]", "Сегмент 5", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": true,
+                            "RightAddon#147294:4": true,
+                            "Selected": "False"
+                        },
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "LeftAddon",
+                                "properties": {
+                                    "Type": "Icon_20"
+                                },
+                                "children": [],
+                                "swaps": {
+                                    "Instance#150763:5": {
+                                        "type": "INSTANCE",
+                                        "name": "ActualIcon",
+                                        "properties": {},
+                                        "children": [],
+                                        "code": "<span>Иконка</span>"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "INSTANCE",
+                                "name": "RightAddon",
+                                "properties": {
+                                    "Type": "SwapMe"
+                                },
+                                "children": [],
+                                "slots": {
+                                    "Slot": [
+                                        {
+                                            "type": "CODE",
+                                            "code": "<span>Дополнение</span>"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["Иконка", "Дополнение", "gap: 10", "title={<span"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Hug",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Resize=Hug"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "ровно один"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Capacity"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Разделители"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl32.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_32",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False",
+                            "Label": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_32",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "видимой подписью"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "2",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={40}", "ids[1]", "Сегмент 2", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rounded",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={40}", "ids[2]", "Сегмент 3", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "4",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": true,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 4",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={40}", "ids[3]", "Сегмент 4", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rounded",
+                    "Capacity": "5",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": true,
+                    "3 | 4#75999:46": true,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 4",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 5",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["size={40}", "ids[4]", "Сегмент 5", "width: '100%'", "setSelectedId(id)"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": true,
+                            "RightAddon#147294:4": true,
+                            "Selected": "False"
+                        },
+                        "children": [
+                            {
+                                "type": "INSTANCE",
+                                "name": "LeftAddon",
+                                "properties": {
+                                    "Type": "Icon_20"
+                                },
+                                "children": [],
+                                "swaps": {
+                                    "Instance#150763:5": {
+                                        "type": "INSTANCE",
+                                        "name": "ActualIcon",
+                                        "properties": {},
+                                        "children": [],
+                                        "code": "<span>Иконка</span>"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "INSTANCE",
+                                "name": "RightAddon",
+                                "properties": {
+                                    "Type": "SwapMe"
+                                },
+                                "children": [],
+                                "slots": {
+                                    "Slot": [
+                                        {
+                                            "type": "CODE",
+                                            "code": "<span>Дополнение</span>"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": ["Иконка", "Дополнение", "gap: 10", "title={<span"]
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Hug",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Resize=Hug"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "ровно один"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Capacity"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": true,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "Разделители"
+        },
+        {
+            "template": "packages/segmented-control/code-connect/SegmentedControl40.figma.ts",
+            "fixture": {
+                "type": "INSTANCE",
+                "name": "SegmentedControl_40",
+                "properties": {
+                    "Shape": "Rectangular",
+                    "Capacity": "3",
+                    "Resize": "Fill",
+                    "1 | 2#75999:12": false,
+                    "2 | 3#75999:29": false,
+                    "3 | 4#75999:46": false,
+                    "4 | 5#75999:63": false
+                },
+                "children": [
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 1",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False",
+                            "Label": "False"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 2",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "True"
+                        },
+                        "children": []
+                    },
+                    {
+                        "type": "INSTANCE",
+                        "name": "Segment_40",
+                        "properties": {
+                            "✎ Label#75999:3": "Сегмент 3",
+                            "LeftAddon#147294:1": false,
+                            "RightAddon#147294:4": false,
+                            "Selected": "False"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            "expect": [],
+            "throws": "видимой подписью"
+        }
+    ]
+}
