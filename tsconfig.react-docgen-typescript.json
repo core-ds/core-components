@@ -116,6 +116,8 @@
             "@alfalab/core-components-hatching-progress-bar/*": [
                 "./packages/hatching-progress-bar/src/*"
             ],
+            "@alfalab/core-components-headless-collapse": ["./packages/headless-collapse/src"],
+            "@alfalab/core-components-headless-collapse/*": ["./packages/headless-collapse/src/*"],
             "@alfalab/core-components-icon-button": ["./packages/icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["./packages/icon-button/src/*"],
             "@alfalab/core-components-icon-view": ["./packages/icon-view/src"],

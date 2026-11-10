@@ -4,7 +4,7 @@ import { Project } from 'ts-morph';
 
 import { toPascalCase } from '../utils/to-pascal-case/to-pascal-case.mjs';
 
-import { createIndexDir } from './create-index-dir.mjs';
+import { createDataDir } from './create-data-dir.mjs';
 import { extractComponentDescription } from './extract-component-description.mjs';
 import { generateDemo } from './generate-demo.mjs';
 import { generateDoc } from './generate-doc.mjs';
@@ -88,7 +88,7 @@ function main() {
 
     const docs = generateDoc(entries);
 
-    const versionDir = createIndexDir();
+    const dataDir = createDataDir();
 
     docs.forEach((doc) => {
         const { packageName, displayName, props, subComponents, filePath } = doc;
@@ -104,7 +104,7 @@ function main() {
         const changelog = parseChangelog(rootChangelogPath, displayName);
 
         writeFileSync(
-            path.resolve(versionDir, `${packageName}.json`),
+            path.resolve(dataDir, `${packageName}.json`),
             JSON.stringify(
                 {
                     packageName,
@@ -116,8 +116,8 @@ function main() {
                     changelog,
                 },
                 null,
-                1,
-            ).replace(/^ +/gm, ''),
+                2,
+            ),
         );
     });
 

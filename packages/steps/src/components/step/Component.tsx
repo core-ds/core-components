@@ -1,4 +1,5 @@
-import React, { type FC, useRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
@@ -73,164 +74,174 @@ interface StepProps extends CommonProps {
     onClick: (stepNumber: number) => void;
 }
 
-export const Step: FC<StepProps> = ({
-    children,
-    stepNumber,
-    isSelected,
-    disabled,
-    ordered,
-    isPositive,
-    isError,
-    isCriticalError,
-    isWarning,
-    isWaiting,
-    customStepIndicator,
-    isStepCompleted,
-    onClick,
-    interactive,
-    isVerticalAlign,
-    isNotLastStep,
-    fullWidth,
-    minSpaceBetweenSteps = 24,
-    completedDashColor,
-    dataTestId,
-}) => {
-    const stepRef = useRef<HTMLDivElement>(null);
+export const Step = forwardRef<HTMLDivElement, StepProps>(
+    (
+        {
+            children,
+            stepNumber,
+            isSelected,
+            disabled,
+            ordered,
+            isPositive,
+            isError,
+            isCriticalError,
+            isWarning,
+            isWaiting,
+            customStepIndicator,
+            isStepCompleted,
+            onClick,
+            interactive,
+            isVerticalAlign,
+            isNotLastStep,
+            fullWidth,
+            minSpaceBetweenSteps = 24,
+            completedDashColor,
+            dataTestId,
+        },
+        ref,
+    ) => {
+        const stepRef = useRef<HTMLDivElement>(null);
 
-    const [focused] = useFocus(stepRef, 'keyboard');
+        const [focused] = useFocus(stepRef, 'keyboard');
 
-    const isFullWidth = fullWidth && isVerticalAlign;
+        const isFullWidth = fullWidth && isVerticalAlign;
 
-    const handleButtonClick = () => {
-        if (!disabled && interactive && onClick) {
-            onClick(stepNumber);
-        }
-    };
+        const handleButtonClick = () => {
+            if (!disabled && interactive && onClick) {
+                onClick(stepNumber);
+            }
+        };
 
-    const handleTextClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (!interactive) {
-            e.stopPropagation();
-        }
-    };
+        const handleTextClick = (e: React.MouseEvent<HTMLElement>) => {
+            if (!interactive) {
+                e.stopPropagation();
+            }
+        };
 
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.key === 'Enter') {
-            handleButtonClick();
-        }
-    };
+        const handleKeyDown = (event: React.KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                handleButtonClick();
+            }
+        };
 
-    const getStepIndicator = () => {
-        if (customStepIndicator) {
-            return <Badge view='icon' size='l' {...customStepIndicator} />;
-        }
-        if (isCriticalError) {
-            return <StepIndicator view='negative-cross' />;
-        }
-        if (isError) {
-            return <StepIndicator view='negative-alert' />;
-        }
-        if (isWarning) {
-            return <StepIndicator view='attention-alert' />;
-        }
-        if (isWaiting) {
-            return <StepIndicator view='neutral-operation' />;
-        }
-        if (isPositive) {
-            return <StepIndicator view='positive-checkmark' />;
-        }
-        if (isStepCompleted) {
-            return (
-                <StepIndicator view='positive-checkmark' className={styles.completedIndicator} />
-            );
-        }
-        if (!ordered) {
-            return (
-                <div className={styles.checkbox}>
-                    <span className={styles.dot} />
-                </div>
-            );
-        }
+        const getStepIndicator = () => {
+            if (customStepIndicator) {
+                return <Badge view='icon' size='l' {...customStepIndicator} />;
+            }
+            if (isCriticalError) {
+                return <StepIndicator view='negative-cross' />;
+            }
+            if (isError) {
+                return <StepIndicator view='negative-alert' />;
+            }
+            if (isWarning) {
+                return <StepIndicator view='attention-alert' />;
+            }
+            if (isWaiting) {
+                return <StepIndicator view='neutral-operation' />;
+            }
+            if (isPositive) {
+                return <StepIndicator view='positive-checkmark' />;
+            }
+            if (isStepCompleted) {
+                return (
+                    <StepIndicator
+                        view='positive-checkmark'
+                        className={styles.completedIndicator}
+                    />
+                );
+            }
+            if (!ordered) {
+                return (
+                    <div className={styles.checkbox}>
+                        <span className={styles.dot} />
+                    </div>
+                );
+            }
 
-        return stepNumber;
-    };
+            return stepNumber;
+        };
 
-    const getCustomDashColor = () => {
-        if (isStepCompleted && completedDashColor) {
-            return {
-                borderColor: completedDashColor,
-            };
-        }
+        const getCustomDashColor = () => {
+            if (isStepCompleted && completedDashColor) {
+                return {
+                    borderColor: completedDashColor,
+                };
+            }
 
-        return {};
-    };
+            return {};
+        };
 
-    const renderDash = () => (
-        <div
-            className={cn(styles.dash, {
-                [styles.vertical]: isVerticalAlign,
-                [styles.completed]: isStepCompleted,
-            })}
-            style={{
-                ...getCustomDashColor(),
-            }}
-        />
-    );
-
-    return (
-        <div
-            data-test-id={getDataTestId(dataTestId, 'step')}
-            role='button'
-            tabIndex={0}
-            ref={stepRef}
-            className={cn(styles.step, {
-                [styles.completed]: isStepCompleted,
-                [styles.error]: isError,
-                [styles.selected]: isSelected,
-                [styles.disabled]: disabled,
-                [styles.focused]: focused,
-                [styles.vertical]: isVerticalAlign,
-                [styles.interactive]: interactive,
-                [styles.fullWidth]: isFullWidth,
-                [styles.horizontal]: !isVerticalAlign,
-            })}
-            onClick={handleButtonClick}
-            onKeyDown={handleKeyDown}
-        >
+        const renderDash = () => (
             <div
-                className={cn(styles.indicator, {
+                className={cn(styles.dash, {
+                    [styles.vertical]: isVerticalAlign,
+                    [styles.completed]: isStepCompleted,
+                })}
+                style={{
+                    ...getCustomDashColor(),
+                }}
+            />
+        );
+
+        return (
+            <div
+                data-test-id={getDataTestId(dataTestId, 'step')}
+                role='button'
+                tabIndex={0}
+                ref={mergeRefs([stepRef, ref])}
+                className={cn(styles.step, {
+                    [styles.completed]: isStepCompleted,
+                    [styles.error]: isError,
+                    [styles.selected]: isSelected,
+                    [styles.disabled]: disabled,
+                    [styles.focused]: focused,
                     [styles.vertical]: isVerticalAlign,
                     [styles.interactive]: interactive,
+                    [styles.fullWidth]: isFullWidth,
+                    [styles.horizontal]: !isVerticalAlign,
                 })}
+                onClick={handleButtonClick}
+                onKeyDown={handleKeyDown}
             >
                 <div
-                    className={cn(styles.option, {
-                        [styles.unordered]: !ordered,
+                    className={cn(styles.indicator, {
                         [styles.vertical]: isVerticalAlign,
-                        [styles.error]: isError,
+                        [styles.interactive]: interactive,
                     })}
                 >
-                    {getStepIndicator()}
+                    <div
+                        className={cn(styles.option, {
+                            [styles.unordered]: !ordered,
+                            [styles.vertical]: isVerticalAlign,
+                            [styles.error]: isError,
+                        })}
+                    >
+                        {getStepIndicator()}
+                    </div>
+                    {isNotLastStep && isVerticalAlign && renderDash()}
                 </div>
-                {isNotLastStep && isVerticalAlign && renderDash()}
-            </div>
-            <div
-                className={cn(styles.textWrapper, styles[`gap-${minSpaceBetweenSteps}`], {
-                    [styles.vertical]: isVerticalAlign,
-                    [styles.fullWidth]: isFullWidth,
-                })}
-            >
-                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
                 <div
-                    className={cn(styles.text, {
-                        [styles.interactive]: interactive,
+                    className={cn(styles.textWrapper, styles[`gap-${minSpaceBetweenSteps}`], {
+                        [styles.vertical]: isVerticalAlign,
                         [styles.fullWidth]: isFullWidth,
                     })}
-                    onClick={handleTextClick}
                 >
-                    {children}
+                    {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+                    <div
+                        className={cn(styles.text, {
+                            [styles.interactive]: interactive,
+                            [styles.fullWidth]: isFullWidth,
+                        })}
+                        onClick={handleTextClick}
+                    >
+                        {children}
+                    </div>
                 </div>
+                {isNotLastStep && !isVerticalAlign && renderDash()}
             </div>
-            {isNotLastStep && !isVerticalAlign && renderDash()}
-        </div>
-    );
-};
+        );
+    },
+);
+
+Step.displayName = 'Step';

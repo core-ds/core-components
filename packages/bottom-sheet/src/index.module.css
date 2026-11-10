@@ -149,4 +149,4 @@
     padding-bottom: var(--sab);
 }
 
-@mixin bg-class-list;
+@mixin bg-class-list modal;

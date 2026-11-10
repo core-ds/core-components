@@ -1,5 +1,25 @@
 # @alfalab/core-components-shared
 
+## 2.4.0
+
+### Minor Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2408](https://github.com/core-ds/core-components/pull/2408)
+
+##### Shared
+
+- Добавлены проверки `isStartScrollPosition` и `isEndScrollPosition`
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2351](https://github.com/core-ds/core-components/pull/2351)
+
+##### Shared
+
+- Добавлена утилита `triggerReflow`
+
 ## 2.3.0
 
 ### Minor Changes

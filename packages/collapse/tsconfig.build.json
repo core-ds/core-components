@@ -9,9 +9,14 @@
         "paths": {
             "@alfalab/core-components-collapse": ["./src"],
             "@alfalab/core-components-collapse/*": ["./src/*"],
+            "@alfalab/core-components-headless-collapse": ["../headless-collapse/src"],
+            "@alfalab/core-components-headless-collapse/*": ["../headless-collapse/src/*"],
             "@alfalab/core-components-link": ["../link/src"],
             "@alfalab/core-components-link/*": ["../link/src/*"]
         }
     },
-    "references": [{ "path": "../link/tsconfig.build.json" }]
+    "references": [
+        { "path": "../headless-collapse/tsconfig.build.json" },
+        { "path": "../link/tsconfig.build.json" }
+    ]
 }

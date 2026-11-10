@@ -47,7 +47,10 @@ export interface FileUploadItemProps {
     uploadDate?: string;
 
     /**
-     * Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания
+     * Ссылка на файл.
+     * Если передан `downloadLink` или `onDownload`, отображается кнопка скачивания.
+     * По клику на кнопку браузер переходит по ссылке (или скачивает файл, если передан `download`).
+     * Если вместе с `downloadLink` передан `onDownload`, переход по ссылке отменяется и вызывается только `onDownload`.
      */
     downloadLink?: string;
 
@@ -93,7 +96,9 @@ export interface FileUploadItemProps {
     children?: ReactNode;
 
     /**
-     * Обработчик загрузки файла
+     * Обработчик клика по кнопке скачивания файла.
+     * Если передан `onDownload` или `downloadLink`, отображается кнопка скачивания.
+     * Если вместе с `onDownload` передан `downloadLink`, переход по ссылке отменяется и вызывается только `onDownload`.
      */
     onDownload?: (id: string) => void;
 

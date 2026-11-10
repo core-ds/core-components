@@ -1,5 +1,26 @@
 # @alfalab/core-components-action-button
 
+## 3.0.11
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
+## 3.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-spinner@6.0.10
+
 ## 3.0.9
 
 ### Patch Changes

@@ -1,0 +1,108 @@
+{
+  "packageName": "tab-bar-island",
+  "displayName": "TabBarIsland",
+  "description": "Используется для переключения между страницами.",
+  "props": {
+    "gap": {
+      "defaultValue": {
+        "value": -12
+      },
+      "description": "Отступ",
+      "name": "gap",
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "activeKey": {
+      "defaultValue": null,
+      "description": "Ключ активного таба",
+      "name": "activeKey",
+      "required": false,
+      "type": {
+        "name": "TabBarIslandTabKey | undefined"
+      }
+    },
+    "defaultActiveKey": {
+      "defaultValue": null,
+      "description": "Дефолтный ключ активного таба",
+      "name": "defaultActiveKey",
+      "required": false,
+      "type": {
+        "name": "TabBarIslandTabKey | undefined"
+      }
+    },
+    "items": {
+      "defaultValue": {
+        "value": "[]"
+      },
+      "description": "Табы",
+      "name": "items",
+      "required": false,
+      "type": {
+        "name": "TabBarIslandItem[] | undefined"
+      }
+    },
+    "onActiveKeyChange": {
+      "defaultValue": null,
+      "description": "Обработчик смены активного таба",
+      "name": "onActiveKeyChange",
+      "required": false,
+      "type": {
+        "name": "((nextActiveKey: TabBarIslandTabKey) => void) | undefined"
+      }
+    },
+    "trailingAddon": {
+      "defaultValue": null,
+      "description": "Контент после табов",
+      "name": "trailingAddon",
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "iconAnimation": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Включена ли анимация иконки при смене активного таба",
+      "name": "iconAnimation",
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "showSkeleton": {
+      "defaultValue": null,
+      "description": "Показать скелетон",
+      "name": "showSkeleton",
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    }
+  },
+  "subComponents": {},
+  "demos": [
+    {
+      "title": "Примеры",
+      "description": "",
+      "desktop": "render(() => {\nconst [tabCount, setTabCount] = React.useState(2);\n\nreturn (\n<React.Fragment>\n<Typography.Text view='component-secondary' color='secondary' tag='p'>\nКоличество табов\n</Typography.Text>\n<Gap size={12} />\n{[2, 3, 4, 5].map((count, index, arr) => (\n<React.Fragment key={index}>\n<TagMobile\nview='filled'\nshape='rectangular'\nsize={32}\nchecked={tabCount === count}\nonClick={() => {\nsetTabCount(count);\n}}\n>\n{`${count}`}\n</TagMobile>\n{index < arr.length - 1 && <Gap size={8} direction='horizontal' />}\n</React.Fragment>\n))}\n<Gap size={32} />\n<div\nstyle={{\nmargin: '0 -20px -20px',\npaddingTop: 6,\nbackground: 'url(\"./images/gorgeous-garden.png\")',\n}}\n>\n<TabBarIsland\nkey={tabCount}\nitems={Array.from({ length: tabCount }).map((_, i) => ({\nkey: i,\nicon:\ni % 2 === 0 ? <DiamondsLine24Icon /> : <NavigationPaymentLine24Icon />,\nlabel: 'Label',\n}))}\n/>\n</div>\n</React.Fragment>\n);\n});"
+    },
+    {
+      "title": "Трейлинг",
+      "description": "Трэйлинг используется, как кнопка, для открытия другого экрана/шторки.",
+      "desktop": "const IconComponent = ({ style, children, ...restProps }) => (\n<div {...restProps} style={{ ...style, width: 48 }}>\n{children}\n</div>\n);\nrender(() => {\nconst [tabCount, setTabCount] = React.useState(2);\nconst [trailing, setTrailing] = React.useState(1);\nconst handleTrailingChange = (_, payload) => {\nsetTrailing(Number(payload.value));\n};\n\nreturn (\n<React.Fragment>\n<Typography.Text view='component-secondary' color='secondary' tag='p'>\nКоличество табов\n</Typography.Text>\n{[0, 2, 3, 4].map((count, index, arr) => (\n<React.Fragment key={index}>\n<TagMobile\nview='filled'\nshape='rectangular'\nsize={32}\nchecked={tabCount === count}\nonClick={() => {\nsetTabCount(count);\n}}\n>\n{`${count}`}\n</TagMobile>\n{index < arr.length - 1 && <Gap size={8} direction='horizontal' />}\n</React.Fragment>\n))}\n<Gap size={24} />\n<RadioGroupMobile\nlabel='Трейлинг-таб'\ndirection='vertical'\nname='radioGroup'\nonChange={handleTrailingChange}\nvalue={`${trailing}`}\n>\n<Radio size={24} label='Иконка + текст' value='1' />\n<Radio size={24} label='Картинка + текст' value='2' />\n<Radio size={24} label='Картинка' value='3' />\n</RadioGroupMobile>\n<Gap size={32} />\n<div\nstyle={{\nmargin: '0 -20px -20px',\npaddingTop: 26,\nbackground: 'url(\"./images/gorgeous-garden.png\")',\n}}\n>\n<TabBarIsland\nkey={tabCount}\nitems={Array.from({ length: tabCount }).map((_, i) => ({\nkey: i,\nicon:\ni % 2 === 0 ? <DiamondsLine24Icon /> : <NavigationPaymentLine24Icon />,\nlabel: 'Label',\n}))}\ntrailingAddon={\ntrailing === 1 ? (\n<TabBarIslandTrailingIconButton\nicon={<DiamondsLine24Icon />}\nlabel='Label'\n/>\n) : trailing === 2 ? (\n<TabBarIslandTrailingIconButton\nIcon={IconComponent}\nicon={\n<img\nstyle={{\nwidth: 48,\nheight: 56,\nleft: '50%',\nbottom: 0,\nposition: 'absolute',\ntransform: 'translate(-50%, 0)',\nobjectFit: 'cover',\nobjectPosition: 'top left',\n}}\nsrc='./images/test.png'\n/>\n}\nlabel='Label'\n/>\n) : trailing === 3 ? (\n<TabBarIslandTrailingButton style={{ width: 62 }}>\n<img\nstyle={{\nwidth: '100%',\nheight: '100%',\nobjectFit: 'cover',\nobjectPosition: 'top left',\n}}\nsrc='./images/test.png'\n/>\n</TabBarIslandTrailingButton>\n) : null\n}\n/>\n</div>\n</React.Fragment>\n);\n});"
+    }
+  ],
+  "changelog": []
+}

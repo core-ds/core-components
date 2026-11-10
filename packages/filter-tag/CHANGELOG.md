@@ -1,5 +1,21 @@
 # @alfalab/core-components-filter-tag
 
+## 7.1.4
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-mq@6.0.10
+
 ## 7.1.3
 
 ### Patch Changes

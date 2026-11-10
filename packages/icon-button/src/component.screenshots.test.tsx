@@ -62,6 +62,25 @@ describe(
 );
 
 describe(
+    'IconButton | loading',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconButton',
+            knobs: {
+                view: 'primary',
+                colors: ['default', 'inverted'],
+                size: 48,
+                loading: true,
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
+
+describe(
     'IconButton | hover',
     screenshotTesting({
         cases: generateTestCases({

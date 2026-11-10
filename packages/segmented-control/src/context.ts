@@ -1,11 +1,12 @@
 import { createContext } from 'react';
 
-import { type IDType } from './typing';
+import { type SegmentedControlProps } from './typing';
 
-export type ContextType = {
-    onChange: (id: IDType) => void;
-    colors?: 'default' | 'inverted';
-};
+export type ContextType = Pick<
+    SegmentedControlProps,
+    'onChange' | 'segmentWidth' | 'size' | 'colors'
+> &
+    Partial<Pick<SegmentedControlProps, 'selectedId'>>;
 
 export const SegmentedControlContext = createContext<ContextType>({
     onChange: () => null,

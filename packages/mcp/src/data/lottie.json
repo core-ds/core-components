@@ -1,0 +1,184 @@
+{
+  "packageName": "lottie",
+  "displayName": "Lottie",
+  "description": "TODO",
+  "props": {
+    "defaultPlay": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Воспроизведение анимации по-умолчанию",
+      "name": "defaultPlay",
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "play": {
+      "defaultValue": null,
+      "description": "Воспроизведение анимации",
+      "name": "play",
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "onPlayChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменения воспроизведения анимации",
+      "name": "onPlayChange",
+      "required": false,
+      "type": {
+        "name": "((nextPlay: boolean) => void) | undefined"
+      }
+    },
+    "onComplete": {
+      "defaultValue": null,
+      "description": "Обработчик завершения анимации",
+      "name": "onComplete",
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    },
+    "speed": {
+      "defaultValue": {
+        "value": 1
+      },
+      "description": "Скорость воспроизведения анимации",
+      "name": "speed",
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "startFrame": {
+      "defaultValue": null,
+      "description": "Начальный кадр воспроизведения анимации",
+      "name": "startFrame",
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "endFrame": {
+      "defaultValue": null,
+      "description": "Конечный кадр воспроизведения анимации",
+      "name": "endFrame",
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "onFrameChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменения кадра",
+      "name": "onFrameChange",
+      "required": false,
+      "type": {
+        "name": "((nextFrame: number) => void) | undefined"
+      }
+    },
+    "iterations": {
+      "defaultValue": {
+        "value": 0
+      },
+      "description": "Число итераций анимации. 0 - бесконечное",
+      "name": "iterations",
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "onIterationChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменения итерации анимации",
+      "name": "onIterationChange",
+      "required": false,
+      "type": {
+        "name": "((nextIteration: number) => void) | undefined"
+      }
+    },
+    "direction": {
+      "defaultValue": {
+        "value": 1
+      },
+      "description": "Направление воспроизведения анимации",
+      "name": "direction",
+      "required": false,
+      "type": {
+        "name": "AnimationDirection | undefined"
+      }
+    },
+    "src": {
+      "defaultValue": null,
+      "description": "Источник анимации",
+      "name": "src",
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "data": {
+      "defaultValue": null,
+      "description": "Анимация",
+      "name": "data",
+      "required": false,
+      "type": {
+        "name": "unknown"
+      }
+    },
+    "placeholder": {
+      "defaultValue": null,
+      "description": "Плейсхолдер анимации",
+      "name": "placeholder",
+      "required": false,
+      "type": {
+        "name": "((dataState: \"error\" | \"loading\") => ReactNode) | undefined"
+      }
+    },
+    "scale": {
+      "defaultValue": {
+        "value": "fill"
+      },
+      "description": "Режим масштабирования анимации",
+      "name": "scale",
+      "required": false,
+      "type": {
+        "name": "\"fit\" | \"fill\" | undefined"
+      }
+    },
+    "size": {
+      "defaultValue": null,
+      "description": "Размер анимации",
+      "name": "size",
+      "required": false,
+      "type": {
+        "name": "Pick<CSSProperties, \"width\" | \"height\" | \"minWidth\" | \"minHeight\" | \"maxWidth\" | \"maxHeight\"> | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  },
+  "subComponents": {},
+  "demos": [
+    {
+      "title": "Lottie",
+      "description": "",
+      "desktop": "render(() => {\nconst [play, setPlay] = React.useState(true);\nconst { direction, onIterationChange } = useBounce(1);\nconst handleTooglePlay = () => {\nsetPlay((p) => !p);\n};\n\nreturn (\n<div>\n<Button onClick={handleTooglePlay}>{play ? 'Pause' : 'Play'}</Button>\n<Lottie\nonPlayChange={setPlay}\nplay={play}\ndirection={direction}\nspeed={1}\niterations={4}\nsrc='./lottie/twitter-heart.json'\nsize={{ width: 400, height: 400 }}\nonIterationChange={onIterationChange}\n/>\n</div>\n);\n});"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "50.32.0",
+      "description": "#### [#2035](https://github.com/core-ds/core-components/pull/2035)\n\n- Добавлен новый компонент `Lottie`"
+    }
+  ]
+}

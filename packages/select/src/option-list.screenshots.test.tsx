@@ -152,7 +152,7 @@ describe('OptionListMobile | viewport desktop', () => {
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
             evaluate: async (page) => {
-                await page.waitForTimeout(500);
+                await page.waitForFunction(() => document.activeElement?.tagName === 'INPUT');
 
                 await page.evaluate(() => {
                     const list = document.querySelectorAll('[role="option"]');
@@ -199,7 +199,7 @@ describe('OptionListMobile | viewport mobile', () => {
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
             evaluate: async (page) => {
-                await page.waitForTimeout(500);
+                await page.waitForFunction(() => document.activeElement?.tagName === 'INPUT');
 
                 await page.evaluate(() => {
                     const list = document.querySelectorAll('[role="option"]');

@@ -12,15 +12,25 @@ import config from '../postcss.config.js';
 
 await yargs(hideBin(process.argv))
     .command(
-        '$0',
+        '$0 [input..]',
         'Search non-existent css vars',
-        (y) =>
-            y
-                .option('ignore', { type: 'array', description: 'Ignored files', default: [] })
-                .coerce('ignore', (args) => args.map(String)),
+        (builder) =>
+            builder
+                .positional('input', {
+                    type: 'string',
+                    array: true,
+                    description: 'Path(s) or pattern(s) to css file(s)',
+                    demandOption: true,
+                })
+                .option('ignore', {
+                    type: 'string',
+                    array: true,
+                    description: 'Ignored files',
+                    default: [],
+                }),
         (argv) =>
             main(
-                argv._.map((v) => slash(`${v}`)),
+                argv.input.map((v) => slash(`${v}`)),
                 argv.ignore,
             ),
     )

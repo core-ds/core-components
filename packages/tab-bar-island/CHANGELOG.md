@@ -1,5 +1,43 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.3.2
+
+### Patch Changes
+
+<sup><time>28.10.2026</time></sup>
+
+#### [#2432](https://github.com/core-ds/core-components/pull/2432)
+
+- Исправлено отсутствие подписи элементов для маленьких размеров экрана
+
+## 0.3.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+
+## 0.3.0
+
+### Minor Changes
+
+<sup><time>20.10.2026</time></sup>
+
+#### [#2422](https://github.com/core-ds/core-components/pull/2422)
+
+- Добавлен `dark.ts`
+
+## 0.2.1
+
+### Patch Changes
+
+<sup><time>08.10.2026</time></sup>
+
+#### [#2405](https://github.com/core-ds/core-components/pull/2405)
+
+- Исправлен цвет фона при нажатии на активный таб
+
 ## 0.2.0
 
 ### Minor Changes
