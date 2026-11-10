@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { validateScreenContext, extractContextualPayloads } = require('./verify-screen-context.cjs');
+const { createRuntime } = require('./template-test-runtime.cjs');
 
 const nestedImport = "import { Spinner } from '@alfalab/core-components/spinner';";
 const profile = {
@@ -340,6 +341,47 @@ positive('raw Scenario and TagGroup Example payload are validated separately', (
     data.nodes[2].code = rawTagGroupCode;
     data.fullFrame.code = `${data.fullFrame.code}\n${rawTagGroupCode}`;
 });
+
+const repo = path.resolve(__dirname, '../..');
+const runtime = createRuntime(repo);
+const controls = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'cases/controls.json'), 'utf8'),
+).cases;
+
+for (const name of [
+    'IconButtonDesktop',
+    'IconButtonMobile',
+    'IconButtonInvertedDesktop',
+    'IconButtonInvertedMobile',
+]) {
+    const template = `packages/icon-button/code-connect/${name}.figma.ts`;
+    const fixture = structuredClone(controls.find((test) => test.template === template).fixture);
+
+    fixture.children = [{ type: 'INSTANCE', name: 'Icon', code: '<svg aria-hidden="true" />' }];
+    const result = runtime.evaluate(template, fixture);
+    const body = runtime.flatten(result.example);
+    const imports = result.imports.join('\n');
+    const component = name.endsWith('Desktop') ? 'IconButtonDesktop' : 'IconButtonMobile';
+
+    assert.equal(result.metadata.nestable, false);
+    for (const raw of [false, true])
+        positive(
+            `${name}: ${raw ? 'raw contextual payload' : 'named contextual helper'}`,
+            (data, settings) => {
+                settings.nodes[1] = {
+                    nodeId: '20:1',
+                    component,
+                    importPath: `@alfalab/core-components/icon-button/${name.endsWith('Desktop') ? 'desktop' : 'mobile'}`,
+                    contextual: true,
+                };
+                data.nodes[1].code = raw
+                    ? `${imports}\nexport default function DIconButton() { return <CodeConnectSnippet data-node-id="20:1">${body}</CodeConnectSnippet>; }`
+                    : `${imports}\n${body}\nexport default function DIconButton() { return <CodeConnectSnippet data-node-id="20:1"><Example actionLabel="Открыть настройки" /></CodeConnectSnippet>; }`;
+                data.fullFrame.code = `${contentCode}\n${data.nodes[1].code}`;
+            },
+        );
+}
+
 positive('leading contextual payload comments are retained and validated', (data) => {
     data.nodes[1].code = rawSelectCode(
         `/* protocol payload */\n// product context is required\n${rawSelectPayload}`,

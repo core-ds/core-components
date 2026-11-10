@@ -731,7 +731,7 @@
             "nodeId": "603:59968",
             "file": "packages/icon-button/code-connect/IconButtonDesktop.figma.ts",
             "status": "prepared",
-            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata; обязательный actionLabel из контекста приложения задаёт aria-label, nestable=false",
             "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=603-59968",
             "publication": "published",
             "preview": "passed"
@@ -742,7 +742,7 @@
             "nodeId": "96969:28358",
             "file": "packages/icon-button/code-connect/IconButtonMobile.figma.ts",
             "status": "prepared",
-            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata; обязательный actionLabel из контекста приложения задаёт aria-label, nestable=false",
             "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=96969-28358",
             "publication": "published",
             "preview": "passed"
@@ -753,7 +753,7 @@
             "nodeId": "96969:28357",
             "file": "packages/icon-button/code-connect/IconButtonInvertedDesktop.figma.ts",
             "status": "prepared",
-            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata; обязательный actionLabel из контекста приложения задаёт aria-label, nestable=false",
             "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=96969-28357",
             "publication": "published",
             "preview": "passed"
@@ -764,7 +764,7 @@
             "nodeId": "96969:28439",
             "file": "packages/icon-button/code-connect/IconButtonInvertedMobile.figma.ts",
             "status": "prepared",
-            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata",
+            "reason": "Icon helper динамически читает swap или Spinner; loading из metadata; обязательный actionLabel из контекста приложения задаёт aria-label, nestable=false",
             "figmaUrl": "https://www.figma.com/design/lGWq8DtnUcSkRasagBuwq6/Web----Core?node-id=96969-28439",
             "publication": "published",
             "preview": "passed"

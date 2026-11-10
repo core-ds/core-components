@@ -57,7 +57,18 @@ const imports = [
 export default {
     id: 'core-icon-button-iconbuttoninverteddesktop',
     imports,
-    example: figma.code`<IconButtonDesktop size={${size}} view="${view}" colors="inverted"
- ${transparentBg ? 'transparentBg' : ''} ${loading ? 'loading' : ''} icon={${icon.example}} />`,
-    metadata: { nestable: true, props: { imports } },
+    example: figma.code`function Example({ actionLabel }: { actionLabel: string }) {
+ if (!actionLabel.trim()) throw new Error('Укажите название действия IconButton');
+ return <IconButtonDesktop size={${size}} view="${view}" colors="inverted"
+ ${transparentBg ? 'transparentBg' : ''} ${loading ? 'loading' : ''} icon={${icon.example}} aria-label={actionLabel} />;
+}`,
+    metadata: {
+        nestable: false,
+        props: {
+            imports,
+            contextFields: ['actionLabel'],
+            contextReason:
+                'Название действия задаётся приложением; имя слоя или иконки его не определяет',
+        },
+    },
 };

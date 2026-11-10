@@ -57,7 +57,18 @@ const imports = [
 export default {
     id: 'core-icon-button-iconbuttonmobile',
     imports,
-    example: figma.code`<IconButtonMobile size={${size}} view="${view}"
- ${transparentBg ? 'transparentBg' : ''} ${loading ? 'loading' : ''} icon={${icon.example}} />`,
-    metadata: { nestable: true, props: { imports } },
+    example: figma.code`function Example({ actionLabel }: { actionLabel: string }) {
+ if (!actionLabel.trim()) throw new Error('Укажите название действия IconButton');
+ return <IconButtonMobile size={${size}} view="${view}"
+ ${transparentBg ? 'transparentBg' : ''} ${loading ? 'loading' : ''} icon={${icon.example}} aria-label={actionLabel} />;
+}`,
+    metadata: {
+        nestable: false,
+        props: {
+            imports,
+            contextFields: ['actionLabel'],
+            contextReason:
+                'Название действия задаётся приложением; имя слоя или иконки его не определяет',
+        },
+    },
 };

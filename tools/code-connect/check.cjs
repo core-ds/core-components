@@ -132,6 +132,17 @@ try {
 
         process.stdout.write(result);
     }
+    const accessibility = run([
+        'node_modules/jest/bin/jest.js',
+        '--runTestsByPath',
+        'packages/icon-button/code-connect/accessibility.test.tsx',
+        '--runInBand',
+        '--selectProjects',
+        'jsdom',
+    ]);
+
+    process.stdout.write(accessibility);
+    console.log('Code Connect IconButton: accessible names passed');
 } catch (error) {
     process.exitCode = error.status || 1;
 } finally {

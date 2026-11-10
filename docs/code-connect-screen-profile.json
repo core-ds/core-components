@@ -67,17 +67,20 @@
         {
             "nodeId": "2550:5717",
             "component": "IconButtonDesktop",
-            "importPath": "@alfalab/core-components/icon-button/desktop"
+            "importPath": "@alfalab/core-components/icon-button/desktop",
+            "contextual": true
         },
         {
             "nodeId": "2550:5742",
             "component": "IconButtonDesktop",
-            "importPath": "@alfalab/core-components/icon-button/desktop"
+            "importPath": "@alfalab/core-components/icon-button/desktop",
+            "contextual": true
         },
         {
             "nodeId": "2550:5759",
             "component": "IconButtonDesktop",
-            "importPath": "@alfalab/core-components/icon-button/desktop"
+            "importPath": "@alfalab/core-components/icon-button/desktop",
+            "contextual": true
         },
         {
             "nodeId": "2550:5778",
