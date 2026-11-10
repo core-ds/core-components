@@ -5,13 +5,13 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import { render } from '@testing-library/react';
 
-import { ButtonDesktop } from '../../button/src/desktop';
-import { ButtonMobile } from '../../button/src/mobile';
-import { Icon20Adapter } from '../../shared/src/icon-20-adapter';
-import { Spinner } from '../../spinner/src';
-import { IndicatorTag } from '../../tag/src';
-import { TagDesktop } from '../../tag/src/desktop';
-import { TagMobile } from '../../tag/src/mobile';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { Icon20Adapter } from '@alfalab/core-components-shared/icon-20-adapter';
+import { Spinner } from '@alfalab/core-components-spinner';
+import { IndicatorTag } from '@alfalab/core-components-tag';
+import { TagDesktop } from '@alfalab/core-components-tag/desktop';
+import { TagMobile } from '@alfalab/core-components-tag/mobile';
 import { IconButtonDesktop } from '../src/desktop';
 import { IconButtonMobile } from '../src/mobile';
 
