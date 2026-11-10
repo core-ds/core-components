@@ -3,35 +3,45 @@ import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observe
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { useDocumentVisible } from '../animation';
+import { DEFAULT_TRANSITION_MS, FONT, MILLISECONDS_PER_SECOND } from '../constants';
 import { ParticleEngine } from '../particle-engine';
 import { measureText, type Rect } from '../particle-utils';
 import { type SpoilerProps } from '../types';
 
 type Options = {
     mode: NonNullable<SpoilerProps['mode']>;
-    revealed: boolean;
+    open: boolean;
     colors: NonNullable<SpoilerProps['colors']>;
 };
 
-/** Владеет DOM-рефами и отделяет геометрию/оформление от управления анимацией. */
-export const useParticles = ({ mode, revealed, colors }: Options) => {
+const getDuration = (style: CSSStyleDeclaration) => {
+    const value = style.getPropertyValue('--spoiler-transition-duration').trim();
+    const duration = parseFloat(value);
+
+    return Number.isFinite(duration)
+        ? duration * (value.endsWith('ms') ? 1 : MILLISECONDS_PER_SECOND)
+        : DEFAULT_TRANSITION_MS;
+};
+
+/** Обновляет геометрию по DOM, состояние — по пропсам, движение — по видимости и reduced motion. */
+export const useParticles = ({ mode, open, colors }: Options) => {
     const rootRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLElement>(null);
     const anchorRef = useRef<HTMLSpanElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const engineRef = useRef<ParticleEngine>();
     const [ready, setReady] = useState(false);
-    const [inViewport, setInViewport] = useState(true);
-    const documentVisible = useDocumentVisible();
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const root = rootRef.current;
         const content = contentRef.current;
         const anchor = anchorRef.current;
         const canvas = canvasRef.current;
+        const document = root?.ownerDocument;
+        const view = document?.defaultView;
 
-        if (!root || !content || !canvas || (mode === 'text' && !anchor)) return undefined;
+        if (!root || !content || !canvas || !document || !view || (mode === 'text' && !anchor))
+            return undefined;
         let context: CanvasRenderingContext2D | null;
 
         try {
@@ -42,28 +52,34 @@ export const useParticles = ({ mode, revealed, colors }: Options) => {
         if (!context) return undefined;
 
         const engine = new ParticleEngine(canvas, context, mode);
+        const reducedMotion = view.matchMedia?.('(prefers-reduced-motion: reduce)');
         let disposed = false;
+        let inViewport = true;
         let elementRects: Rect[] = [];
 
         engineRef.current = engine;
-        const configure = () => {
-            const style = getComputedStyle(root);
-
-            // У блока все скругления (в том числе разные углы) уже обрезаются overflow: hidden.
-            engine.configure(
-                mode === 'text' ? parseFloat(style.borderTopLeftRadius) || 0 : 0,
-                parseFloat(style.fontSize) || 16,
-            );
-        };
+        engine.setOpen(open);
+        const updatePlaying = () => engine.setPlaying(inViewport && !reducedMotion?.matches);
         const refresh = () => {
             if (disposed) return;
-            configure();
+            const style = view.getComputedStyle(root);
+
+            engine.configure(
+                mode === 'text' ? parseFloat(style.borderTopLeftRadius) || 0 : 0,
+                parseFloat(style.fontSize) || FONT.base,
+                getDuration(style),
+            );
             const rects = mode === 'text' && anchor ? measureText(content, anchor) : elementRects;
 
             engine.layout(rects);
             setReady(rects.length > 0);
         };
-        const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
+        let container = root.parentElement;
+
+        while (container && view.getComputedStyle(container).display === 'inline') {
+            container = container.parentElement;
+        }
+        const ResizeObserver = view.ResizeObserver || ResizeObserverPolyfill;
         const resizeObserver = new ResizeObserver(([entry]) => {
             if (mode === 'element') {
                 const { width, height } = entry.contentRect;
@@ -73,55 +89,63 @@ export const useParticles = ({ mode, revealed, colors }: Options) => {
             refresh();
         });
 
-        if (mode === 'element') {
-            // CSS задаёт всю геометрию; наблюдаем фактический размер растянутого canvas.
-            resizeObserver.observe(canvas);
-        } else {
-            let resizeTarget = root.parentElement;
+        resizeObserver.observe(mode === 'element' ? canvas : container || root);
+        const observer = new view.MutationObserver((records) => {
+            const affectsLayout = records.some((record) => {
+                const target =
+                    record.target.nodeType === view.Node.ELEMENT_NODE
+                        ? (record.target as Element)
+                        : record.target.parentElement;
 
-            // Typography.Text тоже может быть inline: наблюдаем ближайший измеримый контейнер.
-            while (resizeTarget && getComputedStyle(resizeTarget).display === 'inline') {
-                resizeTarget = resizeTarget.parentElement;
-            }
-            if (resizeTarget) resizeObserver.observe(resizeTarget);
-        }
+                // Записи Canvas и соседних Spoiler не должны запускать цикл повторных замеров.
+                return !target?.closest('[data-spoiler-canvas], [data-spoiler-anchor]');
+            });
 
-        const contentObserver = mode === 'text' ? new MutationObserver(refresh) : undefined;
+            if (affectsLayout) refresh();
+        });
 
-        contentObserver?.observe(content, {
+        observer.observe(mode === 'text' ? container || root : root, {
             childList: true,
             characterData: true,
             subtree: true,
+            attributes: true,
             attributeFilter: ['class', 'style'],
         });
-        const styleObserver = new MutationObserver(refresh);
-
-        styleObserver.observe(root, { attributes: true, attributeFilter: ['class', 'style'] });
-        const intersectionObserver =
-            typeof IntersectionObserver === 'undefined'
-                ? undefined
-                : new IntersectionObserver(([entry]) => setInViewport(entry.isIntersecting));
+        const intersectionObserver = view.IntersectionObserver
+            ? new view.IntersectionObserver(([entry]) => {
+                  inViewport = entry.isIntersecting;
+                  updatePlaying();
+              })
+            : undefined;
 
         intersectionObserver?.observe(root);
+        if (reducedMotion?.addEventListener)
+            reducedMotion.addEventListener('change', updatePlaying);
+        else reducedMotion?.addListener(updatePlaying);
         document.fonts?.ready.then(refresh);
         document.fonts?.addEventListener('loadingdone', refresh);
         refresh();
+        updatePlaying();
 
         return () => {
             disposed = true;
             engineRef.current = undefined;
             engine.destroy();
             resizeObserver.disconnect();
-            contentObserver?.disconnect();
-            styleObserver.disconnect();
+            observer.disconnect();
             intersectionObserver?.disconnect();
+            if (reducedMotion?.removeEventListener)
+                reducedMotion.removeEventListener('change', updatePlaying);
+            else reducedMotion?.removeListener(updatePlaying);
             document.fonts?.removeEventListener('loadingdone', refresh);
         };
+        // Начальное open задаётся при создании; последующие переключения не пересоздают движок.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mode]);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        engineRef.current?.setPlaying(ready && !revealed && documentVisible && inViewport);
-    }, [ready, revealed, documentVisible, inViewport, mode]);
+        engineRef.current?.setOpen(open);
+    }, [open, mode]);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const engine = engineRef.current;

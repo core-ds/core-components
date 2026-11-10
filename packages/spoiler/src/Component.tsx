@@ -14,6 +14,24 @@ import invertedColors from './inverted.module.css';
 
 const colorStyles = { default: defaultColors, inverted: invertedColors };
 
+const NESTED_CONTROL = [
+    'a[href]',
+    'button',
+    'input',
+    'select',
+    'textarea',
+    'summary',
+    'label',
+    '[tabindex]',
+    '[contenteditable]:not([contenteditable="false"])',
+    '[role="button"]',
+    '[role="link"]',
+    '[role="checkbox"]',
+    '[role="switch"]',
+    'audio[controls]',
+    'video[controls]',
+].join(',');
+
 const hasSelectionInside = (root: HTMLElement | null) => {
     const selection = root?.ownerDocument.defaultView?.getSelection();
 
@@ -35,9 +53,9 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
         {
             children,
             mode = 'text',
-            revealed: controlledRevealed,
-            defaultRevealed = false,
-            onRevealedChange,
+            open: controlledOpen,
+            defaultOpen = false,
+            onOpenChange,
             revealOn = 'click',
             revealOnce = false,
             colors = 'default',
@@ -50,16 +68,16 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
         },
         forwardedRef,
     ) => {
-        const [ownRevealed, setOwnRevealed] = useState(defaultRevealed);
-        const revealed = controlledRevealed ?? ownRevealed;
-        const revealedOnce = revealOn === 'click' && revealOnce && revealed;
-        const interactive = revealOn === 'click' && !revealedOnce;
+        const [ownOpen, setOwnOpen] = useState(defaultOpen);
+        const open = controlledOpen ?? ownOpen;
+        const openedOnce = revealOn === 'click' && revealOnce && open;
+        const interactive = revealOn === 'click' && !openedOnce;
         const Container = mode === 'element' ? 'div' : 'span';
         const revealLabel =
             mode === 'element' ? 'Показать скрытое содержимое' : 'Показать скрытый текст';
         const { rootRef, contentRef, anchorRef, canvasRef, ready } = useParticles({
             mode,
-            revealed,
+            open,
             colors,
         });
         const mergedRef = useMemo(
@@ -69,30 +87,40 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
             // React 16–19 по-разному обрабатывают inert, поэтому устанавливаем атрибут в DOM.
-            contentRef.current?.toggleAttribute('inert', !revealed);
-        }, [revealed, mode, contentRef]);
+            const content = contentRef.current;
 
-        const changeRevealed = (nextRevealed: boolean) => {
-            if (nextRevealed === revealed) return;
-            if (controlledRevealed === undefined) setOwnRevealed(nextRevealed);
-            onRevealedChange?.(nextRevealed);
+            if (content) {
+                content.toggleAttribute('inert', !open);
+                content.toggleAttribute('data-native-inert', 'inert' in content);
+            }
+        }, [open, mode, contentRef]);
+
+        const changeOpen = (nextOpen: boolean) => {
+            if (nextOpen === open) return;
+            if (controlledOpen === undefined) setOwnOpen(nextOpen);
+            onOpenChange?.(nextOpen);
         };
         const toggle = () => {
-            if (interactive) changeRevealed(!revealed);
+            if (interactive) changeOpen(!open);
         };
         let tabIndex: number | undefined;
 
         if (interactive) tabIndex = 0;
-        if (revealedOnce) tabIndex = -1;
+        if (openedOnce) tabIndex = -1;
 
-        const handleClick = () => {
-            if (revealed && hasSelectionInside(rootRef.current)) return;
+        const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+            const target = event.target as Element;
+            const control = target.closest?.(NESTED_CONTROL);
+
+            if (control && control !== event.currentTarget) return;
+            if (open && hasSelectionInside(rootRef.current)) return;
             toggle();
         };
         const canvas = (
             <canvas
                 ref={canvasRef}
                 className={cn(styles.canvas, colorStyles[colors].canvas)}
+                data-spoiler-canvas=''
                 aria-hidden='true'
             />
         );
@@ -103,24 +131,31 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
             <Container
                 {...restProps}
                 ref={mergedRef}
-                className={cn(styles.component, className, {
-                    [styles.hidden]: !revealed,
-                    [colorStyles[colors].fallback]: !revealed && !ready,
-                    [styles.interactive]: interactive,
-                    [styles.element]: mode === 'element',
-                })}
+                className={cn(
+                    styles.component,
+                    defaultColors.fallback,
+                    invertedColors.fallback,
+                    className,
+                    {
+                        [styles.element]: mode === 'element',
+                    },
+                )}
+                data-ready={ready}
+                data-colors={colors}
+                data-interactive={interactive}
                 data-test-id={dataTestId}
-                data-state={revealed ? 'revealed' : 'hidden'}
+                data-state={open ? 'revealed' : 'hidden'}
                 role={interactive ? 'button' : undefined}
                 // Ручной режим не добавляет элемент в порядок табуляции.
                 // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                 tabIndex={tabIndex}
-                aria-expanded={interactive ? revealed : undefined}
-                aria-label={ariaLabel ?? (interactive && !revealed ? revealLabel : undefined)}
+                aria-expanded={interactive ? open : undefined}
+                aria-label={ariaLabel ?? (interactive && !open ? revealLabel : undefined)}
                 onClick={composeHandlers(onClick, handleClick)}
                 onKeyDown={composeHandlers(onKeyDown, (event) => {
                     if (
                         interactive &&
+                        event.target === event.currentTarget &&
                         !event.repeat &&
                         (event.key === 'Enter' || event.key === ' ')
                     ) {
@@ -134,12 +169,17 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
                     ref={contentRef as React.RefObject<HTMLDivElement>}
                     className={styles.content}
                     data-spoiler-content=''
-                    aria-hidden={!revealed || undefined}
+                    aria-hidden={!open || undefined}
                 >
                     {children}
                 </Container>
                 {mode === 'text' ? (
-                    <span ref={anchorRef} className={styles.anchor} aria-hidden='true'>
+                    <span
+                        ref={anchorRef}
+                        className={styles.anchor}
+                        data-spoiler-anchor=''
+                        aria-hidden='true'
+                    >
                         {canvas}
                     </span>
                 ) : (

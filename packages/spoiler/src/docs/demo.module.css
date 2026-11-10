@@ -12,7 +12,3 @@
     gap: var(--gap-24);
     padding: var(--gap-24);
 }
-
-.value {
-    font-variant-numeric: tabular-nums;
-}

@@ -1,3 +1,5 @@
+import { FONT, getCloudHeight } from './constants';
+
 export type Rect = { x: number; y: number; width: number; height: number };
 
 /** Объединяет соседние фрагменты одной строки, не закрашивая межстрочные промежутки. */
@@ -29,7 +31,11 @@ export const mergeRects = (rects: Rect[]): Rect[] => {
 /** Измеряет реальные переносы текста, включая вложенные strong/em и явные br. */
 export const measureText = (content: HTMLElement, anchor: HTMLElement): Rect[] => {
     const origin = anchor.getBoundingClientRect();
-    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT);
+    const document = content.ownerDocument;
+    const view = document.defaultView;
+
+    if (!view) return [];
+    const walker = document.createTreeWalker(content, view.NodeFilter.SHOW_TEXT);
     const range = document.createRange();
     const rects: Rect[] = [];
     const heights = new Map<Element, number>();
@@ -40,13 +46,13 @@ export const measureText = (content: HTMLElement, anchor: HTMLElement): Rect[] =
             const parent = node.parentElement || content;
 
             if (!heights.has(parent)) {
-                const fontSize = parseFloat(getComputedStyle(parent).fontSize) || 16;
+                const fontSize = parseFloat(view.getComputedStyle(parent).fontSize) || FONT.base;
 
                 /*
                  * Полоса ≈ 70% кегля с шагом 2px совпадает с текстовыми стилями макета:
                  * 14 → 10, 16/18 → 12, 20 → 14, 22 → 16, 26 → 18, 30 → 22, 48 → 34.
                  */
-                heights.set(parent, Math.max(1, Math.round(fontSize * 0.35) * 2));
+                heights.set(parent, getCloudHeight(fontSize));
             }
             range.selectNodeContents(node);
             Array.from(range.getClientRects()).forEach((rect) => {

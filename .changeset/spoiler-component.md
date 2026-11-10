@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components-spoiler': major
+'@alfalab/core-components': minor
 ---
 
-Добавлен компонент Spoiler
+- Добавлен новый компонент `Spoiler`

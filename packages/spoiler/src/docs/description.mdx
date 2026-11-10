@@ -1,5 +1,3 @@
-import { Gap } from '@alfalab/core-components-gap';
-
 ## Поведение
 
 Spoiler скрывает баланс или другую чувствительную информацию за облаком частиц.
@@ -11,37 +9,32 @@ Spoiler скрывает баланс или другую чувствитель
 
 ```jsx live
 render(() => {
-    const [revealed, setRevealed] = React.useState(true);
+    const [open, setOpen] = React.useState(true);
     const [valueIndex, setValueIndex] = React.useState(0);
     const values = ['−4 940 ₽', '−5 186 ₽'];
 
     React.useEffect(() => {
-        if (revealed) return undefined;
+        if (open) return undefined;
 
         const timer = window.setTimeout(() => {
             setValueIndex((current) => (current + 1) % 2);
         }, 500);
 
         return () => window.clearTimeout(timer);
-    }, [revealed]);
+    }, [open]);
 
     return (
         <>
-            <Typography.Title
-                tag='div'
-                view='medium'
-                font='system'
-                style={{ fontVariantNumeric: 'tabular-nums' }}
-            >
-                <Spoiler revealed={revealed} onRevealedChange={setRevealed}>
+            <Typography.Title tag='div' view='medium' font='system'>
+                <Spoiler open={open} onOpenChange={setOpen}>
                     {values[valueIndex]}
                 </Spoiler>
             </Typography.Title>
             <Gap size={24} />
             <Switch
-                checked={!revealed}
+                checked={!open}
                 label='Скрыть'
-                onChange={() => setRevealed((current) => !current)}
+                onChange={() => setOpen((current) => !current)}
             />
         </>
     );
@@ -56,23 +49,19 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [revealed, setRevealed] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
     return (
         <div style={{ maxWidth: 360 }}>
             <Typography.Text view='primary-medium'>
                 Доставка ожидается{' '}
-                <Spoiler revealed={revealed} onRevealedChange={setRevealed}>
+                <Spoiler open={open} onOpenChange={setOpen}>
                     <strong>в пятницу после 18:00</strong>, по адресу: улица Лесная, дом 12.
                 </Spoiler>{' '}
                 Мы заранее отправим уведомление.
             </Typography.Text>
             <Gap size={24} />
-            <Switch
-                checked={!revealed}
-                label='Скрыть'
-                onChange={() => setRevealed((value) => !value)}
-            />
+            <Switch checked={!open} label='Скрыть' onChange={() => setOpen((value) => !value)} />
         </div>
     );
 });
@@ -85,14 +74,14 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [revealed, setRevealed] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
     return (
         <>
             <Spoiler
                 mode='element'
-                revealed={revealed}
-                onRevealedChange={setRevealed}
+                open={open}
+                onOpenChange={setOpen}
                 style={{ borderRadius: 'var(--border-radius-8)' }}
             >
                 <img
@@ -104,11 +93,7 @@ render(() => {
                 />
             </Spoiler>
             <Gap size={24} />
-            <Switch
-                checked={!revealed}
-                label='Скрыть'
-                onChange={() => setRevealed((value) => !value)}
-            />
+            <Switch checked={!open} label='Скрыть' onChange={() => setOpen((value) => !value)} />
         </>
     );
 });

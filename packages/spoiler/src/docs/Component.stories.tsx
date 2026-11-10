@@ -27,30 +27,30 @@ type Story = StoryObj<typeof Spoiler>;
 const AMOUNT_VALUES = ['−4 940 ₽', '−5 186 ₽'];
 
 const AmountExample = () => {
-    const [revealed, setRevealed] = useState(true);
+    const [open, setOpen] = useState(true);
     const [valueIndex, setValueIndex] = useState(0);
 
     useEffect(() => {
-        if (revealed) return undefined;
+        if (open) return undefined;
 
         const timer = window.setTimeout(() => {
             setValueIndex((current) => (current + 1) % AMOUNT_VALUES.length);
         }, 500);
 
         return () => window.clearTimeout(timer);
-    }, [revealed]);
+    }, [open]);
 
     return (
         <div className={styles.demo}>
-            <Typography.Title tag='div' view='medium' font='system' className={styles.value}>
-                <Spoiler revealed={revealed} onRevealedChange={setRevealed}>
+            <Typography.Title tag='div' view='medium' font='system'>
+                <Spoiler open={open} onOpenChange={setOpen}>
                     {AMOUNT_VALUES[valueIndex]}
                 </Spoiler>
             </Typography.Title>
             <Switch
-                checked={!revealed}
+                checked={!open}
                 label='Скрыть'
-                onChange={() => setRevealed((current) => !current)}
+                onChange={() => setOpen((current) => !current)}
             />
         </div>
     );
@@ -60,7 +60,7 @@ export const spoiler: Story = {
     name: 'Spoiler',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const defaultRevealed = boolean('defaultRevealed', false);
+        const defaultOpen = boolean('defaultOpen', false);
         const revealOnce = boolean('revealOnce', false);
 
         return (
@@ -76,9 +76,9 @@ export const spoiler: Story = {
                 }}
             >
                 <Spoiler
-                    key={`${defaultRevealed}-${revealOnce}`}
+                    key={`${defaultOpen}-${revealOnce}`}
                     mode='element'
-                    defaultRevealed={defaultRevealed}
+                    defaultOpen={defaultOpen}
                     revealOnce={revealOnce}
                     colors={colors}
                     className={text('className', '')}

@@ -1,96 +1,22 @@
 import { subscribeAnimationFrame } from './animation';
+import {
+    CANVAS,
+    COLOR_SYNC_INTERVAL,
+    DEFAULT_TRANSITION_MS,
+    DISSOLVE,
+    FONT,
+    FULL_CIRCLE,
+    MILLISECONDS_PER_SECOND,
+    PARTICLES,
+} from './constants';
+import { createParticleGroups, type Particle } from './particle-model';
 import { type Rect } from './particle-utils';
-
-const MAX_PARTICLES = 5000;
-const MAX_CANVAS_PIXELS = 4000000;
-const SUPERSAMPLING = 2;
-const HORIZONTAL_EDGE_SPREAD = 4;
-const COLOR_SYNC_INTERVAL = 1;
 
 type Mode = 'text' | 'element';
 
-type Particle = {
-    cloudX: number;
-    cloudY: number;
-    radius: number;
-    phase: number;
-    speed: number;
-    wobbleX: number;
-    wobbleY: number;
-    opacity: number;
-    opacityPhase: number;
-    opacitySpeed: number;
-};
+const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
 
-/** Один seed даёт тот же рисунок независимо от ререндеров и других экземпляров. */
-const createRandom = (seed: string) => {
-    let state = 2166136261;
-
-    for (let index = 0; index < seed.length; index += 1) {
-        // Побитовые операции нужны для детерминированного FNV-хеша строки.
-        // eslint-disable-next-line no-bitwise
-        state = Math.imul(state ^ seed.charCodeAt(index), 16777619);
-    }
-    // Перемешивание seed убирает корреляцию между соседними ячейками сетки.
-    // eslint-disable-next-line no-bitwise
-    state = (state >>> 0) % 2147483647 || 1;
-
-    return () => {
-        state = (state * 16807) % 2147483647;
-
-        return (state - 1) / 2147483646;
-    };
-};
-
-/** Ячейка сохраняет свою точку при смене содержимого и изменении соседних ячеек. */
-const createParticle = (
-    random: () => number,
-    cell: Rect,
-    bounds: Rect,
-    scale: number,
-): Particle | undefined => {
-    const x = cell.x + (0.16 + random() * 0.68) * cell.width;
-    const y = cell.y + (0.16 + random() * 0.68) * cell.height;
-
-    // Неполные крайние ячейки обрезаются, а остальные не растягиваются за контейнером.
-    if (x < bounds.x || x > bounds.x + bounds.width || y > bounds.height) return undefined;
-    const radius = Math.min(
-        (0.55 + random() ** 2 * 1.35) * scale,
-        bounds.width / 2,
-        bounds.height / 2,
-    );
-    const cloudX = Math.max(bounds.x + radius, Math.min(bounds.x + bounds.width - radius, x));
-    const cloudY = Math.max(radius, Math.min(bounds.height - radius, y));
-    const phase = random() * Math.PI * 2;
-    const speed = 0.9 + random();
-    // У границы уменьшаем только размах, не сдвигая точки к середине строки.
-    const wobbleX = Math.min(
-        (0.8 + random() * 2.4) * scale,
-        Math.max(
-            0,
-            Math.min(cloudX - bounds.x - radius, bounds.x + bounds.width - radius - cloudX) / 2,
-        ),
-    );
-    const wobbleY = Math.min(
-        (0.5 + random() * 1.8) * scale,
-        Math.max(0, Math.min(cloudY - radius, bounds.height - radius - cloudY) / 2),
-    );
-
-    return {
-        cloudX,
-        cloudY,
-        radius,
-        phase,
-        speed,
-        wobbleX,
-        wobbleY,
-        opacity: 0.12 + random() * 0.38,
-        opacityPhase: random() * Math.PI * 2,
-        opacitySpeed: 0.75 + random() * 0.6,
-    };
-};
-
-/** Один кешируемый контур всех строк: радиус из CSS без построения пути в каждом кадре. */
+/** Один контур строк со скруглениями; arcTo поддерживается и в iOS 14. */
 const createParticleMask = (rects: Rect[], borderRadius: number, edgeSpread: number): Path2D => {
     const path = new Path2D();
 
@@ -111,7 +37,7 @@ const createParticleMask = (rects: Rect[], borderRadius: number, edgeSpread: num
     return path;
 };
 
-/** Рисует частицы вне React; оформление и движение закреплены внутри дизайн-системы. */
+/** Рисует облако и прерываемое растворение частиц вне React. */
 export class ParticleEngine {
     private rects: Rect[] = [];
 
@@ -127,9 +53,7 @@ export class ParticleEngine {
 
     private scaleY = 1;
 
-    private fontScale = 1;
-
-    private fontSize = 16;
+    private fontSize: number = FONT.base;
 
     private mask: Path2D | undefined;
 
@@ -141,8 +65,18 @@ export class ParticleEngine {
 
     private top = 0;
 
+    private playing = false;
+
+    private progress = 0;
+
+    private target = 0;
+
+    private transitionUpdatedAt = 0;
+
+    private duration = DEFAULT_TRANSITION_MS / MILLISECONDS_PER_SECOND;
+
     private get edgeSpread() {
-        return this.mode === 'text' ? HORIZONTAL_EDGE_SPREAD : 0;
+        return this.mode === 'text' ? PARTICLES.textEdgeSpread : 0;
     }
 
     constructor(
@@ -151,16 +85,21 @@ export class ParticleEngine {
         private mode: Mode = 'text',
     ) {}
 
-    /** Получает готовое оформление; DOM-стили и метрики шрифта остаются в хуке. */
-    configure(borderRadius: number, fontSize = 16) {
+    /** Получает оформление из хука; чтения DOM в цикле движения нет. */
+    configure(
+        borderRadius: number,
+        fontSize: number = FONT.base,
+        durationMs = DEFAULT_TRANSITION_MS,
+    ) {
         this.fontSize = fontSize;
-        this.fontScale = Math.max(0.6, Math.min(2.5, fontSize / 16));
         this.borderRadius = Math.max(0, borderRadius);
+        this.duration = Math.max(0, durationMs) / MILLISECONDS_PER_SECOND;
     }
 
-    /** Синхронизирует цвет с CSS без чтения computed styles в каждом кадре. */
+    /** Обновляет цвет без неявной отрисовки. */
     syncColor() {
-        const { color } = getComputedStyle(this.canvas);
+        const color =
+            this.canvas.ownerDocument.defaultView?.getComputedStyle(this.canvas).color || '';
 
         if (color === this.color) return false;
         this.color = color;
@@ -168,7 +107,6 @@ export class ParticleEngine {
         return true;
     }
 
-    /** Перерисовывает текущую раскладку после внешнего обновления оформления. */
     redraw() {
         this.paint();
     }
@@ -180,8 +118,7 @@ export class ParticleEngine {
         this.mask = createParticleMask(rects, this.borderRadius, this.edgeSpread);
         if (!rects.length) {
             this.particles = [];
-            this.setPlaying(false);
-            this.syncColor();
+            this.updateSubscription();
             this.paint();
 
             return;
@@ -192,22 +129,19 @@ export class ParticleEngine {
         const width =
             Math.max(...rects.map((rect) => rect.x + rect.width)) + this.edgeSpread - this.left;
         const height = Math.max(...rects.map((rect) => rect.y + rect.height)) - this.top;
-
+        const dpr = this.canvas.ownerDocument.defaultView?.devicePixelRatio || 1;
         const scale = Math.min(
-            // Дополнительные отсчёты сглаживают край маленьких кругов при уменьшении Canvas.
-            (window.devicePixelRatio || 1) * SUPERSAMPLING,
-            4,
-            8192 / width,
-            8192 / height,
-            Math.sqrt(MAX_CANVAS_PIXELS / (width * height)),
+            dpr * CANVAS.supersampling,
+            CANVAS.maxScale,
+            CANVAS.side / width,
+            CANVAS.side / height,
+            Math.sqrt(CANVAS.pixels / (width * height)),
         );
         const pixelWidth = Math.max(1, Math.floor(width * scale));
         const pixelHeight = Math.max(1, Math.floor(height * scale));
 
-        // Дробные CSS-размеры точно совпадают с целочисленным буфером, без растяжения кругов.
         this.scaleX = pixelWidth / width;
         this.scaleY = pixelHeight / height;
-
         if (this.canvas.width !== pixelWidth) this.canvas.width = pixelWidth;
         if (this.canvas.height !== pixelHeight) this.canvas.height = pixelHeight;
         if (this.mode === 'text') {
@@ -217,84 +151,144 @@ export class ParticleEngine {
             this.canvas.style.top = `${this.top}px`;
         }
 
-        // Одинаковая плотность на единицу площади для строки, иконки и большого блока.
-        const lineHeight = Math.max(1, Math.round(this.fontSize * 0.35) * 2);
-        const density = (0.58 * Math.min(this.fontScale, 1)) / lineHeight;
-        const area = rects.reduce(
-            (total, rect) => total + (rect.width + this.edgeSpread * 2) * rect.height,
-            0,
-        );
-        const cellSize = Math.sqrt(Math.max(1 / density, area / MAX_PARTICLES));
-        let remaining = MAX_PARTICLES;
-
-        this.particles = rects.map((rect, groupIndex) => {
-            const columns = Math.ceil((rect.width + this.edgeSpread * 2) / cellSize);
-            const rows = Math.ceil(rect.height / cellSize);
-            const bounds = {
-                x: -this.edgeSpread,
-                y: 0,
-                width: rect.width + this.edgeSpread * 2,
-                height: rect.height,
-            };
-            const particles: Particle[] = [];
-
-            for (let row = 0; row < rows && remaining > 0; row += 1) {
-                for (let column = 0; column < columns && remaining > 0; column += 1) {
-                    const particle = createParticle(
-                        createRandom(`${groupIndex}:${row}:${column}`),
-                        {
-                            x: column * cellSize - this.edgeSpread,
-                            y: row * cellSize,
-                            width: cellSize,
-                            height: cellSize,
-                        },
-                        bounds,
-                        Math.min(this.fontScale, 1.25),
-                    );
-
-                    if (particle) {
-                        particles.push(particle);
-                        remaining -= 1;
-                    }
-                }
-            }
-
-            return particles;
-        });
+        this.particles = createParticleGroups(rects, this.fontSize, this.edgeSpread);
         this.syncColor();
+        // Изменение размера очищает буфер: рисуем сразу, даже когда следующий тик ещё не наступил.
         this.paint();
+        this.updateSubscription();
     }
 
-    setPlaying(playing: boolean) {
-        if (!playing || !this.rects.length) {
-            this.unsubscribe?.();
-            this.unsubscribe = undefined;
-        } else if (!this.unsubscribe) {
-            this.colorSyncElapsed = 0;
-            if (this.syncColor()) this.paint();
-            this.unsubscribe = subscribeAnimationFrame(this.tick);
+    /** Продолжает переход из текущего положения, в том числе при быстром обратном клике. */
+    setOpen(open: boolean) {
+        const target = open ? 1 : 0;
+
+        if (this.target !== target) {
+            this.target = target;
+            this.transitionUpdatedAt =
+                this.canvas.ownerDocument.defaultView?.performance.now() || 0;
         }
+        if (!this.playing || !this.duration) this.progress = this.target;
+        this.paint();
+        this.updateSubscription();
+    }
+
+    /** Вне экрана и при reduced motion фиксирует конечное состояние без фонового цикла. */
+    setPlaying(playing: boolean) {
+        this.playing = playing;
+        if (!playing) this.progress = this.target;
+        this.syncColor();
+        this.paint();
+        this.updateSubscription();
     }
 
     destroy() {
-        this.setPlaying(false);
+        this.unsubscribe?.();
+        this.unsubscribe = undefined;
     }
 
-    private tick = (seconds: number) => {
+    private updateSubscription() {
+        const needed =
+            this.playing &&
+            this.rects.length > 0 &&
+            (this.target === 0 || this.progress !== this.target);
+
+        if (!needed) {
+            this.destroy();
+        } else if (!this.unsubscribe) {
+            this.unsubscribe = subscribeAnimationFrame(this.tick, this.isTransitioning);
+        }
+    }
+
+    private isTransitioning = () => this.progress !== this.target;
+
+    private tick = (seconds: number, timestamp: number) => {
         this.elapsed += seconds;
         this.colorSyncElapsed += seconds;
         if (this.colorSyncElapsed >= COLOR_SYNC_INTERVAL) {
             this.colorSyncElapsed %= COLOR_SYNC_INTERVAL;
             this.syncColor();
         }
+        // Первый шаг начинается с нажатия, а не с предыдущего кадра фонового движения.
+        const transitionSeconds = Math.min(
+            seconds,
+            Math.max(0, (timestamp - this.transitionUpdatedAt) / MILLISECONDS_PER_SECOND),
+        );
+        const step = this.duration ? transitionSeconds / this.duration : 1;
+
+        this.transitionUpdatedAt = timestamp;
+
+        if (this.progress < this.target)
+            this.progress = Math.min(this.target, this.progress + step);
+        if (this.progress > this.target)
+            this.progress = Math.max(this.target, this.progress - step);
         this.paint();
+        this.updateSubscription();
     };
+
+    private paintParticle(particle: Particle, rect: Rect, progress: number) {
+        const { context } = this;
+        const { cloudX, cloudY, radius, phase, speed } = particle;
+        const offsetX =
+            (Math.sin(this.elapsed * speed + phase) - Math.sin(phase)) * particle.wobbleX;
+        const offsetY =
+            (Math.cos(this.elapsed * speed * PARTICLES.verticalSpeedRatio + phase) -
+                Math.cos(phase)) *
+            particle.wobbleY;
+        const baseX = rect.x + cloudX + offsetX;
+        const baseY = rect.y + cloudY + offsetY;
+        const delay = (particle.opacityPhase / FULL_CIRCLE) * DISSOLVE.stagger;
+        const localProgress = Math.max(0, Math.min(1, (progress - delay) / (1 - DISSOLVE.stagger)));
+        // Сглаживаем индивидуальный переход после задержки: влёт и вылет идут по одной траектории.
+        const dissolve = localProgress * localProgress * (3 - 2 * localProgress);
+        const opacityProgress =
+            (Math.sin(this.elapsed * particle.opacitySpeed + particle.opacityPhase) + 1) / 2;
+        // Яркость и размер растут вместе: мягкое мерцание без размытия и дополнительных слоёв.
+        const radiusScale =
+            PARTICLES.twinkleRadiusMin + opacityProgress * (1 - PARTICLES.twinkleRadiusMin);
+        const currentRadius =
+            radius * radiusScale * (1 - dissolve * (1 - DISSOLVE.finalRadiusScale));
+        const scatter =
+            DISSOLVE.scatter.min +
+            ((speed - PARTICLES.speed.min) / PARTICLES.speed.range) * DISSOLVE.scatter.range;
+        const centerX = rect.x + rect.width / 2;
+        const centerY = rect.y + rect.height / 2;
+        const deltaX = centerX - baseX;
+        const deltaY = centerY - baseY;
+        const distance = Math.hypot(deltaX, deltaY);
+        const contraction = distance ? Math.min(scatter / distance, 1) : 0;
+        const minX = rect.x - this.edgeSpread + radius;
+        const maxX = rect.x + rect.width + this.edgeSpread - radius;
+        const minY = rect.y + radius;
+        const maxY = rect.y + rect.height - radius;
+        const startX = clamp(baseX, minX, maxX);
+        const startY = clamp(baseY, minY, maxY);
+        // При раскрытии собираем облако к центру, при скрытии идём обратно; центр не пересекаем.
+        const endX = clamp(baseX + deltaX * contraction, minX, maxX);
+        const endY = clamp(baseY + deltaY * contraction, minY, maxY);
+
+        context.globalAlpha =
+            particle.opacity *
+            (PARTICLES.opacity.multiplierMin +
+                opacityProgress *
+                    (PARTICLES.opacity.multiplierMax - PARTICLES.opacity.multiplierMin)) *
+            (1 - dissolve);
+        context.beginPath();
+        context.arc(
+            startX + (endX - startX) * dissolve,
+            startY + (endY - startY) * dissolve,
+            currentRadius,
+            0,
+            FULL_CIRCLE,
+        );
+        context.fill();
+    }
 
     private paint() {
         const { context } = this;
 
         context.setTransform(1, 0, 0, 1, 0, 0);
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        if (!this.color || !this.mask || this.progress === 1) return;
         context.setTransform(
             this.scaleX,
             0,
@@ -303,33 +297,14 @@ export class ParticleEngine {
             -this.left * this.scaleX,
             -this.top * this.scaleY,
         );
-        if (!this.color || !this.mask) return;
         context.save();
         context.clip(this.mask);
         context.fillStyle = this.color;
-        this.rects.forEach((rect, index) => {
-            this.particles[index].forEach((particle) => {
-                const { phase, speed } = particle;
-                const offsetX =
-                    (Math.sin(this.elapsed * speed + phase) - Math.sin(phase)) * particle.wobbleX;
-                const offsetY =
-                    (Math.cos(this.elapsed * speed * 0.83 + phase) - Math.cos(phase)) *
-                    particle.wobbleY;
-                const opacityProgress =
-                    (Math.sin(this.elapsed * particle.opacitySpeed + particle.opacityPhase) + 1) /
-                    2;
 
-                context.globalAlpha = particle.opacity * (0.38 + opacityProgress * 0.62);
-                context.beginPath();
-                context.arc(
-                    rect.x + particle.cloudX + offsetX,
-                    rect.y + particle.cloudY + offsetY,
-                    particle.radius,
-                    0,
-                    Math.PI * 2,
-                );
-                context.fill();
-            });
+        this.rects.forEach((rect, index) => {
+            this.particles[index].forEach((particle) =>
+                this.paintParticle(particle, rect, this.progress),
+            );
         });
         context.restore();
     }

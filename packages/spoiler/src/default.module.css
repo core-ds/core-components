@@ -1,9 +1,9 @@
 @import './vars.css';
 
 .canvas {
-    color: var(--spoiler-color);
+    color: var(--color-light-neutral-translucent-1300);
 }
 
-.fallback {
-    background: var(--spoiler-fallback-color);
+.fallback[data-colors='default'][data-state='hidden'][data-ready='false'] {
+    background: var(--color-light-neutral-translucent-300);
 }

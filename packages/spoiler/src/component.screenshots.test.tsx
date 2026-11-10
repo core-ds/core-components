@@ -30,24 +30,19 @@ describe(
     'Spoiler | screenshots',
     screenshotTesting({
         cases: [
-            [
-                'hidden image',
-                createUrl('Spoiler', { defaultRevealed: true, colors: 'default' }, true),
-            ],
+            ['hidden image', createUrl('Spoiler', { defaultOpen: true, colors: 'default' }, true)],
             [
                 'hidden inverted image',
-                createUrl('Spoiler', { defaultRevealed: true, colors: 'inverted' }, true),
+                createUrl('Spoiler', { defaultOpen: true, colors: 'inverted' }, true),
             ],
-            ['revealed image', createUrl('Spoiler', { defaultRevealed: true, colors: 'default' })],
+            ['revealed image', createUrl('Spoiler', { defaultOpen: true, colors: 'default' })],
             ['hidden text', createUrl('SpoilerText', {}, true)],
             ['revealed text', createUrl('SpoilerText')],
         ],
         evaluate: async (page: Page) => {
+            // Системная настройка оставляет детерминированный статичный рисунок частиц.
+            await page.emulateMedia({ reducedMotion: 'reduce' });
             if (new URL(page.url()).searchParams.get('screenshot-state') === 'hidden') {
-                await page.evaluate(() => {
-                    // Фиксируем первый детерминированный кадр canvas для стабильного снимка.
-                    window.requestAnimationFrame = () => 0;
-                });
                 await page.getByRole('button').first().click();
             }
         },

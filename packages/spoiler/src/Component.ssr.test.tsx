@@ -32,7 +32,7 @@ describe('Spoiler: серверный рендеринг', () => {
 
     it('сохраняет явно раскрытое состояние при серверном рендеринге', () => {
         const html = renderToString(
-            <Spoiler revealed={true}>
+            <Spoiler open={true}>
                 <strong>Открытый текст</strong>
             </Spoiler>,
         );
