@@ -6,6 +6,7 @@ import {
     type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import ChevronLeftMIcon from '@alfalab/icons-glyph/ChevronLeftMIcon';
 
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
@@ -23,6 +24,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
         sticky,
         dataTestId,
         bottomAddonsClassName,
+        backButtonProps,
         onClose,
         ...restProps
     } = props;
@@ -48,6 +50,11 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
             })}
+            backButtonProps={{
+                ...backButtonProps,
+                text: null,
+                icon: ChevronLeftMIcon,
+            }}
             contentClassName={cn(mobileStyles.content, contentClassName)}
             bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}
