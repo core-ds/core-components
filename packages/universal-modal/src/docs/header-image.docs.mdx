@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentHeader } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+<Meta of={Stories} name='HeaderImage' />
+
+<ComponentHeader name='UniversalModalHeaderImage' children='Шапка мобильной UniversalModal с фоновым изображением.' />
+
+## Картинка с фиксированным соотношением сторон
+
+```jsx live mobileWidth={560} mobileOnly
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
+                <UniversalModalMobile.Header
+                    headerMode='relative'
+                    hasBackButton={true}
+                    hasCloser={true}
+                    title='Title'
+                    bottomAddons={
+                        <ButtonMobile view='primary' block={true}>
+                            Bottom
+                        </ButtonMobile>
+                    }
+                    image={{
+                        src: './images/universal-modal_header-image.png',
+                        aspectRatio: 16 / 9,
+                    }}
+                    onBack={() => setOpen(false)}
+                />
+                <UniversalModal.Content>
+                    <Typography.Text tag='p'>
+                        Шапка сохраняет соотношение сторон 16:9: при изменении ширины экрана высота
+                        шапки меняется пропорционально, картинка заполняет её целиком.
+                    </Typography.Text>
+                </UniversalModal.Content>
+            </UniversalModalMobile>
+        </React.Fragment>
+    );
+});
+```

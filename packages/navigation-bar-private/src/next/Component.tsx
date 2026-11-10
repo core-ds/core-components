@@ -1,5 +1,5 @@
 /* eslint-disable complexity */
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { type CSSProperties, forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -18,6 +18,17 @@ import styles from './index.module.css';
 
 const ADDONS_HEIGHT = 48;
 
+const getImageStyle = (image: NavigationBarPrivateNextProps['image']): CSSProperties | undefined =>
+    image && {
+        backgroundImage: `url(${image.src})`,
+        aspectRatio: image.aspectRatio?.toString(),
+        minHeight: image.height,
+    };
+
+/*
+ * TODO выделить общее ядро с NavigationBarPrivate
+ * TODO максимально закрыть типизацию
+ */
 export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBarPrivateNextProps>(
     (
         {
@@ -41,7 +52,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             backButtonClassName,
             backButtonProps,
             dataTestId,
-            imageUrl,
+            image,
             closerIcon,
             onClose,
             view,
@@ -232,10 +243,10 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         return (
             <div
                 ref={mergeRefs([ref, headerRef])}
-                className={cn(styles.header, className, { [styles.backgroundImage]: imageUrl })}
+                className={cn(styles.header, className, { [styles.withImage]: image })}
                 data-test-id={getDataTestId(dataTestId)}
                 style={{
-                    ...(imageUrl && { backgroundImage: `url(${imageUrl})` }),
+                    ...getImageStyle(image),
                     ...(withAnimation &&
                         bottomContentRef.current && {
                             top: -bottomContentRef.current.scrollHeight,
@@ -246,7 +257,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 <div
                     className={cn(styles.mainLine, {
                         [styles.mainLineSticky]: withAnimation,
-                        [styles.mainLineWithImageBg]: imageUrl,
+                        [styles.mainLineWithImageBg]: image,
                     })}
                     style={{
                         ...(withAnimation

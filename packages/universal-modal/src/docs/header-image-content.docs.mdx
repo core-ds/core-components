@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentHeader } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+<Meta of={Stories} name='HeaderImageContent' />
+
+<ComponentHeader name='UniversalModalHeaderImage' children='Шапка мобильной UniversalModal с фоновым изображением.' />
+
+## Контент растягивает картинку
+
+```jsx live mobileWidth={560} mobileOnly
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
+                <UniversalModalMobile.Header
+                    headerMode='left'
+                    hasBackButton={true}
+                    hasCloser={true}
+                    trim={false}
+                    title='Длинный заголовок, который не помещается в высоту картинки и растягивает шапку, пока весь контент не влезет'
+                    bottomAddons={
+                        <ButtonMobile view='primary' block={true}>
+                            Bottom
+                        </ButtonMobile>
+                    }
+                    image={{
+                        src: './images/universal-modal_header-image.png',
+                        height: 160,
+                    }}
+                    onBack={() => setOpen(false)}
+                />
+                <UniversalModal.Content>
+                    <Typography.Text tag='p'>
+                        Контент выше картинки растягивает шапку по высоте, отступ от контента до
+                        нижнего края картинки — не меньше 16px.
+                    </Typography.Text>
+                </UniversalModal.Content>
+            </UniversalModalMobile>
+        </React.Fragment>
+    );
+});
+```

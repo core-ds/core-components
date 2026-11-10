@@ -7,10 +7,11 @@
         box-shadow 0.2s ease,
         background 0.2s ease;
 
-    &.header.backgroundImage {
+    &.withImage {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        padding-bottom: var(--gap-16);
     }
 
     padding: var(--gap-4) var(--gap-12) var(--gap-8);
