@@ -54,6 +54,15 @@ describe('IconButton', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should set `iconWrapperClassName` class on icon wrapper', () => {
+            const iconWrapperClassName = 'test-icon-wrapper-class';
+            const { getByRole } = render(
+                <IconButton icon={StarMIcon} iconWrapperClassName={iconWrapperClassName} />,
+            );
+
+            expect(getByRole('img').parentElement).toHaveClass(iconWrapperClassName);
+        });
+
         (
             [
                 [24, 'size-24'],
