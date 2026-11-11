@@ -8,6 +8,8 @@
         "${configDir}/scripts/*.mjs"
     ],
     "compilerOptions": {
+        "rootDir": "${configDir}",
+        "types": ["node", "jest"],
         "noEmit": true
     }
 }
