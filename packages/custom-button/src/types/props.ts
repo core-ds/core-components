@@ -14,9 +14,11 @@ export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
     contentColor?: 'black' | 'white' | 'static-black' | 'static-white';
 
     /**
-     * Затемнение или осветление кнопки при hover и active
+     * Затемнение или осветление кнопки при hover и active.
+     * Значение none отключает встроенные состояния, их нужно определить самостоятельно через className
+     * @default darkening
      */
-    stateType?: 'darkening' | 'lightening' | 'static-darkening' | 'static-lightening';
+    stateType?: 'darkening' | 'lightening' | 'static-darkening' | 'static-lightening' | 'none';
 
     /**
      * Блокировка кнопки
