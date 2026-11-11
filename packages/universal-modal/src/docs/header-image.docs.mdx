@@ -1,0 +1,80 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentHeader } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+<Meta of={Stories} name='01-HeaderImage' />
+
+<ComponentHeader name='UniversalModalHeaderImage' children='Шапка мобильной UniversalModal с фоновым изображением.' />
+
+## Картинка с фиксированным соотношением сторон
+
+```jsx live mobileWidth={560} mobileHeight={600} mobileOnly
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [paragraphs, setParagraphs] = React.useState(0);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
+                <UniversalModalMobile.Header
+                    headerMode='relative'
+                    hasBackButton={true}
+                    hasCloser={true}
+                    title='Title'
+                    bottomAddons={
+                        <ButtonMobile view='primary' block={true}>
+                            Bottom
+                        </ButtonMobile>
+                    }
+                    image={{
+                        src: './images/universal-modal_header-image.png',
+                        aspectRatio: 16 / 9,
+                    }}
+                    onBack={() => setOpen(false)}
+                />
+                <UniversalModal.Content>
+                    <Typography.Text tag='p'>
+                        Шапка сохраняет соотношение сторон 16:9: при изменении ширины экрана высота
+                        шапки меняется пропорционально, картинка заполняет её целиком.
+                    </Typography.Text>
+                    <Gap size={16} />
+                    <ButtonMobile
+                        view='secondary'
+                        block={true}
+                        onClick={() => setParagraphs((prev) => prev + 1)}
+                    >
+                        Добавить текст
+                    </ButtonMobile>
+                    {Array.from({ length: paragraphs }, (_, index) => (
+                        <React.Fragment key={index}>
+                            <Gap size={16} />
+                            <Typography.Text tag='p'>
+                                Клиенты воспринимают ограничения как атаку со стороны банка, но
+                                чаще всего сами допускают ошибки или нарушения, которых можно
+                                избежать. Банки не преследуют цели доставить неудобства клиентам —
+                                они обязаны соблюдать законодательство и следовать инструкциям и
+                                рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.
+                            </Typography.Text>
+                            <Gap size={16} />
+                            <Typography.Text tag='p'>
+                                Обналичивание — сомнительные операции, когда юрлицо или
+                                предприниматель снимает со счёта более 80% от оборота или переводит
+                                деньги на счета физлиц, которые затем снимают в наличной форме.
+                            </Typography.Text>
+                            <Gap size={16} />
+                            <Typography.Text tag='p'>
+                                Транзитные операции — операции, в процессе которых деньги поступают
+                                на счёт компании от других резидентов и списываются в короткие
+                                сроки. При этом, как правило, в этих случаях по счёту нет начислений
+                                зарплат, уплаты налогов, и они не соответствуют заявленному
+                                компанией виду деятельности.
+                            </Typography.Text>
+                        </React.Fragment>
+                    ))}
+                </UniversalModal.Content>
+            </UniversalModalMobile>
+        </React.Fragment>
+    );
+});
+```

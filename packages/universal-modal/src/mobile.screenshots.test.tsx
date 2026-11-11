@@ -2,7 +2,9 @@ import {
     setupScreenshotTesting,
     generateTestCases,
     customSnapshotIdentifier,
+    createStorybookUrl,
 } from '@alfalab/core-components-screenshot-utils';
+import { Page } from 'playwright';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -10,8 +12,6 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
-
-import { Page } from 'playwright';
 
 describe(
     'Mobile | show more',
@@ -26,6 +26,7 @@ describe(
                     header: true,
                     'footer.sticky': true,
                     showMore: [false, true],
+                    'header.title': 'Заголовок',
                 },
             }),
         ],
@@ -53,47 +54,91 @@ describe(
                     header: true,
                     'footer.sticky': true,
                     'footer.layout': ['column'],
+                    'header.title': 'Заголовок',
                 },
             }),
         ],
         screenshotOpts: {
-            fullPage: true,
+            fullPage: false,
+        },
+        viewport: {
+            width: 1024,
+            height: 768,
         },
     }),
 );
 
-describe(
-    'Mobile | title alignment',
-    screenshotTesting({
+describe('Mobile | title alignment', () => {
+    return screenshotTesting({
         cases: [
-            ...generateTestCases({
-                componentName: 'UniversalModal',
-                subComponentName: 'Mobile',
-                testStory: false,
-                knobs: {
-                    open: true,
-                    header: true,
-                    showMore: true,
-                    'header.hasBackButton': true,
-                    'header.hasCloser': true,
-                    'header.sticky': [true, false],
-                    'header.align': ['left', 'center'],
-                },
-            }),
-            ...generateTestCases({
-                componentName: 'UniversalModal',
-                subComponentName: 'Mobile',
-                testStory: false,
-                knobs: {
-                    open: true,
-                    header: true,
-                    showMore: true,
-                    'header.sticky': true,
-                    'header.hasBackButton': false,
-                    'header.hasCloser': true,
-                    'header.align': ['left', 'center'],
-                },
-            }),
+            [
+                'hasBackButton | hasCloser | headerMode=relative',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.headerMode': 'relative',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                'hasBackButton | hasCloser | headerMode=absolute',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.headerMode': 'absolute',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                'hasCloser | headerMode=relative',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': false,
+                        'header.hasCloser': true,
+                        'header.headerMode': 'relative',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                'hasCloser | headerMode=absolute',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': false,
+                        'header.hasCloser': true,
+                        'header.headerMode': 'absolute',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
         ],
         viewport: {
             width: 320,
@@ -102,26 +147,64 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
-    }),
-);
+    })();
+});
 
-describe(
-    'Mobile | animated title alignment',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'UniversalModal',
-            subComponentName: 'Mobile',
-            testStory: false,
-            knobs: {
-                open: true,
-                header: true,
-                showMore: true,
-                'header.sticky': true,
-                'header.hasBackButton': true,
-                'header.hasCloser': true,
-                'header.align': ['left', 'center'],
-            },
-        }),
+describe('Mobile | animated title alignment', () => {
+    return screenshotTesting({
+        cases: [
+            [
+                'hasBackButton=true | hasCloser=true | headerMode=relative',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.headerMode': 'relative',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                'hasBackButton=true | hasCloser=true | headerMode=absolute',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': true,
+                        'header.hasCloser': true,
+                        'header.headerMode': 'absolute',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                'hasBackButton=true | hasCloser=false | headerMode=left',
+                createStorybookUrl({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: true,
+                        showMore: true,
+                        'header.hasBackButton': true,
+                        'header.hasCloser': false,
+                        'header.headerMode': 'left',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+        ],
         viewport: {
             width: 320,
             height: 600,
@@ -136,8 +219,8 @@ describe(
             });
             await page.waitForTimeout(500);
         },
-    }),
-);
+    })();
+});
 
 describe('Mobile | trim title', () => {
     const testCase = (theme: string) =>
@@ -169,7 +252,7 @@ describe('Mobile | trim title', () => {
                         'header.subtitle': [
                             'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
                         ],
-                        titleSize: 'compact',
+                        'header.headerMode': 'relative',
                     },
                 }),
             ],
@@ -204,7 +287,7 @@ describe('Mobile | sticky header', () => {
                         open: true,
                         showMore: true,
                         header: true,
-                        'header.sticky': [false, true],
+                        'header.title': 'Заголовок',
                     },
                 }),
             ],
