@@ -75,7 +75,6 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               >
                 <span
                   class="iconWrapper size-48 center"
-                  data-name="icon-button-icon-wrapper"
                 >
                   <svg
                     class="icon"

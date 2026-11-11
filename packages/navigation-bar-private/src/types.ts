@@ -169,6 +169,13 @@ export type NavigationBarPrivateProps = {
     colors?: ColorType;
 };
 
+export type NavigationBarPrivateInternalProps = {
+    /**
+     * Высота обёрток кнопок «Назад» и «Закрыть»
+     */
+    addonsSize?: 40 | 48;
+};
+
 export type ContentParams = {
     extraClassName?: string;
     wrapperRef?: RefObject<HTMLDivElement>;

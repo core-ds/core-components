@@ -58,10 +58,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
                 )}
                 size={48}
             >
-                <span
-                    className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}
-                    data-name='icon-button-icon-wrapper'
-                >
+                <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
                     {React.isValidElement(Icon) ? (
                         React.cloneElement(Icon as ReactElement<{ className?: string }>, {
                             className: cn(

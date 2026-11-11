@@ -26,7 +26,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
               class="addonsWrapper"
             >
               <div
-                class="addon"
+                class="addon size48"
               >
                 <button
                   aria-label="назад"
@@ -40,8 +40,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                       class="flex"
                     >
                       <div
-                        class="iconWrapper"
-                        data-name="back-button-icon-wrapper"
+                        class="iconWrapper backIcon"
                       >
                         <svg
                           fill="currentColor"
@@ -71,14 +70,14 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
               class="addonsWrapper rightAddons"
             >
               <div
-                class="addon closer"
+                class="addon size48 closer"
               >
                 <div
-                  class="closer"
+                  class="closer closer"
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component component border_48"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button closerButton button primary component component border_48"
                     type="button"
                   >
                     <span
@@ -86,7 +85,6 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                     >
                       <span
                         class="iconWrapper size-48 center"
-                        data-name="icon-button-icon-wrapper"
                       >
                         <svg
                           class="icon"
@@ -170,7 +168,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
               class="addonsWrapper"
             >
               <div
-                class="addon"
+                class="addon size48"
               >
                 <button
                   aria-label="назад"
@@ -184,8 +182,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                       class="flex"
                     >
                       <div
-                        class="iconWrapper mobileWrapper"
-                        data-name="back-button-icon-wrapper"
+                        class="iconWrapper backIcon mobileWrapper"
                       >
                         <svg
                           fill="currentColor"
@@ -215,14 +212,14 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
               class="addonsWrapper rightAddons"
             >
               <div
-                class="addon closer"
+                class="addon size48 closer"
               >
                 <div
-                  class="closer"
+                  class="closer closer"
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button closerButton button mobile primary component component border_32"
                     type="button"
                   >
                     <span
@@ -230,7 +227,6 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                     >
                       <span
                         class="iconWrapper size-32 center"
-                        data-name="icon-button-icon-wrapper"
                       >
                         <svg
                           class="icon"

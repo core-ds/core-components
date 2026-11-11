@@ -15,7 +15,6 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
         >
           <span
             class="iconWrapper size-48 center"
-            data-name="icon-button-icon-wrapper"
           >
             <svg
               class="icon"
@@ -46,7 +45,6 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
       >
         <span
           class="iconWrapper size-48 center"
-          data-name="icon-button-icon-wrapper"
         >
           <svg
             class="icon"
@@ -133,7 +131,6 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
         >
           <span
             class="iconWrapper size-48 center"
-            data-name="icon-button-icon-wrapper"
           >
             <svg
               class="icon"
@@ -163,7 +160,6 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
       >
         <span
           class="iconWrapper size-48 center"
-          data-name="icon-button-icon-wrapper"
         >
           <svg
             class="icon"
