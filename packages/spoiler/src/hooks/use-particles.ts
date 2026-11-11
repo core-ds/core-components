@@ -5,6 +5,7 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_TRANSITION_MS, FONT, MILLISECONDS_PER_SECOND } from '../constants';
 import { ParticleEngine } from '../particle-engine';
+import { createElementShape } from '../particle-shape';
 import { measureText, type Rect } from '../particle-utils';
 import { type SpoilerProps } from '../types';
 
@@ -12,6 +13,7 @@ type Options = {
     mode: NonNullable<SpoilerProps['mode']>;
     open: boolean;
     colors: NonNullable<SpoilerProps['colors']>;
+    interactiveParticles: boolean;
 };
 
 const getDuration = (style: CSSStyleDeclaration) => {
@@ -24,7 +26,7 @@ const getDuration = (style: CSSStyleDeclaration) => {
 };
 
 /** Обновляет геометрию по DOM, состояние — по пропсам, движение — по видимости и reduced motion. */
-export const useParticles = ({ mode, open, colors }: Options) => {
+export const useParticles = ({ mode, open, colors, interactiveParticles }: Options) => {
     const rootRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLElement>(null);
     const anchorRef = useRef<HTMLSpanElement>(null);
@@ -71,7 +73,9 @@ export const useParticles = ({ mode, open, colors }: Options) => {
             );
             const rects = mode === 'text' && anchor ? measureText(content, anchor) : elementRects;
 
-            engine.layout(rects);
+            if (mode === 'element' && rects[0])
+                engine.layout(rects, createElementShape(rects[0], style));
+            else engine.layout(rects);
             setReady(rects.length > 0);
         };
         let container = root.parentElement;
@@ -152,6 +156,35 @@ export const useParticles = ({ mode, open, colors }: Options) => {
 
         if (engine?.syncColor()) engine.redraw();
     }, [colors]);
+
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        const root = rootRef.current;
+        const engine = engineRef.current;
+        const document = root?.ownerDocument;
+        const view = document?.defaultView;
+
+        if (!interactiveParticles || !root || !engine || !document || !view) return undefined;
+        const handlePointerMove = (event: PointerEvent) => {
+            if (event.pointerType === 'mouse') engine.setPointer(event.clientX, event.clientY);
+        };
+        const clearPointer = () => engine.clearPointer();
+
+        root.addEventListener('pointermove', handlePointerMove);
+        root.addEventListener('pointerleave', clearPointer);
+        root.addEventListener('pointercancel', clearPointer);
+        view.addEventListener('blur', clearPointer);
+        document.addEventListener('scroll', clearPointer, true);
+
+        return () => {
+            // Отключение hover возвращает точки, не пересоздавая облако и его фоновую анимацию.
+            clearPointer();
+            root.removeEventListener('pointermove', handlePointerMove);
+            root.removeEventListener('pointerleave', clearPointer);
+            root.removeEventListener('pointercancel', clearPointer);
+            view.removeEventListener('blur', clearPointer);
+            document.removeEventListener('scroll', clearPointer, true);
+        };
+    }, [interactiveParticles, mode]);
 
     return { rootRef, contentRef, anchorRef, canvasRef, ready };
 };

@@ -12,6 +12,7 @@ export const PARTICLES = {
     twinkleDuration: { min: 2, range: 3 },
     twinkleRadiusMin: 0.5,
     textEdgeSpread: 4,
+    elementEdge: { width: 12, minDensity: 0.3, maxSizeRatio: 0.25 },
 } as const;
 
 export const DISSOLVE = {
@@ -19,6 +20,7 @@ export const DISSOLVE = {
     finalRadiusScale: 0.25,
     scatter: { min: 4, range: 4 },
 } as const;
+export const POINTER = { radius: 56, displacement: 8, response: 16, precision: 0.01 } as const;
 export const CANVAS = { pixels: 4000000, side: 8192, supersampling: 2, maxScale: 4 } as const;
 export const FONT = { base: 16, minScale: 0.6, maxScale: 2.5, maxParticleScale: 1.25 } as const;
 export const FULL_CIRCLE = Math.PI * 2;

@@ -1,8 +1,8 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { useFocus, useId, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { useParticles } from './hooks/use-particles';
 import { composeHandlers } from './compose-handlers';
@@ -58,12 +58,14 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
             onOpenChange,
             revealOn = 'click',
             revealOnce = false,
+            interactiveParticles = true,
             colors = 'default',
             className,
             dataTestId,
             onClick,
             onKeyDown,
             'aria-label': ariaLabel,
+            'aria-labelledby': ariaLabelledBy,
             ...restProps
         },
         forwardedRef,
@@ -72,6 +74,9 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
         const open = controlledOpen ?? ownOpen;
         const openedOnce = revealOn === 'click' && revealOnce && open;
         const interactive = revealOn === 'click' && !openedOnce;
+        const triggerRef = useRef<HTMLButtonElement>(null);
+        const [focused] = useFocus(triggerRef, 'keyboard');
+        const contentId = useId();
         const Container = mode === 'element' ? 'div' : 'span';
         const revealLabel =
             mode === 'element' ? 'Показать скрытое содержимое' : 'Показать скрытый текст';
@@ -79,6 +84,7 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
             mode,
             open,
             colors,
+            interactiveParticles,
         });
         const mergedRef = useMemo(
             () => mergeRefs([rootRef, forwardedRef]),
@@ -103,17 +109,13 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
         const toggle = () => {
             if (interactive) changeOpen(!open);
         };
-        let tabIndex: number | undefined;
-
-        if (interactive) tabIndex = 0;
-        if (openedOnce) tabIndex = -1;
-
         const handleClick = (event: React.MouseEvent<HTMLElement>) => {
             const target = event.target as Element;
             const control = target.closest?.(NESTED_CONTROL);
 
-            if (control && control !== event.currentTarget) return;
-            if (open && hasSelectionInside(rootRef.current)) return;
+            if (control && control !== triggerRef.current) return;
+            if (open && control !== triggerRef.current && hasSelectionInside(contentRef.current))
+                return;
             toggle();
         };
         const canvas = (
@@ -143,30 +145,40 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
                 data-ready={ready}
                 data-colors={colors}
                 data-interactive={interactive}
+                data-focused={focused}
                 data-test-id={dataTestId}
                 data-state={open ? 'revealed' : 'hidden'}
-                role={interactive ? 'button' : undefined}
-                // Ручной режим не добавляет элемент в порядок табуляции.
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                tabIndex={tabIndex}
-                aria-expanded={interactive ? open : undefined}
-                aria-label={ariaLabel ?? (interactive && !open ? revealLabel : undefined)}
+                role={undefined}
+                tabIndex={undefined}
+                aria-label={revealOn === 'manual' ? ariaLabel : undefined}
                 onClick={composeHandlers(onClick, handleClick)}
                 onKeyDown={composeHandlers(onKeyDown, (event) => {
                     if (
-                        interactive &&
-                        event.target === event.currentTarget &&
-                        !event.repeat &&
+                        event.target === triggerRef.current &&
+                        event.repeat &&
                         (event.key === 'Enter' || event.key === ' ')
                     ) {
                         event.preventDefault();
-                        toggle();
                     }
                 })}
             >
+                <button
+                    ref={triggerRef}
+                    type='button'
+                    className={styles.trigger}
+                    data-spoiler-trigger=''
+                    hidden={revealOn === 'manual'}
+                    tabIndex={interactive ? 0 : -1}
+                    aria-expanded={open}
+                    aria-controls={contentId}
+                    aria-disabled={openedOnce || undefined}
+                    aria-label={ariaLabel ?? (open ? 'Скрыть содержимое' : revealLabel)}
+                    aria-labelledby={ariaLabelledBy}
+                />
                 <Container
                     // Container и фактический узел совпадают; div-ref совместим и со span.
                     ref={contentRef as React.RefObject<HTMLDivElement>}
+                    id={contentId}
                     className={styles.content}
                     data-spoiler-content=''
                     aria-hidden={!open || undefined}

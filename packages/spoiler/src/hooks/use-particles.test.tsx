@@ -11,6 +11,8 @@ const mockEngine = {
     layout: jest.fn(),
     setPlaying: jest.fn(),
     setOpen: jest.fn(),
+    setPointer: jest.fn(),
+    clearPointer: jest.fn(),
     destroy: jest.fn(),
 };
 const mockResizeCallbacks: ResizeObserverCallback[] = [];
@@ -134,10 +136,51 @@ describe('Связь DOM и анимации Spoiler', () => {
                 {} as ResizeObserver,
             ),
         );
-        expect(mockEngine.layout).toHaveBeenLastCalledWith([
-            { x: 0, y: 0, width: 240, height: 144 },
-        ]);
+        expect(mockEngine.layout).toHaveBeenLastCalledWith(
+            [{ x: 0, y: 0, width: 240, height: 144 }],
+            expect.objectContaining({ width: 240, height: 144 }),
+        );
         expect(measureText).not.toHaveBeenCalled();
+    });
+
+    it('обновляет форму элемента при смене скруглений без изменения размера', async () => {
+        const { rerender } = render(<Spoiler mode='element'>Секрет</Spoiler>);
+        act(() =>
+            mockResizeCallbacks[0](
+                [{ contentRect: { width: 150, height: 150 } } as ResizeObserverEntry],
+                {} as ResizeObserver,
+            ),
+        );
+        mockEngine.layout.mockClear();
+
+        rerender(
+            <Spoiler
+                mode='element'
+                style={{
+                    borderTopLeftRadius: '50%',
+                    borderTopRightRadius: '50%',
+                    borderBottomRightRadius: '50%',
+                    borderBottomLeftRadius: '50%',
+                }}
+            >
+                Секрет
+            </Spoiler>,
+        );
+        await flushMutations();
+
+        expect(mockEngine.layout).toHaveBeenLastCalledWith(
+            [{ x: 0, y: 0, width: 150, height: 150 }],
+            expect.objectContaining({
+                corners: Array(4).fill(
+                    expect.objectContaining({
+                        x: 75,
+                        y: 75,
+                        radiusX: 75,
+                        radiusY: 75,
+                    }),
+                ),
+            }),
+        );
     });
 
     it('учитывает reduced motion при монтировании и изменении настройки', () => {
@@ -190,18 +233,16 @@ describe('Связь DOM и анимации Spoiler', () => {
     });
 
     it.each(['text', 'element'] as const)(
-        'в режиме %s движение мыши не меняет облако и не запускает замеры',
+        'в режиме %s передаёт движение мыши без пересборки облака и раскрытия содержимого',
         async (mode) => {
             const onOpenChange = jest.fn();
-            const { container } = render(
+            render(
                 <Spoiler mode={mode} onOpenChange={onOpenChange}>
                     Секрет
                 </Spoiler>,
             );
             await flushMutations();
-            const root = screen.getByRole('button');
-            const canvas = container.querySelector('canvas')!;
-            const bounds = jest.spyOn(canvas, 'getBoundingClientRect');
+            const root = screen.getByRole('button').closest('[data-state]')!;
             jest.clearAllMocks();
 
             fireEvent.pointerEnter(root);
@@ -217,20 +258,116 @@ describe('Связь DOM и анимации Spoiler', () => {
             fireEvent.pointerCancel(root);
             await flushMutations();
 
-            expect(bounds).not.toHaveBeenCalled();
+            expect(mockEngine.setPointer).toHaveBeenCalledWith(150, 90);
+            expect(mockEngine.clearPointer).toHaveBeenCalledTimes(2);
             expect(measureText).not.toHaveBeenCalled();
-            Object.values(mockEngine).forEach((method) => expect(method).not.toHaveBeenCalled());
+            expect(mockEngine.layout).not.toHaveBeenCalled();
+            expect(mockEngine.configure).not.toHaveBeenCalled();
+            expect(mockEngine.setOpen).not.toHaveBeenCalled();
             expect(onOpenChange).not.toHaveBeenCalled();
+            expect(root).toHaveAttribute('data-state', 'hidden');
+        },
+    );
+
+    it('не реагирует на touch и очищает наведение при прокрутке и потере фокуса окна', () => {
+        render(<Spoiler>Секрет</Spoiler>);
+        const root = screen.getByRole('button').closest('[data-state]')!;
+
+        fireEvent(root, Object.assign(new Event('pointermove'), { pointerType: 'touch' }));
+        expect(mockEngine.setPointer).not.toHaveBeenCalled();
+        fireEvent.scroll(document);
+        fireEvent.blur(window);
+        expect(mockEngine.clearPointer).toHaveBeenCalledTimes(2);
+    });
+
+    it.each(['text', 'element'] as const)(
+        'в режиме %s interactiveParticles=false отключает только hover, сохраняя движение и раскрытие',
+        async (mode) => {
+            render(
+                <Spoiler mode={mode} interactiveParticles={false}>
+                    Секрет
+                </Spoiler>,
+            );
+            await flushMutations();
+            const root = screen.getByRole('button').closest('[data-state]')!;
+
+            expect(mockEngine.setPlaying).toHaveBeenLastCalledWith(true);
+            expect(root).not.toHaveAttribute('interactiveparticles');
+            mockEngine.layout.mockClear();
+            fireEvent(
+                root,
+                Object.assign(new Event('pointermove'), {
+                    pointerType: 'mouse',
+                    clientX: 150,
+                    clientY: 90,
+                }),
+            );
+            fireEvent.pointerLeave(root);
+            fireEvent.scroll(document);
+            expect(mockEngine.setPointer).not.toHaveBeenCalled();
+            expect(mockEngine.clearPointer).not.toHaveBeenCalled();
+            expect(mockEngine.layout).not.toHaveBeenCalled();
+
+            fireEvent.click(root);
+            expect(root).toHaveAttribute('data-state', 'revealed');
+            expect(mockEngine.setOpen).toHaveBeenLastCalledWith(true);
+        },
+    );
+
+    it.each(['text', 'element'] as const)(
+        'в режиме %s включает и отключает hover без пересоздания частиц и сброса состояния',
+        async (mode) => {
+            const { rerender } = render(<Spoiler mode={mode}>Секрет</Spoiler>);
+            await flushMutations();
+            const root = screen.getByRole('button').closest('[data-state]')!;
+            const movePointer = () =>
+                fireEvent(
+                    root,
+                    Object.assign(new Event('pointermove'), {
+                        pointerType: 'mouse',
+                        clientX: 150,
+                        clientY: 90,
+                    }),
+                );
+            movePointer();
+            expect(mockEngine.setPointer).toHaveBeenCalledWith(150, 90);
+            jest.clearAllMocks();
+
+            rerender(
+                <Spoiler mode={mode} interactiveParticles={false}>
+                    Секрет
+                </Spoiler>,
+            );
+            await flushMutations();
+            expect(mockEngine.clearPointer).toHaveBeenCalledTimes(1);
+            movePointer();
+            expect(mockEngine.setPointer).not.toHaveBeenCalled();
+
+            rerender(
+                <Spoiler mode={mode} interactiveParticles>
+                    Секрет
+                </Spoiler>,
+            );
+            await flushMutations();
+            movePointer();
+            expect(mockEngine.setPointer).toHaveBeenCalledTimes(1);
+            expect(mockEngine.layout).not.toHaveBeenCalled();
+            expect(measureText).not.toHaveBeenCalled();
+            expect(mockEngine.destroy).not.toHaveBeenCalled();
+            expect(mockEngine.setOpen).not.toHaveBeenCalled();
+            expect(mockEngine.setPlaying).not.toHaveBeenCalled();
             expect(root).toHaveAttribute('data-state', 'hidden');
         },
     );
 
     it('после размонтирования прекращает обработку геометрии и изменений среды', async () => {
         const { unmount } = render(<Spoiler>Секрет</Spoiler>);
+        const root = screen.getByRole('button').closest('[data-state]')!;
         await flushMutations();
         unmount();
         mockEngine.layout.mockClear();
         mockEngine.setPlaying.mockClear();
+        mockEngine.clearPointer.mockClear();
 
         act(() =>
             mockResizeCallbacks[0](
@@ -239,11 +376,17 @@ describe('Связь DOM и анимации Spoiler', () => {
             ),
         );
         act(() => media.dispatchEvent(new Event('change')));
+        fireEvent(root, Object.assign(new Event('pointermove'), { pointerType: 'mouse' }));
+        fireEvent.pointerLeave(root);
+        fireEvent.blur(window);
+        fireEvent.scroll(document);
 
         expect(mockEngine.layout).not.toHaveBeenCalled();
         expect(mockEngine.setPlaying).not.toHaveBeenCalled();
         expect(mockEngine.destroy).toHaveBeenCalledTimes(1);
         expect(mockDisconnect).toHaveBeenCalledTimes(1);
+        expect(mockEngine.setPointer).not.toHaveBeenCalled();
+        expect(mockEngine.clearPointer).not.toHaveBeenCalled();
     });
 
     it('при недоступном canvas сохраняет скрытие и раскрытие', () => {

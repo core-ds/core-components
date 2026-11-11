@@ -5,9 +5,14 @@
     border-radius: var(--border-radius-2);
     box-decoration-break: clone;
 
-    &:focus-visible {
+    &[data-focused='true'] {
         @mixin focus-outline;
     }
+}
+
+/* Отдельный триггер не оборачивает содержимое и не перекрывает вложенные контролы. */
+.trigger {
+    @mixin visually-hidden;
 }
 
 .element {
@@ -78,7 +83,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .component .content {
+    .component[data-state] .content {
         transition: none;
     }
 }

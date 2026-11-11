@@ -1,4 +1,5 @@
 import { ParticleEngine } from './particle-engine';
+import { createElementShape } from './particle-shape';
 
 const line = { x: 0, y: 0, width: 100, height: 20 };
 
@@ -58,6 +59,8 @@ describe('Отрисовка частиц Spoiler', () => {
         };
         global.Path2D = jest.fn().mockImplementation(() => ({
             moveTo: jest.fn(),
+            lineTo: jest.fn(),
+            ellipse: jest.fn(),
             arcTo: jest.fn(),
             closePath: jest.fn(),
         }));
@@ -120,12 +123,13 @@ describe('Отрисовка частиц Spoiler', () => {
                 expect(y - radius).toBeGreaterThanOrEqual(0);
                 expect(y + radius).toBeLessThanOrEqual(height);
             });
-            // Первая ячейка не теряется из-за текстового сдвига, крайняя колонка заполнена.
-            expect(particles[0][0]).toBeGreaterThanOrEqual(0);
-            expect(particles[0][0]).toBeLessThan(cellSize);
+            // После прореживания края обе крайние колонки всё ещё содержат частицы.
             expect(particles.some(([x]) => x > width - cellSize)).toBe(true);
             expect(Math.min(...particles.map(([x]) => x))).toBeLessThan(cellSize);
-            expect(particles.length / (width * height)).toBeCloseTo(0.58 / 12, 2);
+            const center = particles.filter(
+                ([x, y]) => x >= 20 && x <= width - 20 && y >= 20 && y <= height - 20,
+            );
+            expect(center.length / ((width - 40) * (height - 40))).toBeCloseTo(0.58 / 12, 2);
         } finally {
             block.destroy();
         }
@@ -138,6 +142,63 @@ describe('Отрисовка частиц Spoiler', () => {
         expect(context.arc.mock.calls.length).toBeLessThanOrEqual(5000);
         expect(canvas.width * canvas.height).toBeLessThanOrEqual(4000000);
     });
+
+    it.each([
+        { width: 150, height: 150 },
+        { width: 240, height: 80 },
+    ])(
+        'удерживает целые точки внутри круглой или овальной маски $width × $height при движении',
+        ({ width, height }) => {
+            const rect = { x: 0, y: 0, width, height };
+            const shape = createElementShape(rect, {
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
+                borderBottomRightRadius: '50%',
+                borderBottomLeftRadius: '50%',
+            } as CSSStyleDeclaration);
+            const block = new ParticleEngine(
+                canvas,
+                context as unknown as CanvasRenderingContext2D,
+                'element',
+            );
+            jest.spyOn(canvas, 'getBoundingClientRect').mockReturnValue({
+                left: 0,
+                top: 0,
+                width,
+                height,
+            } as DOMRect);
+            let maximum = 0;
+            let count = 0;
+
+            try {
+                block.layout([rect], shape);
+                block.setPlaying(true);
+                block.setPointer(width / 2, height / 4);
+                for (let time = 0; time <= 1600; time += 40) {
+                    if (time === 800) block.setOpen(true);
+                    if (time === 1200) block.setOpen(false);
+                    context.arc.mockClear();
+                    frame(time);
+                    context.arc.mock.calls.forEach(([x, y, radius]) => {
+                        count += 1;
+                        for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 8) {
+                            maximum = Math.max(
+                                maximum,
+                                Math.hypot(
+                                    (x + Math.cos(angle) * radius - width / 2) / (width / 2),
+                                    (y + Math.sin(angle) * radius - height / 2) / (height / 2),
+                                ),
+                            );
+                        }
+                    });
+                }
+                expect(count).toBeGreaterThan(0);
+                expect(maximum).toBeLessThanOrEqual(1 + Number.EPSILON);
+            } finally {
+                block.destroy();
+            }
+        },
+    );
 
     it('останавливает цикл и очищает canvas для пустого содержимого', () => {
         engine.layout([line]);
@@ -454,6 +515,120 @@ describe('Отрисовка частиц Spoiler', () => {
         expect(context.fill).not.toHaveBeenCalled();
         engine.setOpen(false);
         expect(context.fill).toHaveBeenCalled();
+        expect(frames.size).toBe(0);
+    });
+
+    it.each(['text', 'element'] as const)(
+        'в режиме %s отталкивает только ближайшие точки и плавно возвращает их, учитывая масштаб canvas',
+        (mode) => {
+            engine.destroy();
+            engine = new ParticleEngine(
+                canvas,
+                context as unknown as CanvasRenderingContext2D,
+                mode,
+            );
+            const referenceContext = { ...context, arc: jest.fn(), fill: jest.fn() };
+            const reference = new ParticleEngine(
+                canvas,
+                referenceContext as unknown as CanvasRenderingContext2D,
+                mode,
+            );
+            const rect = { x: -100, y: 24, width: 200, height: mode === 'text' ? 20 : 100 };
+            const edge = mode === 'text' ? 4 : 0;
+            const pointer = { x: rect.x + 60, y: rect.y + rect.height / 2 };
+
+            jest.spyOn(canvas, 'getBoundingClientRect').mockReturnValue({
+                left: 300,
+                top: 100,
+                width: (rect.width + edge * 2) * 2,
+                height: rect.height * 2,
+            } as DOMRect);
+
+            try {
+                engine.layout([rect]);
+                reference.layout([rect]);
+                engine.setPlaying(true);
+                reference.setPlaying(true);
+                context.arc.mockClear();
+                referenceContext.arc.mockClear();
+                engine.setPointer(300 + (60 + edge) * 2, 100 + rect.height);
+                expect(context.arc).not.toHaveBeenCalled();
+                frame(40);
+                const first = [...context.arc.mock.calls];
+                const idle = [...referenceContext.arc.mock.calls];
+                let moved = 0;
+                let movedInExtendedRadius = 0;
+                let unchanged = 0;
+
+                first.forEach(([x, y, radius], index) => {
+                    const [baseX, baseY, baseRadius] = idle[index];
+                    const distance = Math.hypot(baseX - pointer.x, baseY - pointer.y);
+                    const displacement = Math.hypot(x - baseX, y - baseY);
+
+                    expect(radius).toBe(baseRadius);
+                    expect(displacement).toBeLessThan(8);
+                    expect(x - radius).toBeGreaterThanOrEqual(rect.x - edge);
+                    expect(x + radius).toBeLessThanOrEqual(rect.x + rect.width + edge);
+                    expect(y - radius).toBeGreaterThanOrEqual(rect.y);
+                    expect(y + radius).toBeLessThanOrEqual(rect.y + rect.height);
+                    if (distance < 24) {
+                        expect(Math.hypot(x - pointer.x, y - pointer.y)).toBeGreaterThan(distance);
+                        moved += 1;
+                    } else if (distance >= 48 && distance < 52) {
+                        expect(displacement).toBeGreaterThan(0);
+                        movedInExtendedRadius += 1;
+                    } else if (distance >= 56) {
+                        expect(displacement).toBe(0);
+                        unchanged += 1;
+                    }
+                });
+                expect(moved).toBeGreaterThan(0);
+                expect(movedInExtendedRadius).toBeGreaterThan(0);
+                expect(unchanged).toBeGreaterThan(0);
+
+                engine.clearPointer();
+                context.arc.mockClear();
+                engine.redraw();
+                expect(context.arc.mock.calls).toEqual(first);
+                for (let time = 80; time <= 1000; time += 40) {
+                    context.arc.mockClear();
+                    referenceContext.arc.mockClear();
+                    frame(time);
+                }
+                expect(context.arc.mock.calls).toEqual(referenceContext.arc.mock.calls);
+            } finally {
+                reference.destroy();
+            }
+        },
+    );
+
+    it('игнорирует курсор в статичном и раскрытом состоянии и сбрасывает отталкивание при паузе', () => {
+        engine.layout([line]);
+        const bounds = jest.spyOn(canvas, 'getBoundingClientRect').mockReturnValue({
+            left: 0,
+            top: 0,
+            width: 108,
+            height: 20,
+        } as DOMRect);
+        engine.setPointer(54, 10);
+        expect(bounds).not.toHaveBeenCalled();
+        expect(frames.size).toBe(0);
+
+        engine.setPlaying(true);
+        engine.setPointer(54, 10);
+        frame(40);
+        context.arc.mockClear();
+        engine.setPlaying(false);
+        const paused = [...context.arc.mock.calls];
+        engine.layout([line]);
+        context.arc.mockClear();
+        engine.redraw();
+        expect(context.arc.mock.calls).toEqual(paused);
+        engine.setOpen(true);
+        engine.setPlaying(true);
+        bounds.mockClear();
+        engine.setPointer(54, 10);
+        expect(bounds).not.toHaveBeenCalled();
         expect(frames.size).toBe(0);
     });
 });

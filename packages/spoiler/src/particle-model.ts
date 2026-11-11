@@ -1,4 +1,5 @@
 import { FONT, FULL_CIRCLE, getCloudHeight, PARTICLES } from './constants';
+import { type ElementShape, getShapeInset } from './particle-shape';
 import { type Rect } from './particle-utils';
 
 const RANDOM_MODULUS = 2147483647;
@@ -17,6 +18,8 @@ export type Particle = {
     opacity: number;
     opacityPhase: number;
     opacitySpeed: number;
+    pointerX: number;
+    pointerY: number;
 };
 
 /** Числовой seed ячейки и Park–Miller дают повторяемый узор без битовых операций. */
@@ -82,11 +85,19 @@ const createParticle = (
         opacitySpeed:
             FULL_CIRCLE /
             (PARTICLES.twinkleDuration.min + random() * PARTICLES.twinkleDuration.range),
+        pointerX: 0,
+        pointerY: 0,
     };
 };
 
-/** Одинаковая плотность для текста и блоков, одна частица на ячейку, общий предел на экземпляр. */
-export const createParticleGroups = (rects: Rect[], fontSize: number, edgeSpread: number) => {
+/** Базовая плотность одинакова; у блоков прореживается только полоса вдоль внешнего края. */
+export const createParticleGroups = (
+    rects: Rect[],
+    fontSize: number,
+    edgeSpread: number,
+    mode: 'text' | 'element',
+    shape?: ElementShape,
+) => {
     const fontScale = Math.max(FONT.minScale, Math.min(FONT.maxScale, fontSize / FONT.base));
     const density = (PARTICLES.density * Math.min(fontScale, 1)) / getCloudHeight(fontSize);
     const area = rects.reduce(
@@ -106,11 +117,20 @@ export const createParticleGroups = (rects: Rect[], fontSize: number, edgeSpread
             height: rect.height,
         };
         const particles: Particle[] = [];
+        const edgeWidth =
+            mode === 'element'
+                ? Math.min(
+                      PARTICLES.elementEdge.width,
+                      rect.width * PARTICLES.elementEdge.maxSizeRatio,
+                      rect.height * PARTICLES.elementEdge.maxSizeRatio,
+                  )
+                : 0;
 
         for (let row = 0; row < rows && remaining > 0; row += 1) {
             for (let column = 0; column < columns && remaining > 0; column += 1) {
+                const random = createRandom(group, row, column);
                 const particle = createParticle(
-                    createRandom(group, row, column),
+                    random,
                     {
                         x: column * cellSize - edgeSpread,
                         y: row * cellSize,
@@ -122,8 +142,30 @@ export const createParticleGroups = (rects: Rect[], fontSize: number, edgeSpread
                 );
 
                 if (particle) {
-                    particles.push(particle);
+                    // Лимит считаем до прореживания: рисунок в центре не меняется даже у больших блоков.
                     remaining -= 1;
+                    let edgeDensity = 1;
+
+                    if (edgeWidth) {
+                        const distance = shape
+                            ? getShapeInset(shape, particle.cloudX, particle.cloudY)
+                            : Math.min(
+                                  particle.cloudX,
+                                  particle.cloudY,
+                                  rect.width - particle.cloudX,
+                                  rect.height - particle.cloudY,
+                              );
+                        const progress = Math.max(0, Math.min(1, distance / edgeWidth));
+                        const fade = progress * progress * (3 - 2 * progress);
+
+                        edgeDensity =
+                            shape && distance < particle.radius
+                                ? 0
+                                : PARTICLES.elementEdge.minDensity +
+                                  (1 - PARTICLES.elementEdge.minDensity) * fade;
+                    }
+                    if (!edgeWidth || (edgeDensity > 0 && random() <= edgeDensity))
+                        particles.push(particle);
                 }
             }
         }

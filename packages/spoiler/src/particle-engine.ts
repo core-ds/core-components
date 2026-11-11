@@ -8,8 +8,11 @@ import {
     FULL_CIRCLE,
     MILLISECONDS_PER_SECOND,
     PARTICLES,
+    POINTER,
 } from './constants';
+import { displaceWithinBounds, type Point, updatePointerOffset } from './particle-interaction';
 import { createParticleGroups, type Particle } from './particle-model';
+import { constrainToShape, createElementMask, type ElementShape } from './particle-shape';
 import { type Rect } from './particle-utils';
 
 type Mode = 'text' | 'element';
@@ -57,6 +60,10 @@ export class ParticleEngine {
 
     private mask: Path2D | undefined;
 
+    private elementShape: ElementShape | undefined;
+
+    private point: Point = { x: 0, y: 0 };
+
     private color = '';
 
     private borderRadius = 0;
@@ -66,6 +73,10 @@ export class ParticleEngine {
     private top = 0;
 
     private playing = false;
+
+    private pointer: Point | undefined;
+
+    private pointerSettling = false;
 
     private progress = 0;
 
@@ -111,11 +122,35 @@ export class ParticleEngine {
         this.paint();
     }
 
-    layout(rectangles: Rect[]) {
+    /** Переводит координаты мыши в систему canvas, включая CSS-масштабирование и переносы строк. */
+    setPointer(clientX: number, clientY: number) {
+        if (!this.playing || this.target === 1 || !this.rects.length) return;
+        const bounds = this.canvas.getBoundingClientRect();
+
+        if (!bounds.width || !bounds.height) return;
+        this.pointer = {
+            x:
+                this.left +
+                ((clientX - bounds.left) * this.canvas.width) / (bounds.width * this.scaleX),
+            y:
+                this.top +
+                ((clientY - bounds.top) * this.canvas.height) / (bounds.height * this.scaleY),
+        };
+    }
+
+    clearPointer() {
+        this.pointer = undefined;
+    }
+
+    layout(rectangles: Rect[], elementShape?: ElementShape) {
         const rects = rectangles.filter(({ width, height }) => width > 0 && height > 0);
 
         this.rects = rects;
-        this.mask = createParticleMask(rects, this.borderRadius, this.edgeSpread);
+        this.clearPointer();
+        this.elementShape = this.mode === 'element' && rects.length ? elementShape : undefined;
+        this.mask = this.elementShape
+            ? createElementMask(this.elementShape, rects[0])
+            : createParticleMask(rects, this.borderRadius, this.edgeSpread);
         if (!rects.length) {
             this.particles = [];
             this.updateSubscription();
@@ -151,7 +186,13 @@ export class ParticleEngine {
             this.canvas.style.top = `${this.top}px`;
         }
 
-        this.particles = createParticleGroups(rects, this.fontSize, this.edgeSpread);
+        this.particles = createParticleGroups(
+            rects,
+            this.fontSize,
+            this.edgeSpread,
+            this.mode,
+            this.elementShape,
+        );
         this.syncColor();
         // Изменение размера очищает буфер: рисуем сразу, даже когда следующий тик ещё не наступил.
         this.paint();
@@ -162,6 +203,7 @@ export class ParticleEngine {
     setOpen(open: boolean) {
         const target = open ? 1 : 0;
 
+        if (open) this.clearPointer();
         if (this.target !== target) {
             this.target = target;
             this.transitionUpdatedAt =
@@ -175,6 +217,7 @@ export class ParticleEngine {
     /** Вне экрана и при reduced motion фиксирует конечное состояние без фонового цикла. */
     setPlaying(playing: boolean) {
         this.playing = playing;
+        if (!playing) this.clearPointer();
         if (!playing) this.progress = this.target;
         this.syncColor();
         this.paint();
@@ -195,11 +238,12 @@ export class ParticleEngine {
         if (!needed) {
             this.destroy();
         } else if (!this.unsubscribe) {
-            this.unsubscribe = subscribeAnimationFrame(this.tick, this.isTransitioning);
+            this.unsubscribe = subscribeAnimationFrame(this.tick, this.needsFullRate);
         }
     }
 
-    private isTransitioning = () => this.progress !== this.target;
+    private needsFullRate = () =>
+        this.progress !== this.target || Boolean(this.pointer) || this.pointerSettling;
 
     private tick = (seconds: number, timestamp: number) => {
         this.elapsed += seconds;
@@ -221,11 +265,11 @@ export class ParticleEngine {
             this.progress = Math.min(this.target, this.progress + step);
         if (this.progress > this.target)
             this.progress = Math.max(this.target, this.progress - step);
-        this.paint();
+        this.paint(seconds);
         this.updateSubscription();
     };
 
-    private paintParticle(particle: Particle, rect: Rect, progress: number) {
+    private paintParticle(particle: Particle, rect: Rect, progress: number, response: number) {
         const { context } = this;
         const { cloudX, cloudY, radius, phase, speed } = particle;
         const offsetX =
@@ -265,6 +309,9 @@ export class ParticleEngine {
         // При раскрытии собираем облако к центру, при скрытии идём обратно; центр не пересекаем.
         const endX = clamp(baseX + deltaX * contraction, minX, maxX);
         const endY = clamp(baseY + deltaY * contraction, minY, maxY);
+        const settling = updatePointerOffset(particle, this.pointer, startX, startY, response);
+
+        this.pointerSettling ||= settling;
 
         context.globalAlpha =
             particle.opacity *
@@ -272,19 +319,29 @@ export class ParticleEngine {
                 opacityProgress *
                     (PARTICLES.opacity.multiplierMax - PARTICLES.opacity.multiplierMin)) *
             (1 - dissolve);
-        context.beginPath();
-        context.arc(
+        this.point.x = displaceWithinBounds(
             startX + (endX - startX) * dissolve,
-            startY + (endY - startY) * dissolve,
-            currentRadius,
-            0,
-            FULL_CIRCLE,
+            particle.pointerX * (1 - dissolve),
+            minX,
+            maxX,
         );
+        this.point.y = displaceWithinBounds(
+            startY + (endY - startY) * dissolve,
+            particle.pointerY * (1 - dissolve),
+            minY,
+            maxY,
+        );
+        if (this.elementShape) constrainToShape(this.elementShape, this.point, rect, particle);
+        context.beginPath();
+        context.arc(this.point.x, this.point.y, currentRadius, 0, FULL_CIRCLE);
         context.fill();
     }
 
-    private paint() {
+    private paint(seconds = 0) {
         const { context } = this;
+        const response = this.playing ? 1 - Math.exp(-POINTER.response * seconds) : 1;
+
+        this.pointerSettling = false;
 
         context.setTransform(1, 0, 0, 1, 0, 0);
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -303,7 +360,7 @@ export class ParticleEngine {
 
         this.rects.forEach((rect, index) => {
             this.particles[index].forEach((particle) =>
-                this.paintParticle(particle, rect, this.progress),
+                this.paintParticle(particle, rect, this.progress, response),
             );
         });
         context.restore();

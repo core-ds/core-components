@@ -1,5 +1,6 @@
 import React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { Spoiler } from './Component';
 
@@ -58,10 +59,11 @@ describe('Spoiler', () => {
         fireEvent.click(trigger);
 
         expect(trigger).toHaveAttribute('aria-expanded', 'true');
-        expect(trigger).toHaveAttribute('data-state', 'revealed');
-        expect(trigger).not.toHaveAttribute('aria-label');
+        expect(trigger.closest('[data-state]')).toHaveAttribute('data-state', 'revealed');
         expect(content).not.toHaveAttribute('aria-hidden', 'true');
-        expect(screen.getByRole('button', { name: 'Скрытый текст' })).toBe(trigger);
+        expect(screen.getByRole('button', { name: 'Скрыть содержимое' })).toBe(trigger);
+        expect(trigger).toHaveAttribute('aria-controls', content!.id);
+        expect(trigger).not.toContainElement(content as HTMLElement);
         expect(onOpenChange).toHaveBeenLastCalledWith(true);
 
         fireEvent.click(trigger);
@@ -71,18 +73,20 @@ describe('Spoiler', () => {
         expect(onOpenChange).toHaveBeenLastCalledWith(false);
     });
 
-    it.each(['Enter', ' '])('переключает скрытый текст клавишей %p', (key) => {
+    it.each(['{Enter}', ' '])('переключает скрытый текст клавишей %p', async (key) => {
+        const user = userEvent.setup();
         const onOpenChange = jest.fn();
 
         render(<Spoiler onOpenChange={onOpenChange}>Скрытый текст</Spoiler>);
         const trigger = screen.getByRole('button');
 
-        fireEvent.keyDown(trigger, { key });
+        await user.tab();
+        await user.keyboard(key);
 
         expect(trigger).toHaveAttribute('aria-expanded', 'true');
         expect(onOpenChange).toHaveBeenLastCalledWith(true);
 
-        fireEvent.keyDown(trigger, { key });
+        await user.keyboard(key);
 
         expect(trigger).toHaveAttribute('aria-expanded', 'false');
         expect(onOpenChange).toHaveBeenLastCalledWith(false);
@@ -106,7 +110,8 @@ describe('Spoiler', () => {
         expect(root).toHaveAttribute('data-state', 'revealed');
         expect(root).not.toHaveAttribute('role');
         expect(root).not.toHaveAttribute('aria-expanded');
-        expect(root).toHaveAttribute('tabindex', '-1');
+        expect(screen.getByRole('button')).toHaveAttribute('tabindex', '-1');
+        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
 
         fireEvent.click(root);
 
@@ -115,30 +120,35 @@ describe('Spoiler', () => {
         expect(root).toHaveAttribute('data-state', 'revealed');
     });
 
-    it.each(['Enter', ' '])('с revealOnce раскрывается клавишей %p только один раз', (key) => {
-        const onKeyDown = jest.fn();
-        const onOpenChange = jest.fn();
+    it.each(['{Enter}', ' '])(
+        'с revealOnce раскрывается клавишей %p только один раз',
+        async (key) => {
+            const user = userEvent.setup();
+            const onKeyDown = jest.fn();
+            const onOpenChange = jest.fn();
 
-        render(
-            <Spoiler
-                revealOnce
-                dataTestId='spoiler'
-                onKeyDown={onKeyDown}
-                onOpenChange={onOpenChange}
-            >
-                Скрытый текст
-            </Spoiler>,
-        );
-        const root = screen.getByTestId('spoiler');
+            render(
+                <Spoiler
+                    revealOnce
+                    dataTestId='spoiler'
+                    onKeyDown={onKeyDown}
+                    onOpenChange={onOpenChange}
+                >
+                    Скрытый текст
+                </Spoiler>,
+            );
+            const root = screen.getByTestId('spoiler');
 
-        fireEvent.keyDown(root, { key });
-        fireEvent.keyDown(root, { key });
+            act(() => screen.getByRole('button').focus());
+            await user.keyboard(key);
+            await user.keyboard(key);
 
-        expect(onKeyDown).toHaveBeenCalledTimes(2);
-        expect(onOpenChange).toHaveBeenCalledTimes(1);
-        expect(onOpenChange).toHaveBeenCalledWith(true);
-        expect(root).toHaveAttribute('data-state', 'revealed');
-    });
+            expect(onKeyDown).toHaveBeenCalledTimes(2);
+            expect(onOpenChange).toHaveBeenCalledTimes(1);
+            expect(onOpenChange).toHaveBeenCalledWith(true);
+            expect(root).toHaveAttribute('data-state', 'revealed');
+        },
+    );
 
     it('в управляемом режиме revealOnce снова разрешает раскрытие после open=false', () => {
         const onOpenChange = jest.fn();
@@ -155,7 +165,7 @@ describe('Spoiler', () => {
                 Скрытый текст
             </Spoiler>,
         );
-        expect(screen.queryByRole('button')).not.toBeInTheDocument();
+        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
         rerender(
             <Spoiler revealOnce open={false} onOpenChange={onOpenChange}>
                 Скрытый текст
@@ -188,7 +198,8 @@ describe('Spoiler', () => {
         const open = screen.getByTestId('spoiler-once');
         expect(open).toHaveAttribute('data-state', 'revealed');
         expect(open).not.toHaveAttribute('role');
-        expect(open).toHaveAttribute('tabindex', '-1');
+        expect(screen.getByRole('button')).toHaveAttribute('tabindex', '-1');
+        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('не скрывает раскрытый текст при выделении внутри спойлера', () => {
@@ -249,7 +260,8 @@ describe('Spoiler', () => {
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
     });
 
-    it('фокус не раскрывает текст, но позволяет активировать его с клавиатуры', () => {
+    it('фокус не раскрывает текст, но позволяет активировать его с клавиатуры', async () => {
+        const user = userEvent.setup();
         render(<Spoiler>Скрытый текст</Spoiler>);
         const trigger = screen.getByRole('button');
 
@@ -259,7 +271,7 @@ describe('Spoiler', () => {
 
         expect(trigger).toHaveFocus();
         expect(trigger).toHaveAttribute('aria-expanded', 'false');
-        fireEvent.keyDown(trigger, { key: 'Enter' });
+        await user.keyboard('{Enter}');
         expect(trigger).toHaveAttribute('aria-expanded', 'true');
 
         act(() => trigger.blur());
@@ -319,7 +331,8 @@ describe('Spoiler', () => {
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
     });
 
-    it('позволяет отменить переключение в пользовательском обработчике клавиатуры', () => {
+    it('позволяет отменить переключение в пользовательском обработчике клавиатуры', async () => {
+        const user = userEvent.setup();
         const onOpenChange = jest.fn();
         const onKeyDown = jest.fn((event: React.KeyboardEvent<HTMLSpanElement>) =>
             event.preventDefault(),
@@ -331,7 +344,8 @@ describe('Spoiler', () => {
             </Spoiler>,
         );
 
-        fireEvent.keyDown(screen.getByRole('button'), { key: 'Enter' });
+        act(() => screen.getByRole('button').focus());
+        await user.keyboard('{Enter}');
 
         expect(onKeyDown).toHaveBeenCalledTimes(1);
         expect(onOpenChange).not.toHaveBeenCalled();

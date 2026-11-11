@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { Button } from '@alfalab/core-components-button';
 import { Spoiler } from '@alfalab/core-components-spoiler';
 import { Switch } from '@alfalab/core-components-switch';
 import { Typography } from '@alfalab/core-components-typography';
@@ -26,7 +27,7 @@ type Story = StoryObj<typeof Spoiler>;
 
 const AMOUNT_VALUES = ['−4 940 ₽', '−5 186 ₽'];
 
-const AmountExample = () => {
+const AmountExample = ({ interactiveParticles }: { interactiveParticles: boolean }) => {
     const [open, setOpen] = useState(true);
     const [valueIndex, setValueIndex] = useState(0);
 
@@ -43,7 +44,11 @@ const AmountExample = () => {
     return (
         <div className={styles.demo}>
             <Typography.Title tag='div' view='medium' font='system'>
-                <Spoiler open={open} onOpenChange={setOpen}>
+                <Spoiler
+                    open={open}
+                    onOpenChange={setOpen}
+                    interactiveParticles={interactiveParticles}
+                >
                     {AMOUNT_VALUES[valueIndex]}
                 </Spoiler>
             </Typography.Title>
@@ -80,10 +85,11 @@ export const spoiler: Story = {
                     mode='element'
                     defaultOpen={defaultOpen}
                     revealOnce={revealOnce}
+                    interactiveParticles={boolean('interactiveParticles', true)}
                     colors={colors}
                     className={text('className', '')}
                     dataTestId={text('dataTestId', '')}
-                    style={{ borderRadius: 'var(--border-radius-8)' }}
+                    style={{ borderRadius: text('borderRadius', 'var(--border-radius-8)') }}
                 >
                     <img
                         src='./images/gorgeous-garden.png'
@@ -100,7 +106,31 @@ export const spoiler: Story = {
 
 export const spoiler_text: Story = {
     name: 'SpoilerText',
-    render: () => <AmountExample />,
+    render: () => <AmountExample interactiveParticles={boolean('interactiveParticles', true)} />,
+};
+
+const NestedControlsExample = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div className={styles.demo}>
+            <Button size={40}>До спойлера</Button>
+            <Spoiler mode='element' style={{ borderRadius: 'var(--border-radius-16)' }}>
+                <div className={styles.controls}>
+                    <Typography.Text view='primary-medium'>Заказ № 125 600</Typography.Text>
+                    <Button size={40} onClick={() => setCount((value) => value + 1)}>
+                        Действие: {count}
+                    </Button>
+                </div>
+            </Spoiler>
+            <Button size={40}>После спойлера</Button>
+        </div>
+    );
+};
+
+export const nested_controls: Story = {
+    name: 'Вложенная кнопка',
+    render: () => <NestedControlsExample />,
 };
 
 export default meta;
