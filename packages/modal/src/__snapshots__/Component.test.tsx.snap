@@ -38,6 +38,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
                   >
                     <div
                       class="iconWrapper"
+                      data-name="back-button-icon-wrapper"
                     >
                       <svg
                         fill="currentColor"
@@ -82,6 +83,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
                   >
                     <span
                       class="iconWrapper size-48 center"
+                      data-name="icon-button-icon-wrapper"
                     >
                       <svg
                         class="icon"
@@ -176,6 +178,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                   >
                     <div
                       class="iconWrapper mobileWrapper"
+                      data-name="back-button-icon-wrapper"
                     >
                       <svg
                         fill="currentColor"
@@ -220,6 +223,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                   >
                     <span
                       class="iconWrapper size-32 center"
+                      data-name="icon-button-icon-wrapper"
                     >
                       <svg
                         class="icon"

@@ -23,3 +23,26 @@
         }
     }
 }
+
+.backButtonClassName,
+.closerClassName,
+.closerPropsClassName {
+    height: 40px;
+}
+
+.backButtonPropsClassName {
+    height: 30px;
+    margin: unset;
+
+    & [data-name='back-button-icon-wrapper'] {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.closerPropsClassName {
+    & [data-name='icon-button-icon-wrapper'] {
+        width: 30px;
+        height: 30px;
+    }
+}

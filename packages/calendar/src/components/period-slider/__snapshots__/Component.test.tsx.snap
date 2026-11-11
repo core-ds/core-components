@@ -19,6 +19,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
       >
         <span
           class="iconWrapper size-32 center"
+          data-name="icon-button-icon-wrapper"
         >
           <svg
             class="icon"
@@ -53,6 +54,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
       >
         <span
           class="iconWrapper size-32 center"
+          data-name="icon-button-icon-wrapper"
         >
           <svg
             class="icon"
@@ -93,6 +95,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
       >
         <span
           class="iconWrapper size-32 center"
+          data-name="icon-button-icon-wrapper"
         >
           <svg
             class="icon"
@@ -127,6 +130,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
       >
         <span
           class="iconWrapper size-32 center"
+          data-name="icon-button-icon-wrapper"
         >
           <svg
             class="icon"

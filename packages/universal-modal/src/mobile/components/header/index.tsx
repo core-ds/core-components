@@ -26,6 +26,9 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
         bottomAddonsClassName,
         backButtonProps,
         onClose,
+        backButtonClassName,
+        closerClassName,
+        closerProps,
         ...restProps
     } = props;
 
@@ -54,7 +57,14 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
                 ...backButtonProps,
                 text: null,
                 icon: ChevronLeftMIcon,
+                className: cn(backButtonProps?.className, styles.backButtonPropsClassName),
             }}
+            closerProps={{
+                ...closerProps,
+                className: cn(closerProps?.className, styles.closerPropsClassName),
+            }}
+            backButtonClassName={cn(backButtonClassName, styles.backButtonClassName)}
+            closerClassName={cn(closerClassName, styles.closerClassName)}
             contentClassName={cn(mobileStyles.content, contentClassName)}
             bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}

@@ -104,6 +104,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 >
                   <span
                     class="iconWrapper size-32 center"
+                    data-name="icon-button-icon-wrapper"
                   >
                     <svg
                       class="icon"
@@ -137,6 +138,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 >
                   <span
                     class="iconWrapper size-32 center"
+                    data-name="icon-button-icon-wrapper"
                   >
                     <svg
                       class="icon"
@@ -990,6 +992,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 >
                   <span
                     class="iconWrapper size-32 center"
+                    data-name="icon-button-icon-wrapper"
                   >
                     <svg
                       class="icon"
@@ -1023,6 +1026,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 >
                   <span
                     class="iconWrapper size-32 center"
+                    data-name="icon-button-icon-wrapper"
                   >
                     <svg
                       class="icon"

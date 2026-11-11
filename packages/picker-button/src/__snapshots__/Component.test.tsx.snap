@@ -368,6 +368,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                               >
                                 <span
                                   class="iconWrapper size-32 center"
+                                  data-name="icon-button-icon-wrapper"
                                 >
                                   <svg
                                     class="icon"
@@ -882,6 +883,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                               >
                                 <span
                                   class="iconWrapper size-32 center"
+                                  data-name="icon-button-icon-wrapper"
                                 >
                                   <svg
                                     class="icon"

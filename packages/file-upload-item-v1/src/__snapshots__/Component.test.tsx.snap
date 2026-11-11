@@ -59,6 +59,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
           >
             <span
               class="iconWrapper size-24 center"
+              data-name="icon-button-icon-wrapper"
             >
               <svg
                 class="icon"
@@ -86,6 +87,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
           >
             <span
               class="iconWrapper size-24 center"
+              data-name="icon-button-icon-wrapper"
             >
               <svg
                 class="icon"
@@ -161,6 +163,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         >
           <span
             class="iconWrapper size-24 center"
+            data-name="icon-button-icon-wrapper"
           >
             <svg
               class="icon"
@@ -188,6 +191,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         >
           <span
             class="iconWrapper size-24 center"
+            data-name="icon-button-icon-wrapper"
           >
             <svg
               class="icon"

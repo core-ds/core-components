@@ -232,8 +232,6 @@ export const mobile: Story = {
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
 
-        const shouldRenderHeader = header && Boolean(headerTitle);
-
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
                 <Button type='button' size={40} onClick={() => setOpen(true)}>
@@ -244,7 +242,7 @@ export const mobile: Story = {
                     appearance={appearance}
                     onClose={() => setOpen(false)}
                 >
-                    {shouldRenderHeader && (
+                    {header && (
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}

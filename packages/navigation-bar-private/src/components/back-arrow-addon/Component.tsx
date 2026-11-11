@@ -86,6 +86,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
                         [styles.mobileWrapper]: isMobileView,
                         [colorStyles[colors].mobileWrapper]: isMobileView,
                     })}
+                    data-name='back-button-icon-wrapper'
                 >
                     <Icon />
                 </div>

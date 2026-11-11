@@ -153,6 +153,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 >
                                   <span
                                     class="iconWrapper size-32 center"
+                                    data-name="icon-button-icon-wrapper"
                                   >
                                     <svg
                                       class="icon"
