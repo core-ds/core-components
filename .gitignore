@@ -36,7 +36,8 @@ yarn-error.log*
 storybook-static
 
 # IDE
-.idea
+.idea/*
+!.idea/compiler.xml
 .vscode/*
 !.vscode/settings.json
 
