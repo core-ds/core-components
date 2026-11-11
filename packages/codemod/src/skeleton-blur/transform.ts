@@ -1,4 +1,4 @@
-import { ASTPath, JSXElement, Transform } from 'jscodeshift';
+import { type ASTPath, type JSXElement, type Transform } from 'jscodeshift';
 
 const transformer: Transform = (fileInfo, api) => {
     const j = api.jscodeshift;

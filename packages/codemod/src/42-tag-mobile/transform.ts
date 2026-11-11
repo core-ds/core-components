@@ -1,4 +1,4 @@
-import { ASTPath, JSCodeshift, JSXElement } from 'jscodeshift';
+import { type ASTPath, type JSCodeshift, type JSXElement } from 'jscodeshift';
 
 import { addStringAttribute } from '../utils';
 
