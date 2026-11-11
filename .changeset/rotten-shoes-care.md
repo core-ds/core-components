@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-navigation-bar-private': minor
+'@alfalab/core-components-navigation-bar-private': patch
 ---
 
-- В `backButtonProps` добавлен проп `icon` для замены иконки кнопки «Назад»
+- Изменения не влияющие на работу компонента

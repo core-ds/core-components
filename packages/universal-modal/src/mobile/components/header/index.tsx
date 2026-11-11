@@ -53,8 +53,8 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
             backButtonProps={{
                 ...backButtonProps,
                 text: null,
-                icon: ChevronLeftMIcon,
             }}
+            backButtonIcon={ChevronLeftMIcon}
             addonsSize={40}
             contentClassName={cn(mobileStyles.content, contentClassName)}
             bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}

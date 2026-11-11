@@ -46,6 +46,7 @@ export const NavigationBarPrivate = forwardRef<
             hasBackButton,
             backButtonClassName,
             backButtonProps,
+            backButtonIcon,
             dataTestId,
             imageUrl,
             closerIcon,
@@ -159,6 +160,7 @@ export const NavigationBarPrivate = forwardRef<
                         colors={colors}
                         textOpacity={textOpacity}
                         view={view}
+                        icon={backButtonIcon}
                         onClick={onBack}
                     />
                 </div>
