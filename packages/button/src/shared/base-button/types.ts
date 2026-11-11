@@ -1,6 +1,6 @@
 import { type ComponentProps, type ElementType, type ReactNode } from 'react';
 
-import { type BaseButtonProps as ButtonComponentProps } from '@alfalab/core-components-headless-button';
+import { type ButtonComponentProps } from '@alfalab/core-components-button/shared/base-button/pure-types';
 import {
     type ComposedPolymorphicProps,
     type PolymorphicComponentProps,
