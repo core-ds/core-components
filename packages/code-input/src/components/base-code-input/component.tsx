@@ -2,6 +2,7 @@ import React, {
     type ChangeEvent,
     type FocusEventHandler,
     forwardRef,
+    useCallback,
     useEffect,
     useImperativeHandle,
     useRef,
@@ -49,13 +50,13 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const getInputs = () =>
             inputRef.current?.querySelectorAll<HTMLInputElement>('input[data-code-input-index]');
 
-        const focus = (index = 0) => {
+        const focus = useCallback((index = 0) => {
             const input = getInputs()?.[index];
 
             if (input) {
                 input.focus({ preventScroll: true });
             }
-        };
+        }, []);
 
         const blur = () => {
             const input = document.activeElement as HTMLInputElement;

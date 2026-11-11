@@ -1,10 +1,12 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "@alfalab/core-components-tsconfig-node24-backport",
-    "include": ["src"],
+    "include": ["${configDir}/src"],
     "compilerOptions": {
+        "types": ["node"],
+        "isolatedModules": true,
         "resolveJsonModule": true,
-        "rootDir": "src",
-        "outDir": "dist"
+        "rootDir": "${configDir}/src",
+        "outDir": "${configDir}/dist"
     }
 }

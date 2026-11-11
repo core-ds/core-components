@@ -17,9 +17,7 @@
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-space": ["../space/src"],
-            "@alfalab/core-components-space/*": ["../space/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-space/*": ["../space/src/*"]
         }
     },
     "references": [
@@ -27,7 +25,6 @@
         { "path": "../config/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../space/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../space/tsconfig.build.json" }
     ]
 }

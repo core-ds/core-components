@@ -161,6 +161,7 @@ export const BaseInput = forwardRef<
 
             // https://github.com/facebook/react/issues/14125
             input.setSelectionRange(input.value.length, input.value.length);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
         const handleInputFocus = useCallback(

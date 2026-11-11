@@ -1,4 +1,4 @@
-import { Transform } from 'jscodeshift';
+import { type Transform } from 'jscodeshift';
 
 import { getKeys } from '../utils';
 
@@ -38,6 +38,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                             ) {
                                 return true;
                             }
+
                             return false;
                         },
                     })
@@ -63,6 +64,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                             ) {
                                 return true;
                             }
+
                             return false;
                         },
                     })
@@ -85,7 +87,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                             value.type === 'JSXExpressionContainer' &&
                             value.expression.type === 'ObjectExpression'
                         ) {
-                            value.expression.properties.forEach((prop) => {
+                            value.expression.properties.forEach((_) => {
                                 if (
                                     value?.type === 'JSXExpressionContainer' &&
                                     value.expression.type === 'ObjectExpression'
@@ -118,7 +120,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                             value.type === 'JSXExpressionContainer' &&
                             value.expression.type === 'ObjectExpression'
                         ) {
-                            value.expression.properties.forEach((prop) => {
+                            value.expression.properties.forEach((_) => {
                                 if (
                                     value?.type === 'JSXExpressionContainer' &&
                                     value.expression.type === 'ObjectExpression'
@@ -151,7 +153,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                             value.type === 'JSXExpressionContainer' &&
                             value.expression.type === 'ObjectExpression'
                         ) {
-                            value.expression.properties.forEach((prop) => {
+                            value.expression.properties.forEach((_) => {
                                 if (
                                     value?.type === 'JSXExpressionContainer' &&
                                     value.expression.type === 'ObjectExpression'

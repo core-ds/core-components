@@ -17,9 +17,7 @@
             "@alfalab/core-components-status-badge": ["../status-badge/src"],
             "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"],
             "@alfalab/core-components-steps": ["./src"],
-            "@alfalab/core-components-steps/*": ["./src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-steps/*": ["./src/*"]
         }
     },
     "references": [
@@ -27,7 +25,6 @@
         { "path": "../icon-button/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../status-badge/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../status-badge/tsconfig.build.json" }
     ]
 }

@@ -1,0 +1,10 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-tsconfig-node24-backport",
+    "include": ["${configDir}/src", "${configDir}/bin", "${configDir}/.eslintrc.cjs"],
+    "exclude": ["${configDir}/src/**/__testfixtures__"],
+    "compilerOptions": {
+        "types": ["node", "jest"],
+        "noEmit": true
+    }
+}

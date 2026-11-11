@@ -1,4 +1,4 @@
-import { JSCodeshift } from 'jscodeshift';
+import { type JSCodeshift } from 'jscodeshift';
 
 import { tagTransformer } from '../42-tag-mobile/transform';
 

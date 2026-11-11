@@ -22,8 +22,6 @@
             "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-universal-modal": ["./src"],
             "@alfalab/core-components-universal-modal/*": ["./src/*"]
         }
@@ -35,7 +33,6 @@
         { "path": "../navigation-bar-private/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../scrollbar/tsconfig.build.json" },
-        { "path": "../shared/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../shared/tsconfig.build.json" }
     ]
 }

@@ -1,4 +1,9 @@
-import { Collection, ImportSpecifier, JSCodeshift, JSXOpeningElement } from 'jscodeshift';
+import {
+    type Collection,
+    type ImportSpecifier,
+    type JSCodeshift,
+    type JSXOpeningElement,
+} from 'jscodeshift';
 
 type TransformTypographyImportOpts = {
     from: string;
@@ -155,7 +160,7 @@ export const addStringAttribute = (
 ) => {
     const { name, value } = opts;
 
-    openingElement.attributes.push(j.jsxAttribute(j.jsxIdentifier(name), j.stringLiteral(value)));
+    openingElement.attributes?.push(j.jsxAttribute(j.jsxIdentifier(name), j.stringLiteral(value)));
 };
 
 type LogLevel = 'error' | 'warning' | 'info' | 'success';

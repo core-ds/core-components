@@ -30,6 +30,7 @@ export const Portal = forwardRef<Element | null | undefined, PortalProps>((props
         isClient() && immediateMount ? getPortalContainer : null,
     );
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const nextMountNode = getPortalContainer();
 

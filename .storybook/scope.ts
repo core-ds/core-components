@@ -8,12 +8,16 @@ const coreComponentsContext =
         ? require.context(
               '../packages',
               true,
-              /^\.\/((?!(env|screenshot-utils|test-utils)).)*\/dist\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
+              // NOT @alfalab/core-components-env
+              // NOT @alfalab/core-components-screenshot-utils
+              /^\.\/((?!(env|screenshot-utils)).)*\/dist\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
           )
         : require.context(
               '../packages',
               true,
-              /^\.\/((?!(env|screenshot-utils|test-utils)).)*\/src\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).ts$/,
+              // NOT @alfalab/core-components-env
+              // NOT @alfalab/core-components-screenshot-utils
+              /^\.\/((?!(env|screenshot-utils)).)*\/src\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).ts$/,
           );
 
 const glyphContext = require.context('../node_modules/@alfalab/icons-glyph', true, /(.*).js$/);
