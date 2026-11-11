@@ -78,7 +78,6 @@ await yargs(hideBin(process.argv))
 
                             return fse.writeJson(options.out, await makeTsConfig(options), {
                                 encoding: 'utf8',
-                                spaces: 4,
                             });
                         }),
                     ),
