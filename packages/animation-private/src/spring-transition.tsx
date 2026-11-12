@@ -6,12 +6,20 @@ import { isFn } from '@alfalab/core-components-shared';
 
 import {
     animate,
-    type AnimationControls,
     type AnimationTarget,
     type AnimationTransition,
+    type AnimationTransitions,
+    type ValueName,
 } from './animate';
+import { tween, type TweenTarget, type TweenTransition, type TweenTransitions } from './tween';
 
-type Target<T extends HTMLElement> = AnimationTarget | ((node: T) => AnimationTarget);
+export type ValueTransition =
+    | (AnimationTransition & { type?: 'spring' })
+    | (TweenTransition & { type: 'tween' });
+
+export type ValueTransitions = { [K in ValueName]?: ValueTransition };
+
+type Target<T extends HTMLElement> = TweenTarget | ((node: T) => TweenTarget);
 
 export interface SpringTransitionProps<T extends HTMLElement>
     extends Pick<TransitionProps<T>, 'children' | 'onEntered' | 'onExited'> {
@@ -20,12 +28,33 @@ export interface SpringTransitionProps<T extends HTMLElement>
     enter?: Target<T>;
     entering?: Target<T>;
     exit: Target<T>;
-    spring?: Partial<Record<'enter' | 'exit', AnimationTransition>>;
-    onEnterStart?: (controls: AnimationControls, target: AnimationTarget) => void;
+    transition?: Partial<Record<'enter' | 'exit', ValueTransitions>>;
 }
 
 const resolveTarget = <T extends HTMLElement>(target: Target<T>, node: T) =>
     isFn(target) ? target(node) : target;
+
+const splitTarget = (target: TweenTarget, transition: ValueTransitions = {}) => {
+    const springs: AnimationTarget = {};
+    const springTransitions: AnimationTransitions = {};
+    const tweens: TweenTarget = {};
+    const tweenTransitions: TweenTransitions = {};
+
+    (Object.keys(target) as ValueName[]).forEach((name) => {
+        const value = target[name];
+        const { type, ...options } = transition[name] ?? {};
+
+        if (type === 'tween' || typeof value === 'string') {
+            tweens[name] = value;
+            tweenTransitions[name] = options;
+        } else {
+            springs[name] = value;
+            springTransitions[name] = options;
+        }
+    });
+
+    return { springs, springTransitions, tweens, tweenTransitions };
+};
 
 export function SpringTransition<T extends HTMLElement>({
     in: inProp,
@@ -33,30 +62,32 @@ export function SpringTransition<T extends HTMLElement>({
     enter,
     entering,
     exit,
-    spring = {},
-    onEnterStart,
+    transition = {},
     onEntered,
     onExited,
     children,
 }: SpringTransitionProps<T>) {
     const finished = useRef<Promise<void>>();
 
-    const start =
-        (target: Target<T>, options?: AnimationTransition, onStart?: typeof onEnterStart) => () => {
-            const node = nodeRef.current;
+    const start = (target: Target<T>, options?: ValueTransitions) => () => {
+        const node = nodeRef.current;
 
-            if (!node) {
-                finished.current = undefined;
+        if (!node) {
+            finished.current = undefined;
 
-                return;
-            }
+            return;
+        }
 
-            const resolved = resolveTarget(target, node);
-            const controls = animate(node, resolved, options);
+        const { springs, springTransitions, tweens, tweenTransitions } = splitTarget(
+            resolveTarget(target, node),
+            options,
+        );
 
-            finished.current = controls.finished;
-            onStart?.(controls, resolved);
-        };
+        finished.current = Promise.all([
+            animate(node, springs, springTransitions).finished,
+            tween(node, tweens, tweenTransitions).finished,
+        ]).then(() => undefined);
+    };
 
     const handleEndListener = (done: () => void) => {
         (finished.current ?? Promise.resolve()).then(done);
@@ -66,9 +97,9 @@ export function SpringTransition<T extends HTMLElement>({
         <Transition
             in={inProp}
             nodeRef={nodeRef}
-            onEnter={enter && start(enter, spring.enter, onEnterStart)}
-            onEntering={entering && start(entering, spring.enter, onEnterStart)}
-            onExit={start(exit, spring.exit)}
+            onEnter={enter && start(enter, transition.enter)}
+            onEntering={entering && start(entering, transition.enter)}
+            onExit={start(exit, transition.exit)}
             onEntered={onEntered}
             onExited={onExited}
             addEndListener={handleEndListener}

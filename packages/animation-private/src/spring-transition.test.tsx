@@ -71,7 +71,7 @@ describe('SpringTransition', () => {
 
     it('holds the initial value during delay', () => {
         const delay = 200;
-        const { keyframes, duration } = runEnter({ spring: { enter: { delay } } });
+        const { keyframes, duration } = runEnter({ transition: { enter: { height: { delay } } } });
 
         expect(keyframes.slice(0, delay / 10 - 5)).toEqual(Array(delay / 10 - 5).fill('0px'));
         expect(keyframes[keyframes.length - 1]).toBe('100px');
@@ -79,7 +79,10 @@ describe('SpringTransition', () => {
     });
 
     it('starts from the current value when interrupted during delay', () => {
-        const toggle = setup({ exit: { height: 50 }, spring: { enter: { delay: 200 } } });
+        const toggle = setup({
+            exit: { height: 50 },
+            transition: { enter: { height: { delay: 200 } } },
+        });
 
         toggle(true);
         toggle(false);

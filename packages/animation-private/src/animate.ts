@@ -13,7 +13,6 @@ import {
     type StyleKeyframesDefinition,
 } from 'motion';
 
-import { findPassTime } from './find-pass-time';
 import {
     createValue,
     getNow,
@@ -25,7 +24,7 @@ import {
 import { sampleGenerator } from './sample-generator';
 import { buildTransform, transformProps } from './transform';
 
-type ValueName = Extract<keyof StyleKeyframesDefinition, string>;
+export type ValueName = Extract<keyof StyleKeyframesDefinition, string>;
 
 export type AnimationTarget = { [K in ValueName]?: number };
 
@@ -33,9 +32,10 @@ export interface AnimationTransition extends SpringOptions {
     delay?: number;
 }
 
+export type AnimationTransitions = { [K in ValueName]?: AnimationTransition };
+
 export interface AnimationControls {
     finished: Promise<void>;
-    passed: (name: ValueName, value: number) => Promise<void>;
     stop: () => void;
 }
 
@@ -114,7 +114,6 @@ function createOwner(count: number) {
         stop: () => {
             stopped = true;
         },
-        active: () => !stopped,
     };
 }
 
@@ -280,7 +279,7 @@ const renderTracks = (
 export function animate(
     element: HTMLElement,
     target: AnimationTarget,
-    { delay = 0, ...options }: AnimationTransition = {},
+    transition: AnimationTransitions = {},
 ): AnimationControls {
     const now = getNow();
     const state = getState(element);
@@ -288,6 +287,7 @@ export function animate(
     const owner = createOwner(entries.length);
 
     entries.forEach(([name, to]) => {
+        const { delay = 0, ...options } = transition[name] ?? {};
         const running = state.channels.get(name);
 
         if (running) {
@@ -322,31 +322,6 @@ export function animate(
 
     return {
         finished: owner.finished,
-        passed: (name, value) =>
-            new Promise<void>((resolve) => {
-                const channel = state.channels.get(name);
-                const settle = () => {
-                    if (owner.active()) {
-                        resolve();
-                    }
-                };
-
-                if (!channel || channel.owner !== owner) {
-                    settle();
-
-                    return;
-                }
-
-                setTimeout(
-                    settle,
-                    Math.max(
-                        0,
-                        channel.startTime +
-                            findPassTime(channel.generator, channel.duration, value) -
-                            getNow(),
-                    ),
-                );
-            }),
         stop: () => {
             const stopTime = getNow();
             const owned = Array.from(state.channels).filter(

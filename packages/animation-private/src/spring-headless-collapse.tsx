@@ -1,7 +1,11 @@
 import React from 'react';
 
-import { type AnimationControls, type AnimationTarget, resetValue } from './animate';
-import { SpringTransition, type SpringTransitionProps } from './spring-transition';
+import { resetValue } from './animate';
+import {
+    SpringTransition,
+    type SpringTransitionProps,
+    type ValueTransition,
+} from './spring-transition';
 
 type Dimension = 'height' | 'width';
 
@@ -10,29 +14,19 @@ const scrollProps = { height: 'scrollHeight', width: 'scrollWidth' } as const;
 export interface SpringHeadlessCollapseProps<T extends HTMLElement>
     extends Pick<
         SpringTransitionProps<T>,
-        'in' | 'nodeRef' | 'spring' | 'children' | 'onEntered' | 'onExited'
+        'in' | 'nodeRef' | 'children' | 'onEntered' | 'onExited'
     > {
     dimension?: Dimension;
-    enterThreshold?: number;
-    onEnterThreshold?: () => void;
+    transition?: Partial<Record<'enter' | 'exit', ValueTransition>>;
 }
 
 export function SpringHeadlessCollapse<T extends HTMLElement>({
     dimension = 'height',
     nodeRef,
-    enterThreshold = 0,
-    onEnterThreshold,
+    transition = {},
     onEntered,
     ...restProps
 }: SpringHeadlessCollapseProps<T>) {
-    const handleEnterStart = (controls: AnimationControls, target: AnimationTarget) => {
-        if (onEnterThreshold) {
-            controls
-                .passed(dimension, (target[dimension] ?? 0) * enterThreshold)
-                .then(onEnterThreshold);
-        }
-    };
-
     const handleEntered = (isAppearing: boolean) => {
         const node = nodeRef.current;
 
@@ -41,7 +35,6 @@ export function SpringHeadlessCollapse<T extends HTMLElement>({
             resetValue(node, dimension);
         }
 
-        onEnterThreshold?.();
         onEntered?.(isAppearing);
     };
 
@@ -51,7 +44,10 @@ export function SpringHeadlessCollapse<T extends HTMLElement>({
             nodeRef={nodeRef}
             entering={(node) => ({ [dimension]: node[scrollProps[dimension]] })}
             exit={{ [dimension]: 0 }}
-            onEnterStart={handleEnterStart}
+            transition={{
+                enter: { [dimension]: transition.enter },
+                exit: { [dimension]: transition.exit },
+            }}
             onEntered={handleEntered}
         />
     );
