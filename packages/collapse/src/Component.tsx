@@ -1,7 +1,11 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { SpringHeadlessCollapse, springs } from '@alfalab/core-components-animation-private';
+import {
+    collapseSpring,
+    expandSpring,
+    SpringHeadlessCollapse,
+} from '@alfalab/core-components-animation-private';
 import { Link } from '@alfalab/core-components-link';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
 
@@ -74,7 +78,7 @@ export type CollapseProps = {
     colors?: 'default' | 'inverted';
 };
 
-const spring = { enter: springs.expand, exit: springs.collapse };
+const spring = { enter: expandSpring, exit: collapseSpring };
 
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
     (

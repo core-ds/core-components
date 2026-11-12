@@ -15,11 +15,11 @@ import {
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import {
-    bodyTransition,
-    contentEnter,
-    contentExit,
-    getContentTransition,
-} from './utils/get-content-transition';
+    bodyAnimation,
+    contentCollapsed,
+    contentExpanded,
+    getContentAnimation,
+} from './utils/animation';
 import { DefaultControlIcon } from './components';
 import { type ControlPosition } from './typings';
 
@@ -189,7 +189,7 @@ export const Accordion: FC<AccordionProps> = ({
                     {controlContent}
                 </div>
             </div>
-            <SpringHeadlessCollapse in={expanded} nodeRef={bodyRef} transition={bodyTransition}>
+            <SpringHeadlessCollapse in={expanded} nodeRef={bodyRef} transition={bodyAnimation}>
                 {(state) => (
                     <div
                         ref={bodyRef}
@@ -202,9 +202,9 @@ export const Accordion: FC<AccordionProps> = ({
                         <SpringTransition
                             in={expanded && state !== 'exited'}
                             nodeRef={bodyContentRef}
-                            enter={contentEnter}
-                            exit={contentExit}
-                            transition={getContentTransition(state === 'exiting')}
+                            enter={contentExpanded}
+                            exit={contentCollapsed}
+                            transition={getContentAnimation(state === 'exiting')}
                         >
                             {(contentStatus) => (
                                 <div
