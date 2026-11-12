@@ -52,7 +52,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
             })}
             backButtonProps={{
                 ...backButtonProps,
-                text: null,
+                text: backButtonProps?.text ?? null,
             }}
             backButtonIcon={ChevronLeftMIcon}
             addonsSize={40}
