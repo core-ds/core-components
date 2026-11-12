@@ -58,14 +58,6 @@ describe('Textarea', () => {
 
             expect(container).toMatchSnapshot();
         });
-
-        it('should match snapshot with clear button', () => {
-            const { container } = render(
-                <Textarea defaultValue='Текст для очистки' clear='always' nativeScrollbar={true} />,
-            );
-
-            expect(container).toMatchSnapshot();
-        });
     });
 
     it('should forward ref to textarea', () => {
@@ -87,7 +79,6 @@ describe('Textarea', () => {
                 dataTestId={dataTestId}
             />,
         );
-
         const testIds = getTextareaTestIds(dataTestId);
         expect(getByTestId(testIds.textarea)).toBeInTheDocument();
         expect(getByTestId(testIds.inputWrapper)).toBeInTheDocument();
@@ -98,10 +89,17 @@ describe('Textarea', () => {
         expect(getByTestId(dataTestId).tagName).toBe('TEXTAREA');
 
         const { getByTestId: getByTestIdHint } = render(
-            <Textarea block={true} dataTestId={dataTestId} hint='hint' />,
+            <Textarea
+                block={true}
+                dataTestId={dataTestId}
+                hint='hint'
+                clear='always'
+                value='value'
+            />,
         );
 
         expect(getByTestIdHint(testIds.hint)).toBeInTheDocument();
+        expect(getByTestIdHint(testIds.clearIcon)).toBeInTheDocument();
     });
 
     describe('Classes tests', () => {

@@ -6,6 +6,7 @@ import {
 } from 'react';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { type BaseInputProps } from '@alfalab/core-components-input/shared';
 
 type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -32,7 +33,7 @@ export type TextareaIncomeProps = {
      * Отображается только в непустом доступном для редактирования поле.
      * @default never
      */
-    clear?: 'auto' | 'always' | 'never';
+    clear?: Exclude<BaseInputProps['clear'], boolean>;
 
     /**
      * Обработчик нажатия на кнопку очистки

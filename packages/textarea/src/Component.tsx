@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
-import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
+import { ClearButton, LockIcon, resolveClearVisible } from '@alfalab/core-components-input/shared';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 import { getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
@@ -65,6 +65,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             wrapperRef,
             breakpoint,
             client,
+            readOnly: readOnlyProp,
             ...restProps
         },
         ref,
@@ -203,11 +204,14 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         };
 
         const getRightAddons = () => {
-            const clearButtonVisible =
-                filled &&
-                !disabled &&
-                !restProps.readOnly &&
-                (clear === 'always' || (clear === 'auto' && (focused || hovered)));
+            const clearButtonVisible = resolveClearVisible({
+                clear,
+                filled,
+                disabled,
+                readOnly: readOnlyProp,
+                focused,
+                hovered,
+            });
 
             return (
                 <Fragment>
@@ -221,7 +225,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                         />
                     )}
                     {rightAddons}
-                    {(disabled || restProps.readOnly) && <LockIcon colors={colors} size={size} />}
+                    {(disabled || readOnlyProp) && <LockIcon colors={colors} size={size} />}
                 </Fragment>
             );
         };

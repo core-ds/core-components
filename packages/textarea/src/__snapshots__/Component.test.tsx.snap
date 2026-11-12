@@ -31,64 +31,6 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
 </div>
 `;
 
-exports[`Textarea Snapshots tests should match snapshot with clear button 1`] = `
-<div>
-  <div
-    class="component component size-48 size-48"
-  >
-    <div
-      class="inner inner inner inner filled"
-    >
-      <div
-        class="inputWrapper wrapper size-48"
-      >
-        <div
-          class="input size-48"
-        >
-          <textarea
-            autocomplete="on"
-            class="textarea textarea size-48 overflowHidden filled"
-            rows="1"
-          >
-            Текст для очистки
-          </textarea>
-        </div>
-      </div>
-      <div
-        class="addons rightAddons rightAddons size-48 rightAddonsClassName size-48"
-      >
-        <button
-          aria-label="Очистить"
-          class="component text size-56 hug size-56 component text component text clearButton"
-          tabindex="-1"
-          type="button"
-        >
-          <span
-            class="label stretchText"
-          >
-            <svg
-              class="clearIcon clearIcon"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] = `
 <div>
   <div
