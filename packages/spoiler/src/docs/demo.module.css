@@ -12,11 +12,3 @@
     gap: var(--gap-24);
     padding: var(--gap-24);
 }
-
-.controls {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--gap-16);
-    padding: var(--gap-24);
-}

@@ -18,7 +18,6 @@
 .element {
     max-width: 100%;
     vertical-align: middle;
-    overflow: hidden;
 
     &:not([hidden]) {
         display: inline-block;
@@ -26,6 +25,8 @@
 
     & > .content {
         display: flow-root;
+        overflow: hidden;
+        border-radius: inherit;
     }
 
     & > .canvas {
@@ -44,8 +45,12 @@
 .content {
     opacity: 1;
     visibility: visible;
+    filter: none;
+    transform-origin: center;
     transition:
         opacity var(--spoiler-transition-duration) ease-out,
+        transform var(--spoiler-transition-duration) ease-out,
+        filter var(--spoiler-transition-duration) ease-out,
         visibility 0s;
 }
 
@@ -53,12 +58,20 @@
     & .content {
         opacity: 0;
         visibility: hidden;
+        filter: blur(1px);
         user-select: none;
         pointer-events: none;
         transition:
             opacity var(--spoiler-transition-duration) ease-out,
+            transform var(--spoiler-transition-duration) ease-out,
+            filter var(--spoiler-transition-duration) ease-out,
             visibility 0s var(--spoiler-transition-duration);
     }
+}
+
+/* Inline-текст не масштабируем: inline-block изменил бы переносы и положение соседнего текста. */
+.element[data-state='hidden'] > .content {
+    transform: scale(0.96);
 }
 
 /* Скрытые кнопки/ссылки недоступны и в браузерах без inert. */
@@ -80,10 +93,23 @@
     position: absolute;
     display: block;
     pointer-events: none;
+    transform-origin: center;
+    transition:
+        transform var(--spoiler-transition-duration) ease-out,
+        filter var(--spoiler-transition-duration) ease-out;
+}
+
+/* Масштабируется готовый слой, без пересчёта траекторий и раскладки частиц. */
+.component[data-state='revealed'] .canvas {
+    transform: scale(0.96);
+    filter: blur(1px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .component[data-state] .content {
+    .component[data-state] .content,
+    .component[data-state] .canvas {
         transition: none;
+        transform: none;
+        filter: none;
     }
 }

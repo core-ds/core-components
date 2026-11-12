@@ -1,5 +1,4 @@
 import { FONT, FULL_CIRCLE, getCloudHeight, PARTICLES } from './constants';
-import { type ElementShape, getShapeInset } from './particle-shape';
 import { type Rect } from './particle-utils';
 
 const RANDOM_MODULUS = 2147483647;
@@ -96,7 +95,6 @@ export const createParticleGroups = (
     fontSize: number,
     edgeSpread: number,
     mode: 'text' | 'element',
-    shape?: ElementShape,
 ) => {
     const fontScale = Math.max(FONT.minScale, Math.min(FONT.maxScale, fontSize / FONT.base));
     const density = (PARTICLES.density * Math.min(fontScale, 1)) / getCloudHeight(fontSize);
@@ -147,25 +145,20 @@ export const createParticleGroups = (
                     let edgeDensity = 1;
 
                     if (edgeWidth) {
-                        const distance = shape
-                            ? getShapeInset(shape, particle.cloudX, particle.cloudY)
-                            : Math.min(
-                                  particle.cloudX,
-                                  particle.cloudY,
-                                  rect.width - particle.cloudX,
-                                  rect.height - particle.cloudY,
-                              );
+                        const distance = Math.min(
+                            particle.cloudX,
+                            particle.cloudY,
+                            rect.width - particle.cloudX,
+                            rect.height - particle.cloudY,
+                        );
                         const progress = Math.max(0, Math.min(1, distance / edgeWidth));
                         const fade = progress * progress * (3 - 2 * progress);
 
                         edgeDensity =
-                            shape && distance < particle.radius
-                                ? 0
-                                : PARTICLES.elementEdge.minDensity +
-                                  (1 - PARTICLES.elementEdge.minDensity) * fade;
+                            PARTICLES.elementEdge.minDensity +
+                            (1 - PARTICLES.elementEdge.minDensity) * fade;
                     }
-                    if (!edgeWidth || (edgeDensity > 0 && random() <= edgeDensity))
-                        particles.push(particle);
+                    if (!edgeWidth || random() <= edgeDensity) particles.push(particle);
                 }
             }
         }

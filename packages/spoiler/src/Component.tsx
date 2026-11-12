@@ -58,7 +58,8 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
             onOpenChange,
             revealOn = 'click',
             revealOnce = false,
-            interactiveParticles = true,
+            expandOnHover = true,
+            repelParticlesOnHover = true,
             colors = 'default',
             className,
             dataTestId,
@@ -84,7 +85,8 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
             mode,
             open,
             colors,
-            interactiveParticles,
+            expandOnHover,
+            repelParticlesOnHover,
         });
         const mergedRef = useMemo(
             () => mergeRefs([rootRef, forwardedRef]),

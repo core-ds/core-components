@@ -50,16 +50,29 @@ describe(
                 const state = await spoiler.evaluate((root) => {
                     const content = root.querySelector('[data-spoiler-content]')!;
                     const style = getComputedStyle(content);
+                    const canvasStyle = getComputedStyle(
+                        root.querySelector('[data-spoiler-canvas]')!,
+                    );
 
                     return {
                         hidden: root.getAttribute('data-state') === 'hidden',
                         opacity: style.opacity,
                         duration: style.transitionDuration,
+                        transform: style.transform,
+                        filter: style.filter,
+                        canvasTransform: canvasStyle.transform,
+                        canvasFilter: canvasStyle.filter,
+                        canvasDuration: canvasStyle.transitionDuration,
                     };
                 });
 
                 expect(state.opacity).toBe(state.hidden ? '0' : '1');
                 expect(state.duration).toBe('0s');
+                expect(state.transform).toBe('none');
+                expect(state.filter).toBe('none');
+                expect(state.canvasTransform).toBe('none');
+                expect(state.canvasFilter).toBe('none');
+                expect(state.canvasDuration).toBe('0s');
             }
             if (new URL(page.url()).searchParams.get('screenshot-state') === 'hidden') {
                 await spoiler.click();

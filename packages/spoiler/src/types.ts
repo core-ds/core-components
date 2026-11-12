@@ -16,8 +16,10 @@ export interface SpoilerProps
     revealOn?: 'click' | 'manual';
     /** Раскрывает содержимое только один раз. Работает только с revealOn='click'. @default false */
     revealOnce?: boolean;
-    /** Реакция частиц на курсор. false отключает только отталкивание, не фоновое движение. @default true */
-    interactiveParticles?: boolean;
+    /** Расширять облако при наведении мыши. Не влияет на отталкивание точек от курсора. @default true */
+    expandOnHover?: boolean;
+    /** Отталкивать частицы от курсора мыши. Не влияет на расширение облака. @default true */
+    repelParticlesOnHover?: boolean;
     /** Набор цветов компонента. @default default */
     colors?: 'default' | 'inverted';
     /** Дополнительный класс корневого элемента. */

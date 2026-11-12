@@ -41,7 +41,7 @@ describe('Плотность частиц Spoiler', () => {
 
             expect(center.length).toBeGreaterThan(0);
             expect(element.filter(isInCenter)).toEqual(center);
-            expect(element.length).toBeLessThanOrEqual(5000);
+            expect(element.length).toBeLessThanOrEqual(4000);
         },
     );
 });

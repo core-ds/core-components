@@ -3,9 +3,8 @@ import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observe
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { DEFAULT_TRANSITION_MS, FONT, MILLISECONDS_PER_SECOND } from '../constants';
+import { DEFAULT_TRANSITION_MS, FONT, MILLISECONDS_PER_SECOND, POINTER } from '../constants';
 import { ParticleEngine } from '../particle-engine';
-import { createElementShape } from '../particle-shape';
 import { measureText, type Rect } from '../particle-utils';
 import { type SpoilerProps } from '../types';
 
@@ -13,7 +12,8 @@ type Options = {
     mode: NonNullable<SpoilerProps['mode']>;
     open: boolean;
     colors: NonNullable<SpoilerProps['colors']>;
-    interactiveParticles: boolean;
+    expandOnHover: boolean;
+    repelParticlesOnHover: boolean;
 };
 
 const getDuration = (style: CSSStyleDeclaration) => {
@@ -26,13 +26,20 @@ const getDuration = (style: CSSStyleDeclaration) => {
 };
 
 /** Обновляет геометрию по DOM, состояние — по пропсам, движение — по видимости и reduced motion. */
-export const useParticles = ({ mode, open, colors, interactiveParticles }: Options) => {
+export const useParticles = ({
+    mode,
+    open,
+    colors,
+    expandOnHover,
+    repelParticlesOnHover,
+}: Options) => {
     const rootRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLElement>(null);
     const anchorRef = useRef<HTMLSpanElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const engineRef = useRef<ParticleEngine>();
     const [ready, setReady] = useState(false);
+    const trackPointer = expandOnHover || repelParticlesOnHover;
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const root = rootRef.current;
@@ -73,9 +80,7 @@ export const useParticles = ({ mode, open, colors, interactiveParticles }: Optio
             );
             const rects = mode === 'text' && anchor ? measureText(content, anchor) : elementRects;
 
-            if (mode === 'element' && rects[0])
-                engine.layout(rects, createElementShape(rects[0], style));
-            else engine.layout(rects);
+            engine.layout(rects);
             setReady(rects.length > 0);
         };
         let container = root.parentElement;
@@ -86,7 +91,9 @@ export const useParticles = ({ mode, open, colors, interactiveParticles }: Optio
         const ResizeObserver = view.ResizeObserver || ResizeObserverPolyfill;
         const resizeObserver = new ResizeObserver(([entry]) => {
             if (mode === 'element') {
-                const { width, height } = entry.contentRect;
+                // Canvas включает прозрачный запас для расширения; исходная маска — без него.
+                const width = Math.max(0, entry.contentRect.width - POINTER.expansion * 2);
+                const height = Math.max(0, entry.contentRect.height - POINTER.expansion * 2);
 
                 elementRects = width > 0 && height > 0 ? [{ x: 0, y: 0, width, height }] : [];
             }
@@ -158,12 +165,16 @@ export const useParticles = ({ mode, open, colors, interactiveParticles }: Optio
     }, [colors]);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
+        engineRef.current?.setInteraction(expandOnHover, repelParticlesOnHover);
+    }, [expandOnHover, repelParticlesOnHover, mode]);
+
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const root = rootRef.current;
         const engine = engineRef.current;
         const document = root?.ownerDocument;
         const view = document?.defaultView;
 
-        if (!interactiveParticles || !root || !engine || !document || !view) return undefined;
+        if (!trackPointer || !root || !engine || !document || !view) return undefined;
         const handlePointerMove = (event: PointerEvent) => {
             if (event.pointerType === 'mouse') engine.setPointer(event.clientX, event.clientY);
         };
@@ -184,7 +195,7 @@ export const useParticles = ({ mode, open, colors, interactiveParticles }: Optio
             view.removeEventListener('blur', clearPointer);
             document.removeEventListener('scroll', clearPointer, true);
         };
-    }, [interactiveParticles, mode]);
+    }, [trackPointer, mode]);
 
     return { rootRef, contentRef, anchorRef, canvasRef, ready };
 };

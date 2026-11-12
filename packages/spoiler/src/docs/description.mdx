@@ -1,21 +1,19 @@
-import { Canvas } from '@storybook/addon-docs';
-import * as Stories from './Component.stories';
-
 ## Поведение
 
-Spoiler скрывает баланс или другую чувствительную информацию за облаком частиц.
-При скрытии контента плавно появляются движущиеся точки, а при раскрытии облако исчезает,
-показывая актуальное значение.
-
-При наведении мыши ближайшие точки мягко отталкиваются от курсора и возвращаются после его
-ухода. Наведение не раскрывает содержимое. Эффект одинаково работает с текстом и изображениями.
-Отключить реакцию на курсор можно через `interactiveParticles={false}`.
-При системной настройке «Уменьшить движение» оба направления переключения происходят мгновенно.
+Spoiler скрывает текст, изображение или другой контент облаком частиц, сохраняя его место в разметке.
+При раскрытии облако плавно растворяется с лёгким сжатием к центру и размытием, а содержимое
+проявляется; при скрытии переход идёт в обратную сторону. Переход занимает 320 мс: облако
+и блочный контент меняют масштаб на 4%, а строчный текст сохраняет геометрию и переносы.
+При наведении `expandOnHover` расширяет облако, а `repelParticlesOnHover` отталкивает точки
+от курсора; оба эффекта включены по умолчанию, отключаются независимо и не раскрывают содержимое.
+После ухода мыши облако возвращается к исходному виду. При настройке «Уменьшить движение»
+частицы статичны, а переключение происходит мгновенно.
 
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(true);
-    const [interactiveParticles, setInteractiveParticles] = React.useState(true);
+    const [expandOnHover, setExpandOnHover] = React.useState(true);
+    const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
     const [valueIndex, setValueIndex] = React.useState(0);
     const values = ['−4 940 ₽', '−5 186 ₽'];
 
@@ -31,27 +29,46 @@ render(() => {
 
     return (
         <>
-            <Typography.Title tag='div' view='medium' font='system'>
+            <Typography.Title
+                tag='div'
+                view='medium'
+                font='system'
+                style={{ fontVariantNumeric: 'tabular-nums' }}
+            >
                 <Spoiler
                     open={open}
                     onOpenChange={setOpen}
-                    interactiveParticles={interactiveParticles}
+                    expandOnHover={expandOnHover}
+                    repelParticlesOnHover={repelParticlesOnHover}
                 >
                     {values[valueIndex]}
                 </Spoiler>
             </Typography.Title>
             <Gap size={24} />
-            <Switch
-                checked={!open}
-                label='Скрыть'
-                onChange={() => setOpen((current) => !current)}
-            />
-            <Gap size={16} />
-            <Switch
-                checked={interactiveParticles}
-                label='Реакция на курсор'
-                onChange={() => setInteractiveParticles((current) => !current)}
-            />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'var(--gap-8)',
+                }}
+            >
+                <Switch
+                    checked={open}
+                    label='open'
+                    onChange={() => setOpen((current) => !current)}
+                />
+                <Switch
+                    checked={expandOnHover}
+                    label='expandOnHover'
+                    onChange={() => setExpandOnHover((current) => !current)}
+                />
+                <Switch
+                    checked={repelParticlesOnHover}
+                    label='repelParticlesOnHover'
+                    onChange={() => setRepelParticlesOnHover((current) => !current)}
+                />
+            </div>
         </>
     );
 });
@@ -66,18 +83,44 @@ render(() => {
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
+    const [expandOnHover, setExpandOnHover] = React.useState(true);
+    const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
 
     return (
         <div style={{ maxWidth: 360 }}>
             <Typography.Text view='primary-medium'>
                 Доставка ожидается{' '}
-                <Spoiler open={open} onOpenChange={setOpen}>
+                <Spoiler
+                    open={open}
+                    onOpenChange={setOpen}
+                    expandOnHover={expandOnHover}
+                    repelParticlesOnHover={repelParticlesOnHover}
+                >
                     <strong>в пятницу после 18:00</strong>, по адресу: улица Лесная, дом 12.
                 </Spoiler>{' '}
                 Мы заранее отправим уведомление.
             </Typography.Text>
             <Gap size={24} />
-            <Switch checked={!open} label='Скрыть' onChange={() => setOpen((value) => !value)} />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'var(--gap-8)',
+                }}
+            >
+                <Switch checked={open} label='open' onChange={() => setOpen((value) => !value)} />
+                <Switch
+                    checked={expandOnHover}
+                    label='expandOnHover'
+                    onChange={() => setExpandOnHover((value) => !value)}
+                />
+                <Switch
+                    checked={repelParticlesOnHover}
+                    label='repelParticlesOnHover'
+                    onChange={() => setRepelParticlesOnHover((value) => !value)}
+                />
+            </div>
         </div>
     );
 });
@@ -86,11 +129,14 @@ render(() => {
 ## Использование с другими элементами
 
 В `mode='element'` частицы закрывают всю площадь контейнера с изображением или любым другим
-контентом, сохраняя исходные размеры элемента при скрытии и раскрытии.
+контентом, сохраняя исходные размеры элемента при скрытии и раскрытии. Маска частиц всегда
+прямоугольная, независимо от скруглений содержимого.
 
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
+    const [expandOnHover, setExpandOnHover] = React.useState(true);
+    const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
 
     return (
         <>
@@ -98,6 +144,8 @@ render(() => {
                 mode='element'
                 open={open}
                 onOpenChange={setOpen}
+                expandOnHover={expandOnHover}
+                repelParticlesOnHover={repelParticlesOnHover}
                 style={{ borderRadius: 'var(--border-radius-8)' }}
             >
                 <img
@@ -109,16 +157,27 @@ render(() => {
                 />
             </Spoiler>
             <Gap size={24} />
-            <Switch checked={!open} label='Скрыть' onChange={() => setOpen((value) => !value)} />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'var(--gap-8)',
+                }}
+            >
+                <Switch checked={open} label='open' onChange={() => setOpen((value) => !value)} />
+                <Switch
+                    checked={expandOnHover}
+                    label='expandOnHover'
+                    onChange={() => setExpandOnHover((value) => !value)}
+                />
+                <Switch
+                    checked={repelParticlesOnHover}
+                    label='repelParticlesOnHover'
+                    onChange={() => setRepelParticlesOnHover((value) => !value)}
+                />
+            </div>
         </>
     );
 });
 ```
-
-### Вложенная кнопка
-
-Кнопка внутри раскрытого спойлера работает самостоятельно и не скрывает содержимое.
-Для проверки с клавиатуры нажмите Tab до спойлера, затем Enter для раскрытия:
-следующий Tab перейдёт к кнопке «Действие», затем — к кнопке «После спойлера».
-
-<Canvas of={Stories.nested_controls} />
