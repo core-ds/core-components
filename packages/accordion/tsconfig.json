@@ -12,8 +12,6 @@
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-spring-animation": ["../spring-animation/src"],
             "@alfalab/core-components-spring-animation/*": ["../spring-animation/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-typography": ["../typography/src"],
             "@alfalab/core-components-typography/*": ["../typography/src/*"]
         }
@@ -21,7 +19,6 @@
     "references": [
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../spring-animation/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" },
         { "path": "../typography/tsconfig.build.json" }
     ]
 }

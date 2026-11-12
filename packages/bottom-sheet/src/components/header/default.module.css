@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 .title {
-    color: var(--bottom-sheet-text-color);
+    color: var(--bottom-sheet-title-color);
 }
 
 .hasContent {
@@ -10,7 +10,7 @@
 }
 
 .subtitle.subtitle {
-    color: var(--bottom-sheet-text-color);
+    color: var(--bottom-sheet-subtitle-color);
 }
 
 .highlighted {

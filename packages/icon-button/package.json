@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-icon-button",
-    "version": "8.0.13",
+    "version": "8.0.14",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.2.1",
+    "themesVersion": "15.2.2",
     "varsVersion": "11.5.0"
 }

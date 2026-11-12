@@ -43,6 +43,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
                 {...restProps}
                 ref={ref}
                 view='text'
+                colors={colors}
                 className={cn(
                     'cc-icon-button',
                     className,

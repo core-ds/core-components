@@ -1,5 +1,13 @@
 # @alfalab/core-components-password-input
 
+## 7.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.14
+
 ## 7.0.16
 
 ### Patch Changes

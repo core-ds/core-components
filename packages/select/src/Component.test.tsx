@@ -1,11 +1,8 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, screen, waitFor, queryByText } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, queryByText, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
-
-import { act } from 'react-dom/test-utils';
-import { asyncRender } from '@alfalab/core-components-test-utils';
 
 import {
     FieldProps as BaseFieldProps,
@@ -131,7 +128,7 @@ describe('Select', () => {
         });
 
         it('should match snapshot with visibleOptions', async () => {
-            const { container } = await asyncRender(
+            const { container } = render(
                 <Select {...baseProps} options={options} visibleOptions={2} defaultOpen={true} />,
             );
 
@@ -426,9 +423,12 @@ describe('Select', () => {
         };
 
         it('should be open by default with `defaultOpen==true`', async () => {
-            const { getByRole } = await asyncRender(
+            const { getByRole } = render(
                 <Select {...baseProps} options={options} defaultOpen={true} />,
             );
+
+            // open happens asynchronously
+            await Promise.resolve();
 
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
         });
@@ -671,7 +671,7 @@ describe('Select', () => {
                 dataTestId: `${propPrefix}-data-test-id`,
             };
 
-            await asyncRender(<Select {...baseProps} fieldProps={fieldProps} />);
+            render(<Select {...baseProps} fieldProps={fieldProps} />);
 
             expect(spy.mock.calls[0][0]).toMatchObject(fieldProps);
         });
@@ -696,7 +696,7 @@ describe('Select', () => {
                 ...optionsListProps,
             };
 
-            await asyncRender(
+            render(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
@@ -725,7 +725,7 @@ describe('Select', () => {
                 },
             };
 
-            await asyncRender(
+            render(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
@@ -742,7 +742,7 @@ describe('Select', () => {
         it('should set `optionClassName` class to each option', async () => {
             const optionClassName = 'option-class';
 
-            await asyncRender(
+            render(
                 <Select
                     {...baseProps}
                     options={options}
@@ -778,7 +778,7 @@ describe('Select', () => {
                 ...additionalTestProps,
             };
 
-            await asyncRender(
+            render(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
