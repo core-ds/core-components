@@ -50,7 +50,7 @@ export const CONFIG: TConfig = {
     Ячейки: ['GenericWrapper', 'PureCell', 'Underlay', 'SortableList'],
     Навигация: ['Tabs', 'Pagination', 'TabBar', 'NavigationBar', 'Steps'],
     Индикаторы: ['StatusBadge', 'Indicator', 'Status'],
-    Текст: ['Typography', 'List', 'Markdown'],
+    Текст: ['Typography', 'List', 'Markdown', 'Spoiler'],
     'Отображение данных': [
         'Amount',
         'IconView',

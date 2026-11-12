@@ -1,0 +1,183 @@
+## Поведение
+
+Spoiler скрывает текст, изображение или другой контент облаком частиц, сохраняя его место в разметке.
+При раскрытии облако плавно растворяется с лёгким сжатием к центру и размытием, а содержимое
+проявляется; при скрытии переход идёт в обратную сторону. Переход занимает 320 мс: облако
+и блочный контент меняют масштаб на 4%, а строчный текст сохраняет геометрию и переносы.
+При наведении `expandOnHover` расширяет облако, а `repelParticlesOnHover` отталкивает точки
+от курсора; оба эффекта включены по умолчанию, отключаются независимо и не раскрывают содержимое.
+После ухода мыши облако возвращается к исходному виду. При настройке «Уменьшить движение»
+частицы статичны, а переключение происходит мгновенно.
+
+```jsx live
+render(() => {
+    const [open, setOpen] = React.useState(true);
+    const [expandOnHover, setExpandOnHover] = React.useState(true);
+    const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
+    const [valueIndex, setValueIndex] = React.useState(0);
+    const values = ['−4 940 ₽', '−5 186 ₽'];
+
+    React.useEffect(() => {
+        if (open) return undefined;
+
+        const timer = window.setTimeout(() => {
+            setValueIndex((current) => (current + 1) % 2);
+        }, 500);
+
+        return () => window.clearTimeout(timer);
+    }, [open]);
+
+    return (
+        <>
+            <Typography.Title
+                tag='div'
+                view='medium'
+                font='system'
+                style={{ fontVariantNumeric: 'tabular-nums' }}
+            >
+                <Spoiler
+                    open={open}
+                    onOpenChange={setOpen}
+                    expandOnHover={expandOnHover}
+                    repelParticlesOnHover={repelParticlesOnHover}
+                >
+                    {values[valueIndex]}
+                </Spoiler>
+            </Typography.Title>
+            <Gap size={24} />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'var(--gap-8)',
+                }}
+            >
+                <Switch
+                    checked={open}
+                    label='open'
+                    onChange={() => setOpen((current) => !current)}
+                />
+                <Switch
+                    checked={expandOnHover}
+                    label='expandOnHover'
+                    onChange={() => setExpandOnHover((current) => !current)}
+                />
+                <Switch
+                    checked={repelParticlesOnHover}
+                    label='repelParticlesOnHover'
+                    onChange={() => setRepelParticlesOnHover((current) => !current)}
+                />
+            </div>
+        </>
+    );
+});
+```
+
+## Использование с текстом
+
+Компонент размещается внутри `Typography.Text` или `Typography.Title` и наследует типографику.
+Спойлер можно поставить внутри текстового слоя: частицы повторяют строки и сохраняют переносы.
+Вложенное выделение текста также поддерживается.
+
+```jsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [expandOnHover, setExpandOnHover] = React.useState(true);
+    const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
+
+    return (
+        <div style={{ maxWidth: 360 }}>
+            <Typography.Text view='primary-medium'>
+                Доставка ожидается{' '}
+                <Spoiler
+                    open={open}
+                    onOpenChange={setOpen}
+                    expandOnHover={expandOnHover}
+                    repelParticlesOnHover={repelParticlesOnHover}
+                >
+                    <strong>в пятницу после 18:00</strong>, по адресу: улица Лесная, дом 12.
+                </Spoiler>{' '}
+                Мы заранее отправим уведомление.
+            </Typography.Text>
+            <Gap size={24} />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'var(--gap-8)',
+                }}
+            >
+                <Switch checked={open} label='open' onChange={() => setOpen((value) => !value)} />
+                <Switch
+                    checked={expandOnHover}
+                    label='expandOnHover'
+                    onChange={() => setExpandOnHover((value) => !value)}
+                />
+                <Switch
+                    checked={repelParticlesOnHover}
+                    label='repelParticlesOnHover'
+                    onChange={() => setRepelParticlesOnHover((value) => !value)}
+                />
+            </div>
+        </div>
+    );
+});
+```
+
+## Использование с другими элементами
+
+В `mode='element'` частицы закрывают всю площадь контейнера с изображением или любым другим
+контентом, сохраняя исходные размеры элемента при скрытии и раскрытии. Маска частиц всегда
+прямоугольная, независимо от скруглений содержимого.
+
+```jsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [expandOnHover, setExpandOnHover] = React.useState(true);
+    const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
+
+    return (
+        <>
+            <Spoiler
+                mode='element'
+                open={open}
+                onOpenChange={setOpen}
+                expandOnHover={expandOnHover}
+                repelParticlesOnHover={repelParticlesOnHover}
+                style={{ borderRadius: 'var(--border-radius-8)' }}
+            >
+                <img
+                    src='./images/gorgeous-garden.png'
+                    alt='Пейзаж'
+                    width={150}
+                    height={150}
+                    style={{ display: 'block', objectFit: 'cover' }}
+                />
+            </Spoiler>
+            <Gap size={24} />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'var(--gap-8)',
+                }}
+            >
+                <Switch checked={open} label='open' onChange={() => setOpen((value) => !value)} />
+                <Switch
+                    checked={expandOnHover}
+                    label='expandOnHover'
+                    onChange={() => setExpandOnHover((value) => !value)}
+                />
+                <Switch
+                    checked={repelParticlesOnHover}
+                    label='repelParticlesOnHover'
+                    onChange={() => setRepelParticlesOnHover((value) => !value)}
+                />
+            </div>
+        </>
+    );
+});
+```
