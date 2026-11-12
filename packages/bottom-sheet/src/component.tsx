@@ -697,8 +697,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(
                             styles.component,
-                            bgClassName,
-                            colorStyle.component,
+                            bgClassName || colorStyle.component,
                             className,
                             {
                                 [styles.withTransition]:

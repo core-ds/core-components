@@ -1,5 +1,21 @@
 # @alfalab/core-components-checkbox
 
+## 6.3.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.4.0
+
+## 6.3.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+
 ## 6.3.1
 
 ### Patch Changes

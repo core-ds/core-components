@@ -1,6 +1,6 @@
 ## Примеры
 
-Компонент состоит из подложки и контейнера для контента. При необходимости, можно сделать компонент кликабельным. Для подложки и контейнера можно настроить: фон, тень, радиусы скругления гаждого угла, цвет и толщину обводки. Для подложки можно настроить отступы до контейнера.
+Компонент состоит из подложки и контейнера для контента. При необходимости, можно сделать компонент кликабельным. Для подложки и контейнера можно настроить: фон, тень, радиусы скругления гаждого угла, цвет и толщину обводки. Для подложки можно настроить отступы до контейнера.
 Для контейнера можно настроить выравнивание вложенных элементов по горизонтальной и вертикальной осям.
 
 ```jsx live
@@ -110,6 +110,35 @@ render(() => {
                 </SuperEllipse>
                 <SuperEllipse size='80' backgroundColor='#F6BF65' border={true}>
                     <ExclamationMIcon color='#fff' />
+                </SuperEllipse>
+            </Underlay>
+            <div style={{ height: 24 }}></div>
+            <Underlay
+                borderRadius={8}
+                borderSize='1'
+                shadow='shadow-s'
+                backgroundColor='secondary'
+                borderColor='primary'
+                overflow={false}
+                dimensions={{ height: 'auto', width: 320 }}
+                padding={{
+                    top: 16,
+                    right: 16,
+                    bottom: 16,
+                    left: 16,
+                }}
+                contentProps={{
+                    backgroundColor: 'secondary',
+                    axis: 'horizontal',
+                    alignment: 'center',
+                    justifyContent: 'between',
+                }}
+            >
+                <SuperEllipse size='80' backgroundColor='#2FC26E' border={true}>
+                    <CheckmarkHeavyMIcon color='#fff' />
+                </SuperEllipse>
+                <SuperEllipse size='80' backgroundColor='#F15045' border={true}>
+                    <CrossHeavyMIcon color='#fff' />
                 </SuperEllipse>
             </Underlay>
         </Container>

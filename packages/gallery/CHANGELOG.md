@@ -1,5 +1,68 @@
 # @alfalab/core-components-gallery
 
+## 7.4.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tooltip@9.0.25
+
+## 7.4.6
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.14
+- @alfalab/core-components-tooltip@9.0.24
+
+## 7.4.5
+
+### Patch Changes
+
+<sup><time>27.10.2026</time></sup>
+
+#### [#2428](https://github.com/core-ds/core-components/pull/2428)
+
+##### InternationalPhoneInput, NavigationBarPrivate, UniversalDateInput, FileUploadItemV1, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarInput, NavigationBar, PasswordInput, PickerButton, ProductCover, SortableList, NumberInput, PassCodeV1, StatusBadge, ToastPlate, FilterTag, Pagination, Accordion, BankCard, PassCode, Calendar, Carousel, Collapse, Dropzone, Gallery, Attach, Select, Input, Plate, Tabs, Tag
+
+- Обновление зависимостей
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.14
+- @alfalab/core-components-shared@2.4.0
+- @alfalab/core-components-base-modal@7.2.3
+- @alfalab/core-components-button@13.2.5
+- @alfalab/core-components-mq@6.0.10
+- @alfalab/core-components-spinner@6.0.10
+- @alfalab/core-components-tooltip@9.0.23
+- @alfalab/core-components-icon-button@8.0.13
+
+## 7.4.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.3.0
+- @alfalab/core-components-tooltip@9.0.22
+- @alfalab/core-components-base-modal@7.2.2
+- @alfalab/core-components-button@13.2.4
+- @alfalab/core-components-mq@6.0.9
+- @alfalab/core-components-spinner@6.0.9
+- @alfalab/core-components-typography@6.0.13
+- @alfalab/core-components-icon-button@8.0.12
+
 ## 7.4.3
 
 ### Patch Changes

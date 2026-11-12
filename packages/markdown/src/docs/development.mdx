@@ -11,6 +11,49 @@ import { MarkdownMobile } from '@alfalab/core-components/markdown/mobile';
 import { MarkdownDesktop } from '@alfalab/core-components/markdown/desktop';
 ```
 
+## Remark-плагины
+
+Через `remarkPlugins` можно передать дополнительные плагины и их опции. Они применяются после встроенного плагина зачёркивания.
+
+Например, для поддержки таблиц установите `remark-gfm` в приложении:
+
+```jsx
+import { Markdown } from '@alfalab/core-components/markdown';
+import remarkGfm from 'remark-gfm';
+
+<Markdown remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>
+    {'| Кредит | Срок |\n| --- | --- |\n| Наличными | 1–5 лет |'}
+</Markdown>;
+```
+
+Опция `singleTilde: false` сохраняет зачёркивание только через двойную тильду. Для оформления и прокрутки таблицы передайте свой компонент через `overrides.table`.
+
+## Rehype-плагины и HTML
+
+Через `rehypePlugins` можно передать плагины и их настройки для обработки HTML-разметки. Они выполняются в переданном порядке. По умолчанию встроенный HTML отображается как текст.
+
+Для поддержки HTML установите `rehype-raw` и `rehype-sanitize` в приложении. Первый разбирает HTML, второй оставляет разрешённые схемой теги и атрибуты. Например, эта схема разрешает подчёркивание и красный или зелёный цвет:
+
+```jsx
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+
+const htmlSchema = {
+    ...defaultSchema,
+    tagNames: [...(defaultSchema.tagNames ?? []), 'u'],
+    attributes: {
+        ...defaultSchema.attributes,
+        span: [['style', /^color: (red|green)$/]],
+    },
+};
+
+<Markdown rehypePlugins={[rehypeRaw, [rehypeSanitize, htmlSchema]]}>
+    {'<u>Подчёркнутый текст</u> и <span style="color: red">цветной текст</span>'}
+</Markdown>;
+```
+
+Схема задаётся приложением. Для недоверенного HTML используйте очистку после `rehypeRaw`. Через `overrides` можно изменить отображение тегов, которые остались после обработки плагинами.
+
 ## Стилизация
 
 Для стилизации определенного тега используйте класс с его названием.
@@ -27,4 +70,4 @@ import { MarkdownDesktop } from '@alfalab/core-components/markdown/desktop';
 { h1: (props) => (<div>{props.children}</div>)}
 ```
 
-<ArgsTabs components={{MarkdownDesktop, MarkdownMobile, Markdown}} />
+<ArgsTabs components={{ MarkdownDesktop, MarkdownMobile, Markdown }} />

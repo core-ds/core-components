@@ -22,12 +22,12 @@ export const TabBarIslandEntry: FC<TabBarIslandEntryProps> = ({
     ...restProps
 }) => (
     <div
-        {...restProps}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : 0}
         className={cn(styles.entry, className)}
         onClick={disabled ? undefined : onClick}
         onKeyDown={disabled ? undefined : onKeyDown}
+        {...restProps}
     >
         <Content
             Icon={Icon}

@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-shadow */
-import { ASTPath, JSXElement, Transform } from 'jscodeshift';
+import { type ASTPath, type JSXElement, type Transform } from 'jscodeshift';
 
 import { log } from '../utils';
 

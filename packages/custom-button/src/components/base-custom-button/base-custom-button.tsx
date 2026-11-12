@@ -42,9 +42,6 @@ export const BaseCustomButton = forwardRef<
                 styles[contentColor],
                 styles[stateType],
                 styles[`disableType-${disableType}`],
-                {
-                    [styles.customLoading]: loading,
-                },
             )}
             loading={loading}
         >

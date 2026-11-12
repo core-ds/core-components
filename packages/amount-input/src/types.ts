@@ -1,6 +1,8 @@
 import { type InputProps } from '@alfalab/core-components-input';
 import { type CurrencyCodes } from '@alfalab/data';
 
+export type AmountInputView = 'default' | 'withZeroMinorPart' | 'shortMinorPart';
+
 export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
@@ -20,14 +22,15 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
     /**
      * default - не отображаем копейки, если их значение 0
      * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
+     * shortMinorPart - как default, но не дополняем копейки нулями (1,2 вместо 1,20)
      * @default default
      */
-    view?: 'default' | 'withZeroMinorPart';
+    view?: AmountInputView;
 
     /**
      * Валюта
      */
-    currency?: CurrencyCodes;
+    currency?: null | CurrencyCodes;
 
     /**
      * Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)
@@ -51,8 +54,8 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
     integersOnly?: boolean;
 
     /**
-     * @default - true. Нельзя вводить отрицательные значения.
      * Возможность вводить только положительные значения
+     * @default true
      */
     positiveOnly?: boolean;
 

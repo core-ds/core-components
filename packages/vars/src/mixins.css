@@ -71,10 +71,15 @@
     }
 }
 
-@define-mixin bg-class-list {
+@define-mixin bg-class-list $surface {
+    @each $backgroundColorBg in primary, primary-inverted, secondary, secondary-inverted {
+        .background-$(backgroundColorBg) {
+            background-color: var(--color-light-$(surface)-bg-$(backgroundColorBg));
+        }
+    }
+
     @each $backgroundColorBg in accent, info, attention-muted, positive-muted, negative-muted,
-        primary, primary-inverted, secondary, secondary-inverted, tertiary, tertiary-inverted,
-        quaternary, quaternary-inverted {
+        tertiary, tertiary-inverted, quaternary, quaternary-inverted {
         .background-$(backgroundColorBg) {
             background-color: var(--color-light-bg-$(backgroundColorBg));
         }
@@ -132,4 +137,18 @@
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+}
+
+@define-mixin hidden-scrollbar {
+    & {
+        -ms-overflow-style: none; /* IE 10-11, legacy Edge */
+        scrollbar-width: none; /* Firefox 64+, modern Chrome/Safari */
+    }
+
+    /* Chrome, Safari, Opera, old WebKit */
+    &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
 }

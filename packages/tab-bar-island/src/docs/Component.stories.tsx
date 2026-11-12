@@ -1,11 +1,13 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
+import { boolean } from '@storybook/addon-knobs';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import {
     TabBarIsland,
     TabBarIslandTrailingIconButton,
 } from '@alfalab/core-components-tab-bar-island';
+import { DiamondsLine24Icon } from '@alfalab/icons-glyph-26/DiamondsLine24Icon';
+import { NavigationPaymentLine24Icon } from '@alfalab/icons-glyph-26/NavigationPaymentLine24Icon';
 
 const meta: Meta<typeof TabBarIsland> = {
     title: 'Components/TabBarIsland',
@@ -18,16 +20,37 @@ type Story = StoryObj<typeof TabBarIsland>;
 export const button: Story = {
     name: 'TabBarIsland',
     render: () => {
+        const iconAnimation = boolean('iconAnimation', true);
+        const showSkeleton = boolean('showSkeleton', false);
+        const trailingAddon = boolean('trailingAddon', true);
+
         return (
             <TabBarIsland
+                iconAnimation={iconAnimation}
+                showSkeleton={showSkeleton}
                 items={[
-                    { key: 'money', icon: <DiamondsMIcon />, label: 'Поддержка' },
-                    { key: 'payments', icon: <DiamondsMIcon />, label: 'Платежи' },
-                    { key: 'history', icon: <DiamondsMIcon />, label: 'История' },
-                    { key: 'x', icon: <DiamondsMIcon />, label: 'Икс' },
+                    { key: 0, icon: <DiamondsLine24Icon />, label: 'Label', indicator: true },
+                    {
+                        key: 1,
+                        icon: <NavigationPaymentLine24Icon />,
+                        label: 'Label',
+                        indicator: true,
+                    },
+                    { key: 2, icon: <DiamondsLine24Icon />, label: 'Label', indicator: 5 },
+                    {
+                        key: 3,
+                        icon: <NavigationPaymentLine24Icon />,
+                        label: 'Label',
+                        indicator: 100,
+                    },
                 ]}
                 trailingAddon={
-                    <TabBarIslandTrailingIconButton icon={<DiamondsMIcon />} label='Поддержка' />
+                    trailingAddon && (
+                        <TabBarIslandTrailingIconButton
+                            icon={<DiamondsLine24Icon />}
+                            label='Поддержка'
+                        />
+                    )
                 }
             />
         );

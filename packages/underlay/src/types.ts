@@ -67,7 +67,7 @@ export type ContentPropsType = {
     /**
      * Выравнивание контента
      */
-    justifyContent?: 'start' | 'end' | 'center';
+    justifyContent?: 'start' | 'end' | 'center' | 'between';
     /**
      * Дополнительный класс
      */

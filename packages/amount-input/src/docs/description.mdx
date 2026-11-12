@@ -1,66 +1,240 @@
 ## Примеры
 
-По умолчанию в качестве суффикса отображается символ выбранной валюты.
+Значение `view` определяет порядок работы с дробной частью:
+
+- `"withZeroMinorPart"` показывает дробную часть до указанного знака, даже если она нулевая.
+- `"shortMinorPart"` скрывает незначащие нули в дробной части.
+- `"default"` показывает дробную часть до указанного знака, если она не нулевая.
 
 ```jsx live
 render(() => {
-    const [suffix, setSuffix] = React.useState('currency');
-    const [minor, setMinor] = React.useState(true);
-    const [value, setValue] = React.useState(1234567);
+    const [view, setView] = React.useState('withZeroMinorPart');
+    const onViewChange = (_, payload) => {
+        setView(payload.value);
+    };
 
-    const handleChange = (_, payload) => {
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    defaultValue={1234567}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Значение с полной дробной частью'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    view={view}
+                />
+                <Gap size={12} />
+                <AmountInput
+                    defaultValue={12345610}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Значение с неполной дробной частью'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    view={view}
+                />
+                <Gap size={12} />
+                <AmountInput
+                    defaultValue={12345600}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Значение без дробной части'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    view={view}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <RadioGroup
+                label='Работа с дробной частью'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onViewChange}
+                value={view}
+            >
+                <Radio size={24} label='Показывать целиком' value='withZeroMinorPart' />
+                <Radio
+                    size={24}
+                    label='Показывать до последнего значащего знака'
+                    value='shortMinorPart'
+                />
+                <Radio
+                    size={24}
+                    label='Если есть — показывать целиком, если нет — скрывать '
+                    value='default'
+                />
+            </RadioGroup>
+        </React.Fragment>
+    );
+});
+```
+
+Максимальное количество цифр в поле — 15, разделённых запятой в любом месте.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(123456789012345);
+    const [minor, setMinor] = React.useState(2);
+    const handleValueChange = (_, payload) => {
         setValue(payload.value);
     };
-
-    const suffixInput = {
-        currency: 'RUR',
-        percent: '%',
-        noSuffix: null,
-    }[suffix];
-
-    const onChangeSuffix = (_, payload) => {
-        setSuffix(payload.value);
+    const handleMinorChange = (_, payload) => {
+        setMinor(payload.value);
     };
-
-    const handleMinorChange = () => setMinor(!minor);
 
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
             <AmountInput
                 value={value}
-                onChange={handleChange}
+                onChange={handleValueChange}
                 placeholder='Введите сумму'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 label='Сумма'
-                minority={minor ? 100 : 1}
-                integersOnly={!minor}
+                minority={Math.pow(10, minor)}
+                integerLength={15 - minor}
                 bold={false}
-                suffix={suffixInput}
                 block={true}
                 size={isMobile() ? 48 : 56}
                 breakpoint={BREAKPOINT}
             />
-            <Gap size={24} />
-            <Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />
-            <Gap size={24} />
-            <RadioGroup
-                label='Суффикс'
-                direction='vertical'
-                name='radioGroup'
-                onChange={onChangeSuffix}
-                value={suffix}
-            >
-                <Radio size={24} label='Валюта' value='currency' />
-                <Radio size={24} label='Процент' value='percent' />
-                <Radio size={24} label='Нет' value='noSuffix' />
-            </RadioGroup>
+            <Gap size={20} />
+            <NumberInput
+                value={minor}
+                onChange={handleMinorChange}
+                step={1}
+                min={0}
+                max={14}
+                block={true}
+                disableUserInput={true}
+                placeholder='Введите число знаков после зяпатой'
+                label='Знаки после зяпатой'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 48 : 56}
+                breakpoint={BREAKPOINT}
+            />
         </div>
     );
 });
 ```
 
-Если знаечния изменяются с фиксированным шагом, можно включить степпер.
-При наличии степпера ввод с клавиатуры можно запретить.
+Значения могут быть положительными и отрицательными.
+
+```jsx live
+render(() => {
+    const [positiveOnly, setPositiveOnly] = React.useState(false);
+    const [value, setValue] = React.useState(-123456767);
+    const handlePositiveOnlyChange = (_, payload) => {
+        setPositiveOnly(!payload.checked);
+        setValue((prevValue) => prevValue * -1);
+    };
+    const handleValueChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    value={value}
+                    onChange={handleValueChange}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    positiveOnly={positiveOnly}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                label='Принимать отрицательные значения'
+                checked={!positiveOnly}
+                onChange={handlePositiveOnlyChange}
+            />
+        </React.Fragment>
+    );
+});
+```
+
+Для отображения валюты можно использовать суффикс.
+
+```jsx live
+render(() => {
+    const [suffix, setSuffix] = React.useState('symbolic');
+    const [value, setValue] = React.useState(1234567);
+    const handleChange = (_, payload) => {
+        setValue(payload.value);
+    };
+    const suffixInput = {
+        percent: '%',
+        noSuffix: null,
+    }[suffix];
+    const codeFormat = {
+        symbolic: 'symbolic',
+        letter: 'letter',
+    }[suffix];
+    const onSuffixChange = (_, payload) => {
+        setSuffix(payload.value);
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    value={value}
+                    onChange={handleChange}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    currency='RUB'
+                    suffix={suffixInput}
+                    codeFormat={codeFormat}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <RadioGroup
+                label='Суффикс'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onSuffixChange}
+                value={suffix}
+            >
+                <Radio size={24} label='Знак ₽' value='symbolic' />
+                <Radio size={24} label='Код RUB' value='letter' />
+                <Radio size={24} label='Процент' value='percent' />
+                <Radio size={24} label='Без суффикса' value='noSuffix' />
+            </RadioGroup>
+        </React.Fragment>
+    );
+});
+```
+
+Если знаечния изменяются с фиксированным шагом, можно включить степпер. При наличии степпера ввод с клавиатуры можно запретить.
 
 ```jsx live mobileHeight={500}
 render(() => {
@@ -72,32 +246,169 @@ render(() => {
     };
 
     return (
-        <div style={{ width: isMobile() ? '100%' : 320 }}>
-            <AmountInput
-                value={value}
-                disableUserInput={disableUserInput}
-                placeholder='Введите сумму'
-                labelView={isMobile() ? 'outer' : 'inner'}
-                label='Сумма'
-                minority={100}
-                bold={false}
-                suffix='RUR'
-                block={true}
-                size={isMobile() ? 48 : 56}
-                breakpoint={BREAKPOINT}
-                onChange={handleChange}
-                stepper={{ step: 10, min: 1000, max: 1100 }}
-            />
-
-            <Gap size={24} />
-
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    value={value}
+                    disableUserInput={disableUserInput}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    suffix='RUR'
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    onChange={handleChange}
+                    stepper={{ step: 10, min: 1000, max: 1100 }}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
             <Switch
                 block={true}
                 checked={disableUserInput}
                 label='Запретить ввод с клавиатуры'
                 onChange={() => setDisableUserInput(!disableUserInput)}
             />
-        </div>
+        </React.Fragment>
+    );
+});
+```
+
+Весом можно управлять с помощью пропса `fontWeight`.
+
+```jsx live
+render(() => {
+    const [fontWeight, setFontWeight] = React.useState('regular');
+    const [value, setValue] = React.useState(1234567);
+    const handleChange = (_, payload) => {
+        setValue(payload.value);
+    };
+    const onFontWeightChange = (_, payload) => {
+        setFontWeight(payload.value);
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    value={value}
+                    onChange={handleChange}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    fontWeight={fontWeight}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <RadioGroup
+                label='Вес'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onFontWeightChange}
+                value={fontWeight}
+            >
+                <Radio size={24} label='Regular' value='regular' />
+                <Radio size={24} label='Medium' value='medium' />
+                <Radio size={24} label='Bold' value='bold' />
+            </RadioGroup>
+        </React.Fragment>
+    );
+});
+```
+
+Минорную часть и суффикс можно сделать полупрозрачными с помощью `transparentMinor`.
+
+```jsx live
+render(() => {
+    const [transparentMinor, setTransparentMinor] = React.useState(true);
+    const [value, setValue] = React.useState(123456767);
+    const handleTransparentMinorChange = (_, payload) => {
+        setTransparentMinor(payload.checked);
+    };
+    const handleValueChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    value={value}
+                    onChange={handleValueChange}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    transparentMinor={transparentMinor}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                label='TransparentMinor'
+                checked={transparentMinor}
+                onChange={handleTransparentMinorChange}
+            />
+        </React.Fragment>
+    );
+});
+```
+
+Если инпут по умолчанию должен содержать ноль в качестве value, используйте `zeroValue={true}`, чтобы упростить ввод. Эта опция восстанавливает значение по умолчанию при очистке инпута и убирает ноль при получении фокуса.
+
+```jsx live
+render(() => {
+    const [zeroValue, setZeroValue] = React.useState(true);
+    const [value, setValue] = React.useState(0);
+    const handleZeroValueChange = (_, payload) => {
+        setZeroValue(payload.checked);
+    };
+    const handleValueChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <AmountInput
+                    value={value}
+                    onChange={handleValueChange}
+                    placeholder='Введите сумму'
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    label='Сумма'
+                    minority={100}
+                    bold={false}
+                    block={true}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                    zeroValue={zeroValue}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                label='Сбрасывать 0 при фокусе'
+                checked={zeroValue}
+                onChange={handleZeroValueChange}
+            />
+        </React.Fragment>
     );
 });
 ```

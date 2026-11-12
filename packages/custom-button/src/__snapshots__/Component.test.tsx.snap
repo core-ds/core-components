@@ -966,7 +966,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1012,7 +1012,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
@@ -1115,7 +1115,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1160,7 +1160,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1206,7 +1206,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
@@ -1309,7 +1309,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1354,7 +1354,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1399,7 +1399,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1445,7 +1445,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
+      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"

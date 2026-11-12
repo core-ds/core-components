@@ -1,5 +1,6 @@
 {
-    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.experimental.useTsgo": true,
+    "js/ts.tsdk.path": "./node_modules/@typescript/native",
     "files.associations": {
         "*.css": "postcss"
     },
@@ -35,6 +36,7 @@
         "packages/checkbox-group",
         "packages/circular-progress-bar",
         "packages/code-input",
+        "packages/codemod",
         "packages/collapse",
         "packages/comment",
         "packages/config",
@@ -59,6 +61,7 @@
         "packages/global-store",
         "packages/grid",
         "packages/hatching-progress-bar",
+        "packages/headless-collapse",
         "packages/icon-button",
         "packages/icon-view",
         "packages/indicator",
@@ -127,7 +130,6 @@
         "packages/table",
         "packages/tabs",
         "packages/tag",
-        "packages/test-utils",
         "packages/text",
         "packages/textarea",
         "packages/time-input",

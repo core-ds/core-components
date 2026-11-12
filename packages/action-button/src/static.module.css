@@ -11,7 +11,7 @@
     /* secondary */
     --action-button-static-secondary-base-color: var(--color-static-text-primary);
     --action-button-static-secondary-base-icon-color: var(--color-static-neutral-translucent-1300);
-    --action-button-static-secondary-base-bg-color: var(--color-static-neutral-100);
+    --action-button-static-secondary-base-bg-color: var(--color-static-neutral-translucent-100);
 
     /* spinner */
     --action-button-spinner-static-primary-color: var(
@@ -21,8 +21,8 @@
 
     /* disabled */
     --action-button-static-disabled-color: var(--color-static-text-tertiary);
-    --action-button-static-disabled-icon-color: var(--color-static-neutral-500);
-    --action-button-static-disabled-bg-color: var(--color-static-neutral-100);
+    --action-button-static-disabled-icon-color: var(--color-static-neutral-translucent-500);
+    --action-button-static-disabled-bg-color: var(--color-static-neutral-translucent-100);
 }
 
 .primary {

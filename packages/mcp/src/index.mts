@@ -23,11 +23,11 @@ const server = new McpServer({
     version: pkg.version,
 });
 
-const versionDir = path.join(import.meta.dirname, 'data', DATA_VERSION);
+const dataDir = path.join(import.meta.dirname, 'data');
 
 // Найти и распарсить JSON-файл компонента по имени или slug
 function readComponentData(component: string): Record<string, unknown> | null {
-    const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+    const files = readdirSync(dataDir).filter((f) => f.endsWith('.json'));
 
     // Сначала ищем по kebab-slug (быстро), затем по displayName (медленно — читает все файлы)
     const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
@@ -35,12 +35,12 @@ function readComponentData(component: string): Record<string, unknown> | null {
 
     const file = files.find((f) => {
         if (f.replace('.json', '') === slug) return true;
-        const data = JSON.parse(readFileSync(path.join(versionDir, f), 'utf-8'));
+        const data = JSON.parse(readFileSync(path.join(dataDir, f), 'utf-8'));
 
         return data.displayName.toLowerCase() === normalized;
     });
 
-    return file ? JSON.parse(readFileSync(path.join(versionDir, file), 'utf-8')) : null;
+    return file ? JSON.parse(readFileSync(path.join(dataDir, file), 'utf-8')) : null;
 }
 
 function toText(data: unknown) {
@@ -55,12 +55,12 @@ server.registerTool(
         description: 'List all available core-components with names and descriptions.',
     },
     async () => {
-        const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+        const files = readdirSync(dataDir).filter((f) => f.endsWith('.json'));
 
         const list = files
             .map((file) => {
                 const { displayName, description, packageName } = JSON.parse(
-                    readFileSync(path.join(versionDir, file), 'utf-8'),
+                    readFileSync(path.join(dataDir, file), 'utf-8'),
                 );
 
                 return `**${displayName}** (${packageName}) — ${description}`;

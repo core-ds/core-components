@@ -90,6 +90,12 @@ export const ChildElement = ({ children }) => {
                 ['start', 'end', 'fill', 'center'],
                 'center',
                 'contentProps',
+            ),
+            justifyContent: select(
+                'justifyContent',
+                ['start', 'end', 'center', 'between'],
+                'center',
+                'contentProps',
             )
         };
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));

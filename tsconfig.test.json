@@ -117,6 +117,8 @@
             "@alfalab/core-components-hatching-progress-bar/*": [
                 "./packages/hatching-progress-bar/src/*"
             ],
+            "@alfalab/core-components-headless-collapse": ["./packages/headless-collapse/src"],
+            "@alfalab/core-components-headless-collapse/*": ["./packages/headless-collapse/src/*"],
             "@alfalab/core-components-icon-button": ["./packages/icon-button/src"],
             "@alfalab/core-components-icon-button/*": ["./packages/icon-button/src/*"],
             "@alfalab/core-components-icon-view": ["./packages/icon-view/src"],
@@ -155,8 +157,6 @@
             "@alfalab/core-components-markdown/*": ["./packages/markdown/src/*"],
             "@alfalab/core-components-masked-input": ["./packages/masked-input/src"],
             "@alfalab/core-components-masked-input/*": ["./packages/masked-input/src/*"],
-            "@alfalab/core-components-mcp": ["./packages/mcp/src"],
-            "@alfalab/core-components-mcp/*": ["./packages/mcp/src/*"],
             "@alfalab/core-components-modal": ["./packages/modal/src"],
             "@alfalab/core-components-modal/*": ["./packages/modal/src/*"],
             "@alfalab/core-components-mq": ["./packages/mq/src"],
@@ -273,8 +273,6 @@
             "@alfalab/core-components-tabs/*": ["./packages/tabs/src/*"],
             "@alfalab/core-components-tag": ["./packages/tag/src"],
             "@alfalab/core-components-tag/*": ["./packages/tag/src/*"],
-            "@alfalab/core-components-test-utils": ["./packages/test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["./packages/test-utils/src/*"],
             "@alfalab/core-components-text": ["./packages/text/src"],
             "@alfalab/core-components-text/*": ["./packages/text/src/*"],
             "@alfalab/core-components-textarea": ["./packages/textarea/src"],

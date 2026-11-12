@@ -1,4 +1,4 @@
-import { type Components } from 'react-markdown';
+import { type Components, type Options } from 'react-markdown';
 
 export type FontType = 'styrene' | 'system' | undefined;
 export type PlatformType = 'desktop' | 'mobile';
@@ -27,6 +27,16 @@ export type BaseMarkdownProps = {
      * Переопределение компонентов для тегов разметки
      */
     overrides?: OverridesComponents;
+
+    /**
+     * Дополнительные remark-плагины, применяемые после встроенных
+     */
+    remarkPlugins?: NonNullable<Options['remarkPlugins']>;
+
+    /**
+     * Rehype-плагины и их настройки для обработки HTML-разметки
+     */
+    rehypePlugins?: NonNullable<Options['rehypePlugins']>;
 
     /**
      * Трансформация ссылок неизвестных форматов

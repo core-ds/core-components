@@ -7,17 +7,11 @@
     margin: var(--gap-0);
     align-items: center;
     justify-content: center;
-    padding: var(--gap-0) var(--gap-8);
     border: none;
     background-color: transparent;
     position: relative;
-    transition:
-        font-weight 0.2s ease,
-        color 0.2s ease;
     cursor: pointer;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
 
     &:not(:first-child):before {
         content: '';
@@ -28,6 +22,80 @@
         border-radius: 0.5px;
         bottom: var(--gap-8);
         left: var(--gap-0);
+    }
+}
+
+.contentWidth {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.selected {
+    &:before,
+    & + .segment:before {
+        opacity: 0;
+    }
+}
+
+/* prettier-ignore */
+@each $size, $font, $padding, $addonOnlyPadding in
+    (32, small, var(--gap-10), var(--gap-4)),
+    (40, small, var(--gap-12), var(--gap-6)),
+    (48, medium, var(--gap-12), var(--gap-10)) {
+    .size$(size) {
+        @mixin paragraph_primary_$(font);
+        padding: var(--gap-0) $padding;
+
+        &.addonOnly {
+            padding: var(--gap-0) $addonOnlyPadding;
+        }
+    }
+}
+
+.size48 {
+    & .addon + .title,
+    & .title + .addon {
+        margin-left: var(--gap-2);
+    }
+}
+
+.title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: var(--gap-0) var(--gap-4);
+
+    & > * {
+        vertical-align: top;
+    }
+}
+
+.addon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+/* prettier-ignore */
+@each $size, $addonSize, $addonOnlySize in
+    (32, 20px, 20px),
+    (40, 20px, 24px),
+    (48, 24px, 24px) {
+    .addonSize$(size) {
+        width: $addonSize;
+        height: $addonSize;
+
+        &.addonOnly {
+            width: $addonOnlySize;
+            height: $addonOnlySize;
+        }
     }
 }
 

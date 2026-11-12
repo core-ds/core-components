@@ -1,5 +1,35 @@
 # @alfalab/core-components-icon-button
 
+## 8.0.14
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2434](https://github.com/core-ds/core-components/pull/2434)
+
+##### IconButton
+
+- Исправлен цвет спиннера в инвертированной палитре
+
+## 8.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.5
+- @alfalab/core-components-mq@6.0.10
+
+## 8.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.4
+- @alfalab/core-components-mq@6.0.9
+
 ## 8.0.11
 
 ### Patch Changes

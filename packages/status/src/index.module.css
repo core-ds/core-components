@@ -64,6 +64,7 @@
         &.size-24 {
             @mixin accent_secondary_small;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         &.size-32,

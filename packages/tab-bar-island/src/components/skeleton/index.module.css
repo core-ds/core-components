@@ -1,0 +1,39 @@
+@import '@alfalab/core-components-tab-bar-island/src/vars.css';
+
+.list {
+    padding: var(--gap-4);
+    flex-shrink: 1;
+    min-width: 0;
+    display: inline-flex;
+    justify-content: flex-start;
+    position: relative;
+
+    & .item {
+        cursor: default;
+    }
+}
+
+.wrapper {
+    display: flex;
+    max-width: 100%;
+    position: relative;
+}
+
+.underlay {
+    position: absolute;
+    inset: 0;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--border-radius-circle);
+    background: var(--tab-bar-island-skeleton-color);
+}
+
+.label {
+    width: 67px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--tab-bar-island-skeleton-color);
+}
