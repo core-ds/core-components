@@ -19,7 +19,7 @@ import { type AccountSelectProps } from '../types';
 
 import styles from './index.module.css';
 
-export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectProps>(
+export const AccountSelectDesktop = forwardRef<HTMLDivElement, AccountSelectProps>(
     (
         {
             OptionsList = DefaultOptionsList,
@@ -32,6 +32,9 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
             dataTestId,
             onChange,
             size = 72,
+            error: errorProp,
+            className,
+            optionClassName,
             ...restProps
         },
         ref,
@@ -64,8 +67,8 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                 <ErrorContext.Provider value={errorCtx}>
                     <BaseSelect
                         dataTestId={dataTestId}
-                        className={styles.accountSelect}
-                        error={error}
+                        className={cn(styles.accountSelect, className)}
+                        error={error ?? errorProp}
                         view='desktop'
                         Popover={Popover}
                         ref={ref}
@@ -77,7 +80,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                         Optgroup={Optgroup}
                         OptionsList={OptionsList}
                         Arrow={Arrow}
-                        optionClassName={cn(styles.option, styles[`size${size}`])}
+                        optionClassName={cn(styles.option, styles[`size${size}`], optionClassName)}
                         size={size}
                         optionsListWidth={optionsListWidth}
                         {...restProps}

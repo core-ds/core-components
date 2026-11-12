@@ -1,9 +1,156 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { AccountSelectDesktop } from './desktop';
 import { ADD_CARD_KEY, ERRORS } from './constants';
+import { AccountSelect } from '.';
+import { AccountSelectMobile } from './mobile';
+
+it.each(['6212345678901234567', '5612345678901234567', '6759649826438453', '4111111111111111'])(
+    'submits exactly the card number shown in the field: %s',
+    async (typed) => {
+        const onSubmit = jest.fn();
+        const { getByPlaceholderText, getByText } = render(
+            <AccountSelectDesktop
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{
+                    content: 'Add card',
+                    onSubmit,
+                    needCVC: false,
+                    needExpiryDate: false,
+                }}
+                OptionsList={() => null}
+            />,
+        );
+        const input = getByPlaceholderText('Карта') as HTMLInputElement;
+
+        await userEvent.type(input, typed);
+
+        const shown = input.value.replace(/\D/g, '');
+
+        expect(onSubmit).toHaveBeenLastCalledWith({ number: shown });
+        expect(getByText(shown.slice(-4))).toBeInTheDocument();
+    },
+);
+
+it.each([AccountSelectDesktop, AccountSelectMobile])(
+    'exposes the card number input to assistive technology (%#)',
+    async (Component) => {
+        const { getByPlaceholderText, queryAllByRole, getByRole } = render(
+            <Component
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{ content: 'Add card' }}
+                OptionsList={() => null}
+            />,
+        );
+
+        expect(queryAllByRole('textbox')).toContain(getByPlaceholderText('Карта'));
+        const numberInput = getByRole('textbox', { name: 'Номер карты' });
+        fireEvent.input(numberInput, { target: { value: '4111111111111111' } });
+        await waitFor(() => expect(getByRole('textbox', { name: 'Срок действия' })).toHaveFocus());
+        expect(getByRole('textbox', { name: 'Срок действия' })).toBeVisible();
+        expect(getByRole('textbox', { name: 'CVC' })).toBeVisible();
+    },
+);
+
+it('does not pin the desktop version on a mobile viewport when client="desktop"', () => {
+    const originalMatchMedia = window.matchMedia;
+
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: false,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
+    const { container } = render(
+        <AccountSelect
+            client='desktop'
+            options={[{ key: 'card', content: 'Card', value: 'card' }]}
+        />,
+    );
+
+    expect(container.querySelector('.accountSelect')).toBeNull();
+    window.matchMedia = originalMatchMedia;
+});
+
+it.each([AccountSelectDesktop, AccountSelectMobile])(
+    'shows the card validation error when error={undefined} is passed (%#)',
+    async (Component) => {
+        const { getByPlaceholderText, getByRole, queryByText } = render(
+            <div>
+                <Component
+                    error={undefined}
+                    selected={ADD_CARD_KEY}
+                    options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                    cardAddingProps={{ content: 'Add card' }}
+                />
+                <button type='button'>outside</button>
+            </div>,
+        );
+        const cardInput = getByPlaceholderText('Карта');
+
+        fireEvent.input(cardInput, { target: { value: '1234' } });
+        fireEvent.blur(cardInput, { relatedTarget: getByRole('button', { name: 'outside' }) });
+
+        await waitFor(() => expect(queryByText(ERRORS.CARD_NUMBER_ERROR)).toBeInTheDocument());
+    },
+);
+
+it.each([AccountSelect, AccountSelectDesktop, AccountSelectMobile])(
+    'ref type matches the element it receives (%#)',
+    (Component) => {
+        const originalMatchMedia = window.matchMedia;
+        window.matchMedia = jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+        }));
+        const ref = createRef<HTMLDivElement>();
+
+        render(<Component ref={ref} options={[{ key: 'card', content: 'Card', value: 'card' }]} />);
+
+        expect(ref.current).toBeInstanceOf(HTMLDivElement);
+        window.matchMedia = originalMatchMedia;
+    },
+);
+
+it.each([AccountSelectDesktop, AccountSelectMobile])(
+    'ignores card input when disabled (%#)',
+    async (Component) => {
+        const onSubmit = jest.fn();
+        const { getByPlaceholderText } = render(
+            <Component
+                disabled={true}
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{
+                    content: 'Add card',
+                    onSubmit,
+                    needCVC: false,
+                    needExpiryDate: false,
+                }}
+            />,
+        );
+        const input = getByPlaceholderText('Карта');
+
+        await userEvent.type(input, '4111111111111111');
+
+        expect(input).toBeDisabled();
+        expect(onSubmit).not.toHaveBeenCalled();
+    },
+);
 
 describe('AccountSelectDesktop', () => {
     it('should remove inactive card fields from the layout while the card number is entered', async () => {

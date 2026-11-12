@@ -1,9 +1,11 @@
+import { CARD_NUMBER_LENGTH } from '../../constants';
+
 const isNumericString = (str: string) => /^\d+$/.test(str);
 
 export const validateCardNumber = (value: string): boolean => {
     const digits = value.replace(/\s/g, '');
 
-    return digits.length === 16 && isNumericString(digits);
+    return digits.length === CARD_NUMBER_LENGTH && isNumericString(digits);
 };
 
 export const validateExpiry = (value: string): boolean => {

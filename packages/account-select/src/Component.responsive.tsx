@@ -6,11 +6,14 @@ import { AccountSelectDesktop } from './desktop';
 import { AccountSelectMobile } from './mobile';
 import { type AccountSelectResponsiveProps } from './types';
 
-export const AccountSelectResponsive = forwardRef<HTMLInputElement, AccountSelectResponsiveProps>(
+export const AccountSelectResponsive = forwardRef<HTMLDivElement, AccountSelectResponsiveProps>(
     ({ breakpoint, client, ...restProps }, ref) => {
-        const isDesktop = useIsDesktop(breakpoint);
+        const isDesktop = useIsDesktop(
+            breakpoint,
+            client === undefined ? undefined : client === 'desktop',
+        );
 
-        if (isDesktop || client === 'desktop') {
+        if (isDesktop) {
             return <AccountSelectDesktop ref={ref} {...restProps} />;
         }
 

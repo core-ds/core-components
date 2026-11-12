@@ -17,7 +17,7 @@ import styles from './index.module.css';
 type MultiStepCardInputProps = Pick<
     CardAddingProps,
     'onSubmit' | 'onInput' | 'needCVC' | 'needExpiryDate' | 'expiryAsDate' | 'placeholder'
-> & { open?: boolean | undefined; toggleMenu: () => void };
+> & { open?: boolean | undefined; disabled?: boolean; toggleMenu: () => void };
 
 const getInputSize = (value: string, placeholder: string) =>
     Math.max(value.length, placeholder.length, 1);
@@ -31,6 +31,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         expiryAsDate = true,
         placeholder,
         open,
+        disabled,
         toggleMenu,
     }) => {
         const {
@@ -116,6 +117,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         useEffect(() => {
             if (!open || !lastActiveFieldRef.current) return;
 
+            // Wait for BaseSelect to finish handling the event and moving focus.
             setTimeout(() => {
                 const fieldToFocus = lastActiveFieldRef.current;
 
@@ -191,6 +193,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             lastActiveFieldRef.current = 'cardNumber';
             setActiveField('cardNumber');
             setStep(1);
+            // Wait for the unmasked number to render before placing the caret.
             setTimeout(() => {
                 const { current } = numberRef;
 
@@ -267,7 +270,8 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             setActiveField('');
         };
 
-        const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+        const handleClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
+            // Restore input focus after the click bubbles to the select field.
             setTimeout(() => {
                 if (e.target === numberRef.current) {
                     numberRef.current.focus();
@@ -301,15 +305,13 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const displayCardCvc = cardCvc || '';
 
         return (
-            <div
-                className={styles.multistepCardInputWrapper}
-                aria-hidden='true'
-                onBlur={handleWrapperBlur}
-                onClick={handleClick}
-            >
+            <div className={styles.multistepCardInputWrapper} onBlur={handleWrapperBlur}>
                 <div className={styles.inputs}>
                     <input
                         ref={numberRefCallback}
+                        onClick={handleClick}
+                        disabled={disabled}
+                        aria-label='Номер карты'
                         onBlur={handleCardNumberBlur}
                         type='text'
                         placeholder={cardNumberPlaceholder}
@@ -327,6 +329,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                     {needExpiryDate && (
                         <input
                             ref={expiryRefCallback}
+                            onClick={handleClick}
+                            disabled={disabled}
+                            aria-label='Срок действия'
                             type='text'
                             value={displayCardExpiry}
                             onInput={handleExpiryChange}
@@ -346,6 +351,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                     {needCVC && (
                         <input
                             ref={cvvRefCallback}
+                            onClick={handleClick}
+                            disabled={disabled}
+                            aria-label='CVC'
                             type='text'
                             value={displayCardCvc}
                             onInput={handleCvcChange}

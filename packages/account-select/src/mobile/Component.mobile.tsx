@@ -10,7 +10,7 @@ import { type AccountSelectProps } from '../types';
 
 const MobileCustomField = (props: CustomFieldProps) => <CustomField {...props} view='mobile' />;
 
-export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectProps>(
+export const AccountSelectMobile = forwardRef<HTMLDivElement, AccountSelectProps>(
     (
         {
             cardAddingProps,
@@ -20,6 +20,7 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
             block = true,
             onChange,
             size = 72,
+            error: errorProp,
             ...restProps
         },
         ref,
@@ -54,7 +55,7 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
                     <SelectMobile
                         block={block}
                         dataTestId={dataTestId}
-                        error={error}
+                        error={error ?? errorProp}
                         ref={ref}
                         onChange={handleChange}
                         size={size}

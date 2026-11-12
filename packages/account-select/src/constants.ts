@@ -1,5 +1,3 @@
-import { type ElementState } from '@maskito/core/lib/types';
-
 import { type Size } from '@alfalab/core-components-product-cover/typings';
 
 export const ADD_CARD_KEY = '#ADD_NEW_CARD';
@@ -21,64 +19,11 @@ export const ERRORS = {
 
 export const EXPIRY_COMPLETE_REGEXP = /^\d{2}\/\d{2}$/;
 
-export const CARD_MASK = (elementState: ElementState) => {
-    const digits = elementState.value.replace(/\D/g, '');
+export const CARD_NUMBER_LENGTH = 16;
 
-    // 19-значные карты
-    if (
-        /^62/.test(digits) || // UnionPay
-        /^(5[06-9]|6)/.test(digits) // Maestro
-    ) {
-        return [
-            /\d/,
-            /\d/,
-            /\d/,
-            /\d/,
-            ' ',
-            /\d/,
-            /\d/,
-            /\d/,
-            /\d/,
-            ' ',
-            /\d/,
-            /\d/,
-            /\d/,
-            /\d/,
-            ' ',
-            /\d/,
-            /\d/,
-            /\d/,
-            /\d/,
-            ' ',
-            /\d/,
-            /\d/,
-            /\d/,
-        ];
-    }
-
-    // 16-значные карты
-    return [
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-    ];
-};
+export const CARD_MASK = Array.from({ length: CARD_NUMBER_LENGTH }, (_, index) =>
+    index > 0 && index % 4 === 0 ? [' ', /\d/] : [/\d/],
+).flat();
 
 export const EXPIRY_MASK = [/\d/, /\d/, '/', /\d/, /\d/];
 

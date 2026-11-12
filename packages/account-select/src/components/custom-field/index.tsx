@@ -6,7 +6,7 @@ import { FormControlMobile } from '@alfalab/core-components-form-control/mobile'
 import { ProductCover } from '@alfalab/core-components-product-cover';
 import { Field, type FieldProps, type OptionShape } from '@alfalab/core-components-select/shared';
 
-import { ADD_CARD_KEY, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
+import { ADD_CARD_KEY, CARD_NUMBER_LENGTH, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
 import { useAccountSelect, useError } from '../../context';
 import { MultiStepCardInput } from '../multi-step-card-input';
 
@@ -84,6 +84,7 @@ export const CustomField = ({
         if (selectedOption?.key === ADD_CARD_KEY) {
             return (
                 <MultiStepCardInput
+                    disabled={disabled}
                     open={open}
                     placeholder={placeholder}
                     onSubmit={onSubmit}
@@ -107,7 +108,11 @@ export const CustomField = ({
         if (selected && selected.key === ADD_CARD_KEY) {
             return (
                 <ProductCover.Single
-                    cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
+                    cardNumber={
+                        cardNumber.length === CARD_NUMBER_LENGTH
+                            ? Number(cardNumber.slice(-4))
+                            : undefined
+                    }
                     size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
                     className={cardImage?.className}
                     {...cardImage}
