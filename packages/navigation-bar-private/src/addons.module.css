@@ -1,0 +1,23 @@
+.addon {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    pointer-events: all;
+}
+
+.size40 {
+    height: 40px;
+
+    & .closer {
+        height: 40px;
+    }
+
+    & .closerIcon,
+    & .backIcon {
+        width: 30px;
+        height: 30px;
+    }
+}

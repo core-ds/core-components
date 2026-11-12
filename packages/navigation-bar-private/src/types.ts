@@ -69,7 +69,7 @@ export type NavigationBarPrivateProps = {
     /**
      * Дополнительные пропсы для кнопки "Назад"
      */
-    backButtonProps?: Omit<BackArrowAddonProps, 'view' | 'textOpacity' | 'onClick'>;
+    backButtonProps?: Omit<BackArrowAddonProps, 'view' | 'textOpacity' | 'onClick' | 'icon'>;
 
     /**
      * Дополнительный класс
@@ -167,6 +167,18 @@ export type NavigationBarPrivateProps = {
      * Набор цветов для компонента
      */
     colors?: ColorType;
+};
+
+export type NavigationBarPrivateInternalProps = {
+    /**
+     * Высота обёрток кнопок «Назад» и «Закрыть»
+     */
+    addonsSize?: 40 | 48;
+
+    /**
+     * Иконка кнопки «Назад»
+     */
+    backButtonIcon?: BackArrowAddonProps['icon'];
 };
 
 export type ContentParams = {

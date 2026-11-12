@@ -5,6 +5,7 @@ import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
+import addonStyles from '../../addons.module.css';
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -75,7 +76,7 @@ export const Closer: FC<CloserProps> = ({
 
     return (
         <div
-            className={cn(styles.closer, className, {
+            className={cn(styles.closer, addonStyles.closer, className, {
                 [styles.sticky]: sticky,
             })}
         >
@@ -84,6 +85,7 @@ export const Closer: FC<CloserProps> = ({
                 className={cn(styles.button, colorStyles[colors].button, {
                     [colorStyles[colors].mobile]: view === 'mobile',
                 })}
+                iconWrapperClassName={addonStyles.closerIcon}
                 aria-label='закрыть'
                 onClick={handleClick}
                 icon={icon}

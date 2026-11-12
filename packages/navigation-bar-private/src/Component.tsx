@@ -8,13 +8,21 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { BackArrowAddon } from './components/back-arrow-addon';
 import { Closer } from './components/closer';
-import { type ContentParams, type NavigationBarPrivateProps } from './types';
+import {
+    type ContentParams,
+    type NavigationBarPrivateInternalProps,
+    type NavigationBarPrivateProps,
+} from './types';
 
+import addonStyles from './addons.module.css';
 import styles from './index.module.css';
 
 const ADDONS_HEIGHT = 48;
 
-export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPrivateProps>(
+export const NavigationBarPrivate = forwardRef<
+    HTMLDivElement,
+    NavigationBarPrivateProps & NavigationBarPrivateInternalProps
+>(
     (
         {
             addonClassName,
@@ -30,6 +38,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             trim = true,
             title,
             titleSize = 'default',
+            addonsSize = ADDONS_HEIGHT,
             subtitle,
             subtitleClassName,
             hasCloser,
@@ -37,6 +46,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             hasBackButton,
             backButtonClassName,
             backButtonProps,
+            backButtonIcon,
             dataTestId,
             imageUrl,
             closerIcon,
@@ -72,7 +82,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
         const showStaticContentOnBot = !withAnimation && showContentOnBot;
         const showAnimatedContentOnTop =
-            withAnimation && showContentOnBot && scrollTop > ADDONS_HEIGHT;
+            withAnimation && showContentOnBot && scrollTop > addonsSize;
         const showAnimatedContentOnBot = withAnimation && showContentOnBot;
         const headerPaddingTop = mainLinePaddingTopRef.current;
 
@@ -129,7 +139,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             let textOpacity = 1;
 
             if (withAnimation) {
-                const height = hasContent ? ADDONS_HEIGHT : ADDONS_HEIGHT / 2;
+                const height = hasContent ? addonsSize : addonsSize / 2;
 
                 textOpacity = Math.max(0, 1 - scrollTop / height);
             } else if (compactTitle) {
@@ -137,13 +147,20 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
             }
 
             return (
-                <div className={cn(styles.addon, backButtonClassName)}>
+                <div
+                    className={cn(
+                        addonStyles.addon,
+                        addonStyles[`size${addonsSize}`],
+                        backButtonClassName,
+                    )}
+                >
                     <BackArrowAddon
                         data-test-id={getDataTestId(dataTestId, 'back-button')}
                         {...backButtonProps}
                         colors={colors}
                         textOpacity={textOpacity}
                         view={view}
+                        icon={backButtonIcon}
                         onClick={onBack}
                     />
                 </div>
@@ -192,7 +209,14 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
         };
 
         const renderCloser = () => (
-            <div className={cn(styles.addon, styles.closer, closerClassName)}>
+            <div
+                className={cn(
+                    addonStyles.addon,
+                    addonStyles[`size${addonsSize}`],
+                    styles.closer,
+                    closerClassName,
+                )}
+            >
                 <Closer
                     view={view}
                     icon={closerIcon}
@@ -236,7 +260,9 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                         <div className={styles.addonsWrapper} ref={leftAddonsRef}>
                             {hasBackButton && renderBackButton()}
                             {leftAddons && (
-                                <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>
+                                <div className={cn(addonStyles.addon, addonClassName)}>
+                                    {leftAddons}
+                                </div>
                             )}
                         </div>
                     )}
@@ -257,7 +283,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                         renderContent({
                             extraClassName: styles.withBothAddons,
                             style: {
-                                opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
+                                opacity: Math.min(1, (scrollTop - addonsSize) / addonsSize),
                                 ...(align === 'center'
                                     ? {
                                           marginLeft: titleMargin.left,
@@ -274,7 +300,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             ref={rightAddonsRef}
                         >
                             {rightAddons && (
-                                <div className={cn(styles.addon, addonClassName)}>
+                                <div className={cn(addonStyles.addon, addonClassName)}>
                                     {rightAddons}
                                 </div>
                             )}
@@ -288,8 +314,8 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                     renderContent({
                         wrapperRef: bottomContentRef,
                         extraClassName: styles.underAddons,
-                        style: { opacity: Math.max(0, 1 - scrollTop / ADDONS_HEIGHT) },
-                        hidden: scrollTop / ADDONS_HEIGHT > 1,
+                        style: { opacity: Math.max(0, 1 - scrollTop / addonsSize) },
+                        hidden: scrollTop / addonsSize > 1,
                         extraAlign: 'left',
                     })}
 

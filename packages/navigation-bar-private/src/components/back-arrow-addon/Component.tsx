@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type ComponentType, type SVGProps } from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
@@ -6,6 +6,7 @@ import { TypographyText } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 
+import addonStyles from '../../addons.module.css';
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -47,6 +48,11 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
      * Набор цветов для компонента
      */
     colors?: ColorType;
+
+    /**
+     * Иконка
+     */
+    icon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
@@ -56,9 +62,9 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     textOpacity = 1,
     view,
     colors = 'default',
+    icon: Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon,
     ...htmlAttributes
 }) => {
-    const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
     const isMobileView = view === 'mobile';
 
     return (
@@ -77,7 +83,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
         >
             <div className={styles.flex}>
                 <div
-                    className={cn(styles.iconWrapper, {
+                    className={cn(styles.iconWrapper, addonStyles.backIcon, {
                         [styles.mobileWrapper]: isMobileView,
                         [colorStyles[colors].mobileWrapper]: isMobileView,
                     })}
