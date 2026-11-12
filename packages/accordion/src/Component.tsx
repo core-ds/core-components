@@ -11,7 +11,7 @@ import cn from 'classnames';
 import {
     SpringHeadlessCollapse,
     SpringTransition,
-} from '@alfalab/core-components-animation-private';
+} from '@alfalab/core-components-spring-animation';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import {

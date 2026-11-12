@@ -1,7 +1,7 @@
 import React, { type FC, type RefObject, useRef } from 'react';
 import cn from 'classnames';
 
-import { rotateSpring, SpringTransition } from '@alfalab/core-components-animation-private';
+import { rotateSpring, SpringTransition } from '@alfalab/core-components-spring-animation';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 
 import styles from './index.module.css';

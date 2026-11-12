@@ -1,4 +1,4 @@
-import { collapseSpring, expandSpring } from '@alfalab/core-components-animation-private';
+import { collapseSpring, expandSpring } from '@alfalab/core-components-spring-animation';
 
 const bodyCollapseDelay = 40;
 

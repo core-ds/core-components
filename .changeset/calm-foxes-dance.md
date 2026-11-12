@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-animation-private': patch
+'@alfalab/core-components-spring-animation': patch
 ---
 
-- Добавлен новый пакет `@alfalab/core-components-animation-private`
+- Добавлен новый пакет `@alfalab/core-components-spring-animation`

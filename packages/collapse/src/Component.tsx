@@ -1,12 +1,12 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import cn from 'classnames';
 
+import { Link } from '@alfalab/core-components-link';
 import {
     collapseSpring,
     expandSpring,
     SpringHeadlessCollapse,
-} from '@alfalab/core-components-animation-private';
-import { Link } from '@alfalab/core-components-link';
+} from '@alfalab/core-components-spring-animation';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
 
 import styles from './index.module.css';

@@ -7,10 +7,10 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
-            "@alfalab/core-components-animation-private": ["./src"],
-            "@alfalab/core-components-animation-private/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-spring-animation": ["./src"],
+            "@alfalab/core-components-spring-animation/*": ["./src/*"]
         }
     },
     "references": [{ "path": "../shared/tsconfig.build.json" }]
