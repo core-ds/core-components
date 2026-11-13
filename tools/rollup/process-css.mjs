@@ -14,6 +14,7 @@ import { globSync } from 'tinyglobby';
 
 import postcssConfig from '../../postcss.config.js';
 import { isSamePath } from '../path.cjs';
+import postcssMergeRoots from '../postcss/postcss-merge-roots.cjs';
 import postcssRemoveComment from '../postcss/postcss-remove-comment.cjs';
 import postcssRemoveEmptyRoot from '../postcss/postcss-remove-empty-root.cjs';
 import { resolveInternal } from '../resolve-internal.cjs';
@@ -157,6 +158,7 @@ async function processPostcss(filePath, config) {
             safelist: [/.*/],
         }),
         postcssRemoveComment(),
+        postcssMergeRoots(),
         postcssRemoveEmptyRoot(),
     );
 
