@@ -102,7 +102,7 @@ describe('Button', () => {
 
         it('should set disabled attribute to <a>', () => {
             const { container } = render(<Button href='test' disabled={true} />);
-            expect(container.firstElementChild).toHaveAttribute('disabled');
+            expect(container.firstElementChild).toHaveAttribute('aria-disabled', 'true');
         });
     });
 
@@ -172,10 +172,10 @@ describe('Button', () => {
             expect(container.firstElementChild).toHaveClass(view);
         });
 
-        it('should set `iconOnly` class', () => {
+        it('should set `minWidth` class', () => {
             const { container } = render(<Button />);
 
-            expect(container.firstElementChild).toHaveClass('iconOnly');
+            expect(container.firstElementChild).toHaveClass('minWidth');
         });
 
         it('should set `nowrap` class', () => {

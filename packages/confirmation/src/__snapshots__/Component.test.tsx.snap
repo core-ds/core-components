@@ -575,7 +575,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
         Мы ограничили следующие попытки ввода, потому что код был введён неверно больше 5 раз.
       </span>
       <button
-        class="component secondary size-48 hug size-48 component secondary component secondary button"
+        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 button"
         type="button"
       >
         <span
@@ -655,7 +655,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
         Если номер не меняли, попробуйте запросить код позже — возможно, перегружен сервис отправки уведомлений.
       </span>
       <button
-        class="component secondary size-48 hug size-48 component secondary component secondary hintButton"
+        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 hintButton"
         type="button"
       >
         <span
@@ -736,7 +736,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
         Теперь можно запросить новый код
       </span>
       <button
-        class="component secondary size-48 hug size-48 component secondary component secondary button"
+        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 button"
         type="button"
       >
         <span

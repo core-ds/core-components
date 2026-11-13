@@ -1,8 +1,12 @@
-import React, { forwardRef, type ReactElement } from 'react';
+import React, { type ComponentProps, forwardRef, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { NoStyleButton, useButtonLoading } from '@alfalab/core-components-button/shared';
+import { useDisabled } from '@alfalab/core-components-config';
+import { getDataTestId } from '@alfalab/core-components-shared';
+import { Spinner } from '@alfalab/core-components-spinner';
+import { useFocus } from '@alfalab/hooks';
 
 import { type IconButtonProps } from '../../types/icon-button-props';
 
@@ -16,61 +20,70 @@ const colorStyles = {
 };
 
 type BaseIconButtonProps = {
-    client: 'desktop' | 'mobile';
     clientStyles: Record<string, string>;
 };
 
 export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & BaseIconButtonProps>(
     (
         {
-            className,
+            className: classNameFromProps,
             icon: Icon,
             view = 'primary',
             size = 48,
             colors = 'default',
             alignIcon = 'center',
-            transparentBg = false,
-            client,
+            transparentBg,
             clientStyles,
+            loading: loadingFromProps,
+            disabled: disabledFromProps,
             ...restProps
         },
         ref,
     ) => {
-        const Component = client === 'desktop' ? ButtonDesktop : ButtonMobile;
+        const { dataTestId } = restProps;
+        const loading = useButtonLoading(loadingFromProps);
+        const disabled = useDisabled(disabledFromProps) || loading;
+        const buttonRef = useRef<HTMLElement>(null);
+        const [focused] = useFocus(buttonRef, 'keyboard');
 
         return (
-            <Component
-                {...restProps}
-                ref={ref}
-                view='text'
-                colors={colors}
+            <NoStyleButton
+                // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+                {...(restProps as ComponentProps<typeof NoStyleButton>)}
+                ref={mergeRefs([buttonRef, ref])}
+                disabled={disabled}
                 className={cn(
                     'cc-icon-button',
-                    className,
+                    styles.component,
                     colorStyles[colors][view],
-                    colorStyles[colors].component,
-                    clientStyles.component,
-                    clientStyles[`border_${size}`],
+                    clientStyles[`size-${size}`],
                     {
-                        [colorStyles[colors].loader]: restProps.loading,
+                        [styles.loading]: loading,
                         [colorStyles[colors].transparentBg]: transparentBg,
+                        [styles.focused]: focused,
                     },
+                    classNameFromProps,
                 )}
-                size={48}
             >
                 <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
                     {React.isValidElement(Icon) ? (
-                        React.cloneElement(Icon as ReactElement<{ className?: string }>, {
-                            className: cn(
-                                styles.icon,
-                                (Icon as ReactElement<{ className?: string }>).props.className,
-                            ),
+                        React.cloneElement(Icon, {
+                            className: cn(styles.icon, Icon.props.className),
                         })
                     ) : (
                         <Icon className={styles.icon} />
                     )}
                 </span>
-            </Component>
+                {loading && (
+                    <Spinner
+                        preset={24}
+                        colors={colors}
+                        dataTestId={getDataTestId(dataTestId, 'loader')}
+                        visible={true}
+                        className={cn(styles.loader)}
+                    />
+                )}
+            </NoStyleButton>
         );
     },
 );

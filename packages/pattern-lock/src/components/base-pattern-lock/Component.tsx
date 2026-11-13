@@ -36,7 +36,6 @@ export const BasePatternLock = forwardRef<
             extraBounds = DEFAULT_EXTRA_BOUNDS,
             messageClassName,
             hover,
-            styles = {},
             disabled = false,
             ...restProps
         },
@@ -90,7 +89,7 @@ export const BasePatternLock = forwardRef<
 
         return (
             <div
-                className={cn(commonStyles.component, styles.component, className, {
+                className={cn(commonStyles.component, className, {
                     [commonStyles.hidden]: !params,
                     [commonStyles.withForgotBtn]: showForgotCodeBtn,
                     [commonStyles.disabled]: disabled,
@@ -112,14 +111,16 @@ export const BasePatternLock = forwardRef<
                     </div>
                 </div>
                 {showForgotCodeBtn && (
-                    <ButtonMobile
-                        view='transparent'
-                        className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
-                        onClick={onForgotBtnClick}
-                        dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
-                    >
-                        {forgotCodeBtnText}
-                    </ButtonMobile>
+                    <div className={commonStyles.forgotBtnContainer}>
+                        <ButtonMobile
+                            view='transparent'
+                            size={40}
+                            onClick={onForgotBtnClick}
+                            dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
+                        >
+                            {forgotCodeBtnText}
+                        </ButtonMobile>
+                    </div>
                 )}
             </div>
         );

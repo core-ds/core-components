@@ -94,6 +94,7 @@
         "packages/phone-input",
         "packages/picker-button",
         "packages/plate",
+        "packages/polymorphic",
         "packages/popover",
         "packages/popup-sheet",
         "packages/portal",
