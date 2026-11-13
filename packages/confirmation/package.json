@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "15.3.0",
+    "version": "15.3.1",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
@@ -13,8 +13,8 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.2.5",
-        "@alfalab/core-components-code-input": "^5.1.6",
+        "@alfalab/core-components-button": "^13.3.0",
+        "@alfalab/core-components-code-input": "^5.1.7",
         "@alfalab/core-components-link": "^7.0.3",
         "@alfalab/core-components-mq": "^6.0.10",
         "@alfalab/core-components-spinner": "^6.0.10",

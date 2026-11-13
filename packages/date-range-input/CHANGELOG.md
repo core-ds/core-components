@@ -1,5 +1,16 @@
 # @alfalab/core-components-date-range-input
 
+## 5.0.25
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.19
+- @alfalab/core-components-popover@8.1.6
+- @alfalab/core-components-input@17.2.4
+- @alfalab/core-components-icon-button@8.0.15
+
 ## 5.0.24
 
 ### Patch Changes

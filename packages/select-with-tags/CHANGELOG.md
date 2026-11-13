@@ -1,5 +1,24 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.28
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.15
+- @alfalab/core-components-popover@8.1.6
+- @alfalab/core-components-input@17.2.4
+- @alfalab/core-components-bottom-sheet@8.1.20
+
 ## 10.1.27
 
 ### Patch Changes

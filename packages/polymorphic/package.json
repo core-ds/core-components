@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-polymorphic",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "license": "MIT",
     "sideEffects": [
         "**/*.css"
@@ -20,5 +20,7 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    }
+    },
+    "themesVersion": "15.2.2",
+    "varsVersion": "11.5.0"
 }

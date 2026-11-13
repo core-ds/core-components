@@ -1,5 +1,32 @@
 # @alfalab/core-components-button
 
+## 13.3.0
+
+### Minor Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### Button
+
+- Добавлена возможность задать _полностью_ кастомный компонент для рендера через проп `as`. Использование данного проп не накладывает ограничения на компонент, такие как маппинг пропса `href` на `to`
+- Проп `Component`, так же используемый для задания кастомного компонент для рендера, помечен `deprecated` и будет удален в следующей мажорной версии
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton, CustomButton, IconButton, Button
+
+- Рефакторинг, не влияющий на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-polymorphic@0.0.1
+
 ## 13.2.5
 
 ### Patch Changes

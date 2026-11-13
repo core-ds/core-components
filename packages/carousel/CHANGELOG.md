@@ -1,5 +1,17 @@
 # @alfalab/core-components-carousel
 
+## 1.2.0
+
+### Minor Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2457](https://github.com/core-ds/core-components/pull/2457)
+
+##### Carousel
+
+- Добавлена возможность передавать inline стили в Carousel и HeadlessCarousel через props style.
+
 ## 1.1.7
 
 ### Patch Changes

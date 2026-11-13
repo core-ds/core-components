@@ -1,5 +1,23 @@
 # @alfalab/core-components-collapse
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2417](https://github.com/core-ds/core-components/pull/2417)
+
+##### Collapse
+
+- Изменены `transition` анимации компонента на `spring`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-spring-animation@0.0.1
+
 ## 6.0.4
 
 ### Patch Changes

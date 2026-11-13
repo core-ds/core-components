@@ -1,5 +1,15 @@
 # @alfalab/core-components-codemod
 
+## 2.9.4
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+- Внутренние улучшения, не влияющие на работу
+
 ## 2.9.3
 
 ### Patch Changes

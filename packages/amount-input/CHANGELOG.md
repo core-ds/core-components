@@ -1,5 +1,23 @@
 # @alfalab/core-components-amount-input
 
+## 9.4.3
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.4
+- @alfalab/core-components-number-input@4.0.18
+- @alfalab/core-components-with-suffix@6.0.18
+
 ## 9.4.2
 
 ### Patch Changes
