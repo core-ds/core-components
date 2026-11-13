@@ -135,7 +135,7 @@ export interface GeneralCarouselProps {
     /**
      * Инлайн-стили контейнера карусели. Имеют приоритет над стандартными стилями.
      */
-    styles?: CSSProperties;
+    style?: CSSProperties;
 }
 
 export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {

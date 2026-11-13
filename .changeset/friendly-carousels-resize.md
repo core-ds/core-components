@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-carousel': patch
+'@alfalab/core-components-carousel': minor
 ---
 
-- Добавлена возможность передавать inline стили в HeadlessCarousel через props styles.
+- Добавлена возможность передавать inline стили в Carousel и HeadlessCarousel через props style.

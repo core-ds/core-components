@@ -20,7 +20,7 @@ export function HeadlessCarousel<T, U, V>({
     gap = 8,
     height = 'auto',
     minHeight,
-    styles: customStyles,
+    style,
     items = [],
     colors = 'default',
     Layout = PassThroughComponent,
@@ -244,7 +244,7 @@ export function HeadlessCarousel<T, U, V>({
                 <div
                     ref={mergeRefs([swipeRef, mouseWheel ? mouseWheelRef : null])}
                     className={cn(styles.container)}
-                    style={{ ...getStyle(), height, minHeight, overflow, ...customStyles }}
+                    style={{ ...getStyle(), height, minHeight, overflow, ...style }}
                 >
                     <Wrapper
                         ref={wrapperRef}
