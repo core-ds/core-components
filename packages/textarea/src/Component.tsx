@@ -205,23 +205,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         };
 
         const getRightAddons = () => {
-            const resolveClearVisible = (): boolean => {
-                if (filled && !disabled && !readOnlyProp) {
-                    if (clear === 'always') {
-                        return true;
-                    }
-
-                    if (clear === 'auto' && (focused || hovered)) {
-                        return true;
-                    }
-
-                    return false;
-                }
-
-                return false;
-            };
-
-            const clearButtonVisible = resolveClearVisible();
+            const clearButtonVisible =
+                filled &&
+                !disabled &&
+                !readOnlyProp &&
+                (clear === 'always' || (clear === 'auto' && (focused || hovered)));
 
             return (
                 <Fragment>
