@@ -1,5 +1,6 @@
 import {
     setupScreenshotTesting,
+    createStorybookUrl,
     createSpriteStorybookUrl,
     createPreview,
     generateTestCases,
@@ -11,6 +12,109 @@ const screenshotTesting = setupScreenshotTesting({
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('Textarea | clear', () => {
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                testStory: false,
+                componentName: 'Textarea',
+                knobs: {
+                    value: 'Многострочный текст для проверки кнопки очистки и правого аддона.\nВторая строка текста.',
+                    clear: 'always',
+                    block: true,
+                    minRows: 3,
+                    label: 'Комментарий',
+                    size: [56],
+                    rightAddons: [false, true],
+                },
+            }),
+            [
+                'without autosize',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'Многострочный текст для очистки.\nВторая строка текста.',
+                        clear: 'always',
+                        block: true,
+                        autosize: false,
+                        label: 'Комментарий',
+                        rightAddons: true,
+                    },
+                }),
+            ],
+            [
+                'overflow',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'Длинный текст с подсветкой превышения лимита символов.',
+                        clear: 'always',
+                        block: true,
+                        maxLength: 10,
+                        showCounter: true,
+                        rightAddons: true,
+                    },
+                }),
+            ],
+            ...['empty', 'disabled', 'readOnly'].map((state): [string, string] => [
+                state,
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: state === 'empty' ? '' : 'Текст для очистки',
+                        clear: 'always',
+                        block: true,
+                        label: 'Комментарий',
+                        disabled: state === 'disabled',
+                        readOnly: state === 'readOnly',
+                    },
+                }),
+            ]),
+        ],
+        viewport: { width: 320, height: 240 },
+        screenshotOpts: { fullPage: true },
+    })();
+});
+
+['idle', 'hover', 'focus'].forEach((interaction) => {
+    describe(`Textarea | auto clear | ${interaction}`, () => {
+        screenshotTesting({
+            cases: [
+                [
+                    'filled with right addon',
+                    createStorybookUrl({
+                        testStory: false,
+                        componentName: 'Textarea',
+                        knobs: {
+                            value: 'Текст для очистки',
+                            clear: 'auto',
+                            block: true,
+                            label: 'Комментарий',
+                            rightAddons: true,
+                        },
+                    }),
+                ],
+            ],
+            evaluate: async (page) => {
+                if (interaction === 'hover') {
+                    await page.hover('textarea');
+                    await page.waitForTimeout(500);
+                }
+
+                if (interaction === 'focus') {
+                    await page.focus('textarea');
+                    await page.waitForTimeout(500);
+                }
+            },
+            viewport: { width: 320, height: 240 },
+            screenshotOpts: { fullPage: true },
+        })();
+    });
 });
 
 describe('Textarea ', () =>
