@@ -8,9 +8,18 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { HeadlessCollapse } from '@alfalab/core-components-headless-collapse';
+import {
+    SpringHeadlessCollapse,
+    SpringTransition,
+} from '@alfalab/core-components-spring-animation';
 import { TypographyText } from '@alfalab/core-components-typography';
 
+import {
+    bodyAnimation,
+    contentCollapsed,
+    contentExpanded,
+    getContentAnimation,
+} from './utils/animation';
 import { DefaultControlIcon } from './components';
 import { type ControlPosition } from './typings';
 
@@ -109,6 +118,7 @@ export const Accordion: FC<AccordionProps> = ({
     const [expanded, setExpanded] = useState(expandedFromProps ?? defaultExpanded);
     const isStartPosition = controlPosition === 'start';
     const bodyRef = useRef<HTMLDivElement>(null);
+    const bodyContentRef = useRef<HTMLDivElement>(null);
 
     // getDerivedStateFromProps
     if (expandedInProps && expanded !== expandedFromProps) {
@@ -179,7 +189,7 @@ export const Accordion: FC<AccordionProps> = ({
                     {controlContent}
                 </div>
             </div>
-            <HeadlessCollapse in={expanded} nodeRef={bodyRef}>
+            <SpringHeadlessCollapse in={expanded} nodeRef={bodyRef} transition={bodyAnimation}>
                 {(state) => (
                     <div
                         ref={bodyRef}
@@ -189,12 +199,27 @@ export const Accordion: FC<AccordionProps> = ({
                             [styles.collapse]: state === 'exited' || state === 'entered',
                         })}
                     >
-                        <div className={cn(styles.bodyContent, bodyContentClassName)}>
-                            {bodyContent}
-                        </div>
+                        <SpringTransition
+                            in={expanded && state !== 'exited'}
+                            nodeRef={bodyContentRef}
+                            enter={contentExpanded}
+                            exit={contentCollapsed}
+                            transition={getContentAnimation(state === 'exiting')}
+                        >
+                            {(contentStatus) => (
+                                <div
+                                    ref={bodyContentRef}
+                                    className={cn(styles.bodyContent, bodyContentClassName, {
+                                        [styles.bodyContentEnter]: contentStatus === 'entered',
+                                    })}
+                                >
+                                    {bodyContent}
+                                </div>
+                            )}
+                        </SpringTransition>
                     </div>
                 )}
-            </HeadlessCollapse>
+            </SpringHeadlessCollapse>
         </div>
     );
 };

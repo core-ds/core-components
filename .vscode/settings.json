@@ -1,5 +1,6 @@
 {
-    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.experimental.useTsgo": true,
+    "js/ts.tsdk.path": "./node_modules/@typescript/native",
     "files.associations": {
         "*.css": "postcss"
     },
@@ -15,6 +16,7 @@
         "packages/alert",
         "packages/amount",
         "packages/amount-input",
+        "packages/spring-animation",
         "packages/attach",
         "packages/backdrop",
         "packages/badge",
@@ -34,6 +36,7 @@
         "packages/checkbox-group",
         "packages/circular-progress-bar",
         "packages/code-input",
+        "packages/codemod",
         "packages/collapse",
         "packages/comment",
         "packages/config",
@@ -92,6 +95,7 @@
         "packages/phone-input",
         "packages/picker-button",
         "packages/plate",
+        "packages/polymorphic",
         "packages/popover",
         "packages/popup-sheet",
         "packages/portal",
@@ -127,7 +131,6 @@
         "packages/table",
         "packages/tabs",
         "packages/tag",
-        "packages/test-utils",
         "packages/text",
         "packages/textarea",
         "packages/time-input",

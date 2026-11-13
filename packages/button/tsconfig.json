@@ -8,23 +8,26 @@
         "paths": {
             "@alfalab/core-components-button": ["./src"],
             "@alfalab/core-components-button/*": ["./src/*"],
+            "@alfalab/core-components-config": ["../config/src"],
+            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-polymorphic": ["../polymorphic/src"],
+            "@alfalab/core-components-polymorphic/*": ["../polymorphic/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-spinner": ["../spinner/src"],
-            "@alfalab/core-components-spinner/*": ["../spinner/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [
+        { "path": "../config/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
+        { "path": "../polymorphic/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../spinner/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../spinner/tsconfig.build.json" }
     ]
 }

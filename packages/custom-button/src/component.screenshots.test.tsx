@@ -16,6 +16,8 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 200, height: 100 };
 
+const buttonSelector = 'button[class*=component]';
+
 describe('CustomButton', () =>
     createPreview(
         {
@@ -170,6 +172,42 @@ describe(
                 .move(30, 30)
                 .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
         },
+        matchImageSnapshotOptions: {
+            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+        },
+    }),
+);
+
+describe(
+    'CustomButton | screenshots custom hover state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'CustomButton',
+            testStory: false,
+            knobs: {
+                stateType: 'none',
+            },
+        }),
+        screenshotOpts: { clip },
+        evaluate: (page: Page) => page.hover(buttonSelector),
+        matchImageSnapshotOptions: {
+            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+        },
+    }),
+);
+
+describe(
+    'CustomButton | screenshots custom pressed state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'CustomButton',
+            testStory: false,
+            knobs: {
+                stateType: 'none',
+            },
+        }),
+        screenshotOpts: { clip },
+        evaluate: (page: Page) => page.hover(buttonSelector).then(() => page.mouse.down()),
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
         },

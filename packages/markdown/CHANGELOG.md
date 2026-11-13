@@ -1,5 +1,17 @@
 # @alfalab/core-components-markdown
 
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>06.11.2026</time></sup>
+
+#### [#2441](https://github.com/core-ds/core-components/pull/2441)
+
+##### Markdown
+
+- Добавлено оформление h5–h6 и пропса `rehypePlugins` для подключения HTML-плагинов.
+
 ## 3.1.1
 
 ### Patch Changes

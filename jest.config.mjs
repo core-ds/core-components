@@ -13,7 +13,7 @@ const tsconfig = await fse.readJson(path.join(import.meta.dirname, 'tsconfig.tes
     encoding: 'utf8',
 });
 
-const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
+const IGNORED_PACKAGES = ['@alfalab/core-components-codemod', '@alfalab/core-components-mcp'];
 
 /**
  * Список пакетов которые нужно трансформировать, так как react-markdown@7.0.0 ESM-only
