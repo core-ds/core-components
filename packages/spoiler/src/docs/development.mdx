@@ -90,4 +90,20 @@ import { Spoiler } from '@alfalab/core-components/spoiler';
 
 ## Переменные
 
+Цвет точек задаётся через `--spoiler-color`, а для `colors='inverted'` — через
+`--spoiler-color-inverted`. По умолчанию используются токены `neutral-translucent-1300`
+и его инвертированный вариант. Переменные меняют только цвет частиц, не затрагивая содержимое,
+плотность и движение. Их можно переопределить в классе компонента:
+
+```css
+.customSpoiler {
+    --spoiler-color: var(--color-light-neutral-translucent-700);
+    --spoiler-color-inverted: var(--color-light-neutral-translucent-700-inverted);
+}
+```
+
+```jsx
+<Spoiler className={styles.customSpoiler}>125 600 ₽</Spoiler>
+```
+
 <CssVars css={styles} />

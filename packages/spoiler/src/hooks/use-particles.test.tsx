@@ -223,6 +223,32 @@ describe('Связь DOM и анимации Spoiler', () => {
         expect(mockEngine.layout).not.toHaveBeenCalled();
     });
 
+    it.each(['--spoiler-color', '--spoiler-color-inverted'])(
+        'обновляет статичное облако при смене %s без перезапуска анимации',
+        async (variable) => {
+            Object.assign(media, { matches: true });
+            const style = { [variable]: 'var(--color-light-neutral-translucent-1300)' };
+            const { rerender } = render(<Spoiler style={style}>Секрет</Spoiler>);
+            await flushMutations();
+            const geometry = mockEngine.layout.mock.calls.at(-1)?.[0];
+            mockEngine.layout.mockClear();
+            mockEngine.setPlaying.mockClear();
+            mockEngine.destroy.mockClear();
+
+            rerender(
+                <Spoiler style={{ [variable]: 'var(--color-light-neutral-translucent-700)' }}>
+                    Секрет
+                </Spoiler>,
+            );
+            await flushMutations();
+
+            expect(mockEngine.layout).toHaveBeenCalledTimes(1);
+            expect(mockEngine.layout).toHaveBeenLastCalledWith(geometry);
+            expect(mockEngine.setPlaying).not.toHaveBeenCalled();
+            expect(mockEngine.destroy).not.toHaveBeenCalled();
+        },
+    );
+
     it.each(['text', 'element'] as const)(
         'в режиме %s передаёт движение мыши без пересборки облака и раскрытия содержимого',
         async (mode) => {

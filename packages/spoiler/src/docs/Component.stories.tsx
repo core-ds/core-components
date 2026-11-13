@@ -29,9 +29,11 @@ const AMOUNT_VALUES = ['−4 940 ₽', '−5 186 ₽'];
 const AmountExample = ({
     expandOnHover,
     repelParticlesOnHover,
+    particleColor,
 }: {
     expandOnHover: boolean;
     repelParticlesOnHover: boolean;
+    particleColor: string;
 }) => {
     const [open, setOpen] = useState(true);
     const [valueIndex, setValueIndex] = useState(0);
@@ -59,6 +61,7 @@ const AmountExample = ({
                     onOpenChange={setOpen}
                     expandOnHover={expandOnHover}
                     repelParticlesOnHover={repelParticlesOnHover}
+                    style={{ '--spoiler-color': particleColor } as React.CSSProperties}
                 >
                     {AMOUNT_VALUES[valueIndex]}
                 </Spoiler>
@@ -97,7 +100,19 @@ export const spoiler: Story = {
                     colors={colors}
                     className={text('className', '')}
                     dataTestId={text('dataTestId', '')}
-                    style={{ borderRadius: text('borderRadius', 'var(--border-radius-8)') }}
+                    style={
+                        {
+                            borderRadius: text('borderRadius', 'var(--border-radius-8)'),
+                            '--spoiler-color': text(
+                                '--spoiler-color',
+                                'var(--color-light-neutral-translucent-1300)',
+                            ),
+                            '--spoiler-color-inverted': text(
+                                '--spoiler-color-inverted',
+                                'var(--color-light-neutral-translucent-1300-inverted)',
+                            ),
+                        } as React.CSSProperties
+                    }
                 >
                     <img
                         src='./images/gorgeous-garden.png'
@@ -118,6 +133,7 @@ export const spoiler_text: Story = {
         <AmountExample
             expandOnHover={boolean('expandOnHover', true)}
             repelParticlesOnHover={boolean('repelParticlesOnHover', true)}
+            particleColor={text('--spoiler-color', 'var(--color-light-neutral-translucent-1300)')}
         />
     ),
 };

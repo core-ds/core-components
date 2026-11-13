@@ -1,5 +1,7 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 :root {
+    --spoiler-color: var(--color-light-neutral-translucent-1300);
+    --spoiler-color-inverted: var(--color-light-neutral-translucent-1300-inverted);
     --spoiler-transition-duration: 320ms;
 }

@@ -1,7 +1,7 @@
 @import './vars.css';
 
 .canvas {
-    color: var(--color-light-neutral-translucent-1300-inverted);
+    color: var(--spoiler-color-inverted);
 }
 
 .fallback[data-colors='inverted'][data-state='hidden'][data-ready='false'] {

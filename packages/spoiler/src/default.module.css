@@ -1,7 +1,7 @@
 @import './vars.css';
 
 .canvas {
-    color: var(--color-light-neutral-translucent-1300);
+    color: var(--spoiler-color);
 }
 
 .fallback[data-colors='default'][data-state='hidden'][data-ready='false'] {
