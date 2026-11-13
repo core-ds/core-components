@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * @deprecated Используйте `import { useButtonLoading } from '@alfalab/core-components-button/shared';`
+ */
 export const useLoader = (loading: boolean, timeout: number) => {
     const timerId = useRef(0);
 

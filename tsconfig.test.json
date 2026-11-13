@@ -197,6 +197,8 @@
             "@alfalab/core-components-picker-button/*": ["./packages/picker-button/src/*"],
             "@alfalab/core-components-plate": ["./packages/plate/src"],
             "@alfalab/core-components-plate/*": ["./packages/plate/src/*"],
+            "@alfalab/core-components-polymorphic": ["./packages/polymorphic/src"],
+            "@alfalab/core-components-polymorphic/*": ["./packages/polymorphic/src/*"],
             "@alfalab/core-components-popover": ["./packages/popover/src"],
             "@alfalab/core-components-popover/*": ["./packages/popover/src/*"],
             "@alfalab/core-components-popup-sheet": ["./packages/popup-sheet/src"],

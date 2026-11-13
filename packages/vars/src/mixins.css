@@ -152,3 +152,16 @@
         height: 0;
     }
 }
+
+@define-mixin disabled {
+    &:disabled,
+    &.disabled {
+        @mixin-content;
+    }
+}
+
+@define-mixin not-disabled {
+    &:not(:disabled):not(.disabled) {
+        @mixin-content;
+    }
+}

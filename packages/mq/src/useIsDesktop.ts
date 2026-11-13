@@ -12,11 +12,11 @@ export function useIsDesktop(breakpoint?: number, defaultValue?: boolean | (() =
         client = defaultValue() ? 'desktop' : 'mobile';
     }
 
-    const config = useCoreConfig({ breakpoint, client });
-
-    const query = `(min-width: ${config.breakpoint}px)`;
-
-    const [isDesktop] = useMatchMedia(query, config.client === 'desktop');
+    const config = useCoreConfig();
+    const [isDesktop] = useMatchMedia(
+        `(min-width: ${breakpoint ?? config.breakpoint}px)`,
+        (client ?? config.client) === 'desktop',
+    );
 
     return isDesktop;
 }
