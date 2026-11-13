@@ -243,6 +243,8 @@
             "@alfalab/core-components-space/*": ["./packages/space/src/*"],
             "@alfalab/core-components-spinner": ["./packages/spinner/src"],
             "@alfalab/core-components-spinner/*": ["./packages/spinner/src/*"],
+            "@alfalab/core-components-spring-animation": ["./packages/spring-animation/src"],
+            "@alfalab/core-components-spring-animation/*": ["./packages/spring-animation/src/*"],
             "@alfalab/core-components-stack": ["./packages/stack/src"],
             "@alfalab/core-components-stack/*": ["./packages/stack/src/*"],
             "@alfalab/core-components-stack-context": ["./packages/stack-context/src"],

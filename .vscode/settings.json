@@ -16,6 +16,7 @@
         "packages/alert",
         "packages/amount",
         "packages/amount-input",
+        "packages/spring-animation",
         "packages/attach",
         "packages/backdrop",
         "packages/badge",
