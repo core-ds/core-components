@@ -1964,6 +1964,9 @@ exports[`Snapshots tests should render black color content 3`] = `
         </button>
       </div>
     </div>
+    <div
+      style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; visibility: hidden; pointer-events: none;"
+    />
   </body>,
   "container": <div>
     <div
@@ -2456,6 +2459,9 @@ exports[`Snapshots tests should render custom background color 3`] = `
         </button>
       </div>
     </div>
+    <div
+      style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; visibility: hidden; pointer-events: none;"
+    />
   </body>,
   "container": <div>
     <div

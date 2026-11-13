@@ -42,6 +42,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
       </div>
     </div>
   </div>
+  <div
+    style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; visibility: hidden; pointer-events: none;"
+  />
 </body>
 `;
 
@@ -341,5 +344,8 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
       tabindex="0"
     />
   </div>
+  <div
+    style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; visibility: hidden; pointer-events: none;"
+  />
 </body>
 `;

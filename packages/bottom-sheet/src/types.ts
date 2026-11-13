@@ -13,7 +13,9 @@ export type BottomSheetTitleAlign = 'center' | 'left';
 
 export type BottomSheetProps = {
     /**
-     * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
+     * Метод, позволяющий донастраивать высоту контейнера для BottomSheet
+     * @deprecated Может работать нестабильно, использовать не рекомендуется. Будет удалён в следующей мажорной версии.
+     * Safe-area учитывается автоматически, верхний отступ задаётся через headerOffset.
      */
     adjustContainerHeight?: (height: number) => number;
     /**
@@ -317,7 +319,9 @@ export type BottomSheetProps = {
     hideScrollbar?: boolean;
 
     /**
-     * Верхний отступ шторки, если она открыта на максимальную высоту
+     * Верхний отступ шторки, если она открыта на максимальную высоту.
+     * Всегда прибавляется к safe-area-inset-top, чтобы шторка не заезжала под статус-бар.
+     * @default 24
      */
     headerOffset?: number;
 

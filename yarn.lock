@@ -222,8 +222,8 @@ __metadata:
     "@alfalab/core-components-navigation-bar-private": "npm:^2.0.18"
     "@alfalab/core-components-shared": "npm:^2.4.0"
     "@alfalab/core-components-types": "npm:^2.1.0"
+    "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
-    react-div-100vh: "npm:^0.7.0"
     react-merge-refs: "npm:^1.1.0"
     react-swipeable: "npm:^7.0.0"
     react-transition-group: "npm:^4.4.5"
@@ -28123,15 +28123,6 @@ __metadata:
     strip-ansi: "npm:^6.0.1"
     text-table: "npm:^0.2.0"
   checksum: 10c0/94bc4ee5014290ca47a025e53ab2205c5dc0299670724d46a0b1bacbdd48904827b5ae410842d0a3a92481509097ae032e4a9dc7ca70db437c726eaba6411e82
-  languageName: node
-  linkType: hard
-
-"react-div-100vh@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "react-div-100vh@npm:0.7.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/1616b099d263a602ed753eca52ba3ec8f05e5ffff97641116258d067d183dd7cdaa37512f7ac8d8a3885bfffc5f5bc6825f79fbb3c5ef0a509d90d0adf55457a
   languageName: node
   linkType: hard
 

@@ -7,7 +7,6 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
 import {
     type SwipeCallback,
@@ -19,18 +18,19 @@ import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isIOS } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 import { horizontalDirections } from './consts/swipeConsts';
 import { type ShouldSkipSwipingParams } from './types/swipeTypes';
-import { useVisualViewportSize } from './hooks';
+import { useFixedContainerHeight, useVisualViewportSize } from './hooks';
 import { type BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
+    HEADER_OFFSET,
     MARKER_HEIGHT,
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
@@ -108,7 +108,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             scrollableContainerRef = () => null,
             bottomSheetInstanceRef,
             sheetContainerRef = () => null,
-            headerOffset = 24,
+            headerOffset = HEADER_OFFSET,
             adjustContainerHeight = adjustContainerHeightDefault,
             onClose,
             onBack,
@@ -132,10 +132,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         },
         ref,
     ) => {
-        const windowHeight = use100vh() ?? 0;
+        const { height: windowHeight, safeAreaTop } = useFixedContainerHeight();
+        const topOffset = safeAreaTop + headerOffset;
         const visualViewportSize = useVisualViewportSize();
         let fullHeight = virtualKeyboard ? (visualViewportSize?.height ?? 0) : windowHeight;
-        // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
+        // Высота fixed-контейнера измеряется в useEffect, поэтому на первый рендер всегда 0.
         const isFirstRender = fullHeight === 0;
 
         fullHeight = adjustContainerHeight(fullHeight);
@@ -148,23 +149,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
                 return magneticAreasProp.map((area) =>
-                    convertPercentToNumber(area, fullHeight, headerOffset),
+                    convertPercentToNumber(area, fullHeight, topOffset),
                 );
             }
-            let iOSViewHeight = 0;
 
-            if (isClient()) {
-                if (document?.documentElement?.clientHeight) {
-                    iOSViewHeight = adjustContainerHeight(document.documentElement.clientHeight);
-                } else {
-                    iOSViewHeight = window?.innerHeight;
-                }
-            }
-
-            const viewHeight = isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
-
-            return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
+            return [0, fullHeight - topOffset];
+        }, [fullHeight, topOffset, magneticAreasProp]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
@@ -193,7 +183,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 : { title: title ? title?.toString() : undefined }),
             scrollableParentRef: scrollableContainer,
             headerRef,
-            headerOffset,
+            headerOffset: topOffset,
             colors,
             className: cn(headerClassName, colorStyle.hasContent),
             contentClassName: headerContentClassName,
@@ -581,14 +571,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         useEffect(() => {
             if (!sheetRef.current) return;
 
-            const maxOffset = fullHeight - headerOffset;
+            const maxOffset = fullHeight - topOffset;
 
             const offset = open ? sheetOffset : maxOffset;
 
             const percent = (offset / maxOffset) * 100;
 
             onOffsetChange?.(offset, percent);
-        }, [fullHeight, headerOffset, onOffsetChange, open, sheetOffset]);
+        }, [fullHeight, topOffset, onOffsetChange, open, sheetOffset]);
 
         useImperativeHandle(bottomSheetInstanceRef, () => ({
             scrollToArea,
@@ -682,7 +672,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             >
                 <div
                     className={cn(styles.wrapper, bottomSheetWrapperClassName, {
-                        [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
+                        [styles.fullscreen]: topOffset === 0 && sheetOffset === 0,
                     })}
                     onTransitionEnd={setSheetHeight}
                 >

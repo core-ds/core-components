@@ -19,6 +19,10 @@ jest.mock('react-remove-scroll', () => {
     return { __esModule: true, RemoveScroll };
 });
 
+jest.mock('./hooks/use-fixed-container-height', () => ({
+    useFixedContainerHeight: () => ({ height: window.innerHeight, safeAreaTop: 0 }),
+}));
+
 jest.useFakeTimers();
 
 const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>((props, ref) => {
