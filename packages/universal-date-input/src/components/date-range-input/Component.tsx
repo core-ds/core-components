@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import { isAfter, isValid, startOfMonth } from 'date-fns';
+import { isAfter, startOfMonth } from 'date-fns';
 
 import { type CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';
@@ -22,7 +22,7 @@ import { DATE_RANGE_SEPARATOR, DEFAULT_MAX_DATE, DEFAULT_MIN_DATE } from '../../
 import { type InnerDateRangeInputProps } from '../../types';
 import {
     formatDate,
-    formatDateRange,
+    formatDateRangeValue,
     getValidRange,
     isCompleteDate,
     isCompleteDateRange,
@@ -34,11 +34,7 @@ import {
 import styles from '../../index.module.css';
 
 function getDefaultValue(defaultValue: InnerDateRangeInputProps['defaultValue']) {
-    if (defaultValue && isValid(defaultValue.dateFrom) && isValid(defaultValue.dateTo)) {
-        return formatDateRange(defaultValue);
-    }
-
-    return '';
+    return formatDateRangeValue(defaultValue);
 }
 
 export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputProps>(
@@ -111,12 +107,8 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         }, [validFrom, validTo, open, picker]);
 
         useEffect(() => {
-            if (dateFromProp !== undefined && dateToProp !== undefined) {
-                setInputValue(
-                    dateFromProp && dateToProp && isValid(dateFromProp) && isValid(dateToProp)
-                        ? formatDateRange({ dateFrom: dateFromProp, dateTo: dateToProp })
-                        : '',
-                );
+            if (dateFromProp !== undefined || dateToProp !== undefined) {
+                setInputValue(formatDateRangeValue({ dateFrom: dateFromProp, dateTo: dateToProp }));
             }
         }, [dateFromProp, dateToProp]);
 
