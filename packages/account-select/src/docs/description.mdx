@@ -1,0 +1,644 @@
+## Выбор счёта
+
+```jsx live mobileHeight={640}
+render(() => {
+    const DATA = [
+        { text: 'Основной счёт ··1234', amount: 100000099, id: '1' },
+        { text: 'Экспресс-счёт ··0909', amount: 100000099, id: '2' },
+        { text: 'Депозитный счёт ··4567', amount: 0, id: '3' },
+    ];
+    const renderAccountOption = ({ text, amount, padding }) => (
+        <GenericWrapper alignItems='center' padding={padding}>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderAccountOption({
+                text: el.text,
+                amount: el.amount,
+                padding: { top: 12, bottom: 12, left: 12, right: 12 },
+            }),
+        }));
+
+    return (
+        <div style={{ width: 456 }}>
+            <AccountSelectDesktop
+                size={56}
+                valueRenderer={({ selected }) => {
+                    return renderAccountOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                    });
+                }}
+                placeholder='Куда'
+                options={getOptions()}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const DATA = [
+        { text: 'Основной счёт ··1234', amount: 100000099, id: '1' },
+        { text: 'Экспресс-счёт ··0909', amount: 100000099, id: '2' },
+        { text: 'Депозитный счёт ··4567', amount: 0, id: '3' },
+    ];
+    const renderAccountOption = ({ text, amount, padding }) => (
+        <GenericWrapper alignItems='center' padding={padding}>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderAccountOption({
+                text: el.text,
+                amount: el.amount,
+            }),
+        }));
+
+    return (
+        <AccountSelectMobile
+            size={56}
+            valueRenderer={({ selected }) => {
+                return renderAccountOption({
+                    text: selected.value.text,
+                    amount: selected.value.amount,
+                });
+            }}
+            placeholder='Куда'
+            options={getOptions()}
+        />
+    );
+});
+```
+
+## Выбор карты
+
+```jsx live mobileHeight={640}
+render(() => {
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 999999, id: '2' },
+        { text: 'Карта с вашим дизайном', amount: 0, id: '3' },
+    ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single size={coverSize} />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: 48,
+                padding: { top: 12, bottom: 12 },
+            }),
+        }));
+    return (
+        <div style={{ width: 456 }}>
+            <AccountSelectDesktop
+                size={56}
+                placeholder='Карта получателя'
+                valueRenderer={({ selected }) => {
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
+                }}
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={getOptions()}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 999999, id: '2' },
+        { text: 'Карта с вашим дизайном', amount: 0, id: '3' },
+    ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single borderColor='var(--color-light-neutral-translucent-300)' size={coverSize} />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: 40,
+                padding: { top: 12, bottom: 12 },
+            }),
+        }));
+    return (
+        <AccountSelectMobile
+            size={56}
+            placeholder='Карта получателя'
+            valueRenderer={({ selected }) => {
+                return renderCardOption({
+                    text: selected.value.text,
+                    amount: selected.value.amount,
+                    coverSize: 32,
+                });
+            }}
+            fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+            options={getOptions()}
+        />
+    );
+});
+```
+
+## Добавление новой карты отправителя
+
+Для карты отправителя можно использовать механику с запросом CVC или без него.
+После ввода 6-го символа определяется банк и платёжная система. При необходимости, можно настроить отображение различных рубашек карт для банков РФ. В примере для карты начинающейся с номера 1234 56 будет определён банк и изменится рубашка.
+
+```jsx live mobileHeight={640}
+render(() => {
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 2500000, id: '2' },
+    ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={coverSize}
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                    cardId='RM'
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const renderAddCardOption = () => (
+        <GenericWrapper alignItems='center' gap={16} padding={{ top: 12, bottom: 12 }}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={48}
+                    iconColor='var(--color-light-neutral-700)'
+                    borderColor='var(--color-light-neutral-translucent-300)'
+                    backgroundColor='var(--color-light-neutral-200)'
+                    icon={PlusMIcon}
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: 48,
+                padding: { top: 12, bottom: 12 },
+            }),
+        }));
+
+    const [valueRadio, setValueRadio] = React.useState('1');
+
+    const onChange = (_, payload) => {
+        setValueRadio(payload.value);
+    };
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        } else {
+            setCardImage(undefined);
+        }
+    };
+
+    return (
+        <div style={{ width: 456 }}>
+            <AccountSelectDesktop
+                size={56}
+                placeholder='Карта отправителя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={getOptions()}
+                valueRenderer={({ selected }) => {
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
+                }}
+                cardAddingProps={{
+                    content: renderAddCardOption(),
+                    needCVC: valueRadio === '1',
+                    needExpiryDate: true,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+            <div style={{ margin: '20px 0' }}>
+                <Divider />
+            </div>
+            <RadioGroup
+                direction='horizontal'
+                name='radioGroup'
+                onChange={onChange}
+                hint='Выберите один из вариантов'
+                value={valueRadio}
+            >
+                <Radio label='Дата + CVC' value='1' size={24} />
+                <Radio label='Только дата' value='2' size={24} />
+            </RadioGroup>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 2500000, id: '2' },
+    ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={coverSize}
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                    cardId='RM'
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const renderAddCardOption = () => (
+        <GenericWrapper alignItems='center' gap={16} padding={{ top: 12, bottom: 12 }}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={40}
+                    iconColor='var(--color-light-neutral-700)'
+                    borderColor='var(--color-light-neutral-translucent-300)'
+                    backgroundColor='var(--color-light-neutral-200)'
+                    icon={PlusMIcon}
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: 40,
+                padding: { top: 12, bottom: 12 },
+            }),
+        }));
+
+    const [valueRadio, setValueRadio] = React.useState('1');
+
+    const onChange = (_, payload) => {
+        setValueRadio(payload.value);
+    };
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        } else {
+            setCardImage(undefined);
+        }
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <AccountSelectMobile
+                size={56}
+                placeholder='Карта отправителя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={getOptions()}
+                valueRenderer={({ selected }) => {
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
+                }}
+                cardAddingProps={{
+                    content: renderAddCardOption(),
+                    needCVC: valueRadio === '1',
+                    needExpiryDate: true,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+            <div style={{ margin: '20px 0' }}>
+                <Divider />
+            </div>
+            <RadioGroup
+                direction='horizontal'
+                name='radioGroup'
+                onChange={onChange}
+                hint='Выберите один из вариантов'
+                value={valueRadio}
+            >
+                <Radio label='Дата + CVC' value='1' size={24} />
+                <Radio label='Только дата' value='2' size={24} />
+            </RadioGroup>
+        </div>
+    );
+});
+```
+
+## Добавление новой карты получателя
+
+```jsx live mobileHeight={640}
+render(() => {
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 100099, id: '2' },
+    ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={coverSize}
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                    cardId='RM'
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const renderAddCardOption = () => (
+        <GenericWrapper alignItems='center' gap={16} padding={{ top: 12, bottom: 12 }}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={48}
+                    borderColor='var(--color-light-neutral-translucent-300)'
+                    iconColor='var(--color-light-neutral-700)'
+                    backgroundColor='var(--color-light-neutral-200)'
+                    icon={PlusMIcon}
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: 48,
+                padding: { top: 12, bottom: 12 },
+            }),
+        }));
+
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        } else {
+            setCardImage(undefined);
+        }
+    };
+
+    return (
+        <div style={{ width: 456 }}>
+            <AccountSelectDesktop
+                size={56}
+                placeholder='Карта получателя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={getOptions()}
+                popoverPosition='top'
+                valueRenderer={({ selected }) => {
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
+                }}
+                cardAddingProps={{
+                    content: renderAddCardOption(),
+                    needCVC: false,
+                    needExpiryDate: false,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 100099, id: '2' },
+    ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={coverSize}
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                    cardId='RM'
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const renderAddCardOption = () => (
+        <GenericWrapper alignItems='center' gap={16} padding={{ top: 12, bottom: 12 }}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={40}
+                    iconColor='var(--color-light-neutral-700)'
+                    borderColor='var(--color-light-neutral-translucent-300)'
+                    backgroundColor='var(--color-light-neutral-200)'
+                    icon={PlusMIcon}
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: 40,
+                padding: { top: 12, bottom: 12 },
+            }),
+        }));
+
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        } else {
+            setCardImage(undefined);
+        }
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <AccountSelectMobile
+                size={56}
+                placeholder='Карта получателя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                options={getOptions()}
+                valueRenderer={({ selected }) => {
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
+                }}
+                cardAddingProps={{
+                    content: renderAddCardOption(),
+                    needCVC: false,
+                    needExpiryDate: false,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+        </div>
+    );
+});
+```
