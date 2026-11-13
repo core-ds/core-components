@@ -1,5 +1,21 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.11
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.19
+
 ## 3.2.10
 
 ### Patch Changes

@@ -1,5 +1,40 @@
 # @alfalab/core-components-custom-button
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2453](https://github.com/core-ds/core-components/pull/2453)
+
+##### CustomButton
+
+- В проп `stateType` добавлен вариант `none`. Это значение отключает встроенные состояния, их нужно определить самостоятельно через className
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton, CustomButton, IconButton, Button
+
+- Рефакторинг, не влияющий на работу компонента
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### CustomButton
+
+- Исправлено состояние `disabled`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+- @alfalab/core-components-polymorphic@0.0.1
+
 ## 5.0.14
 
 ### Patch Changes

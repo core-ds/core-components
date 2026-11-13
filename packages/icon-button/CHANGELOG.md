@@ -1,5 +1,21 @@
 # @alfalab/core-components-icon-button
 
+## 8.0.15
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton, CustomButton, IconButton, Button
+
+- Рефакторинг, не влияющий на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+
 ## 8.0.14
 
 ### Patch Changes

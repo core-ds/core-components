@@ -1,5 +1,23 @@
 # @alfalab/core-components-accordion
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2417](https://github.com/core-ds/core-components/pull/2417)
+
+##### Accordion
+
+- Изменены `transition` анимации компонента на `spring`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-spring-animation@0.0.1
+
 ## 3.0.14
 
 ### Patch Changes

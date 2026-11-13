@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-custom-button",
-    "version": "5.0.14",
+    "version": "5.1.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,9 +13,9 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.2.5",
+        "@alfalab/core-components-button": "^13.3.0",
         "@alfalab/core-components-mq": "^6.0.10",
-        "@alfalab/core-components-polymorphic": "^0.0.0",
+        "@alfalab/core-components-polymorphic": "^0.0.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

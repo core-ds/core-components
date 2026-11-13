@@ -1,5 +1,185 @@
 # @alfalab/core-components
 
+## 50.42.0
+
+### Minor Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2417](https://github.com/core-ds/core-components/pull/2417)
+
+##### Collapse
+
+- Изменены `transition` анимации компонента на `spring`
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2417](https://github.com/core-ds/core-components/pull/2417)
+
+##### Accordion
+
+- Изменены `transition` анимации компонента на `spring`
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2453](https://github.com/core-ds/core-components/pull/2453)
+
+##### CustomButton
+
+- В проп `stateType` добавлен вариант `none`. Это значение отключает встроенные состояния, их нужно определить самостоятельно через className
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2457](https://github.com/core-ds/core-components/pull/2457)
+
+##### Carousel
+
+- Добавлена возможность передавать inline стили в Carousel и HeadlessCarousel через props style.
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2450](https://github.com/core-ds/core-components/pull/2450)
+
+##### Textarea
+
+- Добавлена кнопка очистки поля по аналогии с Input
+- `clear` — режим отображения кнопки: `auto` — при наведении или фокусе, `always` — для непустого поля, `never` — скрыта (по умолчанию).
+- `onClear` — обработчик нажатия на кнопку очистки. При использовании `value` значение нужно сбросить в этом обработчике.
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### Button
+
+- Добавлена возможность задать _полностью_ кастомный компонент для рендера через проп `as`. Использование данного проп не накладывает ограничения на компонент, такие как маппинг пропса `href` на `to`
+- Проп `Component`, так же используемый для задания кастомного компонент для рендера, помечен `deprecated` и будет удален в следующей мажорной версии
+
+### Patch Changes
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2448](https://github.com/core-ds/core-components/pull/2448)
+
+##### Select
+
+- Изменены отступы заголовков группированных опций
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton, CustomButton, IconButton, Button
+
+- Рефакторинг, не влияющий на работу компонента
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### PatternLock
+
+- Незначительные визуальные исправления
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2443](https://github.com/core-ds/core-components/pull/2443)
+
+##### InputAutocomplete
+
+- В мобильной версии поле не выделяется после закрытия шторки или модального окна
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton
+
+- Исправлено состояние `loading`
+
+<sup><time>13.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### CustomButton
+
+- Исправлено состояние `disabled`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-collapse@6.1.0
+- @alfalab/core-components-select@19.2.15
+- @alfalab/core-components-accordion@3.1.0
+- @alfalab/core-components-amount-input@9.4.3
+- @alfalab/core-components-code-input@5.1.7
+- @alfalab/core-components-calendar@9.1.19
+- @alfalab/core-components-popover@8.1.6
+- @alfalab/core-components-input@17.2.4
+- @alfalab/core-components-select-with-tags@10.1.28
+- @alfalab/core-components-universal-modal@3.2.11
+- @alfalab/core-components-tabs@10.1.8
+- @alfalab/core-components-action-button@3.0.12
+- @alfalab/core-components-custom-button@5.1.0
+- @alfalab/core-components-icon-button@8.0.15
+- @alfalab/core-components-button@13.3.0
+- @alfalab/core-components-carousel@1.2.0
+- @alfalab/core-components-textarea@10.2.0
+- @alfalab/core-components-pattern-lock@4.0.14
+- @alfalab/core-components-input-autocomplete@14.0.33
+- @alfalab/core-components-custom-picker-button@4.1.28
+- @alfalab/core-components-international-phone-input@4.0.33
+- @alfalab/core-components-intl-phone-input@11.0.33
+- @alfalab/core-components-picker-button@13.1.11
+- @alfalab/core-components-table@4.0.34
+- @alfalab/core-components-confirmation@15.3.1
+- @alfalab/core-components-calendar-input@12.0.25
+- @alfalab/core-components-calendar-range@9.1.11
+- @alfalab/core-components-calendar-with-skeleton@7.0.23
+- @alfalab/core-components-date-range-input@5.0.25
+- @alfalab/core-components-date-time-input@6.0.25
+- @alfalab/core-components-universal-date-input@4.0.25
+- @alfalab/core-components-toast@8.0.18
+- @alfalab/core-components-tooltip@9.0.26
+- @alfalab/core-components-date-input@6.0.17
+- @alfalab/core-components-masked-input@8.0.18
+- @alfalab/core-components-number-input@4.0.18
+- @alfalab/core-components-password-input@7.0.18
+- @alfalab/core-components-slider-input@11.1.12
+- @alfalab/core-components-time-input@4.0.17
+- @alfalab/core-components-with-suffix@6.0.18
+- @alfalab/core-components-file-upload-item@8.2.7
+- @alfalab/core-components-file-upload-item-v1@3.0.15
+- @alfalab/core-components-gallery@7.4.8
+- @alfalab/core-components-navigation-bar-private@2.0.19
+- @alfalab/core-components-plate@9.0.16
+- @alfalab/core-components-steps@3.1.2
+- @alfalab/core-components-toast-plate@9.1.11
+- @alfalab/core-components-attach@8.0.14
+- @alfalab/core-components-confirmation-v1@3.0.14
+- @alfalab/core-components-navigation-bar@3.0.17
+- @alfalab/core-components-pass-code@4.0.15
+- @alfalab/core-components-pass-code-v1@3.0.14
+- @alfalab/core-components-pattern-lock-v1@3.0.14
+- @alfalab/core-components-product-cover@3.3.2
+- @alfalab/core-components-pure-cell@6.1.3
+- @alfalab/core-components-bank-card@7.0.19
+- @alfalab/core-components-phone-input@9.0.19
+- @alfalab/core-components-bottom-sheet@8.1.20
+- @alfalab/core-components-modal@11.0.22
+- @alfalab/core-components-popup-sheet@3.0.22
+- @alfalab/core-components-side-panel@7.1.7
+- @alfalab/core-components-alert@6.0.16
+- @alfalab/core-components-notification@9.0.16
+- @alfalab/core-components-notification-manager@7.0.16
+
 ## 50.41.0
 
 ### Minor Changes
