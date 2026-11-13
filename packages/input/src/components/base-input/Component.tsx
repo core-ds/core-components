@@ -17,7 +17,6 @@ import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
-import { resolveClearVisible } from '../../helpers/resolve-clear-visible';
 import { ClearButton } from '../clear-button';
 import { LockIcon } from '../lock-icon';
 
@@ -103,14 +102,23 @@ export const BaseInput = forwardRef<
         const filled = Boolean(uncontrolled ? stateValue : value);
         const [autofilled, setAutofilled] = useState(false);
 
-        const clearButtonVisible = resolveClearVisible({
-            clear,
-            filled,
-            disabled,
-            readOnly: readOnlyProp,
-            focused,
-            hovered,
-        });
+        const resolveClearVisible = () => {
+            if (Boolean(clear) && filled && !disabled && !readOnlyProp) {
+                if ([true, 'always'].includes(clear)) {
+                    return true;
+                }
+
+                if (clear === 'auto' && (focused || hovered)) {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
+        };
+
+        const clearButtonVisible = resolveClearVisible();
 
         const handleMouseEnter: MouseEventHandler<HTMLInputElement> = useCallback(
             (e) => {

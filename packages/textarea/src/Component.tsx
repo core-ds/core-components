@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
-import { ClearButton, LockIcon, resolveClearVisible } from '@alfalab/core-components-input/shared';
+import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 import { getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
@@ -192,6 +192,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className: textareaClassNameCalc,
             autoComplete,
             disabled,
+            readOnly: readOnlyProp,
             maxLength: allowOverflow ? undefined : maxLength,
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
@@ -204,14 +205,23 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         };
 
         const getRightAddons = () => {
-            const clearButtonVisible = resolveClearVisible({
-                clear,
-                filled,
-                disabled,
-                readOnly: readOnlyProp,
-                focused,
-                hovered,
-            });
+            const resolveClearVisible = (): boolean => {
+                if (filled && !disabled && !readOnlyProp) {
+                    if (clear === 'always') {
+                        return true;
+                    }
+
+                    if (clear === 'auto' && (focused || hovered)) {
+                        return true;
+                    }
+
+                    return false;
+                }
+
+                return false;
+            };
+
+            const clearButtonVisible = resolveClearVisible();
 
             return (
                 <Fragment>
