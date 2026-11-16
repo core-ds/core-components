@@ -2,7 +2,6 @@ import React, { type ComponentProps, forwardRef } from 'react';
 import cn from 'classnames';
 
 import { BaseButton, defaultProps, useButtonLoading } from '@alfalab/core-components-button/shared';
-import { useDisabled } from '@alfalab/core-components-config';
 
 import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from '../../constants/default-colors';
 import { type CommonCustomButtonProps } from '../../types/props';
@@ -31,7 +30,7 @@ export const BaseCustomButton = forwardRef<
     ) => {
         const { size = defaultProps.size, shape = defaultProps.shape } = restProps;
         const loading = useButtonLoading(loadingFromProps);
-        const disabled = useDisabled(disabledFromProps) || loading;
+        const disabled = disabledFromProps || loading;
 
         return (
             <BaseButton

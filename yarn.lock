@@ -75,7 +75,6 @@ __metadata:
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
-    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -250,7 +249,6 @@ __metadata:
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
-    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -561,7 +559,6 @@ __metadata:
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
-    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
@@ -861,7 +858,6 @@ __metadata:
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
-    "@alfalab/core-components-config": ^1.1.0
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
   languageName: unknown
