@@ -6,3 +6,11 @@
     padding: 0 var(--gap-20) var(--gap-20);
     background: var(--tab-bar-island-gradient);
 }
+
+.bypass {
+    pointer-events: none;
+
+    & > * {
+        pointer-events: auto;
+    }
+}
