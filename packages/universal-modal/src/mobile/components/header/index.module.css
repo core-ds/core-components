@@ -16,7 +16,7 @@
     padding: var(--gap-6) var(--gap-16);
 }
 
-.addon.addon,
-.closer.closer {
+.addon,
+.closer {
     height: 40px;
 }
