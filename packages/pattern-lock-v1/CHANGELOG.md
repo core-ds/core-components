@@ -1,5 +1,21 @@
 # @alfalab/core-components-pattern-lock-v1
 
+## 3.0.14
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton, CustomButton, IconButton, Button, PatternLockV1
+
+- Рефакторинг, не влияющий на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+
 ## 3.0.13
 
 ### Patch Changes
