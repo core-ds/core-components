@@ -66,13 +66,13 @@ export const CustomField = ({
     );
 
     const innerPropsWithRestrictedOpen = useMemo(() => {
-        if (!isAddCardSelected || !cardNumber) return innerProps;
+        if (!isAddCardSelected) return innerProps;
 
         return {
             ...innerProps,
             onClick: undefined,
         };
-    }, [cardNumber, innerProps, isAddCardSelected]);
+    }, [innerProps, isAddCardSelected]);
 
     const fieldRenderer = ({
         selected: selectedOption,
@@ -109,9 +109,7 @@ export const CustomField = ({
             return (
                 <ProductCover.Single
                     cardNumber={
-                        cardNumber.length === CARD_NUMBER_LENGTH
-                            ? Number(cardNumber.slice(-4))
-                            : undefined
+                        cardNumber.length >= CARD_NUMBER_LENGTH ? Number(cardNumber) : undefined
                     }
                     size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
                     className={cardImage?.className}
