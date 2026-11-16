@@ -16,7 +16,7 @@ export function useFixedContainerHeight() {
 
         probe.style.cssText =
             'position:fixed;top:0;bottom:0;box-sizing:border-box;' +
-            'padding-top:env(safe-area-inset-top);visibility:hidden;pointer-events:none';
+            'padding-top:var(--sat,env(safe-area-inset-top));visibility:hidden;pointer-events:none';
         document.body.appendChild(probe);
 
         const measure = () => {

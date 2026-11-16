@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import {
@@ -121,6 +121,77 @@ export const bottom_sheet: Story = {
                     backgroundColor={select('backgroundColor', BACKGROUND, undefined)}
                 >
                     <div style={{ whiteSpace: 'pre-wrap' }}>{textContent}</div>
+                </BottomSheet>
+            </div>
+        );
+    },
+};
+
+const SAFE_AREA_STRIPE_STYLE: React.CSSProperties = {
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    zIndex: 100000,
+    pointerEvents: 'none',
+    backgroundColor: 'rgba(255, 0, 0, 0.3)',
+};
+
+const SAFE_AREA_NOTE =
+    'Синтетическая проверка safe area. Отступы задаются через css переменные, системные env() здесь не участвуют. Фактически проверяется, что шторка учитывает переданные ей отступы. Красные полосы показывают заданные отступы.';
+
+export const bottom_sheet_safe_area: Story = {
+    name: 'BottomSheet synthetic safe area',
+    render: () => {
+        const [open, setOpen] = React.useState(false);
+        const [magnetic, setMagnetic] = React.useState(false);
+        const handleClose = React.useCallback(() => setOpen(false), []);
+
+        const openSheet = (withMagneticAreas: boolean) => () => {
+            setMagnetic(withMagneticAreas);
+            setOpen(true);
+        };
+
+        const safeAreaTop = number('safeAreaTop', 59);
+        const safeAreaBottom = number('safeAreaBottom', 34);
+
+        React.useEffect(() => {
+            const { style } = document.documentElement;
+
+            style.setProperty('--sat', `${safeAreaTop}px`);
+            style.setProperty('--sab', `${safeAreaBottom}px`);
+
+            return () => {
+                style.removeProperty('--sat');
+                style.removeProperty('--sab');
+            };
+        }, [safeAreaTop, safeAreaBottom]);
+
+        return (
+            <div style={{ padding: '8px' }}>
+                <div style={{ ...SAFE_AREA_STRIPE_STYLE, top: 0, height: safeAreaTop }} />
+                <div style={{ ...SAFE_AREA_STRIPE_STYLE, bottom: 0, height: safeAreaBottom }} />
+                <Button id='button-1' onClick={openSheet(false)} style={{ margin: '15px' }}>
+                    Открыть шторку
+                </Button>
+                <Button id='button-2' onClick={openSheet(true)} style={{ margin: '15px' }}>
+                    Открыть шторку с magneticAreas
+                </Button>
+                <BottomSheet
+                    key={magnetic ? 'magnetic' : 'default'}
+                    open={open}
+                    magneticAreas={magnetic ? [0, 300, '100%'] : undefined}
+                    title='Тайтл'
+                    actionButton={
+                        <Button view='secondary' block={true} size={48} onClick={handleClose}>
+                            Понятно
+                        </Button>
+                    }
+                    onClose={handleClose}
+                    headerOffset={number('headerOffset', 24)}
+                    initialHeight='full'
+                    stickyFooter={boolean('stickyFooter', true)}
+                >
+                    {SAFE_AREA_NOTE}
                 </BottomSheet>
             </div>
         );

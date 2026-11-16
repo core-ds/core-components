@@ -1965,7 +1965,7 @@ exports[`Snapshots tests should render black color content 3`] = `
       </div>
     </div>
     <div
-      style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; visibility: hidden; pointer-events: none;"
+      style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; padding-top: var(--sat,env(safe-area-inset-top)); visibility: hidden; pointer-events: none;"
     />
   </body>,
   "container": <div>
@@ -2460,7 +2460,7 @@ exports[`Snapshots tests should render custom background color 3`] = `
       </div>
     </div>
     <div
-      style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; visibility: hidden; pointer-events: none;"
+      style="position: fixed; top: 0px; bottom: 0px; box-sizing: border-box; padding-top: var(--sat,env(safe-area-inset-top)); visibility: hidden; pointer-events: none;"
     />
   </body>,
   "container": <div>
