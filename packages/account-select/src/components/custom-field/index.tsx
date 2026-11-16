@@ -109,7 +109,9 @@ export const CustomField = ({
             return (
                 <ProductCover.Single
                     cardNumber={
-                        cardNumber.length >= CARD_NUMBER_LENGTH ? Number(cardNumber) : undefined
+                        cardNumber.length >= CARD_NUMBER_LENGTH
+                            ? Number(`1${cardNumber.slice(-4)}`)
+                            : undefined
                     }
                     size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
                     className={cardImage?.className}
