@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-accordion": "^3.0.14",
+        "@alfalab/core-components-account-select": "0.0.0",
         "@alfalab/core-components-action-button": "^3.0.11",
         "@alfalab/core-components-alert": "^6.0.15",
         "@alfalab/core-components-amount": "^5.1.1",

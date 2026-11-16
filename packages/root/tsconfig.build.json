@@ -9,6 +9,8 @@
         "paths": {
             "@alfalab/core-components-accordion": ["../accordion/src"],
             "@alfalab/core-components-accordion/*": ["../accordion/src/*"],
+            "@alfalab/core-components-account-select": ["../account-select/src"],
+            "@alfalab/core-components-account-select/*": ["../account-select/src/*"],
             "@alfalab/core-components-action-button": ["../action-button/src"],
             "@alfalab/core-components-action-button/*": ["../action-button/src/*"],
             "@alfalab/core-components-alert": ["../alert/src"],
@@ -269,6 +271,7 @@
     },
     "references": [
         { "path": "../accordion/tsconfig.build.json" },
+        { "path": "../account-select/tsconfig.build.json" },
         { "path": "../action-button/tsconfig.build.json" },
         { "path": "../alert/tsconfig.build.json" },
         { "path": "../amount/tsconfig.build.json" },
