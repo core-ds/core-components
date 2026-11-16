@@ -1,5 +1,15 @@
 # @alfalab/core-components-gallery
 
+## 7.4.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.15
+- @alfalab/core-components-button@13.3.0
+- @alfalab/core-components-tooltip@9.0.26
+
 ## 7.4.7
 
 ### Patch Changes
