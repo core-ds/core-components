@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components-config': minor
+'@alfalab/core-components': minor
 ---
 
 - Добавлен новый `CoreConfigProvider`
