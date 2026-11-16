@@ -5,7 +5,6 @@ import cn from 'classnames';
 import { defaultProps } from '@alfalab/core-components-button/shared/base-button/default-props';
 import { NoStyleButton } from '@alfalab/core-components-button/shared/base-button/no-style';
 import { type BaseButtonProps } from '@alfalab/core-components-button/shared/base-button/types';
-import { useDisabled } from '@alfalab/core-components-config';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
@@ -38,7 +37,7 @@ export const BaseButton = forwardRef<HTMLElement, BaseButtonProps>(
         ref,
     ) => {
         const { dataTestId } = restProps;
-        const disabled = useDisabled(disabledFromProps) || loading;
+        const disabled = disabledFromProps || loading;
         const buttonRef = useRef<HTMLElement>(null);
         const [focused] = useFocus(buttonRef, 'keyboard');
         const isButtonLayout = layout === 'button';

@@ -9,8 +9,6 @@
         "paths": {
             "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-config": ["../config/src"],
-            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-custom-button": ["./src"],
             "@alfalab/core-components-custom-button/*": ["./src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
@@ -21,7 +19,6 @@
     },
     "references": [
         { "path": "../button/tsconfig.build.json" },
-        { "path": "../config/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../polymorphic/tsconfig.build.json" }
     ]

@@ -10,8 +10,6 @@
             "@alfalab/core-components-action-button/*": ["./src/*"],
             "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-config": ["../config/src"],
-            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
@@ -22,7 +20,6 @@
     },
     "references": [
         { "path": "../button/tsconfig.build.json" },
-        { "path": "../config/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../spinner/tsconfig.build.json" }

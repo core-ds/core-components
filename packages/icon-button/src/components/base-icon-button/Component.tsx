@@ -3,7 +3,6 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { NoStyleButton, useButtonLoading } from '@alfalab/core-components-button/shared';
-import { useDisabled } from '@alfalab/core-components-config';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
@@ -42,7 +41,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
     ) => {
         const { dataTestId } = restProps;
         const loading = useButtonLoading(loadingFromProps);
-        const disabled = useDisabled(disabledFromProps) || loading;
+        const disabled = disabledFromProps || loading;
         const buttonRef = useRef<HTMLElement>(null);
         const [focused] = useFocus(buttonRef, 'keyboard');
 
