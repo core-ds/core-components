@@ -33,11 +33,6 @@ export interface IconButtonProps
     className?: string;
 
     /**
-     * Дополнительный класс для обёртки иконки
-     */
-    iconWrapperClassName?: string;
-
-    /**
      * Включает прозрачный фон
      * @default false
      */

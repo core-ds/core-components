@@ -15,3 +15,8 @@
     @mixin headline-system-mobile_small;
     padding: var(--gap-6) var(--gap-16);
 }
+
+.addon.addon,
+.closer.closer {
+    height: 40px;
+}

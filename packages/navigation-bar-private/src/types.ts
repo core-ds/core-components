@@ -171,9 +171,9 @@ export type NavigationBarPrivateProps = {
 
 export type NavigationBarPrivateInternalProps = {
     /**
-     * Высота обёрток кнопок «Назад» и «Закрыть»
+     * Дистанция скролла в px, от которой считаются переходы заголовка при анимации
      */
-    addonsSize?: 40 | 48;
+    scrollThreshold?: number;
 
     /**
      * Иконка кнопки «Назад»

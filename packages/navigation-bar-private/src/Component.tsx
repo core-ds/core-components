@@ -14,7 +14,6 @@ import {
     type NavigationBarPrivateProps,
 } from './types';
 
-import addonStyles from './addons.module.css';
 import styles from './index.module.css';
 
 const ADDONS_HEIGHT = 48;
@@ -38,7 +37,7 @@ export const NavigationBarPrivate = forwardRef<
             trim = true,
             title,
             titleSize = 'default',
-            addonsSize = ADDONS_HEIGHT,
+            scrollThreshold = ADDONS_HEIGHT,
             subtitle,
             subtitleClassName,
             hasCloser,
@@ -82,7 +81,7 @@ export const NavigationBarPrivate = forwardRef<
         const showStaticContentOnTop = !withAnimation && showContentOnTop;
         const showStaticContentOnBot = !withAnimation && showContentOnBot;
         const showAnimatedContentOnTop =
-            withAnimation && showContentOnBot && scrollTop > addonsSize;
+            withAnimation && showContentOnBot && scrollTop > scrollThreshold;
         const showAnimatedContentOnBot = withAnimation && showContentOnBot;
         const headerPaddingTop = mainLinePaddingTopRef.current;
 
@@ -139,7 +138,7 @@ export const NavigationBarPrivate = forwardRef<
             let textOpacity = 1;
 
             if (withAnimation) {
-                const height = hasContent ? addonsSize : addonsSize / 2;
+                const height = hasContent ? scrollThreshold : scrollThreshold / 2;
 
                 textOpacity = Math.max(0, 1 - scrollTop / height);
             } else if (compactTitle) {
@@ -147,13 +146,7 @@ export const NavigationBarPrivate = forwardRef<
             }
 
             return (
-                <div
-                    className={cn(
-                        addonStyles.addon,
-                        addonStyles[`size${addonsSize}`],
-                        backButtonClassName,
-                    )}
-                >
+                <div className={cn(styles.addon, backButtonClassName)}>
                     <BackArrowAddon
                         data-test-id={getDataTestId(dataTestId, 'back-button')}
                         {...backButtonProps}
@@ -209,14 +202,7 @@ export const NavigationBarPrivate = forwardRef<
         };
 
         const renderCloser = () => (
-            <div
-                className={cn(
-                    addonStyles.addon,
-                    addonStyles[`size${addonsSize}`],
-                    styles.closer,
-                    closerClassName,
-                )}
-            >
+            <div className={cn(styles.addon, styles.closer, closerClassName)}>
                 <Closer
                     view={view}
                     icon={closerIcon}
@@ -260,9 +246,7 @@ export const NavigationBarPrivate = forwardRef<
                         <div className={styles.addonsWrapper} ref={leftAddonsRef}>
                             {hasBackButton && renderBackButton()}
                             {leftAddons && (
-                                <div className={cn(addonStyles.addon, addonClassName)}>
-                                    {leftAddons}
-                                </div>
+                                <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>
                             )}
                         </div>
                     )}
@@ -283,7 +267,10 @@ export const NavigationBarPrivate = forwardRef<
                         renderContent({
                             extraClassName: styles.withBothAddons,
                             style: {
-                                opacity: Math.min(1, (scrollTop - addonsSize) / addonsSize),
+                                opacity: Math.min(
+                                    1,
+                                    (scrollTop - scrollThreshold) / scrollThreshold,
+                                ),
                                 ...(align === 'center'
                                     ? {
                                           marginLeft: titleMargin.left,
@@ -300,7 +287,7 @@ export const NavigationBarPrivate = forwardRef<
                             ref={rightAddonsRef}
                         >
                             {rightAddons && (
-                                <div className={cn(addonStyles.addon, addonClassName)}>
+                                <div className={cn(styles.addon, addonClassName)}>
                                     {rightAddons}
                                 </div>
                             )}
@@ -314,8 +301,8 @@ export const NavigationBarPrivate = forwardRef<
                     renderContent({
                         wrapperRef: bottomContentRef,
                         extraClassName: styles.underAddons,
-                        style: { opacity: Math.max(0, 1 - scrollTop / addonsSize) },
-                        hidden: scrollTop / addonsSize > 1,
+                        style: { opacity: Math.max(0, 1 - scrollTop / scrollThreshold) },
+                        hidden: scrollTop / scrollThreshold > 1,
                         extraAlign: 'left',
                     })}
 
