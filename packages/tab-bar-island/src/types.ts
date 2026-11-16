@@ -108,11 +108,14 @@ export interface TabBarIslandProps {
      * @default true
      */
     iconAnimation?: boolean;
-
     /**
      * Показать скелетон
      */
     showSkeleton?: boolean;
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 }
 
 export interface TabBarIslandTrailingIconButtonProps
