@@ -43,6 +43,8 @@
 
     /* фикс: при включённом padding маркер может визуально "улетать" наверх */
     transform: translate(0, 0);
+
+    padding-bottom: var(--sab);
 }
 
 .withTransition {
@@ -144,10 +146,6 @@
         transition: var(--bottom-sheet-out-transition);
         transform: translateY(100%);
     }
-}
-
-.safeAreaBottom {
-    padding-bottom: var(--sab);
 }
 
 @mixin bg-class-list modal;

@@ -18,7 +18,7 @@ import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isIOS } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
@@ -692,7 +692,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {
                                 [styles.withTransition]:
                                     swipingInProgress === false && !skipTransition,
-                                [styles.safeAreaBottom]: isIOS(),
                             },
                         )}
                         style={{
