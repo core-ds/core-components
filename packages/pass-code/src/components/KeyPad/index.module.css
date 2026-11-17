@@ -6,7 +6,7 @@
     grid-template-columns: repeat(3, var(--size-l-height));
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: var(--gap-40);
-    grid-row-gap: var(--gap-2s);
+    grid-row-gap: var(--gap-14);
     justify-content: center;
 
     margin: var(--gap-0) auto;
