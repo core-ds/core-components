@@ -1,4 +1,4 @@
-import React, { type ImgHTMLAttributes, memo, useMemo } from 'react';
+import React, { type ImgHTMLAttributes, memo, useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
 
 import { useComponentOverrides } from '@alfalab/core-components-config';
@@ -38,6 +38,8 @@ export type ImageProps = {
  * Например:
  * `https://web-test.alfabank.ru/mobile/s3/static/...`
  * → `https://web-test.servicecdn.ru/public/s3/static/...`
+ *
+ * При ошибке загрузки CDN откатывается на исходный `src`.
  */
 export const Image = memo(
     ({ className, dataTestId, src, proxyMap, inViewOption, ...props }: ImageProps) => {
@@ -45,8 +47,13 @@ export const Image = memo(
         const [imgRef, inView] = useInViewRef({
             inViewOption: inViewOption ?? componentContext?.inViewOption,
         });
+        const [cdnFailed, setCdnFailed] = useState(false);
 
-        const url = useMemo(() => {
+        useEffect(() => {
+            setCdnFailed(false);
+        }, [src]);
+
+        const proxiedUrl = useMemo(() => {
             const map = proxyMap || componentContext?.proxyMap || [];
 
             const resourceMap = map.find((resource) => src.includes(resource.from));
@@ -58,6 +65,14 @@ export const Image = memo(
             return src;
         }, [src, componentContext?.proxyMap, proxyMap]);
 
+        const url = cdnFailed ? src : proxiedUrl;
+
+        const handleError = () => {
+            if (!cdnFailed && proxiedUrl !== src) {
+                setCdnFailed(true);
+            }
+        };
+
         return (
             <img
                 alt=''
@@ -68,6 +83,7 @@ export const Image = memo(
                 })}
                 data-test-id={dataTestId}
                 ref={imgRef}
+                onError={handleError}
             />
         );
     },
