@@ -143,6 +143,7 @@
         "packages/universal-date-input",
         "packages/universal-modal",
         "packages/with-suffix",
+        "packages/image",
         "scripts/demo-params"
     ]
 }

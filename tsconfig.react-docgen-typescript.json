@@ -122,6 +122,8 @@
             "@alfalab/core-components-icon-button/*": ["./packages/icon-button/src/*"],
             "@alfalab/core-components-icon-view": ["./packages/icon-view/src"],
             "@alfalab/core-components-icon-view/*": ["./packages/icon-view/src/*"],
+            "@alfalab/core-components-image": ["./packages/image/src"],
+            "@alfalab/core-components-image/*": ["./packages/image/src/*"],
             "@alfalab/core-components-indicator": ["./packages/indicator/src"],
             "@alfalab/core-components-indicator/*": ["./packages/indicator/src/*"],
             "@alfalab/core-components-input": ["./packages/input/src"],
