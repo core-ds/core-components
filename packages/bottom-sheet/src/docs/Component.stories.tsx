@@ -137,7 +137,7 @@ const SAFE_AREA_STRIPE_STYLE: React.CSSProperties = {
 };
 
 const SAFE_AREA_NOTE =
-    'Синтетическая проверка safe area. Отступы задаются через css переменные, системные env() здесь не участвуют. Фактически проверяется, что шторка учитывает переданные ей отступы. Красные полосы показывают заданные отступы.';
+    'Синтетическая проверка safe area. Отступы передаются классами через safeArea, системные env() здесь не участвуют. Фактически проверяется, что шторка учитывает переданные ей отступы. Красные полосы показывают заданные отступы.';
 
 export const bottom_sheet_safe_area: Story = {
     name: 'BottomSheet synthetic safe area',
@@ -154,20 +154,11 @@ export const bottom_sheet_safe_area: Story = {
         const safeAreaTop = number('safeAreaTop', 59);
         const safeAreaBottom = number('safeAreaBottom', 34);
 
-        React.useEffect(() => {
-            const { style } = document.documentElement;
-
-            style.setProperty('--sat', `${safeAreaTop}px`);
-            style.setProperty('--sab', `${safeAreaBottom}px`);
-
-            return () => {
-                style.removeProperty('--sat');
-                style.removeProperty('--sab');
-            };
-        }, [safeAreaTop, safeAreaBottom]);
-
         return (
             <div style={{ padding: '8px' }}>
+                <style>
+                    {`.safe-area-top{padding-top:${safeAreaTop}px}.safe-area-bottom{padding-bottom:${safeAreaBottom}px}`}
+                </style>
                 <div style={{ ...SAFE_AREA_STRIPE_STYLE, top: 0, height: safeAreaTop }} />
                 <div style={{ ...SAFE_AREA_STRIPE_STYLE, bottom: 0, height: safeAreaBottom }} />
                 <Button id='button-1' onClick={openSheet(false)} style={{ margin: '15px' }}>
@@ -187,6 +178,10 @@ export const bottom_sheet_safe_area: Story = {
                         </Button>
                     }
                     onClose={handleClose}
+                    safeArea={{
+                        topClassName: 'safe-area-top',
+                        bottomClassName: 'safe-area-bottom',
+                    }}
                     headerOffset={number('headerOffset', 24)}
                     initialHeight='full'
                     stickyFooter={boolean('stickyFooter', true)}

@@ -130,6 +130,11 @@ export type BottomSheetProps = {
      */
     modalWrapperClassName?: string;
 
+    safeArea?: {
+        topClassName?: string;
+        bottomClassName?: string;
+    };
+
     /**
      * Дефолтный маркер
      * @default true

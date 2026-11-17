@@ -1,5 +1,4 @@
 @import '@alfalab/core-components-vars/src/index.css';
-@import '@alfalab/core-components-vars/src/safe-area.css';
 @import './vars.css';
 
 .modal {
@@ -43,8 +42,6 @@
 
     /* фикс: при включённом padding маркер может визуально "улетать" наверх */
     transform: translate(0, 0);
-
-    padding-bottom: var(--sab);
 }
 
 .withTransition {

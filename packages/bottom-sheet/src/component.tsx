@@ -18,7 +18,7 @@ import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
@@ -35,6 +35,7 @@ import {
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
     TIMEOUT,
+    useIsomorphicLayoutEffect,
 } from './utils';
 
 import defaultColors from './default.module.css';
@@ -75,6 +76,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backerClassName,
             modalClassName,
             modalWrapperClassName,
+            safeArea,
             className,
             outerAddons,
             leftAddons,
@@ -132,11 +134,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         },
         ref,
     ) => {
-        const { height: windowHeight, safeAreaTop } = useFixedContainerHeight();
+        const [modalWrapperRef, modalWrapper] = useRefAsState<HTMLDivElement>(null);
+        const { height: windowHeight, safeAreaTop } = useFixedContainerHeight(modalWrapper);
         const topOffset = safeAreaTop + headerOffset;
         const visualViewportSize = useVisualViewportSize();
         let fullHeight = virtualKeyboard ? (visualViewportSize?.height ?? 0) : windowHeight;
-        // Высота fixed-контейнера измеряется в useEffect, поэтому на первый рендер всегда 0.
+        // Высота обертки BaseModal измеряется после ее монтирования, поэтому до первого открытия 0.
         const isFirstRender = fullHeight === 0;
 
         fullHeight = adjustContainerHeight(fullHeight);
@@ -538,7 +541,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
         };
 
-        useEffect(() => {
+        useIsomorphicLayoutEffect(() => {
             if (!isFirstRender) {
                 const magneticAreasPropChanged =
                     prevMagneticAreasPropRef.current !== magneticAreasProp;
@@ -632,6 +635,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             <BaseModal
                 open={open}
                 ref={ref}
+                wrapperProps={{ ref: modalWrapperRef }}
                 container={container}
                 dataTestId={dataTestId}
                 zIndex={zIndex}
@@ -648,7 +652,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 }}
                 disableBackdropClick={hideOverlay ? true : disableOverlayClick}
                 className={cn(styles.modal, modalClassName)}
-                wrapperClassName={cn(modalWrapperClassName, {
+                wrapperClassName={cn(safeArea?.topClassName, modalWrapperClassName, {
                     [styles.disabledPointerEvents]: hideOverlay,
                 })}
                 disableBlockingScroll={disableBlockingScroll}
@@ -687,6 +691,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(
                             styles.component,
+                            safeArea?.bottomClassName,
                             bgClassName || colorStyle.component,
                             className,
                             {
