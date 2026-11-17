@@ -289,15 +289,15 @@
 }
 
 .accent-component {
-    @mixin accent_component;
+    @mixin accent_component_primary;
 }
 
 .action-component {
-    @mixin action_component;
+    @mixin action_component_primary;
 }
 
 .paragraph-component {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
 }
 
 .accent-tagline {

@@ -106,7 +106,7 @@
 }
 
 .input {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
     flex-grow: 1;
     flex-basis: 50px;
     min-width: 50px;
