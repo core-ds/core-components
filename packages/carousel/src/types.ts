@@ -133,9 +133,13 @@ export interface GeneralCarouselProps {
      */
     longSwipeTimeMs?: number;
     /**
-     * Инлайн-стили контейнера карусели. Имеют приоритет над стандартными стилями.
+     * Инлайн-стили контейнера карусели
      */
     style?: CSSProperties;
+    /**
+     * Дополнительный класс контейнера карусели
+     */
+    className?: string;
 }
 
 export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {
