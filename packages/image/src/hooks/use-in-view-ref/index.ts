@@ -21,9 +21,17 @@ export const useInViewRef = (
     const ref = useRef<HTMLImageElement | null>(null);
 
     useEffect(() => {
+        if (!enabled) {
+            setInView(true);
+
+            return undefined;
+        }
+
+        setInView(false);
+
         const element = ref.current;
 
-        if (!element || !enabled) {
+        if (!element) {
             return undefined;
         }
 

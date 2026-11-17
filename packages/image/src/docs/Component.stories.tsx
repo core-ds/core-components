@@ -1,5 +1,6 @@
 import React from 'react';
 import { type Meta, type StoryObj } from '@storybook/react';
+import { boolean, number, text } from '@storybook/addon-knobs';
 import { CoreConfigContext } from '@alfalab/core-components-config';
 
 import { Image } from '@alfalab/core-components-image';
@@ -14,31 +15,38 @@ type Story = StoryObj<typeof Image>;
 
 export const image: Story = {
     name: 'Image',
-    render: () => (
-        <CoreConfigContext.Provider
-            value={{
-                breakpoint: 1024,
-                client: 'desktop',
-                components: {
-                    Image: {
-                        inViewOption: true,
-                        proxyMap: [
-                            {
-                                from: 'https://web.alfabank.ru/mobile',
-                                to: 'https://alfaonline.servicecdn.ru/public',
-                            },
-                        ],
+    render: () => {
+        const src = text(
+            'src',
+            'https://web.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png',
+        );
+        const inViewOption = boolean('inViewOption', true);
+        const width = number('width', 300);
+        const height = number('height', 300);
+
+        return (
+            <CoreConfigContext.Provider
+                value={{
+                    breakpoint: 1024,
+                    client: 'desktop',
+                    components: {
+                        Image: {
+                            inViewOption,
+                            proxyMap: [
+                                {
+                                    from: 'https://web.alfabank.ru/mobile',
+                                    to: 'https://alfaonline.servicecdn.ru/public',
+                                },
+                            ],
+                        },
                     },
-                },
-            }}
-        >
-            <div>1</div>
-            <div style={{ height: '1000px' }} />
-            <Image src='https://web-test.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png' />
-            <div style={{ height: '300px' }} />
-            <Image src='https://web.alfabank.ru/mobile/s3/static/loyalty/widget/pforfit_492%D1%85469.png' />
-        </CoreConfigContext.Provider>
-    ),
+                }}
+            >
+                {inViewOption ? <div style={{ height: 800 }} /> : null}
+                <Image src={src} width={width} height={height} />
+            </CoreConfigContext.Provider>
+        );
+    },
 };
 
 export default meta;
