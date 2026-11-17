@@ -749,7 +749,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {actionButton === null ? null : (
                                 <Footer
                                     sticky={stickyFooter}
-                                    className={cn(bgClassName, footerClassName)}
+                                    className={footerClassName}
                                     colors={colors}
                                     dataTestId={getDataTestId(dataTestId, 'footer')}
                                 >
