@@ -38,6 +38,7 @@ export function HeadlessCarousel<T, U, V>({
     loop = false,
     shortSwipe = true,
     longSwipeTimeMs = 300,
+    className,
 }: HeadlessCarouselProps<T, U, V>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
@@ -243,7 +244,7 @@ export function HeadlessCarousel<T, U, V>({
             >
                 <div
                     ref={mergeRefs([swipeRef, mouseWheel ? mouseWheelRef : null])}
-                    className={cn(styles.container)}
+                    className={cn(styles.container, className)}
                     style={{ ...getStyle(), height, minHeight, overflow, ...style }}
                 >
                     <Wrapper
