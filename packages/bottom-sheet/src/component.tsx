@@ -146,22 +146,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         );
 
         const magneticAreas = useMemo(() => {
+            let viewHeight = fullHeight;
+
+            if (isIOS() && !virtualKeyboard && isClient()) {
+                viewHeight = document?.documentElement?.clientHeight
+                    ? adjustContainerHeight(document.documentElement.clientHeight)
+                    : window?.innerHeight;
+            }
+
             if (magneticAreasProp) {
                 return magneticAreasProp.map((area) =>
-                    convertPercentToNumber(area, fullHeight, headerOffset),
+                    convertPercentToNumber(area, viewHeight, headerOffset),
                 );
             }
-            let iOSViewHeight = 0;
-
-            if (isClient()) {
-                if (document?.documentElement?.clientHeight) {
-                    iOSViewHeight = adjustContainerHeight(document.documentElement.clientHeight);
-                } else {
-                    iOSViewHeight = window?.innerHeight;
-                }
-            }
-
-            const viewHeight = isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
         }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
