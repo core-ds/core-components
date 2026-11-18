@@ -1,5 +1,19 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.21
+
+### Patch Changes
+
+<sup><time>18.11.2026</time></sup>
+
+#### [#2466](https://github.com/core-ds/core-components/pull/2466)
+
+##### BottomSheet
+
+- Исправлен регресс из #1923 — при первом открытии шторки контент просвечивал под закрепленным футером
+- Фон футера наследуется от шторки. Для переопределения используйте `footerClassName`
+- Переменные `--bottom-sheet-footer-background-color` и `--bottom-sheet-footer-background-color-inverted` больше не используются
+
 ## 8.1.20
 
 ### Patch Changes
