@@ -3,6 +3,7 @@
 
 .footer {
     padding: var(--gap-20);
+    background-color: inherit;
 
     &:empty {
         padding: var(--gap-20) var(--gap-0) var(--gap-0);
