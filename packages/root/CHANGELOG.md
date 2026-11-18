@@ -1,5 +1,34 @@
 # @alfalab/core-components
 
+## 50.43.1
+
+### Patch Changes
+
+<sup><time>18.11.2026</time></sup>
+
+#### [#2466](https://github.com/core-ds/core-components/pull/2466)
+
+##### BottomSheet
+
+- Исправлен регресс из #1923 — при первом открытии шторки контент просвечивал под закрепленным футером
+- Фон футера наследуется от шторки. Для переопределения используйте `footerClassName`
+- Переменные `--bottom-sheet-footer-background-color` и `--bottom-sheet-footer-background-color-inverted` больше не используются
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.21
+- @alfalab/core-components-select@19.2.16
+- @alfalab/core-components-select-with-tags@10.1.29
+- @alfalab/core-components-tooltip@9.0.27
+- @alfalab/core-components-custom-picker-button@4.1.29
+- @alfalab/core-components-input-autocomplete@14.0.34
+- @alfalab/core-components-international-phone-input@4.0.34
+- @alfalab/core-components-intl-phone-input@11.0.34
+- @alfalab/core-components-picker-button@13.1.12
+- @alfalab/core-components-table@4.0.35
+- @alfalab/core-components-gallery@7.4.9
+- @alfalab/core-components-tabs@10.1.9
+
 ## 50.43.0
 
 ### Minor Changes
