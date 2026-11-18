@@ -1,5 +1,23 @@
 # @alfalab/core-components
 
+## 50.43.0
+
+### Minor Changes
+
+<sup><time>18.11.2026</time></sup>
+
+#### [#2468](https://github.com/core-ds/core-components/pull/2468)
+
+##### Carousel
+
+- Добавлена возможность указать дополнительный класс контейнера карусели
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-carousel@1.3.0
+
 ## 50.42.0
 
 ### Minor Changes
