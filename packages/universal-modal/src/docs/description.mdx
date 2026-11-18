@@ -668,23 +668,9 @@ render(() => {
                 {(headerTitle || headerButtonArrow || headerButtonCross) && (
                     <UniversalModalMobile.Header
                         sticky={true}
-                        {...(headerButtonArrow && {
-                            leftAddons: (
-                                <ButtonMobile
-                                    shape='rounded'
-                                    size={32}
-                                    leftAddons={
-                                        <ChevronLeftMIcon
-                                            style={{
-                                                fill: 'var(--color-light-neutral-translucent-700)',
-                                            }}
-                                        />
-                                    }
-                                    onClick={() => setOpen(false)}
-                                />
-                            ),
-                        })}
+                        hasBackButton={headerButtonArrow}
                         hasCloser={headerButtonCross}
+                        onBack={() => setOpen(false)}
                         {...(alignment && { align: 'center' })}
                         {...(headerTitle && { title: 'Почему банк проверяет мои операции?' })}
                         {...(subtitle && { subtitle: 'Подпись', titleSize: 'compact' })}
@@ -1239,20 +1225,8 @@ render(() => {
                             title: 'Почему банк проверяет мои операции?',
                         })}
                     {...(headerButtonArrow && {
-                        leftAddons: (
-                            <ButtonMobile
-                                shape='rounded'
-                                size={32}
-                                leftAddons={
-                                    <ChevronLeftMIcon
-                                        style={{
-                                            fill: 'var(--color-light-neutral-translucent-700)',
-                                        }}
-                                    />
-                                }
-                                onClick={() => setOpen(false)}
-                            />
-                        ),
+                        hasBackButton: true,
+                        onBack: () => setOpen(false),
                         align: 'left',
                         ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
                     })}
@@ -1833,20 +1807,8 @@ render(() => {
                         ),
                     })}
                     {...(step > 1 && {
-                        leftAddons: (
-                            <ButtonMobile
-                                shape='rounded'
-                                size={32}
-                                leftAddons={
-                                    <ChevronLeftMIcon
-                                        style={{
-                                            fill: 'var(--color-light-neutral-translucent-700)',
-                                        }}
-                                    />
-                                }
-                                onClick={() => setStep((prev) => prev - 1)}
-                            />
-                        ),
+                        hasBackButton: true,
+                        onBack: () => setStep((prev) => prev - 1),
                     })}
                     hasCloser={true}
                     align='center'
