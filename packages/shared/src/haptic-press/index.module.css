@@ -1,0 +1,31 @@
+.root {
+    display: contents;
+}
+
+.surface {
+    display: none;
+}
+
+@media (pointer: coarse) {
+    .supported {
+        display: inline-grid;
+        isolation: isolate;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    .supported.block {
+        display: grid;
+    }
+
+    .supported > :first-child,
+    .surface {
+        grid-area: 1 / 1;
+    }
+
+    .supported > :is(button:enabled, a[href]):not([aria-disabled='true']) + .surface {
+        display: block;
+        z-index: 1;
+        cursor: inherit;
+    }
+}
