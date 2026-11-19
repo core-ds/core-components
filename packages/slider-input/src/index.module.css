@@ -134,13 +134,6 @@
     }
 }
 
-.bold .input {
-    & input,
-    & input + div {
-        @mixin accent_component_primary;
-    }
-}
-
 .steps {
     @mixin paragraph_component_secondary;
 

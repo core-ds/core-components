@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -86,6 +87,24 @@ describe('SliderInput | sprite', () => {
 
     ['default', 'mobile'].map(testCase);
 });
+
+describe(
+    'SliderInput | bold prop',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'SliderInput',
+            testStory: false,
+            knobs: {
+                label: 'Сумма',
+                amountInput: [false, true],
+                fontWeight: ['regular', 'bold'],
+            },
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 300, height: 70 },
+        },
+    }),
+);
 
 describe('SliderInput | edge labels alignment', () => {
     const testCase = (theme: string) =>
