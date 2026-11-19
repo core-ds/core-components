@@ -1,3 +1,5 @@
+import { useEffect, useLayoutEffect } from 'react';
+
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 export const TIMEOUT = 500;
@@ -6,6 +8,9 @@ export const MARKER_HEIGHT = 24;
 export const CLOSE_OFFSET = 0.2;
 export const SCROLL_OFFSET = 1;
 export const HEADER_OFFSET = 24;
+
+export const useIsomorphicLayoutEffect =
+    typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 export const convertPercentToNumber = (
     value: string | number,

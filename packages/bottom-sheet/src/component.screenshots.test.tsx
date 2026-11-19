@@ -301,6 +301,39 @@ const titleTest = async (knobs: Knobs, scroll: boolean = false) => {
     }
 };
 
+const safeAreaTest = async (buttonSelector: string, knobs: Knobs) => {
+    const pageUrl = createStorybookUrl({
+        componentName: 'BottomSheet',
+        subComponentName: 'BottomSheetSafeArea',
+        testStory: false,
+        knobs,
+    });
+
+    const { browser, context, page } = await openBrowserPage(pageUrl);
+
+    try {
+        await page.click(buttonSelector);
+
+        await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true } });
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error((error as Error).message);
+
+        throw error;
+    } finally {
+        await closeBrowser({ browser, context, page });
+    }
+};
+
+describe('BottomSheet | safe area', () => {
+    test('with top inset', () => safeAreaTest('#button-1', { safeAreaTop: 59 }));
+    test('magnetic areas with top inset', () => safeAreaTest('#button-2', { safeAreaTop: 59 }));
+    test('zero header offset with top inset', () =>
+        safeAreaTest('#button-1', { safeAreaTop: 59, headerOffset: 0 }));
+    test('magnetic areas zero header offset with top inset', () =>
+        safeAreaTest('#button-2', { safeAreaTop: 59, headerOffset: 0 }));
+});
+
 describe('BottomSheet | header', () => {
     test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: true }));
     test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: false }));

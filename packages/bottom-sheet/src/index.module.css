@@ -1,5 +1,4 @@
 @import '@alfalab/core-components-vars/src/index.css';
-@import '@alfalab/core-components-vars/src/safe-area.css';
 @import './vars.css';
 
 .modal {
@@ -33,6 +32,7 @@
 }
 
 .component {
+    box-sizing: border-box;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -143,10 +143,6 @@
         transition: var(--bottom-sheet-out-transition);
         transform: translateY(100%);
     }
-}
-
-.safeAreaBottom {
-    padding-bottom: var(--sab);
 }
 
 @mixin bg-class-list modal;
