@@ -7,7 +7,7 @@ import { PureCellContext } from '../../context';
 
 import styles from './index.module.css';
 
-type Props = {
+export type PureCellCategoryProps = {
     /**
      * Наименование категории
      */
@@ -31,7 +31,7 @@ type Props = {
     dataTestId?: string;
 };
 
-export const Category: React.FC<Props> = ({
+export const Category: React.FC<PureCellCategoryProps> = ({
     categoryName,
     categoryPercent,
     rightAddons,
