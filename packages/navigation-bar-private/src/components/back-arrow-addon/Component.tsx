@@ -65,6 +65,7 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     icon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
+// TODO для next шапки сделать новые кнопки
 export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     text = 'Назад',
     onClick,

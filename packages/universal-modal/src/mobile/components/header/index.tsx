@@ -19,7 +19,7 @@ export type HeaderMobileProps = Omit<
 > &
     BaseHeaderNextProps;
 
-// TODO новый компонет шапки
+// TODO новый компонет шапки (вернуть код шапки из мастера)
 export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {
         className,

@@ -70,6 +70,7 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     ) => void;
 }
 
+// TODO для next шапки сделать новые кнопки
 export const Closer: FC<CloserProps> = ({
     view,
     className,
