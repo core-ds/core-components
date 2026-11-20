@@ -1,7 +1,7 @@
 import React, { type ComponentType, type SVGProps } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonDesktop, type ButtonDesktopProps } from '@alfalab/core-components-button/desktop';
 import { TypographyText } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
@@ -39,6 +39,12 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     textOpacity?: number;
 
     /**
+     * Размер компонента
+     * @default 48 для desktop, 32 для mobile
+     */
+    size?: ButtonDesktopProps['size'];
+
+    /**
      * Обработчик клика
      */
     onClick?: () => void;
@@ -49,19 +55,27 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     colors?: ColorType;
 
     /**
+     * Дополнительный класс обертки иконки
+     */
+    iconWrapperClassName?: string;
+
+    /**
      * Иконка
      */
     icon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
+// TODO для next шапки сделать новые кнопки
 export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     text = 'Назад',
     onClick,
     className,
     textOpacity = 1,
     view,
+    size = view === 'desktop' ? 48 : 32,
     colors = 'default',
     icon: Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon,
+    iconWrapperClassName,
     ...htmlAttributes
 }) => {
     const isMobileView = view === 'mobile';
@@ -69,7 +83,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     return (
         <ButtonDesktop
             view='text'
-            size={isMobileView ? 32 : 48}
+            size={size}
             onClick={onClick}
             aria-label='назад'
             className={cn(
@@ -82,7 +96,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
         >
             <div className={styles.flex}>
                 <div
-                    className={cn(styles.iconWrapper, {
+                    className={cn(styles.iconWrapper, iconWrapperClassName, {
                         [styles.mobileWrapper]: isMobileView,
                         [colorStyles[colors].mobileWrapper]: isMobileView,
                     })}
