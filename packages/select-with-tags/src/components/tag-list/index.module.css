@@ -7,7 +7,7 @@
 
 .component.size-72 {
     & .contentWrapper {
-        padding: 18px var(--gap-2s);
+        padding: 18px var(--gap-14);
     }
 
     & .placeholder {
@@ -19,13 +19,13 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-2s;
+        @mixin indent-correction --gap-14;
     }
 }
 
 .component.size-64 {
     & .contentWrapper {
-        padding: var(--gap-2s) var(--gap-10);
+        padding: var(--gap-14) var(--gap-10);
     }
 
     & .placeholder {
@@ -106,7 +106,7 @@
 }
 
 .input {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
     flex-grow: 1;
     flex-basis: 50px;
     min-width: 50px;
