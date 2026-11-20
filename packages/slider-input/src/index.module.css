@@ -144,7 +144,7 @@
 }
 
 .info {
-    @mixin paragraph_component_primary;
+    @mixin paragraph_component;
 
     color: var(--slider-input-info-color);
     box-sizing: border-box;

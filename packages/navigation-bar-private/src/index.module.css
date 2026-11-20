@@ -43,7 +43,7 @@
 
     &.withBothAddons,
     &.withCompactTitle {
-        @mixin action_component_primary;
+        @mixin action_component;
         align-self: center;
         padding-top: var(--gap-4);
         padding-bottom: var(--gap-4);

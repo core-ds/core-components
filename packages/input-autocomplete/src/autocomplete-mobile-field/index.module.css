@@ -31,7 +31,7 @@
 }
 
 .contentWrapper {
-    @mixin paragraph_component_primary;
+    @mixin paragraph_component;
 
     white-space: nowrap;
     text-overflow: ellipsis;

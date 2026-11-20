@@ -15,18 +15,17 @@
     margin: var(--text-paragraph-margin-bottom);
 }
 
-/* prettier-ignore */
-@each $view, $token in (component, component_primary), (caps, caps), (tagline, tagline) {
+@each $view in component, caps, tagline {
     .$(view) {
-        @mixin paragraph_$(token);
+        @mixin paragraph_$(view);
     }
 
     .$(view).bold {
-        @subtract-mixin accent_$(token), paragraph_$(token);
+        @subtract-mixin accent_$(view), paragraph_$(view);
     }
 
     .$(view).medium {
-        @subtract-mixin action_$(token), paragraph_$(token);
+        @subtract-mixin action_$(view), paragraph_$(view);
     }
 }
 

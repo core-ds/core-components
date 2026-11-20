@@ -99,7 +99,7 @@
         margin: var(--gap-6) 0;
 
         &:not(:only-child) {
-            margin-bottom: var(--gap-14);
+            margin-bottom: var(--gap-2s);
         }
     }
 }

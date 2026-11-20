@@ -54,7 +54,7 @@
 }
 
 .label {
-    @mixin paragraph_component_primary;
+    @mixin paragraph_component;
 
     position: absolute;
     display: flex;
