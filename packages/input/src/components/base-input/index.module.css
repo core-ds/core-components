@@ -68,7 +68,7 @@
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
         &:first-line {
-            @mixin paragraph_component;
+            @mixin paragraph_component_primary;
         }
 
         /* Hack from http://stackoverflow.com/a/29350537 */
