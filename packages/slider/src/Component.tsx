@@ -9,8 +9,6 @@ import { createPipsConfig, updateMarkerClasses } from './utils';
 import styles from './index.module.css';
 
 const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-2',
-    m: 'size-4',
     2: 'size-2',
     4: 'size-4',
 };
