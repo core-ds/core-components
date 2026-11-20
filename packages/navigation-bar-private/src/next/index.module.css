@@ -38,6 +38,10 @@
         }
     }
 
+    &.withInlineCollapse {
+        overflow: hidden;
+    }
+
     &.withContentUnderImage {
         &:after {
             height: var(--gap-8);
@@ -103,6 +107,15 @@
     top: var(--gap-0);
 }
 
+.mainLineInlineCollapse {
+    position: relative;
+}
+
+.centeredContent {
+    position: absolute;
+    top: 0;
+}
+
 .mainLineWithImageBg {
     background-color: initial;
 }
@@ -128,8 +141,9 @@
         min-height: 48px;
 
         & > .children,
-        & > .title .titleTextContent {
-            -webkit-line-clamp: 1;
+        & > .title .titleTextContent,
+        & > .subtitle {
+            @mixin row_limit 1;
             word-break: break-all;
         }
     }
@@ -151,10 +165,8 @@
 
 .subtitle {
     @mixin paragraph_primary_small;
-    @mixin row_limit 1;
 
     color: var(--color-light-text-secondary);
-    word-break: break-all;
 }
 
 .addonsWrapper {
@@ -199,5 +211,10 @@
     & .title .titleTextContent,
     & .children {
         @mixin row_limit 2;
+    }
+
+    & .subtitle {
+        @mixin row_limit 1;
+        word-break: break-all;
     }
 }

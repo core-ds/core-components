@@ -2,77 +2,67 @@ import { Meta } from '@storybook/addon-docs';
 import { ComponentHeader } from 'storybook/blocks';
 import * as Stories from './Component.stories';
 
-<Meta of={Stories} name='01-HeaderImage' />
+<Meta of={Stories} name='01-HeaderWithoutText' />
 
-<ComponentHeader name='UniversalModalHeaderImage' children='Шапка мобильной UniversalModal с фоновым изображением.' />
+<ComponentHeader name='UniversalModalHeader' children='Шапка мобильной UniversalModal.' />
 
-## Картинка с фиксированным соотношением сторон
+## Без текста
 
-```jsx live mobileWidth={560} mobileHeight={600} mobileOnly
+```jsx live mobileWidth={360} mobileHeight={720} mobileOnly
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [paragraphs, setParagraphs] = React.useState(0);
+    const [hasCloser, setHasCloser] = React.useState(true);
+    const [hasBackButton, setHasBackButton] = React.useState(false);
 
     return (
         <React.Fragment>
             <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                label='Крестик'
+                checked={hasCloser}
+                onChange={() => setHasCloser((prev) => !prev)}
+            />
+            <Gap size={12} />
+            <Switch
+                label='Стрелка назад'
+                checked={hasBackButton}
+                onChange={() => setHasBackButton((prev) => !prev)}
+            />
             <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
                 <UniversalModalMobile.Header
-                    headerMode='relative'
-                    hasBackButton={true}
-                    hasCloser={true}
-                    title='Title'
-                    bottomAddons={
-                        <ButtonMobile view='primary' block={true}>
-                            Bottom
-                        </ButtonMobile>
-                    }
-                    image={{
-                        src: './images/universal-modal_header-image.png',
-                        aspectRatio: 16 / 9,
-                    }}
+                    hasCloser={hasCloser}
+                    hasBackButton={hasBackButton}
                     onBack={() => setOpen(false)}
                 />
-                <UniversalModal.Content>
-                    <Typography.Text tag='p'>
-                        Шапка сохраняет соотношение сторон 16:9: при изменении ширины экрана высота
-                        шапки меняется пропорционально, картинка заполняет её целиком.
-                    </Typography.Text>
-                    <Gap size={16} />
-                    <ButtonMobile
-                        view='secondary'
-                        block={true}
-                        onClick={() => setParagraphs((prev) => prev + 1)}
-                    >
-                        Добавить текст
-                    </ButtonMobile>
-                    {Array.from({ length: paragraphs }, (_, index) => (
-                        <React.Fragment key={index}>
-                            <Gap size={16} />
-                            <Typography.Text tag='p'>
-                                Клиенты воспринимают ограничения как атаку со стороны банка, но
-                                чаще всего сами допускают ошибки или нарушения, которых можно
-                                избежать. Банки не преследуют цели доставить неудобства клиентам —
-                                они обязаны соблюдать законодательство и следовать инструкциям и
-                                рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.
-                            </Typography.Text>
-                            <Gap size={16} />
-                            <Typography.Text tag='p'>
-                                Обналичивание — сомнительные операции, когда юрлицо или
-                                предприниматель снимает со счёта более 80% от оборота или переводит
-                                деньги на счета физлиц, которые затем снимают в наличной форме.
-                            </Typography.Text>
-                            <Gap size={16} />
-                            <Typography.Text tag='p'>
-                                Транзитные операции — операции, в процессе которых деньги поступают
-                                на счёт компании от других резидентов и списываются в короткие
-                                сроки. При этом, как правило, в этих случаях по счёту нет начислений
-                                зарплат, уплаты налогов, и они не соответствуют заявленному
-                                компанией виду деятельности.
-                            </Typography.Text>
-                        </React.Fragment>
+                <UniversalModalMobile.Content>
+                    {Array.from({ length: 12 }, (_, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                height: 80,
+                                textAlign: 'center',
+                                lineHeight: '80px',
+                                fontSize: 40,
+                                fontWeight: 700,
+                                color: 'var(--color-light-text-tertiary)',
+                                background:
+                                    index % 2 === 0
+                                        ? 'var(--color-light-neutral-200)'
+                                        : 'var(--color-light-base-bg-secondary)',
+                            }}
+                        >
+                            {index + 1}
+                        </div>
                     ))}
-                </UniversalModal.Content>
+                </UniversalModalMobile.Content>
+                <UniversalModalMobile.Footer sticky={true}>
+                    <ButtonMobile view='primary' block={true} onClick={() => setOpen(false)}>
+                        Закрыть
+                    </ButtonMobile>
+                </UniversalModalMobile.Footer>
             </UniversalModalMobile>
         </React.Fragment>
     );

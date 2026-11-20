@@ -11,7 +11,7 @@ import { BackArrowAddon } from '../components/back-arrow-addon';
 import { Closer } from '../components/closer';
 import { type ContentParams } from '../types';
 
-import { getCenteredContentMargin, getUniversalModalTitleMargin } from './get-title-margin';
+import { getUniversalModalTitleMargin } from './get-title-margin';
 import { type NavigationBarPrivateNextProps } from './types';
 
 import styles from './index.module.css';
@@ -71,15 +71,22 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
         const [scrollTop, setScrollTop] = useState(0);
         const [collapseDistance, setCollapseDistance] = useState(0);
         const [navReachScrollTop, setNavReachScrollTop] = useState(0);
+        const [inlineExitDistance, setInlineExitDistance] = useState(0);
+        const [inlineCollapseDistance, setInlineCollapseDistance] = useState(0);
+        const [bottomContentHeight, setBottomContentHeight] = useState(0);
+        const [centeredContentExtra, setCenteredContentExtra] = useState(0);
+        const [centeredInset, setCenteredInset] = useState(0);
         const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
         const [mainLineMargin, setMainLineMargin] = useState<{
             left?: number;
             right?: number;
         }>({});
         const bottomContentRef = useRef<HTMLDivElement>(null);
+        const centeredContentRef = useRef<HTMLDivElement>(null);
         const headerRef = useRef<HTMLDivElement>(null);
         const mainLineRef = useRef<HTMLDivElement>(null);
         const imageUnderRef = useRef<HTMLDivElement>(null);
+        const inlineContentRef = useRef<HTMLDivElement>(null);
         const mainLinePaddingTopRef = useRef<string>('0px');
         const leftAddonsRef = useRef<HTMLDivElement>(null);
         const rightAddonsRef = useRef<HTMLDivElement>(null);
@@ -98,6 +105,11 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             isMobile && isContentUnderImage && hasContent && headerMode === 'left',
         );
         const withContentCollapse = withAnimation || withTitleCollapse;
+        const withInlineCollapse = Boolean(
+            isMobile && hasContent && !hasLeftPart && headerMode === 'left' && !withImageCollapse,
+        );
+        const isInlineContentGone =
+            withInlineCollapse && inlineExitDistance > 0 && scrollTop >= inlineExitDistance;
         const showContentOnBot =
             hasContent && (isContentUnderImage || (hasLeftPart && headerMode === 'left'));
         const showContentOnTop = hasContent && !showContentOnBot;
@@ -107,9 +119,24 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             ? Math.max(0, navReachScrollTop - ADDONS_HEIGHT)
             : 0;
         const titleScrollTop = scrollTop - titleCollapseStart;
+        const bottomContentCollapseDistance = Math.max(
+            0,
+            bottomContentHeight - centeredContentExtra,
+        );
+        const titleFadeDistance = withAnimation
+            ? Math.max(ADDONS_HEIGHT, bottomContentCollapseDistance)
+            : ADDONS_HEIGHT;
         const showAnimatedContentOnTop =
-            withContentCollapse && showContentOnBot && titleScrollTop > ADDONS_HEIGHT;
+            withContentCollapse && showContentOnBot && titleScrollTop > titleFadeDistance;
         const showAnimatedContentOnBot = withContentCollapse && showContentOnBot;
+        const withCenteredContent = showAnimatedContentOnBot || withInlineCollapse;
+        const centeredContentProgress = withInlineCollapse
+            ? scrollTop - inlineExitDistance
+            : titleScrollTop - titleFadeDistance;
+        const showCenteredContent = withInlineCollapse
+            ? isInlineContentGone
+            : showAnimatedContentOnTop;
+        const inlineClipDistance = Math.max(0, inlineCollapseDistance - centeredContentExtra);
         const headerPaddingTop = mainLinePaddingTopRef.current;
         const imageFadeDistance = isContentUnderImage ? navReachScrollTop : collapseDistance;
         const imageOpacity =
@@ -136,15 +163,11 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                     rightAddonsWidth,
                 });
 
-            const nextContentMargin = showAnimatedContentOnTop
-                ? getCenteredContentMargin(leftAddonsWidth, rightAddonsWidth)
-                : contentMargin;
-
             setTitleMargin((prev) => {
                 const isStateChanged =
-                    prev.left !== nextContentMargin.left || prev.right !== nextContentMargin.right;
+                    prev.left !== contentMargin.left || prev.right !== contentMargin.right;
 
-                return isStateChanged ? nextContentMargin : prev;
+                return isStateChanged ? contentMargin : prev;
             });
 
             setMainLineMargin((prev) => {
@@ -153,15 +176,9 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
 
                 return isStateChanged ? next : prev;
             });
-        }, [
-            headerMode,
-            showStaticContentOnTop,
-            showAnimatedContentOnTop,
-            leftAddons,
-            rightAddons,
-            hasBackButton,
-            hasCloser,
-        ]);
+
+            setCenteredInset(Math.max(leftAddonsWidth, rightAddonsWidth));
+        }, [headerMode, showStaticContentOnTop, leftAddons, rightAddons, hasBackButton, hasCloser]);
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
             const header = headerRef.current;
@@ -196,12 +213,77 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             return () => observer.disconnect();
         }, [withImageCollapse, isContentUnderImage]);
 
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            const mainLine = mainLineRef.current;
+            const content = inlineContentRef.current;
+
+            if (!withInlineCollapse || !mainLine || !content) return undefined;
+
+            const measure = () => {
+                setInlineExitDistance(
+                    mainLine.offsetTop + content.offsetTop + content.offsetHeight,
+                );
+                setInlineCollapseDistance(Math.max(0, mainLine.offsetHeight - ADDONS_HEIGHT));
+            };
+
+            measure();
+
+            if (typeof ResizeObserver === 'undefined') return undefined;
+
+            const observer = new ResizeObserver(measure);
+
+            observer.observe(content);
+
+            return () => observer.disconnect();
+        }, [withInlineCollapse]);
+
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            const content = bottomContentRef.current;
+
+            if (!withAnimation || !content) return undefined;
+
+            const measure = () => setBottomContentHeight(content.offsetHeight);
+
+            measure();
+
+            if (typeof ResizeObserver === 'undefined') return undefined;
+
+            const observer = new ResizeObserver(measure);
+
+            observer.observe(content);
+
+            return () => observer.disconnect();
+        }, [withAnimation, showAnimatedContentOnBot]);
+
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            const content = centeredContentRef.current;
+
+            if (!withCenteredContent || !content) return undefined;
+
+            const measure = () =>
+                setCenteredContentExtra(Math.max(0, content.offsetHeight - ADDONS_HEIGHT));
+
+            measure();
+
+            if (typeof ResizeObserver === 'undefined') return undefined;
+
+            const observer = new ResizeObserver(measure);
+
+            observer.observe(content);
+
+            return () => observer.disconnect();
+        }, [withCenteredContent]);
+
         useEffect(() => {
             const parent = scrollableParentRef?.current;
             const titleCollapseEnd = withTitleCollapse ? titleCollapseStart + ADDONS_HEIGHT * 2 : 0;
-            const maxScrollTop = withImageCollapse
-                ? Math.max(collapseDistance, titleCollapseEnd)
-                : ADDONS_HEIGHT * 2;
+            let maxScrollTop = titleFadeDistance + ADDONS_HEIGHT;
+
+            if (withImageCollapse) {
+                maxScrollTop = Math.max(collapseDistance, titleCollapseEnd);
+            } else if (withInlineCollapse) {
+                maxScrollTop = inlineExitDistance + ADDONS_HEIGHT;
+            }
 
             const handleScroll = (ev: Event) => {
                 const divElement = ev.target as HTMLDivElement;
@@ -213,7 +295,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 mainLinePaddingTopRef.current = getComputedStyle(headerRef.current).paddingTop;
             }
 
-            if ((withAnimation || withImageCollapse) && parent) {
+            if ((withAnimation || withImageCollapse || withInlineCollapse) && parent) {
                 parent.addEventListener('scroll', handleScroll);
             }
 
@@ -223,8 +305,11 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             withAnimation,
             withImageCollapse,
             withTitleCollapse,
+            withInlineCollapse,
             collapseDistance,
             titleCollapseStart,
+            inlineExitDistance,
+            titleFadeDistance,
         ]);
 
         const renderBackButton = () => {
@@ -315,6 +400,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
             <div
                 ref={mergeRefs([ref, headerRef])}
                 className={cn(styles.header, className, {
+                    [styles.withInlineCollapse]: withInlineCollapse,
                     [styles.withImage]: image,
                     [styles.withContentUnderImage]: isContentUnderImage,
                 })}
@@ -322,10 +408,11 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 style={{
                     ...(!isContentUnderImage && getImageSizeStyle(image)),
                     ...(withImageCollapse && { top: -collapseDistance }),
-                    ...(withAnimation &&
-                        bottomContentRef.current && {
-                            top: -bottomContentRef.current.scrollHeight,
+                    ...(withInlineCollapse &&
+                        inlineClipDistance > 0 && {
+                            clipPath: `inset(0 0 ${Math.min(scrollTop, inlineClipDistance)}px 0)`,
                         }),
+                    ...(withAnimation && { top: -bottomContentCollapseDistance }),
                 }}
                 data-name={dataName}
             >
@@ -339,6 +426,7 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                 <div
                     ref={mainLineRef}
                     className={cn(styles.mainLine, {
+                        [styles.mainLineInlineCollapse]: withInlineCollapse,
                         [styles.mainLineSticky]: withAnimation || withImageCollapse,
                         [styles.mainLineWithImageBg]: image && !isNavigationFilled,
                     })}
@@ -367,24 +455,34 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                             ...(headerMode !== 'left' && {
                                 extraClassName: styles.showStaticContentOnTop,
                             }),
+                            ...(withInlineCollapse && {
+                                wrapperRef: inlineContentRef,
+                                hidden: isInlineContentGone,
+                            }),
                             style: {
                                 ...collapsingStyle,
+                                ...(withInlineCollapse && {
+                                    transform: `translateY(${-Math.min(scrollTop, inlineExitDistance)}px)`,
+                                }),
                                 marginLeft: titleMargin.left,
                                 marginRight: titleMargin.right,
                             },
                         })}
 
-                    {showAnimatedContentOnTop &&
+                    {withCenteredContent &&
                         renderContent({
-                            extraClassName: styles.withBothAddons,
+                            wrapperRef: centeredContentRef,
+                            extraClassName: cn(styles.withBothAddons, styles.centeredContent),
                             style: {
                                 opacity: Math.min(
                                     1,
-                                    (titleScrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT,
+                                    Math.max(0, centeredContentProgress) / ADDONS_HEIGHT,
                                 ),
-                                marginLeft: titleMargin.left,
-                                marginRight: titleMargin.right,
+                                top: withAnimation ? headerPaddingTop : undefined,
+                                left: centeredInset,
+                                right: centeredInset,
                             },
+                            hidden: !showCenteredContent,
                             extraAlign: 'center',
                         })}
 
@@ -422,9 +520,12 @@ export const NavigationBarPrivateNext = forwardRef<HTMLDivElement, NavigationBar
                         wrapperRef: bottomContentRef,
                         extraClassName: styles.underAddons,
                         style: {
-                            opacity: Math.max(0, 1 - Math.max(0, titleScrollTop) / ADDONS_HEIGHT),
+                            opacity: Math.max(
+                                0,
+                                1 - Math.max(0, titleScrollTop) / titleFadeDistance,
+                            ),
                         },
-                        hidden: titleScrollTop / ADDONS_HEIGHT > 1,
+                        hidden: titleScrollTop > titleFadeDistance,
                         extraAlign: 'left',
                     })}
 
