@@ -1,0 +1,56 @@
+## Примеры
+
+Базовое использование без ленивой загрузки — картинка появляется сразу.
+
+```jsx live
+<Image src='https://web.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png' />
+```
+
+Глобальные настройки через `CoreConfigContext`: `proxyMap` и `inViewOption`.
+Пропсы компонента имеют приоритет над контекстом.
+
+При `inViewOption: true` картинка грузится только во viewport.
+Задайте размер заранее (`width`/`height` или CSS) — иначе при загрузке страница может прыгнуть.
+Проскролль блок ниже: до скролла слот пустой, после — картинка загружается.
+
+```jsx live
+render(() => (
+    <CoreConfigContext.Provider
+        value={{
+            breakpoint: 1024,
+            client: 'desktop',
+            components: {
+                Image: {
+                    inViewOption: true,
+                    proxyMap: [
+                        {
+                            from: 'https://web.alfabank.ru/mobile',
+                            to: 'https://alfaonline.servicecdn.ru/public',
+                        },
+                    ],
+                },
+            },
+        }}
+    >
+        <div
+            style={{
+                height: 280,
+                overflow: 'auto',
+                border: '1px solid var(--color-light-neutral-300)',
+                borderRadius: 8,
+                padding: 16,
+            }}
+        >
+            <div style={{ color: 'var(--color-light-text-secondary)', marginBottom: 12 }}>
+                Проскролль вниз → картинка загрузится при появлении во viewport
+            </div>
+            <div style={{ height: 400 }} />
+            <Image
+                src='https://web.alfabank.ru/mobile/s3/static/loyalty/services/travel_300x300.png'
+                width={300}
+                height={300}
+            />
+        </div>
+    </CoreConfigContext.Provider>
+));
+```
