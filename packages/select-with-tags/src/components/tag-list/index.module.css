@@ -19,7 +19,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction 14px;
+        @mixin indent-correction --gap-2s;
     }
 }
 
