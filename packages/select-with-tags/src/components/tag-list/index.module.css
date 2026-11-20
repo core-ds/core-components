@@ -1,8 +1,8 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
-@define-mixin indent-correction $var-name {
-    margin-left: calc(-1 * var($var-name));
-    padding-left: var($var-name);
+@define-mixin indent-correction $value {
+    margin-left: calc(-1 * $value);
+    padding-left: $value;
 }
 
 .component.size-72 {
@@ -19,7 +19,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-2s;
+        @mixin indent-correction 14px;
     }
 }
 
@@ -37,7 +37,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-10;
+        @mixin indent-correction var(--gap-10);
     }
 }
 
@@ -55,7 +55,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-10;
+        @mixin indent-correction var(--gap-10);
     }
 }
 
@@ -73,7 +73,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-6;
+        @mixin indent-correction var(--gap-6);
     }
 }
 
