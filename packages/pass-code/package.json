@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pass-code",
-    "version": "4.0.15",
+    "version": "4.0.16",
     "description": "Pass code",
     "keywords": [],
     "license": "MIT",
@@ -31,5 +31,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.2.2",
-    "varsVersion": "11.6.0"
+    "varsVersion": "11.6.1"
 }

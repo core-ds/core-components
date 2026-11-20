@@ -1,5 +1,13 @@
 # @alfalab/core-components-product-cover
 
+## 3.3.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.15
+
 ## 3.3.2
 
 ### Patch Changes

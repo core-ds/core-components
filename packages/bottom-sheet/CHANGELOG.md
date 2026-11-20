@@ -1,5 +1,22 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.22
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2471](https://github.com/core-ds/core-components/pull/2471)
+
+##### BottomSheet
+
+- Изменена блочная модель, размеры компонента рассчитываются с учетом отступов
+- На iOS высота шторки с `magneticAreas` рассчитывается так же, как без них
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.20
+
 ## 8.1.21
 
 ### Patch Changes

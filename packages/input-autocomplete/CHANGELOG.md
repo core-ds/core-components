@@ -1,5 +1,23 @@
 # @alfalab/core-components-input-autocomplete
 
+## 14.0.35
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-form-control@14.0.13
+- @alfalab/core-components-select@19.2.17
+- @alfalab/core-components-input@17.2.5
+
 ## 14.0.34
 
 ### Patch Changes
