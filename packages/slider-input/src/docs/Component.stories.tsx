@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { getQueryParam } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
+import { AmountInput } from '@alfalab/core-components-amount-input';
 import { SliderInput } from '@alfalab/core-components-slider-input';
 
 const meta: Meta<typeof SliderInput> = {
@@ -16,6 +18,8 @@ export const slider_input: Story = {
     render: () => {
         const [value, setValue] = React.useState('50');
         const handleChange = (event, { value }) => setValue(value);
+        const amountInput = Boolean(getQueryParam('knob-amountInput', true));
+        const fontWeight = getQueryParam('knob-fontWeight');
         return (
             <SliderInput
                 value={value}
@@ -38,6 +42,8 @@ export const slider_input: Story = {
                 info={text('info', '')}
                 error={text('error', '')}
                 readOnly={boolean('readOnly', false)}
+                Input={amountInput ? AmountInput : undefined}
+                fontWeight={fontWeight}
             />
         );
     },

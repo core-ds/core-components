@@ -82,7 +82,7 @@ export const BaseInput = forwardRef<
             disableUserInput,
             platformStyles = {},
             bold,
-            fontWeight = bold ? 'bold' : 'normal',
+            fontWeight = bold ? 'bold' : 'regular',
             ...restProps
         },
         ref,
