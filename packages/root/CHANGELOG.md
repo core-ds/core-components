@@ -1,5 +1,122 @@
 # @alfalab/core-components
 
+## 50.43.2
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2473](https://github.com/core-ds/core-components/pull/2473)
+
+##### SliderInput
+
+- Исправлен проброс пропа `bold` во внутренний инпут — как в стандартный `Input`, так и в компонент, переданный через проп `Input`
+- Начертание задаётся пропом `fontWeight`, как в `Input`. Проп `bold` помечен устаревшим, используйте `fontWeight`
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2455](https://github.com/core-ds/core-components/pull/2455)
+
+##### UniversalModal
+
+- В мобильной версии стандартная кнопка «Назад» в шапке приведена в соответствие с дизайном (убран текст, обновлена иконка)
+- Исправлена высота шапки в мобильной версии
+- Исправлено выравнивание заголовка в мобильной версии
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2473](https://github.com/core-ds/core-components/pull/2473)
+
+##### Input
+
+- Исправлено значение пропа `fontWeight` по умолчанию
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2455](https://github.com/core-ds/core-components/pull/2455)
+
+##### NavigationBarPrivate
+
+- Изменения, не влияющие на работу компонента
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2471](https://github.com/core-ds/core-components/pull/2471)
+
+##### BottomSheet
+
+- Изменена блочная модель, размеры компонента рассчитываются с учетом отступов
+- На iOS высота шторки с `magneticAreas` рассчитывается так же, как без них
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider-input@11.1.13
+- @alfalab/core-components-navigation-bar-private@2.0.20
+- @alfalab/core-components-input-autocomplete@14.0.35
+- @alfalab/core-components-select-with-tags@10.1.30
+- @alfalab/core-components-form-control@14.0.13
+- @alfalab/core-components-typography@6.0.15
+- @alfalab/core-components-pass-code@4.0.16
+- @alfalab/core-components-checkbox@6.3.4
+- @alfalab/core-components-textarea@10.2.1
+- @alfalab/core-components-select@19.2.17
+- @alfalab/core-components-switch@6.2.5
+- @alfalab/core-components-input@17.2.5
+- @alfalab/core-components-radio@6.1.4
+- @alfalab/core-components-text@3.0.4
+- @alfalab/core-components-vars@11.6.1
+- @alfalab/core-components-universal-modal@3.2.12
+- @alfalab/core-components-bottom-sheet@8.1.22
+- @alfalab/core-components-modal@11.0.23
+- @alfalab/core-components-popup-sheet@3.0.23
+- @alfalab/core-components-side-panel@7.1.8
+- @alfalab/core-components-international-phone-input@4.0.35
+- @alfalab/core-components-intl-phone-input@11.0.35
+- @alfalab/core-components-accordion@3.1.1
+- @alfalab/core-components-calendar@9.1.20
+- @alfalab/core-components-chart@5.0.15
+- @alfalab/core-components-circular-progress-bar@5.0.15
+- @alfalab/core-components-comment@4.0.15
+- @alfalab/core-components-confirmation@15.3.2
+- @alfalab/core-components-file-upload-item@8.2.8
+- @alfalab/core-components-gallery@7.4.10
+- @alfalab/core-components-list@5.0.16
+- @alfalab/core-components-list-header@5.0.15
+- @alfalab/core-components-markdown@3.2.1
+- @alfalab/core-components-navigation-bar@3.0.18
+- @alfalab/core-components-product-cover@3.3.3
+- @alfalab/core-components-pure-cell@6.1.4
+- @alfalab/core-components-stepped-progress-bar@4.0.15
+- @alfalab/core-components-tab-bar@4.0.16
+- @alfalab/core-components-custom-picker-button@4.1.30
+- @alfalab/core-components-picker-button@13.1.13
+- @alfalab/core-components-table@4.0.36
+- @alfalab/core-components-amount-input@9.4.4
+- @alfalab/core-components-date-input@6.0.18
+- @alfalab/core-components-date-range-input@5.0.26
+- @alfalab/core-components-date-time-input@6.0.26
+- @alfalab/core-components-masked-input@8.0.19
+- @alfalab/core-components-number-input@4.0.19
+- @alfalab/core-components-password-input@7.0.19
+- @alfalab/core-components-time-input@4.0.18
+- @alfalab/core-components-universal-date-input@4.0.26
+- @alfalab/core-components-with-suffix@6.0.19
+- @alfalab/core-components-tooltip@9.0.28
+- @alfalab/core-components-calendar-input@12.0.26
+- @alfalab/core-components-calendar-range@9.1.12
+- @alfalab/core-components-calendar-with-skeleton@7.0.24
+- @alfalab/core-components-tabs@10.1.10
+- @alfalab/core-components-bank-card@7.0.20
+- @alfalab/core-components-phone-input@9.0.20
+
 ## 50.43.1
 
 ### Patch Changes
