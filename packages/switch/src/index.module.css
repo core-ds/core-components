@@ -99,7 +99,7 @@
         margin: var(--gap-6) 0;
 
         &:not(:only-child) {
-            /* stylelint-disable */
+            /* stylelint-disable-next-line */
             margin-bottom: 14px;
         }
     }
