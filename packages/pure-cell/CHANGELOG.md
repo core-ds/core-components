@@ -1,5 +1,25 @@
 # @alfalab/core-components-pure-cell
 
+## 6.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+
+## 6.1.2
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
 ## 6.1.1
 
 ### Patch Changes

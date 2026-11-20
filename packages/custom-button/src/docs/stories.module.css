@@ -1,0 +1,9 @@
+@media (hover: hover) {
+    .customState:hover:before {
+        background-color: #7b3fe4;
+    }
+}
+
+.customState:active:before {
+    background-color: #1f2a44;
+}

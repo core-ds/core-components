@@ -135,8 +135,11 @@ jobs:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
 
-    codemod-test:
+    package-test:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                package: ['codemod', 'mcp']
         steps:
             - name: Checkout
               uses: actions/checkout@v6
@@ -146,9 +149,9 @@ jobs:
               env:
                   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-            - name: Run codemod test
+            - name: Run test
               run: |
-                  yarn test:codemod
+                  yarn test:${{ matrix.package }}
 
     upload-coverage:
         needs: test
@@ -270,7 +273,7 @@ jobs:
     ok:
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, demo, test, screenshot-test, setup-variant, codemod-test, search-vars]
+        needs: [lint, build, demo, test, screenshot-test, setup-variant, package-test, search-vars]
         env:
             RETURN_CODE: ${{ case(contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled'), 1, 0) }}
         steps:

@@ -74,6 +74,24 @@ describe('Accordion', () => {
     });
 
     describe('Accordion callbacks calls', () => {
+        beforeEach(() => {
+            Object.defineProperty(Element.prototype, 'animate', {
+                value: jest.fn(() => ({
+                    cancel: jest.fn(),
+                    pause: jest.fn(),
+                    play: jest.fn(),
+                    onfinish: null,
+                    startTime: null,
+                })),
+                configurable: true,
+                writable: true,
+            });
+        });
+
+        afterEach(() => {
+            delete (Element.prototype as Partial<Element>).animate;
+        });
+
         it('should call "onExpandedChange" prop', () => {
             const onExpandedChange = jest.fn();
             const { getByRole } = renderComponent({

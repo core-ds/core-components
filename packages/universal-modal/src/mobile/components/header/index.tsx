@@ -28,6 +28,10 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
         title,
         dataTestId,
         bottomAddonsClassName,
+        backButtonProps,
+        backButtonClassName,
+        closerClassName,
+        closerProps,
         onClose,
         ...restProps
     } = props;

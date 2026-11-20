@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.6.0
+
+### Minor Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2460](https://github.com/core-ds/core-components/pull/2460)
+
+##### Vars
+
+- Добавлены миксины `disabled` и `not-disabled`
+
 ## 11.5.0
 
 ### Minor Changes

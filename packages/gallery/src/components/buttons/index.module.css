@@ -11,14 +11,14 @@
 
 .iconButton {
     & path {
-        color: var(--color-static-neutral-100);
+        color: var(--color-light-text-primary-inverted);
     }
 
     &:hover path {
-        color: var(--color-static-neutral-100-hover);
+        color: var(--color-light-text-primary-inverted-hover);
     }
 
     &:active path {
-        color: var(--color-static-neutral-100-press);
+        color: var(--color-light-text-primary-inverted-press);
     }
 }

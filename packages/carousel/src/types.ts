@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { type ComponentProps, type ComponentType, type ElementType, type ReactNode } from 'react';
+import {
+    type ComponentProps,
+    type ComponentType,
+    type CSSProperties,
+    type ElementType,
+    type ReactNode,
+} from 'react';
 
 export interface ItemProps {
     className?: string;
@@ -126,6 +132,14 @@ export interface GeneralCarouselProps {
      * @default 300
      */
     longSwipeTimeMs?: number;
+    /**
+     * Инлайн-стили контейнера карусели
+     */
+    style?: CSSProperties;
+    /**
+     * Дополнительный класс контейнера карусели
+     */
+    className?: string;
 }
 
 export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {

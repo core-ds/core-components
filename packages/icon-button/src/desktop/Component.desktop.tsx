@@ -8,9 +8,7 @@ import clientStyles from './desktop.module.css';
 export type IconButtonDesktopProps = IconButtonProps;
 
 export const IconButtonDesktop = forwardRef<HTMLButtonElement, IconButtonDesktopProps>(
-    (props, ref) => (
-        <BaseIconButton {...props} ref={ref} client='desktop' clientStyles={clientStyles} />
-    ),
+    (props, ref) => <BaseIconButton {...props} ref={ref} clientStyles={clientStyles} />,
 );
 
 IconButtonDesktop.displayName = 'IconButtonDesktop';

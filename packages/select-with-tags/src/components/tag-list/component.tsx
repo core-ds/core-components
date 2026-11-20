@@ -121,6 +121,7 @@ export const TagList: FC<
             setVisibleElements(totalVisibleElements);
         }
         handleUpdatePopover?.();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [collapseTagList, visibleElements, autocomplete]);
 
     const handleFocus = useCallback(() => setFocused(true), []);

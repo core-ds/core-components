@@ -87,8 +87,7 @@ describe('Collapse', () => {
     });
 
     describe('Collapse content visibility', () => {
-        // FIXME run transitions in test env with some resonable timeout
-        xit('should have class `.expanded` when button click', async () => {
+        it('should have class `.expanded` when button click', async () => {
             const buttonText = 'Показать';
             const expandedContentClassName = 'expanded-test-class';
             const expandedClassName = 'expanded';

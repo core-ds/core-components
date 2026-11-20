@@ -1,5 +1,47 @@
 # @alfalab/core-components-input-autocomplete
 
+## 14.0.34
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.16
+
+## 14.0.33
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2443](https://github.com/core-ds/core-components/pull/2443)
+
+##### InputAutocomplete
+
+- В мобильной версии поле не выделяется после закрытия шторки или модального окна
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.15
+- @alfalab/core-components-popover@8.1.6
+- @alfalab/core-components-input@17.2.4
+
+## 14.0.32
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.14
+
+## 14.0.31
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.13
+
 ## 14.0.30
 
 ### Patch Changes

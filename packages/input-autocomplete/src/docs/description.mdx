@@ -89,7 +89,7 @@ render(() => {
                 isBottomSheet={!showInModal}
                 inputProps={{
                     onClear: () => setValue(''),
-                    clear: true,
+                    clear: isMobile() ? true : 'auto',
                 }}
                 optionsListProps={{
                     emptyPlaceholder: (

@@ -62,6 +62,28 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Title>
             ),
+            h5: ({ children }) => (
+                <Title
+                    font={font}
+                    className={cn(styles.h5, 'h5')}
+                    tag='h5'
+                    view='xsmall'
+                    color='primary'
+                >
+                    {children}
+                </Title>
+            ),
+            h6: ({ children }) => (
+                <Title
+                    font={font}
+                    className={cn(styles.h6, 'h6')}
+                    tag='h6'
+                    view='xsmall'
+                    color='primary'
+                >
+                    {children}
+                </Title>
+            ),
             p: ({ children }) => (
                 <TypographyText className='p' tag='p' view='primary-medium' color='primary'>
                     {children}

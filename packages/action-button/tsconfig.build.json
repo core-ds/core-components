@@ -9,6 +9,8 @@
         "paths": {
             "@alfalab/core-components-action-button": ["./src"],
             "@alfalab/core-components-action-button/*": ["./src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-spinner": ["../spinner/src"],
@@ -16,6 +18,7 @@
         }
     },
     "references": [
+        { "path": "../button/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../spinner/tsconfig.build.json" }
     ]

@@ -1,5 +1,18 @@
 # @alfalab/core-components-themes
 
+## 15.2.2
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2433](https://github.com/core-ds/core-components/pull/2433)
+
+##### Themes
+
+- Удалена темизация `site` для `CalendarInput`
+- Удалена темизация `site` для `UniversalDateInput`
+
 ## 15.2.1
 
 ### Patch Changes

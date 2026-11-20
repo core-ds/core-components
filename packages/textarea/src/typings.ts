@@ -1,6 +1,12 @@
-import { type ChangeEvent, type ReactNode, type TextareaHTMLAttributes } from 'react';
+import {
+    type ChangeEvent,
+    type MouseEvent,
+    type ReactNode,
+    type TextareaHTMLAttributes,
+} from 'react';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { type InputProps } from '@alfalab/core-components-input';
 
 type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -20,6 +26,19 @@ export type TextareaIncomeProps = {
      * Начальное значение поля
      */
     defaultValue?: string;
+
+    /**
+     * Крестик для очистки поля: never — скрыт,
+     * auto — при наведении или фокусе, always — всегда.
+     * Отображается только в непустом доступном для редактирования поле.
+     * @default never
+     */
+    clear?: Exclude<InputProps['clear'], boolean>;
+
+    /**
+     * Обработчик нажатия на кнопку очистки
+     */
+    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
      * Растягивает компонент на ширину контейнера

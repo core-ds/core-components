@@ -1,4 +1,4 @@
-import React, { type ElementType } from 'react';
+import React, { type ComponentType, type SVGProps } from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop, type ButtonDesktopProps } from '@alfalab/core-components-button/desktop';
@@ -39,11 +39,6 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     textOpacity?: number;
 
     /**
-     * Иконка
-     */
-    icon?: ElementType;
-
-    /**
      * Размер компонента
      * @default 48 для desktop, 32 для mobile
      */
@@ -63,6 +58,11 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
      * Дополнительный класс обертки иконки
      */
     iconWrapperClassName?: string;
+
+    /**
+     * Иконка
+     */
+    icon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
@@ -70,15 +70,14 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     onClick,
     className,
     textOpacity = 1,
-    icon,
     view,
     size = view === 'desktop' ? 48 : 32,
     colors = 'default',
+    icon: Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon,
     iconWrapperClassName,
     ...htmlAttributes
 }) => {
     const isMobileView = view === 'mobile';
-    const Icon = icon ?? (view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon);
 
     return (
         <ButtonDesktop

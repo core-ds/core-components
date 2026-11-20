@@ -1,5 +1,26 @@
 # @alfalab/core-components-confirmation
 
+## 15.3.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-code-input@5.1.7
+- @alfalab/core-components-button@13.3.0
+
+## 15.3.0
+
+### Minor Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2431](https://github.com/core-ds/core-components/pull/2431)
+
+##### Confirmation
+
+- Добавлена возможность изменения текста у подзаголовка
+
 ## 15.2.6
 
 ### Patch Changes

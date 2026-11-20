@@ -697,8 +697,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(
                             styles.component,
-                            bgClassName,
-                            colorStyle.component,
+                            bgClassName || colorStyle.component,
                             className,
                             {
                                 [styles.withTransition]:
@@ -750,7 +749,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {actionButton === null ? null : (
                                 <Footer
                                     sticky={stickyFooter}
-                                    className={cn(bgClassName, footerClassName)}
+                                    className={footerClassName}
                                     colors={colors}
                                     dataTestId={getDataTestId(dataTestId, 'footer')}
                                 >

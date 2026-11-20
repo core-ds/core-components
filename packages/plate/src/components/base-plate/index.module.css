@@ -129,6 +129,7 @@
 .subAddons {
     cursor: default;
     align-self: flex-start;
+    margin-left: var(--gap-4);
 }
 
 .rowReverse {

@@ -1,6 +1,43 @@
 @import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-button/src/vars.css';
+
+@define-mixin button-component {
+    @mixin reset-tap-highlight-color;
+
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: unset;
+    padding: unset;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border 0.2s ease,
+        color 0.2s ease;
+    box-sizing: border-box;
+
+    /* Disabled */
+
+    @mixin disabled {
+        cursor: var(--disabled-cursor);
+
+        & * {
+            pointer-events: none;
+        }
+    }
+}
 
 :root {
+    /* misc */
+    --button-border-width: 1px;
+
     /* border-radius desktop */
     --button-xxs-size-border-radius: var(--border-radius-8);
     --button-xs-size-border-radius: var(--border-radius-10);

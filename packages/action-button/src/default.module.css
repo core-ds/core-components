@@ -11,9 +11,9 @@
     /* secondary */
     --action-button-secondary-base-color: var(--color-light-text-primary);
     --action-button-secondary-base-icon-color: var(--color-light-neutral-translucent-1300);
-    --action-button-secondary-base-bg-color: var(--color-light-neutral-100);
-    --action-button-secondary-hover-color: var(--color-light-neutral-100-hover);
-    --action-button-secondary-active-color: var(--color-light-neutral-100-press);
+    --action-button-secondary-base-bg-color: var(--color-light-neutral-translucent-100);
+    --action-button-secondary-hover-color: var(--color-light-neutral-translucent-100-hover);
+    --action-button-secondary-active-color: var(--color-light-neutral-translucent-100-press);
 
     /* spinner */
     --action-button-spinner-primary-color: var(--color-light-neutral-translucent-1300-inverted);
@@ -21,29 +21,31 @@
 
     /* disabled */
     --action-button-disabled-color: var(--color-light-text-tertiary);
-    --action-button-disabled-icon-color: var(--color-light-neutral-500);
-    --action-button-disabled-bg-color: var(--color-light-neutral-100);
+    --action-button-disabled-icon-color: var(--color-light-neutral-translucent-500);
+    --action-button-disabled-bg-color: var(--color-light-neutral-translucent-100);
 }
 
 .primary {
     color: var(--action-button-primary-base-color);
 
-    & .iconWrapper {
+    .iconWrapper {
         color: var(--action-button-primary-base-icon-color);
-        background-color: var(--action-button-primary-base-bg-color);
+        background: var(--action-button-primary-base-bg-color);
     }
 
-    @media (hover: hover) {
-        &:hover .iconWrapper {
-            background-color: var(--action-button-primary-hover-color);
+    @mixin not-disabled {
+        @mixin hover {
+            .iconWrapper {
+                background: var(--action-button-primary-hover-color);
+            }
+        }
+
+        &:active .iconWrapper {
+            background: var(--action-button-primary-active-color);
         }
     }
 
-    &:active .iconWrapper {
-        background-color: var(--action-button-primary-active-color);
-    }
-
-    & .loader {
+    .loader {
         color: var(--action-button-spinner-primary-color);
     }
 }
@@ -51,31 +53,37 @@
 .secondary {
     color: var(--action-button-secondary-base-color);
 
-    & .iconWrapper {
+    .iconWrapper {
         color: var(--action-button-secondary-base-icon-color);
-        background-color: var(--action-button-secondary-base-bg-color);
+        background: var(--action-button-secondary-base-bg-color);
     }
 
-    @media (hover: hover) {
-        &:hover .iconWrapper {
-            background-color: var(--action-button-secondary-hover-color);
+    @mixin not-disabled {
+        @mixin hover {
+            .iconWrapper {
+                background: var(--action-button-secondary-hover-color);
+            }
+        }
+
+        &:active .iconWrapper {
+            background: var(--action-button-secondary-active-color);
         }
     }
 
-    &:active .iconWrapper {
-        background-color: var(--action-button-secondary-active-color);
-    }
-
-    & .loader {
+    .loader {
         color: var(--action-button-spinner-default-color);
     }
 }
 
-.disabled {
-    color: var(--action-button-disabled-color);
+.component {
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--action-button-disabled-color);
 
-    & .iconWrapper {
-        color: var(--action-button-disabled-icon-color);
-        background-color: var(--action-button-disabled-bg-color);
+            .iconWrapper {
+                color: var(--action-button-disabled-icon-color);
+                background: var(--action-button-disabled-bg-color);
+            }
+        }
     }
 }

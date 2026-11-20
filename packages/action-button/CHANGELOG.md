@@ -1,5 +1,41 @@
 # @alfalab/core-components-action-button
 
+## 3.0.12
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton, CustomButton, IconButton, Button, PatternLockV1
+
+- Рефакторинг, не влияющий на работу компонента
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2451](https://github.com/core-ds/core-components/pull/2451)
+
+##### ActionButton
+
+- Исправлено состояние `loading`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+
+## 3.0.11
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
 ## 3.0.10
 
 ### Patch Changes

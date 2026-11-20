@@ -119,7 +119,7 @@ export const AutocompleteMobileField = ({
                 })}
                 block={true}
                 size={size}
-                focused={focused}
+                focused={open && focused}
                 disabled={disabled}
                 filled={filled}
                 labelView={labelView}

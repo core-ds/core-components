@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import postcss, { Plugin } from 'postcss';
+import postcss, { type Plugin } from 'postcss';
 
 // Vars for replacement {old-var: new-var}
 const replacement = {

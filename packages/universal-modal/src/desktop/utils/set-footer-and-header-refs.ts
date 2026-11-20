@@ -36,8 +36,6 @@ export const setFooterAndHeaderRefs = (params: Params) => {
             const existingRef = child as ReactElement & RefAttributes<HTMLDivElement>;
 
             return cloneElement(child, {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 ref: mergeRefs([existingRef.ref ?? null, headerElementRef]),
             });
         }
@@ -46,9 +44,7 @@ export const setFooterAndHeaderRefs = (params: Params) => {
             const existingRef = child as ReactElement & RefAttributes<HTMLDivElement>;
 
             return cloneElement(child, {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                ref: mergeRefs([existingRef.ref, footerElementRef]),
+                ref: mergeRefs([existingRef.ref ?? null, footerElementRef]),
             });
         }
 

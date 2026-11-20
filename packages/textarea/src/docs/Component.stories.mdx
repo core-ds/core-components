@@ -1,5 +1,7 @@
+import { useState, useEffect, createElement } from 'react'
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { text, select, boolean, number, CHANGE } from '@storybook/addon-knobs';
+import { addons } from '@storybook/addons';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
@@ -9,43 +11,57 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
 
+export const TextareaStory = () => {
+    const size = select('size', [40, 48, 56, 64, 72], 48);
+    const knobValue = text('value', '');
+    const [value, setValue] = useState(knobValue);
+    const IconComponent = Number(size) === 40 ? DiamondsSIcon : StarMIcon;
+
+    useEffect(() => {
+        setValue(knobValue);
+    }, [knobValue]);
+
+    const handleValueChange = (newValue) => {
+        setValue(newValue);
+        addons.getChannel().emit(CHANGE, { name: 'value', value: newValue });
+    };
+
+    return (
+        <Textarea
+            value={value}
+            onChange={(_, { value: newValue }) => handleValueChange(newValue)}
+            onClear={() => handleValueChange('')}
+            clear={select('clear', ['auto', 'always', 'never', undefined], 'never')}
+            showCounter={boolean('showCounter', false)}
+            maxLength={number('maxLength', 500)}
+            autosize={boolean('autosize', true)}
+            allowOverflow={boolean('allowOverflow', true)}
+            block={boolean('block', false)}
+            size={size}
+            disabled={boolean('disabled', false)}
+            placeholder={text('placeholder', '')}
+            resize={select('resize', ['none', 'vertical'], 'none')}
+            minRows={number('minRows', undefined)}
+            maxRows={number('maxRows', undefined)}
+            maxHeight={number('maxHeight', undefined)}
+            label={text('label', '')}
+            labelView={select('labelView', ['inner', 'outer'], 'inner')}
+            hint={text('hint', '')}
+            error={text('error', '')}
+            rightAddons={boolean('rightAddons', false) && !text('error') && <IconComponent />}
+            leftAddons={boolean('leftAddons', false) && <IconComponent />}
+            bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+            readOnly={boolean('readOnly', false)}
+            nativeScrollbar={boolean('nativeScrollbar', false)}
+        />
+    );
+};
+
 <Meta title='Components/Textarea' component={Textarea} id='Textarea' />
 
 {/* Canvas */}
 
-<Story name='Textarea'>
-    {React.createElement(() => {
-        const size = select('size', [40, 48, 56, 64, 72], 48);
-        const IconComponent = Number(size) === 40 ? DiamondsSIcon : StarMIcon;
-
-        return (
-            <Textarea
-                value={text('value', '')}
-                showCounter={boolean('showCounter', false)}
-                maxLength={number('maxLength', 500)}
-                autosize={boolean('autosize', true)}
-                allowOverflow={boolean('allowOverflow', true)}
-                block={boolean('block', false)}
-                size={size}
-                disabled={boolean('disabled', false)}
-                placeholder={text('placeholder', '')}
-                resize={select('resize', ['none', 'vertical'], 'none')}
-                minRows={number('minRows', undefined)}
-                maxRows={number('maxRows', undefined)}
-                maxHeight={number('maxHeight', undefined)}
-                label={text('label', '')}
-                labelView={select('labelView', ['inner', 'outer'], 'inner')}
-                hint={text('hint', '')}
-                error={text('error', '')}
-                rightAddons={boolean('rightAddons', false) && !text('error') && <IconComponent />}
-                leftAddons={boolean('leftAddons', false) && <IconComponent />}
-                bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-                readOnly={boolean('readOnly', false)}
-                nativeScrollbar={boolean('nativeScrollbar', false)}
-            />
-        );
-    })}
-</Story>
+<Story name='Textarea'>{createElement(TextareaStory)}</Story>
 
 {/* Docs */}
 

@@ -13,9 +13,10 @@ render(() => {
         <div style={{ width: isMobile() ? '100%' : 320 }}>
             <SliderInput
                 value={value1}
-                label='Label'
+                label='Выберите число'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 48 : 56}
+                bold={false}
                 pips={{
                     mode: 'values',
                     values: [min, 10 / 2, 10],
@@ -30,9 +31,10 @@ render(() => {
             <Gap size={24} />
             <SliderInput
                 value={value2}
-                label='Label'
+                label='Выберите число'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 48 : 56}
+                bold={false}
                 pips={{
                     mode: 'values',
                     values: [min, 10, 100],
@@ -79,7 +81,7 @@ const pips = {
 };
 
 render(() => {
-    const [value, setValue] = React.useState(150000);
+    const [value, setValue] = React.useState(180000);
     const [props, setProps] = React.useState({});
 
     return (
@@ -88,9 +90,10 @@ render(() => {
                 <SliderInput
                     value={formatAmountSimple(value)}
                     sliderValue={value}
-                    label='Label'
+                    label='Первоначальный взнос'
                     labelView={isMobile() ? 'outer' : 'inner'}
                     size={isMobile() ? 48 : 56}
+                    bold={false}
                     pips={pips}
                     min={min}
                     max={max}
@@ -101,14 +104,15 @@ render(() => {
                     {...props}
                 />
             </div>
-            <Gap size={24} />
-
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
             <Space direction='horizontal' wrap={true}>
                 <Button onClick={() => setProps({})} size={32} view='secondary'>
                     По умолчанию
                 </Button>
                 <Button onClick={() => setProps({ error: 'Error' })} size={32} view='secondary'>
-                    Ошибка
+                    Состояние ошибки
                 </Button>
                 <Button
                     onClick={() => setProps({ disabled: true, hint: 'Hint' })}
@@ -123,9 +127,11 @@ render(() => {
 });
 ```
 
-## Amount
+## Числа
 
-Используйте Amount для деления введенных значений на разряды.
+Используйте `AmountInput` для деления введённых значений на разряды.
+
+Весом значения можно управлять с помощью пропса `bold`.
 
 ```jsx live
 const min = 50000;
@@ -149,7 +155,8 @@ const pips = {
 };
 
 render(() => {
-    const [value, setValue] = React.useState(120000);
+    const [value, setValue] = React.useState(180000);
+    const [bold, setBold] = React.useState(false);
 
     const handleInputChange = (event, { value }) => {
         setValue(value !== '' ? (value / 100).toString() : '');
@@ -165,32 +172,127 @@ render(() => {
         }
     };
 
+    const handleBoldChange = (_, payload) => {
+        setBold(payload.checked);
+    };
+
     return (
-        <div style={{ width: isMobile() ? '100%' : 320 }}>
-            <SliderInput
-                block={true}
-                value={value !== '' ? value * 100 : ''}
-                sliderValue={value}
-                onInputChange={handleInputChange}
-                onSliderChange={handleSliderChange}
-                onBlur={handleBlur}
-                min={min}
-                max={max}
-                range={range}
-                pips={pips}
-                step={step}
-                label='Первоначальный взнос'
-                Input={AmountInput}
-                labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 48 : 56}
-                breakpoint={BREAKPOINT}
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <SliderInput
+                    block={true}
+                    value={value !== '' ? value * 100 : ''}
+                    sliderValue={value}
+                    onInputChange={handleInputChange}
+                    onSliderChange={handleSliderChange}
+                    onBlur={handleBlur}
+                    min={min}
+                    max={max}
+                    range={range}
+                    pips={pips}
+                    step={step}
+                    label='Первоначальный взнос'
+                    Input={AmountInput}
+                    customInputProps={{ bold }}
+                    bold={bold}
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch label='Bold' checked={bold} onChange={handleBoldChange} />
+        </React.Fragment>
+    );
+});
+```
+
+Если инпут по умолчанию должен содержать ноль в качестве value, используйте `zeroValue`, чтобы упростить ввод. Эта опция возвращает дефолтное значение при очистке инпута и убирает ноль при фокусе.
+
+```jsx live
+const min = 0;
+const max = 10000000;
+const step = 1000;
+const range = {
+    min: [min],
+    '25%': [100000, 10000],
+    '75%': [1000000, 100000],
+    max: [max],
+};
+const pips = {
+    mode: 'values',
+    values: [min, max],
+    format: {
+        to: (value) => {
+            if (value === 0) return '0';
+            if (value < 1000000) return `${value / 1000} тыс`;
+            return `${value / 1000000} млн`;
+        },
+    },
+};
+
+render(() => {
+    const [value, setValue] = React.useState(0);
+    const [zeroValue, setZeroValue] = React.useState(true);
+
+    const handleInputChange = (event, { value }) => {
+        setValue(value !== '' ? (value / 100).toString() : '');
+    };
+
+    const handleSliderChange = ({ value }) => {
+        setValue(value);
+    };
+
+    const handleBlur = () => {
+        if (value !== '') {
+            setValue(Math.max(min, Math.min(max, parseFloat(value.toString()))));
+        }
+    };
+
+    const handleZeroValueChange = (_, payload) => {
+        setZeroValue(payload.checked);
+    };
+
+    return (
+        <React.Fragment>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
+                <SliderInput
+                    block={true}
+                    value={value !== '' ? value * 100 : ''}
+                    sliderValue={value}
+                    onInputChange={handleInputChange}
+                    onSliderChange={handleSliderChange}
+                    onBlur={handleBlur}
+                    min={min}
+                    max={max}
+                    range={range}
+                    pips={pips}
+                    step={step}
+                    label='Первоначальный взнос'
+                    Input={AmountInput}
+                    customInputProps={{ bold: false }}
+                    bold={false}
+                    zeroValue={zeroValue}
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 48 : 56}
+                    breakpoint={BREAKPOINT}
+                />
+            </div>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                label='Сбрасывать 0 при фокусе'
+                checked={zeroValue}
+                onChange={handleZeroValueChange}
             />
-        </div>
+        </React.Fragment>
     );
 });
 ```
 
 ## Морфология
 
-Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),
-поэтому наследует все доступные для него настройки. Для слайдера используется компонент [Slider](?path=/docs/slider--docs)
+Компонент является оберткой над [FormControl](?path=/docs/formcontrol--docs), поэтому наследует все доступные для него настройки. За отображение суммы отвечает компонент [Amount](?path=/docs/amount--docs).

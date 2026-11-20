@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "8.1.5",
+    "version": "8.1.6",
     "description": "Popover component",
     "keywords": [],
     "license": "MIT",
@@ -36,6 +36,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.2.1",
-    "varsVersion": "11.5.0"
+    "themesVersion": "15.2.2",
+    "varsVersion": "11.6.0"
 }

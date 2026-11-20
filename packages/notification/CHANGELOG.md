@@ -1,5 +1,21 @@
 # @alfalab/core-components-notification
 
+## 9.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-toast-plate@9.1.11
+
+## 9.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-toast-plate@9.1.10
+
 ## 9.0.14
 
 ### Patch Changes

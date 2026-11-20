@@ -14,8 +14,6 @@
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-skeleton": ["../skeleton/src"],
             "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-typography": ["./src"],
             "@alfalab/core-components-typography/*": ["./src/*"]
         }
@@ -24,7 +22,6 @@
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../skeleton/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../skeleton/tsconfig.build.json" }
     ]
 }

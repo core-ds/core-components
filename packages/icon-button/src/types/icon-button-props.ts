@@ -5,12 +5,16 @@ import {
     type ReactElement,
 } from 'react';
 
-import { type ButtonProps } from '@alfalab/core-components-button';
+import { type BaseButtonCustomProps } from '@alfalab/core-components-button/shared';
 
 export interface IconButtonProps
     extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>,
-        Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'>,
+        Pick<BaseButtonCustomProps, 'Component' | 'loading'>,
         Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> {
+    /**
+     * Выводит ссылку в виде кнопки
+     */
+    href?: string;
     /**
      * Компонент иконки
      */

@@ -12,11 +12,17 @@
             "@alfalab/core-components-icon-button": ["./src"],
             "@alfalab/core-components-icon-button/*": ["./src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"]
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-spinner": ["../spinner/src"],
+            "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
     },
     "references": [
         { "path": "../button/tsconfig.build.json" },
-        { "path": "../mq/tsconfig.build.json" }
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../spinner/tsconfig.build.json" }
     ]
 }

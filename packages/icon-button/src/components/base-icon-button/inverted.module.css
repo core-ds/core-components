@@ -62,71 +62,163 @@
     );
 }
 
-:global(.cc-icon-button) {
-    &.primary {
-        color: var(--icon-button-inverted-primary-base-color);
+.primary {
+    color: var(--icon-button-inverted-primary-base-color);
 
-        @mixin hover {
-            color: var(--icon-button-inverted-primary-hover-color);
+    @mixin not-disabled {
+        &:not(.transparentBg) {
+            @mixin hover {
+                color: var(--icon-button-inverted-primary-hover-color);
+            }
+
+            &:active {
+                color: var(--icon-button-inverted-primary-active-color);
+            }
         }
+    }
 
-        &:active {
-            color: var(--icon-button-inverted-primary-active-color);
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--icon-button-inverted-primary-disabled-color);
+        }
+    }
+}
+
+.secondary {
+    color: var(--icon-button-inverted-secondary-base-color);
+
+    @mixin not-disabled {
+        &:not(.transparentBg) {
+            @mixin hover {
+                color: var(--icon-button-inverted-secondary-hover-color);
+            }
+
+            &:active {
+                color: var(--icon-button-inverted-secondary-active-color);
+            }
+        }
+    }
+
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--icon-button-inverted-secondary-disabled-color);
+        }
+    }
+}
+
+.transparent {
+    color: var(--icon-button-inverted-transparent-base-color);
+
+    @mixin not-disabled {
+        &:not(.transparentBg) {
+            @mixin hover {
+                color: var(--icon-button-inverted-transparent-hover-color);
+            }
+
+            &:active {
+                color: var(--icon-button-inverted-transparent-active-color);
+            }
+        }
+    }
+
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--icon-button-inverted-transparent-disabled-color);
+        }
+    }
+}
+
+.negative {
+    color: var(--icon-button-inverted-negative-base-color);
+
+    @mixin not-disabled {
+        &:not(.transparentBg) {
+            @mixin hover {
+                color: var(--icon-button-inverted-negative-hover-color);
+            }
+
+            &:active {
+                color: var(--icon-button-inverted-negative-active-color);
+            }
+        }
+    }
+
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--icon-button-inverted-negative-disabled-color);
+        }
+    }
+}
+
+.tertiary {
+    color: var(--icon-button-inverted-tertiary-base-color);
+
+    @mixin not-disabled {
+        &:not(.transparentBg) {
+            @mixin hover {
+                color: var(--icon-button-inverted-tertiary-hover-color);
+            }
+
+            &:active {
+                color: var(--icon-button-inverted-tertiary-active-color);
+            }
+        }
+    }
+
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--icon-button-inverted-tertiary-disabled-color);
+        }
+    }
+}
+
+.transparentBg {
+    &.primary {
+        color: var(--color-light-text-primary-inverted);
+
+        @mixin not-disabled {
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
         }
     }
 
     &.secondary {
-        color: var(--icon-button-inverted-secondary-base-color);
+        color: var(--color-light-text-secondary-inverted);
 
-        @mixin hover {
-            color: var(--icon-button-inverted-secondary-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
 
-        &:active {
-            color: var(--icon-button-inverted-secondary-active-color);
-        }
-    }
-
-    &.transparent {
-        color: var(--icon-button-inverted-transparent-base-color);
-
-        @mixin hover {
-            color: var(--icon-button-inverted-transparent-hover-color);
-        }
-
-        &:active {
-            color: var(--icon-button-inverted-transparent-active-color);
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
         }
     }
 
     &.negative {
-        color: var(--icon-button-inverted-negative-base-color);
+        color: var(--color-light-text-negative-inverted);
 
-        @mixin hover {
-            color: var(--icon-button-inverted-negative-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                background: var(--color-light-transparent-default-inverted-hover);
+            }
 
-        &:active {
-            color: var(--icon-button-inverted-negative-active-color);
+            &:active {
+                background: var(--color-light-transparent-default-inverted-press);
+            }
         }
     }
 
     &.tertiary {
-        color: var(--icon-button-inverted-tertiary-base-color);
+        color: var(--color-light-text-tertiary-inverted);
 
-        @mixin hover {
-            color: var(--icon-button-inverted-tertiary-hover-color);
-        }
-
-        &:active {
-            color: var(--icon-button-inverted-tertiary-active-color);
-        }
-    }
-
-    &.transparentBg {
-        &.primary {
-            color: var(--color-light-text-primary-inverted);
-
+        @mixin not-disabled {
             @mixin hover {
                 background: var(--color-light-transparent-default-inverted-hover);
             }
@@ -134,80 +226,6 @@
             &:active {
                 background: var(--color-light-transparent-default-inverted-press);
             }
-        }
-
-        &.secondary {
-            color: var(--color-light-text-secondary-inverted);
-
-            @mixin hover {
-                background: var(--color-light-transparent-default-inverted-hover);
-            }
-
-            &:active {
-                background: var(--color-light-transparent-default-inverted-press);
-            }
-        }
-
-        &.negative {
-            color: var(--color-light-text-negative-inverted);
-
-            @mixin hover {
-                background: var(--color-light-transparent-default-inverted-hover);
-            }
-
-            &:active {
-                background: var(--color-light-transparent-default-inverted-press);
-            }
-        }
-
-        &.tertiary {
-            color: var(--color-light-text-tertiary-inverted);
-
-            @mixin hover {
-                background: var(--color-light-transparent-default-inverted-hover);
-            }
-
-            &:active {
-                background: var(--color-light-transparent-default-inverted-press);
-            }
-        }
-    }
-
-    &.component:disabled {
-        &.primary {
-            color: var(--icon-button-inverted-primary-disabled-color);
-
-            &.loader {
-                color: var(--icon-button-inverted-primary-base-color);
-            }
-        }
-
-        &.secondary {
-            color: var(--icon-button-inverted-secondary-disabled-color);
-
-            &.loader {
-                color: var(--icon-button-inverted-secondary-base-color);
-            }
-        }
-
-        &.negative {
-            color: var(--icon-button-inverted-negative-disabled-color);
-
-            &.loader {
-                color: var(--icon-button-inverted-negative-base-color);
-            }
-        }
-
-        &.tertiary {
-            color: var(--icon-button-inverted-tertiary-disabled-color);
-
-            &.loader {
-                color: var(--icon-button-inverted-tertiary-base-color);
-            }
-        }
-
-        &.transparentBg {
-            background: transparent;
         }
     }
 }

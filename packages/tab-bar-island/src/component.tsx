@@ -18,8 +18,13 @@ export const TabBarIsland: FC<TabBarIslandProps> = ({
     className,
     iconAnimation = true,
     showSkeleton,
+    dataTestId,
 }) => (
-    <div className={cn(styles.component, className)}>
+    <div
+        data-test-id={dataTestId}
+        className={cn(styles.component, className, { [styles.bypass]: items.length === 0 })}
+        data-items-count={items.length + (trailingAddon ? 1 : 0)}
+    >
         {showSkeleton ? (
             <TabBarIslandSkeleton gap={gap} />
         ) : (

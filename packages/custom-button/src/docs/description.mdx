@@ -278,3 +278,47 @@ render(() => {
     );
 });
 ```
+
+```jsx live
+render(() => {
+    const [loading, setLoading] = React.useState(false);
+    const [loadTimeout, setLoadTimeout] = React.useState('30');
+    const timeoutId = React.useRef();
+
+    const handleClick = () => {
+        setLoading(true);
+
+        clearTimeout(timeoutId.current);
+
+        timeoutId.current = setTimeout(() => {
+            setLoading(false);
+        }, Number(loadTimeout));
+    };
+
+    const handleTimeoutChange = (_, { value }) => {
+        clearTimeout(timeoutId.current);
+        setLoading(false);
+        setLoadTimeout(value);
+    };
+
+    return (
+        <>
+            <CustomButton
+                loading={loading}
+                onClick={handleClick}
+                breakpoint={BREAKPOINT}
+                block={isMobile()}
+            >
+                Отправить запрос
+            </CustomButton>
+
+            <Gap size={24} />
+
+            <RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>
+                <Radio value='30' label='Быстрый запрос (30ms)' />
+                <Radio value='1500' label='Долгий запрос (1500ms)' />
+            </RadioGroup>
+        </>
+    );
+});
+```

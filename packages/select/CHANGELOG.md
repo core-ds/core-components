@@ -1,5 +1,50 @@
 # @alfalab/core-components-select
 
+## 19.2.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.21
+
+## 19.2.15
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2448](https://github.com/core-ds/core-components/pull/2448)
+
+##### Select
+
+- Изменены отступы заголовков группированных опций
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.1.6
+- @alfalab/core-components-input@17.2.4
+- @alfalab/core-components-button@13.3.0
+- @alfalab/core-components-bottom-sheet@8.1.20
+- @alfalab/core-components-modal@11.0.22
+
+## 19.2.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.19
+
+## 19.2.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.18
+- @alfalab/core-components-modal@11.0.21
+
 ## 19.2.12
 
 ### Patch Changes

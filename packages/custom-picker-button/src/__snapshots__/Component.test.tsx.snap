@@ -12,7 +12,7 @@ exports[`Snapshots tests should display correctly 1`] = `
     <button
       aria-controls="downshift-:r0:-menu"
       aria-labelledby="downshift-:r0:-label"
-      class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+      class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
       id="downshift-:r0:-input"
       style="background: rgb(255, 69, 195);"
       tabindex="0"
@@ -29,7 +29,7 @@ exports[`Snapshots tests should display correctly 1`] = `
         </span>
       </span>
       <span
-        class="addons"
+        class="rightAddon"
       >
         <span
           class="iconContainer"
@@ -66,7 +66,7 @@ exports[`Snapshots tests should display correctly 2`] = `
     <button
       aria-controls="downshift-:r4:-menu"
       aria-labelledby="downshift-:r4:-label"
-      class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+      class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
       id="downshift-:r4:-input"
       style="background: rgb(255, 69, 195);"
       tabindex="0"
@@ -83,7 +83,7 @@ exports[`Snapshots tests should display correctly 2`] = `
         </span>
       </span>
       <span
-        class="addons"
+        class="rightAddon"
       >
         <span
           class="iconContainer"
@@ -120,7 +120,7 @@ exports[`Snapshots tests should display correctly 3`] = `
     <button
       aria-controls="downshift-:r8:-menu"
       aria-labelledby="downshift-:r8:-label"
-      class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+      class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
       id="downshift-:r8:-input"
       style="background: rgb(255, 69, 195);"
       tabindex="0"
@@ -137,7 +137,7 @@ exports[`Snapshots tests should display correctly 3`] = `
         </span>
       </span>
       <span
-        class="addons"
+        class="rightAddon"
       >
         <span
           class="iconContainer"
@@ -174,14 +174,14 @@ exports[`Snapshots tests should display opened correctly 1`] = `
     <button
       aria-controls="downshift-:r3:-menu"
       aria-labelledby="downshift-:r3:-label"
-      class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
+      class="component hug size-56 block minWidth minHeight white darkening disableType-default size-56"
       id="downshift-:r3:-input"
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
     >
       <span
-        class="addons"
+        class="rightAddon"
       >
         <span
           class="iconContainer open"
@@ -646,14 +646,14 @@ exports[`Snapshots tests should display opened correctly 3`] = `
     <button
       aria-controls="downshift-:r7:-menu"
       aria-labelledby="downshift-:r7:-label"
-      class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
+      class="component hug size-56 block minWidth minHeight white darkening disableType-default size-56"
       id="downshift-:r7:-input"
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
     >
       <span
-        class="addons"
+        class="rightAddon"
       >
         <span
           class="iconContainer open"
@@ -1118,14 +1118,14 @@ exports[`Snapshots tests should display opened correctly 5`] = `
     <button
       aria-controls="downshift-:rb:-menu"
       aria-labelledby="downshift-:rb:-label"
-      class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
+      class="component hug size-56 block minWidth minHeight white darkening disableType-default size-56"
       id="downshift-:rb:-input"
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
     >
       <span
-        class="addons"
+        class="rightAddon"
       >
         <span
           class="iconContainer open"
@@ -1596,7 +1596,7 @@ exports[`Snapshots tests should render black color content 1`] = `
         <button
           aria-controls="downshift-:r2:-menu"
           aria-labelledby="downshift-:r2:-label"
-          class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
+          class="component hug size-56 block defaultPaddings defaultWidth minHeight black darkening disableType-default size-56"
           id="downshift-:r2:-input"
           style="background: rgb(255, 69, 195);"
           tabindex="0"
@@ -1613,7 +1613,7 @@ exports[`Snapshots tests should render black color content 1`] = `
             </span>
           </span>
           <span
-            class="addons"
+            class="rightAddon"
           >
             <span
               class="iconContainer"
@@ -1648,7 +1648,7 @@ exports[`Snapshots tests should render black color content 1`] = `
       <button
         aria-controls="downshift-:r2:-menu"
         aria-labelledby="downshift-:r2:-label"
-        class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight black darkening disableType-default size-56"
         id="downshift-:r2:-input"
         style="background: rgb(255, 69, 195);"
         tabindex="0"
@@ -1665,7 +1665,7 @@ exports[`Snapshots tests should render black color content 1`] = `
           </span>
         </span>
         <span
-          class="addons"
+          class="rightAddon"
         >
           <span
             class="iconContainer"
@@ -1760,7 +1760,7 @@ exports[`Snapshots tests should render black color content 2`] = `
         <button
           aria-controls="downshift-:r6:-menu"
           aria-labelledby="downshift-:r6:-label"
-          class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
+          class="component hug size-56 block defaultPaddings defaultWidth minHeight black darkening disableType-default size-56"
           id="downshift-:r6:-input"
           style="background: rgb(255, 69, 195);"
           tabindex="0"
@@ -1777,7 +1777,7 @@ exports[`Snapshots tests should render black color content 2`] = `
             </span>
           </span>
           <span
-            class="addons"
+            class="rightAddon"
           >
             <span
               class="iconContainer"
@@ -1812,7 +1812,7 @@ exports[`Snapshots tests should render black color content 2`] = `
       <button
         aria-controls="downshift-:r6:-menu"
         aria-labelledby="downshift-:r6:-label"
-        class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight black darkening disableType-default size-56"
         id="downshift-:r6:-input"
         style="background: rgb(255, 69, 195);"
         tabindex="0"
@@ -1829,7 +1829,7 @@ exports[`Snapshots tests should render black color content 2`] = `
           </span>
         </span>
         <span
-          class="addons"
+          class="rightAddon"
         >
           <span
             class="iconContainer"
@@ -1924,7 +1924,7 @@ exports[`Snapshots tests should render black color content 3`] = `
         <button
           aria-controls="downshift-:ra:-menu"
           aria-labelledby="downshift-:ra:-label"
-          class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
+          class="component hug size-56 block defaultPaddings defaultWidth minHeight black darkening disableType-default size-56"
           id="downshift-:ra:-input"
           style="background: rgb(255, 69, 195);"
           tabindex="0"
@@ -1941,7 +1941,7 @@ exports[`Snapshots tests should render black color content 3`] = `
             </span>
           </span>
           <span
-            class="addons"
+            class="rightAddon"
           >
             <span
               class="iconContainer"
@@ -1976,7 +1976,7 @@ exports[`Snapshots tests should render black color content 3`] = `
       <button
         aria-controls="downshift-:ra:-menu"
         aria-labelledby="downshift-:ra:-label"
-        class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight black darkening disableType-default size-56"
         id="downshift-:ra:-input"
         style="background: rgb(255, 69, 195);"
         tabindex="0"
@@ -1993,7 +1993,7 @@ exports[`Snapshots tests should render black color content 3`] = `
           </span>
         </span>
         <span
-          class="addons"
+          class="rightAddon"
         >
           <span
             class="iconContainer"
@@ -2088,7 +2088,7 @@ exports[`Snapshots tests should render custom background color 1`] = `
         <button
           aria-controls="downshift-:r1:-menu"
           aria-labelledby="downshift-:r1:-label"
-          class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+          class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
           id="downshift-:r1:-input"
           style="background: rgb(0, 255, 0);"
           tabindex="0"
@@ -2105,7 +2105,7 @@ exports[`Snapshots tests should render custom background color 1`] = `
             </span>
           </span>
           <span
-            class="addons"
+            class="rightAddon"
           >
             <span
               class="iconContainer"
@@ -2140,7 +2140,7 @@ exports[`Snapshots tests should render custom background color 1`] = `
       <button
         aria-controls="downshift-:r1:-menu"
         aria-labelledby="downshift-:r1:-label"
-        class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
         id="downshift-:r1:-input"
         style="background: rgb(0, 255, 0);"
         tabindex="0"
@@ -2157,7 +2157,7 @@ exports[`Snapshots tests should render custom background color 1`] = `
           </span>
         </span>
         <span
-          class="addons"
+          class="rightAddon"
         >
           <span
             class="iconContainer"
@@ -2252,7 +2252,7 @@ exports[`Snapshots tests should render custom background color 2`] = `
         <button
           aria-controls="downshift-:r5:-menu"
           aria-labelledby="downshift-:r5:-label"
-          class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+          class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
           id="downshift-:r5:-input"
           style="background: rgb(0, 255, 0);"
           tabindex="0"
@@ -2269,7 +2269,7 @@ exports[`Snapshots tests should render custom background color 2`] = `
             </span>
           </span>
           <span
-            class="addons"
+            class="rightAddon"
           >
             <span
               class="iconContainer"
@@ -2304,7 +2304,7 @@ exports[`Snapshots tests should render custom background color 2`] = `
       <button
         aria-controls="downshift-:r5:-menu"
         aria-labelledby="downshift-:r5:-label"
-        class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
         id="downshift-:r5:-input"
         style="background: rgb(0, 255, 0);"
         tabindex="0"
@@ -2321,7 +2321,7 @@ exports[`Snapshots tests should render custom background color 2`] = `
           </span>
         </span>
         <span
-          class="addons"
+          class="rightAddon"
         >
           <span
             class="iconContainer"
@@ -2416,7 +2416,7 @@ exports[`Snapshots tests should render custom background color 3`] = `
         <button
           aria-controls="downshift-:r9:-menu"
           aria-labelledby="downshift-:r9:-label"
-          class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+          class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
           id="downshift-:r9:-input"
           style="background: rgb(0, 255, 0);"
           tabindex="0"
@@ -2433,7 +2433,7 @@ exports[`Snapshots tests should render custom background color 3`] = `
             </span>
           </span>
           <span
-            class="addons"
+            class="rightAddon"
           >
             <span
               class="iconContainer"
@@ -2468,7 +2468,7 @@ exports[`Snapshots tests should render custom background color 3`] = `
       <button
         aria-controls="downshift-:r9:-menu"
         aria-labelledby="downshift-:r9:-label"
-        class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight white darkening disableType-default size-56"
         id="downshift-:r9:-input"
         style="background: rgb(0, 255, 0);"
         tabindex="0"
@@ -2485,7 +2485,7 @@ exports[`Snapshots tests should render custom background color 3`] = `
           </span>
         </span>
         <span
-          class="addons"
+          class="rightAddon"
         >
           <span
             class="iconContainer"

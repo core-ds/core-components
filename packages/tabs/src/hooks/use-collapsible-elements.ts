@@ -64,6 +64,7 @@ export const useCollapsibleElements = <
         }
 
         return () => observer.disconnect();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectors, ...deps]);
 
     return {

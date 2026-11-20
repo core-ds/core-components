@@ -13,10 +13,8 @@
         "paths": {
             "storybook/*": ["../../.storybook/*"],
             "@alfalab/core-components-screenshot-utils": ["./src"],
-            "@alfalab/core-components-screenshot-utils/*": ["./src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-screenshot-utils/*": ["./src/*"]
         }
     },
-    "references": [{ "path": "../../.storybook" }, { "path": "../test-utils/tsconfig.build.json" }]
+    "references": [{ "path": "../../.storybook" }]
 }

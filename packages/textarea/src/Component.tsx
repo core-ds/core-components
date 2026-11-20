@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
-import { LockIcon } from '@alfalab/core-components-input/shared';
+import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 import { getDataTestId, useRefAsState } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
@@ -36,6 +36,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             fieldClassName,
             className,
             dataTestId,
+            clear = 'never',
             disabled,
             error,
             hint,
@@ -46,6 +47,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onFocus,
             onBlur,
             onChange,
+            onClear,
             onHeightChange,
             rightAddons,
             maxRows,
@@ -63,6 +65,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             wrapperRef,
             breakpoint,
             client,
+            readOnly: readOnlyProp,
             ...restProps
         },
         ref,
@@ -78,6 +81,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
+        const [hovered, setHovered] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
         const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -138,6 +142,20 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             }
         };
 
+        const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
+            if (uncontrolled) {
+                setStateValue('');
+            }
+
+            if (onClear) {
+                onClear(event);
+            }
+
+            if (textareaNode && !focused) {
+                textareaNode.focus();
+            }
+        };
+
         const handleTeaxtareaScroll = (event: React.UIEvent) => {
             if (maxLength) {
                 const val = (event.target as HTMLElement).scrollTop;
@@ -174,6 +192,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className: textareaClassNameCalc,
             autoComplete,
             disabled,
+            readOnly: readOnlyProp,
             maxLength: allowOverflow ? undefined : maxLength,
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
@@ -183,6 +202,30 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             ref: mergeRefs([ref, textareaNodeRef]),
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
+        };
+
+        const getRightAddons = () => {
+            const clearButtonVisible =
+                filled &&
+                !disabled &&
+                !readOnlyProp &&
+                (clear === 'always' || (clear === 'auto' && (focused || hovered)));
+
+            return (
+                <Fragment>
+                    {clearButtonVisible && (
+                        <ClearButton
+                            onClick={handleClear}
+                            disabled={disabled}
+                            colors={colors}
+                            size={size}
+                            dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                        />
+                    )}
+                    {rightAddons}
+                    {(disabled || readOnlyProp) && <LockIcon colors={colors} size={size} />}
+                </Fragment>
+            );
         };
 
         const getBottomAddons = () => {
@@ -223,19 +266,14 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 disabled={disabled}
                 filled={filled || focused}
                 focused={focused}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
                 error={error}
                 label={label}
                 labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
-                rightAddons={
-                    <Fragment>
-                        {rightAddons}
-                        {(disabled || restProps.readOnly) && (
-                            <LockIcon colors={colors} size={size} />
-                        )}
-                    </Fragment>
-                }
+                rightAddons={getRightAddons()}
                 bottomAddons={getBottomAddons()}
                 breakpoint={breakpoint}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}

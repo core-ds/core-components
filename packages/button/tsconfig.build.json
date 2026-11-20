@@ -11,6 +11,8 @@
             "@alfalab/core-components-button/*": ["./src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-polymorphic": ["../polymorphic/src"],
+            "@alfalab/core-components-polymorphic/*": ["../polymorphic/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-spinner": ["../spinner/src"],
@@ -19,6 +21,7 @@
     },
     "references": [
         { "path": "../mq/tsconfig.build.json" },
+        { "path": "../polymorphic/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../spinner/tsconfig.build.json" }
     ]

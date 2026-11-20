@@ -1,5 +1,48 @@
 # @alfalab/core-components-gallery
 
+## 7.4.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tooltip@9.0.27
+
+## 7.4.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.15
+- @alfalab/core-components-button@13.3.0
+- @alfalab/core-components-tooltip@9.0.26
+
+## 7.4.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tooltip@9.0.25
+
+## 7.4.6
+
+### Patch Changes
+
+<sup><time>30.10.2026</time></sup>
+
+#### [#2439](https://github.com/core-ds/core-components/pull/2439)
+
+##### ActionButton, Gallery, PureCell, Calendar, Underlay, BottomSheet
+
+- Цвета компонентов приведены в соответствие с дизайном
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.14
+- @alfalab/core-components-tooltip@9.0.24
+
 ## 7.4.5
 
 ### Patch Changes
