@@ -4,7 +4,10 @@ import { TEMPLATES } from '../consts';
 import { type DateTemplate, type View } from '../types';
 
 import { createCaretPosPlugin } from './plugins';
-import { createPreventCaretJumpPostprocessor } from './postprocessors';
+import {
+    createPreserveRangeSeparatorPostprocessor,
+    createPreventCaretJumpPostprocessor,
+} from './postprocessors';
 import { createDisallowInputPreprocessor, createValidationPreprocessor } from './preprocessors';
 import { getValueSegments, segmentsToPattern, segmentsToString, shiftSegmentsData } from './utils';
 
@@ -17,6 +20,8 @@ export function createMaskOptions(
 ): MaskitoOptions {
     const template = TEMPLATES[view];
     const stringTemplate = segmentsToString(template.segments, template.separators);
+    const rangeSeparator =
+        template.separators.find((s) => s === TEMPLATES['date-range'].separators[2]) || '';
 
     return {
         mask: createMaskExpression(template),
@@ -26,7 +31,10 @@ export function createMaskOptions(
                 ? [createValidationPreprocessor(template, stringTemplate, min, max, onCorrection)]
                 : []),
         ],
-        postprocessors: [createPreventCaretJumpPostprocessor()],
+        postprocessors: [
+            createPreventCaretJumpPostprocessor(),
+            createPreserveRangeSeparatorPostprocessor(rangeSeparator),
+        ],
         plugins: [createCaretPosPlugin(template)],
     };
 }
