@@ -16,6 +16,11 @@
     position: absolute;
 }
 
+/* A tap on the label toggles the switch and leaves scrolling to Safari. */
+.component input[switch] {
+    pointer-events: none;
+}
+
 .start {
     align-items: flex-start;
 }

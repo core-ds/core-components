@@ -35,6 +35,12 @@ export type SwitchProps = Omit<
     checked?: boolean;
 
     /**
+     * Системный тактильный отклик при пользовательском переключении в Safari на iPhone.
+     * @default false
+     */
+    haptic?: boolean;
+
+    /**
      * Текст подписи к переключателю
      */
     label?: ReactNode;
@@ -128,6 +134,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             controlPosition,
             reversed = false,
             checked = false,
+            haptic = false,
             align = 'start',
             addons,
             block,
@@ -179,6 +186,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             >
                 <input
                     type='checkbox'
+                    {...(haptic && { switch: '' })}
                     onChange={handleChange}
                     disabled={disabled}
                     checked={checked}
