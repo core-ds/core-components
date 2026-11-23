@@ -3,7 +3,7 @@
 exports[`SliderInput should match snapshot 1`] = `
 <div>
   <div
-    class="component bold size-48"
+    class="component size-48"
   >
     <div
       class="component component input formControlDesktop size-48 size-48 size-48 block"
@@ -18,7 +18,7 @@ exports[`SliderInput should match snapshot 1`] = `
             class="input size-48"
           >
             <input
-              class="input size-48 input"
+              class="input size-48 input bold"
               inputmode="numeric"
               pattern="[0-9]*"
               type="text"

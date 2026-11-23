@@ -33,14 +33,15 @@ render(() => {
                     duration={duration}
                 />
             </Container>
-            <Row style={{ gap: 'var(--gap-xs)' }}>
+            <Gap size={24} />
+            <Space direction='horizontal' size={8}>
                 <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
                 <Button
                     leftAddons={active ? <PauseCompactMIcon /> : <PlayCompactMIcon />}
                     onClick={toggleActive}
                 />
                 <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
-            </Row>
+            </Space>
         </div>
     );
 });
@@ -66,10 +67,11 @@ render(() => {
                 <Gap size={8} />
                 <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
             </Container>
-            <Row style={{ gap: 'var(--gap-xs)' }}>
+            <Gap size={24} />
+            <Space direction='horizontal' size={8}>
                 <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
                 <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
-            </Row>
+            </Space>
         </div>
     );
 });
@@ -91,10 +93,11 @@ render(() => {
                 <Gap size={8} />
                 <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
             </div>
-            <Row style={{ gap: 'var(--gap-xs)' }}>
+            <Gap size={24} />
+            <Space direction='horizontal' size={8}>
                 <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
                 <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
-            </Row>
+            </Space>
         </div>
     );
 });
@@ -116,10 +119,11 @@ render(() => {
                 <Gap size={8} />
                 <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />
             </div>
-            <Row style={{ gap: 'var(--gap-xs)' }}>
+            <Gap size={24} />
+            <Space direction='horizontal' size={8}>
                 <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
                 <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
-            </Row>
+            </Space>
         </div>
     );
 });
@@ -141,10 +145,11 @@ render(() => {
             <div style={{ width: 168 }}>
                 <PageIndicatorStep size={4} activeElement={activeElement} elements={elements} />
             </div>
-            <Row style={{ gap: 'var(--gap-xs)' }}>
+            <Gap size={24} />
+            <Space direction='horizontal' size={8}>
                 <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
                 <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
-            </Row>
+            </Space>
         </div>
     );
 });
@@ -166,10 +171,11 @@ render(() => {
             <div style={{ width: 168 }}>
                 <PageIndicatorRunner size={4} activeElement={activeElement} elements={elements} />
             </div>
-            <Row style={{ gap: 'var(--gap-xs)' }}>
+            <Gap size={24} />
+            <Space direction='horizontal' size={8}>
                 <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />
                 <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />
-            </Row>
+            </Space>
         </div>
     );
 });

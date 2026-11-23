@@ -1,13 +1,14 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
-@define-mixin indent-correction $var-name {
-    margin-left: calc(-1 * var($var-name));
-    padding-left: var($var-name);
+@define-mixin indent-correction $value {
+    margin-left: calc(-1 * $value);
+    padding-left: $value;
 }
 
 .component.size-72 {
     & .contentWrapper {
-        padding: 18px var(--gap-2s);
+        /* stylelint-disable-next-line */
+        padding: 18px 14px;
     }
 
     & .placeholder {
@@ -19,13 +20,14 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-2s;
+        @mixin indent-correction 14px;
     }
 }
 
 .component.size-64 {
     & .contentWrapper {
-        padding: var(--gap-2s) var(--gap-10);
+        /* stylelint-disable-next-line */
+        padding: 14px var(--gap-10);
     }
 
     & .placeholder {
@@ -37,7 +39,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-10;
+        @mixin indent-correction var(--gap-10);
     }
 }
 
@@ -55,7 +57,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-10;
+        @mixin indent-correction var(--gap-10);
     }
 }
 
@@ -73,7 +75,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin indent-correction --gap-6;
+        @mixin indent-correction var(--gap-6);
     }
 }
 
@@ -106,7 +108,7 @@
 }
 
 .input {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
     flex-grow: 1;
     flex-basis: 50px;
     min-width: 50px;

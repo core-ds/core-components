@@ -1,5 +1,29 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 2.0.20
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2455](https://github.com/core-ds/core-components/pull/2455)
+
+##### NavigationBarPrivate
+
+- Изменения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.15
+
 ## 2.0.19
 
 ### Patch Changes
