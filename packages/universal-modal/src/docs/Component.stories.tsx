@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { object, boolean, select, text } from '@storybook/addon-knobs';
+import { object, boolean, number, select, text } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -219,6 +219,7 @@ export const mobile: Story = {
         const header = boolean('header', false);
         const headerTitle = text('header.title', '');
         const headerMode = select('header.headerMode', ['left', 'relative', 'absolute'], 'left');
+        const hasHeaderImage = boolean('header.image', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select(
             'footer.layout',
@@ -248,6 +249,17 @@ export const mobile: Story = {
                             title={headerTitle}
                             subtitle={text('header.subtitle', '')}
                             headerMode={headerMode}
+                            image={
+                                hasHeaderImage
+                                    ? {
+                                          src: './images/universal-modal_header-image.png',
+                                          aspectRatio: number(
+                                              'header.image.aspectRatio',
+                                              360 / 180,
+                                          ),
+                                      }
+                                    : undefined
+                            }
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
                             trim={trim}
