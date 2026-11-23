@@ -27,7 +27,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component hug size-48 component component component text text text size-48 component component"
+                class="component hug size-48 component component component text text text size-48 component component component"
                 type="button"
               >
                 <span
@@ -60,6 +60,17 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
                     </span>
                   </div>
                 </span>
+                <label
+                  class="component"
+                  tabindex="-1"
+                >
+                  <input
+                    class="input"
+                    switch=""
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </label>
               </button>
             </div>
           </div>
@@ -74,7 +85,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="cc-icon-button component primary size-48 button button"
+                  class="cc-icon-button component primary size-48 button button component"
                   type="button"
                 >
                   <span
@@ -94,6 +105,17 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
                       />
                     </svg>
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </div>
             </div>
@@ -161,7 +183,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component hug size-32 component component component text text text size-32 component component mobileComponent"
+                class="component hug size-32 component component component text text text size-32 component component mobileComponent component"
                 type="button"
               >
                 <span
@@ -194,6 +216,17 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                     </span>
                   </div>
                 </span>
+                <label
+                  class="component"
+                  tabindex="-1"
+                >
+                  <input
+                    class="input"
+                    switch=""
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </label>
               </button>
             </div>
           </div>
@@ -208,7 +241,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="cc-icon-button component primary size-32 button button mobile"
+                  class="cc-icon-button component primary size-32 button button mobile component"
                   type="button"
                 >
                   <span
@@ -228,6 +261,17 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                       />
                     </svg>
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </div>
             </div>

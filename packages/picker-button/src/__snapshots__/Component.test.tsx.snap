@@ -13,7 +13,7 @@ exports[`Snapshots tests should display correctly 1`] = `
       <button
         aria-controls="downshift-:r0:-menu"
         aria-labelledby="downshift-:r0:-label"
-        class="component hug size-56 block defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r0:-input"
         tabindex="0"
         type="button"
@@ -49,6 +49,17 @@ exports[`Snapshots tests should display correctly 1`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -68,7 +79,7 @@ exports[`Snapshots tests should display correctly 2`] = `
       <button
         aria-controls="downshift-:r2:-menu"
         aria-labelledby="downshift-:r2:-label"
-        class="component hug size-56 block defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r2:-input"
         tabindex="0"
         type="button"
@@ -104,6 +115,17 @@ exports[`Snapshots tests should display correctly 2`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -123,7 +145,7 @@ exports[`Snapshots tests should display correctly 3`] = `
       <button
         aria-controls="downshift-:r4:-menu"
         aria-labelledby="downshift-:r4:-label"
-        class="component hug size-56 block defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r4:-input"
         tabindex="0"
         type="button"
@@ -159,6 +181,17 @@ exports[`Snapshots tests should display correctly 3`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -178,7 +211,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       <button
         aria-controls="downshift-:r1:-menu"
         aria-labelledby="downshift-:r1:-label"
-        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r1:-input"
         tabindex="0"
         type="button"
@@ -204,6 +237,17 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -223,7 +267,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
       <button
         aria-controls="downshift-:r1:-menu"
         aria-labelledby="downshift-:r1:-label"
-        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r1:-input"
         tabindex="0"
         type="button"
@@ -249,6 +293,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -268,7 +323,7 @@ exports[`Snapshots tests should display opened correctly 3`] = `
       <button
         aria-controls="downshift-:r3:-menu"
         aria-labelledby="downshift-:r3:-label"
-        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r3:-input"
         tabindex="0"
         type="button"
@@ -294,6 +349,17 @@ exports[`Snapshots tests should display opened correctly 3`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -360,7 +426,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                           >
                             <button
                               aria-label="закрыть"
-                              class="cc-icon-button component primary size-32 button button mobile"
+                              class="cc-icon-button component primary size-32 button button mobile component"
                               type="button"
                             >
                               <span
@@ -380,6 +446,17 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                   />
                                 </svg>
                               </span>
+                              <label
+                                class="component"
+                                tabindex="-1"
+                              >
+                                <input
+                                  class="input"
+                                  switch=""
+                                  tabindex="-1"
+                                  type="checkbox"
+                                />
+                              </label>
                             </button>
                           </div>
                         </div>
@@ -778,7 +855,7 @@ exports[`Snapshots tests should display opened correctly 5`] = `
       <button
         aria-controls="downshift-:r5:-menu"
         aria-labelledby="downshift-:r5:-label"
-        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 block minWidth minHeight component component component secondary secondary secondary size-56 component"
         id="downshift-:r5:-input"
         tabindex="0"
         type="button"
@@ -804,6 +881,17 @@ exports[`Snapshots tests should display opened correctly 5`] = `
             </svg>
           </span>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -870,7 +958,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                           >
                             <button
                               aria-label="закрыть"
-                              class="cc-icon-button component primary size-32 button button mobile"
+                              class="cc-icon-button component primary size-32 button button mobile component"
                               type="button"
                             >
                               <span
@@ -890,6 +978,17 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                   />
                                 </svg>
                               </span>
+                              <label
+                                class="component"
+                                tabindex="-1"
+                              >
+                                <input
+                                  class="input"
+                                  switch=""
+                                  tabindex="-1"
+                                  type="checkbox"
+                                />
+                              </label>
                             </button>
                           </div>
                         </div>

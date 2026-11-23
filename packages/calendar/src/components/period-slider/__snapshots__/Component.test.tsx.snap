@@ -9,7 +9,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
   >
     <button
       aria-label="Предыдущий период"
-      class="cc-icon-button component primary size-32 arrow"
+      class="cc-icon-button component primary size-32 arrow component"
       data-test-id="period-slider-btn-previous-day"
       disabled=""
       type="button"
@@ -31,6 +31,17 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
           />
         </svg>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
     <span
       class="period empty"
@@ -39,7 +50,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
     </span>
     <button
       aria-label="Следующий период"
-      class="cc-icon-button component primary size-32 arrow"
+      class="cc-icon-button component primary size-32 arrow component"
       data-test-id="period-slider-btn-next-day"
       disabled=""
       type="button"
@@ -61,6 +72,17 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
           />
         </svg>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>
 </div>
@@ -75,7 +97,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
   >
     <button
       aria-label="Предыдущий период"
-      class="cc-icon-button component primary size-32 arrow"
+      class="cc-icon-button component primary size-32 arrow component"
       data-test-id="period-slider-btn-previous-day"
       disabled=""
       type="button"
@@ -97,6 +119,17 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
           />
         </svg>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
     <span
       class="period empty"
@@ -105,7 +138,7 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
     </span>
     <button
       aria-label="Следующий период"
-      class="cc-icon-button component primary size-32 arrow"
+      class="cc-icon-button component primary size-32 arrow component"
       data-test-id="period-slider-btn-next-day"
       disabled=""
       type="button"
@@ -127,6 +160,17 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
           />
         </svg>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>
 </div>

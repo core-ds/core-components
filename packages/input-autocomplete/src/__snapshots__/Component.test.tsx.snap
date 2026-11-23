@@ -145,7 +145,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             >
                               <button
                                 aria-label="закрыть"
-                                class="cc-icon-button component primary size-32 button button mobile"
+                                class="cc-icon-button component primary size-32 button button mobile component"
                                 type="button"
                               >
                                 <span
@@ -165,6 +165,17 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                     />
                                   </svg>
                                 </span>
+                                <label
+                                  class="component"
+                                  tabindex="-1"
+                                >
+                                  <input
+                                    class="input"
+                                    switch=""
+                                    tabindex="-1"
+                                    type="checkbox"
+                                  />
+                                </label>
                               </button>
                             </div>
                           </div>
@@ -299,7 +310,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               tabindex="0"
                             >
                               <button
-                                class="component hug size-56 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56 button"
+                                class="component hug size-56 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-56 button component"
                                 type="button"
                               >
                                 <span
@@ -307,9 +318,20 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 >
                                   Отмена
                                 </span>
+                                <label
+                                  class="component"
+                                  tabindex="-1"
+                                >
+                                  <input
+                                    class="input"
+                                    switch=""
+                                    tabindex="-1"
+                                    type="checkbox"
+                                  />
+                                </label>
                               </button>
                               <button
-                                class="component hug size-56 defaultPaddings defaultWidth minHeight component component component primary primary primary size-56 button"
+                                class="component hug size-56 defaultPaddings defaultWidth minHeight component component component primary primary primary size-56 button component"
                                 type="button"
                               >
                                 <span
@@ -317,6 +339,17 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 >
                                   Продолжить
                                 </span>
+                                <label
+                                  class="component"
+                                  tabindex="-1"
+                                >
+                                  <input
+                                    class="input"
+                                    switch=""
+                                    tabindex="-1"
+                                    type="checkbox"
+                                  />
+                                </label>
                               </button>
                             </div>
                           </div>

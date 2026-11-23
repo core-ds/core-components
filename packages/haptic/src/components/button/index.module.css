@@ -1,0 +1,14 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.component {
+    position: relative;
+}
+
+.button {
+    @mixin reset-tap-highlight-color;
+
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+}

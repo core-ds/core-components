@@ -240,6 +240,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-button@workspace:packages/button"
   dependencies:
+    "@alfalab/core-components-haptic": "npm:^0.0.0"
     "@alfalab/core-components-mq": "npm:^6.0.10"
     "@alfalab/core-components-polymorphic": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.4.0"
@@ -813,6 +814,22 @@ __metadata:
   dependencies:
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@alfalab/core-components-haptic@npm:^0.0.0, @alfalab/core-components-haptic@workspace:packages/haptic":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-haptic@workspace:packages/haptic"
+  dependencies:
+    "@alfalab/core-components-polymorphic": "npm:^0.0.1"
+    "@haptics/react": "npm:^2.1.1"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+    web-haptics: "npm:^0.0.6"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -7298,6 +7315,25 @@ __metadata:
   peerDependencies:
     postcss: ^8.0.0
   checksum: 10c0/4b31c89f2c873b260f12efe92ee1b40634919f3a81f18461d8ec3499aa36e91e61f9b3d6f401bd7e67af942456b9b7f456d6307e7114321ea84e3e63bf90e12c
+  languageName: node
+  linkType: hard
+
+"@haptics/core@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@haptics/core@npm:2.1.0"
+  checksum: 10c0/392530714b353d68dd666ffeec3968fa4ef7226a0a3f8b880f356c4cb4da936567a9c2ce3d228681d5b3e2be9effbb70ec77c1c72ec4478fbda52079a77989d5
+  languageName: node
+  linkType: hard
+
+"@haptics/react@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@haptics/react@npm:2.1.1"
+  dependencies:
+    "@haptics/core": "npm:^2.1.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10c0/72fe847c7c289ceaf21013548b587d07292020e5baa0d5b29272413efa7ba59dded9dc6923ae0024317469c104b94749d032a0282a4e29c8423858bfd48e7306
   languageName: node
   linkType: hard
 
@@ -33346,6 +33382,27 @@ __metadata:
   dependencies:
     defaults: "npm:^1.0.3"
   checksum: 10c0/5b61ca583a95e2dd85d7078400190efd452e05751a64accb8c06ce4db65d7e0b0cde9917d705e826a2e05cc2548f61efde115ffa374c3e436d04be45c889e5b4
+  languageName: node
+  linkType: hard
+
+"web-haptics@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "web-haptics@npm:0.0.6"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+    svelte: ">=4"
+    vue: ">=3"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+  checksum: 10c0/71d3bfb0299469362e23ef177337f2cf665ed66aa49b6d5e7afc9d97fc05af9a2056263c17766eb929eb86ec1f526fba21502e926ea3cc39175f251c5c9374db
   languageName: node
   linkType: hard
 

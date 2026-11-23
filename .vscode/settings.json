@@ -60,6 +60,7 @@
         "packages/generic-wrapper",
         "packages/global-store",
         "packages/grid",
+        "packages/haptic",
         "packages/hatching-progress-bar",
         "packages/headless-collapse",
         "packages/icon-button",

@@ -18,7 +18,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
           class="component monthYear"
         >
           <button
-            class="component hug size-40 component component component text text text size-40 button filled button month"
+            class="component hug size-40 component component component text text text size-40 button filled button month component"
             type="button"
           >
             <span
@@ -45,9 +45,20 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </svg>
               </span>
             </span>
+            <label
+              class="component"
+              tabindex="-1"
+            >
+              <input
+                class="input"
+                switch=""
+                tabindex="-1"
+                type="checkbox"
+              />
+            </label>
           </button>
           <button
-            class="component hug size-40 component component component text text text size-40 button filled button year"
+            class="component hug size-40 component component component text text text size-40 button filled button year component"
             type="button"
           >
             <span
@@ -74,6 +85,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </svg>
               </span>
             </span>
+            <label
+              class="component"
+              tabindex="-1"
+            >
+              <input
+                class="input"
+                switch=""
+                tabindex="-1"
+                type="checkbox"
+              />
+            </label>
           </button>
         </div>
       </div>
@@ -138,7 +160,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -153,6 +175,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
             </tr>
@@ -165,7 +198,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -180,6 +213,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -190,7 +234,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -205,6 +249,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -215,7 +270,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -230,6 +285,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -240,7 +306,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -255,6 +321,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -265,7 +342,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -280,6 +357,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -290,7 +378,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -305,6 +393,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -315,7 +414,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -330,6 +429,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
             </tr>
@@ -342,7 +452,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -357,6 +467,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -367,7 +488,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -382,6 +503,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -392,7 +524,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -407,6 +539,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -417,7 +560,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -432,6 +575,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -442,7 +596,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -457,6 +611,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -467,7 +632,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -482,6 +647,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -492,7 +668,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -507,6 +683,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
             </tr>
@@ -519,7 +706,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -534,6 +721,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -544,7 +742,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -559,6 +757,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -569,7 +778,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -584,6 +793,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -594,7 +814,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -609,6 +829,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -619,7 +850,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -634,6 +865,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -644,7 +886,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -659,6 +901,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -669,7 +922,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -684,6 +937,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
             </tr>
@@ -696,7 +960,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -711,6 +975,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -721,7 +996,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -736,6 +1011,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -746,7 +1032,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -761,6 +1047,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -771,7 +1068,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -786,6 +1083,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -796,7 +1104,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -811,6 +1119,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -821,7 +1140,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -836,6 +1155,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td
@@ -846,7 +1176,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="-1"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded"
+                  class="component hug size-40 component component component text text text size-40 day rounded component"
                   type="button"
                 >
                   <span
@@ -861,6 +1191,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
             </tr>
@@ -873,7 +1214,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 tabindex="0"
               >
                 <button
-                  class="component hug size-40 component component component text text text size-40 day rounded selected"
+                  class="component hug size-40 component component component text text text size-40 day rounded selected component"
                   type="button"
                 >
                   <span
@@ -888,6 +1229,17 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                       class="addons selected"
                     />
                   </span>
+                  <label
+                    class="component"
+                    tabindex="-1"
+                  >
+                    <input
+                      class="input"
+                      switch=""
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                  </label>
                 </button>
               </td>
               <td />

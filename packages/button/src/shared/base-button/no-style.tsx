@@ -7,11 +7,8 @@ import {
     type ButtonProps,
 } from '@alfalab/core-components-button/shared/base-button/pure-types';
 import { type NoStyleButtonProps } from '@alfalab/core-components-button/shared/base-button/types';
-import {
-    passCustomProps,
-    PolymorphicA,
-    PolymorphicButton,
-} from '@alfalab/core-components-polymorphic';
+import { HapticA, HapticButton } from '@alfalab/core-components-haptic';
+import { passCustomProps } from '@alfalab/core-components-polymorphic';
 
 function isAnchorProps(props: NoStyleButtonProps): props is AnchorProps {
     return Boolean(props.href);
@@ -56,7 +53,7 @@ export const NoStyleButton = forwardRef<HTMLElement, NoStyleButtonProps>((props,
                 : { to: href };
 
         return (
-            <PolymorphicA
+            <HapticA
                 {...sharedProps}
                 {...restAnchorProps}
                 {...hrefProps}
@@ -65,7 +62,7 @@ export const NoStyleButton = forwardRef<HTMLElement, NoStyleButtonProps>((props,
                     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
                     RenderComponent as Extract<
                         typeof RenderComponent,
-                        ComponentProps<typeof PolymorphicA>['as']
+                        ComponentProps<typeof HapticA>['as']
                     >
                 }
                 ref={mergeRefs([ref])}
@@ -89,7 +86,7 @@ export const NoStyleButton = forwardRef<HTMLElement, NoStyleButtonProps>((props,
     };
 
     return (
-        <PolymorphicButton
+        <HapticButton
             {...sharedProps}
             {...restButtonProps}
             {...passCustomProps(customProps)}
@@ -97,7 +94,7 @@ export const NoStyleButton = forwardRef<HTMLElement, NoStyleButtonProps>((props,
                 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
                 RenderComponent as Extract<
                     typeof RenderComponent,
-                    ComponentProps<typeof PolymorphicButton>['as']
+                    ComponentProps<typeof HapticButton>['as']
                 >
             }
             ref={mergeRefs([ref])}

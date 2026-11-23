@@ -6,18 +6,42 @@ exports[`CustomButton Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -79,25 +103,61 @@ exports[`CustomButton Snapshots tests should match snapshot 2`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -159,32 +219,80 @@ exports[`CustomButton Snapshots tests should match snapshot 3`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -246,18 +354,42 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -319,25 +451,61 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -399,32 +567,80 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -486,18 +702,42 @@ exports[`CustomButton Snapshots tests should render black color content 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -559,25 +799,61 @@ exports[`CustomButton Snapshots tests should render black color content 2`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -639,32 +915,80 @@ exports[`CustomButton Snapshots tests should render black color content 3`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
         style="background: rgb(255, 69, 195);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight black darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight black darkening disableType-default size-56 component"
       style="background: rgb(255, 69, 195);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -726,18 +1050,42 @@ exports[`CustomButton Snapshots tests should render custom background color 1`] 
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(0, 255, 0);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(0, 255, 0);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -799,25 +1147,61 @@ exports[`CustomButton Snapshots tests should render custom background color 2`] 
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(0, 255, 0);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(0, 255, 0);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(0, 255, 0);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -879,32 +1263,80 @@ exports[`CustomButton Snapshots tests should render custom background color 3`] 
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(0, 255, 0);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(0, 255, 0);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
         style="background: rgb(0, 255, 0);"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 minWidth minHeight white darkening disableType-default size-56 component"
       style="background: rgb(0, 255, 0);"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -966,7 +1398,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1007,12 +1439,23 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
@@ -1053,6 +1496,17 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
           />
         </foreignobject>
       </svg>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],
@@ -1115,7 +1569,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1156,11 +1610,22 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
     <div>
       <button
-        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1201,12 +1666,23 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
@@ -1247,6 +1723,17 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
           />
         </foreignobject>
       </svg>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],
@@ -1309,7 +1796,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1350,11 +1837,22 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
     <div>
       <button
-        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1395,11 +1893,22 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
     <div>
       <button
-        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+        class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
         disabled=""
         style="background: rgb(255, 69, 195);"
         type="button"
@@ -1440,12 +1949,23 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56"
+      class="component hug size-56 loading minWidth minHeight white darkening disableType-default size-56 component"
       disabled=""
       style="background: rgb(255, 69, 195);"
       type="button"
@@ -1486,6 +2006,17 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
           />
         </foreignobject>
       </svg>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],

@@ -6,16 +6,40 @@ exports[`Button Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,17 +102,41 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
     <div>
       <a
         aria-disabled="false"
-        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
         href="https://some-url"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </a>
     </div>
   </body>,
   "container": <div>
     <a
       aria-disabled="false"
-      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
       href="https://some-url"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -150,16 +198,40 @@ exports[`Button Snapshots tests should render button by default 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
         type="button"
-      />
+      >
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
       type="button"
-    />
+    >
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -221,7 +293,7 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
         type="button"
       >
         <span
@@ -231,12 +303,23 @@ exports[`Button Snapshots tests should render left addons 1`] = `
             Left addons
           </div>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
       type="button"
     >
       <span
@@ -246,6 +329,17 @@ exports[`Button Snapshots tests should render left addons 1`] = `
           Left addons
         </div>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],
@@ -309,7 +403,7 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
     <div>
       <a
         aria-disabled="true"
-        class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 disabled disabled disabled"
+        class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 disabled disabled disabled component"
         href="https://some-url"
       >
         <svg
@@ -348,13 +442,24 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </a>
     </div>
   </body>,
   "container": <div>
     <a
       aria-disabled="true"
-      class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 disabled disabled disabled"
+      class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 disabled disabled disabled component"
       href="https://some-url"
     >
       <svg
@@ -393,6 +498,17 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
           />
         </foreignobject>
       </svg>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </a>
   </div>,
   "debug": [Function],
@@ -455,7 +571,7 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 component"
         disabled=""
         type="button"
       >
@@ -495,12 +611,23 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
             />
           </foreignobject>
         </svg>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56"
+      class="component hug size-56 loading loading loading minWidth minHeight component component component secondary secondary secondary size-56 component"
       disabled=""
       type="button"
     >
@@ -540,6 +667,17 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
           />
         </foreignobject>
       </svg>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],
@@ -602,7 +740,7 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+        class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
         type="button"
       >
         <span
@@ -612,12 +750,23 @@ exports[`Button Snapshots tests should render right addons 1`] = `
             Right addons
           </div>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56"
+      class="component hug size-56 minWidth minHeight component component component secondary secondary secondary size-56 component"
       type="button"
     >
       <span
@@ -627,6 +776,17 @@ exports[`Button Snapshots tests should render right addons 1`] = `
           Right addons
         </div>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],
