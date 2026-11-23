@@ -38,7 +38,7 @@
         }
     }
 
-    &.withInlineCollapse {
+    &.withClipCollapse {
         overflow: hidden;
     }
 
@@ -107,7 +107,7 @@
     top: var(--gap-0);
 }
 
-.mainLineInlineCollapse {
+.mainLineClipCollapse {
     position: relative;
 }
 
