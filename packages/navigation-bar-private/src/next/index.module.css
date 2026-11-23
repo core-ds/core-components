@@ -52,6 +52,17 @@
         }
     }
 
+    &.withTitleUnderImage {
+        & .mainLineSticky {
+            box-sizing: content-box;
+            min-height: var(--gap-48);
+        }
+
+        & .imageUnder + .content {
+            padding-top: var(--gap-16);
+        }
+    }
+
     padding: var(--gap-4) var(--gap-12) var(--gap-8);
 
     & .closeButtonWrapperClassName {
@@ -87,6 +98,20 @@
     pointer-events: none;
 }
 
+.scrollingImageViewport {
+    width: 100%;
+    flex-shrink: 0;
+    overflow: clip;
+    pointer-events: none;
+}
+
+/* The zero-height anchor stays sticky until the bottom of the image scrolls past it. */
+.scrollingImageAnchor {
+    position: sticky;
+    top: 0;
+    height: 0;
+}
+
 .imageUnder {
     margin: calc(-1 * (var(--gap-4) + var(--gap-48) + var(--gap-8))) calc(-1 * var(--gap-12)) 0;
     background-repeat: no-repeat;
@@ -105,6 +130,12 @@
 .mainLineSticky {
     position: sticky;
     top: var(--gap-0);
+}
+
+.stickyNavigation {
+    position: sticky;
+    top: var(--gap-4);
+    padding-bottom: var(--gap-8);
 }
 
 .mainLineClipCollapse {
