@@ -1,5 +1,30 @@
 # @alfalab/core-components-slider-input
 
+## 11.1.13
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2473](https://github.com/core-ds/core-components/pull/2473)
+
+##### SliderInput
+
+- Исправлен проброс пропа `bold` во внутренний инпут — как в стандартный `Input`, так и в компонент, переданный через проп `Input`
+- Начертание задаётся пропом `fontWeight`, как в `Input`. Проп `bold` помечен устаревшим, используйте `fontWeight`
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.5
+
 ## 11.1.12
 
 ### Patch Changes

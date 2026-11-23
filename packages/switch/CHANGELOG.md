@@ -1,5 +1,17 @@
 # @alfalab/core-components-switch
 
+## 6.2.5
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
 ## 6.2.4
 
 ### Patch Changes
