@@ -141,9 +141,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
-        const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(
-            magneticAreasProp,
-        );
 
         const magneticAreas = useMemo(() => {
             let viewHeight = fullHeight;
@@ -168,7 +165,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
-        const [skipTransition, setSkipTransition] = useState(false);
 
         const [swipingInProgress, setSwipingInProgress] = useState<boolean | null>(null);
         const scrollOccurred = useRef<boolean>(false);
@@ -547,15 +543,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         useEffect(() => {
             if (!isFirstRender) {
-                const magneticAreasPropChanged =
-                    prevMagneticAreasPropRef.current !== magneticAreasProp;
-
-                prevMagneticAreasPropRef.current = magneticAreasProp;
-
-                if (magneticAreasPropChanged) {
-                    setSkipTransition(true);
-                }
-
                 // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
                 if (activeAreaIdx === -1) {
                     const idx = initialIndexRef.current as number;
@@ -565,15 +552,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 } else {
                     setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
                 }
-
-                if (magneticAreasPropChanged) {
-                    requestAnimationFrame(() => {
-                        setSkipTransition(false);
-                    });
-                }
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [isFirstRender, magneticAreas, lastMagneticArea, magneticAreasProp]);
+        }, [isFirstRender, magneticAreas, lastMagneticArea]);
 
         useEffect(() => {
             if (!sheetRef.current) return;
@@ -697,8 +678,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             bgClassName || colorStyle.component,
                             className,
                             {
-                                [styles.withTransition]:
-                                    swipingInProgress === false && !skipTransition,
+                                [styles.withTransition]: swipingInProgress === false,
                                 [styles.safeAreaBottom]: isIOS(),
                             },
                         )}
