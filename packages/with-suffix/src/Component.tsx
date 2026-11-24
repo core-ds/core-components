@@ -1,6 +1,8 @@
 import React, {
+    type ComponentProps,
     type ComponentRef,
     type ComponentType,
+    type ElementType,
     type FC,
     forwardRef,
     Fragment,
@@ -10,8 +12,13 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { type InputComponentProps, type InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import * as inputDefaultProps from '@alfalab/core-components-input/default-props';
+import {
+    type ComposedPolymorphicProps,
+    type PolymorphicComponentProps,
+    PolymorphicInput,
+} from '@alfalab/core-components-polymorphic';
 
 import defaultStyles from './default.module.css';
 import styles from './index.module.css';
@@ -35,22 +42,20 @@ export type SuffixProps = {
     suffixContainerClassName?: string;
 };
 
-/**
- * @deprecated
- */
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export type withSuffixProps = InputProps & SuffixProps;
-
 export type SuffixInputComponentCustomProps = Pick<
     InputProps,
     'size' | 'colors' | 'fontWeight' | 'bold' | 'as' | 'customProps'
 > &
     SuffixProps;
 
-const SuffixInputComponent = forwardRef<
-    ComponentRef<'input'>,
-    InputComponentProps<SuffixInputComponentCustomProps>
->(
+interface SuffixInputComponentProps
+    extends ComponentProps<'input'>,
+        PolymorphicComponentProps<
+            ElementType<ComposedPolymorphicProps<ComponentProps<'input'>>, 'input'>,
+            SuffixInputComponentCustomProps
+        > {}
+
+const SuffixInputComponent = forwardRef<ComponentRef<'input'>, SuffixInputComponentProps>(
     (
         {
             customProps: {
@@ -59,7 +64,7 @@ const SuffixInputComponent = forwardRef<
                 colors = inputDefaultProps.colors,
                 fontWeight,
                 size,
-                as: Component = inputDefaultProps.asProp,
+                as: Component = PolymorphicInput,
                 customProps,
             } = {},
             ...inputProps
@@ -120,8 +125,8 @@ export const SuffixInput = forwardRef<ComponentRef<'input'>, SuffixInputProps>(
             bold,
             fontWeight = inputDefaultProps.fontWeight(bold),
             size = inputDefaultProps.size,
-            as: Component = inputDefaultProps.asProp,
-            customProps: originalCustomProps,
+            as: Component,
+            customProps: inputCustomProps,
             ...restProps
         },
         ref,
@@ -157,7 +162,7 @@ export const SuffixInput = forwardRef<ComponentRef<'input'>, SuffixInputProps>(
             suffix,
             suffixContainerClassName,
             as: Component,
-            customProps: originalCustomProps,
+            customProps: inputCustomProps,
         };
 
         return (
@@ -183,6 +188,12 @@ export const SuffixInput = forwardRef<ComponentRef<'input'>, SuffixInputProps>(
 );
 
 SuffixInput.displayName = 'SuffixInput';
+
+/**
+ * @deprecated
+ */
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export type withSuffixProps = InputProps & SuffixProps;
 
 /**
  * @deprecated Используйте {@link SuffixInput} напрямую

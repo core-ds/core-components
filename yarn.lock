@@ -919,6 +919,7 @@ __metadata:
     "@alfalab/core-components-button": "npm:^13.3.0"
     "@alfalab/core-components-form-control": "npm:^14.0.13"
     "@alfalab/core-components-mq": "npm:^6.0.10"
+    "@alfalab/core-components-polymorphic": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.4.0"
     "@alfalab/core-components-status-badge": "npm:^3.0.3"
     "@alfalab/hooks": "npm:^1.17.0"
@@ -2302,6 +2303,7 @@ __metadata:
   resolution: "@alfalab/core-components-with-suffix@workspace:packages/with-suffix"
   dependencies:
     "@alfalab/core-components-input": "npm:^17.2.5"
+    "@alfalab/core-components-polymorphic": "npm:^0.0.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:

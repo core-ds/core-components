@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^17.2.5",
+        "@alfalab/core-components-polymorphic": "^0.0.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

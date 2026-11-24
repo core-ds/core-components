@@ -9,9 +9,14 @@
         "paths": {
             "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-polymorphic": ["../polymorphic/src"],
+            "@alfalab/core-components-polymorphic/*": ["../polymorphic/src/*"],
             "@alfalab/core-components-with-suffix": ["./src"],
             "@alfalab/core-components-with-suffix/*": ["./src/*"]
         }
     },
-    "references": [{ "path": "../input/tsconfig.build.json" }]
+    "references": [
+        { "path": "../input/tsconfig.build.json" },
+        { "path": "../polymorphic/tsconfig.build.json" }
+    ]
 }

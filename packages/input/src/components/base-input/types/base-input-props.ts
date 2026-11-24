@@ -1,6 +1,6 @@
 import {
     type ChangeEvent,
-    type ComponentPropsWithoutRef,
+    type ComponentProps,
     type ElementType,
     type HTMLAttributes,
     type InputHTMLAttributes,
@@ -11,24 +11,26 @@ import {
 } from 'react';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
-
-export type InputComponentCustomProps = Record<string, unknown>;
-
-export type InputComponentProps<T = InputComponentCustomProps> =
-    ComponentPropsWithoutRef<'input'> & { customProps?: T };
+import {
+    type ComposedPolymorphicProps,
+    type PolymorphicComponentProps,
+} from '@alfalab/core-components-polymorphic';
 
 export interface BaseInputProps
     extends Omit<
-        InputHTMLAttributes<HTMLInputElement>,
-        | 'size'
-        | 'type'
-        | 'value'
-        | 'defaultValue'
-        | 'onChange'
-        | 'onClick'
-        | 'onMouseDown'
-        | 'enterKeyHint'
-    > {
+            InputHTMLAttributes<HTMLInputElement>,
+            | 'size'
+            | 'type'
+            | 'value'
+            | 'defaultValue'
+            | 'onChange'
+            | 'onClick'
+            | 'onMouseDown'
+            | 'enterKeyHint'
+        >,
+        PolymorphicComponentProps<
+            ElementType<ComposedPolymorphicProps<ComponentProps<'input'>>, 'input'>
+        > {
     /**
      * Значение поля ввода
      */
@@ -214,14 +216,4 @@ export interface BaseInputProps
      * Вес шрифта инпута, в том числе плейсхолдера
      */
     fontWeight?: 'bold' | 'medium' | 'regular';
-
-    /**
-     * Внутренний компонент для рендера
-     */
-    as?: ElementType<InputComponentProps<InputComponentCustomProps>, 'input'>;
-
-    /**
-     * Кастомные пропы для внутреннего компонента для рендера {@link BaseInputProps.as}
-     */
-    customProps?: InputComponentCustomProps;
 }

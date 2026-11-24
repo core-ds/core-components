@@ -12,6 +12,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { PolymorphicInput } from '@alfalab/core-components-polymorphic';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -84,7 +85,7 @@ export const BaseInput = forwardRef<
             platformStyles = {},
             bold,
             fontWeight = defaultProps.fontWeight(bold),
-            as: Component = defaultProps.asProp,
+            as: Component = PolymorphicInput,
             ...restProps
         },
         ref,
