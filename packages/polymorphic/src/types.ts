@@ -1,4 +1,5 @@
-export type UnknownCustomProps = Record<string, unknown>;
+// used `object` type to make interfaces available in customProps
+export type UnknownCustomProps = object;
 
 export type ComposedPolymorphicProps<T> = T & { customProps?: UnknownCustomProps };
 

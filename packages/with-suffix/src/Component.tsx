@@ -29,7 +29,7 @@ const colorsStyles = {
     inverted: invertedStyles,
 } as const;
 
-export type SuffixProps = {
+export interface SuffixProps {
     /**
      * Дополнительный закрепленный текст справа от основного значения.
      * Например: value='85' suffix=' мес' -> 85 мес
@@ -40,19 +40,13 @@ export type SuffixProps = {
      * Дополнительный класс для контейнера с суффиксом
      */
     suffixContainerClassName?: string;
-};
-
-export type SuffixInputComponentCustomProps = Pick<
-    InputProps,
-    'size' | 'colors' | 'fontWeight' | 'bold' | 'as' | 'customProps'
-> &
-    SuffixProps;
+}
 
 interface SuffixInputComponentProps
     extends ComponentProps<'input'>,
         PolymorphicComponentProps<
             ElementType<ComposedPolymorphicProps<ComponentProps<'input'>>, 'input'>,
-            SuffixInputComponentCustomProps
+            InputProps & SuffixProps
         > {}
 
 const SuffixInputComponent = forwardRef<ComponentRef<'input'>, SuffixInputComponentProps>(
@@ -62,8 +56,11 @@ const SuffixInputComponent = forwardRef<ComponentRef<'input'>, SuffixInputCompon
                 suffix,
                 suffixContainerClassName,
                 colors = inputDefaultProps.colors,
-                fontWeight,
-                size,
+                bold,
+                fontWeight = inputDefaultProps.fontWeight(bold),
+                size = inputDefaultProps.size,
+                disabled,
+                readOnly,
                 as: Component = PolymorphicInput,
                 customProps,
             } = {},
@@ -71,7 +68,7 @@ const SuffixInputComponent = forwardRef<ComponentRef<'input'>, SuffixInputCompon
         },
         ref,
     ) => {
-        const { value, disabled, readOnly } = inputProps;
+        const { value } = inputProps;
         const colorStyles = colorsStyles[colors];
 
         return (
@@ -110,82 +107,58 @@ export interface SuffixInputProps extends InputProps, SuffixProps {
     Input: ComponentType<InputProps & RefAttributes<ComponentRef<'input'>>>;
 }
 
-export const SuffixInput = forwardRef<ComponentRef<'input'>, SuffixInputProps>(
-    (
-        {
-            Input,
-            value: valueFromProps,
-            defaultValue = '',
-            onChange,
-            onClear,
-            className,
-            suffix,
-            suffixContainerClassName,
-            colors = inputDefaultProps.colors,
-            bold,
-            fontWeight = inputDefaultProps.fontWeight(bold),
-            size = inputDefaultProps.size,
-            as: Component,
-            customProps: inputCustomProps,
-            ...restProps
-        },
-        ref,
-    ) => {
-        const uncontrolled = valueFromProps === undefined;
-        const [value, setValue] = useState(valueFromProps ?? defaultValue);
+export const SuffixInput = forwardRef<ComponentRef<'input'>, SuffixInputProps>((props, ref) => {
+    const {
+        Input,
+        value: valueFromProps,
+        defaultValue = '',
+        onChange,
+        onClear,
+        className,
+        suffix,
+        suffixContainerClassName,
+        ...restProps
+    } = props;
+    const uncontrolled = valueFromProps === undefined;
+    const [value, setValue] = useState(valueFromProps ?? defaultValue);
 
-        // getDerivedStateFromProps
-        if (!uncontrolled && valueFromProps !== value) {
-            setValue(valueFromProps);
+    // getDerivedStateFromProps
+    if (!uncontrolled && valueFromProps !== value) {
+        setValue(valueFromProps);
+    }
+
+    const handleInputChange: InputProps['onChange'] = (event, payload) => {
+        onChange?.(event, payload);
+
+        if (uncontrolled) {
+            setValue(payload.value);
         }
+    };
 
-        const handleInputChange: InputProps['onChange'] = (event, payload) => {
-            onChange?.(event, payload);
+    const handleClear: InputProps['onClear'] = (event) => {
+        onClear?.(event);
 
-            if (uncontrolled) {
-                setValue(payload.value);
-            }
-        };
+        if (uncontrolled) {
+            setValue('');
+        }
+    };
 
-        const handleClear: InputProps['onClear'] = (event) => {
-            onClear?.(event);
-
-            if (uncontrolled) {
-                setValue('');
-            }
-        };
-
-        const customProps: SuffixInputComponentCustomProps = {
-            size,
-            colors,
-            fontWeight,
-            suffix,
-            suffixContainerClassName,
-            as: Component,
-            customProps: inputCustomProps,
-        };
-
-        return (
-            <Input
-                ref={ref}
-                value={value}
-                onChange={handleInputChange}
-                onClear={handleClear}
-                className={cn(className, {
-                    [styles.suffixVisible]: value,
-                    [styles.hasSuffix]: suffix,
-                })}
-                colors={colors}
-                bold={bold}
-                fontWeight={fontWeight}
-                size={size}
-                as={SuffixInputComponent}
-                customProps={customProps}
-                {...restProps}
-            />
-        );
-    },
-);
+    return (
+        <Input
+            ref={ref}
+            value={value}
+            onChange={handleInputChange}
+            onClear={handleClear}
+            className={cn(className, {
+                [styles.suffixVisible]: value,
+                [styles.hasSuffix]: suffix,
+            })}
+            as={SuffixInputComponent}
+            customProps={props}
+            {...restProps}
+        />
+    );
+});
 
 SuffixInput.displayName = 'SuffixInput';
 
