@@ -218,6 +218,7 @@ export const mobile: Story = {
         const open = boolean('open', false);
         const header = boolean('header', false);
         const headerTitle = text('header.title', '');
+        const headerChildren = text('header.children', '');
         const headerMode = select('header.headerMode', ['left', 'relative', 'absolute'], 'left');
         const hasHeaderImage = boolean('header.image', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -257,6 +258,11 @@ export const mobile: Story = {
                                               'header.image.aspectRatio',
                                               360 / 180,
                                           ),
+                                          contentPlacement: select(
+                                              'header.image.contentPlacement',
+                                              ['over', 'under'],
+                                              'over',
+                                          ),
                                       }
                                     : undefined
                             }
@@ -282,7 +288,9 @@ export const mobile: Story = {
                                     />
                                 ),
                             })}
-                        />
+                        >
+                            {headerChildren}
+                        </UniversalModalMobile.Header>
                     )}
                     <UniversalModalMobile.Content>
                         <Content />
