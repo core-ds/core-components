@@ -501,8 +501,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             preventScrollOnSwipe,
         });
 
+        const getInitialIndex = () => {
+            const idx = initialIndexRef.current;
+
+            // fallback индекса для предотвращения NaN в расчетах
+            return !magneticAreasProp && !isNil(idx) && magneticAreas[idx] === undefined
+                ? magneticAreas.length - 1
+                : idx;
+        };
+
         const handleExited = (node: HTMLElement) => {
-            const idx = initialIndexRef.current as number;
+            const idx = getInitialIndex();
 
             setBackdropOpacity(1);
             setSheetOffset(isNil(idx) ? magneticAreas[0] : lastMagneticArea - magneticAreas[idx]);
@@ -514,7 +523,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
-            onMagnetize?.(initialIndexRef.current ?? magneticAreas.length - 1);
+            onMagnetize?.(getInitialIndex() ?? magneticAreas.length - 1);
 
             if (transitionProps.onEnter) {
                 transitionProps.onEnter(node, isAppearing);
@@ -545,7 +554,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!isFirstRender) {
                 // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
                 if (activeAreaIdx === -1) {
-                    const idx = initialIndexRef.current as number;
+                    const idx = getInitialIndex();
 
                     setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
                     setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
