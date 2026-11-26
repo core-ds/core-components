@@ -168,6 +168,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const hasMagneticAreasFromProp = Boolean(magneticAreasProp);
         const [hadMagneticAreas, setHadMagneticAreas] = useState(hasMagneticAreasFromProp);
+        const [skipTransition, setSkipTransition] = useState(false);
 
         // getDerivedStateFromProps
         if (hadMagneticAreas !== hasMagneticAreasFromProp) {
@@ -178,6 +179,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
             if (hasMagneticAreasFromProp && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
                 setActiveAreaIdx(idx);
+
+                if (!isFirstRender) {
+                    setSheetOffset(lastMagneticArea - magneticAreas[idx]);
+                    setSkipTransition(true);
+                }
             }
         }
 
@@ -567,6 +573,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         useEffect(() => {
             if (!isFirstRender) {
+                if (skipTransition) {
+                    setSheetHeight();
+                    setSkipTransition(false);
+                }
+
                 // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
                 if (activeAreaIdx === -1) {
                     const idx = getInitialIndex();
@@ -578,7 +589,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 }
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [isFirstRender, magneticAreas, lastMagneticArea]);
+        }, [isFirstRender, magneticAreas, lastMagneticArea, skipTransition]);
 
         useEffect(() => {
             if (!sheetRef.current) return;
@@ -702,7 +713,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             bgClassName || colorStyle.component,
                             className,
                             {
-                                [styles.withTransition]: swipingInProgress === false,
+                                [styles.withTransition]:
+                                    swipingInProgress === false && !skipTransition,
                                 [styles.safeAreaBottom]: isIOS(),
                             },
                         )}
