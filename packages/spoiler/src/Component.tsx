@@ -47,14 +47,12 @@ const hasSelectionInside = (root: HTMLElement | null) => {
     );
 };
 
-/** Скрывает содержимое частицами, сохраняя текстовые строки или размеры элемента. */
-export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
+const SpoilerView = forwardRef<HTMLElement, SpoilerProps & { open: boolean }>(
     (
         {
             children,
             mode = 'text',
-            open: controlledOpen,
-            defaultOpen = false,
+            open,
             onOpenChange,
             revealOn = 'click',
             revealOnce = false,
@@ -71,8 +69,6 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
         },
         forwardedRef,
     ) => {
-        const [ownOpen, setOwnOpen] = useState(defaultOpen);
-        const open = controlledOpen ?? ownOpen;
         const openedOnce = revealOn === 'click' && revealOnce && open;
         const interactive = revealOn === 'click' && !openedOnce;
         const triggerRef = useRef<HTMLButtonElement>(null);
@@ -103,13 +99,8 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
             }
         }, [open, mode, contentRef]);
 
-        const changeOpen = (nextOpen: boolean) => {
-            if (nextOpen === open) return;
-            if (controlledOpen === undefined) setOwnOpen(nextOpen);
-            onOpenChange?.(nextOpen);
-        };
         const toggle = () => {
-            if (interactive) changeOpen(!open);
+            if (interactive) onOpenChange?.(!open);
         };
         const handleClick = (event: React.MouseEvent<HTMLElement>) => {
             const target = event.target as Element;
@@ -200,6 +191,32 @@ export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
                     canvas
                 )}
             </Container>
+        );
+    },
+);
+
+SpoilerView.displayName = 'SpoilerView';
+
+/** Скрывает содержимое частицами, сохраняя текстовые строки или размеры элемента. */
+export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
+    ({ mode = 'text', open: controlledOpen, defaultOpen = false, onOpenChange, ...props }, ref) => {
+        const [ownOpen, setOwnOpen] = useState(defaultOpen);
+        const open = controlledOpen ?? ownOpen;
+        const changeOpen = (nextOpen: boolean) => {
+            if (controlledOpen === undefined) setOwnOpen(nextOpen);
+            onOpenChange?.(nextOpen);
+        };
+
+        // Смена тега заменяет кнопку. Подписка и подсветка относятся к новому узлу, а open сохраняется.
+        return (
+            <SpoilerView
+                key={mode}
+                {...props}
+                ref={ref}
+                mode={mode}
+                open={open}
+                onOpenChange={changeOpen}
+            />
         );
     },
 );

@@ -279,6 +279,60 @@ describe('Spoiler', () => {
         expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
+    it.each([
+        ['text', 'element', false],
+        ['text', 'element', true],
+        ['element', 'text', false],
+        ['element', 'text', true],
+    ] as const)(
+        'обновляет подсветку фокуса при смене %s → %s (фокус до смены: %s)',
+        async (from, to, wasFocused) => {
+            const user = userEvent.setup();
+            const example = (mode: typeof from | typeof to) => (
+                <>
+                    <Spoiler mode={mode} dataTestId='spoiler'>
+                        Скрытый текст
+                    </Spoiler>
+                    <button type='button'>Следующий элемент</button>
+                </>
+            );
+            const { rerender } = render(example(from));
+            const oldTrigger = screen.getByRole('button', { name: /Показать скрыт/ });
+
+            if (wasFocused) {
+                await user.tab();
+                await user.keyboard('{Enter}');
+                expect(oldTrigger).toHaveFocus();
+                expect(screen.getByTestId('spoiler')).toHaveAttribute('data-focused', 'true');
+            }
+
+            rerender(example(to));
+            const root = screen.getByTestId('spoiler');
+            const trigger = screen.getByRole('button', {
+                name: wasFocused ? 'Скрыть содержимое' : /Показать скрыт/,
+            });
+
+            expect(oldTrigger).not.toBeInTheDocument();
+            expect(trigger).not.toHaveFocus();
+            expect(root).toHaveAttribute('data-focused', 'false');
+            expect(trigger.nextElementSibling).toHaveAttribute('data-spoiler-content');
+            expect(trigger).toHaveAttribute('aria-expanded', String(wasFocused));
+
+            await user.tab();
+            expect(trigger).toHaveFocus();
+            expect(root).toHaveAttribute('data-focused', 'true');
+
+            await user.keyboard(' ');
+            expect(trigger).toHaveAttribute('aria-expanded', String(!wasFocused));
+            await user.keyboard('{Enter}');
+            expect(trigger).toHaveAttribute('aria-expanded', String(wasFocused));
+
+            await user.tab();
+            expect(screen.getByRole('button', { name: 'Следующий элемент' })).toHaveFocus();
+            expect(root).toHaveAttribute('data-focused', 'false');
+        },
+    );
+
     it('в режиме manual переключается только через open', () => {
         const onOpenChange = jest.fn();
         const { rerender } = render(
