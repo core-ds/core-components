@@ -47,13 +47,18 @@ const hasSelectionInside = (root: HTMLElement | null) => {
     );
 };
 
-const SpoilerView = forwardRef<HTMLElement, SpoilerProps & { open: boolean }>(
+type SpoilerViewProps = Omit<SpoilerProps, 'hide' | 'defaultHide' | 'onHideChange'> & {
+    open: boolean;
+    onRequestToggle: () => void;
+};
+
+const SpoilerView = forwardRef<HTMLElement, SpoilerViewProps>(
     (
         {
             children,
             mode = 'text',
             open,
-            onOpenChange,
+            onRequestToggle,
             revealOn = 'click',
             revealOnce = false,
             expandOnHover = true,
@@ -100,13 +105,16 @@ const SpoilerView = forwardRef<HTMLElement, SpoilerProps & { open: boolean }>(
         }, [open, mode, contentRef]);
 
         const toggle = () => {
-            if (interactive) onOpenChange?.(!open);
+            if (interactive) onRequestToggle();
         };
         const handleClick = (event: React.MouseEvent<HTMLElement>) => {
             const target = event.target as Element;
+            const root = event.currentTarget;
+
+            if (!root.contains(target)) return;
             const control = target.closest?.(NESTED_CONTROL);
 
-            if (control && control !== triggerRef.current) return;
+            if (control && root.contains(control) && control !== triggerRef.current) return;
             if (open && control !== triggerRef.current && hasSelectionInside(contentRef.current))
                 return;
             toggle();
@@ -199,23 +207,25 @@ SpoilerView.displayName = 'SpoilerView';
 
 /** Скрывает содержимое частицами, сохраняя текстовые строки или размеры элемента. */
 export const Spoiler = forwardRef<HTMLElement, SpoilerProps>(
-    ({ mode = 'text', open: controlledOpen, defaultOpen = false, onOpenChange, ...props }, ref) => {
-        const [ownOpen, setOwnOpen] = useState(defaultOpen);
-        const open = controlledOpen ?? ownOpen;
-        const changeOpen = (nextOpen: boolean) => {
-            if (controlledOpen === undefined) setOwnOpen(nextOpen);
-            onOpenChange?.(nextOpen);
+    ({ mode = 'text', hide: controlledHide, defaultHide = true, onHideChange, ...props }, ref) => {
+        const [ownHide, setOwnHide] = useState(defaultHide);
+        const hide = controlledHide ?? ownHide;
+        const toggleHide = () => {
+            const nextHide = !hide;
+
+            if (controlledHide === undefined) setOwnHide(nextHide);
+            onHideChange?.(nextHide);
         };
 
-        // Смена тега заменяет кнопку. Подписка и подсветка относятся к новому узлу, а open сохраняется.
+        // Смена тега заменяет кнопку. Подписка и подсветка относятся к новому узлу, а hide сохраняется.
         return (
             <SpoilerView
                 key={mode}
                 {...props}
                 ref={ref}
                 mode={mode}
-                open={open}
-                onOpenChange={changeOpen}
+                open={!hide}
+                onRequestToggle={toggleHide}
             />
         );
     },

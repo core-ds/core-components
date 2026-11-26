@@ -6,13 +6,13 @@ export interface SpoilerProps
     children: ReactNode;
     /** Область покрытия: строки текста или весь контейнер элемента. @default text */
     mode?: 'text' | 'element';
-    /** Управляемое состояние: true раскрывает содержимое. */
-    open?: boolean;
-    /** Начальное состояние неуправляемого компонента. @default false */
-    defaultOpen?: boolean;
-    /** Обработчик запроса на изменение раскрытия содержимого. */
-    onOpenChange?: (open: boolean) => void;
-    /** Способ раскрытия. В manual состояние меняется только через open. @default click */
+    /** Управляемое состояние: true скрывает содержимое частицами. */
+    hide?: boolean;
+    /** Скрывать ли содержимое изначально в неуправляемом режиме. @default true */
+    defaultHide?: boolean;
+    /** Обработчик запроса на изменение состояния скрытия. */
+    onHideChange?: (hide: boolean) => void;
+    /** Способ раскрытия. В manual состояние меняется только через hide. @default click */
     revealOn?: 'click' | 'manual';
     /** Раскрывает содержимое только один раз. Работает только с revealOn='click'. @default false */
     revealOnce?: boolean;

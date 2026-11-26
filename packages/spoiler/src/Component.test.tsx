@@ -31,19 +31,19 @@ describe('Spoiler', () => {
             );
         };
         const { rerender } = render(
-            <Spoiler mode='element' open revealOn='manual'>
+            <Spoiler mode='element' hide={false} revealOn='manual'>
                 <Counter />
             </Spoiler>,
         );
         fireEvent.click(screen.getByRole('button', { name: '0' }));
         rerender(
-            <Spoiler mode='element' open={false} revealOn='manual'>
+            <Spoiler mode='element' hide revealOn='manual'>
                 <Counter />
             </Spoiler>,
         );
         expect(screen.queryByRole('button')).not.toBeInTheDocument();
         rerender(
-            <Spoiler mode='element' open revealOn='manual'>
+            <Spoiler mode='element' hide={false} revealOn='manual'>
                 <Counter />
             </Spoiler>,
         );
@@ -51,8 +51,8 @@ describe('Spoiler', () => {
     });
 
     it('раскрывает текст по клику и скрывает повторным кликом', () => {
-        const onOpenChange = jest.fn();
-        const { container } = render(<Spoiler onOpenChange={onOpenChange}>Скрытый текст</Spoiler>);
+        const onHideChange = jest.fn();
+        const { container } = render(<Spoiler onHideChange={onHideChange}>Скрытый текст</Spoiler>);
         const trigger = screen.getByRole('button');
         const content = container.querySelector('[data-spoiler-content]');
 
@@ -64,40 +64,61 @@ describe('Spoiler', () => {
         expect(screen.getByRole('button', { name: 'Скрыть содержимое' })).toBe(trigger);
         expect(trigger).toHaveAttribute('aria-controls', content!.id);
         expect(trigger).not.toContainElement(content as HTMLElement);
-        expect(onOpenChange).toHaveBeenLastCalledWith(true);
+        expect(onHideChange).toHaveBeenLastCalledWith(false);
 
         fireEvent.click(trigger);
 
         expect(trigger).toHaveAttribute('aria-expanded', 'false');
         expect(content).toHaveAttribute('aria-hidden', 'true');
-        expect(onOpenChange).toHaveBeenLastCalledWith(false);
+        expect(onHideChange).toHaveBeenLastCalledWith(true);
     });
+
+    it.each(['text', 'element'] as const)(
+        'переключает Spoiler в режиме %s внутри панели с tabindex',
+        (mode) => {
+            render(
+                <div role='tabpanel' tabIndex={0}>
+                    <Spoiler mode={mode} defaultHide={false} dataTestId='spoiler'>
+                        Скрытый текст
+                    </Spoiler>
+                </div>,
+            );
+            const root = screen.getByTestId('spoiler');
+
+            fireEvent.click(screen.getByText('Скрытый текст'));
+            expect(root).toHaveAttribute('data-state', 'hidden');
+
+            // У скрытого содержимого отключены pointer events, клик принимает корень.
+            fireEvent.click(root);
+            expect(root).toHaveAttribute('data-state', 'revealed');
+        },
+    );
 
     it.each(['{Enter}', ' '])('переключает скрытый текст клавишей %p', async (key) => {
         const user = userEvent.setup();
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
 
-        render(<Spoiler onOpenChange={onOpenChange}>Скрытый текст</Spoiler>);
+        render(<Spoiler onHideChange={onHideChange}>Скрытый текст</Spoiler>);
         const trigger = screen.getByRole('button');
 
         await user.tab();
         await user.keyboard(key);
 
         expect(trigger).toHaveAttribute('aria-expanded', 'true');
-        expect(onOpenChange).toHaveBeenLastCalledWith(true);
+        expect(onHideChange).toHaveBeenLastCalledWith(false);
 
         await user.keyboard(key);
 
         expect(trigger).toHaveAttribute('aria-expanded', 'false');
-        expect(onOpenChange).toHaveBeenLastCalledWith(false);
+        expect(onHideChange).toHaveBeenLastCalledWith(true);
     });
 
     it('с revealOnce раскрывается один раз и становится неинтерактивным', () => {
         const onClick = jest.fn();
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
 
         render(
-            <Spoiler revealOnce dataTestId='spoiler' onClick={onClick} onOpenChange={onOpenChange}>
+            <Spoiler revealOnce dataTestId='spoiler' onClick={onClick} onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
@@ -105,8 +126,8 @@ describe('Spoiler', () => {
 
         fireEvent.click(root);
 
-        expect(onOpenChange).toHaveBeenCalledTimes(1);
-        expect(onOpenChange).toHaveBeenCalledWith(true);
+        expect(onHideChange).toHaveBeenCalledTimes(1);
+        expect(onHideChange).toHaveBeenCalledWith(false);
         expect(root).toHaveAttribute('data-state', 'revealed');
         expect(root).not.toHaveAttribute('role');
         expect(root).not.toHaveAttribute('aria-expanded');
@@ -116,7 +137,7 @@ describe('Spoiler', () => {
         fireEvent.click(root);
 
         expect(onClick).toHaveBeenCalledTimes(2);
-        expect(onOpenChange).toHaveBeenCalledTimes(1);
+        expect(onHideChange).toHaveBeenCalledTimes(1);
         expect(root).toHaveAttribute('data-state', 'revealed');
     });
 
@@ -125,14 +146,14 @@ describe('Spoiler', () => {
         async (key) => {
             const user = userEvent.setup();
             const onKeyDown = jest.fn();
-            const onOpenChange = jest.fn();
+            const onHideChange = jest.fn();
 
             render(
                 <Spoiler
                     revealOnce
                     dataTestId='spoiler'
                     onKeyDown={onKeyDown}
-                    onOpenChange={onOpenChange}
+                    onHideChange={onHideChange}
                 >
                     Скрытый текст
                 </Spoiler>,
@@ -144,43 +165,43 @@ describe('Spoiler', () => {
             await user.keyboard(key);
 
             expect(onKeyDown).toHaveBeenCalledTimes(2);
-            expect(onOpenChange).toHaveBeenCalledTimes(1);
-            expect(onOpenChange).toHaveBeenCalledWith(true);
+            expect(onHideChange).toHaveBeenCalledTimes(1);
+            expect(onHideChange).toHaveBeenCalledWith(false);
             expect(root).toHaveAttribute('data-state', 'revealed');
         },
     );
 
-    it('в управляемом режиме revealOnce снова разрешает раскрытие после open=false', () => {
-        const onOpenChange = jest.fn();
+    it('в управляемом режиме revealOnce снова разрешает раскрытие после hide=true', () => {
+        const onHideChange = jest.fn();
         const { rerender } = render(
-            <Spoiler revealOnce open={false} onOpenChange={onOpenChange}>
+            <Spoiler revealOnce hide onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
 
         fireEvent.click(screen.getByRole('button'));
-        expect(onOpenChange).toHaveBeenLastCalledWith(true);
+        expect(onHideChange).toHaveBeenLastCalledWith(false);
         rerender(
-            <Spoiler revealOnce open onOpenChange={onOpenChange}>
+            <Spoiler revealOnce hide={false} onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
         expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
         rerender(
-            <Spoiler revealOnce open={false} onOpenChange={onOpenChange}>
+            <Spoiler revealOnce hide onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
-        onOpenChange.mockClear();
+        onHideChange.mockClear();
 
         fireEvent.click(screen.getByRole('button'));
 
-        expect(onOpenChange).toHaveBeenCalledWith(true);
+        expect(onHideChange).toHaveBeenCalledWith(false);
     });
 
-    it('revealOnce не влияет на ручной режим и defaultOpen сразу неинтерактивен', () => {
+    it('revealOnce не влияет на ручной режим и defaultHide=false сразу неинтерактивен', () => {
         const { rerender } = render(
-            <Spoiler revealOnce revealOn='manual' open={false} dataTestId='spoiler'>
+            <Spoiler revealOnce revealOn='manual' hide dataTestId='spoiler'>
                 Скрытый текст
             </Spoiler>,
         );
@@ -191,7 +212,7 @@ describe('Spoiler', () => {
         expect(root).not.toHaveAttribute('tabindex');
 
         rerender(
-            <Spoiler key='revealed-once' revealOnce defaultOpen dataTestId='spoiler-once'>
+            <Spoiler key='revealed-once' revealOnce defaultHide={false} dataTestId='spoiler-once'>
                 Скрытый текст
             </Spoiler>,
         );
@@ -203,10 +224,10 @@ describe('Spoiler', () => {
     });
 
     it('не скрывает раскрытый текст при выделении внутри спойлера', () => {
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
 
         render(
-            <Spoiler defaultOpen dataTestId='spoiler' onOpenChange={onOpenChange}>
+            <Spoiler defaultHide={false} dataTestId='spoiler' onHideChange={onHideChange}>
                 Выделенный текст
             </Spoiler>,
         );
@@ -223,40 +244,45 @@ describe('Spoiler', () => {
         fireEvent.click(root);
 
         expect(root).toHaveAttribute('data-state', 'revealed');
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
     });
 
     it('игнорирует клавиши, которые не активируют кнопку', () => {
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
 
-        render(<Spoiler onOpenChange={onOpenChange}>Скрытый текст</Spoiler>);
+        render(<Spoiler onHideChange={onHideChange}>Скрытый текст</Spoiler>);
 
         fireEvent.keyDown(screen.getByRole('button'), { key: 'ArrowDown' });
         fireEvent.keyDown(screen.getByRole('button'), { key: 'Enter', repeat: true });
 
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
     });
 
-    it('в управляемом режиме ожидает обновления open от родителя', () => {
-        const onOpenChange = jest.fn();
+    it('в управляемом режиме ожидает обновления hide от родителя', () => {
+        const onHideChange = jest.fn();
         const { rerender } = render(
-            <Spoiler open={false} onOpenChange={onOpenChange}>
+            <Spoiler hide onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
 
         fireEvent.click(screen.getByRole('button'));
 
-        expect(onOpenChange).toHaveBeenCalledWith(true);
+        expect(onHideChange).toHaveBeenCalledWith(false);
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
 
         rerender(
-            <Spoiler open={true} onOpenChange={onOpenChange}>
+            <Spoiler hide={false} onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
 
+        expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
+
+        fireEvent.click(screen.getByRole('button'));
+
+        expect(onHideChange).toHaveBeenLastCalledWith(true);
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
     });
 
@@ -333,15 +359,10 @@ describe('Spoiler', () => {
         },
     );
 
-    it('в режиме manual переключается только через open', () => {
-        const onOpenChange = jest.fn();
+    it('в режиме manual переключается только через hide', () => {
+        const onHideChange = jest.fn();
         const { rerender } = render(
-            <Spoiler
-                revealOn='manual'
-                open={false}
-                onOpenChange={onOpenChange}
-                dataTestId='spoiler'
-            >
+            <Spoiler revealOn='manual' hide onHideChange={onHideChange} dataTestId='spoiler'>
                 Скрытый текст
             </Spoiler>,
         );
@@ -355,10 +376,10 @@ describe('Spoiler', () => {
         expect(root).not.toHaveAttribute('role');
         expect(root).not.toHaveAttribute('tabindex');
         expect(root).toHaveAttribute('data-state', 'hidden');
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
 
         rerender(
-            <Spoiler revealOn='manual' open={true} dataTestId='spoiler'>
+            <Spoiler revealOn='manual' hide={false} dataTestId='spoiler'>
                 Скрытый текст
             </Spoiler>,
         );
@@ -367,13 +388,13 @@ describe('Spoiler', () => {
     });
 
     it('позволяет отменить переключение в пользовательском обработчике клика', () => {
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
         const onClick = jest.fn((event: React.MouseEvent<HTMLSpanElement>) =>
             event.preventDefault(),
         );
 
         render(
-            <Spoiler onClick={onClick} onOpenChange={onOpenChange}>
+            <Spoiler onClick={onClick} onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
@@ -381,19 +402,19 @@ describe('Spoiler', () => {
         fireEvent.click(screen.getByRole('button'));
 
         expect(onClick).toHaveBeenCalledTimes(1);
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
     });
 
     it('позволяет отменить переключение в пользовательском обработчике клавиатуры', async () => {
         const user = userEvent.setup();
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
         const onKeyDown = jest.fn((event: React.KeyboardEvent<HTMLSpanElement>) =>
             event.preventDefault(),
         );
 
         render(
-            <Spoiler onKeyDown={onKeyDown} onOpenChange={onOpenChange}>
+            <Spoiler onKeyDown={onKeyDown} onHideChange={onHideChange}>
                 Скрытый текст
             </Spoiler>,
         );
@@ -402,13 +423,13 @@ describe('Spoiler', () => {
         await user.keyboard('{Enter}');
 
         expect(onKeyDown).toHaveBeenCalledTimes(1);
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
     });
 
     it('не смешивает нативный hidden с состоянием раскрытия', () => {
         const { rerender } = render(
-            <Spoiler hidden open dataTestId='spoiler'>
+            <Spoiler hidden hide={false} dataTestId='spoiler'>
                 Скрытый элемент
             </Spoiler>,
         );
@@ -419,7 +440,7 @@ describe('Spoiler', () => {
         expect(root.querySelector('[data-spoiler-content]')).not.toHaveAttribute('aria-hidden');
 
         rerender(
-            <Spoiler open={false} dataTestId='spoiler'>
+            <Spoiler hide dataTestId='spoiler'>
                 Скрытый элемент
             </Spoiler>,
         );

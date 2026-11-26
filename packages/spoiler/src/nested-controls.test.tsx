@@ -35,15 +35,15 @@ describe.each(['text', 'element'] as const)('Вложенные элементы
         ],
         ['поле ввода', <input aria-label='Комментарий' data-test-id='target' />, ' '],
     ])('%s: клавиша не отменяется и не скрывает содержимое', (_, child, key) => {
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
         render(
-            <Spoiler mode={mode} defaultOpen onOpenChange={onOpenChange}>
+            <Spoiler mode={mode} defaultHide={false} onHideChange={onHideChange}>
                 {child}
             </Spoiler>,
         );
 
         expect(fireEvent.keyDown(screen.getByTestId('target'), { key })).toBe(true);
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
         expect(screen.getByTestId('target').closest('[data-spoiler-content]')).not.toHaveAttribute(
             'inert',
         );
@@ -95,23 +95,23 @@ describe.each(['text', 'element'] as const)('Вложенные элементы
             </span>,
         ],
     ])('%s: клик и пользовательский обработчик работают без скрытия', (_, child) => {
-        const onOpenChange = jest.fn();
+        const onHideChange = jest.fn();
         const onClick = jest.fn();
         render(
-            <Spoiler mode={mode} defaultOpen onOpenChange={onOpenChange} onClick={onClick}>
+            <Spoiler mode={mode} defaultHide={false} onHideChange={onHideChange} onClick={onClick}>
                 {child}
             </Spoiler>,
         );
 
         expect(fireEvent.click(screen.getByTestId('target'))).toBe(true);
         expect(onClick).toHaveBeenCalled();
-        expect(onOpenChange).not.toHaveBeenCalled();
+        expect(onHideChange).not.toHaveBeenCalled();
     });
 
     it('обычный текст скрывает содержимое, Enter на триггере раскрывает', async () => {
         const user = userEvent.setup();
         render(
-            <Spoiler mode={mode} defaultOpen dataTestId='root'>
+            <Spoiler mode={mode} defaultHide={false} dataTestId='root'>
                 <span data-test-id='text'>Баланс</span>
             </Spoiler>,
         );

@@ -8,21 +8,21 @@ Spoiler скрывает текст, изображения и другой ко
 
 ```jsx live
 render(() => {
-    const [open, setOpen] = React.useState(true);
+    const [hide, setHide] = React.useState(false);
     const [expandOnHover, setExpandOnHover] = React.useState(true);
     const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
     const [valueIndex, setValueIndex] = React.useState(0);
     const values = ['−4 940 ₽', '−5 186 ₽'];
 
     React.useEffect(() => {
-        if (open) return undefined;
+        if (!hide) return undefined;
 
         const timer = window.setTimeout(() => {
             setValueIndex((current) => (current + 1) % 2);
         }, 500);
 
         return () => window.clearTimeout(timer);
-    }, [open]);
+    }, [hide]);
 
     return (
         <>
@@ -33,8 +33,9 @@ render(() => {
                 style={{ fontVariantNumeric: 'tabular-nums' }}
             >
                 <Spoiler
-                    open={open}
-                    onOpenChange={setOpen}
+                    hide={hide}
+                    onHideChange={setHide}
+                    revealOn='click'
                     expandOnHover={expandOnHover}
                     repelParticlesOnHover={repelParticlesOnHover}
                 >
@@ -51,18 +52,18 @@ render(() => {
                 }}
             >
                 <Switch
-                    checked={open}
-                    label='open'
-                    onChange={() => setOpen((current) => !current)}
+                    checked={hide}
+                    label='Скрыть содержимое'
+                    onChange={() => setHide((current) => !current)}
                 />
                 <Switch
                     checked={expandOnHover}
-                    label='expandOnHover'
+                    label='Расширять облако при наведении'
                     onChange={() => setExpandOnHover((current) => !current)}
                 />
                 <Switch
                     checked={repelParticlesOnHover}
-                    label='repelParticlesOnHover'
+                    label='Отталкивать частицы от курсора'
                     onChange={() => setRepelParticlesOnHover((current) => !current)}
                 />
             </div>
@@ -79,7 +80,7 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [open, setOpen] = React.useState(false);
+    const [hide, setHide] = React.useState(true);
     const [expandOnHover, setExpandOnHover] = React.useState(true);
     const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
 
@@ -88,8 +89,8 @@ render(() => {
             <Typography.Text view='primary-medium'>
                 Доставка ожидается{' '}
                 <Spoiler
-                    open={open}
-                    onOpenChange={setOpen}
+                    hide={hide}
+                    onHideChange={setHide}
                     expandOnHover={expandOnHover}
                     repelParticlesOnHover={repelParticlesOnHover}
                 >
@@ -106,15 +107,19 @@ render(() => {
                     gap: 'var(--gap-8)',
                 }}
             >
-                <Switch checked={open} label='open' onChange={() => setOpen((value) => !value)} />
+                <Switch
+                    checked={hide}
+                    label='Скрыть содержимое'
+                    onChange={() => setHide((value) => !value)}
+                />
                 <Switch
                     checked={expandOnHover}
-                    label='expandOnHover'
+                    label='Расширять облако при наведении'
                     onChange={() => setExpandOnHover((value) => !value)}
                 />
                 <Switch
                     checked={repelParticlesOnHover}
-                    label='repelParticlesOnHover'
+                    label='Отталкивать частицы от курсора'
                     onChange={() => setRepelParticlesOnHover((value) => !value)}
                 />
             </div>
@@ -131,7 +136,7 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [open, setOpen] = React.useState(false);
+    const [hide, setHide] = React.useState(true);
     const [expandOnHover, setExpandOnHover] = React.useState(true);
     const [repelParticlesOnHover, setRepelParticlesOnHover] = React.useState(true);
 
@@ -139,8 +144,8 @@ render(() => {
         <>
             <Spoiler
                 mode='element'
-                open={open}
-                onOpenChange={setOpen}
+                hide={hide}
+                onHideChange={setHide}
                 expandOnHover={expandOnHover}
                 repelParticlesOnHover={repelParticlesOnHover}
                 style={{ borderRadius: 'var(--border-radius-8)' }}
@@ -162,15 +167,19 @@ render(() => {
                     gap: 'var(--gap-8)',
                 }}
             >
-                <Switch checked={open} label='open' onChange={() => setOpen((value) => !value)} />
+                <Switch
+                    checked={hide}
+                    label='Скрыть содержимое'
+                    onChange={() => setHide((value) => !value)}
+                />
                 <Switch
                     checked={expandOnHover}
-                    label='expandOnHover'
+                    label='Расширять облако при наведении'
                     onChange={() => setExpandOnHover((value) => !value)}
                 />
                 <Switch
                     checked={repelParticlesOnHover}
-                    label='repelParticlesOnHover'
+                    label='Отталкивать частицы от курсора'
                     onChange={() => setRepelParticlesOnHover((value) => !value)}
                 />
             </div>

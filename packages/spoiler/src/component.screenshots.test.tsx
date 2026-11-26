@@ -30,12 +30,12 @@ describe(
     'Spoiler | screenshots',
     screenshotTesting({
         cases: [
-            ['hidden image', createUrl('Spoiler', { defaultOpen: true, colors: 'default' }, true)],
+            ['hidden image', createUrl('Spoiler', { defaultHide: false, colors: 'default' }, true)],
             [
                 'hidden inverted image',
-                createUrl('Spoiler', { defaultOpen: true, colors: 'inverted' }, true),
+                createUrl('Spoiler', { defaultHide: false, colors: 'inverted' }, true),
             ],
-            ['revealed image', createUrl('Spoiler', { defaultOpen: true, colors: 'default' })],
+            ['revealed image', createUrl('Spoiler', { defaultHide: false, colors: 'default' })],
             ['hidden text', createUrl('SpoilerText', {}, true)],
             ['revealed text', createUrl('SpoilerText')],
         ],

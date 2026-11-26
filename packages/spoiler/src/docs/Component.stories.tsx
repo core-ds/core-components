@@ -25,6 +25,8 @@ const meta: Meta<typeof Spoiler> = {
 type Story = StoryObj<typeof Spoiler>;
 
 const AMOUNT_VALUES = ['−4 940 ₽', '−5 186 ₽'];
+const EXPAND_ON_HOVER_LABEL = 'Расширять облако при наведении';
+const REPEL_PARTICLES_LABEL = 'Отталкивать частицы от курсора';
 
 const AmountExample = ({
     expandOnHover,
@@ -35,18 +37,18 @@ const AmountExample = ({
     repelParticlesOnHover: boolean;
     particleColor: string;
 }) => {
-    const [open, setOpen] = useState(true);
+    const [hide, setHide] = useState(false);
     const [valueIndex, setValueIndex] = useState(0);
 
     useEffect(() => {
-        if (open) return undefined;
+        if (!hide) return undefined;
 
         const timer = window.setTimeout(() => {
             setValueIndex((current) => (current + 1) % AMOUNT_VALUES.length);
         }, 500);
 
         return () => window.clearTimeout(timer);
-    }, [open]);
+    }, [hide]);
 
     return (
         <div className={styles.demo}>
@@ -57,8 +59,8 @@ const AmountExample = ({
                 style={{ fontVariantNumeric: 'tabular-nums' }}
             >
                 <Spoiler
-                    open={open}
-                    onOpenChange={setOpen}
+                    hide={hide}
+                    onHideChange={setHide}
                     expandOnHover={expandOnHover}
                     repelParticlesOnHover={repelParticlesOnHover}
                     style={{ '--spoiler-color': particleColor } as React.CSSProperties}
@@ -66,7 +68,11 @@ const AmountExample = ({
                     {AMOUNT_VALUES[valueIndex]}
                 </Spoiler>
             </Typography.Title>
-            <Switch checked={open} label='open' onChange={() => setOpen((current) => !current)} />
+            <Switch
+                checked={hide}
+                label='Скрыть содержимое'
+                onChange={() => setHide((current) => !current)}
+            />
         </div>
     );
 };
@@ -75,7 +81,7 @@ export const spoiler: Story = {
     name: 'Spoiler',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
-        const defaultOpen = boolean('defaultOpen', false);
+        const defaultHide = boolean('defaultHide', true);
         const revealOnce = boolean('revealOnce', false);
 
         return (
@@ -91,12 +97,12 @@ export const spoiler: Story = {
                 }}
             >
                 <Spoiler
-                    key={`${defaultOpen}-${revealOnce}`}
+                    key={`${defaultHide}-${revealOnce}`}
                     mode='element'
-                    defaultOpen={defaultOpen}
+                    defaultHide={defaultHide}
                     revealOnce={revealOnce}
-                    expandOnHover={boolean('expandOnHover', true)}
-                    repelParticlesOnHover={boolean('repelParticlesOnHover', true)}
+                    expandOnHover={boolean(EXPAND_ON_HOVER_LABEL, true)}
+                    repelParticlesOnHover={boolean(REPEL_PARTICLES_LABEL, true)}
                     colors={colors}
                     className={text('className', '')}
                     dataTestId={text('dataTestId', '')}
@@ -131,8 +137,8 @@ export const spoiler_text: Story = {
     name: 'SpoilerText',
     render: () => (
         <AmountExample
-            expandOnHover={boolean('expandOnHover', true)}
-            repelParticlesOnHover={boolean('repelParticlesOnHover', true)}
+            expandOnHover={boolean(EXPAND_ON_HOVER_LABEL, true)}
+            repelParticlesOnHover={boolean(REPEL_PARTICLES_LABEL, true)}
             particleColor={text('--spoiler-color', 'var(--color-light-neutral-translucent-1300)')}
         />
     ),

@@ -94,14 +94,14 @@ describe('Связь DOM и анимации Spoiler', () => {
     });
 
     it('не пересобирает облако при переключении, ready и внутренних записях canvas', async () => {
-        const { container, rerender } = render(<Spoiler open={false}>Секрет</Spoiler>);
+        const { container, rerender } = render(<Spoiler hide>Секрет</Spoiler>);
         await flushMutations();
         mockEngine.layout.mockClear();
 
-        rerender(<Spoiler open>Секрет</Spoiler>);
+        rerender(<Spoiler hide={false}>Секрет</Spoiler>);
         await flushMutations();
         expect(mockEngine.setOpen).toHaveBeenLastCalledWith(true);
-        rerender(<Spoiler open={false}>Секрет</Spoiler>);
+        rerender(<Spoiler hide>Секрет</Spoiler>);
         container.querySelector('canvas')!.style.width = '120px';
         await flushMutations();
 
@@ -252,9 +252,9 @@ describe('Связь DOM и анимации Spoiler', () => {
     it.each(['text', 'element'] as const)(
         'в режиме %s передаёт движение мыши без пересборки облака и раскрытия содержимого',
         async (mode) => {
-            const onOpenChange = jest.fn();
+            const onHideChange = jest.fn();
             render(
-                <Spoiler mode={mode} onOpenChange={onOpenChange}>
+                <Spoiler mode={mode} onHideChange={onHideChange}>
                     Секрет
                 </Spoiler>,
             );
@@ -281,7 +281,7 @@ describe('Связь DOM и анимации Spoiler', () => {
             expect(mockEngine.layout).not.toHaveBeenCalled();
             expect(mockEngine.configure).not.toHaveBeenCalled();
             expect(mockEngine.setOpen).not.toHaveBeenCalled();
-            expect(onOpenChange).not.toHaveBeenCalled();
+            expect(onHideChange).not.toHaveBeenCalled();
             expect(root).toHaveAttribute('data-state', 'hidden');
         },
     );
