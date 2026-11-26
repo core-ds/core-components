@@ -31,6 +31,7 @@ import { type BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
+    magneticAreasShallowEqual,
     MARKER_HEIGHT,
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
@@ -166,18 +167,22 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
 
-        const hasMagneticAreasFromProp = Boolean(magneticAreasProp);
-        const [hadMagneticAreas, setHadMagneticAreas] = useState(hasMagneticAreasFromProp);
+        const [prevMagneticAreasProp, setPrevMagneticAreasProp] = useState(magneticAreasProp);
         const [skipTransition, setSkipTransition] = useState(false);
 
         // getDerivedStateFromProps
-        if (hadMagneticAreas !== hasMagneticAreasFromProp) {
-            setHadMagneticAreas(hasMagneticAreasFromProp);
+        if (
+            prevMagneticAreasProp !== magneticAreasProp &&
+            !magneticAreasShallowEqual(prevMagneticAreasProp, magneticAreasProp)
+        ) {
+            setPrevMagneticAreasProp(magneticAreasProp);
 
-            // При появлении явных областей восстанавливаем сохранённый начальный индекс.
-            const idx = initialIndexRef.current;
+            const idx =
+                prevMagneticAreasProp && magneticAreasProp && activeAreaIdx >= 0
+                    ? Math.min(activeAreaIdx, magneticAreas.length - 1)
+                    : initialIndexRef.current;
 
-            if (hasMagneticAreasFromProp && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
+            if (magneticAreasProp && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
                 setActiveAreaIdx(idx);
 
                 if (!isFirstRender) {
