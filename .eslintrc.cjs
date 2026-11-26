@@ -4,12 +4,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const resolve = require('resolve');
-const { getPackages } = require('./tools/monorepo.cjs');
-const { isSamePath } = require('./tools/path.cjs');
-
-const useLayoutEffectPkgs = getPackages().packages.filter(({ packageJson: { name } }) =>
-    ['@alfalab/core-components-lottie', '@alfalab/core-components-tab-bar-island'].includes(name),
-);
 
 /**
  * @type {import('eslint').Linter.LegacyConfig}
@@ -20,6 +14,7 @@ const config = {
         project: ['tsconfig.json', 'tsconfig.eslint.json']
             .map((tsConfigFile) => path.join(process.cwd(), tsConfigFile))
             .filter((tsConfigPath) => fs.existsSync(tsConfigPath)),
+        warnOnUnsupportedTypeScriptVersion: false,
     },
     ignorePatterns: ['**/*.test.*', '**/*.stories.*', '**/dist/**', '**/node_modules/**'],
     extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
@@ -57,11 +52,10 @@ const config = {
         '@typescript-eslint/default-param-last': 'off',
         'max-lines': 'off',
         'max-params': 'off',
-        'react-hooks/exhaustive-deps': useLayoutEffectPkgs.some(({ dir }) =>
-            isSamePath(process.cwd(), dir),
-        )
-            ? ['warn', { additionalHooks: ['useLayoutEffect_SAFE_FOR_SSR'].join('|') }]
-            : 'warn',
+        'react-hooks/exhaustive-deps': [
+            'warn',
+            { additionalHooks: ['useLayoutEffect_SAFE_FOR_SSR'].join('|') },
+        ],
     },
 };
 

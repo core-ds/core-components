@@ -17,9 +17,7 @@
             "@alfalab/core-components-stack": ["../stack/src"],
             "@alfalab/core-components-stack/*": ["../stack/src/*"],
             "@alfalab/core-components-stack-context": ["../stack-context/src"],
-            "@alfalab/core-components-stack-context/*": ["../stack-context/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-stack-context/*": ["../stack-context/src/*"]
         }
     },
     "references": [
@@ -27,7 +25,6 @@
         { "path": "../portal/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../stack/tsconfig.build.json" },
-        { "path": "../stack-context/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../stack-context/tsconfig.build.json" }
     ]
 }

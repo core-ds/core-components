@@ -1,23 +1,13 @@
-@import './vars.css';
+@import '@alfalab/core-components-icon-button/src/vars.css';
 
-.component {
-    &.border_24 {
-        border-radius: var(--icon-button-size-24-border-radius-desktop);
-    }
-
-    &.border_32 {
-        border-radius: var(--icon-button-size-32-border-radius-desktop);
-    }
-
-    &.border_40 {
-        border-radius: var(--icon-button-size-40-border-radius-desktop);
-    }
-
-    &.border_48 {
-        border-radius: var(--icon-button-size-48-border-radius-desktop);
-    }
-
-    &.border_56 {
-        border-radius: var(--icon-button-size-56-border-radius-desktop);
+/* prettier-ignore */
+@each $size, $border-radius in
+    (24, --icon-button-size-24-border-radius-desktop),
+    (32, --icon-button-size-32-border-radius-desktop),
+    (40, --icon-button-size-40-border-radius-desktop),
+    (48, --icon-button-size-48-border-radius-desktop),
+    (56, --icon-button-size-56-border-radius-desktop) {
+    .size-$(size) {
+        border-radius: var($(border-radius));
     }
 }

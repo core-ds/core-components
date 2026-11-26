@@ -7,6 +7,8 @@ import { CustomButton } from '@alfalab/core-components-custom-button';
 import { CustomButtonDesktop } from '@alfalab/core-components-custom-button/desktop';
 import { CustomButtonMobile } from '@alfalab/core-components-custom-button/mobile';
 
+import styles from './stories.module.css';
+
 const meta: Meta<typeof CustomButton> = {
     title: 'Components/CustomButton',
     component: CustomButton,
@@ -17,7 +19,13 @@ type Story = StoryObj<typeof CustomButton>;
 
 const SIZES = [32, 40, 48, 56, 64, 72] as const;
 const CONTENT_COLORS = ['white', 'black', 'static-white', 'static-black'] as const;
-const STATE_TYPES = ['darkening', 'lightening', 'static-darkening', 'static-lightening'] as const;
+const STATE_TYPES = [
+    'darkening',
+    'lightening',
+    'static-darkening',
+    'static-lightening',
+    'none',
+] as const;
 
 export const custom_button: Story = {
     name: 'CustomButton',
@@ -28,6 +36,7 @@ export const custom_button: Story = {
                 backgroundColor={color('backgroundColor', '#FF45C3')}
                 contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                 stateType={select('stateType', STATE_TYPES, 'darkening')}
+                className={styles.customState}
                 disableType={select(
                     'disableType',
                     ['default', 'static', 'inverted', 'static-inverted'],
@@ -56,6 +65,7 @@ export const custom_button_desktop: Story = {
                 backgroundColor={color('backgroundColor', '#FF45C3')}
                 contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                 stateType={select('stateType', STATE_TYPES, 'darkening')}
+                className={styles.customState}
                 href={text('href', '')}
                 loading={boolean('loading', false)}
                 disabled={boolean('disabled', false)}
@@ -79,6 +89,7 @@ export const custom_button_mobile: Story = {
                 backgroundColor={color('backgroundColor', '#FF45C3')}
                 contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                 stateType={select('stateType', STATE_TYPES, 'darkening')}
+                className={styles.customState}
                 href={text('href', '')}
                 loading={boolean('loading', false)}
                 disabled={boolean('disabled', false)}

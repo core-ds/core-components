@@ -4,6 +4,9 @@
             "@alfalab/core-components": {
                 "exclude": ["@alfalab/core-components"]
             },
+            "@alfalab/core-components-codemod": {
+                "skip": true
+            },
             "@alfalab/core-components-mcp": {
                 "exclude": ["**"],
                 "template": "templates/tsconfig.build-mcp.json"
@@ -30,14 +33,24 @@
             },
             "test": {
                 "include": ["**"],
-                "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+                "exclude": [
+                    "@alfalab/core-components",
+                    "@alfalab/core-components-env",
+                    "@alfalab/core-components-codemod",
+                    "@alfalab/core-components-mcp"
+                ],
                 "out": "tsconfig.test.json",
                 "template": "templates/tsconfig.test.json",
                 "references": false
             },
             "type-gen": {
                 "include": ["**"],
-                "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+                "exclude": [
+                    "@alfalab/core-components",
+                    "@alfalab/core-components-env",
+                    "@alfalab/core-components-codemod",
+                    "@alfalab/core-components-mcp"
+                ],
                 "storybook": false,
                 "out": "tsconfig.react-docgen-typescript.json",
                 "template": "templates/tsconfig.react-docgen-typescript.json",
@@ -58,12 +71,15 @@
             "@alfalab/core-components": {
                 "exclude": [
                     "@alfalab/core-components",
-                    "@alfalab/core-components-screenshot-utils",
-                    "@alfalab/core-components-test-utils"
+                    "@alfalab/core-components-screenshot-utils"
                 ],
                 "dependencies": false,
                 "devDependencies": false,
                 "peerDependencies": false
+            },
+            "@alfalab/core-components-codemod": {
+                "exclude": ["**"],
+                "template": "templates/tsconfig.codemod.json"
             },
             "@alfalab/core-components-mcp": {
                 "exclude": ["**"],
@@ -84,10 +100,7 @@
             }
         },
         "rules": {
-            "include": [
-                "@alfalab/core-components-screenshot-utils",
-                "@alfalab/core-components-test-utils"
-            ],
+            "include": ["@alfalab/core-components-screenshot-utils"],
             "out": "tsconfig.json",
             "template": "templates/tsconfig.package.json",
             "references": "tsconfig.build.json",

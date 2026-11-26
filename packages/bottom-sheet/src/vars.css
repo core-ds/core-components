@@ -15,7 +15,6 @@
     --bottom-sheet-text-color: var(--color-light-text-primary);
     --bottom-sheet-title-color: var(--bottom-sheet-text-color);
     --bottom-sheet-subtitle-color: var(--color-light-text-secondary);
-    --bottom-sheet-footer-background-color: var(--color-light-modal-bg-primary);
     --bottom-sheet-footer-border-top: 1px solid var(--color-light-neutral-300);
 
     /* inverted colors */
@@ -26,6 +25,5 @@
     --bottom-sheet-text-color-inverted: var(--color-light-text-primary-inverted);
     --bottom-sheet-title-color-inverted: var(--bottom-sheet-text-color-inverted);
     --bottom-sheet-subtitle-color-inverted: var(--color-light-text-secondary-inverted);
-    --bottom-sheet-footer-background-color-inverted: var(--color-light-modal-bg-primary-inverted);
     --bottom-sheet-footer-border-top-inverted: 1px solid var(--color-light-neutral-300-inverted);
 }

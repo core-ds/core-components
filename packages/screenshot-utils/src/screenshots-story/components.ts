@@ -3,7 +3,11 @@
 const req = require.context(
     '../../../',
     true,
-    /^\.\/((?!(env|screenshot-utils|test-utils)).)*\/src\/(index|(desktop|mobile|super-ellipse|circle|rectangle|no-shape)\/index).ts$/,
+    /*
+     * NOT @alfalab/core-components-env
+     * NOT @alfalab/core-components-screenshot-utils
+     */
+    /^\.\/((?!(env|screenshot-utils)).)*\/src\/(index|(desktop|mobile|super-ellipse|circle|rectangle|no-shape)\/index).ts$/,
 );
 
 const packages = req.keys().reduce(

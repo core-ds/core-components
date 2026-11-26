@@ -35,7 +35,7 @@
 }
 
 .contentWrapper {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
 
     white-space: nowrap;
     overflow: hidden;

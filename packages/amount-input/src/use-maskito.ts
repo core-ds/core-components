@@ -75,6 +75,7 @@ export const useMaskito = ({
         elementPredicateRef.current = elementPredicate;
     }, [elementPredicate]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const hostElement = hostElementRef.current;
 

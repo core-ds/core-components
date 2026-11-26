@@ -162,12 +162,6 @@ export interface SliderInputProps
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-
-    /**
-     * Жирность текста
-     * @default true
-     */
-    bold?: boolean;
 }
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -221,6 +215,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             range,
             dataTestId,
             bold = true,
+            fontWeight = bold ? 'bold' : 'regular',
             ...restProps
         },
         ref,
@@ -257,7 +252,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         [styles.filled]: Boolean(value),
                         [styles.hasLabel]: label,
                         [styles.hasError]: Boolean(error),
-                        [styles.bold]: bold,
                     },
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
@@ -323,6 +317,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             </Fragment>
                         )
                     }
+                    fontWeight={fontWeight}
                     {...customInputProps}
                 />
                 {/* eslint-disable react/no-array-index-key */}

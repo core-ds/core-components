@@ -13,15 +13,12 @@
             "@alfalab/core-components-password-input": ["./src"],
             "@alfalab/core-components-password-input/*": ["./src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
-            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"]
         }
     },
     "references": [
         { "path": "../icon-button/tsconfig.build.json" },
         { "path": "../input/tsconfig.build.json" },
-        { "path": "../screenshot-utils/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../screenshot-utils/tsconfig.build.json" }
     ]
 }

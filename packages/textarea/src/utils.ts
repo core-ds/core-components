@@ -3,6 +3,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 export function getTextareaTestIds(dataTestId: string) {
     return {
         textarea: dataTestId,
+        clearIcon: getDataTestId(dataTestId, 'clear-icon'),
         inputWrapper: getDataTestId(dataTestId, 'form-control'),
         inputWrapperInner: getDataTestId(dataTestId, 'form-control-inner'),
         leftAddons: getDataTestId(dataTestId, 'form-control-left-addons'),

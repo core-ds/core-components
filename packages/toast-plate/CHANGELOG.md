@@ -1,5 +1,13 @@
 # @alfalab/core-components-toast-plate
 
+## 9.1.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.15
+
 ## 9.1.10
 
 ### Patch Changes

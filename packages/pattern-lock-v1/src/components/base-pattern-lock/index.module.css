@@ -28,7 +28,12 @@
     color: var(--color-light-text-negative);
 }
 
-.forgotBtn {
-    display: block;
+.forgotBtnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.forgotBtnContainer,
+.forgotBtn.forgotBtn.forgotBtn {
     min-height: var(--size-xs-height);
 }

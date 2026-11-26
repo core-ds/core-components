@@ -309,6 +309,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             updatePopperRef.current = updatePopper;
         }
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         useLayoutEffect_SAFE_FOR_SSR(() => {
             const nextBoundry = isFn(availableHeight)
                 ? (availableHeight() ?? undefined)

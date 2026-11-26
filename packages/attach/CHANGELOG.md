@@ -1,5 +1,13 @@
 # @alfalab/core-components-attach
 
+## 8.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+
 ## 8.0.13
 
 ### Patch Changes

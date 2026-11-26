@@ -1,5 +1,45 @@
 # @alfalab/core-components-input
 
+## 17.2.5
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2473](https://github.com/core-ds/core-components/pull/2473)
+
+##### Input
+
+- Исправлено значение пропа `fontWeight` по умолчанию
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-form-control@14.0.13
+
+## 17.2.4
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.0
+
 ## 17.2.3
 
 ### Patch Changes

@@ -90,7 +90,7 @@
 }
 
 .size-20:not(.compact) .label {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
 }
 
 .size-20.compact .content .label {

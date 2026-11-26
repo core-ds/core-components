@@ -1,5 +1,23 @@
 # @alfalab/core-components-tab-bar-island
 
+## 0.4.0
+
+### Minor Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2462](https://github.com/core-ds/core-components/pull/2462)
+
+- Добавлена возможность указать `dataTestId`
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2462](https://github.com/core-ds/core-components/pull/2462)
+
+- Корректная работа событий указателя, когда указан только `trailingAddon`
+
 ## 0.3.2
 
 ### Patch Changes

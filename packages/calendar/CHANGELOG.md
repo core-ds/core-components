@@ -1,5 +1,32 @@
 # @alfalab/core-components-calendar
 
+## 9.1.20
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.15
+- @alfalab/core-components-modal@11.0.23
+
+## 9.1.19
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.15
+- @alfalab/core-components-button@13.3.0
+- @alfalab/core-components-modal@11.0.22
+
 ## 9.1.18
 
 ### Patch Changes

@@ -75,10 +75,6 @@ export type PrivatePatternLockProps = {
      * Включает ховер-эффект
      */
     hover?: boolean;
-    /**
-     * Стили компонента
-     */
-    styles: { [key: string]: string };
 };
 
 export type PatternLockProps = CommonPatternLockProps & {

@@ -43,7 +43,7 @@ describe('ActionButton', () => {
 
         render(<ActionButton href={href} />);
 
-        expect(screen.getByRole('button')).toHaveAttribute('href', href);
+        expect(screen.getByRole('link')).toHaveAttribute('href', href);
     });
 
     it('should use "disabled" prop (button)', () => {
@@ -59,11 +59,11 @@ describe('ActionButton', () => {
     it('should use "disabled" prop (link)', () => {
         const { rerender } = render(<ActionButton href='http://localhost' />);
 
-        expect(screen.getByRole('button')).not.toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByRole('link')).not.toHaveAttribute('aria-disabled', 'true');
 
         rerender(<ActionButton href='http://localhost' disabled={true} />);
 
-        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByRole('link')).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should use "loading" prop (button)', () => {
@@ -81,12 +81,12 @@ describe('ActionButton', () => {
     it('should use "loading" prop (link)', () => {
         const { rerender } = render(<ActionButton href='http://localhost' dataTestId={dti} />);
 
-        expect(screen.getByRole('button')).not.toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByRole('link')).not.toHaveAttribute('aria-disabled', 'true');
         expect(screen.queryByTestId(loaderDti)).toBeNull();
 
         rerender(<ActionButton href='http://localhost' loading={true} dataTestId={dti} />);
 
-        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByRole('link')).toHaveAttribute('aria-disabled', 'true');
         expect(screen.getByTestId(loaderDti)).toBeInTheDocument();
     });
 

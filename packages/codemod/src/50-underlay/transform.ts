@@ -1,4 +1,4 @@
-import { Transform } from 'jscodeshift';
+import { type Transform } from 'jscodeshift';
 
 import { getKeys } from '../utils';
 
@@ -53,6 +53,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                         ) {
                             return true;
                         }
+
                         return false;
                     },
                 })
@@ -82,6 +83,7 @@ const sizeTransform: Transform = (fileInfo, api) => {
                         ) {
                             return true;
                         }
+
                         return false;
                     },
                 })

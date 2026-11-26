@@ -28,22 +28,24 @@
 .primary {
     color: var(--action-button-primary-base-color);
 
-    & .iconWrapper {
+    .iconWrapper {
         color: var(--action-button-primary-base-icon-color);
-        background-color: var(--action-button-primary-base-bg-color);
+        background: var(--action-button-primary-base-bg-color);
     }
 
-    @media (hover: hover) {
-        &:hover .iconWrapper {
-            background-color: var(--action-button-primary-hover-color);
+    @mixin not-disabled {
+        @mixin hover {
+            .iconWrapper {
+                background: var(--action-button-primary-hover-color);
+            }
+        }
+
+        &:active .iconWrapper {
+            background: var(--action-button-primary-active-color);
         }
     }
 
-    &:active .iconWrapper {
-        background-color: var(--action-button-primary-active-color);
-    }
-
-    & .loader {
+    .loader {
         color: var(--action-button-spinner-primary-color);
     }
 }
@@ -51,31 +53,37 @@
 .secondary {
     color: var(--action-button-secondary-base-color);
 
-    & .iconWrapper {
+    .iconWrapper {
         color: var(--action-button-secondary-base-icon-color);
-        background-color: var(--action-button-secondary-base-bg-color);
+        background: var(--action-button-secondary-base-bg-color);
     }
 
-    @media (hover: hover) {
-        &:hover .iconWrapper {
-            background-color: var(--action-button-secondary-hover-color);
+    @mixin not-disabled {
+        @mixin hover {
+            .iconWrapper {
+                background: var(--action-button-secondary-hover-color);
+            }
+        }
+
+        &:active .iconWrapper {
+            background: var(--action-button-secondary-active-color);
         }
     }
 
-    &:active .iconWrapper {
-        background-color: var(--action-button-secondary-active-color);
-    }
-
-    & .loader {
+    .loader {
         color: var(--action-button-spinner-default-color);
     }
 }
 
-.disabled {
-    color: var(--action-button-disabled-color);
+.component {
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--action-button-disabled-color);
 
-    & .iconWrapper {
-        color: var(--action-button-disabled-icon-color);
-        background-color: var(--action-button-disabled-bg-color);
+            .iconWrapper {
+                color: var(--action-button-disabled-icon-color);
+                background: var(--action-button-disabled-bg-color);
+            }
+        }
     }
 }

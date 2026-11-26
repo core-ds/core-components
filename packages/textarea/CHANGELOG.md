@@ -1,5 +1,42 @@
 # @alfalab/core-components-textarea
 
+## 10.2.1
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-form-control@14.0.13
+- @alfalab/core-components-input@17.2.5
+
+## 10.2.0
+
+### Minor Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2450](https://github.com/core-ds/core-components/pull/2450)
+
+##### Textarea
+
+- Добавлена кнопка очистки поля по аналогии с Input
+- `clear` — режим отображения кнопки: `auto` — при наведении или фокусе, `always` — для непустого поля, `never` — скрыта (по умолчанию).
+- `onClear` — обработчик нажатия на кнопку очистки. При использовании `value` значение нужно сбросить в этом обработчике.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.2.4
+
 ## 10.1.5
 
 ### Patch Changes

@@ -8,9 +8,7 @@ import clientStyles from './mobile.module.css';
 export type IconButtonMobileProps = IconButtonProps;
 
 export const IconButtonMobile = forwardRef<HTMLButtonElement, IconButtonMobileProps>(
-    (props, ref) => (
-        <BaseIconButton {...props} ref={ref} client='mobile' clientStyles={clientStyles} />
-    ),
+    (props, ref) => <BaseIconButton {...props} ref={ref} clientStyles={clientStyles} />,
 );
 
 IconButtonMobile.displayName = 'IconButtonMobile';

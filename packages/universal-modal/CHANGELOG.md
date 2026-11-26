@@ -1,5 +1,39 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.12
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2455](https://github.com/core-ds/core-components/pull/2455)
+
+##### UniversalModal
+
+- В мобильной версии стандартная кнопка «Назад» в шапке приведена в соответствие с дизайном (убран текст, обновлена иконка)
+- Исправлена высота шапки в мобильной версии
+- Исправлено выравнивание заголовка в мобильной версии
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.20
+
+## 3.2.11
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2454](https://github.com/core-ds/core-components/pull/2454)
+
+##### AmountInput, CodeInput, Calendar, Popover, Input, SelectWithTags, UniversalModal, Tabs
+
+- Внутренние улучшения, не влияющие на работу компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.19
+
 ## 3.2.10
 
 ### Patch Changes

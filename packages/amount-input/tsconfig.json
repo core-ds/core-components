@@ -16,8 +16,6 @@
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
-            "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-with-suffix": ["../with-suffix/src"],
             "@alfalab/core-components-with-suffix/*": ["../with-suffix/src/*"]
         }
@@ -27,7 +25,6 @@
         { "path": "../number-input/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" },
         { "path": "../with-suffix/tsconfig.build.json" }
     ]
 }

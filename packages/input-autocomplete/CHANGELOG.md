@@ -1,5 +1,49 @@
 # @alfalab/core-components-input-autocomplete
 
+## 14.0.35
+
+### Patch Changes
+
+<sup><time>20.11.2026</time></sup>
+
+#### [#2464](https://github.com/core-ds/core-components/pull/2464)
+
+##### NavigationBarPrivate, InputAutocomplete, SelectWithTags, FormControl, SliderInput, Typography, PassCode, Checkbox, Textarea, Select, Switch, Input, Radio, Text, Vars
+
+- Актуализация цветовых токенов
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-form-control@14.0.13
+- @alfalab/core-components-select@19.2.17
+- @alfalab/core-components-input@17.2.5
+
+## 14.0.34
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.16
+
+## 14.0.33
+
+### Patch Changes
+
+<sup><time>16.11.2026</time></sup>
+
+#### [#2443](https://github.com/core-ds/core-components/pull/2443)
+
+##### InputAutocomplete
+
+- В мобильной версии поле не выделяется после закрытия шторки или модального окна
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.2.15
+- @alfalab/core-components-popover@8.1.6
+- @alfalab/core-components-input@17.2.4
+
 ## 14.0.32
 
 ### Patch Changes

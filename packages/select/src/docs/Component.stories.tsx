@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
+import { text, boolean, number, object, select as selectKnob } from '@storybook/addon-knobs';
 
 import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { Select as SelectResponsive } from '@alfalab/core-components-select';
@@ -27,6 +27,34 @@ const options = [
     { key: '15', content: 'Americium' },
     { key: '16', content: 'Curium' },
     { key: '17', content: 'Berkelium' },
+];
+
+const groupOptions = [
+    {
+        label: 'Актиноиды',
+        options: [
+            { key: 'g1', content: 'Neptunium' },
+            { key: 'g2', content: 'Plutonium' },
+            { key: 'g3', content: 'Americium' },
+            { key: 'g4', content: 'Curium' },
+            { key: 'g5', content: 'Berkelium' },
+        ],
+    },
+    {
+        label: 'Переходные металлы',
+        options: [
+            { key: 'g6', content: 'Vanadium' },
+            { key: 'g7', content: 'Manganese' },
+            { key: 'g8', content: 'Titanium' },
+        ],
+    },
+    {
+        label: 'Металлоиды',
+        options: [
+            { key: 'g9', content: 'Silicon' },
+            { key: 'g10', content: 'Germanium' },
+        ],
+    },
 ];
 
 const POSITION_OPTIONS = [
@@ -283,7 +311,8 @@ export const option_list_desktop: Story = {
         const placeholder = boolean('placeholder', true);
         const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
 
-        const fiveOptions = boolean('fiveOptions', false);
+        const listOptions = object('options', options);
+        const groups = boolean('groups', false);
 
         const [selected, setSelected] = React.useState([]);
 
@@ -297,7 +326,7 @@ export const option_list_desktop: Story = {
                 defaultOpen={true}
                 {...useSelectWithApply({
                     showSearch,
-                    options: fiveOptions ? options.slice(0, 5) : options,
+                    options: groups ? groupOptions : listOptions,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
@@ -324,7 +353,8 @@ export const option_list_mobile: Story = {
         const placeholder = boolean('placeholder', true);
         const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
 
-        const fiveOptions = boolean('fiveOptions', false);
+        const listOptions = object('options', options);
+        const groups = boolean('groups', false);
 
         const [selected, setSelected] = React.useState([]);
 
@@ -338,7 +368,7 @@ export const option_list_mobile: Story = {
                 defaultOpen={true}
                 {...useSelectWithApply({
                     showSearch,
-                    options: fiveOptions ? options.slice(0, 5) : options,
+                    options: groups ? groupOptions : listOptions,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {

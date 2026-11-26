@@ -80,6 +80,22 @@ describe('SliderInput', () => {
         });
     });
 
+    describe('Font weight tests', () => {
+        it('should apply deprecated bold font weight when `bold` is true', () => {
+            const { getByRole } = render(<SliderInput bold={true} />);
+
+            expect(getByRole('textbox')).toHaveClass('bold');
+        });
+
+        it('should apply regular font weight when deprecated `bold` is false', () => {
+            const { getByRole } = render(<SliderInput bold={false} />);
+            const input = getByRole('textbox');
+
+            expect(input).not.toHaveClass('bold');
+            expect(input).not.toHaveClass('medium');
+        });
+    });
+
     describe('Attributes tests', () => {
         it('should set min, max and step to Slider', () => {
             const dataTestId = 'test-id';

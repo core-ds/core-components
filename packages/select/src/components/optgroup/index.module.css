@@ -9,7 +9,7 @@
         var(--select-optgroup-left-padding);
     box-sizing: border-box;
     background: var(--select-optgroup-background);
-    min-height: 40px;
+    min-height: 32px;
 
     & + *[role='option']:before {
         display: none;

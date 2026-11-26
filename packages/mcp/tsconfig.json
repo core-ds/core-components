@@ -1,8 +1,15 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "./tsconfig.build.json",
-    "include": ["src", ".eslintrc.cjs", "scripts/*.mjs"],
+    "include": [
+        "${configDir}/src",
+        "${configDir}/.eslintrc.cjs",
+        "${configDir}/jest.config.ts",
+        "${configDir}/scripts/*.mjs"
+    ],
     "compilerOptions": {
+        "rootDir": "${configDir}",
+        "types": ["node", "jest"],
         "noEmit": true
     }
 }

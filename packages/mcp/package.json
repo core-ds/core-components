@@ -17,7 +17,8 @@
         "dev": "tsx src/index.mts",
         "generate-data": "node scripts/generate-data.mjs",
         "inspect": "npx @modelcontextprotocol/inspector",
-        "start": "node dist/index.mjs"
+        "start": "node dist/index.mjs",
+        "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.18.0",
@@ -27,8 +28,7 @@
         "copyfiles": "^2.4.1",
         "react-docgen-typescript": "^2.4.0",
         "ts-morph": "28.0.0",
-        "tsx": "^4.20.6",
-        "typescript": "^5.9.3"
+        "tsx": "^4.20.6"
     },
     "engines": {
         "node": ">=24"

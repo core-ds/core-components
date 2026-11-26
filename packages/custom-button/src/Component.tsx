@@ -1,16 +1,32 @@
 import React, { forwardRef } from 'react';
 
-import { Button } from '@alfalab/core-components-button';
+import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseCustomButton } from './components/base-custom-button';
 import { type CustomButtonProps } from './types/props';
+import { CustomButtonDesktop } from './desktop';
+import { CustomButtonMobile } from './mobile';
 
 export const CustomButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, CustomButtonProps>(
-    ({ children, ...restProps }, ref) => (
-        <BaseCustomButton ref={ref} {...restProps} componentButton={Button}>
-            {children}
-        </BaseCustomButton>
-    ),
+    (
+        {
+            children,
+            breakpoint,
+            client,
+            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
+
+        const Component = isDesktop ? CustomButtonDesktop : CustomButtonMobile;
+
+        return (
+            <Component ref={ref} {...restProps}>
+                {children}
+            </Component>
+        );
+    },
 );
 
 CustomButton.displayName = 'CustomButton';

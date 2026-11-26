@@ -11,7 +11,7 @@ const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
 const { existsSync } = require('node:fs');
-const { createWebpackPlugin, createManagerEnv } = require('../tools/env-manager');
+const { createWebpackPlugin, createManagerEnv } = require('../tools/env-manager.mjs');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
