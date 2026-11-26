@@ -166,6 +166,21 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
 
+        const hasMagneticAreas = Boolean(magneticAreasProp);
+        const [hadMagneticAreas, setHadMagneticAreas] = useState(hasMagneticAreas);
+
+        // getDerivedStateFromProps
+        if (hadMagneticAreas !== hasMagneticAreas) {
+            setHadMagneticAreas(hasMagneticAreas);
+
+            // При появлении явных областей восстанавливаем сохранённый начальный индекс.
+            const idx = initialIndexRef.current;
+
+            if (hasMagneticAreas && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
+                setActiveAreaIdx(idx);
+            }
+        }
+
         const [swipingInProgress, setSwipingInProgress] = useState<boolean | null>(null);
         const scrollOccurred = useRef<boolean>(false);
         const headerRef = useRef<HTMLDivElement>(null);
@@ -504,8 +519,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const getInitialIndex = () => {
             const idx = initialIndexRef.current;
 
-            // fallback индекса для предотвращения NaN в расчетах
-            return !magneticAreasProp && !isNil(idx) && magneticAreas[idx] === undefined
+            // Выбираем последнюю область, если запрошенный индекс не даёт высоту для расчёта смещения.
+            return !isNil(idx) && !Number.isFinite(magneticAreas[idx])
                 ? magneticAreas.length - 1
                 : idx;
         };
@@ -559,7 +574,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
                     setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
                 } else {
-                    setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
+                    setSheetOffset(Number.isFinite(activeArea) ? lastMagneticArea - activeArea : 0);
                 }
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
