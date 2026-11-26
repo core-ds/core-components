@@ -166,17 +166,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
 
-        const hasMagneticAreas = Boolean(magneticAreasProp);
-        const [hadMagneticAreas, setHadMagneticAreas] = useState(hasMagneticAreas);
+        const hasMagneticAreasFromProp = Boolean(magneticAreasProp);
+        const [hadMagneticAreas, setHadMagneticAreas] = useState(hasMagneticAreasFromProp);
 
         // getDerivedStateFromProps
-        if (hadMagneticAreas !== hasMagneticAreas) {
-            setHadMagneticAreas(hasMagneticAreas);
+        if (hadMagneticAreas !== hasMagneticAreasFromProp) {
+            setHadMagneticAreas(hasMagneticAreasFromProp);
 
             // При появлении явных областей восстанавливаем сохранённый начальный индекс.
             const idx = initialIndexRef.current;
 
-            if (hasMagneticAreas && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
+            if (hasMagneticAreasFromProp && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
                 setActiveAreaIdx(idx);
             }
         }
