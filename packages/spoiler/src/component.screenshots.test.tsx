@@ -42,11 +42,29 @@ describe(
         evaluate: async (page: Page) => {
             // Системная настройка оставляет детерминированный статичный рисунок частиц.
             await page.emulateMedia({ reducedMotion: 'reduce' });
-            const spoiler = page.locator('[data-state]').first();
+            const spoiler = page.locator('[data-state][data-interactive]').first();
+            const content = spoiler.locator('[data-spoiler-content]');
+            const clickSpoiler = async () => {
+                await spoiler.scrollIntoViewIfNeeded();
+                // Общая рамка строчного Spoiler может захватывать пустое место вне строки.
+                const point = await content.evaluate((node) => {
+                    const rect = Array.from(node.getClientRects()).find(
+                        ({ width, height }) => width > 0 && height > 0,
+                    );
+
+                    if (!rect) throw new Error('Не удалось найти область содержимого Spoiler');
+
+                    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+                });
+
+                await page.mouse.click(point.x, point.y);
+            };
 
             // Проверяем оба направления: скрытое состояние не должно перебивать reduced motion.
+            let hidden = (await spoiler.getAttribute('data-state')) === 'hidden';
             for (let toggle = 0; toggle < 2; toggle += 1) {
-                await spoiler.click();
+                await clickSpoiler();
+                hidden = !hidden;
                 const state = await spoiler.evaluate((root) => {
                     const content = root.querySelector('[data-spoiler-content]')!;
                     const style = getComputedStyle(content);
@@ -66,7 +84,8 @@ describe(
                     };
                 });
 
-                expect(state.opacity).toBe(state.hidden ? '0' : '1');
+                expect(state.hidden).toBe(hidden);
+                expect(state.opacity).toBe(hidden ? '0' : '1');
                 expect(state.duration).toBe('0s');
                 expect(state.transform).toBe('none');
                 expect(state.filter).toBe('none');
@@ -74,9 +93,13 @@ describe(
                 expect(state.canvasFilter).toBe('none');
                 expect(state.canvasDuration).toBe('0s');
             }
-            if (new URL(page.url()).searchParams.get('screenshot-state') === 'hidden') {
-                await spoiler.click();
-            }
+            const captureHidden =
+                new URL(page.url()).searchParams.get('screenshot-state') === 'hidden';
+
+            if (hidden !== captureHidden) await clickSpoiler();
+            expect(await spoiler.getAttribute('data-state')).toBe(
+                captureHidden ? 'hidden' : 'revealed',
+            );
         },
         screenshotOpts: {
             fullPage: true,
