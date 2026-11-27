@@ -1,0 +1,62 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { Plate } from '@alfalab/core-components-plate';
+import { Image } from '../index';
+
+## Подключение
+
+```jsx
+import { Image } from '@alfalab/core-components/image';
+```
+
+## Глобальные настройки
+
+Дефолты (`proxyMap`, `inViewOption`) можно задать через `CoreConfigContext`, чтобы не прокидывать их в каждый вызов:
+
+```jsx
+import { CoreConfigContext } from '@alfalab/core-components-config';
+
+<CoreConfigContext.Provider
+    value={{
+        breakpoint: 1024,
+        client: 'desktop',
+        components: {
+            Image: {
+                inViewOption: true,
+                proxyMap: [
+                    {
+                        from: 'https://web.alfabank.ru/mobile',
+                        to: 'https://alfaonline.servicecdn.ru/public',
+                    },
+                ],
+            },
+        },
+    }}
+>
+    <App />
+</CoreConfigContext.Provider>
+```
+
+Пропсы `proxyMap` и `inViewOption` на самом `Image` перекрывают значения из контекста.
+
+## Ленивая загрузка и CLS
+
+<Plate
+    view='attention'
+    limitContentWidth={false}
+    titleView='light'
+    title={
+        <>
+            При <code>inViewOption: true</code> задайте размер заранее (`width`/`height` или CSS) —
+            иначе при загрузке страница может прыгнуть. Если размер неизвестен — передайте{' '}
+            <code>inViewOption={'{false}'}</code>.
+        </>
+    }
+/>
+
+## Retry
+
+Если URL после `proxyMap` (CDN) не загрузился, компонент один раз откатывается на исходный `src`.
+
+## Свойства
+
+<ArgsTable of={Image} />
