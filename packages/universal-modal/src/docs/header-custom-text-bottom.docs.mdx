@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentHeader } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+<Meta of={Stories} name='08-HeaderCustomTextBottom' />
+
+<ComponentHeader name='UniversalModalHeader' children='Шапка мобильной UniversalModal.' />
+
+## Кастом с текстом снизу
+
+```jsx live mobileWidth={360} mobileHeight={720} mobileOnly
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen(true)}>Показать модалку</Button>
+            <style>{`
+                .custom-header-text-bottom .demo-slot {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: border-box;
+                    min-width: 48px;
+                    height: 48px;
+                    border: 1px dashed #F859C5;
+                    border-radius: 8px;
+                    background-color: #FCEAFA;
+                    color: #F859C5;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            `}</style>
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
+                <UniversalModalMobile.Header
+                    className='custom-header-text-bottom'
+                    headerMode='left'
+                    hasBackButton={true}
+                    hasCloser={true}
+                    leftAddons={<div className='demo-slot'>LA</div>}
+                    rightAddons={<div className='demo-slot'>RA</div>}
+                    contentClassName='demo-slot'
+                    bottomAddonsClassName='demo-slot'
+                    bottomAddons='BOTTOM'
+                    onBack={() => setOpen(false)}
+                >
+                    TEXT
+                </UniversalModalMobile.Header>
+                <UniversalModalMobile.Content>
+                    {Array.from({ length: 12 }, (_, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                height: 80,
+                                textAlign: 'center',
+                                lineHeight: '80px',
+                                fontSize: 40,
+                                fontWeight: 700,
+                                color: 'var(--color-light-text-tertiary)',
+                                background:
+                                    index % 2 === 0
+                                        ? 'var(--color-light-neutral-200)'
+                                        : 'var(--color-light-base-bg-secondary)',
+                            }}
+                        >
+                            {index + 1}
+                        </div>
+                    ))}
+                </UniversalModalMobile.Content>
+                <UniversalModalMobile.Footer sticky={true}>
+                    <ButtonMobile view='primary' block={true} onClick={() => setOpen(false)}>
+                        Закрыть
+                    </ButtonMobile>
+                </UniversalModalMobile.Footer>
+            </UniversalModalMobile>
+        </React.Fragment>
+    );
+});
+```

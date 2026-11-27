@@ -1,0 +1,103 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentHeader } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+<Meta of={Stories} name='06-HeaderImageTitleUnder' />
+
+<ComponentHeader name='UniversalModalHeader' children='Шапка мобильной UniversalModal.' />
+
+## С картинкой и внешним расположением заголовка
+
+```jsx live mobileWidth={360} mobileHeight={720} mobileOnly
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [hasCloser, setHasCloser] = React.useState(true);
+    const [hasBackButton, setHasBackButton] = React.useState(false);
+    const [longTitle, setLongTitle] = React.useState(false);
+    const [hasSubtitle, setHasSubtitle] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <Button onClick={() => setOpen((prev) => !prev)}>Показать модалку</Button>
+            <Gap size={20} />
+            <Divider />
+            <Gap size={20} />
+            <Switch
+                label='Крестик'
+                checked={hasCloser}
+                onChange={() => setHasCloser((prev) => !prev)}
+            />
+            <Gap size={12} />
+            <Switch
+                label='Стрелка назад'
+                checked={hasBackButton}
+                onChange={() => setHasBackButton((prev) => !prev)}
+            />
+            <Gap size={12} />
+            <Switch
+                label='Длинный заголовок'
+                checked={longTitle}
+                onChange={() => setLongTitle((prev) => !prev)}
+            />
+            <Gap size={12} />
+            <Switch
+                label='Подпись'
+                checked={hasSubtitle}
+                onChange={() => setHasSubtitle((prev) => !prev)}
+            />
+            <UniversalModalMobile open={open} onClose={() => setOpen(false)}>
+                <UniversalModalMobile.Header
+                    headerMode='left'
+                    hasCloser={hasCloser}
+                    hasBackButton={hasBackButton}
+                    trim={!longTitle}
+                    image={{
+                        src: './images/universal-modal_header-image.png',
+                        aspectRatio: 360 / 180,
+                        contentPlacement: 'under',
+                    }}
+                    title={
+                        longTitle
+                            ? 'Несколько тысяч солнечных систем заявило о намерении выйти из состава республики'
+                            : 'Пример'
+                    }
+                    subtitle={
+                        hasSubtitle
+                            ? longTitle
+                                ? 'Это сепаратистское движение, возглавляемое таинственным графом Дуку, сильно осложняет немногочисленным силам рыцарей Джедаев попытки сохранить мир и порядок в галактике'
+                                : 'Подпись'
+                            : undefined
+                    }
+                    onBack={() => setOpen(false)}
+                />
+                <UniversalModalMobile.Content>
+                    {Array.from({ length: 12 }, (_, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                height: 80,
+                                textAlign: 'center',
+                                lineHeight: '80px',
+                                fontSize: 40,
+                                fontWeight: 700,
+                                color: 'var(--color-light-text-tertiary)',
+                                background:
+                                    index % 2 === 0
+                                        ? 'var(--color-light-neutral-200)'
+                                        : 'var(--color-light-base-bg-secondary)',
+                            }}
+                        >
+                            {index + 1}
+                        </div>
+                    ))}
+                </UniversalModalMobile.Content>
+                <UniversalModalMobile.Footer sticky={true}>
+                    <ButtonMobile view='primary' block={true} onClick={() => setOpen(false)}>
+                        Закрыть
+                    </ButtonMobile>
+                </UniversalModalMobile.Footer>
+            </UniversalModalMobile>
+        </React.Fragment>
+    );
+});
+```

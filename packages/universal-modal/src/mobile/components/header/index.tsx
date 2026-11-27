@@ -2,26 +2,30 @@ import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import {
-    NavigationBarPrivate,
-    type NavigationBarPrivateProps,
-} from '@alfalab/core-components-navigation-bar-private';
+    NavigationBarPrivateNext,
+    type NavigationBarPrivateNextProps,
+} from '@alfalab/core-components-navigation-bar-private/next';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import ChevronLeftMIcon from '@alfalab/icons-glyph/ChevronLeftMIcon';
+import { CrossLine24Icon } from '@alfalab/icons-glyph-26/CrossLine24Icon';
 
+import { type BaseHeaderNextProps } from '../../../components/base-header/types';
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
 import styles from '../../../components/base-header/index.module.css';
-import mobileStyles from './index.module.css';
 
-export type HeaderMobileProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
+export type HeaderMobileProps = Omit<
+    NavigationBarPrivateNextProps,
+    'size' | 'view' | 'parentRef' | 'closerProps' | 'backButtonProps' | 'sticky'
+> &
+    BaseHeaderNextProps;
 
+// TODO новый компонет шапки (вернуть код шапки из мастера)
 export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {
         className,
         children,
         contentClassName,
         title,
-        sticky,
         dataTestId,
         bottomAddonsClassName,
         backButtonProps,
@@ -32,9 +36,9 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
         ...restProps
     } = props;
 
-    const { bottomAddons } = restProps;
+    const { bottomAddons, closerIcon } = restProps;
 
-    const { headerHighlighted, hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
+    const { hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
         title,
         children,
         bottomAddons,
@@ -42,36 +46,22 @@ export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     });
 
     return (
-        <NavigationBarPrivate
+        <NavigationBarPrivateNext
             {...restProps}
             view='mobile'
             dataTestId={getDataTestId(dataTestId, 'header')}
-            sticky={sticky}
             title={title}
-            className={cn(styles.header, mobileStyles.header, className, {
-                [styles.highlighted]: sticky && headerHighlighted && hasContent,
-                [styles.sticky]: sticky,
+            className={cn(styles.header, styles.sticky, className, {
                 [styles.hasContent]: hasContent,
             })}
-            backButtonProps={{
-                ...backButtonProps,
-                text: backButtonProps?.text ?? null,
-            }}
-            backButtonIcon={ChevronLeftMIcon}
-            backButtonClassName={cn(mobileStyles.addon, backButtonClassName)}
-            closerClassName={cn(mobileStyles.addon, closerClassName)}
-            closerProps={{
-                ...closerProps,
-                className: cn(mobileStyles.closer, closerProps?.className),
-            }}
-            scrollThreshold={40}
-            contentClassName={cn(mobileStyles.content, contentClassName)}
-            bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
+            contentClassName={cn(contentClassName)}
+            bottomAddonsClassName={cn(bottomAddonsClassName)}
             scrollableParentRef={componentRef}
             titleRef={titleRef}
             onClose={handleClose}
+            closerIcon={closerIcon ?? CrossLine24Icon}
         >
             {children}
-        </NavigationBarPrivate>
+        </NavigationBarPrivateNext>
     );
 };

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { object, boolean, select, text } from '@storybook/addon-knobs';
+import { object, boolean, number, select, text } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -8,6 +8,7 @@ import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalMobile } from '../mobile';
 import { UniversalModal } from '../responsive';
+import DiamondsMIcon from '@alfalab/icons-glyph/DiamondsMIcon';
 
 const meta: Meta<typeof UniversalModal> = {
     title: 'Components/UniversalModal',
@@ -214,23 +215,25 @@ export const mobile: Story = {
     render: () => {
         const [isOpen, setOpen] = useState(false);
 
+        const open = boolean('open', false);
         const header = boolean('header', false);
-        const headerTitle = text('header.title', 'Заголовок');
-        const titleSize = select('titleSize', ['default', 'compact'], 'default');
-        const headerAlign = select('header.align', ['left', 'center'], 'left');
-        const stickyHeader = boolean('header.sticky', false);
+        const headerTitle = text('header.title', '');
+        const headerChildren = text('header.children', '');
+        const headerMode = select('header.headerMode', ['left', 'relative', 'absolute'], 'left');
+        const hasHeaderImage = boolean('header.image', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select(
             'footer.layout',
             ['start', 'center', 'space-between', 'column'],
             'start',
         );
-        const open = boolean('open', false);
         const appearance = select('appearance', ['bottom', 'right'], 'bottom');
         const hasCloser = boolean('header.hasCloser', false);
         const hasBackButton = boolean('header.hasBackButton', false);
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
+        const headerLeftAddons = boolean('header.leftAddons', false);
+        const headerRightAddons = boolean('header.rightAddons', false);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -244,18 +247,50 @@ export const mobile: Story = {
                 >
                     {header && (
                         <UniversalModalMobile.Header
-                            sticky={stickyHeader}
                             title={headerTitle}
-                            {...(titleSize === 'compact' && {
-                                subtitle: text('header.subtitle', ''),
-                            })}
-                            titleSize={titleSize}
-                            align={headerAlign}
+                            subtitle={text('header.subtitle', '')}
+                            headerMode={headerMode}
+                            image={
+                                hasHeaderImage
+                                    ? {
+                                          src: './images/universal-modal_header-image.png',
+                                          aspectRatio: number(
+                                              'header.image.aspectRatio',
+                                              360 / 180,
+                                          ),
+                                          contentPlacement: select(
+                                              'header.image.contentPlacement',
+                                              ['over', 'under'],
+                                              'over',
+                                          ),
+                                      }
+                                    : undefined
+                            }
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
                             trim={trim}
                             bottomAddons={bottomAddons}
-                        />
+                            {...(headerLeftAddons && {
+                                leftAddons: (
+                                    <ButtonMobile
+                                        leftAddons={<DiamondsMIcon />}
+                                        size={48}
+                                        view='secondary'
+                                    />
+                                ),
+                            })}
+                            {...(headerRightAddons && {
+                                rightAddons: (
+                                    <ButtonMobile
+                                        leftAddons={<DiamondsMIcon />}
+                                        size={48}
+                                        view='secondary'
+                                    />
+                                ),
+                            })}
+                        >
+                            {headerChildren}
+                        </UniversalModalMobile.Header>
                     )}
                     <UniversalModalMobile.Content>
                         <Content />
