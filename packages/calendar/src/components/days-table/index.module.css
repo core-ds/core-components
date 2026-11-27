@@ -86,6 +86,10 @@
     }
 
     &.selected {
+        & .dayContent {
+            color: var(--calendar-selected-color);
+        }
+
         @media (hover) {
             &:hover {
                 background: var(--calendar-selected-hover-background);
