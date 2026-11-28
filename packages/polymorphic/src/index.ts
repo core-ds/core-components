@@ -7,3 +7,5 @@ export type {
     ComposedPolymorphicProps,
 } from '@alfalab/core-components-polymorphic/types';
 export { passCustomProps } from '@alfalab/core-components-polymorphic/utils';
+export { PolymorphicInput } from '@alfalab/core-components-polymorphic/components/input';
+export type { PolymorphicInputProps } from '@alfalab/core-components-polymorphic/components/input';

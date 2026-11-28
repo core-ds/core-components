@@ -1,5 +1,6 @@
 import {
     type ChangeEvent,
+    type ComponentProps,
     type ElementType,
     type HTMLAttributes,
     type InputHTMLAttributes,
@@ -10,19 +11,26 @@ import {
 } from 'react';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
+import {
+    type ComposedPolymorphicProps,
+    type PolymorphicComponentProps,
+} from '@alfalab/core-components-polymorphic';
 
 export interface BaseInputProps
     extends Omit<
-        InputHTMLAttributes<HTMLInputElement>,
-        | 'size'
-        | 'type'
-        | 'value'
-        | 'defaultValue'
-        | 'onChange'
-        | 'onClick'
-        | 'onMouseDown'
-        | 'enterKeyHint'
-    > {
+            InputHTMLAttributes<HTMLInputElement>,
+            | 'size'
+            | 'type'
+            | 'value'
+            | 'defaultValue'
+            | 'onChange'
+            | 'onClick'
+            | 'onMouseDown'
+            | 'enterKeyHint'
+        >,
+        PolymorphicComponentProps<
+            ElementType<ComposedPolymorphicProps<ComponentProps<'input'>>, 'input'>
+        > {
     /**
      * Значение поля ввода
      */

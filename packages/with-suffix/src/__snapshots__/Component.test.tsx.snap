@@ -20,7 +20,7 @@ exports[`withSuffix Snapshots tests should match snapshot 1`] = `
             value="10"
           />
           <div
-            class="suffixContainer"
+            class="suffixContainer size-48"
             translate="no"
           >
             <span

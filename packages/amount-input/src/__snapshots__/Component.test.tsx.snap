@@ -28,7 +28,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                   value=""
                 />
                 <div
-                  class="suffixContainer suffixContainer bold"
+                  class="suffixContainer suffixContainer size-48 bold"
                   translate="no"
                 >
                   <span
@@ -86,7 +86,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                 value=""
               />
               <div
-                class="suffixContainer suffixContainer bold"
+                class="suffixContainer suffixContainer size-48 bold"
                 translate="no"
               >
                 <span
@@ -201,7 +201,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                   value=""
                 />
                 <div
-                  class="suffixContainer suffixContainer bold"
+                  class="suffixContainer suffixContainer size-48 bold"
                   translate="no"
                 >
                   <span
@@ -258,7 +258,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                   value="12 345,67"
                 />
                 <div
-                  class="suffixContainer suffixContainer bold"
+                  class="suffixContainer suffixContainer size-48 bold"
                   translate="no"
                 >
                   <span
@@ -322,7 +322,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 value="12 345,67"
               />
               <div
-                class="suffixContainer suffixContainer bold"
+                class="suffixContainer suffixContainer size-48 bold"
                 translate="no"
               >
                 <span
