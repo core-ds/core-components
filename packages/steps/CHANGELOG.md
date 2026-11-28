@@ -1,5 +1,13 @@
 # @alfalab/core-components-steps
 
+## 3.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.16
+
 ## 3.1.2
 
 ### Patch Changes

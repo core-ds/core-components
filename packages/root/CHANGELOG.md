@@ -1,5 +1,106 @@
 # @alfalab/core-components
 
+## 50.44.0
+
+### Minor Changes
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2478](https://github.com/core-ds/core-components/pull/2478)
+
+##### Input
+
+- Добавлена возможность использовать кастомные компоненты поля ввода через проп `as`
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2478](https://github.com/core-ds/core-components/pull/2478)
+
+##### WithSuffix
+
+- Добавлен компонент `SuffixInput`
+- `withSuffix` и `withSuffixProps` помечены как `deprecated` и будет удалены в следующем мажорном релизе
+
+### Patch Changes
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2476](https://github.com/core-ds/core-components/pull/2476)
+
+##### Calendar
+
+- Исправлен цвет текста выбранной даты при наведении
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2478](https://github.com/core-ds/core-components/pull/2478)
+
+##### AmountInput
+
+- Исправлено исчезновение значения из поля ввода при переключении `desktop/mobile`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.3.0
+- @alfalab/core-components-with-suffix@6.1.0
+- @alfalab/core-components-calendar@9.1.21
+- @alfalab/core-components-amount-input@9.4.5
+- @alfalab/core-components-button@13.3.1
+- @alfalab/core-components-custom-button@5.1.1
+- @alfalab/core-components-date-input@6.0.19
+- @alfalab/core-components-date-range-input@5.0.27
+- @alfalab/core-components-date-time-input@6.0.27
+- @alfalab/core-components-input-autocomplete@14.0.36
+- @alfalab/core-components-international-phone-input@4.0.36
+- @alfalab/core-components-masked-input@8.0.20
+- @alfalab/core-components-number-input@4.0.20
+- @alfalab/core-components-password-input@7.0.20
+- @alfalab/core-components-select@19.2.18
+- @alfalab/core-components-select-with-tags@10.1.31
+- @alfalab/core-components-slider-input@11.1.14
+- @alfalab/core-components-textarea@10.2.2
+- @alfalab/core-components-time-input@4.0.19
+- @alfalab/core-components-universal-date-input@4.0.27
+- @alfalab/core-components-calendar-input@12.0.27
+- @alfalab/core-components-calendar-range@9.1.13
+- @alfalab/core-components-calendar-with-skeleton@7.0.25
+- @alfalab/core-components-action-button@3.0.13
+- @alfalab/core-components-attach@8.0.15
+- @alfalab/core-components-confirmation@15.3.3
+- @alfalab/core-components-confirmation-v1@3.0.15
+- @alfalab/core-components-gallery@7.4.11
+- @alfalab/core-components-icon-button@8.0.16
+- @alfalab/core-components-navigation-bar@3.0.19
+- @alfalab/core-components-navigation-bar-private@2.0.21
+- @alfalab/core-components-pass-code@4.0.17
+- @alfalab/core-components-pass-code-v1@3.0.15
+- @alfalab/core-components-pattern-lock@4.0.15
+- @alfalab/core-components-pattern-lock-v1@3.0.15
+- @alfalab/core-components-picker-button@13.1.14
+- @alfalab/core-components-plate@9.0.17
+- @alfalab/core-components-product-cover@3.3.4
+- @alfalab/core-components-pure-cell@6.1.5
+- @alfalab/core-components-table@4.0.37
+- @alfalab/core-components-tooltip@9.0.29
+- @alfalab/core-components-custom-picker-button@4.1.31
+- @alfalab/core-components-intl-phone-input@11.0.36
+- @alfalab/core-components-bank-card@7.0.21
+- @alfalab/core-components-phone-input@9.0.21
+- @alfalab/core-components-file-upload-item@8.2.9
+- @alfalab/core-components-file-upload-item-v1@3.0.16
+- @alfalab/core-components-steps@3.1.3
+- @alfalab/core-components-tabs@10.1.11
+- @alfalab/core-components-toast-plate@9.1.12
+- @alfalab/core-components-bottom-sheet@8.1.23
+- @alfalab/core-components-modal@11.0.24
+- @alfalab/core-components-popup-sheet@3.0.24
+- @alfalab/core-components-side-panel@7.1.9
+- @alfalab/core-components-universal-modal@3.2.13
+- @alfalab/core-components-alert@6.0.17
+- @alfalab/core-components-notification@9.0.17
+- @alfalab/core-components-toast@8.0.19
+- @alfalab/core-components-notification-manager@7.0.17
+
 ## 50.43.2
 
 ### Patch Changes

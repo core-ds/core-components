@@ -1,5 +1,23 @@
 # @alfalab/core-components-amount-input
 
+## 9.4.5
+
+### Patch Changes
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2478](https://github.com/core-ds/core-components/pull/2478)
+
+##### AmountInput
+
+- Исправлено исчезновение значения из поля ввода при переключении `desktop/mobile`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.3.0
+- @alfalab/core-components-with-suffix@6.1.0
+- @alfalab/core-components-number-input@4.0.20
+
 ## 9.4.4
 
 ### Patch Changes

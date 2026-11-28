@@ -1,5 +1,25 @@
 # @alfalab/core-components-with-suffix
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2478](https://github.com/core-ds/core-components/pull/2478)
+
+##### WithSuffix
+
+- Добавлен компонент `SuffixInput`
+- `withSuffix` и `withSuffixProps` помечены как `deprecated` и будет удалены в следующем мажорном релизе
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-polymorphic@0.1.0
+- @alfalab/core-components-input@17.3.0
+
 ## 6.0.19
 
 ### Patch Changes

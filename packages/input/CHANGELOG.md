@@ -1,5 +1,24 @@
 # @alfalab/core-components-input
 
+## 17.3.0
+
+### Minor Changes
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2478](https://github.com/core-ds/core-components/pull/2478)
+
+##### Input
+
+- Добавлена возможность использовать кастомные компоненты поля ввода через проп `as`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-polymorphic@0.1.0
+- @alfalab/core-components-button@13.3.1
+
 ## 17.2.5
 
 ### Patch Changes

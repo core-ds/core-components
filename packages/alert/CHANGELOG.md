@@ -1,5 +1,13 @@
 # @alfalab/core-components-alert
 
+## 6.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-plate@9.0.17
+
 ## 6.0.16
 
 ### Patch Changes

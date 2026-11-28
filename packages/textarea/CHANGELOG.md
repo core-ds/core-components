@@ -1,5 +1,13 @@
 # @alfalab/core-components-textarea
 
+## 10.2.2
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.3.0
+
 ## 10.2.1
 
 ### Patch Changes

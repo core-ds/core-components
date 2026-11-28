@@ -1,5 +1,13 @@
 # @alfalab/core-components-action-button
 
+## 3.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.1
+
 ## 3.0.12
 
 ### Patch Changes
