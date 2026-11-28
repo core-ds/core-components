@@ -31,6 +31,7 @@ import { type BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
+    magneticAreasShallowEqual,
     MARKER_HEIGHT,
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
@@ -141,9 +142,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
-        const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(
-            magneticAreasProp,
-        );
 
         const magneticAreas = useMemo(() => {
             let viewHeight = fullHeight;
@@ -168,7 +166,31 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
+
+        const [prevMagneticAreasProp, setPrevMagneticAreasProp] = useState(magneticAreasProp);
         const [skipTransition, setSkipTransition] = useState(false);
+
+        // getDerivedStateFromProps
+        if (
+            prevMagneticAreasProp !== magneticAreasProp &&
+            !magneticAreasShallowEqual(prevMagneticAreasProp, magneticAreasProp)
+        ) {
+            setPrevMagneticAreasProp(magneticAreasProp);
+
+            const idx =
+                prevMagneticAreasProp && magneticAreasProp && activeAreaIdx >= 0
+                    ? Math.min(activeAreaIdx, magneticAreas.length - 1)
+                    : initialIndexRef.current;
+
+            if (magneticAreasProp && !isNil(idx) && Number.isFinite(magneticAreas[idx])) {
+                setActiveAreaIdx(idx);
+
+                if (!isFirstRender) {
+                    setSheetOffset(lastMagneticArea - magneticAreas[idx]);
+                    setSkipTransition(true);
+                }
+            }
+        }
 
         const [swipingInProgress, setSwipingInProgress] = useState<boolean | null>(null);
         const scrollOccurred = useRef<boolean>(false);
@@ -505,8 +527,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             preventScrollOnSwipe,
         });
 
+        const getInitialIndex = () => {
+            const idx = initialIndexRef.current;
+
+            // Выбираем последнюю область, если запрошенный индекс не даёт высоту для расчёта смещения.
+            return !isNil(idx) && !Number.isFinite(magneticAreas[idx])
+                ? magneticAreas.length - 1
+                : idx;
+        };
+
         const handleExited = (node: HTMLElement) => {
-            const idx = initialIndexRef.current as number;
+            const idx = getInitialIndex();
 
             setBackdropOpacity(1);
             setSheetOffset(isNil(idx) ? magneticAreas[0] : lastMagneticArea - magneticAreas[idx]);
@@ -518,7 +549,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
-            onMagnetize?.(initialIndexRef.current ?? magneticAreas.length - 1);
+            onMagnetize?.(getInitialIndex() ?? magneticAreas.length - 1);
 
             if (transitionProps.onEnter) {
                 transitionProps.onEnter(node, isAppearing);
@@ -547,33 +578,23 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         useEffect(() => {
             if (!isFirstRender) {
-                const magneticAreasPropChanged =
-                    prevMagneticAreasPropRef.current !== magneticAreasProp;
-
-                prevMagneticAreasPropRef.current = magneticAreasProp;
-
-                if (magneticAreasPropChanged) {
-                    setSkipTransition(true);
+                if (skipTransition) {
+                    setSheetHeight();
+                    setSkipTransition(false);
                 }
 
                 // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
                 if (activeAreaIdx === -1) {
-                    const idx = initialIndexRef.current as number;
+                    const idx = getInitialIndex();
 
                     setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
                     setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
                 } else {
-                    setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
-                }
-
-                if (magneticAreasPropChanged) {
-                    requestAnimationFrame(() => {
-                        setSkipTransition(false);
-                    });
+                    setSheetOffset(Number.isFinite(activeArea) ? lastMagneticArea - activeArea : 0);
                 }
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [isFirstRender, magneticAreas, lastMagneticArea, magneticAreasProp]);
+        }, [isFirstRender, magneticAreas, lastMagneticArea, skipTransition]);
 
         useEffect(() => {
             if (!sheetRef.current) return;

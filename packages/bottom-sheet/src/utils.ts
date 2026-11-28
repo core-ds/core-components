@@ -1,4 +1,6 @@
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
+
+const { isNil } = fnUtils;
 
 export const TIMEOUT = 500;
 export const SWIPE_VELOCITY = 0.4;
@@ -42,3 +44,17 @@ export function getBottomSheetTestIds(dataTestId: string) {
         backButton: getDataTestId(dataTestId, 'header-back-button'),
     };
 }
+export const magneticAreasShallowEqual = (
+    prevMagneticAreas: ReadonlyArray<number | string> | undefined,
+    currentMagneticAreas: ReadonlyArray<number | string> | undefined,
+) => {
+    if (isNil(prevMagneticAreas) || isNil(currentMagneticAreas)) {
+        return false;
+    }
+
+    if (prevMagneticAreas.length !== currentMagneticAreas.length) {
+        return false;
+    }
+
+    return prevMagneticAreas.every((area, index) => area === currentMagneticAreas[index]);
+};
