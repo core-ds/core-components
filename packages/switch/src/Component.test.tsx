@@ -14,6 +14,17 @@ describe('Switch', () => {
         });
     });
 
+    it('enables native switch feedback only when requested', () => {
+        const { container, rerender } = render(<Switch />);
+        const input = container.querySelector('input');
+
+        expect(input).not.toHaveAttribute('switch');
+        rerender(<Switch haptic={true} />);
+        expect(input).toHaveAttribute('switch');
+        rerender(<Switch />);
+        expect(input).not.toHaveAttribute('switch');
+    });
+
     describe('Classes tests', () => {
         it('should set custom class', () => {
             const className = 'custom-class';
