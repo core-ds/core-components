@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-toast",
-    "version": "8.0.18",
+    "version": "8.0.19",
     "description": "Toast component",
     "keywords": [],
     "license": "MIT",
@@ -18,7 +18,7 @@
         "@alfalab/core-components-portal": "^5.0.7",
         "@alfalab/core-components-shared": "^2.4.0",
         "@alfalab/core-components-stack": "^7.0.1",
-        "@alfalab/core-components-toast-plate": "^9.1.11",
+        "@alfalab/core-components-toast-plate": "^9.1.12",
         "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",

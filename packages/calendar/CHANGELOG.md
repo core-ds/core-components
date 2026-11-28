@@ -1,5 +1,23 @@
 # @alfalab/core-components-calendar
 
+## 9.1.21
+
+### Patch Changes
+
+<sup><time>28.11.2026</time></sup>
+
+#### [#2476](https://github.com/core-ds/core-components/pull/2476)
+
+##### Calendar
+
+- Исправлен цвет текста выбранной даты при наведении
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.1
+- @alfalab/core-components-icon-button@8.0.16
+- @alfalab/core-components-modal@11.0.24
+
 ## 9.1.20
 
 ### Patch Changes

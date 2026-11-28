@@ -1,5 +1,13 @@
 # @alfalab/core-components-product-cover
 
+## 3.3.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.3.1
+
 ## 3.3.3
 
 ### Patch Changes

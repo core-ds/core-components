@@ -1,5 +1,13 @@
 # @alfalab/core-components-modal
 
+## 11.0.24
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.21
+
 ## 11.0.23
 
 ### Patch Changes
