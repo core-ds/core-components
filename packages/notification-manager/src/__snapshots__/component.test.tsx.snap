@@ -57,7 +57,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="cc-icon-button component secondary size-48 closeButton closeButton"
+                class="cc-icon-button component secondary size-48 closeButton closeButton component"
                 type="button"
               >
                 <span
@@ -77,6 +77,17 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                     />
                   </svg>
                 </span>
+                <label
+                  class="component"
+                  tabindex="-1"
+                >
+                  <input
+                    class="input"
+                    switch=""
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </label>
               </button>
             </div>
           </div>
@@ -116,7 +127,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="cc-icon-button component secondary size-48 closeButton closeButton"
+                class="cc-icon-button component secondary size-48 closeButton closeButton component"
                 type="button"
               >
                 <span
@@ -136,6 +147,17 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                     />
                   </svg>
                 </span>
+                <label
+                  class="component"
+                  tabindex="-1"
+                >
+                  <input
+                    class="input"
+                    switch=""
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </label>
               </button>
             </div>
           </div>
@@ -175,7 +197,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="cc-icon-button component secondary size-48 closeButton closeButton"
+                class="cc-icon-button component secondary size-48 closeButton closeButton component"
                 type="button"
               >
                 <span
@@ -195,6 +217,17 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                     />
                   </svg>
                 </span>
+                <label
+                  class="component"
+                  tabindex="-1"
+                >
+                  <input
+                    class="input"
+                    switch=""
+                    tabindex="-1"
+                    type="checkbox"
+                  />
+                </label>
               </button>
             </div>
           </div>

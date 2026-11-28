@@ -1,0 +1,5 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.component {
+    position: relative;
+}

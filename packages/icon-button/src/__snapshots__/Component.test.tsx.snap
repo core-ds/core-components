@@ -7,7 +7,7 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
     <div>
       <a
         aria-disabled="false"
-        class="cc-icon-button component primary size-48"
+        class="cc-icon-button component primary size-48 component"
         data-test-id="test-id"
         href="http://example.com"
       >
@@ -28,13 +28,24 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
             />
           </svg>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </a>
     </div>
   </body>,
   "container": <div>
     <a
       aria-disabled="false"
-      class="cc-icon-button component primary size-48"
+      class="cc-icon-button component primary size-48 component"
       data-test-id="test-id"
       href="http://example.com"
     >
@@ -55,6 +66,17 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
           />
         </svg>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </a>
   </div>,
   "debug": [Function],
@@ -117,7 +139,7 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="cc-icon-button component primary size-48"
+        class="cc-icon-button component primary size-48 component"
         type="button"
       >
         <span
@@ -137,12 +159,23 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
             />
           </svg>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="cc-icon-button component primary size-48"
+      class="cc-icon-button component primary size-48 component"
       type="button"
     >
       <span
@@ -162,6 +195,17 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
           />
         </svg>
       </span>
+      <label
+        class="component"
+        tabindex="-1"
+      >
+        <input
+          class="input"
+          switch=""
+          tabindex="-1"
+          type="checkbox"
+        />
+      </label>
     </button>
   </div>,
   "debug": [Function],

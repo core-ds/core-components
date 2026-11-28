@@ -1,3 +1,78 @@
+## Тест инпута
+
+При нажатии на кнопку ожидаемый вывод в консоли:
+
+```
+focus
+track
+submit
+```
+
+При повторном нажатии на кнопку (эталон "Non-haptic button") ожидаемый вывод в консоли должен не меняться:
+
+```
+focus
+track
+submit
+```
+
+При нажатии на "Haptic button" вывод в консоли отличается - submit отрабатывает дважды:
+
+```
+focus
+track
+submit
+submit
+```
+
+```jsx live mobileHeight={500}
+render(() => {
+    const inputRef = React.useRef(null);
+    const id = React.useId();
+
+    return (
+        <div
+            onClick={() => {
+                console.log('track');
+            }}
+        >
+            <form
+                id={id}
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log('submit');
+                }}
+            >
+                <input ref={inputRef} />
+            </form>
+            <ButtonDesktop
+                form={id}
+                type='submit'
+                view='accent'
+                onClick={() => {
+                    console.log('focus');
+
+                    inputRef.current.focus();
+                }}
+            >
+                Haptic button
+            </ButtonDesktop>
+            <button
+                form={id}
+                type='submit'
+                onClick={() => {
+                    console.log('focus');
+
+                    inputRef.current.focus();
+                }}
+            >
+                Non-haptic button
+            </button>
+        </div>
+    );
+});
+```
+
 ## Виды кнопок
 
 ```jsx live mobileHeight={500}
@@ -7,10 +82,16 @@ render(() => {
     return (
         <>
             <Space direction='horizontal' align='center'>
-                <ButtonDesktop disabled={disabled} view='accent'>
+                <ButtonDesktop
+                    loading={disabled}
+                    view='accent'
+                    onClick={() => {
+                        console.log('accent');
+                    }}
+                >
                     Accent
                 </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='primary'>
+                <ButtonDesktop disabled={disabled} view='primary' href='https://google.com'>
                     Primary
                 </ButtonDesktop>
                 <ButtonDesktop disabled={disabled} view='secondary'>
@@ -43,11 +124,18 @@ render(() => {
 
     return (
         <>
-            <ButtonMobile block={true} disabled={disabled} view='accent'>
+            <ButtonMobile
+                block={true}
+                disabled={disabled}
+                view='accent'
+                onClick={() => {
+                    console.log('accent');
+                }}
+            >
                 Accent
             </ButtonMobile>
             <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='primary'>
+            <ButtonMobile block={true} disabled={disabled} view='primary' href='https://google.com'>
                 Primary
             </ButtonMobile>
             <Gap size={20} />

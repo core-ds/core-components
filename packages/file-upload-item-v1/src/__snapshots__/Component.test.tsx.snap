@@ -51,7 +51,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         <a
           aria-disabled="false"
           aria-label="скачать"
-          class="cc-icon-button component primary size-24 download"
+          class="cc-icon-button component primary size-24 download component"
           download="новое_название_файла"
           href="/link"
         >
@@ -72,10 +72,21 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
               />
             </svg>
           </span>
+          <label
+            class="component"
+            tabindex="-1"
+          >
+            <input
+              class="input"
+              switch=""
+              tabindex="-1"
+              type="checkbox"
+            />
+          </label>
         </a>
         <button
           aria-label="удалить"
-          class="cc-icon-button component primary size-24 delete"
+          class="cc-icon-button component primary size-24 delete component"
           type="button"
         >
           <span
@@ -95,6 +106,17 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
               />
             </svg>
           </span>
+          <label
+            class="component"
+            tabindex="-1"
+          >
+            <input
+              class="input"
+              switch=""
+              tabindex="-1"
+              type="checkbox"
+            />
+          </label>
         </button>
       </div>
     </div>
@@ -146,7 +168,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
       <a
         aria-disabled="false"
         aria-label="скачать"
-        class="cc-icon-button component primary size-24 download"
+        class="cc-icon-button component primary size-24 download component"
         download="новое_название_файла"
         href="/link"
       >
@@ -167,10 +189,21 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
             />
           </svg>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </a>
       <button
         aria-label="удалить"
-        class="cc-icon-button component primary size-24 delete"
+        class="cc-icon-button component primary size-24 delete component"
         type="button"
       >
         <span
@@ -190,6 +223,17 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
             />
           </svg>
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>,

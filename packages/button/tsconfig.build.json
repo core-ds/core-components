@@ -9,6 +9,8 @@
         "paths": {
             "@alfalab/core-components-button": ["./src"],
             "@alfalab/core-components-button/*": ["./src/*"],
+            "@alfalab/core-components-haptic": ["../haptic/src"],
+            "@alfalab/core-components-haptic/*": ["../haptic/src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-polymorphic": ["../polymorphic/src"],
@@ -20,6 +22,7 @@
         }
     },
     "references": [
+        { "path": "../haptic/tsconfig.build.json" },
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../polymorphic/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },

@@ -575,7 +575,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
         Мы ограничили следующие попытки ввода, потому что код был введён неверно больше 5 раз.
       </span>
       <button
-        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 button"
+        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 button component"
         type="button"
       >
         <span
@@ -583,6 +583,17 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
         >
           Понятно
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -655,7 +666,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
         Если номер не меняли, попробуйте запросить код позже — возможно, перегружен сервис отправки уведомлений.
       </span>
       <button
-        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 hintButton"
+        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 hintButton component"
         type="button"
       >
         <span
@@ -663,6 +674,17 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
         >
           Вернуться к вводу кода
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
@@ -736,7 +758,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
         Теперь можно запросить новый код
       </span>
       <button
-        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 button"
+        class="component hug size-48 defaultPaddings defaultWidth minHeight component component component secondary secondary secondary size-48 button component"
         type="button"
       >
         <span
@@ -744,6 +766,17 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
         >
           Запросить новый код
         </span>
+        <label
+          class="component"
+          tabindex="-1"
+        >
+          <input
+            class="input"
+            switch=""
+            tabindex="-1"
+            type="checkbox"
+          />
+        </label>
       </button>
     </div>
   </div>
